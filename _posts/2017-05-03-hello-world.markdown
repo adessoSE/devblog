@@ -2,6 +2,9 @@
 layout: post
 title:  "Welcome to Jekyll!"
 date:   2017-05-03 16:30:41 +0200
+modifiedDate: 2017-05-05 14:23:41 +0200
+author: David Klassen
+tags: [git, github, pull request, branch, fork, howto, guide, pull]
 categories: jekyll update
 ---
 Hello World
