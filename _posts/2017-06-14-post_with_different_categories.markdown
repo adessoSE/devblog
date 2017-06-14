@@ -1,8 +1,8 @@
 ---
 layout: post
-title:  "Test post with images"
-date:   2017-05-04 14:23:41 +0200
-modifiedDate: 2017-06-01
+title:  "post with different categories"
+date:   2017-06-14 10:00:00 +0200
+modifiedDate: 2017-06-14 12:00:00
 author: Shahin Sanayei
 tags: image, img, extract image tag, html tags
 categories: tech-blog testing
