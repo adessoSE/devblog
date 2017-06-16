@@ -1,8 +1,8 @@
 ---
 layout: post
 title:  "Test post with images"
-date:   2017-05-04 14:23:41 +0200
-modifiedDate: 2017-06-01
+date:   2017-05-30 14:23:41 +0200
+modifiedDate: 2017-06-16
 author: Shahin Sanayei
 tags: image, img, extract image tag, html tags
 categories: jekyll update
