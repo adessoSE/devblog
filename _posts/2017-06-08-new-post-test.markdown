@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "New Post test"
-date:   2017-06-16 10:00:00 +0200
+date:   2017-06-08 10:00:00 +0200
 modifiedDate: 
 author: Shahin Sanayei
 tags: test
