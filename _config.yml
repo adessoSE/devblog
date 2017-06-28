@@ -30,7 +30,7 @@ permalink: blog-posts/:year-:month-:day/:title.html
 # Build settings
 markdown: kramdown
 theme: minima
-gems:
+plugins:
   - jekyll-feed
 exclude:
   - Gemfile
