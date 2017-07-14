@@ -1,13 +1,15 @@
-shahin:
-  name: Shahin Sanayei
+- git_username: shsanayei
+  first_name: Shahin
+  last_name: Sanayei
   email: shsanayei.gh@gmail.com
   bio: "Google is your friend."
-  avatar: avatars/shahin.png
+  picture_url: avatars/shahin.png
   github: https://github.com/shsanayei
 
-david:
-  name: David Klassen
+- git_username: daklassen
+  first_name: David
+  last_name: Klassen
   email: daviddd.kl@gmail.com
   bio:
-  avatar: avatars/david.png
+  picture_url: avatars/david.png
   github: https://github.com/daklassen
