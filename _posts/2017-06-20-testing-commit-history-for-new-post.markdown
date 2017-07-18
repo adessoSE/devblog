@@ -7,4 +7,4 @@ author: Shahin Sanayei
 tags: test commit history
 categories: tech-blog testing
 ---
-Testing commit history....
+Testing commit history.... Changed by Christian for test cases
