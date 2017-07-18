@@ -13,7 +13,7 @@ To add new posts, simply add a file in the `_posts` directory that follows the c
 
 Testing if extracting images with Jsoup works...
 
-First image...
+First image... :) :) 
 
 ![This is a Test image](https://jekyllrb.com/img/logo-2x.png)
 
