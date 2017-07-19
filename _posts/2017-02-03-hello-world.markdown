@@ -3,7 +3,7 @@ layout: post
 title:  "Hello World!"
 date:   2017-02-03 16:18:41 +0200
 modifiedDate: 2017-01-05 17:15:41 +0200
-author: David Klassen
+author: david
 tags: world, github, pull hello, pull
 categories: jekyll update
 ---
