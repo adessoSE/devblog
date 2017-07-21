@@ -8,7 +8,7 @@ tags: test
 categories: tech-blog testing
 ---
 Testing...
-Modification
+Modification - Test - have a nice weekend
 
 {% highlight ruby %}
 def print_hi(name)
