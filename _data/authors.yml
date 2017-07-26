@@ -1,5 +1,6 @@
 shahin:
-  name: Shahin Sanayei
+  first_name: Shahin
+  last_name: Sanayei
   git_username: shsanayei
   email: shsanayei.gh@gmail.com
   bio: "Google is your friend."
@@ -7,7 +8,8 @@ shahin:
   github: https://github.com/shsanayei
 
 david:
-  name: David Klassen
+  first_name: David
+  last_name: Klassen
   git_username: daklassen
   email: daviddd.kl@gmail.com
   bio:
