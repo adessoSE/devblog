@@ -29,9 +29,13 @@ permalink: blog-posts/:year-:month-:day/:title.html
 
 # Build settings
 markdown: kramdown
-theme: jekyll-theme-architect
+kramdown:
+  syntax_highlighter_opts:
+    disable: true
+theme: minima
 plugins_dir:
   - jekyll-feed
+  - jekyll-paginate
 exclude:
   - Gemfile
   - Gemfile.lock
