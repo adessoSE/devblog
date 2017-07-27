@@ -29,7 +29,7 @@ permalink: blog-posts/:year-:month-:day/:title.html
 
 # Build settings
 markdown: kramdown
-theme: minima
+theme: jekyll-theme-architect
 plugins_dir:
   - jekyll-feed
 exclude:
