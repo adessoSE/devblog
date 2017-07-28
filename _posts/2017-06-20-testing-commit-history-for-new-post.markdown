@@ -13,4 +13,4 @@ adesso rules!
 
 next test, test... test again test2 .... L
 
-Heute ist Freitag und bald ist Wochenende... bald ist August :)
+Heute ist Freitag und bald ist Wochenende...
