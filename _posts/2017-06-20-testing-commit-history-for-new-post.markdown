@@ -11,6 +11,6 @@ Testing commit history.... Changed by Christian for test cases
 
 adesso rules!
 
-next test, test... test again test2 .... Living on a prayer (Bon Jovi)!
+next test, test... test again test2 .... L
 
 Heute ist Freitag und bald ist Wochenende... bald ist August :)
