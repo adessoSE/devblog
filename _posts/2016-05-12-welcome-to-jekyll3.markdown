@@ -1,10 +1,7 @@
 ---
 layout: post
-title:  "Welcome to Jekyll!"
-date:   2017-05-04 14:23:41 +0200
-modifiedDate: 2017-05-05 14:23:41 +0200
-author: david
-tags: git, github, pull request, branch, fork, howto, guide, pull
+title:  "Or maybe give them a read :)"
+date:   2016-05-12 22:01:43 +0530
 categories: jekyll update
 ---
 You’ll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run `jekyll serve`, which launches a web server and auto-regenerates your site when a file is updated.
@@ -23,8 +20,6 @@ print_hi('Tom')
 
 Check out the [Jekyll docs][jekyll-docs] for more info on how to get the most out of Jekyll. File all bugs/feature requests at [Jekyll’s GitHub repo][jekyll-gh]. If you have questions, you can ask them on [Jekyll Talk][jekyll-talk].
 
-[jekyll-docs]: https://jekyllrb.com/docs/home
+[jekyll-docs]: http://jekyllrb.com/docs/home
 [jekyll-gh]:   https://github.com/jekyll/jekyll
 [jekyll-talk]: https://talk.jekyllrb.com/
-
-Test - cev
