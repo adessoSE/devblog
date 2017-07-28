@@ -12,7 +12,3 @@ Testing commit history.... Changed by Christian for test cases und noch eine Än
 adesso rules!
 HALLO!!!!!!
 
-bald ist wochenende und august...,!!--ffafda äölhxfffdsff
-
-sdasfadsffaffasdf
-fsdfadfsfffffffd
