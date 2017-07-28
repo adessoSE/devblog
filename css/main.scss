@@ -65,11 +65,11 @@ a:hover{
 
 }
 pre{
-background-color: black ;
-border:none ;
-border-radius: 0px ;
-font-size: 20px ;
-padding: 1.5em ;
+background-color: black;
+border:none;
+border-radius: 0px;
+font-size: 20px;
+padding: 1.5em;
 color:white; 
 }
 .post-list{
@@ -101,16 +101,15 @@ padding-bottom: 0.3em;
   text-align: justify;
   padding-bottom: 5em;
 }
-
 .post-meta{
   color: skyblue !important;
 }
 
 code{
-  background-color: black ;
-  color: white ;
-  border: none ;
-  border-radius: 0px ;
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 0px;
 }
 
 .page-tagline{
@@ -189,7 +188,7 @@ $on-laptop:        800px;
     }
 }
 
-
-
 // Import partials from `sass_dir` (defaults to `_sass`)
-
+@import
+        "syntax-highlighting"
+;

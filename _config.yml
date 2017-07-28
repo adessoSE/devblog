@@ -7,16 +7,14 @@
 
 # Site settings
 title: adessoAG DevBlog
-email: test@test.com
-
 #write html inside the double quotes to display in jumbotron
 description: "<h3>Hello, world!</h3><h1>DevJournal</h1><h3>Awesome Jekyll Theme for Developers!</h3>Hope you like it!"
+baseurl: "/devblog" # the subpath of your site, e.g. /blog
+url: "https://adessoag.github.io" # the base hostname & protocol for your site
+github_username: adessoAG
 
 # permalink
 permalink: blog-posts/:year-:month-:day/:title.html
-
-baseurl: "/devblog" # the subpath of your site, e.g. /blog
-url: "https://shsanayei.github.io" # the base hostname & protocol for your site
 
 # Build settings
 markdown: kramdown
