@@ -13,3 +13,5 @@ Schönes Wochenende, Shahin! :)
 
 
 next test, test... test again
+
+Heute ist Freitag der 28.7.17
