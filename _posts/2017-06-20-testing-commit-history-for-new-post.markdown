@@ -13,4 +13,4 @@ adesso rules!
 
 next test, test... test again test2 .... Living on a prayer (Bon Jovi)!
 
-Heute ist Freitag und bald ist Wochenende... bald ist August
+Heute ist Freitag und bald ist Wochenende... bald ist August :)
