@@ -64,7 +64,14 @@ a:hover{
   border-bottom: 1px dotted #03a4fb;
 
 }
-
+pre{
+background-color: black ;
+border:none ;
+border-radius: 0px ;
+font-size: 20px ;
+padding: 1.5em ;
+color:white; 
+}
 .post-list{
 
     text-align: center;
@@ -100,10 +107,10 @@ padding-bottom: 0.3em;
 }
 
 code{
-  background-color: black !important;
-  color: white !important;
-  border: none !important;
-  border-radius: 0px !important;
+  background-color: black ;
+  color: white ;
+  border: none ;
+  border-radius: 0px ;
 }
 
 .page-tagline{
@@ -185,6 +192,4 @@ $on-laptop:        800px;
 
 
 // Import partials from `sass_dir` (defaults to `_sass`)
-@import
-        "syntax-highlighting"
-;
+

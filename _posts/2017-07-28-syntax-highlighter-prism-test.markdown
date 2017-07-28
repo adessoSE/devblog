@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Testing prismjs Syntax-Highlighter"
-date:   2017-07-28 22:01:43 +0530
+date:   2017-07-28 10:01:43 +0530
 categories: prismjs
 tags: [syntax highlighter]
 ---
@@ -10,7 +10,6 @@ tags: [syntax highlighter]
 ### Default
 
 ```
-
 var _self = (typeof window !== 'undefined')
 	? window   // if in browser
 	: (
