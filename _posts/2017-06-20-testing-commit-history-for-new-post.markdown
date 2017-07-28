@@ -10,7 +10,3 @@ categories: tech-blog testing
 Testing commit history.... Changed by Christian for test cases
 
 adesso rules!
-
-next test, test... test again test2 .... L
-
-Heute ist Freitag und bald ist Wochenende...
