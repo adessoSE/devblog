@@ -11,4 +11,4 @@ Testing commit history.... Changed by Christian for test cases
 
 adesso rules!
 
-heute ist Freitag...........!
+heute ist Freitag...........!!
