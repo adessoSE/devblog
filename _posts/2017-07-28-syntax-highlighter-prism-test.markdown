@@ -21,7 +21,7 @@ var _self = (typeof window !== 'undefined')
 ```
 
 ### Javascript
-```
+```javascript
 var _self = (typeof window !== 'undefined')
 	? window   // if in browser
 	: (
@@ -31,7 +31,7 @@ var _self = (typeof window !== 'undefined')
 	);
 ```
 ### Java
-```
+```java
 package de.adesso.persistence;
 
 /**
@@ -104,7 +104,7 @@ public class Post {
 ```
 
 ### YAML
-```
+```yaml
 layout: post
 title:  "Testing prismjs Syntax-Highlighter"
 date:   2017-07-28 22:01:43 +0530
@@ -113,7 +113,7 @@ tags: [syntax highlighter]
 ```
 
 ### HTML
-```
+```html
 ---
 layout: default
 ---
