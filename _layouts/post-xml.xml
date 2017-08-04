@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<documents>
+    <document uid="testUID">
+        <field name="title"><![CDATA[{{page.title}}]]></field>
+        <field name="subline"><![CDATA[{{page.subline}}]]></field>
+        <field name="teaser"><![CDATA[{{page.excerpt}}]]></field>
+        <field name="language_multi_keyword"><![CDATA[{{ site.data.xmlconfig['constants'].language_multi_keyword }}]]></field>
+        <field name="content_type_multi_keyword"><![CDATA[{{ site.data.xmlconfig['constants'].content_type_multi_keyword }}]]></field>
+        <field name="mime_type_multi_keyword"><![CDATA[{{site.data.xmlconfig['constants'].mime_type_multi_keyword}}]]></field>
+    {%- if page.categories -%}
+        {% for category in page.categories %}
+        <field name="category_multi_keyword"><![CDATA[{{ category }}]]></field>
+        {%- endfor -%}
+    {%- endif -%}
+    {%- if page.tags -%}
+        {% for tag in page.tags %}
+        <field name="tag_multi_keyword"><![CDATA[{{ tag }}]]></field>
+        {%- endfor -%}
+    {% endif %}
+        <field name="date_date"><![CDATA[{{page.date | date_to_xmlschema}}]]></field>
+        <field name="date_1"><![CDATA[{{page.date | date: "%s"}}]]></field>
+        <field name="change_date"><![CDATA[
+            {%- if page.modified_date -%} 
+            {{page.modified_date | date: "%s"}}
+            {%- else -%}
+            {{page.date | date: "%s"}}
+            {%- endif -%}
+            ]]></field>
+        <field name="author_first_name"><![CDATA[{{site.data.authors[page.author].first_name}}]]></field>
+        <field name="author_last_name"><![CDATA[{{site.data.authors[page.author].last_name}}]]></field>
+        <field name="author_id"><![CDATA[{{site.data.authors[page.author].github_username}}]]></field>
+        <field name="author_picture_stored_only"><![CDATA[{{ site.data.authors[page.author].picture_url | prepend: site.baseurl }}]]></field>
+        <field name="headlines"><![CDATA[{{ page.title }}]]></field>
+        <field name="display_content"><![CDATA[{% include display-content.html %}]]></field>
+        <field name="content"><![CDATA[{{ content }}]]></field>
+    </document>
+</documents>

@@ -1,0 +1,4 @@
+constants:
+  language_multi_keyword      : "de"
+  content_type_multi_keyword  : "blog"
+  mime_type_multi_keyword     : "text/html"

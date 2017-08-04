@@ -1,0 +1,44 @@
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your whole blog, values
+# which you are expected to set up once and rarely need to edit after that.
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'jekyll serve'. If you change this file, please restart the server process.
+
+# Site settings
+title: adesso AG DevBlog
+email: 
+description: "adesso sorgt als unabhängiger IT-Dienstleister durch Beratung und Softwareentwicklung für den Erfolg Ihrer Projekte und die Zukunftssicherheit Ihrer Anwendungen."
+
+# Outputtig
+permalink: blog-posts/:year-:month-:day/:title.html
+paginate: 3 # amount of posts to show
+paginate_path: /page:num/
+
+# Serving
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "localhost:4000/" # the base hostname & protocol for your site
+github_username: "adessoAG"
+
+# Build settings
+markdown: kramdown
+kramdown: 
+  syntax_highlighter_opts:
+    disable : true
+  auto_ids: true
+encoding: "utf-8"
+markdown_ext: "markdown,mkdown,mkdn,mkd,md"
+
+# Plugins
+plugins:
+  - jekyll-paginate
+  - jekyll-sitemap
+  - jekyll-gist
+  - jekyll-feed
+
+# Plugins
+plugins:
+  - jekyll-paginate
+  - jekyll-sitemap
+  - jekyll-gist
+  - jekyll-feed
