@@ -13,7 +13,7 @@ description: "adesso sorgt als unabhängiger IT-Dienstleister durch Beratung und
 # Outputtig
 permalink: blog-posts/:year-:month-:day/:title.html
 paginate: 3 # amount of posts to show
-paginate_path: /page:num/
+paginate_path: /pages/page:num/
 
 # Serving
 baseurl: "" # the subpath of your site, e.g. /blog
@@ -28,13 +28,6 @@ kramdown:
   auto_ids: true
 encoding: "utf-8"
 markdown_ext: "markdown,mkdown,mkdn,mkd,md"
-
-# Plugins
-plugins:
-  - jekyll-paginate
-  - jekyll-sitemap
-  - jekyll-gist
-  - jekyll-feed
 
 # Plugins
 plugins:

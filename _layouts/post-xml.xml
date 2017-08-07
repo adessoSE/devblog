@@ -29,7 +29,7 @@
         <field name="author_first_name"><![CDATA[{{site.data.authors[page.author].first_name}}]]></field>
         <field name="author_last_name"><![CDATA[{{site.data.authors[page.author].last_name}}]]></field>
         <field name="author_id"><![CDATA[{{site.data.authors[page.author].github_username}}]]></field>
-        <field name="author_picture_stored_only"><![CDATA[{{ site.data.authors[page.author].picture_url | prepend: site.baseurl }}]]></field>
+        <field name="author_picture_stored_only"><![CDATA[{{ site.data.authors[page.author].avatar_url | prepend: site.baseurl }}]]></field>
         <field name="headlines"><![CDATA[{{ page.title }}]]></field>
         <field name="display_content"><![CDATA[{% include display-content.html %}]]></field>
         <field name="content"><![CDATA[{{ content }}]]></field>
