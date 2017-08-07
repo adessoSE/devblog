@@ -27,6 +27,8 @@
         <field name="content"><![CDATA[<p>Test Post from testuser.</p>
 
 <p>Second paragraph goes here…</p>
+
+<p>Changing file…</p>
 ]]></field>
     </document>
 </documents>
