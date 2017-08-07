@@ -26,7 +26,7 @@ Another change…</p>
         <field name="author_first_name"><![CDATA[Shahin]]></field>
         <field name="author_last_name"><![CDATA[Sanayei]]></field>
         <field name="author_id"><![CDATA[shsanayei]]></field>
-        <field name="author_picture_stored_only"><![CDATA[]]></field>
+        <field name="author_picture_stored_only"><![CDATA[/assets/images/avatars/shahin.png]]></field>
         <field name="headlines"><![CDATA[Testing commit history for New Post]]></field>
         <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
 <p>Testing netlify…
