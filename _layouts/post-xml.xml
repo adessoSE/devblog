@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <documents>
-    <document uid="testUID">
+    <document uid="{{page.id}}">
         <field name="title"><![CDATA[{{page.title}}]]></field>
         <field name="subline"><![CDATA[{{page.subline}}]]></field>
         <field name="teaser"><![CDATA[{{page.excerpt}}]]></field>
