@@ -7,17 +7,20 @@
 
 # Site settings
 title: adesso AG DevBlog
+subline: Unsere Plattform für Wissenstransfer und Austausch 
 email: 
 description: "adesso sorgt als unabhängiger IT-Dienstleister durch Beratung und Softwareentwicklung für den Erfolg Ihrer Projekte und die Zukunftssicherheit Ihrer Anwendungen."
-
+blog_intro: "In unserem Blog nehmen wir Sie mit auf eine spannende Reise quer durch das riesige Repertoire unserer Themenexperten. Von den großen Technologiethemen über die kleinen Nischen-Topics, über Future Trends und praktische Programmiertipps. Von Fach- und Karrierethemen bis hin zu allgemeinen Unternehmens-Stories. Und wir freuen uns darauf, uns mit Ihnen zu all diesen Themen auszutauschen. Denn Meinungsaustausch und Dialog sind für uns die besten Voraussetzungen, um uns weiterzuentwickeln und immer den entscheidenden Schritt voraus zu sein. Wir sind gespannt auf Ihre Meinung, Ihre Anregungen und auf fruchtbare Diskussionen."
 # Outputtig
+# permalink: possible that it is been owerwritten by the plugin 'multipost.rb' within the 
+# _plugins directory
 permalink: blog-posts/:year-:month-:day/:title.html
-paginate: 3 # amount of posts to show
-paginate_path: /pages/page:num/
+# paginate: 3 # amount of posts to show
+# paginate_path: /pages/page:num/
 
 # Serving
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "localhost:4000/" # the base hostname & protocol for your site
+baseurl: "/devblog" # the subpath of your site, e.g. /blog
+url: "https://shsanayei.github.io" # the base hostname & protocol for your site
 github_username: "adessoAG"
 
 # Build settings

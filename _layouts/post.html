@@ -1,42 +1,17 @@
 ---
 layout: default
 ---
-<article class="row">
-    <div class="card picture-card adesso-imageheader adesso-no-border col-md-12">
-    <div class="card-img-overlay">
-    <div class="adesso-intro i1-intro adesso-slick-slider">
-    <span class="h1 card-title display-1">
-    <svg class="adesso-bar-icon">
-    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#adesso--bar"></use>
-    </svg>
-    <span>Funktionale Programmierung</span>
-    </span>
-    </div>
-    </div>
-    <div class="adesso-primary-blue semi adesso-image-header-bar adesso-semi-balkenelement">
-    <div class="adesso-container">
-    <div class="col-xl-8 adesso-center p-l-0 p-r-0 p-t-1">
-    <p class="adesso-date">2. Februar 2017 | von Karl Brodowsky
-    </p></div>
-    </div>
-    </div>
-    </div>
-    <div class="col-md-12 p-l-0 p-r-0 adesso-primary-blue">
-    <div class="adesso-container">
-    <div class="adesso-balkenelement col-xl-8 adesso-center p-l-0 p-r-0 p-t-2 p-b-2">
-    <div class="i2-intro p-t-1">{{page.excerpt | strip_html }}</div>
-    </div>
-    </div>
-    </div>
-    </article>
+{% include display-content.html %}
 <div class="adesso-github-blog-wrapper">
-<div class="adesso-text-formate adesso-primary-blue">
+<div class="adesso-text-formate adesso-primary-orange">
 <div class="row p-t-2">
 <div class="adesso-container">
 <div class="col-xl-8 adesso-center p-b-1 p-l-0 p-r-0">
-{{ content }}
+{{ content | remove: page.excerpt }}
 </div>
 </div>
 </div>
 </div>
 </div>
+{% include categories-tags-post.html %}
+{% include author-post.html %}

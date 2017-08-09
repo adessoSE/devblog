@@ -1,0 +1,37 @@
+{% assign author = site.data.authors[page.author] %}
+<div class="adesso-text-formate ">
+<div class="row p-t-2">
+<div class="adesso-container">
+<div class="col-md-12 col-xl-8 adesso-center p-b-3 p-l-0 p-r-0">
+<div class="p3">
+<table class="table m-t-3">
+<tbody>
+<tr>
+<td class="adesso-taxonomie">Autor</td>
+<td>{{author.first_name}} {{author.last_name}}</td>
+</tr>
+<tr>
+<td class="adesso-taxonomie">Kategorie:</td>
+<td>
+{% if page.categories %}
+{% for category in page.categories  %}
+<a href="#">{{ category }}</a> {% unless forloop.last %} <span>|</span> {% endunless %}
+{% endfor %}
+{% endif %}
+</td>
+</tr>
+<tr>
+<td class="adesso-taxonomie">Tags:</td>
+<td>{% if page.tags %}
+{% for tag in page.tags  %}
+<a href="#">{{ tag }}</a> {% unless forloop.last %} <span>|</span> {% endunless %}
+{% endfor %}
+{% endif %}</td>
+</tr>
+</tbody>
+</table>
+</div><!--./p3-->
+</div>
+</div>
+</div>
+</div>

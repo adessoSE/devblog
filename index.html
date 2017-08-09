@@ -1,6 +1,7 @@
 ---
 layout: default
 ---
+{% include display-content.html %}
 <div class="row">
 <div class="adesso-container adesso-blog-overview">
 <div class="adesso-events adesso-blog-article adesso-text-formate adesso-secondary-red">
@@ -10,11 +11,13 @@ layout: default
 </h1>
 </div>
 
-{%  for post in site.posts %}
-{% assign author= site.data.authors[post.author] %}
+
+
+{% for post in paginator.posts %}
+{% assign author = site.data.authors[post.author] %}
 <div class="adesso-news-elem p-b-1 p-t-2">
 <div class="col-md-10 p-b-1 adesso-p-md-r-3 p-r-2 p-l-0">
-<p class="adesso-date">{{ post.date }}
+<p class="adesso-date">{{ post.date | date: "%d.%m.%Y" }}
 
 <span class="adesso-location">von {{ author.first_name }} {{ author.last_name }} 
 </span>
@@ -31,7 +34,7 @@ layout: default
 </div><!--/col-md-10-->
 
 <div class="col-md-2 p-b-1 p-t-2 m-t-2 p-l-0 p-r-0 adesso-negative-margin-1">
-<img class="img-circle center-block adesso-3-8" src="{{ author.picture_url | prepend: site.baseurl }}" alt=" ">
+<img class="img-circle center-block adesso-3-8" src="{{ author.avatar_url | prepend: site.baseurl }}" alt=" ">
 </div><!--/col-md-2-->
 
 </div><!--/adesso-news-elem-->
@@ -59,6 +62,10 @@ weiterlesen
 </tbody>
 </table>
 {% endfor %}
+
+<!-- Pagination links -->
+<!-- TODO -->
+
 </div>
 </div>
 </div>

@@ -1,6 +1,7 @@
+{%- assign author = site.data.authors[page.author] -%}
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <documents>
-    <document uid="{{page.id}}">
+    <document uid="{{page.id | md5}}">
         <field name="title"><![CDATA[{{page.title}}]]></field>
         <field name="subline"><![CDATA[{{page.subline}}]]></field>
         <field name="teaser"><![CDATA[{{page.excerpt}}]]></field>
@@ -26,12 +27,20 @@
             {{page.date | date: "%s"}}
             {%- endif -%}
             ]]></field>
-        <field name="author_first_name"><![CDATA[{{site.data.authors[page.author].first_name}}]]></field>
-        <field name="author_last_name"><![CDATA[{{site.data.authors[page.author].last_name}}]]></field>
-        <field name="author_id"><![CDATA[{{site.data.authors[page.author].github_username}}]]></field>
-        <field name="author_picture_stored_only"><![CDATA[{{ site.data.authors[page.author].avatar_url | prepend: site.baseurl }}]]></field>
+        <field name="author_first_name"><![CDATA[{{author.first_name}}]]></field>
+        <field name="author_last_name"><![CDATA[{{author.last_name}}]]></field>
+        <field name="author_id"><![CDATA[{{author.github_username}}]]></field>
+        <field name="author_picture_stored_only"><![CDATA[{{ author.avatar_url | prepend: site.baseurl | prepend:site.url }}]]></field>
         <field name="headlines"><![CDATA[{{ page.title }}]]></field>
-        <field name="display_content"><![CDATA[{% include display-content.html %}]]></field>
-        <field name="content"><![CDATA[{{ content }}]]></field>
+        <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
+            {{ page.excerpt }}</div>]]></field>
+        <field name="content"><![CDATA[<div class="adesso-text-formate">
+<div class="row p-t-2">
+<div class="adesso-container">
+<div class="col-xl-8 adesso-center p-b-1 p-l-0 p-r-0">
+    {{ content | remove: page.excerpt }}
+</div>
+</div>
+</div>]]></field>
     </document>
 </documents>
