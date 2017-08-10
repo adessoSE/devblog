@@ -22,7 +22,7 @@ layout: default
 <span class="adesso-location">von {{ author.first_name }} {{ author.last_name }} 
 </span>
 </p>
-<h2 class="m-b-075"><a href="{{post.url | prepend:site.baseurl | prepend: site.url  }}">{{ post.title }}</a></h2>
+<h2 class="m-b-075"><a href="{{post.url | prepend:site.baseurl }}">{{ post.title }}</a></h2>
 
 {% if post.subline %} 
 <div class="i2-intro">
