@@ -1,7 +1,4 @@
-## Get started with adesso Blog
-[Need help with Markdown? Click here.](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
-
-# devblog
+# adesso AG devblog
 This repository is the main place to write blog posts that are intended to be published on the adesso AG's blog [https://blog.adesso.de](https://blog.adesso.de).
 
 # How it works
@@ -64,6 +61,9 @@ You’ll find this post in the `_posts` directory.
 To add new posts, simply add a file in the `_posts` directory that follows the convention `YYYY-MM-DD-name-of-post.markdown` and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.
 ```
 
-Everything in between the first and second `---` are part of the YAML Front Matter, and everything after the second `---`will be rendered with Markdown and show up as “Content.”
+Everything in between the first and second `---` are part of the YAML Front Matter, and everything after the second `---` will be rendered with Markdown and show up as “Content.”
 
-More description is coming.
+### Markdown Cheat Sheet
+[Need help with Markdown? Click here.](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
+
+#### *More description coming soon...*
