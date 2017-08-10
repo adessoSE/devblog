@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+{% include head.html %}
+
+  <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top" itemscope itemtype="http://schema.org/WebPage">
+{% include header.html %}
+<div id="adesso-content" class="container">
+
+
+{{content}}
+
+{% unless page.layout == 'post' %}
+{% include cards.html %}
+{% endunless %}
+{% include breadcrumbs.html %}
+{% include fixed-modules.html %}
+{% include footer.html %}
+{% include global-svg-sprite.html %}
+<script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+<script src="https://www.adesso.de/technisches/assets/js/jquery-cookie-1-4-1.js" type="text/javascript"></script>
+<script src="https://www.adesso.de/technisches/assets/js/all.js"></script>
+<script src="https://www.adesso.de/technisches/assets/js/social-sharing/social-sharing-app-js-ad.js?r2" type="text/javascript"></script>
+<script src="https://www.adesso.de/technisches/assets/js/search/search-ad-js.js?v01-11-2016" type="text/javascript"></script>
+<script src="https://www.adesso.de/technisches/assets/js/firstspirit-1485529471036standorte.js" type="text/javascript"></script>
+<script src="https://www.adesso.de/technisches/assets/js/stellenangebot-tracking.js" type="text/javascript"></script>
+<script src="https://www.adesso.de/technisches/assets/js/adesso/customerjourney-min.js" type="text/javascript"></script>
+<script src="https://www.adesso.de/technisches/assets/js/adesso/downloadbutton-min.js" type="text/javascript"></script>
+<script src="{{ "/assets/js/prism.js" | prepend: site.baseurl }}" type="text/javascript"></script>
+</div>
+  </body>
+
+</html>

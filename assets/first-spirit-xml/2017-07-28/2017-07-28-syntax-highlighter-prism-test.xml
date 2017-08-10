@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<documents>
+    <document uid="testUID">
+        <field name="title"><![CDATA[Testing prismjs Syntax-Highlighter]]></field>
+        <field name="subline"><![CDATA[]]></field>
+        <field name="teaser"><![CDATA[<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+
+]]></field>
+        <field name="language_multi_keyword"><![CDATA[de]]></field>
+        <field name="content_type_multi_keyword"><![CDATA[blog]]></field>
+        <field name="mime_type_multi_keyword"><![CDATA[text/html]]></field>
+        <field name="category_multi_keyword"><![CDATA[prismjs]]></field>
+        <field name="category_multi_keyword"><![CDATA[blog tools]]></field>
+        <field name="tag_multi_keyword"><![CDATA[syntax highlighter]]></field>
+        <field name="tag_multi_keyword"><![CDATA[css]]></field>
+        <field name="date_date"><![CDATA[2017-07-28T12:01:43+02:00]]></field>
+        <field name="date_1"><![CDATA[1501236103]]></field>
+        <field name="change_date"><![CDATA[1501459200]]></field>
+        <field name="author_first_name"><![CDATA[Shahin]]></field>
+        <field name="author_last_name"><![CDATA[Sanayei]]></field>
+        <field name="author_id"><![CDATA[shsanayei]]></field>
+        <field name="author_picture_stored_only"><![CDATA[/assets/images/avatars/shahin.png]]></field>
+        <field name="headlines"><![CDATA[Testing prismjs Syntax-Highlighter]]></field>
+        <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
+<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+
+
+</div>]]></field>
+        <field name="content"><![CDATA[<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+
+<h2 id="this-shows-an-example-of-using-prismjs-syntax-highlighter">This shows an example of using prismjs syntax highlighter</h2>
+
+<h3 id="default">Default</h3>
+
+<pre><code>var _self = (typeof window !== 'undefined')
+	? window   // if in browser
+	: (
+		(typeof WorkerGlobalScope !== 'undefined' &amp;&amp; self instanceof WorkerGlobalScope)
+		? self // if in worker
+		: {}   // if in node js
+	);
+</code></pre>
+
+<h3 id="javascript">Javascript</h3>
+<pre><code class="language-javascript">var _self = (typeof window !== 'undefined')
+	? window   // if in browser
+	: (
+		(typeof WorkerGlobalScope !== 'undefined' &amp;&amp; self instanceof WorkerGlobalScope)
+		? self // if in worker
+		: {}   // if in node js
+	);
+</code></pre>
+<h3 id="java">Java</h3>
+<pre><code class="language-java">package de.adesso.persistence;
+
+/**
+ * This class creates a post object with the given fields.
+ */
+public class Post {
+
+    /* The content of the post */
+    private String content;
+
+    /* The teaserHtml text of the post */
+    private String teaserHtml;
+
+    /* List of the images included in this post */
+//    private List&lt;Image&gt; images;
+
+    private PostMetaData postMetaData;
+
+    public Post() {
+    }
+
+    /**
+     * constructor
+     * Creates also an MD5Hash hashing type.
+     */
+    public Post(String content) {
+        this.content = content;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public String getTeaserHtml() {
+        return teaserHtml;
+    }
+
+    public void setTeaserHtml(String teaserHtml) {
+        this.teaserHtml = teaserHtml;
+    }
+
+/*    public List&lt;Image&gt; getImages() {
+        return images;
+    }
+
+    public void setImages(List&lt;Image&gt; images) {
+        this.images = images;
+    }*/
+
+    public PostMetaData getPostMetaData() {
+        return postMetaData;
+    }
+
+    public void setPostMetaData(PostMetaData postMetaData) {
+        this.postMetaData = postMetaData;
+    }
+
+    @Override
+    public String toString() {
+        return "Post{" +
+                ", content='" + content + '\'' +
+                ", teaserHtml='" + teaserHtml + '\'' +
+                '}';
+    }
+}
+</code></pre>
+
+<h3 id="yaml">YAML</h3>
+<pre><code class="language-yaml">layout: post
+title:  "Testing prismjs Syntax-Highlighter"
+date:   2017-07-28 22:01:43 +0530
+categories: prismjs
+tags: [syntax highlighter]
+</code></pre>
+
+<h3 id="html">HTML</h3>
+<pre><code class="language-html">---
+layout: default
+---
+&lt;article class="post" itemscope itemtype="http://schema.org/BlogPosting"&gt;
+  &lt;div class="jumbotron"&gt;
+    &lt;div class="container"&gt;
+      &lt;h1 class="post-title-main" itemprop="name headline"&gt;Testing prismjs Syntax-Highlighter&lt;/h1&gt;
+      &lt;p class="post-meta"&gt;&lt;time datetime="2017-07-28T12:01:43+02:00" itemprop="datePublished"&gt;Jul 28, 2017&lt;/time&gt; • &lt;span itemprop="author" itemscope itemtype="http://schema.org/Person"&gt;&lt;span itemprop="name"&gt;shahin&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
+      
+    &lt;/div&gt;
+
+&lt;/div&gt;
+
+
+  &lt;div class="post-content container" itemprop="articleBody"&gt;
+    &lt;article class="row"&gt;
+    &lt;div class="card picture-card adesso-imageheader adesso-no-border col-md-12"&gt;
+    &lt;div class="card-img-overlay"&gt;
+    &lt;div class="adesso-intro i1-intro adesso-slick-slider"&gt;
+    &lt;span class="h1 card-title display-1"&gt;
+    &lt;svg class="adesso-bar-icon"&gt;
+    &lt;use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#adesso--bar"&gt;&lt;/use&gt;
+    &lt;/svg&gt;
+    &lt;span&gt;Funktionale Programmierung&lt;/span&gt;
+    &lt;/span&gt;
+    &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="adesso-primary-blue semi adesso-image-header-bar adesso-semi-balkenelement"&gt;
+    &lt;div class="adesso-container"&gt;
+    &lt;div class="col-xl-8 adesso-center p-l-0 p-r-0 p-t-1"&gt;
+    &lt;p class="adesso-date"&gt;2. Februar 2017 | von Karl Brodowsky
+    &lt;/p&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="col-md-12 p-l-0 p-r-0 adesso-primary-blue"&gt;
+    &lt;div class="adesso-container"&gt;
+    &lt;div class="adesso-balkenelement col-xl-8 adesso-center p-l-0 p-r-0 p-t-2 p-b-2"&gt;
+    &lt;div class="i2-intro p-t-1"&gt;Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+
+&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;/article&gt;
+&lt;div class="adesso-github-blog-wrapper"&gt;
+&lt;div class="adesso-text-formate adesso-primary-blue"&gt;
+&lt;div class="row p-t-2"&gt;
+&lt;div class="adesso-container"&gt;
+&lt;div class="col-xl-8 adesso-center p-b-1 p-l-0 p-r-0"&gt;
+&lt;p&gt;Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.&lt;/p&gt;
+
+&lt;h2 id="this-shows-an-example-of-using-prismjs-syntax-highlighter"&gt;This shows an example of using prismjs syntax highlighter&lt;/h2&gt;
+
+&lt;h3 id="default"&gt;Default&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;var _self = (typeof window !== 'undefined')
+	? window   // if in browser
+	: (
+		(typeof WorkerGlobalScope !== 'undefined' &amp;amp;&amp;amp; self instanceof WorkerGlobalScope)
+		? self // if in worker
+		: {}   // if in node js
+	);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id="javascript"&gt;Javascript&lt;/h3&gt;
+&lt;pre&gt;&lt;code class="language-javascript"&gt;var _self = (typeof window !== 'undefined')
+	? window   // if in browser
+	: (
+		(typeof WorkerGlobalScope !== 'undefined' &amp;amp;&amp;amp; self instanceof WorkerGlobalScope)
+		? self // if in worker
+		: {}   // if in node js
+	);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id="java"&gt;Java&lt;/h3&gt;
+&lt;pre&gt;&lt;code class="language-java"&gt;package de.adesso.persistence;
+
+/**
+ * This class creates a post object with the given fields.
+ */
+public class Post {
+
+    /* The content of the post */
+    private String content;
+
+    /* The teaserHtml text of the post */
+    private String teaserHtml;
+
+    /* List of the images included in this post */
+//    private List&amp;lt;Image&amp;gt; images;
+
+    private PostMetaData postMetaData;
+
+    public Post() {
+    }
+
+    /**
+     * constructor
+     * Creates also an MD5Hash hashing type.
+     */
+    public Post(String content) {
+        this.content = content;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public String getTeaserHtml() {
+        return teaserHtml;
+    }
+
+    public void setTeaserHtml(String teaserHtml) {
+        this.teaserHtml = teaserHtml;
+    }
+
+/*    public List&amp;lt;Image&amp;gt; getImages() {
+        return images;
+    }
+
+    public void setImages(List&amp;lt;Image&amp;gt; images) {
+        this.images = images;
+    }*/
+
+    public PostMetaData getPostMetaData() {
+        return postMetaData;
+    }
+
+    public void setPostMetaData(PostMetaData postMetaData) {
+        this.postMetaData = postMetaData;
+    }
+
+    @Override
+    public String toString() {
+        return "Post{" +
+                ", content='" + content + '\'' +
+                ", teaserHtml='" + teaserHtml + '\'' +
+                '}';
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id="yaml"&gt;YAML&lt;/h3&gt;
+&lt;pre&gt;&lt;code class="language-yaml"&gt;layout: post
+title:  "Testing prismjs Syntax-Highlighter"
+date:   2017-07-28 22:01:43 +0530
+categories: prismjs
+tags: [syntax highlighter]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id="html"&gt;HTML&lt;/h3&gt;
+&lt;pre&gt;&lt;code class="language-html"&gt;---
+layout: default
+---
+&amp;lt;article class="post" itemscope itemtype="http://schema.org/BlogPosting"&amp;gt;
+  &amp;lt;div class="jumbotron"&amp;gt;
+    &amp;lt;div class="container"&amp;gt;
+      &amp;lt;h1 class="post-title-main" itemprop="name headline"&amp;gt;Testing prismjs Syntax-Highlighter&amp;lt;/h1&amp;gt;
+      &amp;lt;p class="post-meta"&amp;gt;&amp;lt;time datetime="2017-07-28T12:01:43+02:00" itemprop="datePublished"&amp;gt;Jul 28, 2017&amp;lt;/time&amp;gt; • &amp;lt;span itemprop="author" itemscope itemtype="http://schema.org/Person"&amp;gt;&amp;lt;span itemprop="name"&amp;gt;shahin&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/p&amp;gt;
+      
+    &amp;lt;/div&amp;gt;
+
+&amp;lt;/div&amp;gt;
+
+
+  &amp;lt;div class="post-content container" itemprop="articleBody"&amp;gt;
+    &amp;lt;p&amp;gt;Testing…
+Modification - Test - have a nice weekend&amp;lt;/p&amp;gt;
+
+&amp;lt;figure class="highlight"&amp;gt;&amp;lt;pre&amp;gt;&amp;lt;code class="language-ruby" data-lang="ruby"&amp;gt;&amp;lt;span class="k"&amp;gt;def&amp;lt;/span&amp;gt; &amp;lt;span class="nf"&amp;gt;print_hi&amp;lt;/span&amp;gt;&amp;lt;span class="p"&amp;gt;(&amp;lt;/span&amp;gt;&amp;lt;span class="nb"&amp;gt;name&amp;lt;/span&amp;gt;&amp;lt;span class="p"&amp;gt;)&amp;lt;/span&amp;gt;
+  &amp;lt;span class="nb"&amp;gt;puts&amp;lt;/span&amp;gt; &amp;lt;span class="s2"&amp;gt;"Hi, &amp;lt;/span&amp;gt;&amp;lt;span class="si"&amp;gt;#{&amp;lt;/span&amp;gt;&amp;lt;span class="nb"&amp;gt;name&amp;lt;/span&amp;gt;&amp;lt;span class="si"&amp;gt;}&amp;lt;/span&amp;gt;&amp;lt;span class="s2"&amp;gt;"&amp;lt;/span&amp;gt;
+&amp;lt;span class="k"&amp;gt;end&amp;lt;/span&amp;gt;
+&amp;lt;span class="n"&amp;gt;print_hi&amp;lt;/span&amp;gt;&amp;lt;span class="p"&amp;gt;(&amp;lt;/span&amp;gt;&amp;lt;span class="s1"&amp;gt;'Tom'&amp;lt;/span&amp;gt;&amp;lt;span class="p"&amp;gt;)&amp;lt;/span&amp;gt;
+&amp;lt;span class="c1"&amp;gt;#=&amp;amp;gt; prints 'Hi, Tom' to STDOUT.&amp;lt;/span&amp;gt;&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;&amp;lt;/figure&amp;gt;
+
+
+  &amp;lt;/div&amp;gt;
+
+&amp;lt;/article&amp;gt;
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+  &lt;/div&gt;
+
+&lt;/article&gt;
+
+</code></pre>
+]]></field>
+    </document>
+</documents>
