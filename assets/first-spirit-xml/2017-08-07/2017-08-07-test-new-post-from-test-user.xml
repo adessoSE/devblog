@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <documents>
-    <document uid="79c2b72aaa0726da81eea32822270f2e">
+    <document uid="testUID">
         <field name="title"><![CDATA[New Post from test user]]></field>
         <field name="subline"><![CDATA[]]></field>
         <field name="teaser"><![CDATA[<p>Test Post from testuser.</p>
@@ -17,22 +17,18 @@
         <field name="author_first_name"><![CDATA[Shahin]]></field>
         <field name="author_last_name"><![CDATA[Sanayei]]></field>
         <field name="author_id"><![CDATA[shsanayei]]></field>
-        <field name="author_picture_stored_only"><![CDATA[https://shsanayei.github.io/devblog/assets/images/avatars/shahin.png]]></field>
+        <field name="author_picture_stored_only"><![CDATA[/assets/images/avatars/shahin.png]]></field>
         <field name="headlines"><![CDATA[New Post from test user]]></field>
         <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
-            <p>Test Post from testuser.</p>
+<p>Test Post from testuser.</p>
+
 
 </div>]]></field>
-        <field name="content"><![CDATA[<div class="adesso-text-formate">
-<div class="row p-t-2">
-<div class="adesso-container">
-<div class="col-xl-8 adesso-center p-b-1 p-l-0 p-r-0">
-    <p>Second paragraph goes here…</p>
+        <field name="content"><![CDATA[<p>Test Post from testuser.</p>
+
+<p>Second paragraph goes here…</p>
 
 <p>Changing file…</p>
-
-</div>
-</div>
-</div>]]></field>
+]]></field>
     </document>
 </documents>
