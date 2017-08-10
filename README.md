@@ -27,7 +27,7 @@ Required author data are: **first_name, last_name, github_username**
 
 ## Guidelines
 ### Filename convention 
-Post files are markdown files. Hence the file extension is *.markdown. The name of the post file mus start with the actual date (format: **YYYY-MM-DD**) followed by the title of the blog post. Each word should be separated by a dash '-'.
+Post files are markdown files. Hence the file extension is *.markdown. The name of the post file must start with the current date (format: **YYYY-MM-DD**) followed by the title of the blog post. Each word should be separated by a dash '-'.
 
 A valid filename looks like this: **2017-08-10-title-of-the-post.markdown**
 
