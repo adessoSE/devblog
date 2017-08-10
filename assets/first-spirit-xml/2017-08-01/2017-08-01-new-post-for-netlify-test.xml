@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <documents>
-    <document uid="652e8e8729e933e3db2855aa82a7cf91">
+    <document uid="testUID">
         <field name="title"><![CDATA[Testing commit history for New Post]]></field>
         <field name="subline"><![CDATA[]]></field>
         <field name="teaser"><![CDATA[<p>Testing netlify…
@@ -22,21 +22,19 @@ Hallo–!! Rumskedi</p>
         <field name="author_first_name"><![CDATA[Shahin]]></field>
         <field name="author_last_name"><![CDATA[Sanayei]]></field>
         <field name="author_id"><![CDATA[shsanayei]]></field>
-        <field name="author_picture_stored_only"><![CDATA[https://shsanayei.github.io/devblog/assets/images/avatars/shahin.png]]></field>
+        <field name="author_picture_stored_only"><![CDATA[/assets/images/avatars/shahin.png]]></field>
         <field name="headlines"><![CDATA[Testing commit history for New Post]]></field>
         <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
-            <p>Testing netlify…
+<p>Testing netlify…
 test
 Christian Everke; cev
 Hallo–!! Rumskedi</p>
+
 </div>]]></field>
-        <field name="content"><![CDATA[<div class="adesso-text-formate">
-<div class="row p-t-2">
-<div class="adesso-container">
-<div class="col-xl-8 adesso-center p-b-1 p-l-0 p-r-0">
-    
-</div>
-</div>
-</div>]]></field>
+        <field name="content"><![CDATA[<p>Testing netlify…
+test
+Christian Everke; cev
+Hallo–!! Rumskedi</p>
+]]></field>
     </document>
 </documents>

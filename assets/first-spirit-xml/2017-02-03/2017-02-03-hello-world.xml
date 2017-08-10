@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <documents>
-    <document uid="0ea7fd3e3502de268956203212356607">
+    <document uid="testUID">
         <field name="title"><![CDATA[Hello World!]]></field>
         <field name="subline"><![CDATA[]]></field>
         <field name="teaser"><![CDATA[<p>Hello World</p>
@@ -22,17 +22,16 @@
         <field name="author_first_name"><![CDATA[David]]></field>
         <field name="author_last_name"><![CDATA[Klassen]]></field>
         <field name="author_id"><![CDATA[daklassen]]></field>
-        <field name="author_picture_stored_only"><![CDATA[https://shsanayei.github.io/devblog/assets/images/avatars/david.png]]></field>
+        <field name="author_picture_stored_only"><![CDATA[/assets/images/avatars/david.png]]></field>
         <field name="headlines"><![CDATA[Hello World!]]></field>
         <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
-            <p>Hello World</p>
+<p>Hello World</p>
+
 
 </div>]]></field>
-        <field name="content"><![CDATA[<div class="adesso-text-formate">
-<div class="row p-t-2">
-<div class="adesso-container">
-<div class="col-xl-8 adesso-center p-b-1 p-l-0 p-r-0">
-    <p>Jekyll also offers powerful support for code snippets:</p>
+        <field name="content"><![CDATA[<p>Hello World</p>
+
+<p>Jekyll also offers powerful support for code snippets:</p>
 
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">print_hi</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span>
   <span class="nb">puts</span> <span class="s2">"Hi, </span><span class="si">#{</span><span class="nb">name</span><span class="si">}</span><span class="s2">"</span>
@@ -43,9 +42,6 @@
 <p>Check out the <a href="https://jekyllrb.com/docs/home">Jekyll docs</a> for more info on how to get the most out of Jekyll. File all bugs/feature requests at <a href="https://github.com/jekyll/jekyll">Jekyll’s GitHub repo</a>. If you have questions, you can ask them on <a href="https://talk.jekyllrb.com/">Jekyll Talk</a>.</p>
 
 <p>Yet another files updated by Christian for detecting changes :D</p>
-
-</div>
-</div>
-</div>]]></field>
+]]></field>
     </document>
 </documents>
