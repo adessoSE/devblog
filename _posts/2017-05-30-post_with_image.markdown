@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: [post, post-xml]
 title:  "Test post with images"
 date:   2017-05-30 14:23:41 +0200
 modifiedDate: 2017-06-16

@@ -1,17 +1,17 @@
 shahin:
   first_name: Shahin
   last_name: Sanayei
-  git_username: shsanayei
+  github_username: shsanayei
   email: shsanayei.gh@gmail.com
   bio: "Google is your friend."
-  picture_url: avatars/shahin.png
+  avatar_url: /assets/images/avatars/shahin.png
   github: https://github.com/shsanayei
 
 david:
   first_name: David
   last_name: Klassen
-  git_username: daklassen
+  github_username: daklassen
   email: daviddd.kl@gmail.com
   bio:
-  picture_url: avatars/david.png
+  avatar_url: /assets/images/avatars/david.png
   github: https://github.com/daklassen

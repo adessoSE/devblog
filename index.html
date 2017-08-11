@@ -1,4 +1,72 @@
-<html>
-<head></head>
-<body></body>
-</html>
+---
+layout: default
+---
+{% include display-content.html %}
+<div class="row">
+<div class="adesso-container adesso-blog-overview">
+<div class="adesso-events adesso-blog-article adesso-text-formate adesso-secondary-red">
+<div class="col-xl-8 adesso-center adesso-news p-b-3 p-t-3 p-l-0 p-r-0 ">
+<div class="adesso-news-elem adesso-news-headline">
+<h1><span class="adesso-headline-text">Neueste Beiträge</span>
+</h1>
+</div>
+
+
+
+{% for post in site.posts %}
+{% assign author = site.data.authors[post.author] %}
+<div class="adesso-news-elem p-b-1 p-t-2">
+<div class="col-md-10 p-b-1 adesso-p-md-r-3 p-r-2 p-l-0">
+<p class="adesso-date">{{ post.date | date: "%d.%m.%Y" }}
+
+<span class="adesso-location">von {{ author.first_name }} {{ author.last_name }} 
+</span>
+</p>
+<h2 class="m-b-075"><a href="{{post.url | prepend:site.baseurl }}">{{ post.title }}</a></h2>
+
+{% if post.subline %} 
+<div class="i2-intro">
+<p>{{ post.subline }}</p> 
+</div><!--/i2-intro-->
+{% endif %}
+
+
+</div><!--/col-md-10-->
+
+<div class="col-md-2 p-b-1 p-t-2 m-t-2 p-l-0 p-r-0 adesso-negative-margin-1">
+<img class="img-circle center-block adesso-3-8" src="{{ author.avatar_url | prepend: site.baseurl }}" alt=" ">
+</div><!--/col-md-2-->
+
+</div><!--/adesso-news-elem-->
+
+<div class="p-1 p-t-3 adesso-weblinks">
+{{ post.excerpt }}
+</div><!--/p-t-2-->
+
+<div class="adesso-weblinks">
+<a href="{{ post.url | prepend:site.baseurl }}">
+<svg class="adesso-arrow-icon">
+<use xlink:href="#adesso--arrowlink"/>
+</svg>
+weiterlesen
+</a>
+</div><!--/weblinks-->
+<table class="table m-t-1">
+<tbody>
+
+<tr>
+<td class="adesso-taxonomie">Autor</td>
+<td>{{ author.first_name }} {{ author.last_name }}</td>
+</tr>
+
+</tbody>
+</table>
+{% endfor %}
+
+<!-- Pagination links -->
+<!-- TODO -->
+
+</div>
+</div>
+</div>
+</div>
