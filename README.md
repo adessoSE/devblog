@@ -1,7 +1,7 @@
 # adesso AG devblog
 This repository is the main place to write blog posts that are intended to be published on the adesso AG's blog [https://blog.adesso.de](https://blog.adesso.de).
 
-# How it works
+# Get started with blog posts for adesso AG
 ## Preparation
 If this is your first time writing a blog post for the adesso AG blog site, first you need to add your author information within the [authors.yml](_data/authors.yml) file located in `_data/authors.yml`. This is required because Jekyll will take your author information from that file and use them when generating HTML files from the post files.
 
@@ -25,12 +25,12 @@ You may also add a profile picture inside the `assets/images/avatars` directory.
 
 Required author data are: **first_name, last_name, github_username**
 
-# Guidelines
+## Guidelines
 
-## About Post Files
+### About Post Files
 All post files are markdown files and are located inside the `_posts` directory.
 
-### Here is an example of a post:
+#### Here is an example of a post:
 ```
 ---
 # layout is required. Don't change.
@@ -59,13 +59,13 @@ To add new posts, simply add a file in the `_posts` directory that follows the c
 
 Everything in between the first and second `---` are part of the YAML Front Matter, and everything after the second `---` will be rendered with Markdown and show up as “Content.”
 
-## Naming convention of post files 
+### Naming convention of post files 
 Post files are markdown files. Hence the file extension is *.markdown. The name of the post file must start with the current date (format: **YYYY-MM-DD**) followed by the title of the blog post. Each word should be separated by a dash '-'.
 
 A valid filename looks like this: **2017-08-10-title-of-the-post.markdown**
 
-## Writing a new blog post
-### The easy way
+### Writing a new blog post
+#### The easy way
 
 1. On the master branch of this repository, click on the `_posts` directory to get to the area where the post files are.
 2. click on "Create new file". An Editor will show up where you can write your post.
@@ -105,5 +105,5 @@ A valid filename looks like this: **2017-08-10-title-of-the-post.markdown**
 
    The admins of the devblog repository will get a message notifying that there are changes that need a review. After they have reviewed and accepted your changes, you can view your post shortly after on adessos blog site [https://blog.adesso.de](https://blog.adesso.de)
 
-### Markdown CheatSheet
+#### Markdown CheatSheet
 [Need help with Markdown? Click here.](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
