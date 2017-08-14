@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <documents>
-    <document uid="testUID">
+    <document uid="57ece1779ccad8dd94f47b65bfef1506">
         <field name="title"><![CDATA[New Post test]]></field>
         <field name="subline"><![CDATA[]]></field>
         <field name="teaser"><![CDATA[<p>Testing…
@@ -19,23 +19,26 @@ Modification - Test - have a nice weekend</p>
         <field name="author_first_name"><![CDATA[Shahin]]></field>
         <field name="author_last_name"><![CDATA[Sanayei]]></field>
         <field name="author_id"><![CDATA[shsanayei]]></field>
-        <field name="author_picture_stored_only"><![CDATA[/assets/images/avatars/shahin.png]]></field>
+        <field name="author_picture_stored_only"><![CDATA[https://shsanayei.github.io/devblog/assets/images/avatars/shahin.png]]></field>
         <field name="headlines"><![CDATA[New Post test]]></field>
         <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
-<p>Testing…
+            <p>Testing…
 Modification - Test - have a nice weekend</p>
-
 
 </div>]]></field>
-        <field name="content"><![CDATA[<p>Testing…
-Modification - Test - have a nice weekend</p>
-
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">print_hi</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span>
+        <field name="content"><![CDATA[<div class="adesso-text-formate">
+<div class="row p-t-2">
+<div class="adesso-container">
+<div class="col-xl-8 adesso-center p-b-1 p-l-0 p-r-0">
+    <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">print_hi</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span>
   <span class="nb">puts</span> <span class="s2">"Hi, </span><span class="si">#{</span><span class="nb">name</span><span class="si">}</span><span class="s2">"</span>
 <span class="k">end</span>
 <span class="n">print_hi</span><span class="p">(</span><span class="s1">'Tom'</span><span class="p">)</span>
 <span class="c1">#=&gt; prints 'Hi, Tom' to STDOUT.</span></code></pre></figure>
 
-]]></field>
+
+</div>
+</div>
+</div>]]></field>
     </document>
 </documents>
