@@ -16,8 +16,6 @@ categories: [Technologie]
 # tags are optional, but help to narrow down the subject of the blog post
 tags: [Digitalisierung, Banken]
 ---
-## A Post Example
-
 You’ll find this post in the `_posts` directory.
 
 To add new posts, simply add a file in the `_posts` directory that follows the convention `YYYY-MM-DD-name-of-post.markdown` and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.

@@ -39,3 +39,6 @@ plugins:
   - jekyll-sitemap
   - jekyll-gist
   - jekyll-feed
+
+exclude:
+  - assets/first-spirit-xml
