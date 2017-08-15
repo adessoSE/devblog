@@ -116,9 +116,11 @@ A valid filename looks like this: **2017-08-10-title-of-the-post.markdown**
 ### Syntax Highlighting
 adessos CMS uses `prismjs` for its syntax highlighting. 
 
-`Inline `code` has `back-ticks around` it.`
+    Inline `code` has `back-ticks around` it.
 
 Inline `code` has `back-ticks around` it.
+
+
 
 Code blocks are surrounded by a line of three back-ticks `````. The first three back-ticks are followed by the language name. If no language is indicated, use **none** as the language name.
 
