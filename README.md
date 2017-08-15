@@ -125,76 +125,74 @@ Code blocks are surrounded by a line of three back-ticks `````. The first three 
 #### Some Examples
 
 ##### None (no highlighting)
-```
-```none
-var _self = (typeof window !== 'undefined')
-  ? window   // if in browser
-  : (
-    (typeof WorkerGlobalScope !== 'undefined' && self instanceof WorkerGlobalScope)
-    ? self // if in worker
-    : {}   // if in node js
-  );
-```
-```
+
+    ```none
+    var _self = (typeof window !== 'undefined')
+      ? window   // if in browser
+      : (
+        (typeof WorkerGlobalScope !== 'undefined' && self instanceof WorkerGlobalScope)
+        ? self // if in worker
+        : {}   // if in node js
+      );
+    ```
+
 
 ![language-none](/assets/images/how_to_write_a_post/syntax_highlighting/language-none.PNG)
 
 ##### Javascript
-```
-```javascript
-var _self = (typeof window !== 'undefined')
-  ? window   // if in browser
-  : (
-    (typeof WorkerGlobalScope !== 'undefined' && self instanceof WorkerGlobalScope)
-    ? self // if in worker
-    : {}   // if in node js
-  );
-```
-```
+
+    ```javascript
+    var _self = (typeof window !== 'undefined')
+      ? window   // if in browser
+      : (
+        (typeof WorkerGlobalScope !== 'undefined' && self instanceof WorkerGlobalScope)
+        ? self // if in worker
+        : {}   // if in node js
+      );
+    ```
+
 
 ![language-javascript](/assets/images/how_to_write_a_post/syntax_highlighting/language-javascript.PNG)
 
 ##### YAML
-```
-```yaml
-layout: post
-title:  "Testing prismjs Syntax-Highlighter"
-date:   2017-07-28 22:01:43 +0530
-categories: prismjs
-tags: [syntax highlighter]
-```
-```
+
+    ```yaml
+    layout: post
+    title:  "Testing prismjs Syntax-Highlighter"
+    date:   2017-07-28 22:01:43 +0530
+    categories: prismjs
+    tags: [syntax highlighter]
+    ```
 
 ![language-yaml](/assets/images/how_to_write_a_post/syntax_highlighting/language-yaml.PNG)
 
 ##### HTML
-```
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
 
-<script>
-    // Just a lil’ script to show off that inline JS gets highlighted
-    window.console && console.log('foo');
-</script>
-<meta charset="utf-8" />
-<link rel="shortcut icon" href="favicon.png" />
-<title>Prism</title>
-<link rel="stylesheet" href="style.css" />
-<link rel="stylesheet" href="themes/prism.css" data-noprefix />
-<script src="prefixfree.min.js"></script>
+    ```html
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
 
-<script>var _gaq = [['_setAccount', 'UA-33746269-1'], ['_trackPageview']];</script>
-<script src="https://www.google-analytics.com/ga.js" async></script>
-</head>
-<body>
-<h1>Lorem to the Ipsum</h1>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur tempus tempor turpis, in hendrerit arcu gravida a. Morbi fringilla porttitor sem, ac fermentum est elementum ac. In mollis libero et nisl placerat, quis tempus leo eleifend. Duis quis scelerisque nibh. Nulla in elementum urna, nec hendrerit leo. Donec ac sem risus. Donec venenatis magna nec orci iaculis vehicula. Nullam a magna nisl.</p>
-</body>
-</html>
-```
-```
+    <script>
+        // Just a lil’ script to show off that inline JS gets highlighted
+        window.console && console.log('foo');
+    </script>
+    <meta charset="utf-8" />
+    <link rel="shortcut icon" href="favicon.png" />
+    <title>Prism</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="themes/prism.css" data-noprefix />
+    <script src="prefixfree.min.js"></script>
+
+    <script>var _gaq = [['_setAccount', 'UA-33746269-1'], ['_trackPageview']];</script>
+    <script src="https://www.google-analytics.com/ga.js" async></script>
+    </head>
+    <body>
+    <h1>Lorem to the Ipsum</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur tempus tempor turpis, in hendrerit arcu gravida a. Morbi fringilla porttitor sem, ac fermentum est elementum ac. In mollis libero et nisl placerat, quis tempus leo eleifend. Duis quis scelerisque nibh. Nulla in elementum urna, nec hendrerit leo. Donec ac sem risus. Donec venenatis magna nec orci iaculis vehicula. Nullam a magna nisl.</p>
+    </body>
+    </html>
+    ```
 
 ![language-html](/assets/images/how_to_write_a_post/syntax_highlighting/language-html.PNG)
 
