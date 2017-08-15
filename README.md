@@ -1,6 +1,16 @@
 # adesso AG devblog
 This repository is the main place to write blog posts that are intended to be published on the adesso AG's blog [https://blog.adesso.de](https://blog.adesso.de).
 
+# How it works
+We use Jekyll to transform blog posts written in Markdown syntax to specific XML files. These files are grabbed and processed by adessos CMS System and finally published on adessos blog. 
+
+## What is Jekyll you ask? 
+Jekyll says:
+
+> Jekyll is a simple, blog-aware, static site generator. It takes a template directory containing raw text files in various formats, runs it through a converter (like Markdown) and our Liquid renderer, and spits out a complete, ready-to-publish static website suitable for serving with your favorite web server. [...]
+
+([Jekyll](https://jekyllrb.com/docs/home/))
+
 # Get started with blog posts for adesso AG
 ## Preparation
 If this is your first time writing a blog post for the adesso AG blog site, first you need to add your author information within the [authors.yml](_data/authors.yml) file located in `_data/authors.yml`. This is required because Jekyll will take your author information from that file and use them when generating HTML files from the post files.
@@ -102,6 +112,92 @@ A valid filename looks like this: **2017-08-10-title-of-the-post.markdown**
    ![Pull request](/assets/images/how_to_write_a_post/06_open_pull_request.PNG)
 
    The admins of the devblog repository will get a message notifying that there are changes that need a review. After they have reviewed and accepted your changes, you can view your post shortly after on adessos blog site [https://blog.adesso.de](https://blog.adesso.de)
+
+### Syntax Highlighting
+adessos CMS uses `prismjs` for its syntax highlighting. 
+
+    Inline `code` has `back-ticks around` it.
+
+Inline `code` has `back-ticks around` it.
+
+
+
+Code blocks are surrounded by a line of three back-ticks `````. The first three back-ticks are followed by the language name. If no language is indicated, use **none** as the language name.
+
+#### Some Examples
+
+##### None (no highlighting)
+
+    ```none
+    var _self = (typeof window !== 'undefined')
+      ? window   // if in browser
+      : (
+        (typeof WorkerGlobalScope !== 'undefined' && self instanceof WorkerGlobalScope)
+        ? self // if in worker
+        : {}   // if in node js
+      );
+    ```
+
+
+![language-none](/assets/images/how_to_write_a_post/syntax_highlighting/language-none.PNG)
+
+##### Javascript
+
+    ```javascript
+    var _self = (typeof window !== 'undefined')
+      ? window   // if in browser
+      : (
+        (typeof WorkerGlobalScope !== 'undefined' && self instanceof WorkerGlobalScope)
+        ? self // if in worker
+        : {}   // if in node js
+      );
+    ```
+
+
+![language-javascript](/assets/images/how_to_write_a_post/syntax_highlighting/language-javascript.PNG)
+
+##### YAML
+
+    ```yaml
+    layout: post
+    title:  "Testing prismjs Syntax-Highlighter"
+    date:   2017-07-28 22:01:43 +0530
+    categories: prismjs
+    tags: [syntax highlighter]
+    ```
+
+![language-yaml](/assets/images/how_to_write_a_post/syntax_highlighting/language-yaml.PNG)
+
+##### HTML
+
+    ```html
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+
+    <script>
+        // Just a lil’ script to show off that inline JS gets highlighted
+        window.console && console.log('foo');
+    </script>
+    <meta charset="utf-8" />
+    <link rel="shortcut icon" href="favicon.png" />
+    <title>Prism</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="themes/prism.css" data-noprefix />
+    <script src="prefixfree.min.js"></script>
+
+    <script>var _gaq = [['_setAccount', 'UA-33746269-1'], ['_trackPageview']];</script>
+    <script src="https://www.google-analytics.com/ga.js" async></script>
+    </head>
+    <body>
+    <h1>Lorem to the Ipsum</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur tempus tempor turpis, in hendrerit arcu gravida a. Morbi fringilla porttitor sem, ac fermentum est elementum ac. In mollis libero et nisl placerat, quis tempus leo eleifend. Duis quis scelerisque nibh. Nulla in elementum urna, nec hendrerit leo. Donec ac sem risus. Donec venenatis magna nec orci iaculis vehicula. Nullam a magna nisl.</p>
+    </body>
+    </html>
+    ```
+
+![language-html](/assets/images/how_to_write_a_post/syntax_highlighting/language-html.PNG)
+
 
 #### Markdown CheatSheet
 [Need help with Markdown? Click here.](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
