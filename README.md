@@ -114,7 +114,7 @@ A valid filename looks like this: **2017-08-10-title-of-the-post.markdown**
    The admins of the devblog repository will get a message notifying that there are changes that need a review. After they have reviewed and accepted your changes, you can view your post shortly after on adessos blog site [https://blog.adesso.de](https://blog.adesso.de)
 
 ### Syntax Highlighting
-adessos CMS uses `prismjs` for its syntax highlighting. 
+adessos CMS uses `prismjs` for its syntax highlighting. Note that depending on which prismjs theme is used by the CMS, the output, that the below examples show, could look different.
 
     Inline `code` has `back-ticks around` it.
 
@@ -124,7 +124,7 @@ Inline `code` has `back-ticks around` it.
 
 Code blocks are surrounded by a line of three back-ticks `````. The first three back-ticks are followed by the language name. If no language is indicated, use **none** as the language name.
 
-#### Some Examples
+#### Some code block examples
 
 ##### None (no highlighting)
 
