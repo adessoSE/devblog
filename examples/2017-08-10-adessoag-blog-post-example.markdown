@@ -9,7 +9,7 @@ date:   2017-08-10 10:25
 # If you are modifying an existing post, provide a date for it.
 modified_date: 2017-08-16
 # author must be your name used in the _data/authors.yml file
-author: shahin
+author: johndoe
 # Categories are written inside square brackets '[cat1, cat2]' and are separated by comma.
 # add at least one category name.
 categories: [Technologie]
