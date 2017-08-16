@@ -41,7 +41,7 @@ Required author data are: **first_name, last_name, github_username**
 All post files are markdown files and are located inside the `_posts` directory.
 
 #### Here is an example of a post:
-```yaml
+```
 ---
 # layout is required. DO NOT CHANGE.
 layout: [post, post-xml]
