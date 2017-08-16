@@ -41,6 +41,7 @@ Required author data are: **first_name, last_name, github_username**
 All post files are markdown files and are located inside the `_posts` directory.
 
 #### Here is an example of a post:
+*This example is also available in the [examples/](examples/) directory. (file name: "2017-08-10-adessoag-blog-post-example.markdown")*
 ```
 ---
 # layout is required. DO NOT CHANGE.
