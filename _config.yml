@@ -17,6 +17,7 @@ blog_intro: "In unserem Blog nehmen wir Sie mit auf eine spannende Reise quer du
 permalink: blog-posts/:year-:month-:day/:title.html
 # paginate: 3 # amount of posts to show
 # paginate_path: /pages/page:num/
+timezone: Europe/Berlin
 
 # Serving
 baseurl: "/devblog" # the subpath of your site, e.g. /blog
@@ -42,3 +43,4 @@ plugins:
 
 exclude:
   - assets/first-spirit-xml
+  - examples/
