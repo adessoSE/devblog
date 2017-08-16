@@ -21,7 +21,7 @@ timezone: Europe/Berlin
 
 # Serving
 baseurl: "/devblog" # the subpath of your site, e.g. /blog
-url: "https://shsanayei.github.io" # the base hostname & protocol for your site
+url: "https://adessoag.github.io" # the base hostname & protocol for your site
 github_username: "adessoAG"
 
 # Build settings
