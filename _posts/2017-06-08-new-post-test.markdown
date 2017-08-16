@@ -1,8 +1,8 @@
 ---
 layout: [post, post-xml]
 title:  "New Post test"
-date:   2017-06-08 10:00:00 +0200
-modifiedDate: 2017-06-16 13:00:00
+date:   2017-06-08 10:00
+modifiedDate: 2017-06-16
 author: shahin
 tags: test
 categories: tech-blog testing

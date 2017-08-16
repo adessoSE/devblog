@@ -1,7 +1,7 @@
 ---
 layout: [post, post-xml]
 title:  "Test post with images"
-date:   2017-05-30 14:23:41 +0200
+date:   2017-05-30 14:23
 modifiedDate: 2017-06-16
 author: shahin
 tags: image, img, extract image tag, html tags

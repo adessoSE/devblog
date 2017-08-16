@@ -17,7 +17,7 @@ If this is your first time writing a blog post for the adesso AG blog site, firs
 
 Please add your information accordingly to the end of the list inside authors.yml. Here is an example on how the author information should be formatted:
 
-```
+```yaml
 johndoe:
   first_name: John
   last_name: Doe
@@ -41,14 +41,15 @@ Required author data are: **first_name, last_name, github_username**
 All post files are markdown files and are located inside the `_posts` directory.
 
 #### Here is an example of a post:
+*This example is also available in the [examples/](examples/) directory. (file name: "2017-08-10-adessoag-blog-post-example.markdown")*
 ```
 ---
 # layout is required. DO NOT CHANGE.
 layout: [post, post-xml]
 # title is required. Add the title of your post.
 title:  "adesso AG Blog Post Example"
-# date is required. If possible, also provide a time. e.g. 2017-08-10 10:25:00.
-date:   2017-08-10 10:25:00 
+# date is required. If possible, also provide a time. e.g. 2017-08-10 10:25.
+date:   2017-08-10 10:25 
 # If you are modifying an existing post, provide a date for it.
 modified_date:
 # author must be your name used in the _data/authors.yml file.
@@ -68,9 +69,9 @@ To add new posts, simply add a file in the `_posts` directory that follows the c
 Everything in between the first and second `---` are part of the YAML Front Matter, and everything after the second `---` will be rendered with Markdown and show up as “Content.”
 
 ### Naming convention of post files 
-Post files are markdown files. Hence the file extension is *.markdown. The name of the post file must start with the current date (format: **YYYY-MM-DD**) followed by the title of the blog post. Each word should be separated by a dash '-'.
+Post files are markdown files. Hence the following file extensions are accepted: **markdown,mkdown,mkdn,mkd,md**. The name of the post file must start with the current date (format: **YYYY-MM-DD**) followed by the title of the blog post. Each word should be separated by a dash `-`.
 
-A valid filename looks like this: **2017-08-10-title-of-the-post.markdown**
+A valid filename looks like this: **2017-08-10-title-of-the-post.markdown** or **2017-08-10-title-of-the-post.md**
 
 ### Writing a new blog post
 #### The easy way
@@ -138,6 +139,7 @@ Code blocks are surrounded by a line of three back-ticks `````. The first three 
       );
     ```
 
+**Output:**
 
 ![language-none](/assets/images/how_to_write_a_post/syntax_highlighting/language-none.PNG)
 
@@ -153,18 +155,30 @@ Code blocks are surrounded by a line of three back-ticks `````. The first three 
       );
     ```
 
+**Output:**
 
 ![language-javascript](/assets/images/how_to_write_a_post/syntax_highlighting/language-javascript.PNG)
 
 ##### YAML
 
     ```yaml
-    layout: post
-    title:  "Testing prismjs Syntax-Highlighter"
-    date:   2017-07-28 22:01:43 +0530
-    categories: prismjs
-    tags: [syntax highlighter]
+    # An employee record
+    name: John Doe
+    job: Developer
+    skill: Elite
+    employed: True
+    foods:
+        - Apple
+        - Orange
+        - Strawberry
+        - Mango
+    languages:
+        java: Elite
+        python: Elite
+        pascal: Lame
     ```
+
+**Output:**
 
 ![language-yaml](/assets/images/how_to_write_a_post/syntax_highlighting/language-yaml.PNG)
 
@@ -196,6 +210,8 @@ Code blocks are surrounded by a line of three back-ticks `````. The first three 
     </html>
     ```
 
+**Output:**
+
 ![language-html](/assets/images/how_to_write_a_post/syntax_highlighting/language-html.PNG)
 
 ### Adding Line Numbers
@@ -212,6 +228,8 @@ If you also want to show line numbers, you can add `{: .line-numbers}` after the
       );
     ```
     {: .line-numbers}
+
+**Output:**
 
 ![line-numbers](/assets/images/how_to_write_a_post/syntax_highlighting/line-numbers.PNG)
 

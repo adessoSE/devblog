@@ -1,8 +1,8 @@
 ---
 layout: [post, post-xml]
 title:  "Welcome to Jekyll!"
-date:   2017-05-04 14:23:41 +0200
-modifiedDate: 2017-05-05 14:23:41 +0200
+date:   2017-05-04 14:23
+modifiedDate: 2017-05-05 14:23
 author: david
 tags: git, github, pull request, branch, fork, howto, guide, pull
 categories: jekyll update
