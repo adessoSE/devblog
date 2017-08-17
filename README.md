@@ -74,43 +74,78 @@ Post files are markdown files. Hence the following file extensions are accepted:
 A valid filename looks like this: **2017-08-10-title-of-the-post.markdown** or **2017-08-10-title-of-the-post.md**
 
 ### Writing a new blog post
-#### The easy way
 
-1. On the master branch of this repository, click on the `_posts` directory to get to the area where the post files are.
-2. click on "Create new file". An Editor will show up where you can write your post.
+#### Option 1: Writing a blog post on GitHub
+**Fork repository -> Create post -> Commit post -> Create pull request**
 
-![Create new file](/assets/images/how_to_write_a_post/01_create_new_file.PNG)
+1. Fork this repository to your GitHub account. **All the actions described below must be done on the forked repository**.
+
+2. On the master branch, click on the `_posts` directory to get to the area where the post files are.
+
+3. Click on "Create new file".
+
+![Create new file](/assets/images/how_to_write_a_post/01_create_new_file.png)
+
+A text editor will show up where you can write your post.
 
 3. In the input field above the editor, provide a file name. **You must name your file according to the naming convention mentioned above.**
 
-![Name your file](/assets/images/how_to_write_a_post/02_name_your_file.PNG)
+![Name your file](/assets/images/how_to_write_a_post/02_name_your_file.png)
 
 4. Copy and paste the Front Matter from the post example above and replace the field values with your data.
    * You can also copy/paste the whole post example including the post content.
 
-![Front Matter and post content](/assets/images/how_to_write_a_post/03_post_content.PNG)
+![Front Matter and post content](/assets/images/how_to_write_a_post/03_post_content.png)
 
-5. Start writing your post content. Use the [markdown syntax (Link to CheatSheet)](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) to format your content. 
+5. Write your post content. Use the [markdown syntax (Link to CheatSheet)](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) to format your content. 
 
-6. When you are done writing your post and want to publish it, you need to **create a pull request**.
+   5.1 **Adding images**
    
-   6.1 **Propose new file**
+   All images of the posts must reside in the [assets/images/posts/](assets/images/posts/) directory. You must upload your images in that directory. You can do it before or after writing your post. If you want to add images to your post, make sure you use the correct markdown syntax for it. 
+   
+     5.1.1 Navigate to [assets/images/posts/](assets/images/posts/) and click on the button "Upload files".
+   
+     ![Upload files](/assets/images/how_to_write_a_post/04_upload_files1.png)
+	 
+	 5.1.2 After adding your images, commit changes by creating a commit message and clicking on the button "Commit changes".
+	 
+	 Your images are now uploaded on GitHub.
+	 
+	 ![Commit changes](/assets/images/how_to_write_a_post/05_upload_files2.png)
+   
+   5.2 **Syntax Highlighting**
+   
+   adessos CMS uses `prismjs` for its syntax highlighting. Please follow the instructions in the section [Syntax Highlighting](/devblog#syntax-highlighting) on this README page
+   
 
-   To create a pull request, first you must "propose new file". For that, go to the bottom of the page. You will find an area with text fields for proposing a new file. Give a name and a description for the file (Or leave it as is. It will then take the default value as shown.) and click on the button **Propose new file**. 
+6. **Commit new file**. 
 
-   ![Propose new file](/assets/images/how_to_write_a_post/04_propose_new_file.PNG)
+When you are done writing your post and want to submit it, first you need to commit the file.
+On the bottom of the text editor page you can find an area where you can commit your post. Add a commit message and a description (or leave it as is. GitHub will  take the default values as shown.) and click on the button "Commit new file".
 
-   6.2 **Create pull request** 
+![Commit new file](/assets/images/how_to_write_a_post/06_commit_new_file.png)
 
-   Github will then direct you to a site for creating a "Pull Request". If you have not forked this project yet, Github will automatically fork this repository in your Github account and create a branch named like "patch-1" that contains your new file or your file changes.
+7. **Create pull request**. 
 
-   Then, you can click on the button "Create pull request". 
+After you committed your file, you must create a pull request in order to submit your post.
+   
+   7.1 Navigate to the main page of the repository in your fork: [/devblog](/devblog)
+   
+   7.2 Click on the button "New pull request".
 
-   ![Pull request](/assets/images/how_to_write_a_post/05_pull_request.PNG)
+   ![Pull request](/assets/images/how_to_write_a_post/07_new_pull_request1.png)
 
-   An area with text fields will show up where you can add a message for the pull request. But you can leave the defaults as generated by Github. Click on the Button "Create pull request" to finish the request process.
+   Github will then redirect you to a specific site of the **original repository** (adessoAG/devblog) for comparing changes and creating a pull request.
 
-   ![Pull request](/assets/images/how_to_write_a_post/06_open_pull_request.PNG)
+   7.3 Then, click on the button "Create pull request". 
+
+   ![Pull request](/assets/images/how_to_write_a_post/08_new_pull_request2.png)
+
+   An area with text fields will show up where you can add a message for the pull request. But you can leave the defaults as generated by Github. 
+   
+   7.4 Click on the button "Create pull request" to finish the request process and submit your post.
+
+   ![Pull request](/assets/images/how_to_write_a_post/09_new_pull_request3.png)
 
    The admins of the devblog repository will get a message notifying that there are changes that need a review. After they have reviewed and accepted your changes, you can view your post shortly after on adessos blog site [https://blog.adesso.de](https://blog.adesso.de)
 
