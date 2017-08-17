@@ -77,7 +77,7 @@ A valid filename looks like this: **2017-08-10-title-of-the-post.markdown** or *
 
 **Fork repository -> Write post -> Commit post -> Create pull request**
 
-1. Fork this repository to your GitHub account. **All the actions described below must be done on the forked repository**.
+1. Fork this repository to your GitHub account. **All the actions described below must be done on the forked repository on GitHub**.
 
 2. On the master branch, click on the `_posts` directory to get to the area where the post files are.
 
@@ -117,18 +117,18 @@ A text editor will show up where you can write your post.
    adessos CMS uses `prismjs` for its syntax highlighting. Please follow the instructions in the section [Syntax Highlighting](/devblog#syntax-highlighting) on this README page
    
 
-6. **Commit new file**. 
+6. **Commit new file**
 
-When you are done writing your post and want to submit it, first you need to commit the file.
-On the bottom of the text editor page you can find an area where you can commit your post. Add a commit message and a description (or leave it as is. GitHub will  take the default values as shown.) and click on the button "Commit new file".
+  When you are done writing your post and want to submit it, first you need to commit the file.
+  On the bottom of the text editor page you can find an area where you can commit your post. Add a commit message and a description (or leave it as is. GitHub will  take the default values as shown.) and click on the button "Commit new file".
 
 ![Commit new file](/assets/images/how_to_write_a_post/06_commit_new_file.png)
 
-7. **Create pull request**. 
+7. **Create pull request**
 
-After you committed your file, you must create a pull request in order to submit your post.
+  After you committed your file, you must create a pull request in order to submit your post.
    
-   7.1. Navigate to the main page of the repository in your fork: [/devblog](/devblog)
+   7.1. Navigate to the main page of the repository in your fork.
    
    7.2. Click on the button "New pull request".
 
