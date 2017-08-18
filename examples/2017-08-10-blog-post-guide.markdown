@@ -90,12 +90,17 @@ Anleitung weiter.
 Um Änderungen am Source Code vorzunehmen, erzeugst du zunächst einen Fork dieses Repositories
 über den "Fork"-Button in der GitHub Weboberfläche. Diesen Fork checkst du lokal aus (`git clone`) und machst
 die Änderungen am Source Code. Die geänderten Dateien checkst du dann wieder in den Fork ein (`git commit` + `git push`).
-Navigierst du im Browser dann zu deinem Fork, wird die ein Button angeboten, mit dem du einen Pull
+Navigierst du im Browser in der GitHub Weboberfläche dann zu deinem Fork, wird dir ein Button angeboten, mit dem du einen Pull
 Request erstellen kannst.
 
-Die Änderungen in deinem Pull Request werden dann gereviewed. Ggf. werden Änderungswünsche als Kommentare
+Die Änderungen in deinem Pull Request werden dann von einem Entwickler/Architekten-Kollegen gereviewed (wer das zentral macht
+wird noch geklärt). Ggf. werden Korrekturwünsche als Kommentare
 im Pull Request ergänzt, die du dann vornehmen und ebenfalls auf den Fork pushen kannst. Letztendlich
 wird der Pull Request dann vom Reviewer in den Haupt-Branch gemergt und dann automatisch veröffentlicht.
+
+**Hinweis:** die automatische Veröffentlichung auf dem adesso Blog startet vermutlich erst Ende September / Anfang Oktober. Bis
+dahin könnt ihr aber gerne schon Blog Posts per Pull Request einreichen. Wir klären dann, ob sie schon vorher nach dem alten 
+Verfahren veröffentlicht werden.
 
 Detailliertere Informationen zu diesem Workflow sind hier zu finden:
 
