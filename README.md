@@ -32,7 +32,7 @@ johndoe:
 ```
 To ensure the uniqueness of an authors name, we recommend using your github username as the root key name of the list (`johndoe:`). 
 
-Also note that the indentations under `johndoe:` are important for Jekylls building process. The indentations are done with **two whitespaces** (press the space bar two times).
+Also note that the indentations in the YAML file are important. The indentations are done with **two whitespaces**.
 
 You may also add a profile picture inside the `assets/images/avatars` directory.
 
@@ -69,7 +69,7 @@ You’ll find this post in the `_posts` directory.
 To add new posts, simply add a file in the `_posts` directory that follows the convention `YYYY-MM-DD-name-of-post.markdown` and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.
 ```
 
-Everything in between the first and second `---` are part of the YAML Front Matter, and everything after the second `---` will be rendered with Markdown and show up as “Content.”
+Everything in between the first and second `---` is part of the so-called "YAML Front Matter", and everything after the second `---` will be rendered with Markdown and show up as “Content.”
 
 ### Naming convention of post files 
 Post files are markdown files. Hence the following file extensions are accepted: **markdown,mkdown,mkdn,mkd,md**. The name of the post file must start with the current date (format: **YYYY-MM-DD**) followed by the title of the blog post. Each word should be separated by a dash `-`.
@@ -78,11 +78,13 @@ A valid filename looks like this: **2017-08-10-title-of-the-post.markdown** or *
 
 ### Writing a new blog post
 
+Contributing a blog post or correcting an existing blog post is done via pull request, just like contributing code to a code repository. The following describes the process of adding a new blog post by using the GitHub UI. You can also check out your fork of the repository and work offline with your favorite text editor.
+
 **Fork repository -> Write post -> Commit post -> Create pull request**
 
 1. Fork this repository to your GitHub account. **All the actions described below must be done on the forked repository on GitHub**.
 
-2. On the master branch, click on the `_posts` directory to get to the area where the post files are.
+2. On the master branch, navigate to the `_posts` directory to get to the area where the post files are.
 
 3. Click on "Create new file".
 
