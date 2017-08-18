@@ -80,7 +80,7 @@ public class HelloWorld {
 Um ein Bild zu verwenden, lege die Bild-Datei im Ordner `assets/images/posts/<POST_TITLE>` ab und
 verlinke sie dann in der Markdown-Datei wie in diesem Beispiel:
 
-![Logo der adesso AG](images/blog-post-guide/logo.png)
+![Logo der adesso AG](https://github.com/adessoAG/devblog/raw/master/assets/images/blog-post-guide/logo.png)
 
 ## GitHub Fork & Pull Workflow
 
