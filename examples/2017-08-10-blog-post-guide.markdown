@@ -83,6 +83,10 @@ verlinke sie dann in der Markdown-Datei wie in diesem Beispiel:
 
 ![Logo der adesso AG](https://github.com/adessoAG/devblog/raw/master/assets/images/blog-post-guide/logo.png)
 
+**Hinweis:** im Gegensatz zum Beispiel-Bild oben muss der Pfad zum Bild in einem Blog Post erst bei "assets" beginnen,
+müsste also so aussehen: "assets/images/blog-post-guide/logo.png". Zur Veranschaulichung wurde im Beispiel der
+absolute Pfad angegeben.
+
 ## GitHub Fork & Pull Workflow
 
 Solltest du noch nicht mit Pull Requests und dem GitHub-Workflow vertraut sein, hilft dir die folgende
