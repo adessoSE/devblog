@@ -22,11 +22,12 @@ wenden.
 Um loszulegen, erstelle einen Fork des [devblog](https://github.com/adessoAG/devblog) Repositories
 und checke ihn lokal aus. Dann kannst du lokal einen Blog Post erstellen und ihn später als
 Pull Request einreichen. Solltest du mit dem Pull Request Vorgehen nicht vertraut sein,
-kannst du es im Abschnitt "GitHub Fork & Pull Prozess" nachlesen.
+kannst du es im Abschnitt "GitHub Fork & Pull Prozess" weiter unten nachlesen.
 
 Blog Posts werden im [Markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
 Format erstellt. Du kannst dich an der Datei orientieren, in der diese Anleitung steht. Am besten
-nimmst du die vorliegende Datei einfach als Template.
+nimmst du die vorliegende Datei einfach als Template (wenn du dir diese Datei in der Github 
+Weboberfläche anschaust, musst du vorher auf den "Raw"-Button klicken, um den Quelltext zu sehen).
 Im folgenden sind einige Aspekte des Formats aber auch nochmal beschrieben.
 
 ### Dateiname und Ablageort
