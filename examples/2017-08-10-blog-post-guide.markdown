@@ -78,7 +78,7 @@ public class HelloWorld {
 
 ### Bilder
 
-Um ein Bild zu verwenden, lege die Bild-Datei im Ordner `assets/images/posts/<POST_TITLE>` ab und
+Um ein Bild zu verwenden, lege die Bild-Datei im Ordner `assets/images/posts/titel-deines-blog-posts` ab und
 verlinke sie dann in der Markdown-Datei wie in diesem Beispiel:
 
 ![Logo der adesso AG](https://github.com/adessoAG/devblog/raw/master/assets/images/blog-post-guide/logo.png)
