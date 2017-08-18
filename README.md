@@ -2,7 +2,7 @@
 This repository is the main place to write blog posts that are intended to be published on the adesso AG's blog [https://blog.adesso.de](https://blog.adesso.de).
 
 # How it works
-We use Jekyll to transform blog posts written in Markdown syntax to specific XML files. These files are grabbed and processed by adessos CMS System and finally published on adessos blog. 
+We use Jekyll to transform blog posts written in Markdown syntax to specific XML files. These files are grabbed and processed by the content management system hosting the adesso blog.
 
 ## What is Jekyll you ask? 
 Jekyll says:
@@ -12,7 +12,10 @@ Jekyll says:
 ([Jekyll](https://jekyllrb.com/docs/home/))
 
 # Get started with blog posts for adesso AG
+
 ## Preparation
+Blog Posts are contributed via Pull Requests, just like Open Source software (for more details, see section "Writing a Blog Post").
+
 If this is your first time writing a blog post for the adesso AG blog site, first you need to add your author information within the [authors.yml](_data/authors.yml) file located in `_data/authors.yml`. This is required because Jekyll will take your author information from that file and use them when generating HTML files from the post files.
 
 Please add your information accordingly to the end of the list inside authors.yml. Here is an example on how the author information should be formatted:
