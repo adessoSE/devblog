@@ -15,3 +15,12 @@ david:
   bio:
   avatar_url: /assets/images/avatars/david.png
   github: https://github.com/daklassen
+
+AdessoMaDa:
+  first_name: Marcus
+  last_name: Danner
+  github_username: AdessoMaDa
+  email: marcus.danner@adesso.de
+  bio:
+  avatar_url: /assets/images/avatars/david.png
+  github: https://github.com/AdessoMaDa
