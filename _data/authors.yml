@@ -15,3 +15,12 @@ david:
   bio:
   avatar_url: /assets/images/avatars/david.png
   github: https://github.com/daklassen
+
+thombergs:
+  first_name: Tom
+  last_name: Hombergs
+  github_username: thombergs
+  email: hombergs@adesso.de
+  bio: "Tom Hombergs ist Softwarearchitekt und Teamleiter bei adesso in Dortmund und entwickelt Softwarearchitekturen für unsere Kunden."
+  avatar_url: /assets/images/avatars/david.png
+  github: https://github.com/thombergs
