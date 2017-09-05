@@ -8,7 +8,20 @@ categories: [Java, Architektur]
 tags: []
 ---
 
+## Worum geht's hier?
 
+Im Zuge der Digitalisierung von Geschäftsprozessen laufen große unternehmenskritische Applikationen zunehmend nicht mehr ausschließlich im internen Betrieb, sondern
+müssen auch unternehmensexterne Benutzer wie Geschäftspartner und Kunden ansprechen. Diesen werden ausgewählte Informationen zu laufenden Geschäftsvorgängen zugänglich gemacht.
+Dabei muss die Verschlossenheit der nur intern genutzten Daten zu den Geschäftsvorgängen erhalten bleiben. Nur jene Informationen, die explizit freigegeben wurden, 
+dürfen für externe Nutzer einsehbar sein.
+
+Dies wird sichergestellt durch einen Prozess, der eine explizite Freigabe der zu veröffentlichenden Informationen vorsieht und durch separate Speicherung der veröffentlichten Daten 
+sowie durch separate Zugriffspfade.
+
+Die folgende Abbildung zeigt eine grobe Prozessbechreibung:
+![Prozessbechreibung zu NodeJS als Auskunftswebservice einer JEE-Applikation](https://github.com/adessoAG/devblog/raw/master/assets/images/NodeJS-als-Auskunftswebservice-einer-JEE-Applikation/Aktivitätsdiagramm.png)
+
+Im vorliegenden Projektbeispiel haben wir uns entschieden, die Geschäftsapplikation als JEE-Applikation zu entwickeln und diese um einen Auskunftsservice auf Basis des MEAN-Stacks zu erweitern.
 
 ## Warum entwickeln wir JEE-Applikationen?
 
@@ -31,7 +44,7 @@ Die Verarbeitung auch von großen Datenmengen ist möglich und es stehen Werkzeuge
 
 ## Welche Nachteile hat diese Architektur?
 
-Der grpße Funktionsumfang der zugrunde liegenden Softwaresysteme  bringt aber auch Nachteile mit sich. Relationale Datenbanksysteme mit transaktionsorientierter Arbeitsweise
+Der große Funktionsumfang der zugrunde liegenden Softwaresysteme  bringt aber auch Nachteile mit sich. Relationale Datenbanksysteme mit transaktionsorientierter Arbeitsweise
 begrenzen die Möglichkeit von echt paralleler Verarbeitung, da beim gleichzeitigen Zugriff auf sich überschneidende Datenbestände immer eine logische Serialisierung der Zugriffe stattfindet.
 Dies erzwingt Wartezeiten beim gelichzeitigen Zugriff auf sich überschneidende Datenbestände. Die Mechanismen, welche die dauerhafte Speicherung von ausgeführten Datenänderungen
 sicherstellen, führen zu zusätzliche Verarbeitungsschritten und verlängern somit die Ausführungszeit.
