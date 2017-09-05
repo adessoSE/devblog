@@ -19,7 +19,7 @@ Dies wird sichergestellt durch einen Prozess, der eine explizite Freigabe der zu
 sowie durch separate Zugriffspfade.
 
 Die folgende Abbildung zeigt eine grobe Prozessbechreibung:
-![Prozessbechreibung zu NodeJS als Auskunftswebservice einer JEE-Applikation](https://github.com/adessoAG/devblog/raw/master/assets/images/NodeJS-als-Auskunftswebservice-einer-JEE-Applikation/Aktivitätsdiagramm.png)
+![Prozessbechreibung zu NodeJS als Auskunftswebservice einer JEE-Applikation](https://github.com/adessoAG/devblog/raw/master/assets/images/NodeJS-als-Auskunftswebservice-einer-JEE-Applikation/Aktivitaetsdiagramm.png)
 
 Im vorliegenden Projektbeispiel haben wir uns entschieden, die Geschäftsapplikation als JEE-Applikation zu entwickeln und diese um einen Auskunftsservice auf Basis des MEAN-Stacks zu erweitern.
 
