@@ -1,3 +1,13 @@
+---
+layout:         [post, post-xml]              
+title:          "Tracing in verteilten Systemen mit Spring Cloud Sleuth"
+date:           2017-09-05 21:37
+modified_date: 
+author:         thombergs 
+categories:     [Java, Architektur]
+tags:           [Spring, Microservices]
+---
+
 In verteilten Systemen ist es selbstverständlich, dass viele verteilte Komponenten
 an der Beantwortung eines einzelnen eingehenden Requests beteiligt sein können. Insbesondere für 
 Debugging-Zwecke ist es unabdingbar, dass ein solcher Request durch die beteiligten Komponenten 
@@ -6,7 +16,7 @@ werden kann. Dieser Artikel geht auf die Traceability von Requests und Fehlern i
 ein und gibt einige Tipps und Tricks mit, um eine Lösung auf Basis von Spring Cloud Sleuth 
 umzusetzen.
 
-## Traceability in verteilten Systemen
+# Traceability in verteilten Systemen
 
 Selbst in einem monolithischen System ist die Verfolgung von Fehlern oft schon schwer genug. Um die Ursache eines
 Fehlers zu finden, durchsucht man die Logfiles der Application Server rund um den Zeitpunkt, zu dem der
@@ -34,9 +44,9 @@ Diese Korrelations-ID wird üblicherweise Trace-ID genannt. Eine Trace-ID wird e
 an das System gestellt wird. Innerhalb des Systems wird die Trace-ID dann jeweils an den nächsten Upstream-Service
 mitgegeben, so dass sie in Logausgaben aller beteiligten Services genutzt werden kann.
 
-![Verteilte Architektur](assets/images/tracing-mit-spring-cloud-sleuth/trace.png)
+![Verteilte Architektur](/assets/images/tracing-mit-spring-cloud-sleuth/trace.png)
 
-## Tracing implementieren mit Spring Cloud Sleuth
+# Tracing implementieren mit Spring Cloud Sleuth
 
 Eine Bibliothek, mit der ein solches Tracing implementiert werden kann, ist 
 [Spring Cloud Sleuth](https://cloud.spring.io/spring-cloud-sleuth/) ("sleuth" bedeutet
@@ -46,7 +56,7 @@ wie man Spring Cloud Sleuth in einer Spring Boot Anwendung konfiguriert und wora
 
 Eine Beispiel-Anwendung bestehend aus zwei miteinander kommunizierenden Services auf Basis von Spring Boot ist auf Github
 zu finden ([downstream-service](https://github.com/thombergs/code-examples/tree/master/sleuth-downstream-service) und
-[upstream-service](https://github.com/thombergs/code-examples/tree/master/sleuth-upstream-service).
+[upstream-service](https://github.com/thombergs/code-examples/tree/master/sleuth-upstream-service)).
 
 ## Spring Cloud Sleuth aktivieren
 
