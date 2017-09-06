@@ -125,6 +125,15 @@ Detailliertere Informationen zu diesem Workflow sind hier zu finden:
 * [GitHub Help](https://help.github.com/articles/about-pull-requests/)
 * [GitHub Fork & Pull](https://reflectoring.io/github-fork-and-pull/)
 
+# Online Preview 
+
+Wenn ein Pull Request mit einem neuen Blog Post eingegangen ist, wird automatisch ein Build angestoßen,
+der eine Vorschau auf einem Vorschauserver bereitstellt. Um die Vorschau anzusehen, klicke auf den Pull
+Request in der Github GUI und dort auf den Link "Details" neben dem Check "deploy/netlify".
+
+Nachdem der Pull Request gemergt ist, wird der Blog Post automatisch mit der nächsten Synchronisation
+in den adesso Blog integriert. 
+
 # Technischer Hintergrund
 
 Wenn dich interessiert, wie die Blog Posts aus einer Markdown-Datei im adesso Blog landen, kannst
