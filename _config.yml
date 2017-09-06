@@ -44,3 +44,4 @@ plugins:
 exclude:
   - assets/first-spirit-xml
   - examples/
+  - vendor
