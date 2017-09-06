@@ -129,7 +129,8 @@ Detailliertere Informationen zu diesem Workflow sind hier zu finden:
 
 Wenn ein Pull Request mit einem neuen Blog Post eingegangen ist, wird automatisch ein Build angestoßen,
 der eine Vorschau auf einem Vorschauserver bereitstellt. Um die Vorschau anzusehen, klicke auf den Pull
-Request in der Github GUI und dort auf den Link "Details" neben dem Check "deploy/netlify".
+Request in der Github GUI und dort auf den Link "Details" neben dem Check "deploy/netlify". Ggf. müssen
+die Checks erst über den Button "Show all checks" aufgeklappt werden.
 
 Nachdem der Pull Request gemergt ist, wird der Blog Post automatisch mit der nächsten Synchronisation
 in den adesso Blog integriert. 
