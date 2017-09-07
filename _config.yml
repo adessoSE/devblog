@@ -16,7 +16,7 @@ blog_intro: "In unserem Blog nehmen wir Sie mit auf eine spannende Reise quer du
 # _plugins directory
 permalink: blog-posts/:year-:month-:day/:title.html
 paginate: 5 # amount of posts to show
-paginate_path: /pages/page:num/
+paginate_path: /page:num/
 timezone: Europe/Berlin
 
 # Serving
