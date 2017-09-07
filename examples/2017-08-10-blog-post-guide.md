@@ -17,7 +17,7 @@ deiner Erfahrung als Softwareentwickler bereits kennst :).
 Sollte es noch fragen geben, kannst du dich an den Verteiler [devblog@adesso.de](mailto:devblog@adesso.de)
 wenden.
 
-## Einen Blog Post erstellen
+# Einen Blog Post erstellen
 
 Um loszulegen, erstelle einen Fork des [devblog](https://github.com/adessoAG/devblog) Repositories
 und checke ihn lokal aus. Dann kannst du lokal einen Blog Post erstellen und ihn später als
@@ -30,12 +30,12 @@ nimmst du die vorliegende Datei einfach als Template (wenn du dir diese Datei in
 Weboberfläche anschaust, musst du vorher auf den "Raw"-Button klicken, um den Quelltext zu sehen).
 Im folgenden sind einige Aspekte des Formats aber auch nochmal beschrieben.
 
-### Dateiname und Ablageort
+## Dateiname und Ablageort
 
 Alle Blog Posts müssen im Ordner `_posts` abgelegt werden und dem Namensschema
-`YYYY-MM-DD-titel-des-blog-posts.markdown` folgen.
+`YYYY-MM-DD-titel-des-blog-posts.md` folgen.
 
-### Autoren-Informationen
+## Autoren-Informationen
 
 Wenn du deinen ersten Blog Post schreibst, musst du in der Datei `_data/authors.yml` einen Eintrag
 mit deinen Informationen wie im folgenden Codebeispiel hinterlegen. Als key nimmst du am besten
@@ -52,18 +52,31 @@ johndoe:
   github: https://github.com/johndoe
 ```
 
-### Metadaten
+## Metadaten
 
 Jede Blog Post Markdown-Datei beginnt mit einem kurzen Abschnitt, in dem einige Metadaten enthalten
 sind. Dieser Abschnitt ist mit `---` vom eigentlichen Inhalt getrennt und ist als YAML formatiert.
 Hier sind einige Pflichtfelder auszufüllen. Schau dir einfach den Header dieser Datei als Beispiel
 an.
 
-### Überschriften
+## Teaser
 
-TODO: wie viele Überschriften-Level gibt es?
+Der erste Absatz (also alles bis zur ersten Leerzeile in der Markdown-Datei) wird als Teaser übernommen. Der erste Absatz
+sollte also höchstens ein paar Sätze und keine Überschriften beinhalten.
 
-### Syntax Highlighting
+## Überschriften
+
+Es können bis zu 3 Überschriften-Ebenen genutzt werden:
+
+```markdown
+# Erste Ebene
+
+## Zweite Ebene
+
+### Dritte Ebene
+```
+
+## Syntax Highlighting
 
 Markdown unterstützt Syntax-Highlighting. Für die Darstellung im Blog wird [PrismJS](http://prismjs.com/#languages-list)
 eingesetzt, so dass du alle von PrismJS unterstützten Sprachen verwenden kannst. Beispiel für Java-Code:
@@ -76,7 +89,7 @@ public class HelloWorld {
 }
 ```
 
-### Bilder
+## Bilder
 
 Um ein Bild zu verwenden, lege die Bild-Datei im Ordner `assets/images/posts/titel-deines-blog-posts` ab und
 verlinke sie dann in der Markdown-Datei wie in diesem Beispiel:
@@ -87,7 +100,7 @@ verlinke sie dann in der Markdown-Datei wie in diesem Beispiel:
 müsste also so aussehen: "assets/images/blog-post-guide/logo.png". Zur Veranschaulichung wurde im Beispiel der
 absolute Pfad angegeben.
 
-## GitHub Fork & Pull Workflow
+# GitHub Fork & Pull Workflow
 
 Solltest du noch nicht mit Pull Requests und dem GitHub-Workflow vertraut sein, hilft dir die folgende
 Anleitung weiter.
@@ -112,7 +125,7 @@ Detailliertere Informationen zu diesem Workflow sind hier zu finden:
 * [GitHub Help](https://help.github.com/articles/about-pull-requests/)
 * [GitHub Fork & Pull](https://reflectoring.io/github-fork-and-pull/)
 
-## Technischer Hintergrund
+# Technischer Hintergrund
 
 Wenn dich interessiert, wie die Blog Posts aus einer Markdown-Datei im adesso Blog landen, kannst
 du dir das Projekt [jekyll2cms](https://github.com/adessoAG/jekyll2cms) anschauen. Diese Anwendung
