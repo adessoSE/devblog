@@ -13,7 +13,7 @@ layout: default
 
 
 
-{% for post in site.posts %}
+{% for post in paginator.posts %}
 {% assign author = site.data.authors[post.author] %}
 <div class="adesso-news-elem p-b-1 p-t-2">
 <div class="col-md-10 p-b-1 adesso-p-md-r-3 p-r-2 p-l-0">
@@ -64,7 +64,7 @@ weiterlesen
 {% endfor %}
 
 <!-- Pagination links -->
-<!-- TODO -->
+{% include pagination.html %}
 
 </div>
 </div>
