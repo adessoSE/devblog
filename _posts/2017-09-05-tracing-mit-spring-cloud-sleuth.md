@@ -10,8 +10,8 @@ tags:           [Spring, Microservices]
 
 In verteilten Systemen ist es selbstverständlich, dass viele verteilte Komponenten
 an der Beantwortung eines einzelnen eingehenden Requests beteiligt sein können. Insbesondere für 
-Debugging-Zwecke ist es unabdingbar, dass ein solcher Request durch die beteiligten Komponenten 
-innerhalb des verteilten Systems nachvollzogen
+Debugging-Zwecke ist es unabdingbar, dass ein solcher Request  
+innerhalb des verteilten Systems über alle beteiligten Komponenten hinweg nachvollzogen
 werden kann. Dieser Artikel geht auf die Traceability von Requests und Fehlern in verteilten Systemen ein
 ein und gibt einige Tipps und Tricks mit, um eine Lösung auf Basis von Spring Cloud Sleuth 
 umzusetzen.
@@ -29,9 +29,9 @@ In einem verteilten System wird diese Analyse noch mal erschwert, da verschieden
 "Services" genannt) an der Verarbeitung
 eines einzelnen Requests beteiligt sind. Hier sind ein zentraler Logserver und eine Correlation-ID unabdingbar. Der 
 Unterschied zum monolothischen System ist, dass diese Correlation-ID sich nun über verschiedene Services
-spannt und somit zwischen den Anwendungen verteilt werden muss.
+spannt und somit zwischen den Services verteilt werden muss.
 
-Als anschauliches Beispiel für diesen Artikel soll ein verteiltes System mit 3 Services dienen (siehe Abbildung).
+Als anschauliches Beispiel für diesen Artikel soll ein verteiltes System mit 3 Services dienen (siehe Abbildung unten).
 Im Rahmen eines Requests `getCustomerWithAddress` sollen Kunden- und Addressdaten geliefert werden. Die Kundendaten und 
 Addressdaten liegen aber jeweils in der Verantwortung eines anderen Service, so dass der initial angefragte 
 Downstream-Service diese Daten dort anfragen und dann zu einer Antwort aggregieren muss. 
@@ -40,11 +40,12 @@ im Logfile des Upstream-Service festgehalten. Da der Downstream-Service eine Feh
 wird der Fehler vermutlich auch dort geloggt. Für eine einfache Ursachenanalyse sollen die Fehler in beiden Logfiles
 nun über eine gemeinsame ID miteinander korelliert werden.
 
+![Verteilte Architektur](/assets/images/tracing-mit-spring-cloud-sleuth/trace.png)
+
 Diese Korrelations-ID wird üblicherweise Trace-ID genannt. Eine Trace-ID wird erzeugt, wenn ein Request von außen
 an das System gestellt wird. Innerhalb des Systems wird die Trace-ID dann jeweils an den nächsten Upstream-Service
 mitgegeben, so dass sie in Logausgaben aller beteiligten Services genutzt werden kann.
 
-![Verteilte Architektur](/assets/images/tracing-mit-spring-cloud-sleuth/trace.png)
 
 # Tracing implementieren mit Spring Cloud Sleuth
 
@@ -78,7 +79,7 @@ an dessen Vokabular Sleuth sich bedient.
 Nun, da eine Trace-ID vorhanden ist, soll diese auch in unseren Logausgaben erscheinen. Sleuth unterstützt hierbei,
 indem es die Trace-ID an den [Mapped Diagnostic Context (MDC)](https://www.slf4j.org/manual.html#mdc) von SLF4J weitergibt. 
 Über den Namen `X-B3-TraceId` kann sie in einer Log-Pattern referenziert werden. Hier ein Beispiel-Log-Pattern,
-die in einer Logback-Konfiguration genutzt werden kann:
+das in einer Logback-Konfiguration genutzt werden kann:
 
 ```
 %d{yyyy-MM-dd HH:mm:ss.SSS} %5p [%X{X-B3-TraceId:-}] %m%n
@@ -186,7 +187,7 @@ werden, so dass die Trace-ID clientseitig strukturiert ausgelesen werden kann.
 
 Nutzt man einen zentralen Logserver wie z.B. [Graylog](https://www.graylog.org), macht es Sinn,
 dass die Trace-ID nicht nur als Teil der textuellen Log-Nachricht sondern auch als separates, indizierbares
-Feld übertragen wird. Ein Standardformat zur Datenübertragung von Logdaten ist das [Graylog Extended Log Format (GELF)](http://docs.graylog.org/en/2.3/pages/gelf.html),
+Feld übertragen wird. Ein Standardformat zur Datenübertragung von Logdaten ist das [Graylog Extended Log Format (GELF)](http://docs.graylog.org/en/2.3/pages/gelf.html).
 Die folgende Logback-Konfiguration `logback-spring.xml` nutzt die Library 
 `me.moocar:logback-gelf`, um Lognachrichten in das GELF-Format zu übersetzen und an einen Graylog-Server
 zu senden:
@@ -245,7 +246,7 @@ spring.zipkin.baseUrl: http://localhost:9411/
 ## Beispiel-Projekte
 
 Der Beispiel-Code mit einem Downstream- und einen Upstream-Service analog des in diesem Artikel genannten
-Beispiels mit Adress- und Kundendaten ist auf Github zu finden: 
-([downstream-service](https://github.com/thombergs/code-examples/tree/master/sleuth-downstream-service) und
+Beispiels mit Adress- und Kundendaten ist über die folgenden Links auf Github zu finden: 
+[downstream-service](https://github.com/thombergs/code-examples/tree/master/sleuth-downstream-service) und
 [upstream-service](https://github.com/thombergs/code-examples/tree/master/sleuth-upstream-service).
 Die Services sind jeweils mit einer README-Datei versehen, so dass sie sich einfach ausprobieren lassen.
