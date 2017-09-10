@@ -251,14 +251,14 @@ angegeben werden:
 spring.zipkin.baseUrl: http://localhost:9411/
 ```
 
-## Zusammenfassung
+# Zusammenfassung
 
 Dieser Artikel hat gezeigt, dass man mit überschaubarem Konfigurationsaufwand mit Spring Boot und Sleuth 
 ein sinnvolles Logging in einem verteilten System realisieren kann, das einem die Fehlersuche deutlich einfacher macht. 
 Die Tracing-Daten können als separate, indizierbare Felder an einen zentralen Logserver übermittelt werden, so
 dass die Suche nach Trace-IDs in den Logdaten ebenfalls vereinfacht wird.
 
-## Beispiel-Projekte
+# Beispiel-Projekte
 
 Der Beispiel-Code mit einem Downstream- und einen Upstream-Service analog des in diesem Artikel genannten
 Beispiels mit Adress- und Kundendaten ist über die folgenden Links auf Github zu finden: 
