@@ -12,7 +12,7 @@ In verteilten Systemen ist es selbstverständlich, dass viele verteilte Komponen
 an der Beantwortung eines einzelnen eingehenden Requests beteiligt sein können. Insbesondere für 
 Debugging-Zwecke ist es unabdingbar, dass ein solcher Request  
 innerhalb des verteilten Systems über alle beteiligten Komponenten hinweg nachvollzogen
-werden kann. Dieser Artikel geht auf die Traceability von Requests und Fehlern in verteilten Systemen ein
+werden kann. Dieser Artikel geht auf die Traceability von Requests und Fehlern in verteilten Systemen
 ein und gibt einige Tipps und Tricks mit, um eine Lösung auf Basis von Spring Cloud Sleuth 
 umzusetzen.
 
@@ -22,7 +22,7 @@ Selbst in einem monolithischen System ist die Verfolgung von Fehlern oft schon s
 Fehlers zu finden, durchsucht man die Logfiles der Application Server rund um den Zeitpunkt, zu dem der
 Fehler aufgetreten ist, und hofft, dass man einen Stacktrace findet, der den Fehler erklärt. Idealerweise
 wurde dem Benutzer eine Correlation-ID ausgegeben, die den Request eindeutig identifiziert, so dass man 
-in den Logfiles einfach nach dieser ID suchen kann. Noch besser, wenn die Logfiles zentral in einem Logserver wie z.B. Graylog 
+in den Logfiles einfach nach dieser ID suchen kann. Noch mehr hilft es, wenn die Logfiles zentral in einem Logserver wie z.B. Graylog 
 aggregiert und durchsuchbar gemacht wurden.
 
 In einem verteilten System wird diese Analyse noch mal erschwert, da verschiedene Komponenten (im folgenden 
@@ -35,9 +35,9 @@ Als anschauliches Beispiel für diesen Artikel soll ein verteiltes System mit 3 
 Im Rahmen eines Requests `getCustomerWithAddress` sollen Kunden- und Addressdaten geliefert werden. Die Kundendaten und 
 Addressdaten liegen aber jeweils in der Verantwortung eines anderen Service, so dass der initial angefragte 
 Downstream-Service diese Daten dort anfragen und dann zu einer Antwort aggregieren muss. 
-Tritt nun z.B. beim Ermitteln der Kundendaten in einem der Upstream-Services ein Fehler auf, wird dieser vermutlich
-im Logfile des Upstream-Service festgehalten. Da der Downstream-Service eine Fehler-Antwort erhält,
-wird der Fehler vermutlich auch dort geloggt. Für eine einfache Ursachenanalyse sollen die Fehler in beiden Logfiles
+Tritt nun z.B. beim Ermitteln der Kundendaten in einem der Upstream-Services ein Fehler auf, wird dieser in dessen Logfile
+festgehalten. Da der Downstream-Service eine Fehler-Antwort vom Upstream-Service erhält,
+wird der Fehler auch dort geloggt. Für eine einfache Ursachenanalyse sollen die Fehler in beiden Logfiles
 nun über eine gemeinsame ID miteinander korelliert werden.
 
 ![Verteilte Architektur](/assets/images/tracing-mit-spring-cloud-sleuth/trace.png)
@@ -50,8 +50,8 @@ mitgegeben, so dass sie in Logausgaben aller beteiligten Services genutzt werden
 # Tracing implementieren mit Spring Cloud Sleuth
 
 Eine Bibliothek, mit der ein solches Tracing implementiert werden kann, ist 
-[Spring Cloud Sleuth](https://cloud.spring.io/spring-cloud-sleuth/) ("sleuth" bedeutet
-im Englischen "Spürhund"). Sleuth ist Teil des Spring Cloud Projekts, welches Lösungen für bestimmte
+[Spring Cloud Sleuth](https://cloud.spring.io/spring-cloud-sleuth/) (engl. für "Spürhund").
+Sleuth ist Teil des Spring Cloud Projekts, welches Lösungen für bestimmte
 Herausforderungen in Cloud-Systemen - die per se verteilte Systeme sind - zur Verfügung stellt. Im folgenden wird beschrieben,
 wie man Spring Cloud Sleuth in einer Spring Boot Anwendung konfiguriert und worauf man dabei achten muss.
 
@@ -67,9 +67,10 @@ Zunächst muss Spring Cloud Sleuth als Dependency in die eigene Anwendung eingeb
 compile('org.springframework.cloud:spring-cloud-starter-sleuth:1.2.4.RELEASE')
 ```
 
-Sleuth ist damit standardmäßig aktiviert und erzeugt bei eingehenden Requests eine Trace-ID. Ist im Header der
-Anfrage bereits eine Trace-ID enthalten, wird diese übernommen. In ausgehenden Anfragen wird die Trace-ID automatisch
-automatisch in den Header `x-b3-traceid` geschrieben, so dass der aufgerufene Service sie übernehmen kann.
+Sleuth ist damit standardmäßig aktiviert und erzeugt bei eingehenden Requests eine Trace-ID. Ist im Header des
+Requests bereits eine Trace-ID enthalten, wird diese übernommen. In ausgehenden Requests (z.B. über [Feign](http://projects.spring.io/spring-cloud/spring-cloud.html#spring-cloud-feign)
+oder das Spring [RestTemplate](https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-restclient.html#boot-features-restclient)) wird die Trace-ID
+automatisch in den HTTP-Header `x-b3-traceid` geschrieben, so dass der aufgerufene Service sie übernehmen kann.
 Der etwas seltsam anmutende Name des Felds ergibt sich aus dem Präfix `x`, welches für Headernamen genutzt wird, die nicht Teil des
 HTTP-Standards sind und `b3` für "BigBrotherBird", was der ursprüngliche Name des Tracing-Tools [Zipkin](http://zipkin.io) ist,
 an dessen Vokabular Sleuth sich bedient. 
@@ -188,9 +189,16 @@ werden, so dass die Trace-ID clientseitig strukturiert ausgelesen werden kann.
 Nutzt man einen zentralen Logserver wie z.B. [Graylog](https://www.graylog.org), macht es Sinn,
 dass die Trace-ID nicht nur als Teil der textuellen Log-Nachricht sondern auch als separates, indizierbares
 Feld übertragen wird. Ein Standardformat zur Datenübertragung von Logdaten ist das [Graylog Extended Log Format (GELF)](http://docs.graylog.org/en/2.3/pages/gelf.html).
+
 Die folgende Logback-Konfiguration `logback-spring.xml` nutzt die Library 
-`me.moocar:logback-gelf`, um Lognachrichten in das GELF-Format zu übersetzen und an einen Graylog-Server
-zu senden:
+`logback-gelf`, um Lognachrichten in das GELF-Format zu übersetzen und an einen Graylog-Server
+zu senden. Die Library kann mit Gradle wie folgt eingebunden werden:
+
+```groovy
+compile('me.moocar:logback-gelf:0.3')
+```
+
+Mit ihrer Hilfe lässt sich ein Appender z.B. wie folgt konfigurieren:  
 
 ```xml
 <configuration>
@@ -242,6 +250,13 @@ angegeben werden:
 ```
 spring.zipkin.baseUrl: http://localhost:9411/
 ```
+
+## Zusammenfassung
+
+Dieser Artikel hat gezeigt, dass man mit überschaubarem Konfigurationsaufwand mit Spring Boot und Sleuth 
+ein sinnvolles Logging in einem verteilten System realisieren kann, das einem die Fehlersuche deutlich einfacher macht. 
+Die Tracing-Daten können als separate, indizierbare Felder an einen zentralen Logserver übermittelt werden, so
+dass die Suche nach Trace-IDs in den Logdaten ebenfalls vereinfacht wird.
 
 ## Beispiel-Projekte
 
