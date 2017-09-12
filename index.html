@@ -1,5 +1,8 @@
 ---
 layout: default
+sitemap: false
+pagination:
+  enabled: true
 ---
 {% include display-content.html %}
 <div class="row">
@@ -14,6 +17,7 @@ layout: default
 
 
 {% for post in paginator.posts %}
+{% if post.layout == 'post' %}
 {% assign author = site.data.authors[post.author] %}
 <div class="adesso-news-elem p-b-1 p-t-2">
 <div class="col-md-10 p-b-1 adesso-p-md-r-3 p-r-2 p-l-0">
@@ -61,10 +65,12 @@ weiterlesen
 
 </tbody>
 </table>
+{% endif %}
 {% endfor %}
 
 <!-- Pagination links -->
 {% include paginator.html %}
+<!-- TODO -->
 
 </div>
 </div>

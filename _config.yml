@@ -15,7 +15,7 @@ blog_intro: "In unserem Blog nehmen wir Sie mit auf eine spannende Reise quer du
 # permalink: possible that it is been owerwritten by the plugin 'multipost.rb' within the 
 # _plugins directory
 permalink: blog-posts/:year-:month-:day/:title.html
-paginate: 5 # amount of posts to show
+paginate: 12 # amount of posts to show
 paginate_path: /page:num/
 timezone: Europe/Berlin
 
@@ -34,16 +34,100 @@ kramdown:
 encoding: "utf-8"
 markdown_ext: "markdown,mkdown,mkdn,mkd,md"
 
+# Konfiguration für das Erstellen der Bilder
+mini_magick:
+    fullScreen_1600:
+        source: assets/images/originals
+        destination: /assets/images/FullScreenPicture/resolution1600
+        resize: "1920x1070"
+        gravity: "Center"
+        crop: "1920x1070"
+    fullScreen_1440:
+        source: assets/images/originals
+        destination: /assets/images/FullScreenPicture/resolution1440
+        resize: "x1090"
+        gravity: "Center"
+        crop: "1400x1090"
+    fullScreen_1200:
+        source: assets/images/originals
+        destination: /assets/images/FullScreenPicture/resolution1200
+        resize: "x1020"
+        gravity: "Center"
+        crop: "1440x1020"
+    fullScreen_1024:
+        source: assets/images/originals
+        destination: /assets/images/FullScreenPicture/resolution1024
+        resize: "x1200"
+        gravity: "Center"
+        crop: "1536x1200"
+    fullScreen_768:
+        source: assets/images/originals
+        destination: /assets/images/FullScreenPicture/resolution768
+        resize: "x940"
+        gravity: "Center"
+        crop: "1152x940"
+    fullScreen_600:
+        source: assets/images/originals
+        destination: /assets/images/FullScreenPicture/resolution600
+        resize: "x470"
+        gravity: "Center"
+        crop: "600x470"
+    fullScreen_480:
+        source: assets/images/originals
+        destination: /assets/images/FullScreenPicture/resolution480
+        resize: "x615"
+        gravity: "Center"
+        crop: "480x615"
+    fullScreen_0:
+        source: assets/images/originals
+        destination: /assets/images/FullScreenPicture/resolution0
+        gravity: "Center"
+        resize: "x864"
+        crop: "640x864"
+    PicturesSideBySide_1600:
+        source: assets/images/originals
+        destination: /assets/images/PicturesSideBySide/resolution1600
+        resize: "1700x"
+        gravity: "Center"
+        crop: "1700x850"
+    PicturesSideBySide_1440:
+        source: assets/images/originals
+        destination: /assets/images/PicturesSideBySide/resolution1440
+        resize: "850x"
+        gravity: "Center"
+        crop: "850x425"
+    PicturesSideBySide_480:
+        source: assets/images/originals
+        destination: /assets/images/PicturesSideBySide/resolution480
+        resize: "686x" 
+        gravity: "Center"
+        crop: "686x343"
+    TextPictureParagraph_1600:
+        source: assets/images/originals
+        destination: /assets/images/TextPictureParagraph/resolution1600
+        resize: "x548"
+        gravity: "Center"
+        crop: "840x548+0+0"
+    TextPictureParagraph_1440:
+        source: assets/images/originals
+        destination: /assets/images/TextPictureParagraph/resolution1440
+        resize: "x274"
+        gravity: "Center"
+        crop: "410x274"
+    TextPictureParagraph_480:
+        source: assets/images/originals
+        destination: /assets/images/TextPictureParagraph/resolution480
+        resize: "x231"
+        gravity: "Center"
+        crop: "343x231+0+0"
+
 # Plugins
 plugins:
   - liquid-md5
-  - jekyll-paginate
+  - jekyll-paginate-v2
   - jekyll-sitemap
   - jekyll-gist
   - jekyll-feed
-  - jekyll-minimagick
-  - jekyll-retinamagick
-  
 
 exclude:
   - assets/first-spirit-xml

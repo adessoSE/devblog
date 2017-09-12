@@ -44,7 +44,7 @@ Diese Korrelations-ID wird üblicherweise Trace-ID genannt. Eine Trace-ID wird e
 an das System gestellt wird. Innerhalb des Systems wird die Trace-ID dann jeweils an den nächsten Upstream-Service
 mitgegeben, so dass sie in Logausgaben aller beteiligten Services genutzt werden kann.
 
-![Verteilte Architektur](/assets/images/tracing-mit-spring-cloud-sleuth/trace.png)
+![Verteilte Architektur](/assets/images/originals/tracing-mit-spring-cloud-sleuth/trace.png)
 
 # Tracing implementieren mit Spring Cloud Sleuth
 
