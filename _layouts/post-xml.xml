@@ -19,7 +19,7 @@
         {%- endfor -%}
     {% endif %}
         <field name="date_date"><![CDATA[{{page.date | date_to_xmlschema}}]]></field>
-        <field name="date_1"><![CDATA[{{page.date | date: "%s"}}]]></field>
+        <field name="date_l"><![CDATA[{{page.date | date: "%s"}}]]></field>
         <field name="change_date"><![CDATA[
             {%- if page.modified_date -%} 
             {{page.modified_date | date: "%s"}}
@@ -27,10 +27,19 @@
             {{page.date | date: "%s"}}
             {%- endif -%}
             ]]></field>
+        <!--Picture-->
+        <!-- Not in use in the moment
+        <field name="pictureInOverview_stored_only"><![CDATA[]]></field>
+        <field name="pictureInOverview_W960xH640_CUTOUT"><![CDATA[]]></field>
+        <field name="pictureInOverview_W576xH384_CUTOUT"><![CDATA[]]></field>
+        <field name="pictureInOverview_W700xH467_CUTOUT"><![CDATA[]]></field>
+        -->
+        <!--Author Information-->
         <field name="author_first_name"><![CDATA[{{author.first_name}}]]></field>
         <field name="author_last_name"><![CDATA[{{author.last_name}}]]></field>
         <field name="author_id"><![CDATA[{{author.github_username}}]]></field>
         <field name="author_picture_stored_only"><![CDATA[{{ author.avatar_url | prepend: site.baseurl | prepend:site.url }}]]></field>
+        <!--Postcontent-->
         <field name="headlines"><![CDATA[{{ page.title }}]]></field>
         <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
             {{ page.excerpt }}</div>]]></field>

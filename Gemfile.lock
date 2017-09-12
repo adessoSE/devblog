@@ -9,6 +9,9 @@ GEM
     ffi (1.9.18)
     ffi (1.9.18-x64-mingw32)
     forwardable-extended (2.6.0)
+    graphicsmagick (1.0.5)
+      subexec
+    image_magick (0.1.9)
     jekyll (3.5.2)
       addressable (~> 2.4)
       colorator (~> 1.0)
@@ -24,14 +27,18 @@ GEM
       jekyll (~> 3.3)
     jekyll-gist (1.4.1)
       octokit (~> 4.2)
-    jekyll-paginate (1.1.0)
+    jekyll-paginate-v2 (1.8.1)
+      jekyll (~> 3.0)
+    jekyll-retinamagick (1.0.2)
+      jekyll (>= 0.10.0)
+      mini_magick (>= 3.3)
     jekyll-sass-converter (1.5.0)
       sass (~> 3.4)
     jekyll-sitemap (1.1.1)
       jekyll (~> 3.3)
     jekyll-watch (1.5.0)
       listen (~> 3.0, < 3.1)
-    kramdown (1.14.0)
+    kramdown (1.15.0)
     liquid (4.0.0)
     liquid-md5 (0.0.3)
       liquid (>= 2.5, < 5.0)
@@ -39,6 +46,7 @@ GEM
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
     mercenary (0.3.6)
+    mini_magick (4.8.0)
     multipart-post (2.0.0)
     octokit (4.7.0)
       sawyer (~> 0.8.0, >= 0.5.3)
@@ -58,6 +66,7 @@ GEM
     sawyer (0.8.1)
       addressable (>= 2.3.5, < 2.6)
       faraday (~> 0.8, < 1.0)
+    subexec (0.2.3)
     thread_safe (0.3.6)
     tzinfo (1.2.3)
       thread_safe (~> 0.1)
@@ -69,10 +78,13 @@ PLATFORMS
   x64-mingw32
 
 DEPENDENCIES
+  graphicsmagick
+  image_magick
   jekyll (~> 3.5.0)
   jekyll-feed (~> 0.6)
   jekyll-gist (~> 1.4)
-  jekyll-paginate (~> 1.1)
+  jekyll-paginate-v2
+  jekyll-retinamagick
   jekyll-sitemap (~> 1.0)
   liquid (~> 4.0.0)
   liquid-md5 (~> 0.0.3)

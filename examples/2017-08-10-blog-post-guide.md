@@ -69,12 +69,13 @@ sollte also höchstens ein paar Sätze und keine Überschriften beinhalten.
 Es können bis zu 3 Überschriften-Ebenen genutzt werden:
 
 ```markdown
-# Erste Ebene
+# Erste Ebene (resultiert in einem h4 Tag)
 
-## Zweite Ebene
+## Zweite Ebene (resultiert in einem h5 Tag)
 
-### Dritte Ebene
+### Dritte Ebene (resultiert in einem h6 Tag)
 ```
+Alles über drei Rauten resultiert in einem h6 HTML-Tag. Die Übschriften-Ebenen h1 bis h3 sind für den Blog selbst nicht vorgegeben.
 
 ## Syntax Highlighting
 
