@@ -27,8 +27,7 @@ GEM
       jekyll (~> 3.3)
     jekyll-gist (1.4.1)
       octokit (~> 4.2)
-    jekyll-paginate-v2 (1.8.1)
-      jekyll (~> 3.0)
+    jekyll-paginate (1.1.0)
     jekyll-retinamagick (1.0.2)
       jekyll (>= 0.10.0)
       mini_magick (>= 3.3)
@@ -83,11 +82,12 @@ DEPENDENCIES
   jekyll (~> 3.5.0)
   jekyll-feed (~> 0.6)
   jekyll-gist (~> 1.4)
-  jekyll-paginate-v2
+  jekyll-paginate (~> 1.1)
   jekyll-retinamagick
   jekyll-sitemap (~> 1.0)
   liquid (~> 4.0.0)
   liquid-md5 (~> 0.0.3)
+  mini_magick
   tzinfo-data
 
 BUNDLED WITH

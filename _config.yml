@@ -124,7 +124,7 @@ mini_magick:
 # Plugins
 plugins:
   - liquid-md5
-  - jekyll-paginate-v2
+  - jekyll-paginate
   - jekyll-sitemap
   - jekyll-gist
   - jekyll-feed
