@@ -30,8 +30,7 @@ GEM
     jekyll-minimagick (0.0.4)
       jekyll (>= 0.10.0)
       mini_magick (>= 3.3)
-    jekyll-paginate-v2 (1.8.1)
-      jekyll (~> 3.0)
+    jekyll-paginate (1.1.0)
     jekyll-sass-converter (1.5.0)
       sass (~> 3.4)
     jekyll-sitemap (1.1.1)
@@ -84,7 +83,7 @@ DEPENDENCIES
   jekyll-feed (~> 0.6)
   jekyll-gist (~> 1.4)
   jekyll-minimagick
-  jekyll-paginate-v2
+  jekyll-paginate (~> 1.1)
   jekyll-sitemap (~> 1.0)
   liquid (~> 4.0.0)
   liquid-md5 (~> 0.0.3)
