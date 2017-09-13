@@ -9,8 +9,6 @@ GEM
     ffi (1.9.18)
     ffi (1.9.18-x64-mingw32)
     forwardable-extended (2.6.0)
-    graphicsmagick (1.0.5)
-      subexec
     image_magick (0.1.9)
     jekyll (3.5.2)
       addressable (~> 2.4)
@@ -65,7 +63,6 @@ GEM
     sawyer (0.8.1)
       addressable (>= 2.3.5, < 2.6)
       faraday (~> 0.8, < 1.0)
-    subexec (0.2.3)
     thread_safe (0.3.6)
     tzinfo (1.2.3)
       thread_safe (~> 0.1)
@@ -77,7 +74,6 @@ PLATFORMS
   x64-mingw32
 
 DEPENDENCIES
-  graphicsmagick
   image_magick
   jekyll (~> 3.5.0)
   jekyll-feed (~> 0.6)
@@ -87,8 +83,10 @@ DEPENDENCIES
   jekyll-sitemap (~> 1.0)
   liquid (~> 4.0.0)
   liquid-md5 (~> 0.0.3)
-  mini_magick
   tzinfo-data
+
+RUBY VERSION
+   ruby 2.2.4p230
 
 BUNDLED WITH
    1.15.3
