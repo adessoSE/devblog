@@ -25,7 +25,7 @@ group :jekyll_plugins do
    gem "jekyll-sitemap","~> 1.0"
    gem "jekyll-gist","~> 1.4"
    gem "liquid-md5", "~> 0.0.3"
-   # gem 'jekyll-minimagick'
+   gem 'jekyll-minimagick'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
