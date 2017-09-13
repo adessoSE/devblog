@@ -1,5 +1,4 @@
 source "https://rubygems.org"
-ruby RUBY_VERSION
 
 # Hello! This is where you manage which Jekyll version is used to run.
 # When you want to use a different version, change it below, save the
@@ -22,7 +21,7 @@ gem "liquid", "~> 4.0.0"
 # If you have any plugins, put them here!
 group :jekyll_plugins do
    gem "jekyll-feed", "~> 0.6"
-   gem "jekyll-paginate", "~> 1.1"
+   gem "jekyll-paginate-v2"
    gem "jekyll-sitemap","~> 1.0"
    gem "jekyll-gist","~> 1.4"
    gem "liquid-md5", "~> 0.0.3"
@@ -30,6 +29,5 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-gem 'jekyll-retinamagick'
 gem 'mini_magick'
 gem 'image_magick'
