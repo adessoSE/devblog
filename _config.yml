@@ -37,85 +37,85 @@ markdown_ext: "markdown,mkdown,mkdn,mkd,md"
 # Konfiguration für das Erstellen der Bilder
 mini_magick:
     fullScreen_1600:
-        source: assets/images/originals
+        source: assets/images/originals/
         destination: /assets/images/Cropped_Resized/FullScreenPicture/resolution1600
         resize: "1920x1070"
         gravity: "Center"
         crop: "1920x1070"
     fullScreen_1440:
-        source: assets/images/originals
+        source: assets/images/originals/
         destination: /assets/images/Cropped_Resized/FullScreenPicture/resolution1440
         resize: "x1090"
         gravity: "Center"
         crop: "1400x1090"
     fullScreen_1200:
-        source: assets/images/originals
+        source: assets/images/originals/
         destination: /assets/images/Cropped_Resized/FullScreenPicture/resolution1200
         resize: "x1020"
         gravity: "Center"
         crop: "1440x1020"
     fullScreen_1024:
-        source: assets/images/originals
+        source: assets/images/originals/
         destination: /assets/images/Cropped_Resized/FullScreenPicture/resolution1024
         resize: "x1200"
         gravity: "Center"
         crop: "1536x1200"
     fullScreen_768:
-        source: assets/images/originals
+        source: assets/images/originals/
         destination: /assets/images/Cropped_Resized/FullScreenPicture/resolution768
         resize: "x940"
         gravity: "Center"
         crop: "1152x940"
     fullScreen_600:
-        source: assets/images/originals
+        source: assets/images/originals/
         destination: /assets/images/Cropped_Resized/FullScreenPicture/resolution600
         resize: "x470"
         gravity: "Center"
         crop: "600x470"
     fullScreen_480:
-        source: assets/images/originals
+        source: assets/images/originals/
         destination: /assets/images/Cropped_Resized/FullScreenPicture/resolution480
         resize: "x615"
         gravity: "Center"
         crop: "480x615"
     fullScreen_0:
-        source: assets/images/originals
+        source: assets/images/originals/
         destination: /assets/images/Cropped_Resized/FullScreenPicture/resolution0
         gravity: "Center"
         resize: "x864"
         crop: "640x864"
     PicturesSideBySide_1600:
-        source: assets/images/originals
+        source: assets/images/originals/
         destination: /assets/images/Cropped_Resized/PicturesSideBySide/resolution1600
         resize: "1700x"
         gravity: "Center"
         crop: "1700x850"
     PicturesSideBySide_1440:
-        source: assets/images/originals
+        source: assets/images/originals/
         destination: /assets/images/Cropped_Resized/PicturesSideBySide/resolution1440
         resize: "850x"
         gravity: "Center"
         crop: "850x425"
     PicturesSideBySide_480:
-        source: assets/images/originals
+        source: assets/images/originals/
         destination: /assets/images/Cropped_Resized/PicturesSideBySide/resolution480
         resize: "686x" 
         gravity: "Center"
         crop: "686x343"
     TextPictureParagraph_1600:
-        source: assets/images/originals
+        source: assets/images/originals/
         destination: /assets/images/Cropped_Resized/TextPictureParagraph/resolution1600
         resize: "x548"
         gravity: "Center"
         crop: "840x548+0+0"
     TextPictureParagraph_1440:
-        source: assets/images/originals
+        source: assets/images/originals/
         destination: /assets/images/Cropped_Resized/TextPictureParagraph/resolution1440
         resize: "x274"
         gravity: "Center"
         crop: "410x274"
     TextPictureParagraph_480:
-        source: assets/images/originals
+        source: assets/images/originals/
         destination: /assets/images/Cropped_Resized/TextPictureParagraph/resolution480
         resize: "x231"
         gravity: "Center"
@@ -133,3 +133,4 @@ exclude:
   - assets/first-spirit-xml
   - examples/
   - vendor
+  - mini_magick20170914-709-1w0nxl7.png

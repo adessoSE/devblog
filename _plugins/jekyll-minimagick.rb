@@ -39,13 +39,14 @@ module Jekyll
         dest_path = destination(dest)
 
         return false if File.exist? dest_path and !modified?
-
         self.class.mtimes[path] = mtime
 
         FileUtils.mkdir_p(File.dirname(dest_path))
         image = ::MiniMagick::Image.open(path)
-        @commands.each_pair do |command, arg|
-          image.send command, arg
+        image.combine_options do |c|
+          @commands.each_pair do |command, arg|
+            c.send command, arg
+          end
         end
         image.write dest_path
 
@@ -64,8 +65,10 @@ module Jekyll
         return unless site.config['mini_magick']
 
         site.config['mini_magick'].each_pair do |name, preset|
-          Dir.glob(File.join(site.source, preset['source'], "*.{png,jpg,jpeg,gif}")) do |source|
-            site.static_files << GeneratedImageFile.new(site, site.source, preset['destination'], File.basename(source), preset.clone)
+          Dir.chdir preset['source'] do
+           Dir.glob(File.join("**", "*.{png,jpg,jpeg,gif}")) do |source|
+              site.static_files << GeneratedImageFile.new(site, site.source, preset['destination'], source, preset.clone)
+             end
           end
         end
       end
