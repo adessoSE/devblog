@@ -133,4 +133,4 @@ exclude:
   - assets/first-spirit-xml
   - examples/
   - vendor
-  - mini_magick20170914-709-1w0nxl7.png
+  - tmp/
