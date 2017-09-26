@@ -15,10 +15,18 @@ blog_intro: "In unserem Blog nehmen wir Sie mit auf eine spannende Reise quer du
 # permalink: possible that it is been owerwritten by the plugin 'multipost.rb' within the 
 # _plugins directory
 permalink: blog-posts/:year-:month-:day/:title.html
-paginate: 12 # amount of posts to show
-paginate_path: /page:num/
 timezone: Europe/Berlin
 
+#Pagination
+pagination:
+    enabled: true
+    debub: false
+    per_page: 12 # amount of posts to show
+    paginate_path: /page:num/
+    limit: 0
+    sort_field: "date"
+    sort_reverse: true
+    
 # Serving
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://localhost:4000" # the base hostname & protocol for your site
@@ -124,13 +132,16 @@ mini_magick:
 # Plugins
 plugins:
   - liquid-md5
-  - jekyll-paginate
+  - jekyll-paginate-v2
   - jekyll-sitemap
   - jekyll-gist
   - jekyll-feed
+  - image_magick
+  - graphicsmagick
+  - mini_magick
 
 exclude:
   - assets/first-spirit-xml
   - examples/
   - vendor
-  - tmp/
+  - tmp
