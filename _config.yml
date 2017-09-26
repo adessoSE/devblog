@@ -136,9 +136,6 @@ plugins:
   - jekyll-sitemap
   - jekyll-gist
   - jekyll-feed
-  - image_magick
-  - graphicsmagick
-  - mini_magick
 
 exclude:
   - assets/first-spirit-xml

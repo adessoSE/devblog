@@ -84,7 +84,7 @@ DEPENDENCIES
   jekyll (~> 3.5.0)
   jekyll-feed (~> 0.6)
   jekyll-gist (~> 1.4)
-  jekyll-minimagick (~> 0.0.4)
+  jekyll-minimagick
   jekyll-paginate-v2
   jekyll-sitemap (~> 1.0)
   liquid (~> 4.0.0)
@@ -92,6 +92,9 @@ DEPENDENCIES
   mini_magick
   tzinfo-data
   wdm (~> 0.1.1)
+
+RUBY VERSION
+   ruby 2.2.4p230
 
 BUNDLED WITH
    1.16.0.pre.2

@@ -1,4 +1,5 @@
 source "https://rubygems.org"
+ruby RUBY_VERSION
 
 # Hello! This is where you manage which Jekyll version is used to run.
 # When you want to use a different version, change it below, save the
@@ -24,7 +25,7 @@ group :jekyll_plugins do
    gem "jekyll-paginate-v2"
    gem "jekyll-sitemap","~> 1.0"
    gem "jekyll-gist","~> 1.4"
-    gem "jekyll-minimagick", "~> 0.0.4"
+   gem "jekyll-minimagick"
    gem "liquid-md5", "~> 0.0.3"
 end
 
