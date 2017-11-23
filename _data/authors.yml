@@ -24,3 +24,12 @@ thombergs:
   bio: "Tom Hombergs ist Softwarearchitekt und Teamleiter bei adesso in Dortmund und entwickelt Softwarearchitekturen für unsere Kunden."
   avatar_url: /assets/images/avatars/thombergs.jpg
   github: https://github.com/thombergs
+
+silasmahler:
+  first_name: Silas
+  last_name: Mahler
+  github_username: silasmahler
+  email: silas.mahler@adesso.de
+  bio: "Silas Mahler ist Werkstudent bei adesso in Dortmund und entwickelt Software im Open Source Bereich."
+  avatar_url: /assets/images/avatars/silasmahler.jpg
+  github: https://github.com/silasmahler
