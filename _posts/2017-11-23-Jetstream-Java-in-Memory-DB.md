@@ -9,10 +9,8 @@ tags:           [in-Memory-DB, Performance, Storage-Engine]
 ---
 
 Schaut man sich heutzutage um, so stellt man fest, dass die Anzahl an Datenbanken mittlerweile wirklich umfangreich geworden ist. Zu den klassischen Vertretern wie MySQL oder Oracle gesellen sich Graphendatenbanken wie Neo4J, das dokumentenbasierte MongoDB und viele andere - quasi ein buntes Potpourri an Möglichkeiten.
-
 Doch was muss man bei jeder dieser Datenbanken in der Regel machen bevor man Daten speichern kann?
 Richtig! - Man muss das Objektschema aus Java ins entsprechende Format der jeweiligen Datenbank mappen.
-
 Hier kommt [Jetstream](http://www.jetstream.one/index.html) ins Spiel.
 
 ## Doch was ist Jetstream?
