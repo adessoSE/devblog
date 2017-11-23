@@ -10,23 +10,23 @@ tags:           [in-Memory-DB, Performance, Storage-Engine]
 
 Schaut man sich heutzutage um, so stellt man fest, dass die Anzahl an Datenbanken mittlerweile wirklich umfangreich geworden ist. Zu den klassischen Vertretern wie MySQL oder Oracle gesellen sich Graphendatenbanken wie Neo4J, das dokumentenbasierte MongoDB und viele andere - quasi ein buntes Potpourri an Möglichkeiten.
 
-Doch was muss man bei jeder dieser Datenbanken in der Regel machen bevor man Daten speichern kann? \
+Doch was muss man bei jeder dieser Datenbanken in der Regel machen bevor man Daten speichern kann?
 Richtig! - Man muss das Objektschema aus Java ins entsprechende Format der jeweiligen Datenbank mappen.
 
 Hier kommt [Jetstream](http://www.jetstream.one/index.html) ins Spiel.
 
 ## Doch was ist Jetstream?
 
-Jetstream ist eine sogenannte "in Memory Database", d.h. sie läuft ausschließlich im RAM der JVM. \
-Das macht sie extrem performant. \
+Jetstream ist eine sogenannte "in Memory Database", d.h. sie läuft ausschließlich im RAM der JVM.
+Das macht sie extrem performant.
 Die Entwickler sprechen von einer Geschwindigkeit, die klassische SQL-Queries um das bis zu 1.000.000-fache übersteigt. Dieser Umstand wird durch den JiT (Just in Time Compiler der JVM) zusätzlich bis um den Faktor 10-100 verstärkt.
 
 ## Doch gar keine echte in Memory Datenbank?
 
-Ok, streng genommen ist Jetstream eigentlich gar keine "in Memory DB" wie das Marketingteam von xDev gerne wirbt. Es handelt sich genau genommen um eine "Storage-Engine" für den gesamten Objektgraphen. \
-Diese liest den gesamten Objektgraphen aus dem RAM und speichert ihn in einer einfachen Datei auf der Festplatte. Nur wenn der RAM nicht ausreichen sollte, werden restliche Dateien von der Festplatte nachgelesen. \
+Ok, streng genommen ist Jetstream eigentlich gar keine "in Memory DB" wie das Marketingteam von xDev gerne wirbt. Es handelt sich genau genommen um eine "Storage-Engine" für den gesamten Objektgraphen.
+Diese liest den gesamten Objektgraphen aus dem RAM und speichert ihn in einer einfachen Datei auf der Festplatte. Nur wenn der RAM nicht ausreichen sollte, werden restliche Dateien von der Festplatte nachgelesen.
 
-Ja, richtig gehört. Keine Tabellen, keine Schemata, keine Abfragen! \
+Ja, richtig gehört. Keine Tabellen, keine Schemata, keine Abfragen!
 Ein konsistentes Objektmodell im Code und in der DB.
 
 ## Was muss ich denn nun tun um mit Jetstream Daten zu speichern?
@@ -35,7 +35,7 @@ Eigentlich nur:
 ```java
 JetstreamDB.instance().storeRequired(myData);
 ``` 
-und die Daten sind wegpersistiert. Fast zumindest. \
+und die Daten sind wegpersistiert. Fast zumindest.
 Aber gehen wir dies Schritt für Schritt an.
 
 
@@ -155,8 +155,8 @@ JetstreamDB.instance().storeRequired(myData);
 
 # Zusammenfassung
 
-Abschließend betrachtet lässt sich über Jetstream noch nicht sonderlich viel sagen, aber die Idee ist ziemlich cool. Die Entwicklung befindet sich noch im Anfangsstadium und es gibt bis quasi noch keine Dokumentation außerhalb des hier gezeigten Initialbeispiels. Wie Refactoring des Objektgraphen behandelt wird, wurde auf der JCon 2017 vom Entwickler noch nicht genau erklärt, aber als Feature in Version 1.0.0 versprochen. \
-Jetstream möchte dem Entwickler die volle Kontrolle geben, man muss sich als Entwickler aber auch entscheiden, ob man dafür auf einiges an gewohntem Komfort verzichtet. \
+Abschließend betrachtet lässt sich über Jetstream noch nicht sonderlich viel sagen, aber die Idee ist ziemlich cool. Die Entwicklung befindet sich noch im Anfangsstadium und es gibt bis quasi noch keine Dokumentation außerhalb des hier gezeigten Initialbeispiels. Wie Refactoring des Objektgraphen behandelt wird, wurde auf der JCon 2017 vom Entwickler noch nicht genau erklärt, aber als Feature in Version 1.0.0 versprochen.
+Jetstream möchte dem Entwickler die volle Kontrolle geben, man muss sich als Entwickler aber auch entscheiden, ob man dafür auf einiges an gewohntem Komfort verzichtet.
 Vor dem Hintergrund von Cloud Computing, Microservices und Co. wird Jetstream in Zukunft jedoch sicherlich noch sehr interessant sein.
 
 # Beispiel-Projekte
