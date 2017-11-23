@@ -3,7 +3,7 @@ layout:         [post, post-xml]
 title:          "Jetstream - Eine In-Memory DB für Microservices?"
 date:           2017-11-23 18:00
 modified_date: 
-author:         smahler 
+author:         silasmahler 
 categories:     [Java, Datenbanken]
 tags:           [in-Memory-DB, Performance, Storage-Engine]
 ---
