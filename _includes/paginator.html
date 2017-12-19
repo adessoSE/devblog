@@ -44,7 +44,10 @@ layout: default
         {% comment %} Ellipsis for truncated links {% endcomment %}
         <li class="page-item"><a href="{{ site.url }}" class="page-link">1</a></li>
         <li class="page-item"><a href="#" class="page-link">&hellip;</a></li>
+        {% if paginator.previous_page == 2 %}
+        {% else %}
         <li class="page-item"><a href="{{paginator.previous_page_path}}" class="page-link">{{ page_start | minus: 1}}</a></li>
+        {% endif %}
     {% endif %}
     {% for page in (page_start..page_end) %}
         {% if page == paginator.page %}

@@ -29,10 +29,14 @@
             ]]></field>
         <!--Picture-->
         <!-- Not in use in the moment
-        <field name="pictureInOverview_stored_only"><![CDATA[]]></field>
-        <field name="pictureInOverview_W960xH640_CUTOUT"><![CDATA[]]></field>
-        <field name="pictureInOverview_W576xH384_CUTOUT"><![CDATA[]]></field>
-        <field name="pictureInOverview_W700xH467_CUTOUT"><![CDATA[]]></field>
+    {%- if page.images -%}
+        {% for image in page.images%}
+        <field name="pictureInOverview_stored_only"><![CDATA[assets/images/originals/{{image}}]]></field>
+        <field name="pictureInOverview_W960xH640_CUTOUT"><![CDATA[assets/images/Cropped_Resized//{{image}}]]></field>
+        <field name="pictureInOverview_W576xH384_CUTOUT"><![CDATA[/images/Cropped_Resized//{{image}}]]></field>
+        <field name="pictureInOverview_W700xH467_CUTOUT"><![CDATA[/images/Cropped_Resized//{{image}}]]></field>
+        {% endfor %}
+    {%- endif -%}
         -->
         <!--Author Information-->
         <field name="author_first_name"><![CDATA[{{author.first_name}}]]></field>
