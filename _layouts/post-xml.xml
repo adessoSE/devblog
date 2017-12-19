@@ -54,6 +54,7 @@
     {{ content | remove: page.excerpt }}
 </div>
 </div>
+</div>
 </div>]]></field>
     </document>
 </documents>
