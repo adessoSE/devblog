@@ -4,7 +4,12 @@
  * Based on dabblet (http://dabblet.com)
  * @author Lea Verou
  */
-
+pre{
+	overflow: auto;
+}
+pre > code{
+	padding: 0px;
+}
 code[class*="language-"],
 pre[class*="language-"] {
 	color: black;
