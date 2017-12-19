@@ -94,7 +94,7 @@ DEPENDENCIES
   wdm (~> 0.1.1)
 
 RUBY VERSION
-   ruby 2.2.4p230
+   ruby 2.4.2p198
 
 BUNDLED WITH
    1.16.0.pre.2
