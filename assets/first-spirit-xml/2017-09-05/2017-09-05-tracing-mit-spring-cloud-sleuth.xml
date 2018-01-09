@@ -19,9 +19,9 @@ umzusetzen.</p>
         <field name="category_multi_keyword"><![CDATA[Architektur]]></field>
         <field name="tag_multi_keyword"><![CDATA[Spring]]></field>
         <field name="tag_multi_keyword"><![CDATA[Microservices]]></field>
-        <field name="date_date"><![CDATA[2017-09-05T21:38:00+02:00]]></field>
-        <field name="date_l"><![CDATA[1504640280000]]></field>
-        <field name="change_date"><![CDATA[1504640280000]]></field>
+        <field name="date_date"><![CDATA[2017-09-05T21:37:00+02:00]]></field>
+        <field name="date_l"><![CDATA[1504640220000]]></field>
+        <field name="change_date"><![CDATA[1504640220000]]></field>
         <!--Picture-->
         <!-- Not in use in the moment-->
         <!--Author Information-->
