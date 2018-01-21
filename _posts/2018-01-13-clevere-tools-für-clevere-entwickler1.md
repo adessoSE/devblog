@@ -440,13 +440,13 @@ Für das Anlegen des Projektes müssen folgende Arbeitsschritte in der angegeben
 
 **Schritt 01:**
 
-![screenshot_61.png](../assets/images/clevere-tools-für-clevere-entwickler1/89ADC9C2E80BD242D0E62F5D0D5925B5.png)
+![screenshot_61.png](assets/images/clevere-tools-für-clevere-entwickler1/89ADC9C2E80BD242D0E62F5D0D5925B5.png)
 
 Ein neues Projekt wird durch einen Klick auf den mit einem roten Pfeil gekennzeichneten Link erzeugt. Nach dem Klick wird der "New Project" Dialog angezeigt.
 
 **Schritt 02:**
 
-![screenshot_62.png](../assets/images/clevere-tools-für-clevere-entwickler1/2865C89BE74D328654FA61C1BC8B2144.png)
+![screenshot_62.png](assets/images/clevere-tools-für-clevere-entwickler1/2865C89BE74D328654FA61C1BC8B2144.png)
 
 In diesem Dialog muß in der Auswahlliste auf der linken Seite des Dialogs der Eintrag _'IntelliJ Platform Plugin'_ ausgewählt werden. Sonst sind keine weiteren Optionen zu markieren oder auszuwählen. Es wird fortgefahren mit einem Klick auf den Button _'Next'_. Es öffnet sich der Dialog _'New Project'_ mit dem Panel für die Definition des Namens des Projekts und der Projekt-Location.
 
@@ -455,7 +455,7 @@ Es ist unbedingt darauf zu achten, dass im Feld _'Project SDK:'_ ein gültiges, 
 
 **Schritt 03:**
 
-![screenshot_64.png](../assets/images/clevere-tools-für-clevere-entwickler1/454E4109483DAD6382F529437152D353.png)
+![screenshot_64.png](assets/images/clevere-tools-für-clevere-entwickler1/454E4109483DAD6382F529437152D353.png)
 
 In diesem Dialog ist der Projektname und der Speicherort des Projektes in den entsprechenden Feldern zu definieren. Ein Klick auf den Button _'Finish'_ beendet den ersten Teil der Erzeugung unseres Projektes. 
 
@@ -465,7 +465,7 @@ Es wird die Entwicklungsumgebung geöffnet.
 
 **Schritt 04:**
 
-![screenshot_65.png](../assets/images/clevere-tools-für-clevere-entwickler1/56B6C708445727B866AEE27620E3D515.png)
+![screenshot_65.png](assets/images/clevere-tools-für-clevere-entwickler1/56B6C708445727B866AEE27620E3D515.png)
 
 Angezeigt wird hier die Datei `plugin.xml`. Diese Datei ist ähnlich wie bei einem Eclipse Plugin die zentrale Konfigurationsdatei eines Plugins in die IDE. Für nähere Informationen zu dieser Datei und den Möglichkeiten ihrer Gestaltung - Siehe: [Plugin Konfiguration File - plugin.xml](https://www.jetbrains.org/intellij/sdk/docs/basics/plugin_structure/plugin_configuration_file.html).
 
@@ -504,7 +504,7 @@ Der Inhalt der Datei ist durch den folgenden Text zu ersetzen:
 
 Die Entwicklungsumgebung sollte danach wie folgt aussehen:
 
-![screenshot_66.png](../assets/images/clevere-tools-für-clevere-entwickler1/4EEABCD2D864FDEF87A3E026051A4A8B.png)
+![screenshot_66.png](assets/images/clevere-tools-für-clevere-entwickler1/4EEABCD2D864FDEF87A3E026051A4A8B.png)
 
 Nach dem Eintragen wird die Klassendefinition für die Entry Action des Plugins als Fehler rot gekennzeichnet sein. Dies hängt damit zusammen, dass diese Klasse im Moment noch nicht definiert ist. Wie wir dieses rot in ein sattes grün umwandeln, wird in der nächsten Folge beschrieben. Fürs erste nehmen wir das einmal so hin und gehen zum nächsten und letzten Schritt über.
 
@@ -514,11 +514,11 @@ Der letzte Schritt befasst sich nun mit dem Aufsetzen einer **vorläufigen Verze
 
 Ausgangssituation ist hierbei folgende:
 
-![screenshot_67.png](../assets/images/clevere-tools-für-clevere-entwickler1/1375F0CE97133F171C50C317E5EAB9D5.png)
+![screenshot_67.png](assets/images/clevere-tools-für-clevere-entwickler1/1375F0CE97133F171C50C317E5EAB9D5.png)
 
 Jetzt sind die entsprechenden Anpassungen vorzunehmen. Danach sollte die Struktur wie folgt aussehen:
 
-![screenshot_68.png](../assets/images/clevere-tools-für-clevere-entwickler1/C19D7D3D02FE1DDFABCB8D749A8A1D6C.png)
+![screenshot_68.png](assets/images/clevere-tools-für-clevere-entwickler1/C19D7D3D02FE1DDFABCB8D749A8A1D6C.png)
 
 Und damit sind wir am Ende der aktuellen Session. In der nächsten Folge des Blogs 
 * kümmern wir uns um die Vervollständigung der Projektstruktur 
