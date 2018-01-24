@@ -133,6 +133,19 @@ der eine Vorschau auf einem Vorschauserver bereitstellt. Um die Vorschau anzuseh
 Request in der Github GUI und dort auf den Link "Details" neben dem Check "deploy/netlify". Ggf. müssen
 die Checks erst über den Button "Show all checks" aufgeklappt werden.
 
+# Freigabeprozess
+
+Der Artikel im eingegangenen Pull Request wird von einem Kollegen gereviewed. Ggf. gibt es dann noch ein
+paar Verbesserungsvorschläge, die eingearbeitet werden. 
+
+Vor der Freigabe leitet der Reviewer einige Infos an CCO weiter:
+
+* Titel des Blogs
+* das Autorenbild
+* die Kurz-Bio 
+
+Dann sollte noch ein Tag gewartet werden, damit CCO die Daten verarbeiten kann, bevor der Pull Request gemergt wird.
+
 Nachdem der Pull Request gemergt ist, wird der Blog Post automatisch mit der nächsten Synchronisation
 in den adesso Blog integriert. 
 
