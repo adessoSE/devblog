@@ -1,7 +1,7 @@
 ---
 layout:         [post, post-xml]              
 title:          "Tracing in verteilten Systemen mit Spring Cloud Sleuth"
-date:           2017-09-05 21:37
+date:           2018-01-25 12:00
 modified_date: 
 author:         thombergs 
 categories:     [Java, Architektur]
