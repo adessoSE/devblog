@@ -12,7 +12,6 @@ Dies ist der erste einer Reihe von Beiträgen, die sich mit der Entwicklung von 
 # Teil 01 - Definition der Anforderungen und Anlage des [Intellij IDEA](https://de.wikipedia.org/wiki/IntelliJ_IDEA) Plugin Projekts
 In dieser ersten Folge beschäftigen wir uns mit folgenden Punkten:
 
-
 - Aufnahme der Anforderungen für die Generierung des Codes der verschiedenen Builder und
 - Aufsetzen des Projektes für die Implementierung des Plugins
 
@@ -65,9 +64,8 @@ Es wurden alle erkannten Klassen für die Generierung von Builder Klassen freige
 
 Der Generator soll 
 
-
-  - wenn nicht vorhanden, Getter generieren und 
-  - wenn vorhanden, Setter löschen
+- wenn nicht vorhanden, Getter generieren und 
+- wenn vorhanden, Setter löschen
 
 Ob ein Attribut optional oder mandatory ist, soll einstellbar sein. Im Falle, dass ein Attribute optional ist, soll der entsprechende Getter ein `java.util.Optional` zurück liefern. Ist ein Attribut mandatory, soll eine entsprechende Validierung bei der Datenübertragung vom Builder auf die neu erzeugte Objektinstanz in einem entsprechendem Constructor erfolgen. Wird in diesem Falle ein Nullwert übergeben, soll eine `IllegalArgumentException` mit Informationen zum regelverletzendem Attribute geworfen werden.
 
@@ -524,12 +522,10 @@ Jetzt sind die entsprechenden Anpassungen vorzunehmen. Danach sollte die Struktu
 
 Und damit sind wir am Ende der aktuellen Session. In der nächsten Folge des Blogs 
 
-
 - kümmern wir uns um die Vervollständigung der Projektstruktur 
 - Konzipieren die Bausteine des Builders und beginnen mit der Implementierung.
 
 ## Hilfreiche Links in Vorbereitung auf die nächste Folge
-
 
 - [IntelliJ Platform SDK DevGuide](https://www.jetbrains.org/intellij/sdk/docs/basics.html)
 
