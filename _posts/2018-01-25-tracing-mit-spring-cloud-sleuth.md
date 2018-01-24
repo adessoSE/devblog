@@ -1,7 +1,7 @@
 ---
 layout:         [post, post-xml]              
 title:          "Tracing in verteilten Systemen mit Spring Cloud Sleuth"
-date:           2017-09-05 21:37
+date:           2018-01-25 12:00
 modified_date: 
 author:         thombergs 
 categories:     [Java, Architektur]
@@ -262,6 +262,6 @@ dass die Suche nach Trace-IDs in den Logdaten ebenfalls vereinfacht wird.
 
 Der Beispiel-Code mit einem Downstream- und einen Upstream-Service analog des in diesem Artikel genannten
 Beispiels mit Adress- und Kundendaten ist über die folgenden Links auf Github zu finden: 
-[downstream-service](https://github.com/thombergs/code-examples/tree/master/sleuth-downstream-service) und
-[upstream-service](https://github.com/thombergs/code-examples/tree/master/sleuth-upstream-service).
+[downstream-service](https://github.com/thombergs/code-examples/tree/master/spring-cloud/sleuth-downstream-service) und
+[upstream-service](https://github.com/thombergs/code-examples/tree/master/spring-cloud/sleuth-upstream-service).
 Die Services sind jeweils mit einer README-Datei versehen, so dass sie sich einfach ausprobieren lassen.
