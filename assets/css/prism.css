@@ -182,3 +182,10 @@ pre.line-numbers > code {
 			padding-right: 0.8em;
 			text-align: right;
 		}
+.adesso-text-formate ul li {
+	font-family: "Klavika-regular", "Helvetica Neue", Helvetica, Arial !important;
+}
+
+.adesso-text-formate ul {
+	list-style: inherit !important;
+}
