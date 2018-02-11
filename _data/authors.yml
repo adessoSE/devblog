@@ -33,3 +33,12 @@ silasmahler:
   bio: "Silas Mahler ist Werkstudent bei adesso in Dortmund und entwickelt Software im Open Source Bereich."
   avatar_url: /assets/images/avatars/silasmahler.png
   github: https://github.com/silasmahler
+
+saschagrebe:
+  first_name: Sascha
+  last_name: Grebe
+  github_username: saschagrebe
+  email: sascha.grebe@adesso.de
+  bio: "Sascha Grebe ist Softwarearchitekt und Teamleiter bei adesso in Frankfurt. Er entwickelt Software im Versicherungsbereich."
+  avatar_url: /assets/images/avatars/saschagrebe.jpg
+  github: https://github.com/saschagrebe
