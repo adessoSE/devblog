@@ -4,7 +4,12 @@
  * Based on dabblet (http://dabblet.com)
  * @author Lea Verou
  */
-
+pre{
+	overflow: auto;
+}
+pre > code{
+	padding: 0px;
+}
 code[class*="language-"],
 pre[class*="language-"] {
 	color: black;
@@ -177,3 +182,10 @@ pre.line-numbers > code {
 			padding-right: 0.8em;
 			text-align: right;
 		}
+.adesso-text-formate ul li {
+	font-family: "Klavika-regular", "Helvetica Neue", Helvetica, Arial !important;
+}
+
+.adesso-text-formate ul {
+	list-style: inherit !important;
+}

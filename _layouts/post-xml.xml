@@ -19,18 +19,31 @@
         {%- endfor -%}
     {% endif %}
         <field name="date_date"><![CDATA[{{page.date | date_to_xmlschema}}]]></field>
-        <field name="date_1"><![CDATA[{{page.date | date: "%s"}}]]></field>
+        <field name="date_l"><![CDATA[{{page.date | date: "%s%L"}}]]></field>
         <field name="change_date"><![CDATA[
             {%- if page.modified_date -%} 
-            {{page.modified_date | date: "%s"}}
+            {{page.modified_date | date: "%s%L"}}
             {%- else -%}
-            {{page.date | date: "%s"}}
+            {{page.date | date: "%s%L"}}
             {%- endif -%}
             ]]></field>
+        <!--Picture-->
+        <!-- Not in use in the moment
+    {%- if page.images -%}
+        {% for image in page.images%}
+        <field name="pictureInOverview_stored_only"><![CDATA[assets/images/originals/{{image}}]]></field>
+        <field name="pictureInOverview_W960xH640_CUTOUT"><![CDATA[assets/images/Cropped_Resized//{{image}}]]></field>
+        <field name="pictureInOverview_W576xH384_CUTOUT"><![CDATA[/images/Cropped_Resized//{{image}}]]></field>
+        <field name="pictureInOverview_W700xH467_CUTOUT"><![CDATA[/images/Cropped_Resized//{{image}}]]></field>
+        {% endfor %}
+    {%- endif -%}
+        -->
+        <!--Author Information-->
         <field name="author_first_name"><![CDATA[{{author.first_name}}]]></field>
         <field name="author_last_name"><![CDATA[{{author.last_name}}]]></field>
         <field name="author_id"><![CDATA[{{author.github_username}}]]></field>
         <field name="author_picture_stored_only"><![CDATA[{{ author.avatar_url | prepend: site.baseurl | prepend:site.url }}]]></field>
+        <!--Postcontent-->
         <field name="headlines"><![CDATA[{{ page.title }}]]></field>
         <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
             {{ page.excerpt }}</div>]]></field>
@@ -39,6 +52,7 @@
 <div class="adesso-container">
 <div class="col-xl-8 adesso-center p-b-1 p-l-0 p-r-0">
     {{ content | remove: page.excerpt }}
+</div>
 </div>
 </div>
 </div>]]></field>
