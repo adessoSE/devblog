@@ -16,6 +16,24 @@ david:
   avatar_url: /assets/images/avatars/david.png
   github: https://github.com/daklassen
 
+thombergs:
+  first_name: Tom
+  last_name: Hombergs
+  github_username: thombergs
+  email: hombergs@adesso.de
+  bio: "Tom Hombergs ist Softwarearchitekt und Teamleiter bei adesso in Dortmund und entwickelt Softwarearchitekturen für unsere Kunden."
+  avatar_url: /assets/images/avatars/thombergs.jpg
+  github: https://github.com/thombergs
+
+silasmahler:
+  first_name: Silas
+  last_name: Mahler
+  github_username: silasmahler
+  email: silas.mahler@adesso.de
+  bio: "Silas Mahler ist Werkstudent bei adesso in Dortmund und entwickelt Software im Open Source Bereich."
+  avatar_url: /assets/images/avatars/silasmahler.png
+  github: https://github.com/silasmahler
+
 AdessoMaDa:
   first_name: Marcus
   last_name: Danner
