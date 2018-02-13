@@ -32,7 +32,7 @@ silasmahler:
   email: silas.mahler@adesso.de
   bio: "Silas Mahler ist Werkstudent bei adesso in Dortmund und entwickelt Software im Open Source Bereich."
   avatar_url: /assets/images/avatars/silasmahler.png
-github: https://github.com/silasmahler
+  github: https://github.com/silasmahler
 
 AdessoMaDa:
   first_name: Marcus
