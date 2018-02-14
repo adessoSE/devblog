@@ -11,15 +11,15 @@ Kotlin ist für Android-Entwickler nichts Neues, aber wird in der Java-Community
 
 ### Einige Worte vorweg
 
-Kotlin gibt es mittlerweile seit Februar 2016 und die Sprache wird immer populärer, wodurch sie mehr und mehr Firmen in Produktion einsetzen. Heute wollen wir uns deshalb anschauen, wie wir mit Kotlin relativ schlanke Anwendungen entwicklen können.
+Kotlin gibt es mittlerweile seit Februar 2016 und die Sprache wird immer populärer, wodurch sie mehr und mehr Firmen in Produktion einsetzen. Heute wollen wir uns deshalb anschauen, wie wir mit Kotlin relativ schlanke Anwendungen entwickeln können.
 
-Es gibt mehr als genug Tutorials um die grundlegenden Sprachkonzepte von Kotlin zu erklären, deshalb werden diese nicht in diesem Artikel behandelt. Stattdessen wird die Erstellung einer App mit möglichst minimaler Codebase in den Vordergrund gestellt.
+Es gibt mehr als genug Tutorials, um die grundlegenden Sprachkonzepte von Kotlin zu erklären, deshalb werden diese nicht in diesem Artikel behandelt. Stattdessen wird die Erstellung einer App mit möglichst minimaler Codebase in den Vordergrund gestellt.
 
-Wenn Sie eine Übersicht über Kotlins Konzepte brauchen, dann schauen Sie unter [Awesome Kotlin](https://kotlin.link/).
+Wenn Sie eine Übersicht über Kotlins Konzepte brauchen, finden Sie diese unter [Awesome Kotlin](https://kotlin.link/).
 
 ### Los gehts!
 
-Als Beispielprojekt wird eine Brücken-Applikation, auch Bridge genannt, verwendet, welche die Eureka-Komponente aus dem [Netflix-Open-Source-Stack](https://github.com/spring-cloud/spring-cloud-netflix) anfragt und die registrierten Services erkennt. Diese Daten werden dann dazu verwendet, eine valide yml-Konfigurationsdatei für den Monitoring-Server Prometheus zu erstellen, sodass dieser Daten über die Endpunkte der Services verarbeiten kann.
+Als Beispielprojekt wird eine Brücken-Applikation, auch Bridge genannt, verwendet, welche die Eureka-Komponente aus dem [Netflix-Open-Source-Stack](https://github.com/spring-cloud/spring-cloud-netflix) anfragt und die registrierten (Micro-)Services erkennt. Diese Daten werden dann dazu verwendet, eine valide yml-Konfigurationsdatei für den Monitoring-Server Prometheus zu erstellen, sodass dieser Daten über die Endpunkte der Services verarbeiten kann.
 
 Unsere [Beispiel-App](https://github.com/adessoAG/eureka-prometheus-bridge) ist eine Spring Boot App.
 ![Spring-Boot](https://i0.wp.com/thecuriousdev.org/wp-content/uploads/2017/12/spring-boot-logo.png?w=600&ssl=1)
@@ -28,7 +28,7 @@ Unsere [Beispiel-App](https://github.com/adessoAG/eureka-prometheus-bridge) ist 
 
 Für die grundlegende Konfiguration verwenden wir das Build-System Gradle. Gradle ist aufgrund des inkrementellen Build-Prozesses etwas schneller als Maven und der Code ist leichter zu lesen. Die Systeme sind aber leicht austauschbar, wenn man lieber mit Maven etc. arbeitet. 
 
-Notiz: das Projekt kann mit Java 9 kompiliert werden, muss dazu aber etwas anders konfiguriert werden. Darauf wird in diesem Artikel nicht eingegangen. Wenn man das Projekt von grundauf neu aufsetzen möchte, dann empfehle ich dies über [start.spring.io](https://start.spring.io/) zu tun und als Parameter: Gradle Projekt, Kotlin und Spring Boot 2.0.0.M7 sowie die Abhängigkeiten aus der gradle.build zu wählen.
+Notiz: Das Projekt kann mit Java 9 kompiliert werden, muss dazu aber etwas anders konfiguriert werden. Darauf wird in diesem Artikel nicht eingegangen. Wenn man das Projekt von grundauf neu aufsetzen möchte, dann empfehle ich dies über [start.spring.io](https://start.spring.io/) zu tun und als Parameter: Gradle Projekt, Kotlin und Spring Boot 2.0.0.M7 sowie die Abhängigkeiten aus der gradle.build zu wählen.
 
 [build.gradle](https://github.com/adessoAG/eureka-prometheus-bridge/blob/master/build.gradle)
 ```gradle
@@ -189,7 +189,7 @@ fun main(args: Array<String>) {
 
 Normalerweise würde man eine Konfiguration in Spring Boot über die application.properties/application.yml oder eine Klasse mit der Annotation *@Configurationproperties("propertygroup.subgroup")* einbinden. Jedoch kann man dann noch keine Templatingfeatures nutzen und die Konfiguration ist noch nicht typsicher. Nach Evaluation der Frameworks unter  [Awesome-Kotlin#Configuration](https://github.com/KotlinBy/awesome-kotlin#libraries-frameworks-configuration) eignet sich [Configur8](https://github.com/daviddenton/configur8) in der Version für Kotlin, die sich *Konfigur8* nennt, ziemlich gut für diese Aufgabe. Durch das Framework lässt sich das Singleton-Konstrukt *Object* aus Kotlin nutzen, um eine Template zu erstellen, welche typsicher innerhalb des Codes definiert wird und zur Laufzeit als *Object* zur Verfügung steht. So ist die Konfiguration Refactoring-Safe und kann leicht überall wo Sie benötigt wird eingebunden werden. 
 
-Die Templates werden innerhalt des Companion-Objektes erzeugt. In Kotlin hat jede Klasse ein solches Objekt, um beispielsweise einen Logger sicher maximal einmal pro Klasse zu instanziieren. Genauso kann man mit der Konfiguration verfahren, wenn diese über Instanzen hinweg einheitlich sein soll. Eine interessante Diskussion zu diesem Thema finden Sie [hier](https://discuss.kotlinlang.org/t/what-is-the-advantage-of-companion-object-vs-static-keyword/4034/2).
+Die Templates werden innerhalb des Companion-Objektes erzeugt. In Kotlin hat jede Klasse ein solches Objekt, um beispielsweise einen Logger sicher und maximal einmal pro Klasse zu instanziieren. Genauso kann man mit der Konfiguration verfahren, wenn diese über Instanzen hinweg einheitlich sein soll. Eine interessante Diskussion zu diesem Thema finden Sie [hier](https://discuss.kotlinlang.org/t/what-is-the-advantage-of-companion-object-vs-static-keyword/4034/2).
 
 Als *Objects* für die Properties stehen **EurekaProperties.kt** und **PrometheusProperties.kt** zur Verfügung. Zu Beginn werden die Properties, der Typ, sowie der Key für die Property definiert. Danach folgt eine Template mit default-Belegung der Variablen.
 
@@ -221,7 +221,7 @@ Um die Konfiguration nun abzurufen muss später nur noch aus der Konfiguration e
 
 #### Schritt 0: Zeitgesteuerte Jobs
 
-Sobald wir unsere App starten wird ein zeitgesteuerter Job angestoßen, der regelmäßig die Hauptfunktion der Anwendung ausführt. Hier *executeBridge()*. Der Klasse **ScheduledJobs**wird per Konstruktor-Injection der Service Eureka-Query injiziert. Dies wäre auch per Method oder Field-Injection möglich, jedoch erzeugt man so am wenigsten Code und kann die Injizierten Services direkt sehen. Die Methode der dependency injection ist mehr eine Geschmacksfrage und bietet verschiedene Vor- und Nachteile [hier](https://symfony.com/doc/current/service_container/injection_types.html) nachzulesen.
+Sobald wir unsere App starten wird ein zeitgesteuerter Job angestoßen, der regelmäßig die Hauptfunktion der Anwendung ausführt. Hier *executeBridge()*. Der Klasse **ScheduledJobs** wird per Konstruktor-Injection der Service Eureka-Query injiziert. Dies wäre auch per Method oder Field-Injection möglich, jedoch erzeugt man so am wenigsten Code und kann die Injizierten Services direkt sehen. Die Methode der Dependency-Injection ist eine Geschmacksfrage und bietet verschiedene Vor- und Nachteile [hier](https://symfony.com/doc/current/service_container/injection_types.html) nachzulesen.
 
 ScheduledJobs.kt
 
@@ -248,13 +248,13 @@ class ScheduledJobs(
 
 #### Schritt 1: Eureka anfragen mit khttp
 
-Um nun Eureka anzufragen wird die Klasse **EurekaQuery.kt** verwendet. Die Klasse injiziert den Generator für die später .yml und das Companion-Object der Klasse bindet einen Logger sowie die EurekaProperties template ein. Die Template wird zu einem Laufzeitobjekt und in diesem Fall über die Variable *config* zugreifbar.
+Um nun Eureka anzufragen wird die Klasse **EurekaQuery.kt** verwendet. Die Klasse injiziert den Generator für die spätere Generierung der prometheus.yml und das Companion-Object der Klasse bindet einen Logger sowie das EurekaProperties-Template ein. Das Template wird zu einem Laufzeitobjekt und in diesem Fall über die Variable *config* zugreifbar.
 
 ```kotlin
  var config = EurekaProperties.configTemplate.reify()
 ```
 
-Zu Beginn wird eine nullable Variable vom Typ Response angelegt. Diese kommt aus dem [khttp-Framework](https://github.com/jkcclemens/khttp) für Kotlin. Das Framework ermöglich sehr einfache HTTP-Abfragen. Hier wird auch direkt auf die Konfigurationsparamater zugegriffen. Über den Key der im Object-Singleton gespeichert ist können entsprechende Werte ausgelesen werden.
+Zu Beginn wird eine *nullable* Variable vom Typ Response angelegt. Diese kommt aus dem [khttp-Framework](https://github.com/jkcclemens/khttp) für Kotlin. Das Framework ermöglich sehr einfache HTTP-Abfragen. Hier wird auch direkt auf die Konfigurationsparamater zugegriffen. Über den Key, der im Object-Singleton gespeichert ist, können entsprechende Werte ausgelesen werden.
 
 ```kotlin
  r = get(config.valueOf(EurekaProperties.host) + ":" + config.valueOf(EurekaProperties.port) + config.valueOf(EurekaProperties.apiPath))
@@ -298,7 +298,7 @@ if (!isArray) {
 
 ```
 
-Sie werden zu einer Liste aus ConfigEntries hinzugefügt. Das Schlüsselwort *data* sorgt dafür, dass wir eine Klasse erhalten, die uns Getter- und Setter schenkt und sich im Gegensatz zu klassischen Entitäten in einer Zeile schreiben lässt!
+Diese werden als ConfigEntry neu aufgebaut und zu einer Liste aus ConfigEntries hinzugefügt. Das Schlüsselwort *data* sorgt dafür, dass wir eine Klasse erhalten, die uns Getter- und Setter schenkt und sich im Gegensatz zu klassischen Entitäten unglaublich komprimiert (hier in einer Zeile!) schreiben lässt.
 
 ```kotlin
 data class ConfigEntry(var name: String = "", var targeturl: String = "")
@@ -312,7 +312,7 @@ Anschließend muss noch der Generator aufgerufen werden, um die ConfigEntries zu
  gen.generatePrometheusConfig(configEntries)
 ```
 
-Hierzu schauen wir uns die **Generator.kt** näher an.
+Um nachzuvollziehen was genau passiert, schauen wir uns die **Generator.kt** näher an.
 
 ```kotlin
  package de.adesso.eurekaprometheusbridge
@@ -354,7 +354,7 @@ class Generator {
 }
 ```
 
-Die Klasse liest das grundlegende Prometheus-Konfigurationsfile aus und fügt für jeden ConfigEntry aus der Liste einen weiteren Monitoring-Job ein. Anschließend wird das generierte File wieder abgelegt.
+Die Klasse liest die grundlegende Prometheus-Konfigurationsdatei aus und fügt für jeden ConfigEntry aus der Liste einen weiteren Monitoring-Job ein. Anschließend wird die generierte Datei wieder abgelegt.
 
 ```kotlin
     var file = File(config.get(PrometheusProperties.generatedConfigFilePath))
@@ -366,7 +366,7 @@ Die Anwendung an sich ist somit beschrieben. Um sie nun möglichst leicht zu bet
 
 ### Tests mit Spring und JUni
 
-Die Klasse **EurekaPrometheusBridgeApplicationTests.kt** implementiert Anwendungstests. Hier werden verschiedene Methoden aufgerufen und die Konfiguration getestet.
+Die Klasse **EurekaPrometheusBridgeApplicationTests.kt** implementiert Anwendungstests. Hier werden verschiedene Methoden aufgerufen und die Konfiguration getestet. Zusätzlich gibt es ein Beispiel mit Spring AOP in Kotlin.
 
 ```kotlin
 package de.adesso.eurekaprometheusbridge
@@ -473,7 +473,7 @@ open class TracingAspect {
 
 ### Tests mit Docker und einer Microservice-Landschaft
 
-Statische Tests sind wichtig, aber um eine Anwendung besser einschätzen zu können, empfiehlt sich immer ein Produktionstest. Hierzu dient ein weiteres Projekt, welches eine Microservicelansdschaft bereitstellt, der [**Eureka-Prometheus-Bridge-Tester**](https://github.com/adessoAG/eureka-prometheus-bridge-tester)
+Statische Tests sind wichtig, aber um eine Anwendung besser einschätzen zu können, empfiehlt sich immer ein Produktionstest. Hierzu dient ein weiteres Projekt, welches eine Microservice-Landschaft bereitstellt, der [**Eureka-Prometheus-Bridge-Tester**](https://github.com/adessoAG/eureka-prometheus-bridge-tester)
 
 Das Projekt kann natürlich innerhalb einer Entwicklungsumgebund gestartet werden: [Anleitung](https://github.com/adessoAG/eureka-prometheus-bridge-tester/blob/master/README.md) 
 
