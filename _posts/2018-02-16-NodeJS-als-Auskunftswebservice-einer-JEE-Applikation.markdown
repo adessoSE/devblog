@@ -27,7 +27,7 @@ Im vorliegenden Projektbeispiel haben wir uns entschieden, die Geschäftsapplika
 
 In vielen größeren Unternehmen werden für die Entwicklung von unternehmenskritischen Applikationen Referenzarchitekturen vorgegeben.
 Dies dient vor allem dem Zweck, einheitliche Strukturen für Deployment und Rollout dieser Anwendungen einzuhalten und somit 
-auch einheitliche Verfahren für den Betrieb dieser Applikationen durchzusetzen. Damit sollen die Total Cost of Ownership für den Betrieb
+auch einheitliche Verfahren für den Betrieb dieser Applikationen durchzusetzen. Damit soll die Total Cost of Ownership für den Betrieb
 der Applikationen so gering wie möglich gehalten werden. Einheitliche Architekturen unterstützen außerdem die Wiederverwendung von
 Querschnittsfunktionen wie Benutzerauthentifizierung, Autorisierung oder Logging durch verschiedene Applikationen.
 
@@ -49,7 +49,7 @@ begrenzen die Möglichkeit von echt paralleler Verarbeitung, da beim gleichzeiti
 Dies erzwingt Wartezeiten beim gleichzeitigen Zugriff auf diese Daten. Die Mechanismen, welche die dauerhafte Speicherung von ausgeführten Datenänderungen
 sicherstellen, führen zu zusätzlichen Verarbeitungsschritten und verlängern somit die Ausführungszeit.
 
-Die Vielzahl der eigebauten Funktionen bringt außerdem einen hohen Bedarf an Systemressourcen, wie zum Beispiel Arbeitsspeicher, mit sich. Deshalb müssen Applikationen, die auf einer solchen
+Die Vielzahl der eingebauten Funktionen bringt außerdem einen hohen Bedarf an Systemressourcen, wie zum Beispiel Arbeitsspeicher, mit sich. Deshalb müssen Applikationen, die auf einer solchen
 Architektur basieren, gezielt dimensioniert werden. Hierfür sollte das Mengengerüst der Daten, die Anzahl der Nutzer, welche die Applikation
 insgesamt nutzen, sowie die Anzahl der gleichzeitigen Zugriffe auf die einzelnen Funktionen bekannt sein. Im vorliegenden Projektbeispiel wird die Geschäftslogik
 auf 4 unterschiedlichen Serverknoten ausgeführt und lang laufende Geschäftsprozesse werden asynchron ausgeführt.
@@ -63,6 +63,7 @@ der in der JEE-Plattform genutzten Funktionen nicht, da wir hier keine Daten ver
 und die dauerhafte Speicherung unserer Änderungen stellen müssen.
 
 Ein leichtgewichtiger und hoch skalierbarer Auskunftsdienst lässt sich gut auf Basis des MEAN Architekturstacks aufbauen:
+
 * MongoDB
 * Express
 * Angular
@@ -70,12 +71,16 @@ Ein leichtgewichtiger und hoch skalierbarer Auskunftsdienst lässt sich gut auf 
 
 Node.js ist hierbei die Serverkomponente, welche Anfragen entgegen nimmt und beantwortet. Die Anfragen werden in eine Abarbeitungswarteschlange eingereiht und sequentiell verarbeitet.
 Die Verarbeitung der einzelnen Anfragen erfolgt dabei in einer Reihe von sehr kleinen und kurz laufenden Arbeitsschritten. Dies ermöglicht es, dass Node.js in einem einzigen Thread 
-laufen kann und dabei abwechselnd Anfragen verarbeiten und neuen Anfragen entgegennehmen kann. Werden mittels des Zusatzmoduls PM2 mehrere solcher Threads gestartet, so erreicht man eine
+laufen kann und dabei abwechselnd Anfragen verarbeiten und neuen Anfragen entgegennehmen kann. 
+
+Werden mittels des Zusatzmoduls PM2 mehrere solcher Threads gestartet, so erreicht man eine
 sehr hohe Skalierbarkeit. Dabei ist Node.js nicht mehr als eine Ausführungsumgebung für JavaScript-Programme und benötigt daher sehr wenig Systemressourcen.
+
 Für die Datenhaltung eines mit Node.js implementierten Service bietet sich MongoDB an, da die Datenverarbeitung in den JavaScript-Programmen, die in einem Node.js-Server laufen,
 in der Regel auf JSON-Objekten basiert und die dokumentenorientierte Datenablage in MongoDB dieser Struktur sehr nahe kommt. 
 Außerdem unterstützt MongoDB den direkten Austausch von binär kodierten JSON-Objekten (BSON). 
 Der Rechenaufwand für Marshalling und Unmarshalling beim Datenaustausch zwischen MongoDB und Node.js ist somit minimal.
+
 Die Implementierung der Auskunftsservices erfolgt in Angular oder direkt in JavaScript.
 Express dient dabei als Framework, das grundlegende Funktionalitäten für die Implementierung der Auskunftsservices bereitstellt.
 
