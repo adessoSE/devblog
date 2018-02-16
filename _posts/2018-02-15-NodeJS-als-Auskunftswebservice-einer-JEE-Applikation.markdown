@@ -2,7 +2,7 @@
 layout: [post, post-xml]
 title:  "NodeJS als Auskunftswebservice einer JEE-Applikation"
 date:   2017-09-05 12:15
-modified_date: 2018-02-15
+modified_date: 2018-02-16
 author: AdessoMaDa
 categories: [Java, Architektur]
 tags: []
@@ -76,12 +76,10 @@ Für die Datenhaltung eines mit Node.js implementierten Service bietet sich Mong
 in der Regel auf JSON-Objekten basiert und die dokumentenorientierte Datenablage in MongoDB dieser Struktur sehr nahe kommt. 
 Außerdem unterstützt MongoDB den direkten Austausch von binär kodierten JSON-Objekten (BSON). 
 Der Rechenaufwand für Marshalling und Unmarshalling beim Datenaustausch zwischen MongoDB und Node.js ist somit minimal.
-
-<!-- Express und Angular sind nicht beschrieben, aber oben ist von MEAN-Stack die Rede. -->
+Die Implementierung der Auskunftsservices erfolgt in Angular oder direkt in JavaScript.
+Express dient dabei als Framework, das grundlegende Funktionalitäten für die Implementierung der Auskunftsservices bereitstellt.
 
 ## Wie passt das alles zusammen?
-
-<!-- Für dieses Kapitel könnte ein Komonentendiagramm das ganze noch anschaulich darstellen: Komponenten, Schnittstellen, User, Netzwerkzonen, ... -->
 
 Wir haben nun also einerseits eine unternehmenskritische Applikation mit vielen Querschnittsfunktionen und einer Implementierung für komplexe Geschäftsprozesse auf einer 
 vergleichsweise schwerfälligen Ausführungsumgebung auf Basis von JEE. Auf der anderen Seite steht ein hochskalierbarer Auskunftsservice für relativ einfach strukturierte Anfragen
@@ -93,13 +91,15 @@ Hierfür wird ein PUSH-Verfahren von unserer Applikation aus realisiert. Dies ha
 * Die Geschäftslogik bestimmt, wann sie eine Datenübertragung ausführt. Damit können wir steuern, dass dies in Randzeiten stattfindet und so minimalen Einfluss auf die Leistungsfähigkeit zu Geschäftszeiten der Applikation hat.
 * Die Geschäftslogik bestimmt, welche Daten übertragen werden. Der Schutz vertraulicher Daten kann somit nicht von außerhalb der Applikation kompromittiert werden.
 * Die JEE-Anwendung mit den vertraulichen Daten kann weiterhin in einer nur intern zugänglichen und vor äußeren Zugriffen geschützten Netzwerkzone liegen.
-* Die Geschäftslogik bestimmt, wohin die Daten übertragen werden. <!-- Dieser Punkt ist mir nicht ganz klar geworden. -->
 
 In unserer Geschäftsapplikation läuft ein periodisch ausgeführter Prozess, der dies realisiert. Die Zeitsteuerung des Prozesses berücksichtigt typische Zeiträume niedriger
 Systemauslastung und startet die Übertragung der zu veröffentlichenden Daten dann, wenn das System dadurch nicht beeinträchtigt wird.
 Dieser Prozess erhält Daten, die zur Veröffentlichung freigegeben sind, aus einer dafür vorgesehenen Staging Area in der Geschäftsdatenbank.
 Es werden somit tatsächlich nur explizit freigegebene Informationen übertragen und dieser Vorgang kann bei technischen Fehlern jederzeit wiederholt werden, falls beispielsweise der Auskunftsservice vorübergehend nicht erreichbar ist.
 Ebenso kann dieselbe Funktionalität genutzt werden, um den Auskunftsservice mit einem initialen Datenbestand zu versorgen und jederzeit eine Vollsynchronisation durchzuführen.
+
+![Implementierungsdiagramm zu NodeJS als Auskunftswebservice einer JEE-Applikation](../assets/images/posts/NodeJS-als-Auskunftswebservice-einer-JEE-Applikation/Implementierungsdiagramm.png)
+
 
 ## Was folgern wir hieraus?
 
