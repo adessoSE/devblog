@@ -52,6 +52,8 @@ johndoe:
   github: https://github.com/johndoe
 ```
 
+**TODO:** klären, ob wir wirklich ein Autorenfoto liefern müssen, oder ob es aus der adesso-Datenbank übernommen wird!
+
 ## Metadaten
 
 Jede Blog Post Markdown-Datei beginnt mit einem kurzen Abschnitt, in dem einige Metadaten enthalten
@@ -59,10 +61,10 @@ sind. Dieser Abschnitt ist mit `---` vom eigentlichen Inhalt getrennt und ist al
 Hier sind einige Pflichtfelder auszufüllen. Schau dir einfach den Header dieser Datei als Beispiel
 an.
 
-## Teaser
+## Einleitung / Teaser
 
-Der erste Absatz (also alles bis zur ersten Leerzeile in der Markdown-Datei) wird als Teaser übernommen. Der erste Absatz
-sollte also höchstens ein paar Sätze und keine Überschriften beinhalten.
+Der erste Absatz (also alles bis zur ersten Leerzeile in der Markdown-Datei) wird als Einleitung / Teaser übernommen. Der erste Absatz
+sollte also höchstens ein paar Sätze lang sein und keine Überschriften beinhalten.
 
 ## Überschriften
 
@@ -116,10 +118,6 @@ Die Änderungen in deinem Pull Request werden dann von einem Entwickler/Architek
 wird noch geklärt). Ggf. werden Korrekturwünsche als Kommentare
 im Pull Request ergänzt, die du dann vornehmen und ebenfalls auf den Fork pushen kannst. Letztendlich
 wird der Pull Request dann vom Reviewer in den Haupt-Branch gemergt und dann automatisch veröffentlicht.
-
-**Hinweis:** die automatische Veröffentlichung auf dem adesso Blog startet vermutlich erst Ende September / Anfang Oktober. Bis
-dahin könnt ihr aber gerne schon Blog Posts per Pull Request einreichen. Wir klären dann, ob sie schon vorher nach dem alten 
-Verfahren veröffentlicht werden.
 
 Detailliertere Informationen zu diesem Workflow sind hier zu finden:
 
