@@ -2,11 +2,15 @@
 layout: [post, post-xml]
 title:  "NodeJS als Auskunftswebservice einer JEE-Applikation"
 date:   2017-09-05 12:15
-modified_date: 2018-02-16
+modified_date: 2018-02-20
 author: AdessoMaDa
 categories: [Java, Architektur]
 tags: []
 ---
+
+Seit über zehn Jahren sind JEE-Applikationen etabliert, um unternehmenskritische Verfahren auf einer vereinheitlichten IT-Infrastruktur zu entwickeln.
+In den letzten Jahren sind leichtgewichtigere Alternativen wie NodeJs immer beliebter geworden und werden oft als Alternative zu JEE-Applikationsservern angesehen.
+Dieser Beitrag stellt dar, wie beide Technologien zusammenspielen können.
 
 ## Worum geht's hier?
 
