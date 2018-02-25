@@ -1,7 +1,7 @@
 ---
 layout:         [post, post-xml]              
 title:          "Tracing in verteilten Systemen mit Spring Cloud Sleuth"
-date:           2018-01-25 12:00
+date:           2018-01-25 12:01
 modified_date: 
 author:         thombergs 
 categories:     [Java, Architektur]
@@ -56,8 +56,8 @@ Herausforderungen in Cloud-Systemen - die per se verteilte Systeme sind - zur Ve
 wie man Spring Cloud Sleuth in einer Spring Boot Anwendung konfiguriert und worauf man dabei achten muss.
 
 Eine Beispiel-Anwendung bestehend aus zwei miteinander kommunizierenden Services auf Basis von Spring Boot ist auf Github
-zu finden ([downstream-service](https://github.com/thombergs/code-examples/tree/master/sleuth-downstream-service) und
-[upstream-service](https://github.com/thombergs/code-examples/tree/master/sleuth-upstream-service)).
+zu finden ([downstream-service](https://github.com/thombergs/code-examples/tree/master/spring-cloud/sleuth-downstream-service) und
+[upstream-service](https://github.com/thombergs/code-examples/tree/master/spring-cloud/sleuth-upstream-service)).
 
 ## Spring Cloud Sleuth aktivieren
 

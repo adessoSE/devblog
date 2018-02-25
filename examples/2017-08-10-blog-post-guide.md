@@ -141,6 +141,7 @@ paar Verbesserungsvorschläge, die eingearbeitet werden.
 Vor der Freigabe leitet der Reviewer einige Infos an CCO weiter:
 
 * Titel des Blogs
+* das Kürzel des Autoren aus der `authors.yml`
 * das Autorenbild
 * die Kurz-Bio 
 
