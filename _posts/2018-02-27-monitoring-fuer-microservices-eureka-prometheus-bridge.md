@@ -221,7 +221,7 @@ Die Klasse liest die grundlegende Prometheus-Konfigurationsdatei aus und fügt f
 
 Die Anwendung an sich ist somit betriebsbereit. Um sie nun möglichst leicht zu betreiben und testen gibt es verschiedene Möglichkeiten.
 
-### Tests mit Spring und JUni
+### Tests mit Spring und JUnit
 
 Die Klasse **EurekaPrometheusBridgeApplicationTests.kt** implementiert Anwendungstests. Hier werden verschiedene Methoden aufgerufen und die Konfiguration getestet. Zusätzlich gibt es ein Beispiel mit Spring AOP in Kotlin.
 
