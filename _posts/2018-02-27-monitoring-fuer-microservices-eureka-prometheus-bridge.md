@@ -132,7 +132,7 @@ var port = eureka_config.valueOf(EurekaProperties.port)
 
 ## Die Anwendung
 
-####Zeitgesteuerte Ausführung
+#### Zeitgesteuerte Ausführung
 
 Sobald wir unsere App starten, wird ein zeitgesteuerter Job angestoßen, der regelmäßig die Hauptfunktion der Anwendung ausführt. Das Intervall wird hier klassisch aus einer Properties-Datein ausgelesen, da ein Annotationsparameter zur Compilezeit eine Konstante sein muss.
 
