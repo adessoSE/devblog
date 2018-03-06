@@ -1,7 +1,7 @@
 ---
 layout: [post, post-xml]
 title:  "NodeJS als Auskunftswebservice einer JEE-Applikation"
-date:   2018-03-01 12:00
+date:   2018-03-06 11:00
 modified_date: 2018-02-20
 author: AdessoMaDa
 categories: [Java, Architektur]
