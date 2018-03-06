@@ -46,7 +46,7 @@ dürfen für externe Nutzer einsehbar sein.</p>
 und separate Zugriffspfade.</p>
 
 <p>Die folgende Abbildung zeigt eine grobe Prozessbeschreibung: test
-<img src="localhost:4000/assets/images/posts/NodeJS-als-Auskunftswebservice-einer-JEE-Applikation/Aktivitaetsdiagramm.png" alt="Prozessbechreibung zu NodeJS als Auskunftswebservice einer JEE-Applikation" /></p>
+<img src="../assets/images/posts/NodeJS-als-Auskunftswebservice-einer-JEE-Applikation/Aktivitaetsdiagramm.png" alt="Prozessbechreibung zu NodeJS als Auskunftswebservice einer JEE-Applikation" /></p>
 
 <p>Im vorliegenden Projektbeispiel haben wir uns entschieden, die Geschäftsapplikation als JEE-Applikation zu entwickeln und diese um einen Auskunftsservice auf Basis des MEAN-Stacks zu erweitern.</p>
 
@@ -134,7 +134,7 @@ Dieser Prozess erhält Daten, die zur Veröffentlichung freigegeben sind, aus ei
 Es werden somit tatsächlich nur explizit freigegebene Informationen übertragen und dieser Vorgang kann bei technischen Fehlern jederzeit wiederholt werden, falls beispielsweise der Auskunftsservice vorübergehend nicht erreichbar ist.
 Ebenso kann dieselbe Funktionalität genutzt werden, um den Auskunftsservice mit einem initialen Datenbestand zu versorgen und jederzeit eine Vollsynchronisation durchzuführen.</p>
 
-<p><img src="localhost:4000/assets/images/posts/NodeJS-als-Auskunftswebservice-einer-JEE-Applikation/Implementierungsdiagramm.png" alt="Implementierungsdiagramm zu NodeJS als Auskunftswebservice einer JEE-Applikation" /></p>
+<p><img src="../assets/images/posts/NodeJS-als-Auskunftswebservice-einer-JEE-Applikation/Implementierungsdiagramm.png" alt="Implementierungsdiagramm zu NodeJS als Auskunftswebservice einer JEE-Applikation" /></p>
 
 <h5 id="was-folgern-wir-hieraus">Was folgern wir hieraus?</h5>
 
