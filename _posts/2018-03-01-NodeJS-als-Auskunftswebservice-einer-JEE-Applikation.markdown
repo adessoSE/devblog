@@ -22,7 +22,7 @@ dürfen für externe Nutzer einsehbar sein.
 Dies kann sichergestellt werden durch einen Prozess, der eine explizite Freigabe der zu veröffentlichenden Informationen vorsieht sowie durch separate Speicherung der veröffentlichten Daten 
 und separate Zugriffspfade.
 
-Die folgende Abbildung zeigt eine grobe Prozessbeschreibung: test
+Die folgende Abbildung zeigt eine grobe Prozessbeschreibung: test test
 ![Prozessbechreibung zu NodeJS als Auskunftswebservice einer JEE-Applikation](../assets/images/posts/NodeJS-als-Auskunftswebservice-einer-JEE-Applikation/Aktivitaetsdiagramm.png)
 
 Im vorliegenden Projektbeispiel haben wir uns entschieden, die Geschäftsapplikation als JEE-Applikation zu entwickeln und diese um einen Auskunftsservice auf Basis des MEAN-Stacks zu erweitern.
