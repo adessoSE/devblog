@@ -51,7 +51,7 @@
 <div class="row p-t-2">
 <div class="adesso-container">
 <div class="col-xl-8 adesso-center p-b-1 p-l-0 p-r-0">
-    {{ content | remove: page.excerpt | replace: '../assets','localhost:4000/assets' }}
+    {{ content | remove: page.excerpt | replace:'../assets','http://example.com/assets' | xml_escape | replace: 'http://example.com', site.url }}
 </div>
 </div>
 </div>
