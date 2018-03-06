@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<documents>
+    <document uid="55cf4256b678b764b6e8ef6b56a3a595">
+        <field name="title"><![CDATA[Monitoring für Microservices - Eine Bridge für Eureka und Prometheus]]></field>
+        <field name="subline"><![CDATA[]]></field>
+        <field name="teaser"><![CDATA[<p>Monitoring mittels Servertechnologien wie Prometheus wird für Anwendungen heutzutage immer wichtiger. Microservicelandschaften bilden in 
+ihrer Dynamik hier keine Ausnahme. Die Service-Discovery Eureka, die im Spring Cloud Umfeld häufig Verwendung findet, soll deshalb
+auch mit Prometheus zusammenarbeiten können. Eine Lösung wird in diesem Artikel vorgestellt.</p>
+
+]]></field>
+        <field name="language_multi_keyword"><![CDATA[de]]></field>
+        <field name="content_type_multi_keyword"><![CDATA[blog]]></field>
+        <field name="mime_type_multi_keyword"><![CDATA[text/html]]></field>
+        <field name="category_multi_keyword"><![CDATA[Monitoring]]></field>
+        <field name="category_multi_keyword"><![CDATA[Microservices]]></field>
+        <field name="category_multi_keyword"><![CDATA[Kotlin]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Prometheus]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Eureka]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Bridge]]></field>
+        <field name="tag_multi_keyword"><![CDATA[JVM]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Kotlin]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Spring]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Microservices]]></field>
+        <field name="date_date"><![CDATA[2018-02-14T17:45:00+01:00]]></field>
+        <field name="date_l"><![CDATA[1518626700000]]></field>
+        <field name="change_date"><![CDATA[1518626700000]]></field>
+        <!--Picture-->
+        <!-- Not in use in the moment-->
+        <!--Author Information-->
+        <field name="author_first_name"><![CDATA[Silas]]></field>
+        <field name="author_last_name"><![CDATA[Mahler]]></field>
+        <field name="author_id"><![CDATA[silasmahler]]></field>
+        <field name="author_picture_stored_only"><![CDATA[http://localhost:4000/assets/images/avatars/silasmahler.png]]></field>
+        <!--Postcontent-->
+        <field name="headlines"><![CDATA[Monitoring für Microservices - Eine Bridge für Eureka und Prometheus]]></field>
+        <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
+            <p>Monitoring mittels Servertechnologien wie Prometheus wird für Anwendungen heutzutage immer wichtiger. Microservicelandschaften bilden in 
+ihrer Dynamik hier keine Ausnahme. Die Service-Discovery Eureka, die im Spring Cloud Umfeld häufig Verwendung findet, soll deshalb
+auch mit Prometheus zusammenarbeiten können. Eine Lösung wird in diesem Artikel vorgestellt.</p>
+
+</div>]]></field>
+        <field name="content"><![CDATA[<div class="adesso-text-formate">
+<div class="row p-t-2">
+<div class="adesso-container">
+<div class="col-xl-8 adesso-center p-b-1 p-l-0 p-r-0">
+    <h4 id="einleitung">Einleitung</h4>
+
+<h6 id="vorbereitung">Vorbereitung</h6>
+
+<ol>
+  <li>IDE mit Tooling für Spring</li>
+  <li>Spring Basics</li>
+  <li>Kotlin Basics</li>
+  <li>Hilfreich: Docker Basics</li>
+</ol>
+
+<h6 id="eureka">Eureka</h6>
+
+<p>Eureka ist eine sogenannte Service-Discovery aus dem Spring Cloud Umfeld. Diese Systeme werden in Microservice-Landschaften zum automatischen erkennen, registrieren und deregistrieren von Services genutzt.</p>
+
+<h6 id="prometheus">Prometheus</h6>
+
+<p>Prometheus ist ein relativ junges Open Source Projekt, dass eine Monitoring-Lösung für Anwendungssysteme bietet. Dazu sammelt Prometheus Metriken von konfigurierten Zielen ein und stellt diese auf verschiedene Weise dar.</p>
+
+<h6 id="problem--ziel">Problem &amp; Ziel</h6>
+
+<p>Aktuell gibt es für Prometheus noch kaum eine Möglichkeit in einer dynamischen Microservice-Umgebung im Spring Cloud Umfeld die dynamisch veränderlichen Konfigurationen von Services mit einzubeziehen, sodass bei Veränderungen immer die neusten Service-Urls für das Sammeln von Metriken genutzt werden. Speziell für Eureka fehlt eine Implementierung. Dies soll sich mit dieser Anwendung ändern und folgende Ziele soll unsere Anwendung erfüllen:</p>
+
+<ol>
+  <li>Regelmäßig Informationen über Services von Eureka anfordern</li>
+  <li>Informationen verarbeiten und für Erstellung einer prometheus.yml nutzen</li>
+  <li>Statische und dynamische Tests in einer Produktionsähnlichen Umgebung</li>
+</ol>
+
+<h4 id="los-gehts">Los gehts!</h4>
+
+<p>Als Beispielprojekt wird eine Brücken-Applikation, auch Bridge genannt, verwendet, welche die Eureka-Komponente aus dem <a href="https://github.com/spring-cloud/spring-cloud-netflix">Netflix-Open-Source-Stack</a> anfragt und die registrierten (Micro-)Services erkennt. Diese Daten werden dann dazu verwendet, eine valide yml-Konfigurationsdatei für den Monitoring-Server Prometheus zu erstellen, sodass dieser Daten über die Endpunkte der Services verarbeiten kann.</p>
+
+<p>Unsere <a href="https://github.com/adessoAG/eureka-prometheus-bridge">Beispiel-App</a> ist eine Spring Boot App.</p>
+
+<h6 id="umgebungskonfiguration">Umgebungskonfiguration</h6>
+
+<p>Für die grundlegende Konfiguration verwenden wir das Build-System Gradle und binden einige Spring-Projekte, sowie externe Frameworks ein.</p>
+
+<p><a href="https://github.com/adessoAG/eureka-prometheus-bridge/blob/master/build.gradle">build.gradle</a></p>
+
+<pre><code class="language-gradle"> buildscript {
+	ext {
+		kotlinVersion = '1.1.61'
+		springBootVersion = '2.0.0.M7'
+//...
+}
+
+//...
+
+dependencies {
+	compile('io.github.daviddenton:konfigur8:1.7.0')
+	compile("com.github.jkcclemens:khttp:0.1.0")
+	compile('org.springframework.boot:spring-boot-starter')
+	compile('org.springframework.boot:spring-boot-starter-aop')
+	compile('org.springframework.boot:spring-boot-starter-logging')
+	compile("org.springframework.boot:spring-boot-configuration-processor")
+	compile("org.jetbrains.kotlin:kotlin-stdlib-jre8")
+	compile("org.jetbrains.kotlin:kotlin-reflect")
+	compile("com.fasterxml.jackson.module:jackson-module-kotlin")
+	compile group: 'org.json', name: 'json', version: '20171018'
+	testCompile('org.springframework.boot:spring-boot-starter-test')
+}
+</code></pre>
+
+<h6 id="startklasse-eurekaprometheusbridgeapplication">Startklasse: EurekaPrometheusBridgeApplication</h6>
+
+<p>Die Haupt-Klasse oder Einstiegsklasse unserer Applikation wird mit der Annotation <code>@EnableScheduling</code> versehen. So können wir zeitgesteuerte Jobs in unserer Applikation ausführen 👍</p>
+
+<p><a href="https://github.com/adessoAG/eureka-prometheus-bridge/blob/master/src/main/kotlin/de/adesso/eurekaprometheusbridge/EurekaPrometheusBridgeApplication.kt">EurekaPrometheusBridgeApplication.kt</a></p>
+
+<pre><code class="language-kotlin">@SpringBootApplication
+@EnableScheduling
+class EurekaPrometheusBridgeApplication {
+	//...
+}
+fun main(args: Array&lt;String&gt;) {
+    runApplication&lt;EurekaPrometheusBridgeApplication&gt;(*args)
+}
+</code></pre>
+
+<h6 id="anwendungskonfiguration">Anwendungskonfiguration</h6>
+
+<p>Die Konfiguration der Anwendung wird an dieser Stelle vom Kotlin-Framework <em>Konfigur8</em>  übernommen. Durch das Framework lässt sich das Singleton-Konstrukt <em>Object</em> aus Kotlin nutzen, um eine Template zu erstellen, welche typsicher innerhalb des Codes definiert wird und zur Laufzeit als <em>Object</em> zur Verfügung steht. So ist die Konfiguration Refactoring-Safe und kann leicht überall wo Sie benötigt wird eingebunden werden.</p>
+
+<h6 id="definition-einer-konfiguration-in-eurekaproperties">Definition einer Konfiguration in EurekaProperties</h6>
+
+<pre><code class="language-kotlin">object EurekaProperties {
+    var port = Property.int("eureka.bridge.port")
+    var host = Property.string("eureka.bridge.host")
+    var apiPath = Property.string("eureka.bridge.apiPath")
+    var showJson = Property.bool("eureka.bridge.showJson")
+
+    val configTemplate = ConfigurationTemplate()
+            .withProp(port, 8761)
+            .withProp(host, "http://127.0.0.1")
+            .withProp(apiPath, "/eureka/apps/")
+            .withProp(showJson, false)
+}
+</code></pre>
+
+<p>Um die Konfiguration nun abzurufen muss später nur noch aus der Konfiguration ein Laufzeitobjekt erstellt werden und dann die Konfiguration ausgelesen werden.</p>
+
+<h6 id="laufzeitobjekt-erzeugen">Laufzeitobjekt erzeugen</h6>
+
+<pre><code class="language-kotlin">var eureka_config = EurekaProperties.configTemplate.reify() 
+//In Kotlin möglichst im Companion-Objekt
+</code></pre>
+
+<h6 id="abrufen-der-konfiguration">Abrufen der Konfiguration</h6>
+
+<pre><code class="language-kotlin">var port = eureka_config.valueOf(EurekaProperties.port)
+</code></pre>
+
+<h5 id="die-anwendung">Die Anwendung</h5>
+
+<h6 id="zeitgesteuerte-ausführung">Zeitgesteuerte Ausführung</h6>
+
+<p>Sobald wir unsere App starten, wird ein zeitgesteuerter Job angestoßen, der regelmäßig die Hauptfunktion der Anwendung ausführt. Das Intervall wird hier klassisch aus einer Properties-Datein ausgelesen, da ein Annotationsparameter zur Compilezeit eine Konstante sein muss.</p>
+
+<p>ScheduledJobs.kt</p>
+
+<pre><code class="language-kotlin">@Service
+class ScheduledJobs(
+        @Autowired var eurekaQuery: EurekaQuery) {
+    
+    @Scheduled(fixedDelayString = "\${query.interval.seconds:60}000")
+    fun executeBridge() {
+        eurekaQuery.queryEureka()
+    }
+}
+</code></pre>
+
+<h6 id="eureka-anfragen">Eureka anfragen</h6>
+
+<p>Um nun Eureka anzufragen wird die Klasse <strong>EurekaQuery.kt</strong> verwendet.</p>
+
+<p>Zu Beginn wird eine <em>nullable</em> Variable vom Typ Response angelegt. Standard in Kotli ist, dass eine Variable nicht mit null belegt werden darf, deswegen nutzt man hier den Operator “?”.</p>
+
+<p>Die Klasse Response kommt aus dem <a href="https://github.com/jkcclemens/khttp">khttp-Framework</a> für Kotlin. Das Framework ermöglicht sehr einfache HTTP-Anfragen. Hier wird auch direkt auf die Konfigurationsparamater zugegriffen.</p>
+
+<pre><code class="language-kotlin">var r: Response? = get(config.valueOf(EurekaProperties.host) + ":" + config.valueOf(EurekaProperties.port) + config.valueOf(EurekaProperties.apiPath))
+</code></pre>
+
+<h6 id="json-parsen">JSON parsen</h6>
+
+<p>War die Anfrage bei Eureka von Erfolg gekrönt, muss das JSON verarbeitet werden. Hieraus werden service-name, -hostname, -port und -targeturl extrahiert. Exemplarisch hier für den Servicenamen zu sehen.</p>
+
+<pre><code class="language-kotlin">//...
+var name = JSONObjectFromXML.getJSONObject("applications").getJSONObject("application").get("name").toString()
+//...
+log.info("Found property: $name with targeturl: $targeturl")
+</code></pre>
+
+<h6 id="configentry-erzeugen">ConfigEntry erzeugen</h6>
+
+<p>Nun sollen die gewonnen Informationen in einem Objekt hinterlegt werden. Hierzu dient die Klasse ConfigEntry. Das Schlüsselwort <em>data</em> sorgt dafür, dass wir eine Klasse erhalten, die uns Getter- und Setter schenkt und sich im Gegensatz zu klassischen Entitäten unglaublich komprimiert (hier in einer Zeile!) schreiben lässt.</p>
+
+<pre><code class="language-kotlin">data class ConfigEntry(var name: String = "", var targeturl: String = "")
+</code></pre>
+
+<h6 id="generierung-der-prometheusyml">Generierung der Prometheus.yml</h6>
+
+<p>Anschließend brauchen wir noch einen Generator, um unsere ConfigEntries zu verarbeiten.
+Um nachzuvollziehen was genau passiert, schauen wir uns die Datei <strong>Generator.kt</strong> näher an.</p>
+
+<pre><code class="language-kotlin">@Service
+class Generator {
+    companion object {
+        val log = LoggerFactory.getLogger(Generator::class.java.name)
+        var config = PrometheusProperties.configTemplate.reify()
+    }
+
+    fun generatePrometheusConfig(entries: List&lt;ConfigEntry&gt;) {
+        log.info("Reading basic Prometheusfile")
+        var template = File(config.get(PrometheusProperties.configFileTemplatePath)).readText()
+        for (configEntry in entries) {
+            var entry = """
+                - job_name: ${configEntry.name}
+                  scrape_interval: ${config.get(PrometheusProperties.scrapeInterval)}s
+                  scrape_timeout: ${config.get(PrometheusProperties.scrapeTimeout)}s
+                  metrics_path: ${config.get(PrometheusProperties.metricsPath)}
+                  scheme: ${config.get(PrometheusProperties.scheme)}
+                  static_configs:
+                  - targets:
+                    - ${configEntry.targeturl}
+                                """.trimIndent()
+            template += "\n" + entry
+        }
+        var file = File(config.get(PrometheusProperties.generatedConfigFilePath))
+        file.writeText(template)
+        log.info("Config generated!")
+    }
+}
+</code></pre>
+
+<p>Die Klasse liest die grundlegende Prometheus-Konfigurationsdatei aus und fügt für jeden ConfigEntry aus der Liste einen weiteren Monitoring-Job für Prometheus ein. Anschließend wird die generierte Datei wieder abgelegt.</p>
+
+<p>Die Anwendung an sich ist somit betriebsbereit. Um sie nun möglichst leicht zu betreiben und testen gibt es verschiedene Möglichkeiten.</p>
+
+<h6 id="tests-mit-spring-und-junit">Tests mit Spring und JUnit</h6>
+
+<p>Die Klasse <strong>EurekaPrometheusBridgeApplicationTests.kt</strong> implementiert Anwendungstests. Hier werden verschiedene Methoden aufgerufen und die Konfiguration getestet. Zusätzlich gibt es ein Beispiel mit Spring AOP in Kotlin.</p>
+
+<h6 id="tests-mit-docker-und-einer-microservice-landschaft">Tests mit Docker und einer Microservice-Landschaft</h6>
+
+<p>Statische Tests sind wichtig, aber um eine Anwendung besser einschätzen zu können, empfiehlt sich immer ein Produktionstest. Hierzu dient ein weiteres Projekt, welches eine Microservice-Landschaft bereitstellt, der <a href="https://github.com/adessoAG/eureka-prometheus-bridge-tester"><strong>Eureka-Prometheus-Bridge-Tester</strong></a></p>
+
+<p>Das Projekt kann natürlich innerhalb einer Entwicklungsumgebung gestartet werden: <a href="https://github.com/adessoAG/eureka-prometheus-bridge-tester/blob/master/README.md">Anleitung</a></p>
+
+<p>Einfacher gestaltet sich das ganze mittels Docker und Docker-Compose.</p>
+
+<p>Hierzu wird lediglich ein Kommando benötigt, welches im Hauptverzeichnis des Programms ausgeführt wird:</p>
+
+<pre><code class="language-dockerfile">docker-compose up
+</code></pre>
+
+<p>Detailliertere Informationen finden Sie im <a href="https://github.com/adessoAG/eureka-prometheus-bridge/blob/master/Readme.md">Readme</a> des Projekts.</p>
+
+</div>
+</div>
+</div>
+</div>]]></field>
+    </document>
+</documents>
