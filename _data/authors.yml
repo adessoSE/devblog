@@ -33,3 +33,12 @@ silasmahler:
   bio: "Silas Mahler ist Werkstudent bei adesso in Dortmund und entwickelt Software im Open Source Bereich."
   avatar_url: /assets/images/avatars/silasmahler.png
   github: https://github.com/silasmahler
+
+AdessoMaDa:
+  first_name: Marcus
+  last_name: Danner
+  github_username: AdessoMaDa
+  email: marcus.danner@adesso.de
+  bio:
+  avatar_url: /assets/images/avatars/AdessoMaDa.jpg
+  github: https://github.com/AdessoMaDa
