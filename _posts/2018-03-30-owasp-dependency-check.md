@@ -77,11 +77,41 @@ Projekt-Umfang an.
 
 **TODO SQL Script referenzieren**
 **TODO Maven Plugin Setup zeigen???**
+**TODO noch ein Bild???**
 
 ## Integration in Sonar
-- Integration mit Sonar
+Um eine grundlegende Security Awareness zu schaffen und die Einhaltung von Vorgaben zu fördern wird ein Weg benötigt, 
+mit dem die gefundenen Schwachstellen sichtbar werden. Das kann beispielsweise durch das Fehlschlagen von Builds erreicht
+werden. Das Fehlschlagen des Builds ist allerdings eine sehr absolute Maßnahme und sorgt für wenig Akzeptanz bei den 
+Verantwortlichen wenn der Grund ein False-Positive ist.
+
+Das geschicktere Vorgehen ist daher die Integration in den Sonar **TODO Link zu Sonar** Server. Dazu muss ein Plugin 
+**TODO Link zum Plugin**
+auf dem Sonar Server installiert werden. Der Scanner, der durch das Plugin hinzugefügt wird, liest den XML Report der bei 
+der Durchführung des OWASP Dependency Checks erstellt wurde ein und erzeugt aus den Findings Issues. Die Einstufung nach 
+Blocker, Critical usw. erfolgt dabei nach dem **TODO CVSS ????** (CVSS).
 
 ## False-Positives ausschließen
+Über Sonar können die potentiellen Sicherheitslücken gemonitored und als False-Positive bzw. Won't Fix markiert werden.
+Unter der Zuhilfenahme von Quality Gates können Projekte mit neuen Sicherheitslücken optisch hervorgehoben werden und 
+das scheitern von Build kann ebenfalls erreicht werden.
+
+Neben der erwähnten Möglichkeit False-Positives über Sonar auszuschließen, gibt es ebenfalls die Möglichkeit eine 
+XML-Datei zur Konfiguration zum Analyse Zeitpunkt zu verwenden. Dadurch können insbesondere in umfangreichen Projekten,
+mit vielen Teil-Projekten bzw. Sub-Modulen, die auf dem gleichen Stack basieren, False-Positives effizient ausgeschlossen
+werden. Die einzelnen Teil-Projekte müssen sich dann nicht mit den Problemen des zentralen Technologie-Stacks
+auseinandersetzen.
+
+**TODO Bespiel für False-Poritives**
 
 # Fazit
-- Kritik: False-Positives, Änderungen an bestehenden Valunerabilities schleppend
+Die allgemeine Kritik an den CVE Datenbanken kann im Blog-Post 
+[Verwendung von Komponenten mit bekannten Sicherheitslücken](https://www.owasp.org/index.php/Top_10-2017_A9-Using_Components_with_Known_Vulnerabilities)
+nachgelesen werden. An dieser Stelle gehe ich daher nur auf die Erkennung von bekannten Schwachstellen mit dem OWASP 
+Dependency Plugin ein.
+
+Grundsätzlich bietet das Plugin alle benötigten Funktionen und kann auch in umfangreichen Projekten zum Einsatz kommen.
+Es erkennt bekannte Schwachstellen und listet sie verständlich auf. Die False-Positives kommen aus der verwendeten DB
+und sind nicht durch Fehler im Plugin begründet. Generell gilt, dass der Einsatz empfohlen werden kann. Der 
+Vollständigkeit halber muss erwähtn werden, dass es neben dem OWASP Plugin kommerzielle Werkzeuge gibt, die einen 
+größeren Funktionsumfang bereitstellen. Auf diese Werkzeuge wird hier allerdings nicht weiter eingegangen.
