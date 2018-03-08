@@ -38,18 +38,20 @@ Der CMD Line Client enthält allerdings die gleichen Funktionen.
 ## Maven Integration
 Um den Dependency Check mit Maven zu verwenden muss das Plugin eingebunden und konfiguriert werden.
 
-    <plugin>
-        <groupId>org.owasp</groupId>
-        <artifactId>dependency-check-maven</artifactId>
-        <version>1.3.3</version>
-        <executions>
-            <execution>
-                <goals>
-                    <goal>check</goal>
-                </goals>
-            </execution>
-        </executions>
-    </plugin>
+```xml
+<plugin>
+    <groupId>org.owasp</groupId>
+    <artifactId>dependency-check-maven</artifactId>
+    <version>1.3.3</version>
+    <executions>
+        <execution>
+            <goals>
+                <goal>check</goal>
+            </goals>
+        </execution>
+    </executions>
+</plugin>
+```
 
 ## Setup mit zentraler DB
 Per default lädt sich das Maven Plugin die aktuelle NVD DB aus dem Internet und speichert die Daten in einer H2 Datenbank.
@@ -83,26 +85,28 @@ Zugriff. Für das Update der DB kann das Maven Plugin oder das
 [OWASP Dependency Check CLI](https://jeremylong.github.io/DependencyCheck/dependency-check-cli/index.html) verwendet
 werden.
 
-    <plugin>
-        <groupId>org.owasp</groupId>
-        <artifactId>dependency-check-maven</artifactId>
-        <dependencies>
-            <dependency>
-                <groupId>org.mariadb.jdbc</groupId>
-                <artifactId>mariadb-java-client</artifactId>
-            </dependency>
-        </dependencies>
-        <configuration>
-            <!-- Das automatische Update deaktivieren -->
-            <autoUpdate>false</autoUpdate>
-            
-            <!-- Einrichtung für die Verbindung mit einer Maria DB -->
-            <databaseDriverName>org.mariadb.jdbc.Driver</databaseDriverName>
-            <connectionString>jdbc:mariadb://my.mariadb.de/nvddb</connectionString>
-            <databaseUser>owasp</databaseUser>
-            <databasePassword>owasp-password</databasePassword>
-        </configuration>
-    </plugin>
+```xml
+<plugin>
+    <groupId>org.owasp</groupId>
+    <artifactId>dependency-check-maven</artifactId>
+    <dependencies>
+        <dependency>
+            <groupId>org.mariadb.jdbc</groupId>
+            <artifactId>mariadb-java-client</artifactId>
+        </dependency>
+    </dependencies>
+    <configuration>
+        <!-- Das automatische Update deaktivieren -->
+        <autoUpdate>false</autoUpdate>
+        
+        <!-- Einrichtung für die Verbindung mit einer Maria DB -->
+        <databaseDriverName>org.mariadb.jdbc.Driver</databaseDriverName>
+        <connectionString>jdbc:mariadb://my.mariadb.de/nvddb</connectionString>
+        <databaseUser>owasp</databaseUser>
+        <databasePassword>owasp-password</databasePassword>
+    </configuration>
+</plugin>
+```
 
 Ein noch sehr junges Projekt in dem Zusammenhang ist 
 [DependencyCheck Central Database Docker](https://github.com/jeremylong/dependencycheck-central-mysql-docker). Damit 
@@ -133,6 +137,24 @@ Neben der erwähnten Möglichkeit False-Positives über Sonar auszuschließen, g
 Zeitpunkt zu verwenden. Dadurch können insbesondere in umfangreichen Projekten, mit vielen Teil-Projekten bzw. 
 Sub-Modulen, die auf dem gleichen Stack basieren, False-Positives effizient ausgeschlossen werden. Die einzelnen 
 Teil-Projekte müssen sich dann nicht mit den Problemen des zentralen Technologie-Stacks auseinandersetzen.
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<suppressions xmlns="https://jeremylong.github.io/DependencyCheck/dependency-suppression.1.1.xsd">
+    <suppress>
+        <notes><![CDATA[
+      file name: staxmapper-1.1.0.Final.jar
+      False positive!
+      ]]></notes>
+        <gav regex="true">^org\.jboss:staxmapper:.*$</gav>
+        <cpe>cpe:/a:apple:mac_os_x</cpe>
+    </suppress>
+</suppressions>
+```
+
+Hier wird ein False-Positive ausgeschlossen, das durch die JBoss StAX Mapper Facade gefunden wird. Der CPE verweist 
+allerdings auf Mac OS X als Fundstelle für das Vulnerabilitie und hat mit unserem JBoss Library keine direkte 
+Verbindung.
 
 # Fazit
 Die allgemeine Kritik an den CVE Datenbanken kann im Blog-Post 
