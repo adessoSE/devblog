@@ -7,23 +7,24 @@ author:         saschagrebe
 categories:     [Java]
 tags:           [OWASP, Security, Build]
 ---
-In der OWASP Top 10 Liste der häufigsten Sicherheitsprobleme existiert ein Eintrag zur 
-[Verwendung von Komponenten mit bekannten Sicherheitslücken](https://www.owasp.org/index.php/Top_10-2017_A9-Using_Components_with_Known_Vulnerabilities).
+
 Moderne Software-Systeme basieren auf einer Vielzahl von Bibliotheken und Frameworks, die das Leben der 
 Software-Entwickler einfacher machen. In diesem Dschungel der Möglichkeiten ist es undenkbar die bekannten 
-Sicherheitslücken für alle verwendeten Abhängigkeiten ohne Tool-Unterstützung im Blick zu behalten. Mit dem OWASP 
-Dependency Check lässt sich der Abgleich mit der NIST’s [National Vulnerability Database (NVD)](https://nvd.nist.gov/) 
+Sicherheitslücken für alle verwendeten Abhängigkeiten ohne Tool-Unterstützung im Blick zu behalten. 
+In der OWASP Top 10 Liste der häufigsten Sicherheitsprobleme existiert ebenfalls ein Eintrag zur
+[Verwendung von Komponenten mit bekannten Sicherheitslücken](https://www.owasp.org/index.php/Top_10-2017_A9-Using_Components_with_Known_Vulnerabilities). 
+Mit dem OWASP Dependency Check lässt sich der Abgleich mit der NIST’s [National Vulnerability Database (NVD)](https://nvd.nist.gov/) 
 automatisieren. In diesem Blog-Eintrag möchte ich gerne zeigen wie das funktioniert.
 
 # Sicherheitslücken in Software
 Sicherheitslücken verstecken sich nicht nur in selbstgeschriebener Software, sondern ebenfalls in den 3rd-Party 
-Bibliotheken und Frameworks, die bei der Erstellung von komplexen Anwendungssystemen eingesetzt werden. In unserem 
+Bibliotheken und Frameworks, die bei der Erstellung von komplexen Anwendungssystemen eingesetzt werden. Im
 früheren Blog-Post [Verwundbarkeitsanalyse von Softwareprodukten anhand öffentlicher Datenbanken](https://www.adesso.de/de/news/blog/verwundbarkeitsanalyse-von-softwareprodukten-anhand-oeffentlicher-datenbanken.jsp)
 sind meine Kollegen Luis Alberto Benthin Sanguino und Martin März bereits auf öffentliche Datenbanken eingegangen, 
 gegen die Software im Allgemeinen geprüft werden kann. Dabei gehen sie unter anderem auf die Begriffe 
 Common Platform Enumeration (CPE) und Common Vulnerabilities and Exposures (CVE) sowie die National Vulnerability 
-Database (NVD) ein. In diesem Blog-Post wollen wir uns daher nicht mit den Grundlagen beschäftigen, sondern die 
-automatische Prüfung gegen die NVD erläutern.
+Database (NVD) ein. Dieser Blog-Post beschäftigt sich daher nicht mit den Grundlagen, sondern erläutert die 
+automatische Prüfung gegen die NVD.
 
 # OWASP Dependency Check
 Mit dem OWASP Dependency Check kann eine Java-Anwendung auf bekannte Schwachstellen in 3rd-Party Komponenten überprüft 
@@ -40,8 +41,8 @@ der CMD Line Client die gleichen Funktionen und kann in beliebigen Umgebungen au
 
 ## Maven Integration
 Um den Dependency Check mit Maven zu verwenden muss lediglich das Plugin eingebunden und konfiguriert werden. 
-Standardmäßig registriert sich das Plugin nicht mit einer Maven-Phase. Um die Analyse auszuführen muss also entweder die 
-Ausführung des Goals einer Phase hinzugefügt oder das Goal *dependency-check:check* aufgerufen werden.
+Um die Analyse auszuführen muss entweder die Ausführung des Goals einer Phase hinzugefügt oder das Goal *dependency-check:check* aufgerufen werden, da
+sich das Plugin nicht standardmäßig mit einer Maven-Phase registriert.
 
 ```xml
 <plugin>
@@ -59,12 +60,12 @@ Ausführung des Goals einer Phase hinzugefügt oder das Goal *dependency-check:c
 ```
 
 ## Setup mit zentraler Datenbank
-Im Normalfall lädt sich das Maven Plugin die aktuelle NVD Datenbank aus dem Internet und speichert die Daten in einer H2 Datenbank.
+Im Normalfall lädt sich das Maven Plugin die aktuelle NVD Datenbank aus dem Internet herunter und speichert die Daten in einer H2 Datenbank.
 Gegen die H2 Datenbank werden im Anschluss die gefundenen Versionen auf Sicherheitslücken überprüft. Da die Datenbank 
 auf dem CI Server In-Memory läuft, wird die Analyse sehr schnell durchgeführt. Aus Sicherheitsgründen kann 
 es im Unternehmen jedoch vorkommen, dass der CI Server keine Verbindung mit der Außenwelt herstellen darf. Das 
 automatisierte 
-Herunterladen der NVD Datenbank zum Analyse Zeitpunkt funktioniert dadurch nicht. Um die Analysen trotzdem in 
+Herunterladen der NVD Datenbank zum Analysezeitpunkt funktioniert dadurch nicht. Um die Analysen trotzdem in 
 den Build integrieren zu können gibt es zwei sinnvolle Setup Möglichkeiten.
 
 Das Maven Plugin bietet eine Option, mit der ein Mirror der NVD Datenbank verwendet werden kann. Dazu muss natürlich im Netzwerk
@@ -89,7 +90,7 @@ benötigt, mit dem das zu verwendende Schema initialisiert wird. Die OWASP Depen
 genutzt werden, müssen mit der Option *autoUpdate = false* konfiguriert werden. Dadurch werden die Plugin Instanzen im 
 ReadOnly-Modus gestartet und es gibt keine Probleme mit dem parallelen Zugriff. Für das Update der NVD Daten in der Datenbank 
 kann das Maven Plugin oder das [OWASP Dependency Check CLI](https://jeremylong.github.io/DependencyCheck/dependency-check-cli/index.html) 
-verwendet werden. Einen Automatismus um das Schema zu aktualisieren (z. B. bei einem Versionswechsel des Plugins)
+verwendet werden. Ein Automatismus um das Schema zu aktualisieren (z. B. bei einem Versionswechsel des Plugins)
 existiert nicht.
 
 ```xml
@@ -144,10 +145,10 @@ Won't Fix markiert werden. Unter der Zuhilfenahme von Quality Gates können Proj
 hervorgehoben und das Scheitern des Builds kann ebenfalls erreicht werden.
 
 Neben der erwähnten Möglichkeit False-Positives über Sonar auszuschließen, gibt es ebenfalls die Möglichkeit eine 
-[XML-Datei zur Konfiguration](https://jeremylong.github.io/DependencyCheck/general/suppression.html) zum Analyse 
-Zeitpunkt zu verwenden. Die ausgeschlossenen False-Positives werden nun nicht mehr im Report aufgeführt. Mit diesem 
+[XML-Datei zur Konfiguration](https://jeremylong.github.io/DependencyCheck/general/suppression.html) zum Analysezeitpunkt
+zu verwenden. Die ausgeschlossenen False-Positives werden nun nicht mehr im Report aufgeführt. Mit diesem 
 Mechanismus können insbesondere in umfangreichen Projekte, die auf dem 
-gleichen Stack basieren, False-Positives effizient ausgeschlossen werden. Die einzelnen Teil-Projekte müssen sich nun 
+gleichen Stack basieren, False-Positives effizient ausgeschlossen werden. Die einzelnen Teilprojekte müssen sich nun 
 nicht mit den Problemen des zentralen Technologie-Stacks auseinandersetzen.
 
 ```xml
