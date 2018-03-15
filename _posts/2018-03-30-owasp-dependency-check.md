@@ -123,15 +123,21 @@ durch das OWASP Dependency Check CLI aktualisiert wird.
 
 ## Integration in Sonar
 Um eine grundlegende Security Awareness bei allen Projektbeteiligten zu schaffen und die Einhaltung von Vorgaben zu 
-fördern wird weiterhin ein Weg benötigt, mit dem die gefundenen Schwachstellen sichtbar werden. Das kann beispielsweise 
-durch das Fehlschlagen von Builds erreicht werden. Dies ist allerdings eine sehr absolute 
-Maßnahme und sorgt für wenig Akzeptanz bei den Verantwortlichen, wenn der Grund ein False-Positive ist.
+fördern wird weiterhin ein Weg benötigt, mit dem die gefundenen Schwachstellen sichtbar werden. Standardmäßig erzeugt 
+das Maven Plugin einen HTML Report, der über den CI Server veröffentlicht werden kann. Im Report werden alle Security 
+Violations mit den in der NVD hinterlegten Informationen aufgelistet. Aus dem HTML Report können zusätzlich direkt Code 
+Snippets für das Unterdrücken von False-Positives generiert werden. Mit dem Parameter *format* kann das Ausgabeformat 
+auf die Werte XML, CSV, JSON, VULN und ALL geändert werden. Um den Report z. B. im 
+[Jenkins Plugin](https://wiki.jenkins.io/display/JENKINS/OWASP+Dependency-Check+Plugin) verarbeiten zu können wird das 
+XML Format benötigt.
 
-Meiner Meinung nach ist daher die Integration in den 
-[Sonar Server](https://www.sonarqube.org/) das geschicktere Vorgehen. Dazu muss das 
+Neben dem Reporting kann das Plugin ebenfalls den Build fehlschlagen lassen um die benötigte Aufmerksamkeit zu 
+erreichen. Dies ist allerdings eine sehr absolute Maßnahme und sorgt für wenig Akzeptanz bei den Verantwortlichen, wenn 
+der Grund ein False-Positive ist. Meiner Meinung nach ist die Integration in den [Sonar Server](https://www.sonarqube.org/) 
+das geschicktere Vorgehen. Dazu muss das 
 [OWASP Dependency Check Sonar Plugin](https://github.com/stevespringett/dependency-check-sonar-plugin) auf dem Sonar 
 Server installiert werden. Der Scanner, der durch das Plugin hinzugefügt wird, liest den XML Report ein, der bei der 
-Durchführung des OWASP Dependency Checks erstellt wurde, und erzeugt aus den Fundstellen entsprechende Sonar Issues.
+Durchführung des OWASP Dependency Checks generiert wurde, und erzeugt aus den Fundstellen entsprechende Sonar Issues. 
 Die Einstufung nach Blocker, Critical usw. erfolgt dabei nach dem Common Vulnerability Scoring System (CVSS) und 
 konfigurierbaren Schwellwerten. Die entsprechenden Werte können mit den Sonar Properties 
 *sonar.dependencyCheck.severity.critical* und *sonar.dependencyCheck.severity.major* konfiguriert werden.
