@@ -42,3 +42,12 @@ saschagrebe:
   bio: "Sascha Grebe ist Softwarearchitekt und Teamleiter bei adesso in Frankfurt. Er entwickelt Software im Versicherungsbereich."
   avatar_url: /assets/images/avatars/saschagrebe.jpg
   github: https://github.com/saschagrebe
+
+AdessoMaDa:
+  first_name: Marcus
+  last_name: Danner
+  github_username: AdessoMaDa
+  email: marcus.danner@adesso.de
+  bio:
+  avatar_url: /assets/images/avatars/AdessoMaDa.jpg
+  github: https://github.com/AdessoMaDa
