@@ -1,10 +1,10 @@
 ---
 layout: [post, post-xml]              # Pflichtfeld. Nicht ändern!
 title:  "Blog Post Anleitung"         # Pflichtfeld. Bitte einen Titel für den Blog Post angeben.
-date:   2017-08-10 10:25              # Pflichtfeld. Format "YYYY-MM-DD HH:MM".
+date:   2017-08-10 10:25              # Pflichtfeld. Format "YYYY-MM-DD HH:MM". Muss für Veröffentlichung in der Vergangenheit liegen. (Für Preview egal)
 modified_date: 2017-08-18             # Optional. Muss angegeben werden, wenn eine bestehende Datei geändert wird.
 author: johndoe                       # Pflichtfeld. Es muss in der "authors.yml" einen Eintrag mit diesem Namen geben.
-categories: [Java, Microsoft, Methodik, Architektur, Softwareentwicklung, HR, Branchen] # Pflichtfeld. Mindestens eine der angegebenen Kategorien verwenden.
+categories: [Java] # Pflichtfeld. Maximal eine der angegebenen Kategorien verwenden.
 tags: [Spring, Microservices]         # Optional.
 ---
 
@@ -58,8 +58,8 @@ johndoe:
 
 Jede Blog Post Markdown-Datei beginnt mit einem kurzen Abschnitt, in dem einige Metadaten enthalten
 sind. Dieser Abschnitt ist mit `---` vom eigentlichen Inhalt getrennt und ist als YAML formatiert.
-Hier sind einige Pflichtfelder auszufüllen. Schau dir einfach den Header dieser Datei als Beispiel
-an.
+Hier sind einige Pflichtfelder auszufüllen. 
+Schau dir einfach den [Header dieser Datei](https://github.com/adessoAG/devblog/edit/master/examples/2017-08-10-blog-post-guide.md) als Beispiel an.
 
 ## Einleitung / Teaser
 
@@ -146,7 +146,33 @@ Vor der Freigabe leitet der Reviewer einige Infos an CCO weiter:
 Dann sollte noch ein Tag gewartet werden, damit CCO die Daten verarbeiten kann, bevor der Pull Request gemergt wird.
 
 Nachdem der Pull Request gemergt ist, wird der Blog Post automatisch mit der nächsten Synchronisation
-in den adesso Blog integriert. 
+in den adesso Blog integriert.
+
+Um die Freigabe zu vereinfachen, sollte die folgende Checkliste verwendet werden. 
+Diese ist auch in die Pull-Request-Template eingebunden, sodass Du dort deine Änderungen bequem für alle Beteiligten sichtbar, abhaken kannst.
+
+
+## Publish Checkliste
+
+1. Wurde der [Github Fork- und Pullprozess](https://reflectoring.io/github-fork-and-pull/) beachtet?
+2. Dateien eingebunden
+  * [Artikeldatei einbinden](https://github.com/adessoAG/devblog/blob/master/examples/2017-08-10-blog-post-guide.md#dateiname-und-ablageort)
+  * Autorenfoto: attets/images/avatars/mein_avatar.jpg/png
+  * [Artikel-Bilder hinterlegt](https://github.com/adessoAG/devblog/blob/master/examples/2017-08-10-blog-post-guide.md#bilder)
+3. Dateien angepasst:
+  * [Autorinfo gepflegt](https://github.com/adessoAG/devblog/blob/master/examples/2017-08-10-blog-post-guide.md#autoren-informationen)
+4. Artikel überprüfen:
+  * Metadaten
+    * "title" vergeben
+		* "date" liegt in der Vergangenheit
+	  * "author" angegeben
+		* "categories [Java]" enthält maximal eine der Hauptkategorien (siehe hier…)
+		* "tags [Spring, Microservices]" gesetzt
+	* [Einleitung/Teaser geschrieben](https://github.com/adessoAG/devblog/blob/master/examples/2017-08-10-blog-post-guide.md#einleitung--teaser)
+	* Rechtschreibung korrigiert
+	* [Bilder korrekt in den Artikel eingebunden](https://github.com/adessoAG/devblog/blob/master/examples/2017-08-10-blog-post-guide.md#bilder)
+	* Reviewer angegeben (Liste mit Reviewern?)
+  * Online-Preview angesehen
 
 # Technischer Hintergrund
 
