@@ -1,7 +1,7 @@
 ---
 layout:         [post, post-xml]              
 title:          "Sicherheitslücken mit dem OWASP Dependency Check erkennen"
-date:           2018-03-30 12:01
+date:           2018-03-26 12:01
 modified_date: 
 author:         saschagrebe 
 categories:     [Java]
