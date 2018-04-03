@@ -15,7 +15,7 @@ Wenn du einen Pull-Request stellt, teile uns biite deine Änderungen mit, indem 
   - [ ] Metadaten: "title" vergeben
 	- [ ] Metadaten: "date" liegt in der Vergangenheit
 	- [ ] Metadaten: "author" angegeben
-	- [ ] Metadaten: "categories [Java]" enthält maximal eine der Hauptkategorien (siehe hier…)
+	- [ ] Metadaten: "categories [Java]" enthält maximal eine der Hauptkategorien (Java, Microsoft, Methodik, Architekturen, Softwareentwicklung, Business & People)
 	- [ ] Metadaten: "tags [Spring, Microservices]" gesetzt
 	- [ ] [Einleitung/Teaser geschrieben](https://github.com/adessoAG/devblog/blob/master/examples/2017-08-10-blog-post-guide.md#einleitung--teaser)
 	- [ ] Rechtschreibung korrigiert
