@@ -166,7 +166,7 @@ Diese ist auch in die Pull-Request-Template eingebunden, sodass Du dort deine Ä
     * "title" vergeben
 		* "date" liegt in der Vergangenheit
 	  * "author" angegeben
-		* "categories [Java]" enthält maximal eine der Hauptkategorien (siehe hier…)
+		* "categories [Java]" enthält maximal eine der Hauptkategorien (Java, Microsoft, Methodik, Architekturen, Softwareentwicklung, Business & People)
 		* "tags [Spring, Microservices]" gesetzt
 	* [Einleitung/Teaser geschrieben](https://github.com/adessoAG/devblog/blob/master/examples/2017-08-10-blog-post-guide.md#einleitung--teaser)
 	* Rechtschreibung korrigiert
