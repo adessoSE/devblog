@@ -12,8 +12,8 @@ Moderne Software-Systeme basieren auf einer Vielzahl von Bibliotheken und Framew
 Software-Entwickler einfacher machen. In diesem Dschungel der Möglichkeiten ist es undenkbar die bekannten 
 Sicherheitslücken für alle verwendeten Abhängigkeiten ohne Tool-Unterstützung im Blick zu behalten. 
 In der OWASP Top 10 Liste der häufigsten Sicherheitsprobleme existiert ebenfalls ein Eintrag zur
-[Verwendung von Komponenten mit bekannten Sicherheitslücken](https://www.owasp.org/index.php/Top_10-2017_A9-Using_Components_with_Known_Vulnerabilities). 
-Mit dem OWASP Dependency Check lässt sich der Abgleich mit der NIST’s [National Vulnerability Database (NVD)](https://nvd.nist.gov/) 
+"Verwendung von Komponenten mit bekannten Sicherheitslücken". 
+Mit dem OWASP Dependency Check lässt sich der Abgleich mit der NIST’s National Vulnerability Database (NVD) 
 automatisieren. In diesem Blog-Eintrag möchte ich gerne zeigen wie das funktioniert.
 
 # Sicherheitslücken in Software
