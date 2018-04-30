@@ -52,7 +52,7 @@ johndoe:
   github: https://github.com/johndoe
 ```
 
-**TODO:** klären, ob wir wirklich ein Autorenfoto liefern müssen, oder ob es aus der adesso-Datenbank übernommen wird!
+Das Autorenfoto muss aktuell noch manuell vor Veröffentlichung des Artikels an CCO geschickt werden, damit es im CMS eingefügt werden kann.
 
 ## Metadaten
 
@@ -64,7 +64,7 @@ Schau dir einfach den [Header dieser Datei](https://github.com/adessoAG/devblog/
 ## Einleitung / Teaser
 
 Der erste Absatz (also alles bis zur ersten Leerzeile in der Markdown-Datei) wird als Einleitung / Teaser übernommen. Der erste Absatz
-sollte also höchstens ein paar Sätze lang sein und keine Überschriften beinhalten.
+sollte also höchstens ein paar Sätze lang sein und keine Überschriften beinhalten. **Bitte keine Links im Teaser verwenden!**
 
 ## Überschriften
 
