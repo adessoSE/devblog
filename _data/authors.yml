@@ -51,3 +51,12 @@ AdessoMaDa:
   bio:
   avatar_url: /assets/images/avatars/AdessoMaDa.jpg
   github: https://github.com/AdessoMaDa
+
+nilsa:
+  first_name: Nils
+  last_name: Andresen
+  github_username: nils-a
+  email: nils.andresen@adesso.de
+  bio: "Nils Andresen ist Softwarearchitekt und Berater bei adesso. Er arbeitet in verschiedenen Projekten im Umfeld von Microsoft SharePoint."
+  avatar_url: /assets/images/avatars/nilsa.jpg
+  github: https://github.com/nils-a
