@@ -1,7 +1,7 @@
 ---
 layout:         [post, post-xml]              
 title:          "Wie sich Business-Strategien in Software umsetzen lassen"
-date:           2018-05-02 12:01
+date:           2018-05-16 12:01
 modified_date: 
 author:         ceverke 
 categories:     [Java]
