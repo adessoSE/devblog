@@ -4,33 +4,31 @@ title: "Monitoring für Microservices - Eine Bridge für Eureka und Prometheus"
 date: 2018-02-14 17:45
 modified_date:
 author: silasmahler
-categories: [Monitoring, Microservices, Kotlin]
-tags: [Prometheus, Eureka, Bridge, JVM, Kotlin, Spring, Microservices]
+categories: [Softwareentwicklung]
+tags: [Monitoring, Prometheus, Eureka, Bridge, JVM, Kotlin, Spring, Microservices]
 ---
-Monitoring mittels Servertechnologien wie Prometheus wird für Anwendungen heutzutage immer wichtiger. Microservicelandschaften bilden in 
-ihrer Dynamik hier keine Ausnahme. Die Service-Discovery Eureka, die im Spring Cloud Umfeld häufig Verwendung findet, soll deshalb
-auch mit Prometheus zusammenarbeiten können. Eine Lösung wird in diesem Artikel vorgestellt.
+Monitoring mittels Servertechnologien wie Prometheus wird für Anwendungen heutzutage immer wichtiger. Microservicelandschaften bilden in ihrer Dynamik hier keine Ausnahme. Die Service-Discovery Eureka, die im Spring Cloud Umfeld häufig Verwendung findet, soll deshalb auch mit Prometheus zusammenarbeiten können. Eine Lösung wird in diesem Artikel vorgestellt.
 
-# Einleitung
+# Intro
 
-### Vorbereitung
+## Vorbereitung
 
 1. IDE mit Tooling für Spring
 2. Spring Basics
 3. Kotlin Basics
 4. Hilfreich: Docker Basics
 
-### Eureka
+## Eureka
 
-Eureka ist eine sogenannte Service-Discovery aus dem Spring Cloud Umfeld. Diese Systeme werden in Microservice-Landschaften zum automatischen erkennen, registrieren und deregistrieren von Services genutzt. 
+Eureka ist eine sogenannte Service-Discovery aus dem Spring Cloud Umfeld. Diese Systeme werden in Microservice-Landschaften zum automatischen erkennen, Re- und Deregistrieren von Services genutzt. 
 
-### Prometheus
+## Prometheus
 
-Prometheus ist ein relativ junges Open Source Projekt, dass eine Monitoring-Lösung für Anwendungssysteme bietet. Dazu sammelt Prometheus Metriken von konfigurierten Zielen ein und stellt diese auf verschiedene Weise dar.
+Prometheus ist ein relativ junges Open Source Projekt, dass eine Monitoring-Lösung für Anwendungssysteme bietet. Dazu sammelt Prometheus Metriken von konfigurierten Endpunkten ein und stellt diese auf verschiedene Weise dar.
 
-### Problem & Ziel
+## Problem & Ziel
 
-Aktuell gibt es für Prometheus noch kaum eine Möglichkeit in einer dynamischen Microservice-Umgebung im Spring Cloud Umfeld die dynamisch veränderlichen Konfigurationen von Services mit einzubeziehen, sodass bei Veränderungen immer die neusten Service-Urls für das Sammeln von Metriken genutzt werden. Speziell für Eureka fehlt eine Implementierung. Dies soll sich mit dieser Anwendung ändern und folgende Ziele soll unsere Anwendung erfüllen:
+Aktuell gibt es für Prometheus noch kaum Möglichkeiten in einer dynamischen Microservice-Umgebung im Spring Cloud Umfeld die dynamisch veränderlichen Konfigurationen von Services mit einzubeziehen, sodass bei Veränderungen immer die neusten Service-Urls für das Sammeln von Metriken genutzt werden. Speziell für Eureka fehlt eine Implementierung. Dies soll sich mit dieser Anwendung ändern und folgende Ziele soll unsere Anwendung erfüllen:
 
 1. Regelmäßig Informationen über Services von Eureka anfordern
 2. Informationen verarbeiten und für Erstellung einer prometheus.yml nutzen
@@ -44,7 +42,7 @@ Als Beispielprojekt wird eine Brücken-Applikation, auch Bridge genannt, verwend
 
 Unsere [Beispiel-App](https://github.com/adessoAG/eureka-prometheus-bridge) ist eine Spring Boot App.
 
-### Umgebungskonfiguration
+## Umgebungskonfiguration
 
 Für die grundlegende Konfiguration verwenden wir das Build-System Gradle und binden einige Spring-Projekte, sowie externe Frameworks ein.
 
@@ -75,9 +73,9 @@ dependencies {
 }
 ```
 
-### Startklasse: EurekaPrometheusBridgeApplication
+## Startklasse: EurekaPrometheusBridgeApplication
 
-Die Haupt-Klasse oder Einstiegsklasse unserer Applikation wird mit der Annotation `@EnableScheduling` versehen. So können wir zeitgesteuerte Jobs in unserer Applikation ausführen 👍
+Die Einstiegsklasse unserer Applikation wird mit der Annotation `@EnableScheduling` versehen. So können zeitgesteuerte Jobs in unserer Applikation ausgeführt werden. Dies wird später relevant.
 
 [EurekaPrometheusBridgeApplication.kt](https://github.com/adessoAG/eureka-prometheus-bridge/blob/master/src/main/kotlin/de/adesso/eurekaprometheusbridge/EurekaPrometheusBridgeApplication.kt)
 
@@ -92,11 +90,11 @@ fun main(args: Array<String>) {
 }
 ```
 
-### Anwendungskonfiguration
+## Anwendungskonfiguration
 
 Die Konfiguration der Anwendung wird an dieser Stelle vom Kotlin-Framework *Konfigur8*  übernommen. Durch das Framework lässt sich das Singleton-Konstrukt *Object* aus Kotlin nutzen, um eine Template zu erstellen, welche typsicher innerhalb des Codes definiert wird und zur Laufzeit als *Object* zur Verfügung steht. So ist die Konfiguration Refactoring-Safe und kann leicht überall wo Sie benötigt wird eingebunden werden. 
 
-###### Definition einer Konfiguration in EurekaProperties
+### Definition einer Konfiguration in EurekaProperties
 
 ```kotlin
 object EurekaProperties {
@@ -115,14 +113,14 @@ object EurekaProperties {
 
 Um die Konfiguration nun abzurufen muss später nur noch aus der Konfiguration ein Laufzeitobjekt erstellt werden und dann die Konfiguration ausgelesen werden. 
 
-###### Laufzeitobjekt erzeugen
+### Laufzeitobjekt erzeugen
 
 ```kotlin
 var eureka_config = EurekaProperties.configTemplate.reify() 
 //In Kotlin möglichst im Companion-Objekt
 ```
 
-###### Abrufen der Konfiguration
+### Abrufen der Konfiguration
 
 ```kotlin
 var port = eureka_config.valueOf(EurekaProperties.port)
@@ -130,9 +128,9 @@ var port = eureka_config.valueOf(EurekaProperties.port)
 
 
 
-## Die Anwendung
+# Die Anwendung
 
-#### Zeitgesteuerte Ausführung
+## Zeitgesteuerte Ausführung
 
 Sobald wir unsere App starten, wird ein zeitgesteuerter Job angestoßen, der regelmäßig die Hauptfunktion der Anwendung ausführt. Das Intervall wird hier klassisch aus einer Properties-Datein ausgelesen, da ein Annotationsparameter zur Compilezeit eine Konstante sein muss.
 
@@ -150,7 +148,7 @@ class ScheduledJobs(
 }
 ```
 
-#### Eureka anfragen
+## Eureka anfragen
 
 Um nun Eureka anzufragen wird die Klasse **EurekaQuery.kt** verwendet. 
 
@@ -162,7 +160,7 @@ Die Klasse Response kommt aus dem [khttp-Framework](https://github.com/jkcclemen
 var r: Response? = get(config.valueOf(EurekaProperties.host) + ":" + config.valueOf(EurekaProperties.port) + config.valueOf(EurekaProperties.apiPath))
 ```
 
-#### JSON parsen
+## JSON parsen
 
 War die Anfrage bei Eureka von Erfolg gekrönt, muss das JSON verarbeitet werden. Hieraus werden service-name, -hostname, -port und -targeturl extrahiert. Exemplarisch hier für den Servicenamen zu sehen.
 
@@ -173,7 +171,7 @@ var name = JSONObjectFromXML.getJSONObject("applications").getJSONObject("applic
 log.info("Found property: $name with targeturl: $targeturl")
 ```
 
-#### ConfigEntry erzeugen
+## ConfigEntry erzeugen
 
 Nun sollen die gewonnen Informationen in einem Objekt hinterlegt werden. Hierzu dient die Klasse ConfigEntry. Das Schlüsselwort *data* sorgt dafür, dass wir eine Klasse erhalten, die uns Getter- und Setter schenkt und sich im Gegensatz zu klassischen Entitäten unglaublich komprimiert (hier in einer Zeile!) schreiben lässt.
 
@@ -181,7 +179,7 @@ Nun sollen die gewonnen Informationen in einem Objekt hinterlegt werden. Hierzu 
 data class ConfigEntry(var name: String = "", var targeturl: String = "")
 ```
 
-#### Generierung der Prometheus.yml 
+## Generierung der Prometheus.yml 
 
 Anschließend brauchen wir noch einen Generator, um unsere ConfigEntries zu verarbeiten.
 Um nachzuvollziehen was genau passiert, schauen wir uns die Datei **Generator.kt** näher an.
@@ -221,11 +219,13 @@ Die Klasse liest die grundlegende Prometheus-Konfigurationsdatei aus und fügt f
 
 Die Anwendung an sich ist somit betriebsbereit. Um sie nun möglichst leicht zu betreiben und testen gibt es verschiedene Möglichkeiten.
 
-### Tests mit Spring und JUnit
+# Tests 
+
+## Tests mit Spring und JUnit
 
 Die Klasse **EurekaPrometheusBridgeApplicationTests.kt** implementiert Anwendungstests. Hier werden verschiedene Methoden aufgerufen und die Konfiguration getestet. Zusätzlich gibt es ein Beispiel mit Spring AOP in Kotlin.
 
-### Tests mit Docker und einer Microservice-Landschaft
+## Tests mit Docker und einer Microservice-Landschaft
 
 Statische Tests sind wichtig, aber um eine Anwendung besser einschätzen zu können, empfiehlt sich immer ein Produktionstest. Hierzu dient ein weiteres Projekt, welches eine Microservice-Landschaft bereitstellt, der [**Eureka-Prometheus-Bridge-Tester**](https://github.com/adessoAG/eureka-prometheus-bridge-tester)
 
