@@ -13,10 +13,9 @@ Monitoring mittels Servertechnologien wie Prometheus wird für Anwendungen heutz
 
 ## Vorbereitung
 
-1. IDE mit Tooling für Spring
-2. Spring Basics
-3. Kotlin Basics
-4. Hilfreich: Docker Basics
+Als Vorbereitung empfiehlt sich eine IDE mit Toolingunterstützung für Spring, sowie grundlegende Kenntnisse über das Spring-Framework, besser noch Spring-Cloud-Netflix.
+
+Zusätzlich wird die JVM-Sprache Kotlin, sowie das Tool Docker verwendet. Auch hier sind erste Kenntnisse hilfreich, aber für Java-Entwickler aufgrund des Anwendungsumfangs nicht umbedingt nötig.
 
 ## Eureka
 
@@ -36,7 +35,7 @@ Aktuell gibt es für Prometheus noch kaum Möglichkeiten in einer dynamischen Mi
 
 
 
-# Los gehts!
+# Die Anwendung
 
 Als Beispielprojekt wird eine Brücken-Applikation, auch Bridge genannt, verwendet, welche die Eureka-Komponente aus dem [Netflix-Open-Source-Stack](https://github.com/spring-cloud/spring-cloud-netflix) anfragt und die registrierten (Micro-)Services erkennt. Diese Daten werden dann dazu verwendet, eine valide yml-Konfigurationsdatei für den Monitoring-Server Prometheus zu erstellen, sodass dieser Daten über die Endpunkte der Services verarbeiten kann.
 
@@ -127,8 +126,6 @@ var port = eureka_config.valueOf(EurekaProperties.port)
 ```
 
 
-
-# Die Anwendung
 
 ## Zeitgesteuerte Ausführung
 
