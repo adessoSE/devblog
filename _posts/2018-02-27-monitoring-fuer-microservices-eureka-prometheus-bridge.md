@@ -91,7 +91,7 @@ fun main(args: Array<String>) {
 
 ## Anwendungskonfiguration
 
-Die Konfiguration der Anwendung wird an dieser Stelle vom Kotlin-Framework *Konfigur8*  übernommen. Durch das Framework lässt sich das Singleton-Konstrukt *Object* aus Kotlin nutzen, um eine Template zu erstellen, welche typsicher innerhalb des Codes definiert wird und zur Laufzeit als *Object* zur Verfügung steht. So ist die Konfiguration Refactoring-Safe und kann leicht überall wo Sie benötigt wird eingebunden werden. 
+Die Konfiguration der Anwendung wird an dieser Stelle vom Kotlin-Framework *Konfigur8*  übernommen. Durch das Framework lässt sich das Singleton-Konstrukt *Object* aus Kotlin nutzen, um eine Template zu erstellen, welche typsicher innerhalb des Codes definiert wird und zur Laufzeit zur Verfügung steht. So ist die Konfiguration Refactoring-Safe und kann leicht überall wo sie benötigt wird eingebunden werden. 
 
 ### Definition einer Konfiguration in EurekaProperties
 
@@ -110,26 +110,16 @@ object EurekaProperties {
 }
 ```
 
-Um die Konfiguration nun abzurufen muss später nur noch aus der Konfiguration ein Laufzeitobjekt erstellt werden und dann die Konfiguration ausgelesen werden. 
-
-### Laufzeitobjekt erzeugen
+Um die Konfiguration nun abzurufen muss später nur noch aus der Konfiguration ein Laufzeitobjekt erstellt werden und dann die Konfiguration ausgelesen werden: 
 
 ```kotlin
 var eureka_config = EurekaProperties.configTemplate.reify() 
-//In Kotlin möglichst im Companion-Objekt
-```
-
-### Abrufen der Konfiguration
-
-```kotlin
 var port = eureka_config.valueOf(EurekaProperties.port)
 ```
 
-
-
 ## Zeitgesteuerte Ausführung
 
-Sobald wir unsere App starten, wird ein zeitgesteuerter Job angestoßen, der regelmäßig die Hauptfunktion der Anwendung ausführt. Das Intervall wird hier klassisch aus einer Properties-Datein ausgelesen, da ein Annotationsparameter zur Compilezeit eine Konstante sein muss.
+Sobald die App startet, wird ein zeitgesteuerter Job angestoßen, der regelmäßig die Hauptfunktion der Anwendung ausführt. Das Intervall wird hier klassisch aus einer Properties-Datein ausgelesen, da ein Annotationsparameter zur Compilezeit für Spring eine Konstante sein muss.
 
 ScheduledJobs.kt
 
@@ -147,11 +137,11 @@ class ScheduledJobs(
 
 ## Eureka anfragen
 
-Um nun Eureka anzufragen wird die Klasse **EurekaQuery.kt** verwendet. 
+Um Eureka anzufragen wird die Klasse **EurekaQuery.kt** verwendet. 
 
-Zu Beginn wird eine *nullable* Variable vom Typ Response angelegt. Standard in Kotli ist, dass eine Variable nicht mit null belegt werden darf, deswegen nutzt man hier den Operator "?".
+Zu Beginn wird eine *nullable* Variable vom Typ *Response* angelegt. Kotlin sieht vor, dass eine Variable nicht mit null belegt werden darf, deswegen nutzt man hier den Operator "?", um dies explizit zu erlauben.
 
-Die Klasse Response kommt aus dem [khttp-Framework](https://github.com/jkcclemens/khttp) für Kotlin. Das Framework ermöglicht sehr einfache HTTP-Anfragen. Hier wird auch direkt auf die Konfigurationsparamater zugegriffen. 
+Die Klasse *Response* kommt aus dem [khttp-Framework](https://github.com/jkcclemens/khttp) für Kotlin. Das Framework ermöglicht sehr einfache HTTP-Anfragen, die wir nutzen, um Daten vom Eureka-Server zu beziehen und in der Variable "r" abzulegen.
 
 ```kotlin
 var r: Response? = get(config.valueOf(EurekaProperties.host) + ":" + config.valueOf(EurekaProperties.port) + config.valueOf(EurekaProperties.apiPath))
@@ -159,7 +149,7 @@ var r: Response? = get(config.valueOf(EurekaProperties.host) + ":" + config.valu
 
 ## JSON parsen
 
-War die Anfrage bei Eureka von Erfolg gekrönt, muss das JSON verarbeitet werden. Hieraus werden service-name, -hostname, -port und -targeturl extrahiert. Exemplarisch hier für den Servicenamen zu sehen.
+War die Anfrage bei Eureka von Erfolg gekrönt (befindet sich also kein *null*-Wert in der Variable), muss das JSON verarbeitet werden. Hieraus werden service-name, -hostname, -port und -targeturl extrahiert. Exemplarisch hier für den Servicenamen zu sehen:
 
 ```kotlin
 //...
