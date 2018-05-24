@@ -37,7 +37,7 @@ Aktuell gibt es für Prometheus noch kaum Möglichkeiten in einer dynamischen Mi
 
 # Die Anwendung
 
-Als Beispielprojekt wird eine Brücken-Applikation, auch Bridge genannt, verwendet, welche die Eureka-Komponente aus dem [Netflix-Open-Source-Stack](https://github.com/spring-cloud/spring-cloud-netflix) anfragt und die registrierten (Micro-)Services erkennt. Diese Daten werden dann dazu verwendet, eine valide yml-Konfigurationsdatei für den Monitoring-Server Prometheus zu erstellen, sodass dieser Daten über die Endpunkte der Services verarbeiten kann.
+Als Beispielprojekt wird eine Brücken-Applikation gebaut, welche die Eureka-Komponente aus dem [Netflix-Open-Source-Stack](https://github.com/spring-cloud/spring-cloud-netflix) anfragt und die registrierten (Micro-)Services erkennt. Diese Daten werden dann dazu verwendet, eine valide yml-Konfigurationsdatei für den Monitoring-Server Prometheus zu erstellen, sodass dieser Daten über die Endpunkte der Services verarbeiten kann.
 
 Unsere [Beispiel-App](https://github.com/adessoAG/eureka-prometheus-bridge) ist eine Spring Boot App.
 
@@ -113,8 +113,8 @@ object EurekaProperties {
 Um die Konfiguration nun abzurufen muss später nur noch aus der Konfiguration ein Laufzeitobjekt erstellt werden und dann die Konfiguration ausgelesen werden: 
 
 ```kotlin
-var eureka_config = EurekaProperties.configTemplate.reify() 
-var port = eureka_config.valueOf(EurekaProperties.port)
+var eureka_config = EurekaProperties.configTemplate.reify() //Laufzeitobjekt erstellen
+var port = eureka_config.valueOf(EurekaProperties.port) //Auslesen
 ```
 
 ## Zeitgesteuerte Ausführung
@@ -152,9 +152,7 @@ var r: Response? = get(config.valueOf(EurekaProperties.host) + ":" + config.valu
 War die Anfrage bei Eureka von Erfolg gekrönt (befindet sich also kein *null*-Wert in der Variable), muss das JSON verarbeitet werden. Hieraus werden service-name, -hostname, -port und -targeturl extrahiert. Exemplarisch hier für den Servicenamen zu sehen:
 
 ```kotlin
-//...
 var name = JSONObjectFromXML.getJSONObject("applications").getJSONObject("application").get("name").toString()
-//...
 log.info("Found property: $name with targeturl: $targeturl")
 ```
 
@@ -214,11 +212,9 @@ Die Klasse **EurekaPrometheusBridgeApplicationTests.kt** implementiert Anwendung
 
 ## Tests mit Docker und einer Microservice-Landschaft
 
-Statische Tests sind wichtig, aber um eine Anwendung besser einschätzen zu können, empfiehlt sich immer ein Produktionstest. Hierzu dient ein weiteres Projekt, welches eine Microservice-Landschaft bereitstellt, der [**Eureka-Prometheus-Bridge-Tester**](https://github.com/adessoAG/eureka-prometheus-bridge-tester)
+Statische Tests sind wichtig, aber um eine Anwendung besser einschätzen zu können, empfiehlt sich immer ein produktionsnaher Test. Hierzu dient ein weiteres Projekt, welches eine Microservice-Landschaft bereitstellt, der [**Eureka-Prometheus-Bridge-Tester**](https://github.com/adessoAG/eureka-prometheus-bridge-tester)
 
-Das Projekt kann natürlich innerhalb einer Entwicklungsumgebung gestartet werden: [Anleitung](https://github.com/adessoAG/eureka-prometheus-bridge-tester/blob/master/README.md) 
-
-Einfacher gestaltet sich das ganze mittels Docker und Docker-Compose.
+Das Projekt kann natürlich mittels normalem Buildverfahren gebaut und ausgeführt werden, aber mit Docker und Docker-Compose gestaltet sich dies noch deutlich einfacher.
 
 Hierzu wird lediglich ein Kommando benötigt, welches im Hauptverzeichnis des Programms ausgeführt wird: 
 
@@ -226,4 +222,4 @@ Hierzu wird lediglich ein Kommando benötigt, welches im Hauptverzeichnis des Pr
 docker-compose up
 ```
 
-Detailliertere Informationen finden Sie im [Readme](https://github.com/adessoAG/eureka-prometheus-bridge/blob/master/Readme.md) des Projekts.
+Detailliertere Informationen sind im [Readme](https://github.com/adessoAG/eureka-prometheus-bridge/blob/master/Readme.md) des Projekts zu finden.
