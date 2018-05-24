@@ -125,8 +125,7 @@ ScheduledJobs.kt
 
 ```kotlin
 @Service
-class ScheduledJobs(
-        @Autowired var eurekaQuery: EurekaQuery) {
+class ScheduledJobs(var eurekaQuery: EurekaQuery) {
     
     @Scheduled(fixedDelayString = "\${query.interval.seconds:60}000")
     fun executeBridge() {
