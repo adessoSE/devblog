@@ -105,7 +105,7 @@ Dies kann mit Two-Phase Commit zwischen der Datenbank-Transaktion und der Messag
 Selbst wenn Two-Phase Commit von der Datenbank und dem Message Broker angeboten wird, ist es aber häufig schwierig
 zu konfigurieren und noch schwieriger zuverlässig zu testen.
 
-# Transaktionales Message
+# Transaktionales Messaging
 
 Wir können das "einfache Messaging" erweitern, um einige der Mankos auszugleichen:
 
@@ -195,5 +195,7 @@ Schauen wir uns ein paar Indikatoren an, wann welches Muster sinnvoll sein kann.
 * wir Zustands-verändernde Events versenden möchten
 * wir ansonsten eine sehr komplexe Nachrichtenstruktur hätten, die in der weiteren Entwicklung schwierig in
   abwärtskompatibler Art und Weise handhabbar wäre.
+
+
 
 
