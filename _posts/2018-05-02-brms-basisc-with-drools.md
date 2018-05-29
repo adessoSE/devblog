@@ -55,7 +55,7 @@ Die Basis (kbase) mit dem Namen bankAccountRules beinhaltet also die Regeln, die
 
 
 ## Definition der Regeln in Drools
-Der wohl spannendste Teil ist die Definition der Geschäftsregeln. Dies geschieht in Drools mit der sog. Drools Rules Language. Die folgende Auswahl an Regeln zeigt exemplarisch die Umsetzung der definierten Logik. Die vollständige Implementierung aller Regeln ist unter [diesem Link einsehbar](https://github.com/ceverke/DroolsBrmsDemo).
+Der wohl spannendste Teil ist die Definition der Geschäftsregeln. Dies geschieht in Drools mit der sog. Drools Rules Language. Die folgende Auswahl an Regeln zeigt exemplarisch die Umsetzung der definierten Logik. Die vollständige Implementierung aller Regeln ist unter [diesem Link einsehbar](https://github.com/ceverke/DroolsBrmsDemo/blob/master/BrmsDemo/src/main/resources/de.adesso.blog.businessrules/sample.drl).
 
 ```java
 package de.adesso.blog.businessrules;
