@@ -8,7 +8,7 @@ categories:     [Java]
 tags:           [BRMS, Business Rules, Geschäftsregeln, Drools]
 ---
 
-Als einer der führenden IT-Dienstleister Deutschlands verantwortet die adesso AG IT-Projekte von Kunden verschiedener Branchen. Dabei ist zum einen fundiertes Branchenwissen von Bedeutung, zum anderen aber auch Wissen über Softwaretechnologien, um die fachlichen Kundenanforderungen softwareseitig umzusetzen. Der heutige Blogbeitrag widmet sich der Fragestellung, wie man Business-Strategien, die in Form von Geschäftsregeln definiert werden, technologisch realisieren kann. Dabei steht insbesondere die Leichtigkeit und Wartbarkeit im Vordergrund.
+Als IT-Dienstleister verantwortet die adesso AG IT-Projekte von Kunden verschiedener Branchen. Dabei ist zum einen fundiertes Branchenwissen von Bedeutung, zum anderen aber auch Wissen über Softwaretechnologien, um die fachlichen Kundenanforderungen softwareseitig umzusetzen. Der heutige Blogbeitrag widmet sich der Fragestellung, wie man Business-Strategien, die in Form von Geschäftsregeln definiert werden, technologisch realisieren kann. Dabei steht insbesondere die Leichtigkeit und Wartbarkeit im Vordergrund.
 
 # Szenario/Ausgangssituation
 Als fortlaufendes Beispiel wird ein fachliches Szenario aus dem Bankensektor betrachtet. Dazu sei angenommen, dass eine fiktive Bank die Umsetzung einer Kundenverwaltungssoftware anstrebt. Zu den fachlichen Anforderungen gehört hier die Festlegung von Kontoführungsgebühren. Eröffnet ein Kunde ein Konto bei der Bank, so müssen in Abhängigkeit von Kundendaten und Kundenwünschen die monatlichen Gebühren, wie auch das Limit für den Dispositionskredit und den zugehörigen Zinsen festgelegt werden. Die Strategie, wie sich diese Werte zusammensetzen, hängt von der strategischen Ausrichtung der Bank ab. Diese wird durch das Management der Bank, unter Berücksichtigung der wirtschaftlichen Lage des Finanzmarktes festgelegt. Durch die Schwankungen des Marktes ist von ständigen Änderungen auszugehen, was mit Modifikationen der Software verbunden ist. Als Beispiel wird von folgender Strategie ausgegangen:
@@ -34,7 +34,7 @@ An dieser Stelle ist ein Business Rules Management System (BRMS) nützlich, dess
 
 Als konkretes Beispiel in diesem Beitrag soll die Umsetzung der genannten Strategie mit Hilfe des Businessrules-Managementsystem (BRMS) Drools gezeigt werden. Bei Drools handelt es sich um die Community-Version der kommerziellen Lösung „Red Hat Decision Managers“, die bis Anfang 2018 noch unter dem Namen „Red Hat JBoss BRMS“ geführt wurde. 
 
-Wird in einem Projekt ein Buildmanagement Tool, wie z.B. Apache Maven oder Gradle, eingesetzt, so lässt sich Drools durch Hinzufügen der benötigten Abhängigkeiten schnell in ein Java-Projekt integrieren. Die Regeln selbst werden in einer DRL-Datei im Ressource-Verzeichnis des Projektes gespeichert, dazu später mehr. Eine Datei namens kmodule.xml definiert die Struktur der Regeln. Schließlich ist davon auszugehen, dass mehrere Geschäftsregeln innerhalb einer Softwareanwendung zum Tragen kommen. Strukturiert werden die Regeln in Modules, Bases und Sessions. Sessions stellen die kleinste Einheit der Strukturierung dar und können je nach Bedarf aus der Anwendung erzeugt werden. In einer Base (kbase) wird das Paket definiert, in dem die Regeln enthalten sind. Für die Beispielanwendung zur Festlegung von Kontoführungsgebühren, deren Sourcecode übrigens auf [GitHub](https://github.com/ceverke/DroolsBrmsDemo) zur freien Verfügung steht, sieht die Definition der kmodule.xml wie folgt aus:
+Wird in einem Projekt ein Buildmanagement Tool, wie z.B. Apache Maven oder Gradle, eingesetzt, so lässt sich Drools durch Hinzufügen der benötigten Abhängigkeiten schnell in ein Java-Projekt integrieren. Die Regeln selbst werden in einer DRL-Datei im Ressource-Verzeichnis des Projektes gespeichert, dazu später mehr. Eine Datei namens kmodule.xml definiert die Struktur der Regeln, damit eine hohe Anzahl von Geschäftsregeln innerhalb einer Softwareanwendung verwaltet werden können. Strukturiert werden die Regeln in Modules, Bases und Sessions. Sessions stellen die kleinste Einheit der Strukturierung dar und können je nach Bedarf aus der Anwendung erzeugt werden. In einer Base (kbase) wird das Paket definiert, in dem die Regeln enthalten sind. Für die Beispielanwendung zur Festlegung von Kontoführungsgebühren, deren Sourcecode übrigens auf [GitHub](https://github.com/ceverke/DroolsBrmsDemo) zur freien Verfügung steht, sieht die Definition der kmodule.xml wie folgt aus:
 
 ```xml
 <kmodule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -51,10 +51,11 @@ Die Basis (kbase) mit dem Namen bankAccountRules beinhaltet also die Regeln, die
 
 
 ## Definition der Regeln in Drools
-Der wohl spannenste Teil ist wohlmöglich die Definition der Geschäftsregeln. Dies geschieht in Drools mit der sog. Drools Rules Language. Die Strategie der Festsetzung der Kontoführungsgebühren ließe sich in der DRL wie folgt implementieren:
-package de.adesso.blog.businessrules;
+Der wohl spannenste Teil ist wohlmöglich die Definition der Geschäftsregeln. Dies geschieht in Drools mit der sog. Drools Rules Language. Die folgende Auswahl an Regeln zeigt exemplarisch die Umsetzung der definierten Logik. Die Implementierung aller Regeln ist unter [diesem Link verfügbar](https://github.com/ceverke/DroolsBrmsDemo).
 
 ```java
+package de.adesso.blog.businessrules;
+
 import de.adesso.blog.model.*;
 
 
@@ -78,60 +79,8 @@ rule "1.a Customer needs non online transferals; additional charge 5.0 Euro per 
 		insert($customer);
 end
 
-rule "1.b Customer needs second card; additional charge 4.50 Euro per month"
-	when
-		$customer : PrivateCustomer(secondCard) 
-	then
-		BankAccount $bankAccount = $customer.getBankAccount();
-		$bankAccount.setCostPerMonth($bankAccount.getCostPerMonth() + 4.5);
-		$customer.setBankAccount($bankAccount);
-		insert($customer);
-end
+// [full rule set implementation ==> see GitHub]
 
-
-
-rule "1.c Customer needs gold card; additional charge 9.90 Euro per month"
-	when
-		$customer : PrivateCustomer(goldCard) 
-	then
-		BankAccount $bankAccount = $customer.getBankAccount();
-		$bankAccount.setCostPerMonth($bankAccount.getCostPerMonth() + 9.9);
-		$customer.setBankAccount($bankAccount);
-		insert($customer);		
-end
-
-rule "2.a Customer is employee, overdraft limit is 10% of the monthly salary (with an interest of 10.9%)"
-	when
-		$customer : PrivateCustomer(jobState==JobState.EMPLOYEE) 
-	then
-		BankAccount $bankAccount = $customer.getBankAccount();
-		$bankAccount.setOverdraft($customer.getMonthlySalaray() * 0.1);
-		$bankAccount.setOverdraftInterest(10.9);
-		$customer.setBankAccount($bankAccount);
-		insert($customer);
-end
-
-rule "2.b Customer is student, there is no overdraft limit (and, of course, no interest)"
-	when
-		$customer : PrivateCustomer(jobState==JobState.STUDENT) 
-	then
-		BankAccount $bankAccount = $customer.getBankAccount();
-		$bankAccount.setOverdraft(0.0);
-		$bankAccount.setOverdraftInterest(0.0);
-		$customer.setBankAccount($bankAccount);
-		insert($customer);
-end
-
-rule "2.a Customer is pensioner, overdraft limit is 5% of the monthly salary (with an interest of 6%)"
-	when
-		$customer : PrivateCustomer(jobState==JobState.PENSIONER) 
-	then
-		BankAccount $bankAccount = $customer.getBankAccount();
-		$bankAccount.setOverdraft($customer.getMonthlySalaray() * 0.05);
-		$bankAccount.setOverdraftInterest(6.0);
-		$customer.setBankAccount($bankAccount);
-		insert($customer);
-end
 
 rule "3.a + 3b  Students or persons under 25 yrs (but not both) only pay half of the calculated fee"
 	when
