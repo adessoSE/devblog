@@ -62,7 +62,7 @@ Die Eureka-Prometheus-Bridge ist aus einem Kundenprojekt entstanden. Dort wird N
 
 Dazu fragt die Brige die REST-Schnittstelle von Eureka an und konvertiert das erhaltene JSON in eine Konfigurationsdatei für Prometheus. Sobald Prometheus diese einliest, können die aktuell verfügbaren Services überwacht werden, sodass Metriken und Analysen ermöglicht werden.
 
--- Hier Bsp. Konfigurationsdatei mit Targets?
+-- Hier Bsp. Konfigurationsdatei mit Target
 
 
 
@@ -70,13 +70,17 @@ Dazu fragt die Brige die REST-Schnittstelle von Eureka an und konvertiert das er
 # Anwendungsbeispiel
 Um die Bridge zu verwenden, muss zunächst eine Microservicelandschaft gestartet sein, sodass die Bridge und somit auch Prometheus mit Informationen versorgt werden.
 
-## Klassischer Anwendungsstart
+## Wie kann man die Bridge ohne Docker verwenden?
 
 Eine Möglichkeit dazu ist es die Komponenten der Spring Cloud Netflix, in diesem Falle den Eureka-Server manuell zu starten, nachdem man die Komponente integriert hat.
 
 
 
-## Wie kann man die Bridge (ohne Docker) verwenden? 
+## Wie kann man die Bridge mit Docker verwenden? 
+
+Mittels dem Containertool Docker kann man die Anwendungslandschaft deutlich leichter testen. Dazu genügt ein Aufrug der docker-compose.yml, in der alle Services definiert sind.
+
+--> Hinweis auf Eureka-prometheus-Bridge-Tester.
 
 ## Link auf Beispiel-Projekt mit fertigen Docker-Images.
 
