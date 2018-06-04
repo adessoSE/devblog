@@ -51,3 +51,12 @@ AdessoMaDa:
   bio:
   avatar_url: /assets/images/avatars/AdessoMaDa.jpg
   github: https://github.com/AdessoMaDa
+
+ceverke:
+  first_name: Christian
+  last_name: Everke
+  github_username: ceverke
+  email: christian.everke@adesso.de
+  bio: "Christian Everke ist Softwareengineer bei adesso. Seine Schwerpunkte liegen in der Backendentwicklung, u.a. für den Bankensektor, basierend auf gängigen Java Frameworks (JEE, Spring) und Produkten aus der Red Hat JBoss Middleware Produktfamilie." 
+  avatar_url: /assets/images/avatars/ceverke.png
+  github: https://github.com/ceverke
