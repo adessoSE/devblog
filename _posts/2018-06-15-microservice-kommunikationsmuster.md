@@ -1,8 +1,8 @@
 ---
 layout:         [post, post-xml]
 title:          "Kommunikationsmuster in verteilten Systemen"
-date:           2018-05-25 12:01
-modified_date:  2018-05-25 12:01
+date:           2018-06-15 16:00
+modified_date:  2018-06-15 16:01
 author:         thombergs
 categories:     [Architekturen]
 tags:           [Microservices]
