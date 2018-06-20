@@ -57,6 +57,15 @@ ceverke:
   last_name: Everke
   github_username: ceverke
   email: christian.everke@adesso.de
-  bio: "Christian Everke ist Softwareengineer bei adesso. Seine Schwerpunkte liegen in der Backendentwicklung, u.a. für den Bankensektor, basierend auf gängigen Java Frameworks (JEE, Spring) und Produkten aus der Red Hat JBoss Middleware Produktfamilie." 
+  bio: "Christian Everke ist Softwareengineer bei adesso. Seine Schwerpunkte liegen in der Backendentwicklung, u.a. für den Bankensektor, basierend auf gängigen Java Frameworks (JEE, Spring) und Produkten aus der Red Hat JBoss Middleware Produktfamilie."
   avatar_url: /assets/images/avatars/ceverke.png
   github: https://github.com/ceverke
+
+maximAtanasov:
+  first_name: Maksim
+  last_name: Atanasov
+  github_username: maximAtanasov
+  email: Maksim.Atanasov@adesso.de
+  bio: "Maksim Atanasov ist Werkstudent bei adesso in Dortmund und entwickelt Software im Open Source Bereich."
+  avatar_url: /assets/images/avatars/maximAtanasov.png
+  github: https://github.com/maximAtanasov
