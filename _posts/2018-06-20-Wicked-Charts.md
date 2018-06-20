@@ -1,11 +1,11 @@
 ---
-+layout:         [post, post-xml]
-+title:          "Wicked-Charts - Javascript Charts mit Wicket"
-+date:           2018-06-15 10:20
-+modified_date:
-+author:         maximAtanasov
-+categories:     [Java]
-+tags:           [Java, Wicket]
+layout:         [post, post-xml]
+title:          "Wicked-Charts - Javascript Charts mit Wicket"
+date:           2018-06-15 10:20
+modified_date:
+author:         maximAtanasov
+categories:     [Java]
+tags:           [Java, Wicket]
 ---
 
 Haben Sie eine Anwendung, die das Apache Wicket Framework verwendet und Sie müssen Daten visualisieren?
