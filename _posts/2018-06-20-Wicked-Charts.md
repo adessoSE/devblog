@@ -1,7 +1,7 @@
 ---
 layout:         [post, post-xml]
 title:          "Wicked-Charts - Javascript Charts mit Wicket"
-date:           2018-06-15 10:20
+date:           2018-06-20 10:20
 modified_date:
 author:         maximAtanasov
 categories:     [Java]
