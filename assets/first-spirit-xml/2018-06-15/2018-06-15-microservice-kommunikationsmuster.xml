@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<documents>
+    <document uid="d794047c1c06476617d7687b6c2c2d64">
+        <field name="title"><![CDATA[Kommunikationsmuster in verteilten Systemen]]></field>
+        <field name="subline"><![CDATA[]]></field>
+        <field name="teaser"><![CDATA[<p>In einer verteilten Architektur spielt die Kommunikation der verteilten Services eine zentrale Rolle.
+Wie sollen die Services miteinander reden? Sollten sie synchron kommunizieren? Oder asynchron über
+einen Messaging-Mechanismus? Wie so oft ist dies keine einfache Entscheidung zwischen zwei Alternativen, die
+Abhängig vom jeweiligen Kontext getroffen werden muss. Dieser Artikel beschreibt einige Kommunikationsmuster
+zwischen verteilten Services.</p>
+
+]]></field>
+        <field name="language_multi_keyword"><![CDATA[de]]></field>
+        <field name="content_type_multi_keyword"><![CDATA[blog]]></field>
+        <field name="mime_type_multi_keyword"><![CDATA[text/html]]></field>
+        <field name="category_multi_keyword"><![CDATA[Architekturen]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Microservices]]></field>
+        <field name="date_date"><![CDATA[2018-06-15T16:00:00+02:00]]></field>
+        <field name="date_l"><![CDATA[1529071200000]]></field>
+        <field name="change_date"><![CDATA[1529071260000]]></field>
+        <!--Picture-->
+        <!-- Not in use in the moment-->
+        <!--Author Information-->
+        <field name="author_first_name"><![CDATA[Tom]]></field>
+        <field name="author_last_name"><![CDATA[Hombergs]]></field>
+        <field name="author_id"><![CDATA[thombergs]]></field>
+        <field name="author_picture_stored_only"><![CDATA[http://localhost:4000/assets/images/avatars/thombergs.jpg]]></field>
+        <!--Postcontent-->
+        <field name="headlines"><![CDATA[Kommunikationsmuster in verteilten Systemen]]></field>
+        <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
+            <p>In einer verteilten Architektur spielt die Kommunikation der verteilten Services eine zentrale Rolle.
+Wie sollen die Services miteinander reden? Sollten sie synchron kommunizieren? Oder asynchron über
+einen Messaging-Mechanismus? Wie so oft ist dies keine einfache Entscheidung zwischen zwei Alternativen, die
+Abhängig vom jeweiligen Kontext getroffen werden muss. Dieser Artikel beschreibt einige Kommunikationsmuster
+zwischen verteilten Services.</p>
+
+</div>]]></field>
+        <field name="content"><![CDATA[<div class="adesso-text-formate">
+<div class="row p-t-2">
+<div class="adesso-container">
+<div class="col-xl-8 adesso-center p-b-1 p-l-0 p-r-0">
+    <h4 id="synchrone-aufrufe">Synchrone Aufrufe</h4>
+
+<p>Das einfachste Kommunikationsmuster besteht darin, einen entfernten Service einfach synchron aufzurufen.
+Dies geschieht heutzutage üblicherweise per REST:</p>
+
+<p><img src="/assets/images/posts/communication-patterns/rest.jpg" alt="Synchroner Aufruf" /></p>
+
+<p>Service 1 ruft Service 2 auf und wartet, bis dieser die Anfrage verarbeitet hat und eine Antwort geliefert hat.
+Service 1 kann dann die Antwort von Service 2 in derselben Transaktion verarbeiten, in der auch die Anfrage
+an Service 2 stattgefunden hat.</p>
+
+<p>Dieses Kommunikationsmuster ist leicht nachvollziehbar, schließlich nutzen wir alle es jeden Tag, wenn wir im Browser
+eine beliebige Webseite öffnen. Synchrone Aufrufe werden auch technologisch gut unterstützt. Es gibt viele Libraries,
+die synchrone Kommunikation über HTTP unterstützen, z. B. die Open Source Libraries <a href="https://github.com/OpenFeign/feign">Feign</a>
+und <a href="https://github.com/Netflix/Hystrix">Hystrix</a> von Netflix.</p>
+
+<p>Beleuchten wir mal einige Vor- und Nachteile von synchroner Kommunikation:</p>
+
+<h5 id="timeouts">Timeouts</h5>
+
+<p>Was passiert, wenn Service 2 zwischendurch einfach mal sehr lange braucht, um eine Anfrage zu beantworten? Irgendwann
+will Service 1 nicht mehr auf eine Antwort warten, was sich üblicherweise in einer Timeout-Exception niederschlägt, die
+dafür sorgt, dass die lokale Transaktion in Service 1 zurückgerollt wird.</p>
+
+<p>Aber Service 2 weiß nichts davon, dass Service 1 seine Transaktion zurückgerollt hat und arbeitet munter weiter,
+bis die Anfrage von Service 1 schließlich doch irgendwann erfolgreich verarbeitet wurde. Das kann zu einem inkonsistenten
+Datenbestand zwischen Service 1 und Service 2 führen.</p>
+
+<h5 id="starke-kopplung">Starke Kopplung</h5>
+
+<p>Naturgemäß erzeugt synchrone Kommunikation eine starke Kopplung zwischen den Kommunikationspartnern. Service 1
+funktioniert nicht mehr, wenn Service 2 gerade mal nicht erreichbar ist. Um mit solchen Ausfällen umzugehen,
+müssen wir mit Retry- oder Fallback-Mechanismen arbeiten. Das müssen wir aber zum Glück gar nicht selbst
+programmieren, sondern wir nutzen einfach <a href="https://github.com/Netflix/Hystrix">Hystrix</a> dafür.</p>
+
+<p>Aber auch Retry- und Fallback- haben ihre Grenzen und sind nicht für jede Anforderung geeignet.</p>
+
+<h5 id="einfach-zu-implementieren">Einfach zu Implementieren</h5>
+
+<p>Wie schon erwähnt, ist synchrone Kommunikation einfach umzusetzen. Es gibt jede Menge Libraries, die verschiedenste
+Arten von HTTP-Clients und -Servern zur Verfügung stellen, um uns dabei zu unterstützen. Wir sollten nur schauen,
+dass wir eine Library finden, die unsere Anforderungen hinsichtlich Retry und Fallback auch unterstützt.</p>
+
+<h4 id="einfaches-messaging">Einfaches Messaging</h4>
+
+<p>Als Nächstes beleuchten wir mal asynchrones Messaging.</p>
+
+<p><img src="/assets/images/posts/communication-patterns/messaging.jpg" alt="Einfaches Messaging" /></p>
+
+<p>Service 1 schickt eine Nachricht an einen Message Broker und vergisst danach, dass er diese Nachricht überhaupt geschickt hat.
+Service 2 abonniert ein bestimmtes Topic beim Message Broker und wird von diesem mit allen Messages versorgt, die zu diesem
+Topic gehören. Die Services müssen sich gegenseitig nicht kennen. Sie müssen nur wissen, dass es Nachrichten
+mit bestimmten Topics und mit einer bestimmten Struktur gibt.</p>
+
+<h5 id="retry">Retry</h5>
+
+<p>Abhängig vom Message Broker bekommen wir ggf. einen Retry-Mechanismus umsonst dazu. Wenn Service 2 gerade ausgefallen ist,
+wird der Message Broker so lange versuchen, die Nachricht zuzustellen, bis Service 2 irgendwann wieder verfügbar ist und
+die Nachricht erhalten hat. Das Stichwort hier ist “guaranteed delivery”.</p>
+
+<h5 id="lose-kopplung">Lose Kopplung</h5>
+<p>Da Service 2 nicht in dem Moment erreichbar sein muss, zu dem Service 1 seine Anfrage sendet,
+sind die Services nun nicht mehr so stark aneinander gekoppelt, was uns Flexibilität und Stabilität bringt.</p>
+
+<p>Zu irgendeinem späteren Zeitpunkt muss Service 2 natürlich trotzdem wieder zur Verfügung stehen, um die Anfrage
+zu verarbeiten.</p>
+
+<h5 id="ausfall-des-message-brokers">Ausfall des Message Brokers</h5>
+
+<p>Mit dem Message Broker haben wir ein zentrales Stück Infrastruktur in unsere Architektur eingebaut, das von
+allen Services verwendet wird, die asynchron mit anderen Services sprechen möchten. Wenn der Message Broker
+ausfällt, haben wir ein Problem… .</p>
+
+<h5 id="nachrichten-schema">Nachrichten-Schema</h5>
+
+<p>Alle Nachrichten beinhalten Informationen, die in einem bestimmten Schema, beispielsweise einer definierten JSON-Struktur, abgelegt sind.
+Wenn das Format eines Nachrichtentyps sich nicht-abwärtskompatibel ändert, dann müssen alle
+Nachrichten dieses Typs, die gerade noch im Message Broker liegen, entweder in das neue Format migriert werden, oder wir müssen
+warten bis diese Nachrichten alle abgearbeitet sind, bevor wir die Format-Änderung einspielen.</p>
+
+<p>Dies ist ein Widerspruch zur Idee der unabhängigen Deployments, einem der Ziele einer Microservice-Architektur.
+Wir können das Problem umgehen, indem wir jederzeit nur noch abwärtskompatible Änderungen erlauben, was aber nicht
+immer möglich sein wird.</p>
+
+<h5 id="two-phase-commit">Two-Phase Commit</h5>
+
+<p>Üblicherweise entstehen Nachrichten aus einer Business-Transaktion heraus. Innerhalb dieser Transaktion möchten wir
+unsere Business-Daten in der Datenbank speichern. Schlägt diese Datenbank-Transaktion fehl, möchten wir auch nicht, dass
+eine Nachricht an den Message Broker versendet wird.</p>
+
+<p>Dies kann mit Two-Phase Commit zwischen der Datenbank-Transaktion und der Message Broker Transaktion realisiert werden.
+Hierbei werden beide Transaktionen erst committed, wenn sie “auf Probe” durchgeführt wurden.</p>
+
+<p>Da das Two-Phase Commit Protokoll nicht ganz einfach ist, ist es häufig schwierig zu konfigurieren und noch
+schwieriger zuverlässig zu testen.</p>
+
+<h4 id="transaktionales-messaging">Transaktionales Messaging</h4>
+
+<p>Wir können das “einfache Messaging” erweitern, um einige der Mankos auszugleichen:</p>
+
+<p><img src="/assets/images/posts/communication-patterns/transactional-messaging.jpg" alt="Transaktionales Messaging" /></p>
+
+<p>Anstatt eine Nachricht direkt an den Message Broker zu schicken, speichern wir sie zunächst in der Datenbank von Service 1.
+Von dort wird sie von einem regelmäßig laufenden Job wieder gelesen und an den Message Broker gesendet.
+Auf der Empfängerseite können wir genau so vorgehen, und jede Nachricht erstmal in der Datenbank speichern, bevor sie
+verarbeitet wird.</p>
+
+<h5 id="kein-two-phase-commit-erforderlich">Kein Two-Phase Commit erforderlich</h5>
+
+<p>Die Nachrichten werden mit derselben Datenbank-Transaktion in der Datenbank gespeichert, in der auch die Business-Logik
+arbeitet. Wenn in der Business-Logik ein Fehler auftritt, rollt die Transaktion zurück und eine ggf. vorher gespeicherte
+Nachricht wird ebenfalls zurückgerollt. Es kann also nicht mehr passieren, dass wir eine Nachricht versenden, wenn
+die Business-Transaktion fehlgeschlagen ist.</p>
+
+<h5 id="message-broker-darf-ausfallen">Message Broker darf ausfallen</h5>
+
+<p>Da wir die Nachrichten auf der Sender-Seite in einer Datenbank zwischenspeichern, kann der Message Broker zwischendurch
+ausfallen, ohne dass Nachrichten verloren gehen. Sobald der Message Broker dann wieder erreichbar ist, werden die
+Nachrichten aus der Datenbank an den Broker übermittelt (Retry).</p>
+
+<h5 id="komplexes-setup">Komplexes Setup</h5>
+
+<p>Wir erkaufen uns die oben genannten Features natürlich mit erhöhter Komplexität. Schließlich müssen wir dafür sorgen,
+dass Nachrichten in der Datenbank zwischengespeichert werden und wir müssen auf beiden Seiten Jobs bauen, die
+auf Einträge in den Nachrichten-Tabellen reagieren, indem sie</p>
+
+<ul>
+  <li>eine Nachricht zum Message Broker senden (auf der Sender-Seite)</li>
+  <li>eine Nachricht in die eigentliche Verarbeitungslogik übergeben (auf der Empfängerseite).</li>
+</ul>
+
+<h4 id="zero-payload-events">Zero-Payload Events</h4>
+
+<p>Das letzte Muster, das wir hier diskutieren wollen, ist dem oben beschriebenen “einfachen” Messaging
+sehr ähnlich, allerdings reduzieren wir den Inhalt der Nachrichten, so dass wir keine großen Datenstrukturen
+versenden, sondern lediglich Zeiger auf diese Daten (z. B. eine ID).</p>
+
+<p><img src="/assets/images/posts/communication-patterns/zero-payload-events.jpg" alt="Transaktionales Messaging" /></p>
+
+<p>Hier fungiert die Nachricht lediglich als ein Event, welches signalisiert, dass etwas passiert (z. B. “eine
+Bestellung mit der ID 4711 wurde versandt”). Die Nachricht selbst beinhaltet also nur den Event-Typ (z. B. “orderShipped”)
+und die ID der Bestellung (4711). Wenn Service 2 an “orderShipped” Events interessiert ist, ruft er Service 1
+mit der übergebenen ID auf, um sich die Bestell-Daten synchron zu holen.</p>
+
+<h5 id="dumb-pipe">Dumb Pipe</h5>
+
+<p>Dieses Muster nimmt den Nachrichten den Großteil ihrer Struktur, da sie nur noch IDs beinhalten müssen. Dadurch
+wird der Message Broker zu einer “Dumb Pipe”, <a href="https://martinfowler.com/articles/microservices.html#SmartEndpointsAndDumbPipes">wie es in Microservice-Architekturen wünschenswert ist</a>.
+Wir müssen nicht mehr so sehr darauf achten, die Struktur der Nachrichten nicht zu verändern, da sie kaum noch Struktur
+haben. Natürlich müssen bei dem bisschen Struktur, was noch da ist, immer noch darauf achten, dass wir nur abwärtskompatible Änderungen
+vornehmen, allerdings fällt das viel leichter.</p>
+
+<h5 id="kombination-mit-transaktionalem-messaging">Kombination mit Transaktionalem Messaging</h5>
+
+<p>Kombinieren wir das Zero-Payload Muster mit dem weiter oben beschriebenen transaktionalen Messaging, bekommen
+wir sowohl den Vorteil der Entkopplung vom Message Broker als auch einen Retry-Mechanismus, falls der Message Broker
+mal ausfällt. Natürlich haben wir dadurch auch die kombinierte Komplexität beider Wege, da wir nun sowohl asynchrone
+als auch synchrone Kommunikation umsetzen müssen.</p>
+
+<h4 id="wann-nutze-ich-welches-kommunikationsmuster">Wann nutze ich welches Kommunikationsmuster?</h4>
+
+<p>Wie schon erwähnt kommt es auf den Kontext an, welches Kommunikationsmuster in welchem Fall am meisten Sinn ergibt.
+Schauen wir uns ein paar Indikatoren an, wann welches Muster sinnvoll sein kann.</p>
+
+<p><strong>Synchrone Aufrufe</strong> sind sinnvoll, wenn</p>
+
+<ul>
+  <li>wir nur Daten abfragen wollen, ohne den Zustand zu verändern, denn dann brauchen wir uns keine Gedanken über
+verteilte Transaktionen und übergreifende Datenkonsistenz zu machen</li>
+  <li>es nicht schlimm ist, wenn der Aufruf fehlschlägt, oder uns ein sicherer Retry-Mechanismus zur Verfügung steht.</li>
+</ul>
+
+<p><strong>Einfaches Messaging</strong> ist sinnvoll, wenn</p>
+
+<ul>
+  <li>wir Zustands-verändernde Nachrichten versenden möchten</li>
+  <li>die Nachricht auf jeden Fall ankommen muss (guaranteed delivery)</li>
+  <li>komplexe Datenstrukturen in den Nachrichten uns nicht stören.</li>
+</ul>
+
+<p><strong>Transaktionales Messaging</strong> ist sinnvoll, wenn</p>
+
+<ul>
+  <li>wir Zustands-verändernde Nachrichten nur dann versenden möchten, wenn die zugehörige Business-Transaktion auch
+erfolgreich war</li>
+  <li>Two-Phase Commit keine Option ist</li>
+  <li>wir der Verfügbarkeit des Message Brokers nicht vertrauen (wobei wir uns dann vielleicht nochmal nach einem
+anderen umschauen sollten…).</li>
+</ul>
+
+<p><strong>Zero-Payload Events</strong> sind sinnvoll, wenn</p>
+
+<ul>
+  <li>wir Zustands-verändernde Events versenden möchten</li>
+  <li>wir ansonsten eine sehr komplexe Nachrichtenstruktur hätten, die in der weiteren Entwicklung schwierig in
+abwärtskompatibler Art und Weise handhabbar wäre.</li>
+</ul>
+
+
+</div>
+</div>
+</div>
+</div>]]></field>
+    </document>
+</documents>
