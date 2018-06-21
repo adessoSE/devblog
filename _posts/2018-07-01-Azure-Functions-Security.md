@@ -57,7 +57,7 @@ In den Einstellungen des App Service ("Plattformeinstellungen", aus sicht der fu
 Hier ist erkennbar, dass zumindest eine Benutzer-Authentifizierung möglich ist.
 Die aktuellen anbieter für Authentifizierung sind unter anderem "Microsoft" und "Azure Active Directory" - dies ist zu unterscheiden, da für den "Microsoft"-Anbieter ein einfacher [Microsoft-Account](https://account.microsoft.com/) verwendet wird, wohingegen für Azure Active Directory eben dies (einen Account in einem Azure Active Directory) meint.  
 
-Zusätzlich ist einstellbar, ob unauthorisierte Zugriffe erlaubt sein sollen oder ob diese an einen der angegebenen Authentifizierungsanbieter umgeleitet werden sollen.
+Zusätzlich ist einstellbar, ob unauthentifizierte Zugriffe erlaubt sein sollen oder ob diese an einen der angegebenen Authentifizierungsanbieter umgeleitet werden sollen.
 
 Den Ablauf der Authentifizierung ein einem App Servive stellt die entsprechende [Doku](https://docs.microsoft.com/en-us/azure/app-service/app-service-authentication-overview#authentication-flow) gut dar. Grob vereinfacht sieht der Ablauf wie folgt aus:
 
@@ -87,7 +87,7 @@ Dieser Schritt wird begonnen mit der Einrichtung direkt am Authentifizierungsanb
    
       ![app-id und -geheimnis in azure](../assets/images/posts/Azure-Functions-Security/function-example1-appinazure.png)
 
-	  Zusätzlich sollten unauthorisierte Anfragen an den Microsoft-Authentifizierungsanbieter umgeleitet werden.
+	  Zusätzlich sollten unauthentifizierte Anfragen an den Microsoft-Authentifizierungsanbieter umgeleitet werden.
       Mit dieser änderung kann die function schon nicht mehr "einfach" z.B. über tools/einfache rest-abfragen abgerufen werden.
 
       Dafür ist es jetzt möglich die function über den Browser anzusprechen - ohne code-Parameter in der URL, dafür mit Anmeldung:
@@ -100,23 +100,17 @@ Dieser Schritt wird begonnen mit der Einrichtung direkt am Authentifizierungsanb
 todo todo todo
 todo todo todo
 todo todo todo
-todo todo todo
-todo todo todo
 
+# Achtung
 
-# Linksammlung
 ACHTUNG ACHTUNG ACHTUNG ACHTUNG  
 *das hier muss alles noch weg!*    
 ACHTUNG ACHTUNG ACHTUNG ACHTUNG 
 
-* https://github.com/nils-a/function-security-blog
-* https://azure.microsoft.com/de-de/blog/introducing-azure-functions/
-* https://blogs.msdn.microsoft.com/appserviceteam/2016/04/27/azure-functions-the-journey/
-* 
- 
+# offene Schritte:
 
-# Die alternative zu "user"
-
-hier viel code...
-
-todo todo todo
+* function umbauen, sodass User-Infos aus Graph kommen (bzw. vom Authentifizierungsanbieter...)
+* rest & Desktop-App zugriffe "ermöglichen" 
+* Auf Authorisation eingehen im gegensatz zu Authentikation
+* Alternativen? (
+* Auth0?)
