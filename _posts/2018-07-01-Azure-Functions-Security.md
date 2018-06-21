@@ -4,8 +4,8 @@ title:          "Absichern von azure-Functions"
 date:           2018-07-01 12:00
 modified_date: 
 author:         nilsa 
-categories:     [azure, paas]
-tags:           [azure, functions, security]
+categories:     [Microsoft]
+tags:           [azure, functions, security, paas]
 ---
 Gibt es "Sicherheit" bei azure functions? Sind diese immer Öffentlich zugänglich? Können functions mit Benutzer-Autorisierung abgesichert werden? Dieser Beitrag versucht der Frage nachzugehen und eine Lösung aufzuzeigen.
 
@@ -18,13 +18,13 @@ Eine function besteht grob aus zwei Teilen: Aus der ["Azure Function"](https://d
 ## Sicherheit in functions
 Die Fragestellung nach der "Sicherheit der function" ist etwas verwirrend - im Grunde soll ja nicht die function abgesichert werden, sondern der Aufruf bzw. der Start der function. Functions starten immer über sogenannte Trigger, von denen die meisten Azure-Intern zu verwenden sind (z.B. Timer, Event Hub oder Blob Storage). Der für  diesen Artikel betrachtete Trigger ist der [HTTP oder "generic web hook"-Trigger](https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-generic-webhook-triggered-function).
 
-Lauf [Doku](https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-http-webhook#trigger---configuration) stehen drei Authorisierungsmechanismen auf Ebene der functions zur Verfügung:
+Lauf [Doku](https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-http-webhook#trigger---configuration) stehen drei Autorisierungsmechanismen auf Ebene der functions zur Verfügung:
 
  - `anonymous` - No API key is required.
  - `function` - A function-specific API key is required. This is the default value if none is provided.
  - `admin` - The master key is required.
 
-![Die Folgenden Authorisierungen stehen zur Verfügung](../assets/images/posts/Azure-Functions-Security/function-authorization-ui.png) ![Im Tooltip gibt es auch eine kleine Erklärung](../assets/images/posts/Azure-Functions-Security/function-authorization-ui-explained.png)
+![Die Folgenden Autorisierungen stehen zur Verfügung](../assets/images/posts/Azure-Functions-Security/function-authorization-ui.png) ![Im Tooltip gibt es auch eine kleine Erklärung](../assets/images/posts/Azure-Functions-Security/function-authorization-ui-explained.png)
  
 Diese Funktion lässt es also zu, den Aufruf der function über einen Schlüssel (oder "key") abzusichern. Wie sieht das genau aus:
 
