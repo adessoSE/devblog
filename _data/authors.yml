@@ -60,3 +60,12 @@ ceverke:
   bio: "Christian Everke ist Softwareengineer bei adesso. Seine Schwerpunkte liegen in der Backendentwicklung, u.a. für den Bankensektor, basierend auf gängigen Java Frameworks (JEE, Spring) und Produkten aus der Red Hat JBoss Middleware Produktfamilie." 
   avatar_url: /assets/images/avatars/ceverke.png
   github: https://github.com/ceverke
+
+s-gbz:
+  first_name: Sergej
+  last_name: Grilborzer
+  github_username: s-gbz
+  email: sergej.grilborzer@adesso.de
+  bio: "Sergej Grilborzer ist Werkstudent bei adesso und entwickelt Software im Open Source Bereich. Seine Interessen sind KI, Design und gute Bücher."
+  avatar_url: /assets/images/avatars/s-gbz.jpg
+  github: https://github.com/s-gbz
