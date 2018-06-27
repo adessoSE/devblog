@@ -8,103 +8,107 @@ categories:     [Java]
 tags:           [Java, Wicket]
 ---
 
-Haben Sie eine Anwendung, die das Apache Wicket Framework verwendet und Sie müssen Daten visualisieren?
-Dann ist Wicked-Charts genau das Richtige für Sie. Es erlaubt Ihnen, auf einfache Weise und
-mit wenig Aufwand schöne und interaktive JavaScript-Charts in Ihre Anwendung zu integrieren.
-In diesem Artikel werde ich Ihnen zeigen, wie man ein einfaches Liniendiagramm konfiguriert.
+Bei der Entwicklung einer Anwendung mit dem Apache Wicket Framework stellt das Visualisieren verschiedener Daten mit klassischen Methoden eine große Herausforderung dar. Die Verwendung von Wicked-Charts ermöglicht es schöne und interaktive JavaScript-Charts in eine entsprechende Anwendung zu integrieren. In diesem Artikel wird dazu beispielhaft gezeigt, wie ein einfaches Liniendiagramm konfiguriert wird.
 
 ## Eine kurze Einführung in Wicked-Charts
 
-Wicked-Charts ist ein Java-Wrapper um zwei verschiedene JavaScript-Frameworks - Chart.js und Highcharts.
+Wicked-Charts ist ein Java-Wrapper für die beiden JavaScript Frameworks Chart.js und Highcharts.
 Zu beachten ist, dass Highcharts keine kostenlose Lizenz verwendet.
 Die Bibliothek enthält Module für alle aktuellen Versionen von Apache Wicket sowie für das JSF Framework.
 Die kostenlose Chart.js-Bibliothek ist jedoch nur in Wicket verfügbar.
 
-Wenn Sie Erfahrung mit Apache Wicket haben, dann wissen Sie, dass, um ein Element zu unserer Webseite hinzuzufügen, 
-benötigen wir eine in Java geschriebene Wicket-Komponente und ein zusätzliches Markup in unserem HTML, um diese Komponente zu verwenden.
+Wenn Sie Erfahrung mit Apache Wicket haben, dann wissen Sie, dass, um ein Element zu einer Webseite hinzuzufügen, 
+benötigt man eine in Java geschriebene Wicket-Komponente und ein zusätzliches Markup in HTML.
 Die Komponente, mit der ein Diagramm in Wicked-Charts dargestellt wird, heißt `Chart`. Der Konstruktor von
-dieser Komponente benötigt einen `String` - unsere Wicket-ID für das Diagramm und ein weiteres Objekt namens `ChartConfiguration`.
-Dies ist das Objekt, das wir verwenden werden, um die verschiedenen Optionen zu konfigurieren, die unsere Diagramme haben können, wie z. B.
-die Art des Diagramms, die zu visualisierenden Daten und viele andere Optionen.
+dieser Komponente benötigt einen `String` - der Wicket-ID für das Diagramm und ein weiteres Objekt namens `ChartConfiguration`.
+Dies ist das Objekt, das verwendet wird, um die verschiedenen Optionen von einem Diagramm zu konfigurieren, wie z. B.
+die Art des Diagramms und die zu visualisierenden Daten.
 
-## Lassen Sie uns ein einfaches Liniendiagramm erstellen.
+## Erstellung eines einfachen Liniendiagramms
 
-Die richtigen Gradle/Maven-Koordinaten für Wicked-Charts finden Sie im GitHub-Repository des Projekts.
+Die richtigen Gradle/Maven-Koordinaten für Wicked-Charts sind im GitHub-Repository des Projekts zu finden: 
+[GitHub](https://github.com/adessoAG/wicked-charts) 
 
-Wir beginnen mit der Konfiguration des Diagramms.
-Erstellen Sie ein `ChartConfiguration` Objekt.
+Konfigurieren des Diagramms.
+Es wird erst ein `ChartConfiguration` Objekt benötigt.
 ```java
 ChartConfiguration chartConfiguration = new ChartConfiguration();
+chartConfiguration.setType(ChartType.LINE);
 ```
 
-Wir erstellen nun ein neues `Data` Objekt. Sie enthält unsere Labels und Datensätze. Wir können so viele Datensätze haben, wie wir möchten.
+Außerdem wird ein Data-Objekt benötigt, welches die Labels (Achsenbeschriftungen) und Datensätze enthält.
 ```java
 Data data = new Data().setLabels(TextLabel.of("January", "February", "March", "April", "May", "June", "July"));
 ```
 
-Wir erstellen einen Datensatz und fügen ihn unserem Datenobjekt hinzu.
-
+Das Datenobjekt braucht auch einen Datensatz
 ```java
 Dataset dataset1 = new Dataset()
-    .setLabel("My First dataset")  //Ein Label für den Datensatz
-    .setBackgroundColor(SimpleColor.RED) //Wir wählen eine Farbe aus dem SimpleColor Enum, dieses Enum enthält einige der am häufigsten verwendeten Farben.
-    .setBorderColor(new RgbaColor(255, 100, 100, 255) //Sie können aber auch Ihre eigene Farbe mit den Klassen RgbaColor/HexColor definieren.
-    .setData(IntegerValue.of(6,7,9,2,9,1,3)) //Hier setzen wir die eigentlichen Datenpunkte.
+    .setLabel("My first dataset")  //Ein Label für den Datensatz
+    .setBackgroundColor(SimpleColor.RED) //Man kann eine Farbe aus dem SimpleColor Enum wählen. Dieses Enum enthält einige der am häufigsten verwendeten Farben.
+    .setBorderColor(new RgbaColor(255, 100, 100, 255)) //Man kann auch eine eigene Farbe mit den Klassen RgbaColor/HexColor definieren.
+    .setData(IntegerValue.of(6,7,9,2,9,1,3)) //Hier werden die eigentlichen Datenpunkte gesetzt.
     .setFill(false);
 
 data.setDatasets(Arrays.asList(dataset1));
 chartConfiguration.setData(data);
 ```
 
-Nun müssen wir die Optionen für unser Liniendiagramm erstellen.
+Nun müssen die Optionen für das Liniendiagramm erstellen werden.
 ```java
 Options options = new Options()
         .setResponsive(true)
         .setTitle(new Title()
                 .setDisplay(true)
-                .setText("Chart.js Line Chart")) //Der Titel unseres Diagramms.
-        .setTooltips(new Tooltips() //Unsere Tooltips (Diese sieht man beim Überfahren eines Datenpunktes)
+                .setText("Chart.js Line Chart")) //Der Titel des Diagramms.
+        .setTooltips(new Tooltips() //Tooltips werden erstellt (Diese sieht man beim Überfahren eines Datenpunktes)
                 .setMode(TooltipMode.INDEX)
                 .setIntersect(false))
         .setHover(new Hover()
                 .setMode(HoverMode.NEAREST)
                 .setIntersect(true))
         .setScales(new Scales()
-                .setXAxes(new AxesScale() //Wir konfigurieren die X-Achse
+                .setXAxes(new AxesScale() //Konfigurieren der X-Achse
                         .setDisplay(true)
                         .setScaleLabel(new ScaleLabel()
                                 .setDisplay(true)
                                 .setLabelString("Month")))
                 .setYAxes(new AxesScale() //Und die Y-Achse
+                        .setTicks(new Ticks()
+                                .setMax(10) //Die Achse zeigt nur Werte im Bereich 0-10
+                                .setMin(0))
                         .setDisplay(true)
                         .setScaleLabel(new ScaleLabel()
                                 .setDisplay(true)
                                 .setLabelString("Value"))));
-```
 
-Dann fügen wir diese Optionen zu unserer Chart-Konfiguration hinzu.
-```java
 chartConfiguration.setOptions(options);
 ```
 
-
-Alles, was wir noch tun müssen, ist, unsere Diagramm auf die Wicked Page zu setzen.
+Man muss noch das Diagramm auf die Wicked Page setzen.
 ```java
 Chart chart = new Chart("chart", chartConfiguration);
 add(chart);
 ```
 
-Und wir sind fertig - wir haben jetzt ein Liniendiagramm auf unserer Seite.
-So sieht sie aus:
- 
+Das HTML für das Diagramm sieht so aus:
+
+```html
+<div style="width: 75%">
+    <canvas wicket:id="chart"></canvas>
+</div>
+```
+Das Diagramm sollte so aussehen:
+
  ![](/assets/images/posts/wicked-charts/LineChart.png)
+
+Eine Wicket-Anwedung, die dieses minimales Beispiel umsetzt ist hier zu finden: [GitHub](https://github.com/maximAtanasov/wicked-charts-example) 
 
 ## Was Wicked-Charts noch kann
 
-
- Wicked-Charts unterstützt auch viele andere Chart-Typen und Variationen:
+Neben Liniendiagrammen unterstützt Wicked-Charts auch viele weitere Diagrammtypen und Variationen, wie beispielsweise die folgenden:
  
- Man könnte ein Diagramm mit Datensätzen auf mehreren Achsen haben:
+ Ein Diagramm mit Datensätzen auf mehreren Achsen
  
  ![](/assets/images/posts/wicked-charts/barMultiAxis.png)
  
@@ -112,7 +116,7 @@ So sieht sie aus:
  
  ![](/assets/images/posts/wicked-charts/comboBar.png)
 
-Die bibliothek unterstützt auch folgedene Chart-Typen:
+Die bibliothek unterstützt auch folgedene Diagrammtypen:
 
 - Balkendiagramme
 - Radardiagramme
@@ -122,9 +126,8 @@ Die bibliothek unterstützt auch folgedene Chart-Typen:
 - Polargebietskarten
 - Blasendiagramme
 
-Alle diese Diagramme haben auch viele Variationen mit verschiedenen Einstellungen und Funktionen aktiviert.
+Alle diese Diagramme haben auch viele Variationen mit verschiedenen Einstellungen und Funktionen.
 Sie können z. B. gestapelte Diagramme, verschiedene Füllmodi und verschiedene Punkt- oder Linienstile haben sowie
 benutzerdefinierte Funktionen einfügen.
-Um herauszufinden, wie Sie diese Einstellungen in Ihrer Anwendung verwenden können, werfen Sie einen Blick auf die Wicked-Charts-Showcase-Anwendung, die
-praktische Code-Samples zum Durchblättern enthält. Es kann aus dem Wicked-Charts-Repository heruntergeladen werden: 
-[GitHub](https://github.com/adessoAG/wicked-charts)
+Um herauszufinden, wie Sie diese Einstellungen in Ihrer Anwendung verwenden können, werfen Sie einen Blick auf die Wicked-Charts-Showcase Anwendung, die
+praktische Code-Samples zum Durchblättern enthält. Es kann aus dem Wicked-Charts-Repository heruntergeladen werden.
