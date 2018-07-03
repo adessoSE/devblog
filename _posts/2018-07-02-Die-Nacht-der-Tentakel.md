@@ -80,7 +80,7 @@ tags:           [ASM, GOTO, Spaghetticode]
 
 Wie Stahlbolzen trommelte der Regen gegen die Scheiben meiner Kemenate, während flirrende Blitze gellend durch die Nacht zuckten, wie die spastischen Tentakel längst vergessener kosmischer Wesen. Schmatzend klatschte die Dunkelheit in meine Gedanken. Ruhelos schritt ich in meiner Hotelburg auf und ab, und mein Geist begann zu wandern. Ich dachte an den jungen Adepten, der mir bei der Betrachtung eines gewachsenen Sourcery Codes von etwa 100 Zeilen, mit drei Verzweigungen und einer Switch-Anweisung fröhlich den Namen einer italienischen Pasta Sorte entgegenschmetterte: "Uuh, Spaghetticode". Oh, die Unwissenheit der Jugend. Ist es doch mit modernen Sprachen kaum noch möglich, den Kontrollfluss dermaßen verworren zu gestalten, dass selbst ein Riesenkrake vor Neid erblassen würde. Nein! Dies war nur mit den großen Alten möglich, deren cthuloide Tentakel die Programmlogik in ein Zerrbild des Wahnsinns verwandelten. Wir brauchten damals keinen Code Obfuscator. Nein, unser Code war obfuscated by design. Diesem Adepten würde ich zeigen, wie man italienischen Nudel-Code zubereitet. Aber halt, war meine javanesische Braut nicht viel zu unschuldig und rein für solch schmutzige Spielereien? Nicht doch, ich wusste genau, dass auch in ihrem Innern das Böse schlummert. Also schnallte ich sie hart auf die Werkbank und zückte mein Messer. Heute Nacht würde ich eine cthuloide Unaussprechlichkeit erschaffen und Morgen ..., naja ihr wisst schon: Muhahahaha!!!
 
-##Labor-Tagebuch
+## Labor-Tagebuch
 
 ### Prolog
 Wie mäandernde Unaussprechlichkeiten wälzen sich die Fragen des Tages durch meinen kranken Geist.
@@ -93,7 +93,7 @@ Wie mäandernde Unaussprechlichkeiten wälzen sich die Fragen des Tages durch me
 #### Was ist Spaghetti-Code überhaupt?
 
 >Spaghetticode ist ein abwertender Begriff für Software-Quellcode, der verworrene Kontrollstrukturen aufweist.
-*-Wikipedia-*
+>*-Wikipedia-*
 
 #### Kann man ihn mit Java erzeugen?
 
@@ -113,7 +113,7 @@ Dieses ist in Java nicht vorhanden... 
 
 … oder doch?
 
-###Nacht I - Ingredienzien
+### Nacht I - Ingredienzien
 
 <div class="box w30 right">
 Ziel ist es Java um ein GOTO Statement zu erweitern. Es soll explizit keine neue VM Sprache entwickelt werden, sondern eine Erweiterung, die in jeder Java Anwendung verwendet werden kann.
@@ -135,7 +135,7 @@ Bin von den Formaldehyddämpfen leicht benebelt. Lasse es für heute gut sein. M
 
 <br/>
 
-###Nacht II - Tentakel
+### Nacht II - Tentakel
 
 <div class="box w50 right">
 Ich glaube, Default-Implementierungen wurden nur aus einem einzigen Grund eingeführt. Ohne Default-Implementierungen hätte man es niemals geschafft, die Streaming API effektiv einzuführen. Multiple Vererbung, die durch die Default API ermöglicht wird, war eigentlich immer ein klares NO-GO im Java Konzept.
@@ -169,11 +169,11 @@ public interface Tentacle {
 }
 ```
 
-###Nacht III - Seek ...
+### Nacht III - Seek ...
 
 Ah, endlich, nun geht es an's Eingemachte. Um die Tentakel mit unseligem Leben zu füllen, muss ich diese zunächst in den Bytecode Gedärmen meiner Anwendung wieder finden. Werfen wir doch einmal das ein oder andere Auge auf die Eingeweide eines GOTO statements.
 
-```
+```Bytecode
 3    3:aload_0
 4    4:iload_1
 5    5:iinc            1  1
@@ -197,7 +197,7 @@ Die Art der Übergabeparameter (statisch/dynamisch) hat später einen wesentlich
 
 Schnell bereite ich ein okkultes Ritual vor und beschwöre **ASM**odis herauf. Mit seiner Hilfe wird es mir gelingen in allen Klassen, die meine Tentakel implementieren, jene sinistren Methoden zu erspähen, die mit Hilfe meiner Tentakel Kommandos zu Ruhm und Ehre gereichen. Glücklicherweise ist Java okkult-, äh ..., objekt-orientiert. Ich lasse die Kommandos sich einfach selbst im Bytecode erkennen. Einigen meiner Saugnapf bewehrten Freunde werden wohl besonders wild und dynamisch um sich schlagen. Diesen werde ich später noch besondere Aufmerksamkeit widmen, wenn ich ihnen morgen neues und fremdartiges Gewebe implantiere. Hehehe!!!
 
-```
+```Java
 public class StaticLineNumberGotoCommand extends StaticGotoCommand {
 
     private static final String METHOD    = "GOTO";
@@ -211,7 +211,7 @@ public class StaticLineNumberGotoCommand extends StaticGotoCommand {
 }
 ```
 
-###Nacht IV - ... and destroy
+### Nacht IV - ... and destroy
 
 So, das Messer gezückt und die Gedärme entblößt. Nachdem ich die Entzündungsherde lokalisiert habe, werde ich diese nun durch mein beliales Gezücht von Wucherungen ersetzen. 
 
@@ -274,7 +274,7 @@ Vielleicht habt ihr euch schon gefragt warum ich ein Monster wie **ASM**odis bes
 
 Nun aber endlich rein damit. Mit Gefühl zwischen die Organe gepresst. "Oh, ah, ja, jetzt!" Bleibt mir nur zu sagen: "Operation gelungen ..."
 
-```
+```Java
 public abstract class StaticGotoCommand implements Command {
 
     @Override
@@ -287,7 +287,7 @@ public abstract class StaticGotoCommand implements Command {
 }
 ```
 
-###Nacht V - Es lebt ...
+### Nacht V - Es lebt ...
 
 Das Ende ist in Sicht. Als Sahnehäubchen werde ich noch ein paar Werkzeuge schmieden, mit denen meine buckligen Helfer in Zukunft die Tentakel für mich implantieren können. Man will sich ja nicht selbst die Hände schmutzig machen.
 
@@ -299,7 +299,7 @@ Der Java Agent ist vor allem für den Einsatz in IDEs sinnvoll, da er die Byte-C
 
 Wer liebt sie nicht - geheime Agenten: Unauffällig, intrigant und effizient. Mit Hilfe eines Agenten können die Tentakel einfach ohne Betäubung in das lebende Objekt eingepflanzt werden. Ich werde dem Agenten den Auftrag erteilen jede Art Kreatur (Äh, Klasse) in ein weltenverschlingendes Monster zu transformieren. Auf diese Art und Weise wird mir niemand entkommen.
 
-```
+```Java
 public class Agent {
 
     public static void agentmain(String agentArgs, Instrumentation instrumentation) throws Throwable {
@@ -324,7 +324,7 @@ Der Postcompiler ist die flexibelste Lösung. Eine einfache Java Klasse mit "mai
 
 So sehr ich die Agenten in ihrer subversiven Art auch verehre, so erscheint es mir doch sinnvoll eine einfach zu bedienende Massenvernichtungswaffe zu entwickeln. Mehr etwas für das alltägliche Armageddon. Einfach ein Ziel wählen, feuern, zurücklehnen und genießen. Dieses Baby ist wirklich das Schweizer Armeemesser der cthuloiden Transformation. Egal in welcher Umgebung man sein persönliches Imperium des Bösen auch aufbaut, dieses Ding wird immer funktionieren.
 
-```
+```Java
 public class PostCompiler {
 
     public static void main(String[] args) throws Exception {
@@ -365,7 +365,7 @@ Der Einfachheit halber wrappen wir den Postcompiler nochmal in ein Maven Plugin.
 
 Na, da mach ich es mir doch am Ende nochmal ein bißchen gemütlich. Der fünffache Espresso ist gekocht. Und ich statte meinen Postcompiler mit einer angemessenen Portion Mojo aus. Schließlich wollen wir ja nicht nur die Weltherrschaft durch cthuloiden Wahnsinn an uns reißen. Am Ende wollen wir dabei ja auch noch groovy dastehen. Und dabei hat eine ordentliche Portion Mojo schon immer geholfen.
 
-```
+```Java
 public class MavenMojo extends AbstractMojo {
 
     @Parameter(defaultValue = "${project.build.outputDirectory}")
@@ -382,7 +382,7 @@ public class MavenMojo extends AbstractMojo {
 }
 ```
 
-###Nacht VI - Girls just wanna have fun
+### Nacht VI - Girls just wanna have fun
 
 >Ich erinnere mich, wie Nyarlathotep in meine Stadt kam - die große, die alte, die schreckliche Stadt der ungezählten Verbrechen. Mein Freund hatte mir von ihm und der zwingenden Faszination und der Verlockung seiner Offenbarungen erzählt, und ich lechzte sehnsüchtig danach, seine größten Geheimnisse zu erkunden.
 *-H.P. Lovecraft-*
@@ -399,7 +399,7 @@ Oh, aber ein Bild sagt mehr als tausend Zahlen. Schauet und staunet, wie sich ih
 
 In Programmcode gegossen sieht das ganze schon etwas nüchterner aus. Irgendwann muss ich mir mal einen Compiler bauen, der direkt meine Tafelbilder lesen und verarbeiten kann. Aber das ist wohl eher etwas für einen anderen Abend.
 
-```
+```Java
     private int f(int x) {
         BigDecimal bdx = BigDecimal.valueOf(x);
         return
@@ -439,7 +439,7 @@ Verdammt, ich hätte nicht gedacht, dass meine Formel so böse ist. Bei dem Vers
 
 Nun aber endlich los. Sagen wir der Welt: "Hallo".
 
-```
+```Java
 61    private void sayHello() {
 62        int x = 1;
 63        GOTO(f(x++));
@@ -487,7 +487,7 @@ Abgetippt, kompiliert, getestet und ja, die folgenden drei Beispiele verhalten s
 
 ##### Beispiel 1
 
-```
+```Java
 19      private void spaghetti() {
 20  /* 10*/ int i = 0;
 21  /* 20*/ i = i + 1;
@@ -501,7 +501,7 @@ Abgetippt, kompiliert, getestet und ja, die folgenden drei Beispiele verhalten s
 
 ##### Beispiel 2
 
-```
+```Java
 24      private void spaghetti() throws IOException {
 25          int i, sel$;
 26  /* 10*/ CLS();
@@ -519,7 +519,7 @@ Abgetippt, kompiliert, getestet und ja, die folgenden drei Beispiele verhalten s
 
 ##### Beispiel 3
 
-```
+```Java
 22      private void spaghetti() {
 23  /* 10*/ for (int ia = 1; ia <= 10; ia++) {
 24  /* 20*/     if (ia == 5) {
@@ -538,7 +538,7 @@ Abgetippt, kompiliert, getestet und ja, die folgenden drei Beispiele verhalten s
 
 Die bisherigen Beispiele waren ja eher handzahm. Als nächste möchte ich einmal wirklich böse Dinge ausprobieren. In dem folgenden Beispiel springe ich direkt in einen Schleifenblock und überspringe dabei eine Variablendeklaration. Dadurch kommt der interne Variablenstack durcheinander. Lustigerweise stört das die Programmausführung kaum, so dass ich tatsächlich unerwartete Ergebnisse erzielen konnte.
 
-```
+```Java
 16    private void doBadThings() {
 17        int j = 0;
 18        GOTO(24);
@@ -583,7 +583,7 @@ Was passiert hier wirklich?
 27: Variable von Position 2 des Stacks wird ausgegeben (x)
 
 
-###Nacht VII - GOTO world domination
+### Nacht VII - GOTO world domination
 
 Aber nun hinfort mit den arkanen Theorien. Beschäftigen wir uns mit einem Problem, dass wohl jeder kennt, der seine Schergen in die Welt hinaus sendet um das Böse zu verbreiten: "Das Problem des reisenden Schergen", oder für unsere angloamerikanischen Freunde: "The traveling henchman problem".
 Fassen wir das Problem kurz zusammen:
@@ -598,7 +598,7 @@ Zur Verdeutlichung und als Beispiel nehmen wir die folgenden Orte und Reiseverbi
 
 In diesem Kontext erscheint ein GOTO Statement ja geradezu als Domänen spezifische Sprache. Bilden wir also unsere Orte und möglichen Wege auf entsprechenden Programmcode ab.
 
-```
+```Java
     private void calculateRoutes() {
         locationCount = 5;
         
@@ -632,7 +632,7 @@ Schauen wir uns nun das Ergebnis an. Auf dass meine Schergen und Handlanger das 
 *I hope this satisfies your needs, your Evilness*
 <hr class="green"/>
 
-###Epilog
+### Epilog
 
 Nun meine verwegenen Freunde des Wahnsinns welche unausprechlichen Manifestationen der großen Alten werde ich wohl als nächstes herauf beschwören?
 
