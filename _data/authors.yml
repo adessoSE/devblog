@@ -60,3 +60,12 @@ ceverke:
   bio: "Christian Everke ist Softwareengineer bei adesso. Seine Schwerpunkte liegen in der Backendentwicklung, u.a. für den Bankensektor, basierend auf gängigen Java Frameworks (JEE, Spring) und Produkten aus der Red Hat JBoss Middleware Produktfamilie." 
   avatar_url: /assets/images/avatars/ceverke.png
   github: https://github.com/ceverke
+
+Franknjava:
+  first_name: Frank
+  last_name: Meyfarth
+  github_username: Franknjava
+  email: meyfarth@adesso.de
+  bio: "Frank Meyfarth ist Softwarearchitekt bei adesso in Dortmund. Er konzipiert Projekte im Bankenumfeld."
+  avatar_url: /assets/images/avatars/Franknjava.png
+  github: https://github.com/Franknjava
