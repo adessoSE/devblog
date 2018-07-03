@@ -115,7 +115,7 @@ Dieses ist in Java nicht vorhanden... 
 
 ### Nacht I - Ingredienzien
 
-<div class="box w30 right">
+<div style="background-color: red;" class="box w30 right">
 Ziel ist es Java um ein GOTO Statement zu erweitern. Es soll explizit keine neue VM Sprache entwickelt werden, sondern eine Erweiterung, die in jeder Java Anwendung verwendet werden kann.
 </div>
 
