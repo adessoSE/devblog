@@ -144,7 +144,7 @@ Ich glaube, Default-Implementierungen wurden nur aus einem einzigen Grund eingef
 Konnte doch nicht fliegen. Habe es zum Glück noch rechtzeitig gemerkt.
 Weiter geht's. Heute werde ich die Tentakel an meinem Versuchsobjekt befestigen. Habe verschiedene Befestigungsmöglichkeiten evaluiert. Glücklicherweise bekam Java zum achten Geburtstag einen formidablen Knochenleim in Form von Default-Implementierungen für Schnittstellen geschenkt. Eigentlich ein eher schmutziges Geschenk. Ich jedenfalls möchte einer achtjährigen nicht erklären müssen wie multiple Vererbung funktioniert. Aber, genau das was ich brauche. Damit keine Anwendungen unkontrolliert um sich schlagen bevor ich die Tentakel mit ihren Innereien verbunden habe, versetze ich die Default-Implementierung der Tentakel in den Ausnahmezustand.
 
-```
+```Java
 public interface Tentacle {
 
     default void GOTO(int line) {
