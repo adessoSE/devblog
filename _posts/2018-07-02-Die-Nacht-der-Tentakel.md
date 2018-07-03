@@ -92,7 +92,7 @@ Wie mäandernde Unaussprechlichkeiten wälzen sich die Fragen des Tages durch me
 
 #### Was ist Spaghetti-Code überhaupt?
 
->Spaghetticode ist ein abwertender Begriff für Software-Quellcode, der verworrene Kontrollstrukturen aufweist.
+>Spaghetticode ist ein abwertender Begriff für Software-Quellcode, der verworrene Kontrollstrukturen aufweist.<br/>
 >*-Wikipedia-*
 
 #### Kann man ihn mit Java erzeugen?
@@ -183,8 +183,8 @@ Ah, endlich, nun geht es an's Eingemachte. Um die Tentakel mit unseligem Leben z
 
 Ist es nicht wundervoll? Ein GOTO Tentakel, der mit dem Rückgabewert einer Funktion befüllt wird, welche eine ***int*** Variable übergeben bekommt, die nach der Übergabe inkrementiert wird. 
 
->„Ich werde euch sagen, wie ihr es anstellen müsst“, sagte in diesem Moment Pater Kilian, und ich glaubte, verrückt zu werden. Was für ein perfides Spiel trieb Asmodis hier?
-*-John Sinclair-*
+>„Ich werde euch sagen, wie ihr es anstellen müsst“, sagte in diesem Moment Pater Kilian, und ich glaubte, verrückt zu werden. Was für ein perfides Spiel trieb Asmodis hier?<br/>
+>*-John Sinclair-*
 
 <div class="box w50 right">
 Zwei Informationen sind für die spätere Ersetzung des Methodenaufrufs relevant: 
@@ -384,8 +384,8 @@ public class MavenMojo extends AbstractMojo {
 
 ### Nacht VI - Girls just wanna have fun
 
->Ich erinnere mich, wie Nyarlathotep in meine Stadt kam - die große, die alte, die schreckliche Stadt der ungezählten Verbrechen. Mein Freund hatte mir von ihm und der zwingenden Faszination und der Verlockung seiner Offenbarungen erzählt, und ich lechzte sehnsüchtig danach, seine größten Geheimnisse zu erkunden.
-*-H.P. Lovecraft-*
+>Ich erinnere mich, wie Nyarlathotep in meine Stadt kam - die große, die alte, die schreckliche Stadt der ungezählten Verbrechen. Mein Freund hatte mir von ihm und der zwingenden Faszination und der Verlockung seiner Offenbarungen erzählt, und ich lechzte sehnsüchtig danach, seine größten Geheimnisse zu erkunden.<br/>
+>*-H.P. Lovecraft-*
 
 #### Hallo Weltherrschaft
 
@@ -638,8 +638,8 @@ Nun meine verwegenen Freunde des Wahnsinns welche unausprechlichen Manifestation
 
 Wie wäre es vielleicht mit etwas *Inline-Assembler*, Muhahahaha!!!
 
->Noch während er dies sagte, sprang er aus dem Kabinenfenster auf die Eisscholle, die nahe dem Schiff lag. Schon bald wurde er von den Wellen davon getragen und verschwand in der Dunkelheit.
-*-Mary Shelley-*
+>Noch während er dies sagte, sprang er aus dem Kabinenfenster auf die Eisscholle, die nahe dem Schiff lag. Schon bald wurde er von den Wellen davon getragen und verschwand in der Dunkelheit.<br/>
+>*-Mary Shelley-*
 
 One more thing ...
 ... sollte ich jemals einen Architekturreview eines eurer Projekte machen und auf ein GOTO Statement in eurem Java Code stoßen, werde ich persönlich eure Gedärme neu verdrahten.
