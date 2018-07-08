@@ -1,82 +1,4 @@
----
-layout:         [post, post-xml]              
-title:          "Frank'n Java und die Nacht der Tentakel"
-date:           2018-07-02 14:53
-modified_date: 
-author:         Franknjava
-categories:     [Java, Bytecode, Cthulhu]
-tags:           [ASM, GOTO, Spaghetticode]
----
-
-<style>
-    .markdown-body body, 
-    .markdown-body p, 
-    .markdown-body h1, 
-    .markdown-body h2, 
-    .markdown-body h3, 
-    .markdown-body h4, 
-    .markdown-body h5, 
-    .markdown-body li:not(.boxed), 
-    body {
-        background-color: #001018; 
-        color:            #388038;
-    }
-    .markdown-body h1,
-    .markdown-body h2 {
-        border: none;
-        border-bottom: 1px solid #388038;
-    }
-    .markdown-body code, 
-    .markdown-body pre {
-        color:#008000;
-        background-image: radial-gradient(#002000, #000800);
-    } 
-    .markdown-body blockquote {
-        border:      none;
-        border-left: 3px solid #70FF70;
-    }
-    .markdown-body blockquote em {
-        color:       #709070;
-        font-weight: bold;
-    }
-    .markdown-body hr.green {
-        border: 0;
-        height: 1px;
-        background-image: linear-gradient(to right, #000000, #388038, #000000);
-    }
-    .markdown-body .box {
-        font-size:        0.9em;
-        border:           1px solid #FFFF80;
-        border-radius:    3px;
-        background-color: #FFFFC0; 
-        padding:          5px;
-        margin:           0px;
-    }
-    .markdown-body .right {float: right; margin-left:  10px;}
-    .markdown-body .left  {float: left;  margin-right: 10px;}
-    .markdown-body .w30   {width: 30%;}
-    .markdown-body .w50   {width: 50%;}
-    .markdown-body .w70   {width: 70%;}
-    
-    .markdown-body img[alt='Frank\'n Java und die Nacht der Tentakel'] { 
-            border:        1px solid black; 
-            border-radius: 5px;
-    }
-    .markdown-body img[alt='Gehupft wie gesprungen'] { 
-        width: 400px; 
-    }
-    .markdown-body img[alt='Böse Schwingungen'], 
-    .markdown-body img[alt='Schwärmt aus meine Kultisten'] { 
-        border:        1px solid green; 
-        border-radius: 5px;
-    }
-    .markdown-body img[alt='Weltformel des Bösen'] { 
-        border:        1px solid grey; 
-        border-radius: 5px;
-    }
-</style>
-
-![Frank'n Java und die Nacht der Tentakel](../assets/images/posts/Die-Nacht-der-Tentakel/Title.jpg)
+![Frank'n Java und die Nacht der Tentakel](/assets/images/posts/Die-Nacht-der-Tentakel/Title.png)
 
 Wie Stahlbolzen trommelte der Regen gegen die Scheiben meiner Kemenate, während flirrende Blitze gellend durch die Nacht zuckten, wie die spastischen Tentakel längst vergessener kosmischer Wesen. Schmatzend klatschte die Dunkelheit in meine Gedanken. Ruhelos schritt ich in meiner Hotelburg auf und ab, und mein Geist begann zu wandern. Ich dachte an den jungen Adepten, der mir bei der Betrachtung eines gewachsenen Sourcery Codes von etwa 100 Zeilen, mit drei Verzweigungen und einer Switch-Anweisung fröhlich den Namen einer italienischen Pasta Sorte entgegenschmetterte: "Uuh, Spaghetticode". Oh, die Unwissenheit der Jugend. Ist es doch mit modernen Sprachen kaum noch möglich, den Kontrollfluss dermaßen verworren zu gestalten, dass selbst ein Riesenkrake vor Neid erblassen würde. Nein! Dies war nur mit den großen Alten möglich, deren cthuloide Tentakel die Programmlogik in ein Zerrbild des Wahnsinns verwandelten. Wir brauchten damals keinen Code Obfuscator. Nein, unser Code war obfuscated by design. Diesem Adepten würde ich zeigen, wie man italienischen Nudel-Code zubereitet. Aber halt, war meine javanesische Braut nicht viel zu unschuldig und rein für solch schmutzige Spielereien? Nicht doch, ich wusste genau, dass auch in ihrem Innern das Böse schlummert. Also schnallte ich sie hart auf die Werkbank und zückte mein Messer. Heute Nacht würde ich eine cthuloide Unaussprechlichkeit erschaffen und Morgen ..., naja ihr wisst schon: Muhahahaha!!!
 
@@ -93,7 +15,7 @@ Wie mäandernde Unaussprechlichkeiten wälzen sich die Fragen des Tages durch me
 #### Was ist Spaghetti-Code überhaupt?
 
 >Spaghetticode ist ein abwertender Begriff für Software-Quellcode, der verworrene Kontrollstrukturen aufweist.<br/>
->*-Wikipedia-*
+*-Wikipedia-*
 
 #### Kann man ihn mit Java erzeugen?
 
@@ -115,31 +37,32 @@ Dieses ist in Java nicht vorhanden... 
 
 ### Nacht I - Ingredienzien
 
-<div style="background-color: red;" class="box w30 right">
+<!-- #BOX#
 Ziel ist es Java um ein GOTO Statement zu erweitern. Es soll explizit keine neue VM Sprache entwickelt werden, sondern eine Erweiterung, die in jeder Java Anwendung verwendet werden kann.
-</div>
+-->
+<img align="right" src="/assets/images/posts/Die-Nacht-der-Tentakel/explanationBox001.png"/>
 
 Frisch an's Werk. Bevor ich anfange muss ich mir noch die richtigen Zutaten aus den Archiven besorgen - also hinunter in die Katakomben. Ich streife an den endlosen Reihen feinsäuberlich katalogisierter Formaldehyd-Präparate entlang: 1940, 1950, 1960, ah, 1964 Dartmouth, Kemeny und Kurtz, BASIC, GOTO. Das ist der Stoff aus dem Tentakel sind. Ich klemme mir das Präparat unter den Arm. Auf dem Weg zurück in's Labor mache ich noch einen kurzen Abstecher: 1985, AmigaBASIC. Hier packe ich noch schnell ein LABEL Präparat ein.
 
-<div class="box w50 left">
+<!-- #BOX#
 	Der Tentakel hat folgende Funktionen:
 	<ul>
 		<li class="boxed">GOTO: springt wahlweise zu einer angegebenen Zeilennummer oder benannten Sprungmarke. Beides kann sowohl statisch als auch dynamisch angegeben werden.</li>
      <li class="boxed">LABEL: definiert eine benannte Sprungmarke. Aus technischen Gründen kann dies nur statisch erfolgen.</li>
      <li class="boxed">LINE: liefert die aktuelle Zeilennummer. Dadurch sind relative Sprungziele realisierbar.</li>
 	</ul>
-</div>
+-->
+<img align="left" src="/assets/images/posts/Die-Nacht-der-Tentakel/explanationBox002.png"/>
 
 Das Labor sieht aus wie nach einem Massaker - Ectoplasma überall. Ich habe aus den Zutaten einen Tentakel nach meinen Vorstellungen erschaffen: schlicht, funktional und bösartig. Ich liebe ihn jetzt schon. 
 Bin von den Formaldehyddämpfen leicht benebelt. Lasse es für heute gut sein. Morgen ist auch noch eine Nacht. Ich glaube, ich kann fliegen.
 
-<br/>
-
 ### Nacht II - Tentakel
 
-<div class="box w50 right">
+<!-- #BOX# 
 Ich glaube, Default-Implementierungen wurden nur aus einem einzigen Grund eingeführt. Ohne Default-Implementierungen hätte man es niemals geschafft, die Streaming API effektiv einzuführen. Multiple Vererbung, die durch die Default API ermöglicht wird, war eigentlich immer ein klares NO-GO im Java Konzept.
-</div>
+-->
+<img align="right" src="/assets/images/posts/Die-Nacht-der-Tentakel/explanationBox003.png"/>
 
 Konnte doch nicht fliegen. Habe es zum Glück noch rechtzeitig gemerkt.
 Weiter geht's. Heute werde ich die Tentakel an meinem Versuchsobjekt befestigen. Habe verschiedene Befestigungsmöglichkeiten evaluiert. Glücklicherweise bekam Java zum achten Geburtstag einen formidablen Knochenleim in Form von Default-Implementierungen für Schnittstellen geschenkt. Eigentlich ein eher schmutziges Geschenk. Ich jedenfalls möchte einer achtjährigen nicht erklären müssen wie multiple Vererbung funktioniert. Aber, genau das was ich brauche. Damit keine Anwendungen unkontrolliert um sich schlagen bevor ich die Tentakel mit ihren Innereien verbunden habe, versetze ich die Default-Implementierung der Tentakel in den Ausnahmezustand.
@@ -184,16 +107,17 @@ Ah, endlich, nun geht es an's Eingemachte. Um die Tentakel mit unseligem Leben z
 Ist es nicht wundervoll? Ein GOTO Tentakel, der mit dem Rückgabewert einer Funktion befüllt wird, welche eine ***int*** Variable übergeben bekommt, die nach der Übergabe inkrementiert wird. 
 
 >„Ich werde euch sagen, wie ihr es anstellen müsst“, sagte in diesem Moment Pater Kilian, und ich glaubte, verrückt zu werden. Was für ein perfides Spiel trieb Asmodis hier?<br/>
->*-John Sinclair-*
+*-John Sinclair-*
 
-<div class="box w50 right">
+<!-- #BOX#
 Zwei Informationen sind für die spätere Ersetzung des Methodenaufrufs relevant: 
 <ul>
 <li class="boxed">Die Übereinstimmung mit der jeweiligen Methodensignatur</li>
 <li class="boxed">Ob dem Aufruf statische oder dynamische Werte übergeben werden</li>
 </ul>
 Die Art der Übergabeparameter (statisch/dynamisch) hat später einen wesentlichen Einfluss auf das Mapping der Sprungziele (Zeilennummern/Label) auf die tatsächlichen Adressen im Bytecode.
-</div>
+-->
+<img align="left" src="/assets/images/posts/Die-Nacht-der-Tentakel/explanationBox004.png"/>
 
 Schnell bereite ich ein okkultes Ritual vor und beschwöre **ASM**odis herauf. Mit seiner Hilfe wird es mir gelingen in allen Klassen, die meine Tentakel implementieren, jene sinistren Methoden zu erspähen, die mit Hilfe meiner Tentakel Kommandos zu Ruhm und Ehre gereichen. Glücklicherweise ist Java okkult-, äh ..., objekt-orientiert. Ich lasse die Kommandos sich einfach selbst im Bytecode erkennen. Einigen meiner Saugnapf bewehrten Freunde werden wohl besonders wild und dynamisch um sich schlagen. Diesen werde ich später noch besondere Aufmerksamkeit widmen, wenn ich ihnen morgen neues und fremdartiges Gewebe implantiere. Hehehe!!!
 
@@ -215,14 +139,16 @@ public class StaticLineNumberGotoCommand extends StaticGotoCommand {
 
 So, das Messer gezückt und die Gedärme entblößt. Nachdem ich die Entzündungsherde lokalisiert habe, werde ich diese nun durch mein beliales Gezücht von Wucherungen ersetzen. 
 
-<div class="box w50 right">
+<!-- #BOX#
 Der Byte-Code, der den Parameter des GOTO Statements ermittelt, muss erhalten bleiben. Eingefügt wird schließlich ein TABLESWITCH, da die Sprungziele (Zeilennummern oder Label) auf tatsächliche Adressen im Byte-Code übersetzt werden müssen. Dies muss zur Laufzeit geschehen, da das Sprungziel dynamisch sein kann.
 Sollte das angegebene Sprungziel gar nicht erreichbar sein, wird eine IllegalArgumentException geworfen.
-</div>
+-->
+<img align="right" src="/assets/images/posts/Die-Nacht-der-Tentakel/explanationBox005.png"/>
+
 
 Die Wurzel der Tentakel ist schnell angenäht. Aber wie gehe ich mit dem perfiden Ziel derselben um? Zuerst muss ich wohl die Ermittlung der Ursprünglichen Ziele erhalten. Aber wo befinden sich diese im Gewirr der Gedärme? Ich befürchte ich werde nicht umhinkommen detaillierte Aufzeichnungen anzufertigen, die ich bei jedem Sprung heranziehen kann um die Zieladresse zu ermitteln. Ach, da hätte ich doch fast noch etwas vergessen. Was tue ich nur, wenn der Tentakel über das Ziel hinaus schießt? Hm, wie meine Großmutter schon immer sagte: "Keine Gnade mit dem Gewürm!" Dann gibt's eben auf die Finger!
 
-```
+```Bytecode
  2    2:aload_0
  3    3:iload_1
  4    4:iinc            1  1
@@ -261,14 +187,15 @@ Ich denke das Beste wird sein für jede Methode eine Tabelle anzulegen, die alle
 
 Hat sich eigentlich irgend jemand schon einmal Gedanken darüber gemacht, warum einem als größenwahnsinniges Verbrechergenie ständig Steine in den Weg gelegt werden? Gerade hat man den perfekten Plan entwickelt die Weltherrschaft an sich zu reißen: Bämmm! Benötigt man für den Kauf von U-Booten auf einmal hoch komplexe technische Expertisen, schwierig zu fälschende Dokumente und was weiß ich nicht noch alles.
 
-<div class="box w50 right">
+<!-- #BOX#
 Stack Map Frames sind
 <p>
 <ul>
 <li class="boxed">Teil des Bytecode Verifikationsprozesses seit Java 7</li>
-<li class="boxed">Voraus berechnete Stack Map Frames machen schnelle „one pass“ Verifikation möglich</li>
+<li class="boxed">Voraussetzung für schnelle „one pass“ Verifikation</li>
 <li class="boxed">In der JVM Spec auf 200 Seiten PROLOG Code beschrieben</li>
-</div>
+-->
+<img align="left" src="/assets/images/posts/Die-Nacht-der-Tentakel/explanationBox006.png"/>
 
 Vielleicht habt ihr euch schon gefragt warum ich ein Monster wie **ASM**odis beschwöre. Hätte ich den Byte-Code nicht einfach so an die Gedärme pappen können? Stack Map Frames sind der Stein, den das große Oracle mir hier in den Weg geworfen hat. Ohne nimmt die JVM den Byte-Code seit Java 8 nicht mehr an. Und glaubt mir, die Dinger will keiner selbst berechnen. Es sei denn, ihr seit Freunde maßloser Selbstkasteiung und genießt es euch durch **ZWEIHUNDERT** Seiten PROLOG Code zu arbeiten. Dann doch lieber der gute alte **ASM**odis, der macht das für uns gleich mit.
 
@@ -293,9 +220,10 @@ Das Ende ist in Sicht. Als Sahnehäubchen werde ich noch ein paar Werkzeuge schm
 
 #### Der Java Agent
 
-<div class="box w50 right">
+<!-- #BOX#
 Der Java Agent ist vor allem für den Einsatz in IDEs sinnvoll, da er die Byte-Code Manipulationen zur Laufzeit on-the-fly vornimmt.
-</div>
+-->
+<img align="right" src="/assets/images/posts/Die-Nacht-der-Tentakel/explanationBox007.png"/>
 
 Wer liebt sie nicht - geheime Agenten: Unauffällig, intrigant und effizient. Mit Hilfe eines Agenten können die Tentakel einfach ohne Betäubung in das lebende Objekt eingepflanzt werden. Ich werde dem Agenten den Auftrag erteilen jede Art Kreatur (Äh, Klasse) in ein weltenverschlingendes Monster zu transformieren. Auf diese Art und Weise wird mir niemand entkommen.
 
@@ -318,9 +246,10 @@ public class Agent {
 
 #### Postcompiler
 
-<div class="box w50 right">
+<!-- #BOX#
 Der Postcompiler ist die flexibelste Lösung. Eine einfache Java Klasse mit "main" Methode. Auf diese Weise können bereits kompilierte Klassen instrumentiert werden.
-</div>
+-->
+<img align="left" src="/assets/images/posts/Die-Nacht-der-Tentakel/explanationBox008.png"/>
 
 So sehr ich die Agenten in ihrer subversiven Art auch verehre, so erscheint es mir doch sinnvoll eine einfach zu bedienende Massenvernichtungswaffe zu entwickeln. Mehr etwas für das alltägliche Armageddon. Einfach ein Ziel wählen, feuern, zurücklehnen und genießen. Dieses Baby ist wirklich das Schweizer Armeemesser der cthuloiden Transformation. Egal in welcher Umgebung man sein persönliches Imperium des Bösen auch aufbaut, dieses Ding wird immer funktionieren.
 
@@ -359,9 +288,10 @@ public class PostCompiler {
 
 #### Maven Plugin
 
-<div class="box w50 right">
+<!-- #BOX#
 Der Einfachheit halber wrappen wir den Postcompiler nochmal in ein Maven Plugin. Dann können die Projekte Out-Of-The-Box mit Maven gebaut werden. Da das Plugin in keinem offiziellen Maven Repository existiert, muss es zunächst lokal gebaut werden.
-</div>
+-->
+<img align="right" src="/assets/images/posts/Die-Nacht-der-Tentakel/explanationBox009.png"/>
 
 Na, da mach ich es mir doch am Ende nochmal ein bißchen gemütlich. Der fünffache Espresso ist gekocht. Und ich statte meinen Postcompiler mit einer angemessenen Portion Mojo aus. Schließlich wollen wir ja nicht nur die Weltherrschaft durch cthuloiden Wahnsinn an uns reißen. Am Ende wollen wir dabei ja auch noch groovy dastehen. Und dabei hat eine ordentliche Portion Mojo schon immer geholfen.
 
@@ -385,17 +315,17 @@ public class MavenMojo extends AbstractMojo {
 ### Nacht VI - Girls just wanna have fun
 
 >Ich erinnere mich, wie Nyarlathotep in meine Stadt kam - die große, die alte, die schreckliche Stadt der ungezählten Verbrechen. Mein Freund hatte mir von ihm und der zwingenden Faszination und der Verlockung seiner Offenbarungen erzählt, und ich lechzte sehnsüchtig danach, seine größten Geheimnisse zu erkunden.<br/>
->*-H.P. Lovecraft-*
+*-H.P. Lovecraft-*
 
 #### Hallo Weltherrschaft
 
 Nun endlich meine Aspiranten der dunklen Künste wollen wir an's Werk schreiten, die Kreatur entfesseln und "Hallo" zu einer neuen, schrecklichen Welt sagen. Doch was wäre ein Plan, die Weltherrschaft an uns zu reissen, ohne eine okkulte, congeniale Weltformel, wie diese: 
 
-![Weltformel des Bösen](../assets/images/posts/Die-Nacht-der-Tentakel/Formula.jpg)
+![Weltformel des Bösen](/assets/images/posts/Die-Nacht-der-Tentakel/Formula.png)
 
 Oh, aber ein Bild sagt mehr als tausend Zahlen. Schauet und staunet, wie sich ihre Schönheit offenbart, wenn wir uns die Mühe machen sie zu zeichnen. Kann man nicht geradezu sehen, wie sich die Tentakel längst vergessener Wesen aus dem Sumpf der Ewigkeit erheben? 
 
-![Böse Schwingungen](../assets/images/posts/Die-Nacht-der-Tentakel/Graph.jpg)
+![Böse Schwingungen](/assets/images/posts/Die-Nacht-der-Tentakel/Graph.png)
 
 In Programmcode gegossen sieht das ganze schon etwas nüchterner aus. Irgendwann muss ich mir mal einen Compiler bauen, der direkt meine Tafelbilder lesen und verarbeiten kann. Aber das ist wohl eher etwas für einen anderen Abend.
 
@@ -431,9 +361,10 @@ In Programmcode gegossen sieht das ganze schon etwas nüchterner aus. Irgendwann
     }
 ```
 
-<div class="box w50 right">
+<!-- #BOX#
 Tatsächlich gibt es hier ein Problem mit frühen Java 1.8 Versionen. Spätere Versionen (z.B. 1.8.0_171) haben kein Problem mehr damit.
-</div>
+-->
+<img align="left" src="/assets/images/posts/Die-Nacht-der-Tentakel/explanationBox010.png"/>
 
 Verdammt, ich hätte nicht gedacht, dass meine Formel so böse ist. Bei dem Versuch sie zu kompilieren dachte ich zunächst mein Compiler wäre kaputt. Anscheinend blieb er während des Kompiliervorgangs einfach stehen. Nach etwas zehn Minuten meldete er sich dann doch noch. Äußerst skurril. Ich polier das Ding mal auf den neuesten Stand. Ah, da läuft's doch gleich wie geschmiert.
 
@@ -556,19 +487,22 @@ Die bisherigen Beispiele waren ja eher handzahm. Als nächste möchte ich einmal
 
 Hier seien noch einmal die Sprungvorgänge bildlich erläutert.
 
-![Gehupft wie gesprungen](Code.png)
+<img align="left" width="450px" alt="Gehupft wie gesprungen" src="/assets/images/posts/Die-Nacht-der-Tentakel/Code.png"/>
 
 Die Ausführung des Programms führt zu folgender Ausgabe:
 
+```Text
 25: 666
 21: 667
 21: 43
 27: 43
+```
 
 Diese wirkt auf den ersten Blick seltsam. Die erste Ausgabe aus Zeile 25 ist noch naheliegend. Die zweite aus Zeile 21 macht jedoch schon stutzig. Im Sourceode wird "++x" ausgegeben. Tatsächlich erscheint hier aber der Wert von "++i". Danach erscheint als dritte Ausgabe schließlich doch der Wert von "++x" aus Zeile 22. In der letzten Ausgabe aus Zeile 27 erscheint dann der Wert von "x" anstelle des im Sourcecodes angegebenen "i".
 
 Was passiert hier wirklich?
 
+```Text
 17: Variable "j" vom Typ "int" wird mit Wert "0" auf Position 0 des Stacks gelegt
 18: Sprung nach 24
 24: Variable "i" vom Typ "int" wird mit Wert "666" auf Position 1 des Stacks gelegt 
@@ -581,7 +515,7 @@ Was passiert hier wirklich?
 22: Variable von Position 0 des Stacks wird um eins erhöht und nicht erfolgreich verglichen, anschließend weiter bei 23
 23: Sprung nach 27
 27: Variable von Position 2 des Stacks wird ausgegeben (x)
-
+```
 
 ### Nacht VII - GOTO world domination
 
@@ -594,7 +528,7 @@ Fassen wir das Problem kurz zusammen:
 
 Zur Verdeutlichung und als Beispiel nehmen wir die folgenden Orte und Reiseverbindungen an.
 
-![Schwärmt aus meine Kultisten](../assets/images/posts/Die-Nacht-der-Tentakel/HenchmenMap.jpg)
+![Schwärmt aus meine Kultisten](/assets/images/posts/Die-Nacht-der-Tentakel/HenchmenMap.png)
 
 In diesem Kontext erscheint ein GOTO Statement ja geradezu als Domänen spezifische Sprache. Bilden wir also unsere Orte und möglichen Wege auf entsprechenden Programmcode ab.
 
@@ -618,19 +552,19 @@ Unser Scherge läuft im wahrsten Sinne des Wortes durch den Programmcode. Näher
 
 Schauen wir uns nun das Ergebnis an. Auf dass meine Schergen und Handlanger das Böse in meinem Sinne in die Welt tragen mögen.
 
-<hr class="green"/>
-*Welcome evil master,*
+```Text
+Welcome evil master,
 
-*your sinister henchmen may travel one of the following routes:*
+your sinister henchmen may travel one of the following routes:
 
-*You're henchman may travel from Erlangen via London, Lissabon and Paris to Rom.*
-*You're henchman may travel from Erlangen via Lissabon, Paris and Rom to London.*
-*You're henchman may travel from Rom via London, Paris and Erlangen to Lissabon.*
-*You're henchman may travel from Rom via London, Lissabon and Paris to Erlangen.*
-*You're henchman may travel from Rom via Paris, Erlangen and London to Lissabon.*
+You're henchman may travel from Erlangen via London, Lissabon and Paris to Rom.
+You're henchman may travel from Erlangen via Lissabon, Paris and Rom to London.
+You're henchman may travel from Rom via London, Paris and Erlangen to Lissabon.
+You're henchman may travel from Rom via London, Lissabon and Paris to Erlangen.
+You're henchman may travel from Rom via Paris, Erlangen and London to Lissabon.
 
-*I hope this satisfies your needs, your Evilness*
-<hr class="green"/>
+I hope this satisfies your needs, your Evilness
+```
 
 ### Epilog
 
@@ -639,7 +573,7 @@ Nun meine verwegenen Freunde des Wahnsinns welche unausprechlichen Manifestation
 Wie wäre es vielleicht mit etwas *Inline-Assembler*, Muhahahaha!!!
 
 >Noch während er dies sagte, sprang er aus dem Kabinenfenster auf die Eisscholle, die nahe dem Schiff lag. Schon bald wurde er von den Wellen davon getragen und verschwand in der Dunkelheit.<br/>
->*-Mary Shelley-*
+*-Mary Shelley-*
 
 One more thing ...
 ... sollte ich jemals einen Architekturreview eines eurer Projekte machen und auf ein GOTO Statement in eurem Java Code stoßen, werde ich persönlich eure Gedärme neu verdrahten.
@@ -649,7 +583,7 @@ In diesem Sinne
 Frank Meyfarth
 *(Software Architect, adesso AG)*
 
-<hr class="green"/>
+---
 *Der Sourcecode ist auf GitHub verfügbar: https://github.com/FranknJava/TheNightOfTheTentacles*
 
 
