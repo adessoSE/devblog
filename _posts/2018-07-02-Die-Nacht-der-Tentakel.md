@@ -57,7 +57,8 @@ Frisch an's Werk. Bevor ich anfange muss ich mir noch die richtigen Zutaten aus 
 Das Labor sieht aus wie nach einem Massaker - Ectoplasma überall. Ich habe aus den Zutaten einen Tentakel nach meinen Vorstellungen erschaffen: schlicht, funktional und bösartig. Ich liebe ihn jetzt schon. 
 Bin von den Formaldehyddämpfen leicht benebelt. Lasse es für heute gut sein. Morgen ist auch noch eine Nacht. Ich glaube, ich kann fliegen.
 
-<p>
+
+
 ### Nacht II - Tentakel
 
 <!-- #BOX# 
