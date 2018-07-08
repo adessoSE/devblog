@@ -577,6 +577,7 @@ Wie wäre es vielleicht mit etwas *Inline-Assembler*, Muhahahaha!!!
 *-Mary Shelley-*
 
 One more thing ...
+
 ... sollte ich jemals einen Architekturreview eines eurer Projekte machen und auf ein GOTO Statement in eurem Java Code stoßen, werde ich persönlich eure Gedärme neu verdrahten.
 
 In diesem Sinne
