@@ -1,4 +1,17 @@
-![Frank'n Java und die Nacht der Tentakel](/assets/images/posts/Die-Nacht-der-Tentakel/Title.png)
+---
+layout:         [post, post-xml]              
+title:          "Frank'n Java und die Nacht der Tentakel"
+date:           2018-07-02 14:53
+modified_date: 
+author:         Franknjava
+categories:     [Java, Bytecode, Cthulhu]
+tags:           [ASM, GOTO, Spaghetticode]
+---
+
+<img onmouseover="
+    this.parentElement.style.backgroundColor='#001018'; 
+    this.parentElement.style.color          ='#388038';
+" alt="Frank'n Java und die Nacht der Tentakel" src="/assets/images/posts/Die-Nacht-der-Tentakel/Title.png" />
 
 Wie Stahlbolzen trommelte der Regen gegen die Scheiben meiner Kemenate, während flirrende Blitze gellend durch die Nacht zuckten, wie die spastischen Tentakel längst vergessener kosmischer Wesen. Schmatzend klatschte die Dunkelheit in meine Gedanken. Ruhelos schritt ich in meiner Hotelburg auf und ab, und mein Geist begann zu wandern. Ich dachte an den jungen Adepten, der mir bei der Betrachtung eines gewachsenen Sourcery Codes von etwa 100 Zeilen, mit drei Verzweigungen und einer Switch-Anweisung fröhlich den Namen einer italienischen Pasta Sorte entgegenschmetterte: "Uuh, Spaghetticode". Oh, die Unwissenheit der Jugend. Ist es doch mit modernen Sprachen kaum noch möglich, den Kontrollfluss dermaßen verworren zu gestalten, dass selbst ein Riesenkrake vor Neid erblassen würde. Nein! Dies war nur mit den großen Alten möglich, deren cthuloide Tentakel die Programmlogik in ein Zerrbild des Wahnsinns verwandelten. Wir brauchten damals keinen Code Obfuscator. Nein, unser Code war obfuscated by design. Diesem Adepten würde ich zeigen, wie man italienischen Nudel-Code zubereitet. Aber halt, war meine javanesische Braut nicht viel zu unschuldig und rein für solch schmutzige Spielereien? Nicht doch, ich wusste genau, dass auch in ihrem Innern das Böse schlummert. Also schnallte ich sie hart auf die Werkbank und zückte mein Messer. Heute Nacht würde ich eine cthuloide Unaussprechlichkeit erschaffen und Morgen ..., naja ihr wisst schon: Muhahahaha!!!
 
