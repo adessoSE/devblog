@@ -132,7 +132,7 @@ Damit dies so funktioniert muss vorher ein Authentifizierungsanbieter eingericht
 
 1. Bevor Azure-seitig der Authentifizierungsanbieter ausgewählt werden kann, muss bei dem Authentifizierungsanbietern eine sog. "App" (d.h. eine Anwendung für die die Authentifizierung erfolgt) eingerichtet werden. Für den "Microsoft"-Authentifizierungsanbieter geschieht dies unter [https://apps.dev.microsoft.com/](https://apps.dev.microsoft.com/) 
 	1. Für die Anwendung muss ein Anwendungsgeheimnis (App Secret) eingerichtet werden. Dies wird später in Azure hinterlegt.
-	2. Es muss eine Plattform eingerichtet werden: Web (für die Anmeldung mit der automatischen Weiterleitung). Die Umleitungs-URL für die Plattform ist anhand der [Doku](https://docs.microsoft.com/en-us/azure/app-service/app-service-authentication-overview#identity-providers) zu ermitteln: In diesem Fall ist es `https://<yourapp>.azurewebsites.net/.auth/login/microsoftaccount/callback` (Achtung: Entgegen der Doku ist die URL wirklich `.../microsoftaccount/...` und nicht `.../microsoft/...`.) 
+	2. Es muss eine Plattform eingerichtet werden: Web (für die Anmeldung mit der automatischen Weiterleitung). Die Umleitungs-URL für die Plattform ist anhand der [Doku](https://docs.microsoft.com/en-us/azure/app-service/app-service-authentication-overview#identity-providers) zu ermitteln: In diesem Fall ist es `https://<yourapp>.azurewebsites.net/.auth/login/microsoftaccount/callback` 
 2. Die Anwendungs-ID und -geheimnis müssen in Azure für den Authentifizierungsanbieter hinterlegt werden und es muss mindestens der Bereich "wl.basic" ausgewählt werden:
    
       ![app-id und -geheimnis in Azure](../assets/images/posts/Azure-Functions-Security/function-example1-appinazure.png)
