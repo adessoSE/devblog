@@ -1,4 +1,4 @@
-Wenn du einen Pull-Request stellt, teile uns biite deine Änderungen mit, indem du die unten engegebene Publish-Checkliste nutzt. 
+Wenn du einen Pull-Request stellst, teile uns bitte deine Änderungen mit, indem du die unten angegebene Publish-Checkliste nutzt. 
 
 # Publish Checkliste
 
