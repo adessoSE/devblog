@@ -1,6 +1,6 @@
 ---
 layout:         [post, post-xml]
-title:          "Wicked-Charts - Javascript Charts mit Wicket"
+title:          "Wicked Charts - Javascript Charts mit Wicket"
 date:           2018-06-20 10:20
 modified_date:
 author:         maximAtanasov
@@ -10,27 +10,27 @@ tags:           [Java, Wicket]
 
 Bei der Entwicklung einer Anwendung mit einem serverseitigen Webframework stellt die 
 benutzerfreundliche und interaktive Visualisierung von Daten eine Herausforderung dar. 
-Die Verwendung von Wicked-Charts ermöglicht es schöne und interaktive JavaScript-Charts in eine entsprechende Anwendung, zu integrieren. 
+Die Verwendung von Wicked Charts ermöglicht es, schöne und interaktive JavaScript-Charts in eine serverseitige Webanwendung zu integrieren. 
 In diesem Artikel wird dazu beispielhaft gezeigt, wie ein einfaches Liniendiagramm konfiguriert wird.
 
-## Warum wird Wicked-Charts gebraucht?
+## Wofür brauchen wir Wicked Charts?
 
-Bei der Entwicklung einer serverseitigen Webanwendung ist es wichtig, die volle Kontrolle über die Komponenten
-in dem serverseitigen Code zu haben. Wicked-Charts ermöglicht es, Diagramme zu konfigurieren und sie mit Daten zu versorgen,
-ohne JavaScript-Code zu schreiben oder die Besonderheiten der jeweiligen JavaScript-Bibliothek zu kennen. 
-Dies ermöglicht eine saubere und ungestreute Codebasis, die leichter zu lesen, verstehen und modifizieren ist.
+Bei der Entwicklung einer serverseitigen Webanwendung möchten wir eigentlich die volle Kontrolle über die UI-Komponenten
+im serverseitigen Code haben - ansonsten müssen wir neben dem serverseitigen Framework noch ein clientseitiges Javascript Framework einsetzen. Die Java-Library Wicked Charts ermöglicht es, Diagramme im Java-Code zu konfigurieren und sie mit Daten zu versorgen,
+ohne JavaScript-Code zu schreiben oder die Besonderheiten der jeweiligen JavaScript-Bibliothek im Detail zu kennen. 
+Dies ermöglicht eine ungestreute Codebasis, die leichter zu lesen, verstehen und modifizieren ist.
 
 ## Überblick über Wicked Charts
 
-[Wicked-Charts](https://github.com/adessoAG/wicked-charts) ist ein Java-Wrapper für die beiden JavaScript Bibliotheken Chart.js und Highcharts.
-Es wurde ursprünglich als Wrapper für die [Highcharts Bibliothek](https://www.highcharts.com/) entwickelt 
-und wegen dem Lizenzmodell von Highcharts auch um [Chart.js](http://www.chartjs.org/) erweitert, und unterstützt die meisten Features der Javascript-Bibliotheken
-Die Bibliothek enthält Module für alle aktuellen Versionen von Apache Wicket sowie für das JSF Framework.
-Die kostenlose Chart.js-Bibliothek ist jedoch nur in Wicket verfügbar.
+[Wicked Charts](https://github.com/adessoAG/wicked-charts) ist ein Java-Wrapper für die beiden JavaScript Bibliotheken [Chart.js](http://www.chartjs.org/) und [Highcharts](https://www.highcharts.com/).
+Es wurde ursprünglich als Wrapper für die Highcharts Bibliothek entwickelt 
+und wegen dem Lizenzmodell von Highcharts auch um Chart.js erweitert, und unterstützt die meisten Features der Javascript-Bibliotheken
+Die Bibliothek enthält Module für alle aktuellen Versionen von Apache Wicket sowie für das JSF Framework. Darüberhinaus kann der Java-Wrapper auch direkt genutzt werden, um Javascript-Charts aus anderen serverseitige Webframeworks heraus zu erzeugen.
 
-## Ein Beispiel zur Erstellung eines einfachen Liniendiagramms
+## Wicked Charts am Beispiel: Ein Liniendiagramm
 
-Die Maven-Koordinaten für Wicked-Charts sind die folgende:
+### Einbindung über Maven
+Zunächst müssen wir Wicked Charts in unsere Anwendung einbinden. Dies sind die dazu notwendigen Maven-Koordinaten:
 
 ```xml
 <dependency>
@@ -42,30 +42,28 @@ Die Maven-Koordinaten für Wicked-Charts sind die folgende:
 ```
 
 Eine Wicket-Anwedung, die folgendes minimales Beispiel umsetzt ist hier zu finden: [GitHub](https://github.com/maximAtanasov/wicked-charts-example). 
-Einfach `./gradlew bootRun` in dem Hauptverzeichnis ausführen und dann auf `localhost:8080` in einem Browser öffnen.
 
-Konfigurieren des Diagramms.
-Der Java Code dafür ist in der `Homepage.java` Datei in der Beispiel-Anwendung zu finden.
+Zum Starten der Anwendung einfach `./gradlew bootRun` im Hauptverzeichnis ausführen und dann die URL `localhost:8080` in einem Browser öffnen.
 
-Für das Erstellen und Verwenden eines Elements auf einer Webseite mit Wicket wird neben 
-dem entsprechenden HTML-Element noch eine in Java geschriebene Wicket-Komponente benötigt.
-Die Komponente, mit der ein Diagramm in Wicked-Charts dargestellt wird, heißt `Chart`. Der Konstruktor von
-dieser Komponente benötigt einen `String` - der Wicket-ID für das Diagramm und ein weiteres Objekt namens `ChartConfiguration`.
-Dies ist das Objekt, das verwendet wird, um die verschiedenen Optionen von einem Diagramm zu konfigurieren, wie z. B.
-die Art des Diagramms und die zu visualisierenden Daten.
+### Konfiguration des Diagramms
 
-Erstellung des `ChartConfiguration` Objekts.
+Der hier beschriebene Java Code zur Konfiguration des Diagramms ist in der Datei `Homepage.java` Datei in der Beispiel-Anwendung zu finden.
+
+Zur Konfiguration eines Charts.js - Diagramms erzeugen wir ein Objekt der Klasse `ChartConfiguration` wie folgt:
+
 ```java
 ChartConfiguration chartConfiguration = new ChartConfiguration();
 chartConfiguration.setType(ChartType.LINE);
 ```
 
-Außerdem wird ein Data-Objekt benötigt, welches die Labels (Achsenbeschriftungen) und Datensätze enthält.
+Die Achsenbeschriftungen und Datensätze geben wir über ein `Data`-Objekt mit:
+
 ```java
 Data data = new Data().setLabels(TextLabel.of("January", "February", "March", "April", "May", "June", "July"));
 ```
 
-Das Datenobjekt braucht auch einen Datensatz
+Die eigentlichen Datensätze geben wir mit, indem wir ein `Dataset` erzeugen:
+
 ```java
 Dataset dataset1 = new Dataset()
     .setLabel("My first dataset")  //Ein Label für den Datensatz
@@ -78,7 +76,8 @@ data.setDatasets(Arrays.asList(dataset1));
 chartConfiguration.setData(data);
 ```
 
-Nun müssen die Optionen für das Liniendiagramm erstellen werden.
+Damit das Diagramm auch so aussieht, wie wir es uns vorstellen, können wir über ein `Options`-Objekt noch jede Menge Einstellungen definieren, die das Look & Feel beeinflussen:
+
 ```java
 Options options = new Options()
         .setResponsive(true)
@@ -109,36 +108,44 @@ Options options = new Options()
 chartConfiguration.setOptions(options);
 ```
 
-Das Diagramm muss noch auf die Wicked Page gesetzt werden.
+### Einbindung des Diagramms in eine Wicket-Komponente
+
+Die `ChartConfiguration` definiert nun die Daten und das Aussehen unseres Diagramms und soll nun in einer Wicket-Webanwendung dargestellt werden. Hierzu nutzen wir die von Wicked Charts bereitgestellte `Chart`-Komponente, die wir in der Seite `Homepage.java` mittels `add()` hinzufügen:
+
 ```java
 Chart chart = new Chart("chart", chartConfiguration);
 add(chart);
 ```
 
-Das HTML für das Diagramm befindet sich in der Datei `Homepage.html` und sieht so aus:
+Das HTML für die Homepage-Seite befindet sich in der Datei `Homepage.html` und sieht so aus:
 
 ```html
 <div style="width: 75%">
     <canvas wicket:id="chart"></canvas>
 </div>
 ```
-Das Diagramm sollte so aussehen:
+
+### Das fertige Diagramm
+
+Das oben konfigurierte Diagramm sollte in der laufenden Webanwendung dann so aussehen:
 
  ![](/assets/images/posts/wicked-charts/LineChart.png)
 
-## Was Wicked-Charts noch kann
+## Was Wicked Charts noch kann
 
-Neben Liniendiagramme unterstützt Wicked-Charts auch viele weitere Diagrammtypen und Variationen, wie beispielsweise die folgenden:
- 
- Ein Diagramm mit Datensätzen auf mehreren Achsen
+Was die Konfiguration von Diagrammen angeht unterstützt Wicked Charts fast alle Features, die auch von den Javascript-Bibliotheken angeboten werden. So können zum Beispiel mehrere Y-Achsen definiert werden, wie in diesem Beispiel:
  
  ![](/assets/images/posts/wicked-charts/barMultiAxis.png)
  
- Oder eine Kombination aus Balken- und Liniendiagramm:
+ Oder wir können verschiedene Diagrammtypen kombinieren, wie hier z.B. ein Balken- und ein Liniendiagramm:
  
  ![](/assets/images/posts/wicked-charts/comboBar.png)
 
-Die bibliothek unterstützt auch folgedene Diagrammtypen:
+Die Diagramme haben auch viele Variationen mit verschiedenen Einstellungen und Funktionen.
+Es können z. B. gestapelte Diagramme, verschiedene Füllmodi und verschiedene Punkt- oder Linienstile, sowie
+benutzerdefinierte Funktionen eingefügt werden.
+
+Die Bibliothek unterstützt auch folgedene Diagrammtypen:
 
 - Balkendiagramme
 - Radardiagramme
@@ -148,10 +155,10 @@ Die bibliothek unterstützt auch folgedene Diagrammtypen:
 - Polargebietskarten
 - Blasendiagramme
 
+## Was Wicked Charts nicht kann
+
+Wicked Charts bietet eine Java-Abstraktion über Javascript-Frameworks. Wie bei jeder Abstraktion geht dabei etwas verloren. So unterstützt Wicked Charts z.B. Funktionen zu begrenzt, die eine Client-Server-Interaktion erfordern. Für die Darstellung statischer Daten mit einigen clientseitigen Interaktions-Features bietet Wicked Charts aber eine Möglichkeit.
+
 ## Showcase
 
-Die Diagramme haben auch viele Variationen mit verschiedenen Einstellungen und Funktionen.
-Es können z. B. gestapelte Diagramme, verschiedene Füllmodi und verschiedene Punkt- oder Linienstile, sowie
-benutzerdefinierte Funktionen eingefügt werden.
-
-Die Wicked-Charts Showcase Anwendung enthält praktische Code-Samples zum Durchblättern und kann aus dem Wicked-Charts-Repository heruntergeladen oder [hier](https://wicked-charts-showcase.appspot.com) angesehen werden. 
+Die Wicked Charts Showcase Anwendung enthält praktische Code-Samples zum Durchblättern und kann aus dem Wicked Charts-Repository heruntergeladen oder [hier](https://wicked-charts-showcase.appspot.com) angesehen werden. 
