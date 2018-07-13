@@ -1,6 +1,6 @@
 ---
 layout:         [post, post-xml]
-title:          "Wicked Charts - Javascript Charts mit Wicket"
+title:          "Wicked Charts - JavaScript Charts mit Wicket"
 date:           2018-06-20 10:20
 modified_date:
 author:         maximAtanasov
@@ -10,13 +10,13 @@ tags:           [Java, Wicket]
 
 Bei der Entwicklung einer Anwendung mit einem serverseitigen Webframework stellt die 
 benutzerfreundliche und interaktive Visualisierung von Daten eine Herausforderung dar. 
-Die Verwendung von Wicked Charts ermöglicht es, schöne und interaktive JavaScript-Charts in eine serverseitige Webanwendung zu integrieren. 
+Die Verwendung von Wicked Charts - einer bei adesso entwickelten Java-Bibliothek - ermöglicht es, schöne und interaktive JavaScript-Charts in eine serverseitige Webanwendung zu integrieren. 
 In diesem Artikel wird dazu beispielhaft gezeigt, wie ein einfaches Liniendiagramm konfiguriert wird.
 
 ## Wofür brauchen wir Wicked Charts?
 
 Bei der Entwicklung einer serverseitigen Webanwendung möchten wir eigentlich die volle Kontrolle über die UI-Komponenten
-im serverseitigen Code haben - ansonsten müssen wir neben dem serverseitigen Framework noch ein clientseitiges Javascript Framework einsetzen. Die Java-Library Wicked Charts ermöglicht es, Diagramme im Java-Code zu konfigurieren und sie mit Daten zu versorgen,
+im serverseitigen Code haben - ansonsten müssen wir neben dem serverseitigen Framework noch ein clientseitiges JavaScript Framework einsetzen. Die Java-Library Wicked Charts ermöglicht es, Diagramme im Java-Code zu konfigurieren und sie mit Daten zu versorgen,
 ohne JavaScript-Code zu schreiben oder die Besonderheiten der jeweiligen JavaScript-Bibliothek im Detail zu kennen. 
 Dies ermöglicht eine ungestreute Codebasis, die leichter zu lesen, verstehen und modifizieren ist.
 
@@ -24,8 +24,8 @@ Dies ermöglicht eine ungestreute Codebasis, die leichter zu lesen, verstehen un
 
 [Wicked Charts](https://github.com/adessoAG/wicked-charts) ist ein Java-Wrapper für die beiden JavaScript Bibliotheken [Chart.js](http://www.chartjs.org/) und [Highcharts](https://www.highcharts.com/).
 Es wurde ursprünglich als Wrapper für die Highcharts Bibliothek entwickelt 
-und wegen dem Lizenzmodell von Highcharts auch um Chart.js erweitert, und unterstützt die meisten Features der Javascript-Bibliotheken
-Die Bibliothek enthält Module für alle aktuellen Versionen von Apache Wicket sowie für das JSF Framework. Darüberhinaus kann der Java-Wrapper auch direkt genutzt werden, um Javascript-Charts aus anderen serverseitige Webframeworks heraus zu erzeugen.
+und wegen dem Lizenzmodell von Highcharts auch um Chart.js erweitert, und unterstützt die meisten Features der JavaScript-Bibliotheken
+Die Bibliothek enthält Module für alle aktuellen Versionen von Apache Wicket sowie für das JSF Framework. Darüberhinaus kann der Java-Wrapper auch direkt genutzt werden, um JavaScript-Charts aus anderen serverseitige Webframeworks heraus zu erzeugen.
 
 ## Wicked Charts am Beispiel: Ein Liniendiagramm
 
@@ -133,7 +133,7 @@ Das oben konfigurierte Diagramm sollte in der laufenden Webanwendung dann so aus
 
 ## Was Wicked Charts noch kann
 
-Was die Konfiguration von Diagrammen angeht unterstützt Wicked Charts fast alle Features, die auch von den Javascript-Bibliotheken angeboten werden. So können zum Beispiel mehrere Y-Achsen definiert werden, wie in diesem Beispiel:
+Was die Konfiguration von Diagrammen angeht unterstützt Wicked Charts fast alle Features, die auch von den JavaScript-Bibliotheken angeboten werden. So können zum Beispiel mehrere Y-Achsen definiert werden, wie in diesem Beispiel:
  
  ![](/assets/images/posts/wicked-charts/barMultiAxis.png)
  
@@ -157,7 +157,7 @@ Die Bibliothek unterstützt auch folgedene Diagrammtypen:
 
 ## Was Wicked Charts nicht kann
 
-Wicked Charts bietet eine Java-Abstraktion über Javascript-Frameworks. Wie bei jeder Abstraktion geht dabei etwas verloren. So unterstützt Wicked Charts z.B. Funktionen zu begrenzt, die eine Client-Server-Interaktion erfordern. Für die Darstellung statischer Daten mit einigen clientseitigen Interaktions-Features bietet Wicked Charts aber eine Möglichkeit.
+Wicked Charts bietet eine Java-Abstraktion über JavaScript-Frameworks. Wie bei jeder Abstraktion geht dabei etwas verloren. So unterstützt Wicked Charts z.B. Funktionen zu begrenzt, die eine Client-Server-Interaktion erfordern. Für die Darstellung statischer Daten mit einigen clientseitigen Interaktions-Features bietet Wicked Charts aber eine gute Möglichkeit.
 
 ## Showcase
 
