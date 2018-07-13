@@ -10,15 +10,15 @@ tags:           [azure, functions, security, paas]
 Gibt es "Sicherheit" bei Azure Funktionen? Sind diese immer öffentlich zugänglich? Können Funktionen mit Benutzer-Autorisierung abgesichert werden? Dieser Beitrag versucht diesen und anderen Fragen nachzugehen.
 
 # Azure Funktionen
-Azure Funktionen - serverlosen Funktionen - sind eine Möglichkeit einfache kleine Services zu erstellen, die ohne große Infrastruktur auskommen. Trotz der Leichtigkeit sind sie auf einfache Weise skalierbar. Eine Funktion ist in Azure schnell erstellt. Ein einfaches Beispiel liefert Microsoft schon in der [Dokumentation](https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-first-azure-function). Zum aktuellen Zeitpunkt hat die Dokumentation exakt 10 Schritte, beginnend mit "Create a function app" bis abschließend "Test the function".
+Azure Funktionen - serverlose Funktionen - sind eine Möglichkeit, einfache kleine Services zu erstellen, die ohne große Infrastruktur auskommen. Trotz der Leichtigkeit sind sie auf einfache Weise skalierbar. Eine Funktion ist in Azure schnell erstellt. Ein einfaches Beispiel liefert Microsoft schon in der [Dokumentation](https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-first-azure-function). Zum aktuellen Zeitpunkt hat die Dokumentation exakt 10 Schritte, beginnend mit "Create a function app" bis abschließend "Test the function".
 Es stellt sich die Frage, ob diese Funktion dann auch schon "abgesichert" ist.
 
-Eine Funktion besteht grob aus zwei Teilen: Aus der ["Azure Funktion"](https://docs.microsoft.com/en-us/azure/azure-functions/) selbst und dem ["Azure App Service"](https://docs.microsoft.com/en-us/azure/app-service/) in dem die Funktion existiert. Dies führt dazu, dass man zwei Punkte betrachten muss, wenn es um die Frage der Sicherheit geht: Zum einen den App Service und zum anderen die Funktion. 
+Eine Funktion besteht grob aus zwei Teilen: Aus der ["Azure Funktion"](https://docs.microsoft.com/en-us/azure/azure-functions/) selbst und dem ["Azure App Service"](https://docs.microsoft.com/en-us/azure/app-service/) in dem die Funktion existiert. Dies führt dazu, dass man zwei Punkte betrachten muss, wenn es um die Frage der Sicherheit geht: zum einen den App Service und zum anderen die Funktion. 
 
 # Authentifizierung und Autorisierung
 
 ## Sicherheit in Funktionen
-Die Fragestellung nach der "Sicherheit der Funktionen" ist etwas verwirrend - im Grunde soll nicht die Funktion abgesichert werden, sondern der Aufruf bzw. der Start der Funktion. Funktionen starten immer über sogenannte Trigger, von denen die meisten Azure-Intern zu verwenden sind (z.B. über Timer, Event Hub oder Blob Storage). Der für  diesen Artikel betrachtete Trigger ist daher der [HTTP oder "generic web hook"-Trigger](https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-generic-webhook-triggered-function).
+Die Fragestellung nach der "Sicherheit der Funktionen" ist etwas verwirrend - im Grunde soll nicht die Funktion abgesichert werden, sondern der Aufruf bzw. der Start der Funktion. Funktionen starten immer über sogenannte Trigger, von denen die meisten Azure-intern zu verwenden sind (z.B. über Timer, Event Hub oder Blob Storage). Der für  diesen Artikel betrachtete Trigger ist daher der [HTTP oder "generic web hook"-Trigger](https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-generic-webhook-triggered-function).
 
 Laut [Doku](https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-http-webhook#trigger---configuration) stehen drei Autorisierungsmechanismen auf Ebene des Triggers zur Verfügung:
 
@@ -43,26 +43,26 @@ Die Schlüssel können über zwei verschiedene Mechanismen verwendet werden. Ent
 Die beiden Zugriffsmechanismen können wie folgt verwendet werden:
 
 ```cs
-    const string function = "https://securityexample.azurewebsites.net/api/HelloWorld";
-    const string code = "Srs8ca27tCSwuyFTv0kBOwMt/WTzLXW43WNcPUYeG7L273TmQTSf0A==";
+const string function = "https://securityexample.azurewebsites.net/api/HelloWorld";
+const string code = "Srs8ca27tCSwuyFTv0kBOwMt/WTzLXW43WNcPUYeG7L273TmQTSf0A==";
 
-    // via get-parameter
-    using (var client = new WebClient())
-    {
-        Console.WriteLine("Sending code via get-parameter...");
-        var fullUrl = $"{function}?code={code}";
-        var data = client.DownloadString(fullUrl);
-        Console.WriteLine(data);
-    }
+// via get-parameter
+using (var client = new WebClient())
+{
+    Console.WriteLine("Sending code via get-parameter...");
+    var fullUrl = $"{function}?code={code}";
+    var data = client.DownloadString(fullUrl);
+    Console.WriteLine(data);
+}
 
-    // oder via HTTP-Header
-    using (var client = new WebClient())
-    {
-        Console.WriteLine("Sending code via HTTP-Header...");
-        client.Headers.Add("x-functions-key", code);
-        var data = client.DownloadString(function);
-        Console.WriteLine(data);
-    }
+// oder via HTTP-Header
+using (var client = new WebClient())
+{
+    Console.WriteLine("Sending code via HTTP-Header...");
+    client.Headers.Add("x-functions-key", code);
+    var data = client.DownloadString(function);
+    Console.WriteLine(data);
+}
 ```
 
 Bei einer mit Visual Studio erstellen Funktion lässt sich noch eine weitere Methode finden: `User`
@@ -149,8 +149,9 @@ if(principal == null || !principal.Identity.IsAuthenticated)
 
 # Fazit
 
-* Das Zusammenspiel von Authentifizierung auf Seiten des App Service und Autorisierung auf Seiten des Triggers der Funktion ist nicht direkt offensichtlich:
-  * Eine Autorisierung erfolgt auf Seiten des Triggers der Funktion. Im Falle des HTTP-Trigges basiert die Autorisierung auf einem geteilten Schlüssel (Shared Secret)
-  * Die Authentifizierung erfolgt auf Seite des App Service. Generell lässt sich einstellen, ob unauthentifizierte Anfragen zugelassen oder generell an einen Authentifizierungsanbieter weitergeleitet werden.
-* Eine Benutzer-Autorisierung ist zum aktuellen Zeitpunkt nicht mit Standardfunktionen (oder [*OOTB*](https://en.wikipedia.org/wiki/Out_of_the_box_%28feature%29)) machbar.
+Das Zusammenspiel von Authentifizierung auf Seiten des App Service und Autorisierung auf Seiten des Triggers der Funktion ist nicht direkt offensichtlich:
+* Eine Autorisierung erfolgt auf Seiten des Triggers der Funktion. Im Falle des HTTP-Trigges basiert die Autorisierung auf einem geteilten Schlüssel (Shared Secret)
+* Die Authentifizierung erfolgt auf Seite des App Service. Generell lässt sich einstellen, ob unauthentifizierte Anfragen zugelassen oder generell an einen Authentifizierungsanbieter weitergeleitet werden.
+
+Eine Benutzer-Autorisierung ist zum aktuellen Zeitpunkt nicht mit Standardfunktionen (oder [*OOTB*](https://en.wikipedia.org/wiki/Out_of_the_box_%28feature%29)) machbar.
 
