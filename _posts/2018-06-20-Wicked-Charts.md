@@ -1,6 +1,6 @@
 ---
 layout:         [post, post-xml]
-title:          "Wicked Charts - JavaScript Charts mit Wicket"
+title:          "Wicked Charts - JavaScript Charts mit Apache Wicket"
 date:           2018-06-20 10:20
 modified_date:
 author:         maximAtanasov
@@ -10,7 +10,7 @@ tags:           [Java, Wicket]
 
 Bei der Entwicklung einer Anwendung mit einem serverseitigen Webframework stellt die 
 benutzerfreundliche und interaktive Visualisierung von Daten eine Herausforderung dar. 
-Die Verwendung von Wicked Charts - einer bei adesso entwickelten Java-Bibliothek - ermöglicht es, schöne und interaktive JavaScript-Charts in eine serverseitige Webanwendung zu integrieren. 
+Die Verwendung von Wicked Charts - einer bei adesso entwickelten Open Source Java-Bibliothek - ermöglicht es, schöne und interaktive JavaScript-Charts in eine serverseitige Webanwendung zu integrieren. 
 In diesem Artikel wird dazu beispielhaft gezeigt, wie ein einfaches Liniendiagramm konfiguriert wird.
 
 ## Wofür brauchen wir Wicked Charts?
@@ -28,6 +28,8 @@ und wegen dem Lizenzmodell von Highcharts auch um Chart.js erweitert, und unters
 Die Bibliothek enthält Module für alle aktuellen Versionen von Apache Wicket sowie für das JSF Framework. Darüberhinaus kann der Java-Wrapper auch direkt genutzt werden, um JavaScript-Charts aus anderen serverseitige Webframeworks heraus zu erzeugen.
 
 ## Wicked Charts am Beispiel: Ein Liniendiagramm
+
+Als anschauliches Beispiel erstellen wir im Folgenden ein Liniendiagramm mit Wicked Charts.
 
 ### Einbindung über Maven
 Zunächst müssen wir Wicked Charts in unsere Anwendung einbinden. Dies sind die dazu notwendigen Maven-Koordinaten:
