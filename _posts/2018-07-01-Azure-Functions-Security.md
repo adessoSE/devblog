@@ -1,6 +1,6 @@
 ---
 layout:         [post, post-xml]              
-title:          "Absichern von azure-Functions"
+title:          "Absichern von Azure-Functions"
 date:           2018-07-01 12:00
 modified_date: 
 author:         nilsa 
@@ -22,7 +22,7 @@ Die Fragestellung nach der "Sicherheit der Funktionen" ist etwas verwirrend - im
 
 Laut [Doku](https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-http-webhook#trigger---configuration) stehen drei Autorisierungsmechanismen auf Ebene des Triggers zur Verfügung:
 
-![Die Folgenden Autorisierungen stehen zur Verfügung](../assets/images/posts/Azure-Functions-Security/function-authorization-ui.png) ![Im Tooltip gibt es auch eine kleine Erklärung](../assets/images/posts/Azure-Functions-Security/function-authorization-ui-explained.png)
+![Die Folgenden Autorisierungen stehen zur Verfügung](/assets/images/posts/Azure-Functions-Security/function-authorization-ui.png) ![Im Tooltip gibt es auch eine kleine Erklärung](/assets/images/posts/Azure-Functions-Security/function-authorization-ui-explained.png)
 
  - `anonymous` - No API key is required.
  - `function` - A function-specific API key is required. This is the default value if none is provided.
@@ -32,17 +32,17 @@ Der HTTP-Trigger einer Funktion lässt es somit zu, den Aufruf der Funktion übe
 
 Zuerst muss der Schlüssel abgerufen werden. Dies geht über die Seite der Funktion selbst:
 
-![Anzeige von Schlüsseln in der UI](../assets/images/posts/Azure-Functions-Security/function-authorization-keys.png)
+![Anzeige von Schlüsseln in der UI](/assets/images/posts/Azure-Functions-Security/function-authorization-keys.png)
 
 Oder über die Verwaltungsseite: 
 
-![Anzeige von Schlüsseln in der UI](../assets/images/posts/Azure-Functions-Security/function-authorization-key-management.png)
+![Anzeige von Schlüsseln in der UI](/assets/images/posts/Azure-Functions-Security/function-authorization-key-management.png)
 
 Die Schlüssel können über zwei verschiedene Mechanismen verwendet werden. Entweder als Query-Parameter: `code=<ApiKey>` oder über einen eigenen HTTP-Header `x-functions-key`.
 
 Die beiden Zugriffsmechanismen können wie folgt verwendet werden:
 
-```cs
+```csharp
     const string function = "https://securityexample.azurewebsites.net/api/HelloWorld";
     const string code = "Srs8ca27tCSwuyFTv0kBOwMt/WTzLXW43WNcPUYeG7L273TmQTSf0A==";
 
@@ -67,7 +67,7 @@ Die beiden Zugriffsmechanismen können wie folgt verwendet werden:
 
 Bei einer mit Visual Studio erstellen Funktion lässt sich noch eine weitere Methode finden: `User`
 
-![User als Authorisation ist im code möglich](../assets/images/posts/Azure-Functions-Security/function-authorization-code.png)
+![User als Authorisation ist im code möglich](/assets/images/posts/Azure-Functions-Security/function-authorization-code.png)
 
 Dieses Feature ist aber - obwohl hier auswählbar - zum Zeitpunkt dieses Beitrags noch nicht verfügbar. Der Status des Features kann in einem [GitHub-Issue](https://github.com/Azure/azure-functions-host/issues/33) eingesehen werden.
 
@@ -77,7 +77,7 @@ An dieser Stelle ist ist somit lediglich die [Autorisierung über einen Schlüss
 
 In den Einstellungen des App Service ("Plattformfeatures", aus Sicht der Funktion) gibt es den Punkt "Authentifizierung/Autorisierung":
  
-![Authentifizierung/Autorisierung in den Plattformfeatures](../assets/images/posts/Azure-Functions-Security/platform-authentication.png)
+![Authentifizierung/Autorisierung in den Plattformfeatures](/assets/images/posts/Azure-Functions-Security/platform-authentication.png)
 
 Hier ist erkennbar, dass zumindest eine Benutzer-Authentifizierung möglich ist.
 Die aktuellen Anbieter für Authentifizierung sind unter anderem "Microsoft" und "Azure Active Directory". Die beiden Anbieter sind zu unterscheiden, da für den "Microsoft"-Anbieter ein einfacher [Microsoft-Account](https://account.microsoft.com/) verwendet wird, wohingegen Azure Active Directory einen Account in einem Azure Active Directory benötigt.  
@@ -101,7 +101,7 @@ Der eigentliche Aufruf einer solchen Funktion ist relativ simpel und folgt dem o
 3. Das *EasyAccess*-Token wird im HTTP-Header `X-ZUMO-AUTH` für den Aufruf der Funktion verwendet.
 
 Im Quelltext:
-```cs
+```csharp
 // Step 1:
 var providerToken = await AuthenticateToProvider();
 
@@ -135,11 +135,11 @@ Damit dies so funktioniert muss vorher ein Authentifizierungsanbieter eingericht
 	2. Es muss eine Plattform eingerichtet werden: Web (für die Anmeldung mit der automatischen Weiterleitung). Die Umleitungs-URL für die Plattform ist anhand der [Doku](https://docs.microsoft.com/en-us/azure/app-service/app-service-authentication-overview#identity-providers) zu ermitteln: In diesem Fall ist es `https://<yourapp>.azurewebsites.net/.auth/login/microsoftaccount/callback` 
 2. Die Anwendungs-ID und -geheimnis müssen in Azure für den Authentifizierungsanbieter hinterlegt werden und es muss mindestens der Bereich "wl.basic" ausgewählt werden:
    
-      ![app-id und -geheimnis in Azure](../assets/images/posts/Azure-Functions-Security/function-example1-appinazure.png)
+      ![app-id und -geheimnis in Azure](/assets/images/posts/Azure-Functions-Security/function-example1-appinazure.png)
 
 Wenn dies eingerichtet ist, lässt sich innerhalb Funktion recht einfach überprüfen, ob der aktuelle Request wirklich authentifiziert ist:
 
-```cs
+```csharp
 var principal = ClaimsPrincipal.Current;
 if(principal == null || !principal.Identity.IsAuthenticated)
 {
