@@ -1,6 +1,6 @@
 ---
 layout:         [post, post-xml]              
-title:          "Absichern von Azure-Functions"
+title:          "Absichern von Azure Funktionen"
 date:           2018-07-01 12:00
 modified_date: 
 author:         nilsa 
@@ -119,15 +119,6 @@ using (var client = new WebClient())
 }
 ```
 
-> **Anmerkung**
->
-> Das Token, welches vom Authentifizierungsanbieter geliefert wird ist ein sog. [JWT-Token](https://en.wikipedia.org/wiki/JSON_Web_Token) dass mit geeigneten Tools (z.B. mit [jwt.io](https://jwt.io/)) dekodiert werden kann.
-> Dies ist nützlich, wenn man den Authentifizierungsprozess debuggen muss.
->
-> Beispielsweise müssen im Payload-Data-Bereich des Tokens folgende Werte übereinstimmen: 
-> * `idp` mit dem gewählten Anbieter für den nächsten Schritt 
-> * `aud` mit der URL der Funktion 
-
 Damit dies so funktioniert muss vorher ein Authentifizierungsanbieter eingerichtet werden. Dieses Beispiel verwendet den "Microsoft"-Authentifizierungsanbieter:
 
 1. Bevor Azure-seitig der Authentifizierungsanbieter ausgewählt werden kann, muss bei dem Authentifizierungsanbietern eine sog. "App" (d.h. eine Anwendung für die die Authentifizierung erfolgt) eingerichtet werden. Für den "Microsoft"-Authentifizierungsanbieter geschieht dies unter [https://apps.dev.microsoft.com/](https://apps.dev.microsoft.com/) 
@@ -154,4 +145,3 @@ Das Zusammenspiel von Authentifizierung auf Seiten des App Service und Autorisie
 * Die Authentifizierung erfolgt auf Seite des App Service. Generell lässt sich einstellen, ob unauthentifizierte Anfragen zugelassen oder generell an einen Authentifizierungsanbieter weitergeleitet werden.
 
 Eine Benutzer-Autorisierung ist zum aktuellen Zeitpunkt nicht mit Standardfunktionen (oder [*OOTB*](https://en.wikipedia.org/wiki/Out_of_the_box_%28feature%29)) machbar.
-
