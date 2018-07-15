@@ -35,6 +35,13 @@ Aufgrund der oben dargelegten Architektur besteht eine Funktion also grob aus zw
 
 # Authentifizierung und Autorisierung
 
+Da nicht immer jedem der Unterschied sofort präsent ist:
+
+* **Authentifizierung** ist der Nachweis einer behaupteten Eigenschaft. Z.b. also der Nachweis (durch ein Passwort) dass ein Benutzer der ist, der er vorgibt zu sein.
+* **Autorisierung** ist eine Erlaubnis.
+
+Von einer Benutzerautorisierung kann man sprechen, wenn man die oben genannten Vorgänge kombiniert: Z.B. Wenn Benutzer sich mit Passwort authentifizieren, von diesen aber nur eine bestimmte Gruppe autorisiert ist.
+
 ## Sicherheit in Funktionen
 Die Fragestellung nach der "Sicherheit der Funktionen" ist etwas verwirrend - im Grunde soll nicht die Funktion abgesichert werden, sondern der Aufruf bzw. der Start der Funktion. Funktionen starten immer über sogenannte Trigger, von denen die meisten Azure-intern zu verwenden sind (z.B. über Timer, Event Hub oder Blob Storage). Der für  diesen Artikel betrachtete Trigger ist daher der [HTTP oder "generic web hook"-Trigger](https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-generic-webhook-triggered-function).
 
