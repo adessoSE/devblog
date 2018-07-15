@@ -10,10 +10,28 @@ tags:           [azure, functions, security, paas]
 Gibt es "Sicherheit" bei Azure Funktionen? Sind diese immer öffentlich zugänglich? Können Funktionen mit Benutzer-Autorisierung abgesichert werden? Dieser Beitrag versucht diesen und anderen Fragen nachzugehen.
 
 # Azure Funktionen
-Azure Funktionen - serverlose Funktionen - sind eine Möglichkeit, einfache kleine Services zu erstellen, die ohne große Infrastruktur auskommen. Trotz der Leichtigkeit sind sie auf einfache Weise skalierbar. Eine Funktion ist in Azure schnell erstellt. Ein einfaches Beispiel liefert Microsoft schon in der [Dokumentation](https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-first-azure-function). Zum aktuellen Zeitpunkt hat die Dokumentation exakt 10 Schritte, beginnend mit "Create a function app" bis abschließend "Test the function".
+Azure Funktionen - serverlose Funktionen - sind eine Möglichkeit, einfache kleine Services zu erstellen, die ohne große Infrastruktur auskommen.
+Die Doku zu [*Skalierung und Hosting von Azure Functions*](https://docs.microsoft.com/en-us/azure/azure-functions/functions-scale) unterscheidet Funktionen, die auf einem Verbrauchsplan beruhen und Funktionen, die auf einem App-Service-Plan beruhen. Den Grundlegenden Unterschied beschreibt die Dokumentation wie folgt:
+
+> **Verbrauchsplan**
+> 
+> Bei Verwendung eines Verbrauchsplans werden Instanzen des Azure Functions-Hosts dynamisch, basierend auf der Anzahl der eingehenden Ereignisse hinzugefügt und entfernt. 
+> Dieser Plan wird automatisch skaliert, sodass Ihnen nur dann Computeressourcen berechnet werden, wenn Ihre Funktionen ausgeführt werden. 
+> In einem Verbrauchsplan tritt für eine Funktionsausführung nach einem konfigurierbaren Zeitraum ein Timeout auf.
+>
+> **App Service-Plan**
+> 
+> In einem App Service-Plan werden Ihre Funktions-Apps ähnlich wie Web-Apps, API-Apps und mobile Apps auf dedizierten virtuellen Computern für Basic-, Standard- oder Premium-SKUs oder isolierte SKUs ausgeführt. 
+> Die dedizierten virtuellen Computer werden Ihren App Service-Apps zugeordnet, sodass der Functions-Host immer ausgeführt wird.
+
+In beiden Fällen wird die Funktion in einer App-Service Instanz ausgeführt. Die Skalierbarkeit der Funktionen wird erreicht durch die Azure-Interne Skalierbarkeit der App-Service Instanzen: Diese werden, je nach Bedarf, automatisch neu erstellt oder verworfen.  
+
+Trotz der Leichtigkeit mit der Funktionen erstellt werden können, sind diese somit auf einfache Weise automatisch skalierbar. 
+
+Eine Funktion ist in Azure schnell erstellt. Ein einfaches Beispiel liefert Microsoft schon in der [Dokumentation](https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-first-azure-function). Zum aktuellen Zeitpunkt hat die Dokumentation exakt 10 Schritte, beginnend mit "Create a function app" bis abschließend "Test the function".
 Es stellt sich die Frage, ob diese Funktion dann auch schon "abgesichert" ist.
 
-Eine Funktion besteht grob aus zwei Teilen: Aus der ["Azure Funktion"](https://docs.microsoft.com/en-us/azure/azure-functions/) selbst und dem ["Azure App Service"](https://docs.microsoft.com/en-us/azure/app-service/) in dem die Funktion existiert. Dies führt dazu, dass man zwei Punkte betrachten muss, wenn es um die Frage der Sicherheit geht: zum einen den App Service und zum anderen die Funktion. 
+Aufgrund der oben dargelegten Architektur besteht eine Funktion also grob aus zwei Teilen: Aus der ["Azure Funktion"](https://docs.microsoft.com/en-us/azure/azure-functions/) selbst und dem ["Azure App Service"](https://docs.microsoft.com/en-us/azure/app-service/) in dem die Funktion existiert. Dies führt dazu, dass man zwei Punkte betrachten muss, wenn es um die Frage der Sicherheit geht: zum einen den App Service und zum anderen die Funktion. 
 
 # Authentifizierung und Autorisierung
 
