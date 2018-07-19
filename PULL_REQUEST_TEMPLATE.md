@@ -22,4 +22,6 @@ Wenn du einen Pull-Request stellst, teile uns bitte deine Änderungen mit, indem
 	- [ ] [Bilder korrekt in den Artikel eingebunden](https://github.com/adessoAG/devblog/blob/master/examples/2017-08-10-blog-post-guide.md#bilder)
 	- [ ]  Reviewer angegeben (Liste mit Reviewern?)
     - [ ]  Online-Preview angesehen
+    - [ ]  Date-Angabe im Artikel und Dateiname stimmen im Datum überein (Bsp. 2018-06-17-wicked-charts.md und "date: 2018-07-16 08:50")
+
 
