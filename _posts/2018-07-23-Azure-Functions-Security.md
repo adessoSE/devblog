@@ -1,9 +1,9 @@
 ---
 layout:         [post, post-xml]              
 title:          "Absichern von Azure Funktionen"
-date:           2018-07-01 12:00
+date:           2018-07-23 08:40
 modified_date: 
-author:         nilsa 
+author:         nils-a 
 categories:     [Microsoft]
 tags:           [azure, functions, security, paas]
 ---
