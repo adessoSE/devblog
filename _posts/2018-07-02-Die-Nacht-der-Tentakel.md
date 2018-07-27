@@ -8,8 +8,8 @@ categories:     [Java, Bytecode, Cthulhu]
 tags:           [ASM, GOTO, Spaghetticode]
 ---
 
-Wie ich in einer sturmdurchpeitschten Nacht meine javanesische Braut hart auf die Werkbank schnallte um ihr cthulhuoide Tentakel anzunähen, auf dass sie von nun an und für immerdar in der Lage sei, echte italienische Pasta zu bereiten.
-Mit Java kann man keinen echten Spaghetti-Code erzeugen, oder doch?
+Wie ich in einer sturmdurchpeitschten Nacht meine javanesische Braut hart auf die Werkbank schnallte um ihr cthulhuoide Tentakel anzunähen, auf dass sie von nun an und für immerdar in der Lage sei, echte italienische Pasta zu bereiten.<br/>
+Mit Java kann man keinen echten Spaghetti-Code erzeugen, oder doch?<br/>
 In einer langen Hotel-Nacht habe ich Java mit ein wenig Bytecode- Manipulation ein Zeilennummern basiertes „GOTO“ Statement verpasst. Der unsäglich diabolische Spaß, der mir durch die Implementierung dieser vollkommen sinnfreien Spracherweiterung zuteil wurde, wurde nur noch von der Freude übertroffen, möglichst verrückte Nutzungsbeispiele zu ersinnen. In diesem humoristischen Artikel werden Techniken beschrieben, mit denen Java um neue Befehle erweitert werden kann, ohne dass eine eigene JVM-Sprache entwickelt werden muss. Außerdem werden zum allgemeinen Amusement eine Reihe von Beispielen gezeigt, die wohl eher in die Kategorie Evil-Practice als Bad-Practice fallen.
 
 ![Frank'n Java und die Nacht der Tentakel](/assets/images/posts/Die-Nacht-der-Tentakel/Title.png)
