@@ -190,8 +190,8 @@ Die Wurzel der Tentakel ist schnell angenäht. Aber wie gehe ich mit dem perfide
 Vielleicht sollte ich mir die Übersetzung der Tentakelziele in Gedärmkoordinaten noch einmal genauer anschauen. Offensichtlich gibt es hier verschiedene Anforderungen:
 
 - Sprungziele sind
- - Zeilennummern
- - Zeilen mit LABEL Statements
+  - Zeilennummern
+  - Zeilen mit LABEL Statements
 - Sprungziele werden auf Bytecode Adressen abgebildet
 - Statische Sprungziele können zum Kompilierungszeitpunkt aufgelöst werden
 - Dynamische Sprungziele müssen zur Laufzeit aufgelöst werden
