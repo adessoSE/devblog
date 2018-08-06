@@ -18,7 +18,7 @@
         <field name="date_l"><![CDATA[1528124460000]]></field>
         <field name="change_date"><![CDATA[1528124460000]]></field>
         <!--Picture-->
-        <!-- Not in use in the moment-->
+        <!-- Not in use at the moment-->
         <!--Author Information-->
         <field name="author_first_name"><![CDATA[Christian]]></field>
         <field name="author_last_name"><![CDATA[Everke]]></field>
@@ -34,7 +34,9 @@
 <div class="row p-t-2">
 <div class="adesso-container">
 <div class="col-xl-8 adesso-center p-b-1 p-l-0 p-r-0">
-    <h4 id="szenarioausgangssituation">Szenario/Ausgangssituation</h4>
+    <p>Als IT-Dienstleister verantwortet die adesso AG IT-Projekte von Kunden verschiedener Branchen. Dabei ist zum einen fundiertes Branchenwissen von Bedeutung, zum anderen aber auch Wissen über Softwaretechnologien, um die fachlichen Kundenanforderungen softwareseitig umzusetzen. Der heutige Blogbeitrag widmet sich der Fragestellung, wie man Business-Strategien, die in Form von Geschäftsregeln definiert werden, technologisch realisieren kann. Dabei steht insbesondere die Leichtigkeit und Wartbarkeit im Vordergrund.</p>
+
+<h4 id="szenarioausgangssituation">Szenario/Ausgangssituation</h4>
 <p>Als fortlaufendes Beispiel betrachten wir ein fachliches Szenario aus dem Bankensektor. Dazu nehmen wir an, dass eine fiktive Bank die Umsetzung einer Kundenverwaltungssoftware anstrebt. Zu den fachlichen Anforderungen gehört hier die Festlegung von Kontoführungsgebühren.</p>
 
 <p>Eröffnet ein Kunde ein Konto bei der Bank, so müssen in Abhängigkeit von Kundendaten und Kundenwünschen die monatlichen Gebühren, wie auch das Limit für den Dispositionskredit und die zugehörigen Zinsen festgelegt werden. Wie sich diese Werte zusammensetzen, hängt von der strategischen Ausrichtung der Bank ab. Diese wird durch das Management der Bank unter Berücksichtigung der wirtschaftlichen Lage des Finanzmarktes festgelegt. Durch die Schwankungen des Marktes ist von ständigen Änderungen auszugehen, was mit Modifikationen der Software verbunden ist. Als Beispiel gehen wir von folgender Strategie aus:</p>
