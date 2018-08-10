@@ -19,7 +19,7 @@ Die neuen Entitäten, darunter Testfälle, Testpläne und Testausführungen, und
 ## generische Testfälle für die Testautomatisierung
 Testfälle werden nach manuellen, cucumber und generisch unterschieden. Generisch wird für automatisierte Testfälle verwendet, die von einem CI-Server regelmäßig ausgeführt werden
 
-![Xray Testfall](/assets/images/posts/jenkins-xray/xray-testcase.jpg)
+![Xray Testfall](/assets/images/posts/jenkins-xray/jira-testcase.jpg)
 
 #Verbindung zwischen Jenkins & XRay herstellen
 ## Jenkins Xray-Plugin einrichten
@@ -28,8 +28,10 @@ Testfälle werden nach manuellen, cucumber und generisch unterschieden. Generisc
 
 # Jenkins-Slave für Testausführung anlegen
 ## Node konfigurieren
+Für die Ausführung automatisierter Testfälle sollten eigenständige Jenkins-Slave-Knoten anstelle des Jenkins-Master verwendet werden, damit die Testausführung Build- und Deployment-Jobs nicht blockiert. Einige Oberflächen-Testautomatisierungs-Werkzeuge, beispielsweise HP UFT, lassen sich nur unter Windows ausführen, wodurch häufig ein separater Jenkins-Knoten erforderlich wird.
+In den Jenkins-Einstellungen wird dazu ein neuer Knoten angelegt, ein Label vergeben, damit später nur bestimmte Jobs auf ihm ausgeführt werden und `c:\jenkins` als Workspace definiert.
 
-![Jenkins Node](/assets/images/posts/jenkins-xray/jenkins-node.jpg)
+![Jenkins Node](/assets/images/posts/jenkins-xray/jenkins-node-config.jpg)
 ## JNLP-Verbindung herstellen
 
 ![Jenkins JNLP-Slave](/assets/images/posts/jenkins-xray/jenkins-jnlp.jpg)
