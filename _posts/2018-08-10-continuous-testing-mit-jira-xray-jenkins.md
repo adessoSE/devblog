@@ -10,7 +10,6 @@ tags:           [JIRA, Testautomatisierug, DevOps, Jenkins]
 In der agilen Softwareentwicklung werden häufig Jenkins für Build & Deployment sowie JIRA für die Entwicklungs- und Testaufgaben verwendet. Sofern ein Testmanagement-Werkzeug verwendet wird, ist es selten JIRA. Automatisierte Testfälle werden separat gepflegt und berichtet. Von einer geschlossenen Werkzeugkette für Continuous Testing kann nicht die Rede sein. Die Grundkonfiguration ist jedoch einfacher als gedacht...
 
 # Testmanagement mit JIRA & XRay
-## JIRA-Plugin XRay
 Das [JIRA-Plugin XRay](https://www.xpand-addons.com/xray/) vom Anbieter xpand-addons erweitert JIRA um ein umfassende Testmanagement-Funktionen, beispielsweise durch eine Testfallbibliothek, Visualisierung der Anforderungsabdeckung und eine bi-direktionale Nachverfolgbarkeit.
 ![JIRA/Xray Sprint-Board](/assets/images/posts/jenkins-xray/jira-xray-sprint-board-small.jpg)
 ![JIRA/Xray Nachverfolgbarkeit](/assets/images/posts/jenkins-xray/jira-xray-traceability-small.jpg)
@@ -26,7 +25,6 @@ Testfälle werden nach manuellen, cucumber und generisch unterschieden. Generisc
 ## Jenkins Xray-Plugin einrichten
 [Xray-Plugin für Jenkins](https://confluence.xpand-addons.com/display/XRAY/Integration+with+Jenkins)
 ![Jenkins Xray Konfiguration](/assets/images/posts/jenkins-xray/jenkins-plugin-config.jpg)
-
 
 # Jenkins-Slave für Testausführung anlegen
 ## Node konfigurieren
