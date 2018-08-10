@@ -11,7 +11,7 @@ In der agilen Softwareentwicklung werden häufig Jenkins für Build & Deployment
 
 # Testmanagement mit JIRA & XRay
 Das [JIRA-Plugin XRay](https://www.xpand-addons.com/xray/) vom Anbieter xpand-addons erweitert JIRA um ein umfassende Testmanagement-Funktionen, beispielsweise durch eine Testfallbibliothek, Visualisierung der Anforderungsabdeckung und eine bi-direktionale Nachverfolgbarkeit.
-![JIRA/Xray Sprint-Board](/assets/images/posts/jenkins-xray/jira-xray-sprint-board-small.jpg)
+![JIRA/Xray Sprint-Board](/assets/images/posts/jenkins-xray/jira-xray-sprint-board-xsmall.jpg)
 ![JIRA/Xray Nachverfolgbarkeit](/assets/images/posts/jenkins-xray/jira-xray-traceability-small.jpg)
 XRay integriert sehr gut in bestehende JIRA-Projekte und lässt sich einfach und umfassend an die Projektbedürfnisse anpassen. Unter anderem kann XRay ein eigenständiges Testprojekt verwenden, das mit dazugehörenden Entwicklungsprojekten verknüpft wird, oder bestehende Entwicklungsprojekte maßgeschneidert ergänzen.
 Die neuen Entitäten, darunter Testfälle, Testpläne und Testausführungen, und JQL, die XRay mitbringt ermöglichen eine zielgerichtete und transparente Steterung der erforderlichen Testaktivitäten.
