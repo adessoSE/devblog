@@ -61,7 +61,7 @@ Checks hinzufügen, indem man Spring-Komponenten schreibt, die das `HealthIndica
 `health()` liefert dann ein Statusobjekt mit dem Ergebnis des Checks zurück.
 Das folgende Beispiel prüft, ob sich ein externer REST-Service erreichen lässt:
 	
-	
+```java	
     @Component
     public class UICHealthIndicator implements HealthIndicator {
     
@@ -87,7 +87,7 @@ Das folgende Beispiel prüft, ob sich ein externer REST-Service erreichen lässt
             }
         }
     }
-
+```
 Wenn man möchte (und man sollte!), kann man für jede externe Abhängigkeit eines Microservice einen Test schreiben.
  Wir haben z.B. folgendes geprüft:
 - Funktionsfähigkeit von benutzten REST- oder Web-Services
@@ -103,13 +103,16 @@ Der Info Endpunkt (`/info`) gibt alle Konfigurationswerte mit dem Präfix `info`
 und das Builddatum) verfügbar machen. Wenn man Maven verwendet und die Variablenersetzung für Properties-Dateien
  einschaltet, führen ein Einträge wie z.B.:
 
+```properties
             info.build.artifact=@project.artifactId@
             info.build.version=@project.version@
             info.build.timestamp=@build.time@
             
+```
 dazu, dass später der Info Endpunkt den Namen des Maven-Moduls, die aktuelle Versionsnummer
  und den Zeitpunkt des Builds zurückliefert:
-	
+
+```json	
     {
         "build": {
             "timestamp": "2018-08-08T14:30:40.284+0000",
@@ -117,6 +120,7 @@ dazu, dass später der Info Endpunkt den Namen des Maven-Moduls, die aktuelle Ve
             "artifact": "signing-portal-backend"
         }
     }
+```
 
 ### Sicherheit
 In produktiven Systemen darf man nicht vergessen, die Actuator Endpoints abzusichern. Das heißt, es sollten in der
