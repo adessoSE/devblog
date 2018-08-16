@@ -78,3 +78,12 @@ nils-a:
   bio: "Nils Andresen ist Softwarearchitekt und Berater bei adesso. Er arbeitet in verschiedenen Projekten im Umfeld von Microsoft SharePoint."
   avatar_url: /assets/images/avatars/nilsa.jpg
   github: https://github.com/nils-a
+
+roland:
+  first_name: Roland
+  last_name: Majchszak
+  github_username: RMajchszak
+  email: roland.majchszak@adesso.de
+  bio: "Roland Majchszak ist Softwarearchitekt bei adesso in Hamburg. Er arbeitet in verschiedenen Projekten im Java Umfeld."
+  avatar_url: /assets/images/avatars/rolandMajchszak.jpg
+  github: https://github.com/RMajchszak
