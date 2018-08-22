@@ -1,7 +1,7 @@
 ---
 layout:         [post, post-xml]              
 title:          "Systemüberwachung mit den Spring Boot Health Checks"
-date:           2018-08-16 15:53
+date:           2018-08-22 13:57
 modified_date: 
 author:         roland 
 categories:     [Java]
@@ -39,7 +39,7 @@ Wir wollten aber für unsere Integrations- und Entwicklungssysteme den Systemzus
 erfassen. Spring Boot besitzt einen eingebauten Diagnosemechanismus, den man dazu benutzen kann.
 
 	
-##Spring Actuator Endpoints
+## Spring Actuator Endpoints
  
 Mit den Spring Boot Actuator Endpoints (siehe 
 [Spring Boot Actuator Dokumentation](https://docs.spring.io/spring-boot/docs/2.0.4.RELEASE/reference/htmlsingle/#production-ready)) 
