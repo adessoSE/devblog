@@ -13,8 +13,8 @@ In diesem Jahr feierte der adesso testing day mit seiner inzwischen fünften Auf
 
 # Großes Interesse am Thema Testing
 
-Auch dieses Jahr stiess der adesso testing day wieder auf reges Interesse. Neben Teilnehmern der adesso AG waren diesmal auch Vertreter der adesso mobile solutions, der adesso insurance solutions und auch der adesso Türkei anwesend – insgesamt von 12 Standorten. 
-Daher wird der Testing traditionell auch für die Pflege des persönlichen Netzwerks und dem gegenseitigen Austausch genutzt. 
+Auch dieses Jahr stieß der adesso testing day wieder auf reges Interesse. Neben Teilnehmern der adesso AG waren diesmal auch Vertreter der adesso mobile solutions, der adesso insurance solutions und auch der adesso Türkei anwesend – insgesamt von 12 Standorten. 
+Daher wird der testing day traditionell auch für die Pflege des persönlichen Netzwerks und dem gegenseitigen Austausch genutzt. 
 
 ![Networking auf dem Testing Day](/assets/images/posts/adesso-testing-day-2018/1805407.png)
 
