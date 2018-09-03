@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<documents>
+    <document uid="7c58b7b199ff00bfa7cf1ca44aa6903b">
+        <field name="title"><![CDATA[Absichern von Azure Funktionen]]></field>
+        <field name="subline"><![CDATA[]]></field>
+        <field name="teaser"><![CDATA[<p>Gibt es “Sicherheit” bei Azure Funktionen? Sind diese immer öffentlich zugänglich? Können Funktionen mit Benutzer-Autorisierung abgesichert werden? Dieser Beitrag versucht diesen und anderen Fragen nachzugehen.</p>
+
+]]></field>
+        <field name="language_multi_keyword"><![CDATA[de]]></field>
+        <field name="content_type_multi_keyword"><![CDATA[blog]]></field>
+        <field name="mime_type_multi_keyword"><![CDATA[text/html]]></field>
+        <field name="category_multi_keyword"><![CDATA[Microsoft]]></field>
+        <field name="tag_multi_keyword"><![CDATA[azure]]></field>
+        <field name="tag_multi_keyword"><![CDATA[functions]]></field>
+        <field name="tag_multi_keyword"><![CDATA[security]]></field>
+        <field name="tag_multi_keyword"><![CDATA[paas]]></field>
+        <field name="date_date"><![CDATA[2018-08-10T12:42:00+02:00]]></field>
+        <field name="date_l"><![CDATA[1533897720000]]></field>
+        <field name="change_date"><![CDATA[1533897720000]]></field>
+        <!--Picture-->
+        <!-- Not in use at the moment-->
+        <!--Author Information-->
+        <field name="author_first_name"><![CDATA[Nils]]></field>
+        <field name="author_last_name"><![CDATA[Andresen]]></field>
+        <field name="author_id"><![CDATA[nils-a]]></field>
+        <field name="author_picture_stored_only"><![CDATA[http://localhost:4000/assets/images/avatars/nilsa.jpg]]></field>
+        <!--Postcontent-->
+        <field name="headlines"><![CDATA[Absichern von Azure Funktionen]]></field>
+        <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
+            <p>Gibt es “Sicherheit” bei Azure Funktionen? Sind diese immer öffentlich zugänglich? Können Funktionen mit Benutzer-Autorisierung abgesichert werden? Dieser Beitrag versucht diesen und anderen Fragen nachzugehen.</p>
+
+</div>]]></field>
+        <field name="content"><![CDATA[<div class="adesso-text-formate">
+<div class="row p-t-2">
+<div class="adesso-container">
+<div class="col-xl-8 adesso-center p-b-1 p-l-0 p-r-0">
+    <p>Gibt es “Sicherheit” bei Azure Funktionen? Sind diese immer öffentlich zugänglich? Können Funktionen mit Benutzer-Autorisierung abgesichert werden? Dieser Beitrag versucht diesen und anderen Fragen nachzugehen.</p>
+
+<h4 id="azure-funktionen">Azure Funktionen</h4>
+<p>Azure Funktionen - serverlose Funktionen - sind eine Möglichkeit, einfache kleine Services zu erstellen, die ohne große Infrastruktur auskommen.
+Die Doku zu <a href="https://docs.microsoft.com/en-us/azure/azure-functions/functions-scale"><em>Skalierung und Hosting von Azure Functions</em></a> unterscheidet Funktionen, die auf einem Verbrauchsplan beruhen und Funktionen, die auf einem App-Service-Plan beruhen. Den Grundlegenden Unterschied beschreibt die Dokumentation wie folgt:</p>
+
+<blockquote>
+  <p><strong>Verbrauchsplan</strong></p>
+
+  <p>Bei Verwendung eines Verbrauchsplans werden Instanzen des Azure Functions-Hosts dynamisch, basierend auf der Anzahl der eingehenden Ereignisse hinzugefügt und entfernt. 
+Dieser Plan wird automatisch skaliert, sodass Ihnen nur dann Computeressourcen berechnet werden, wenn Ihre Funktionen ausgeführt werden. 
+In einem Verbrauchsplan tritt für eine Funktionsausführung nach einem konfigurierbaren Zeitraum ein Timeout auf.</p>
+
+  <p><strong>App Service-Plan</strong></p>
+
+  <p>In einem App Service-Plan werden Ihre Funktions-Apps ähnlich wie Web-Apps, API-Apps und mobile Apps auf dedizierten virtuellen Computern für Basic-, Standard- oder Premium-SKUs oder isolierte SKUs ausgeführt. 
+Die dedizierten virtuellen Computer werden Ihren App Service-Apps zugeordnet, sodass der Functions-Host immer ausgeführt wird.</p>
+</blockquote>
+
+<p>In beiden Fällen wird die Funktion in einer App-Service Instanz ausgeführt. Die Skalierbarkeit der Funktionen wird erreicht durch die Azure-Interne Skalierbarkeit der App-Service Instanzen: Diese werden, je nach Bedarf, automatisch neu erstellt oder verworfen.</p>
+
+<p>Trotz der Leichtigkeit mit der Funktionen erstellt werden können, sind diese somit auf einfache Weise automatisch skalierbar.</p>
+
+<p>Eine Funktion ist in Azure schnell erstellt. Ein einfaches Beispiel liefert Microsoft schon in der <a href="https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-first-azure-function">Dokumentation</a>. Zum aktuellen Zeitpunkt hat die Dokumentation exakt 10 Schritte, beginnend mit “Create a function app” bis abschließend “Test the function”.
+Es stellt sich die Frage, ob diese Funktion dann auch schon “abgesichert” ist.</p>
+
+<p>Aufgrund der oben dargelegten Architektur besteht eine Funktion also grob aus zwei Teilen: Aus der <a href="https://docs.microsoft.com/en-us/azure/azure-functions/">“Azure Funktion”</a> selbst und dem <a href="https://docs.microsoft.com/en-us/azure/app-service/">“Azure App Service”</a> in dem die Funktion existiert. Dies führt dazu, dass man zwei Punkte betrachten muss, wenn es um die Frage der Sicherheit geht: zum einen den App Service und zum anderen die Funktion.</p>
+
+<h4 id="authentifizierung-und-autorisierung">Authentifizierung und Autorisierung</h4>
+
+<p>Da nicht immer jedem der Unterschied sofort präsent ist:</p>
+
+<ul>
+  <li><strong>Authentifizierung</strong> ist der Nachweis einer behaupteten Eigenschaft. Z.b. also der Nachweis (durch ein Passwort) dass ein Benutzer der ist, der er vorgibt zu sein.</li>
+  <li><strong>Autorisierung</strong> ist eine Erlaubnis.</li>
+</ul>
+
+<p>Von einer Benutzerautorisierung kann man sprechen, wenn man die oben genannten Vorgänge kombiniert: Z.B. Wenn Benutzer sich mit Passwort authentifizieren, von diesen aber nur eine bestimmte Gruppe autorisiert ist.</p>
+
+<h5 id="sicherheit-in-funktionen">Sicherheit in Funktionen</h5>
+<p>Die Fragestellung nach der “Sicherheit der Funktionen” ist etwas verwirrend - im Grunde soll nicht die Funktion abgesichert werden, sondern der Aufruf bzw. der Start der Funktion. Funktionen starten immer über sogenannte Trigger, von denen die meisten Azure-intern zu verwenden sind (z.B. über Timer, Event Hub oder Blob Storage). Der für  diesen Artikel betrachtete Trigger ist daher der <a href="https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-generic-webhook-triggered-function">HTTP oder “generic web hook”-Trigger</a>.</p>
+
+<p>Laut <a href="https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-http-webhook#trigger---configuration">Doku</a> stehen drei Autorisierungsmechanismen auf Ebene des Triggers zur Verfügung:</p>
+
+<p><img src="/assets/images/posts/Azure-Functions-Security/function-authorization-ui.png" alt="Die Folgenden Autorisierungen stehen zur Verfügung" /> <img src="/assets/images/posts/Azure-Functions-Security/function-authorization-ui-explained.png" alt="Im Tooltip gibt es auch eine kleine Erklärung" /></p>
+
+<ul>
+  <li><code>anonymous</code> - No API key is required.</li>
+  <li><code>function</code> - A function-specific API key is required. This is the default value if none is provided.</li>
+  <li><code>admin</code> - The master key is required.</li>
+</ul>
+
+<p>Der HTTP-Trigger einer Funktion lässt es somit zu, den Aufruf der Funktion über einen Schlüssel (oder “key” bzw. “code”) abzusichern:</p>
+
+<p>Zuerst muss der Schlüssel abgerufen werden. Dies geht über die Seite der Funktion selbst:</p>
+
+<p><img src="/assets/images/posts/Azure-Functions-Security/function-authorization-keys.png" alt="Anzeige von Schlüsseln in der UI" /></p>
+
+<p>Oder über die Verwaltungsseite:</p>
+
+<p><img src="/assets/images/posts/Azure-Functions-Security/function-authorization-key-management.png" alt="Anzeige von Schlüsseln in der UI" /></p>
+
+<p>Die Schlüssel können über zwei verschiedene Mechanismen verwendet werden. Entweder als Query-Parameter: <code>code=&lt;ApiKey&gt;</code> oder über einen eigenen HTTP-Header <code>x-functions-key</code>.</p>
+
+<p>Die beiden Zugriffsmechanismen können wie folgt verwendet werden:</p>
+
+<pre><code class="language-csharp">const string function = "https://securityexample.azurewebsites.net/api/HelloWorld";
+const string code = "Srs8ca27tCSwuyFTv0kBOwMt/WTzLXW43WNcPUYeG7L273TmQTSf0A==";
+
+// via get-parameter
+using (var client = new WebClient())
+{
+    Console.WriteLine("Sending code via get-parameter...");
+    var fullUrl = $"{function}?code={code}";
+    var data = client.DownloadString(fullUrl);
+    Console.WriteLine(data);
+}
+
+// oder via HTTP-Header
+using (var client = new WebClient())
+{
+    Console.WriteLine("Sending code via HTTP-Header...");
+    client.Headers.Add("x-functions-key", code);
+    var data = client.DownloadString(function);
+    Console.WriteLine(data);
+}
+</code></pre>
+
+<p>Bei einer mit Visual Studio erstellen Funktion lässt sich noch eine weitere Methode finden: <code>User</code></p>
+
+<p><img src="/assets/images/posts/Azure-Functions-Security/function-authorization-code.png" alt="User als Authorisation ist im code möglich" /></p>
+
+<p>Dieses Feature ist aber - obwohl hier auswählbar - zum Zeitpunkt dieses Beitrags noch nicht verfügbar. Der Status des Features kann in einem <a href="https://github.com/Azure/azure-functions-host/issues/33">GitHub-Issue</a> eingesehen werden.</p>
+
+<p>An dieser Stelle ist ist somit lediglich die <a href="https://en.wikipedia.org/wiki/Shared_secret">Autorisierung über einen Schlüssel</a> möglich. Eine Authentifizierung ist zu diesem Zeitpunkt nicht möglich.</p>
+
+<h5 id="sicherheit-im-app-service">Sicherheit im App Service</h5>
+
+<p>In den Einstellungen des App Service (“Plattformfeatures”, aus Sicht der Funktion) gibt es den Punkt “Authentifizierung/Autorisierung”:</p>
+
+<p><img src="/assets/images/posts/Azure-Functions-Security/platform-authentication.png" alt="Authentifizierung/Autorisierung in den Plattformfeatures" /></p>
+
+<p>Hier ist erkennbar, dass zumindest eine Benutzer-Authentifizierung möglich ist.
+Die aktuellen Anbieter für Authentifizierung sind unter anderem “Microsoft” und “Azure Active Directory”. Die beiden Anbieter sind zu unterscheiden, da für den “Microsoft”-Anbieter ein einfacher <a href="https://account.microsoft.com/">Microsoft-Account</a> verwendet wird, wohingegen Azure Active Directory einen Account in einem Azure Active Directory benötigt.</p>
+
+<p>Zusätzlich ist einstellbar, ob unauthentifizierte Zugriffe erlaubt sind oder ob diese an einen der angegebenen Authentifizierungsanbieter umgeleitet werden sollen.</p>
+
+<p>Den Ablauf der Authentifizierung an einem App Servive stellt die entsprechende <a href="https://docs.microsoft.com/en-us/azure/app-service/app-service-authentication-overview#authentication-flow">Doku</a> gut dar. Grob vereinfacht sieht der Ablauf wie folgt aus:</p>
+
+<ol>
+  <li>Anmeldung: Der Benutzer authentifiziert sich an einem Authentifizierungsanbieter. Das Ergebnis ist ein Beweis (token) des Authentifizierungs-Anbieters.</li>
+  <li>Validierung: Der Beweis der Authentifizierungsanbieter wird an den App Service gesendet und dort geprüft. Das Ergebnis ist ein Beweis des App Service.</li>
+  <li>Verwendung: Der Beweis des App Service wird für Aufrufe der Funktion verwendet.</li>
+</ol>
+
+<h4 id="authentifizierung-von-benutzern-am-beispiel">Authentifizierung von Benutzern am Beispiel</h4>
+
+<p>Als Ausgangspunkt wird eine einfache Funktion, wie sie z.B. in <a href="https://github.com/nils-a/function-security-blog/blob/f912dbd8d1ed08bf839c82d0e1c70b11eb34a982/SecurityExample/SecurityExample/UserInfo.cs">diesem Projekt</a> definiert ist, verwendet.</p>
+
+<p>Der eigentliche Aufruf einer solchen Funktion ist relativ simpel und folgt dem o.a. Ablauf:</p>
+
+<ol>
+  <li>Authentifizierung gegen den Authentifizierungsanbieter. Das Ergebnis dieses Aufrufes ist ein Token des Providers.</li>
+  <li>Das Token des Providers wird als JSON-Objekt an den <em>Login</em>-Endpunkt des App Service gesendet. Das Ergebnis dieses Aufrufes ist ein <em>EasyAccess</em>-Token</li>
+  <li>Das <em>EasyAccess</em>-Token wird im HTTP-Header <code>X-ZUMO-AUTH</code> für den Aufruf der Funktion verwendet.</li>
+</ol>
+
+<p>Im Quelltext:</p>
+<pre><code class="language-csharp">// Step 1:
+var providerToken = await AuthenticateToProvider();
+
+// Step 2:
+var easyAuthToken = await AuthenticateToAzure(functionUrl, providerToken);
+
+//
+// Step3: Use the token we got from "EasyAuth" 
+//
+using (var client = new WebClient())
+{
+    client.Headers.Add("X-ZUMO-AUTH", easyAuthToken);
+    var data = await client.DownloadStringTaskAsync(functionUrl);
+    return data;
+}
+</code></pre>
+
+<p>Damit dies so funktioniert muss vorher ein Authentifizierungsanbieter eingerichtet werden. Dieses Beispiel verwendet den “Microsoft”-Authentifizierungsanbieter:</p>
+
+<ol>
+  <li>Bevor Azure-seitig der Authentifizierungsanbieter ausgewählt werden kann, muss bei dem Authentifizierungsanbietern eine sog. “App” (d.h. eine Anwendung für die die Authentifizierung erfolgt) eingerichtet werden. Für den “Microsoft”-Authentifizierungsanbieter geschieht dies unter <a href="https://apps.dev.microsoft.com/">https://apps.dev.microsoft.com/</a>
+    <ol>
+      <li>Für die Anwendung muss ein Anwendungsgeheimnis (App Secret) eingerichtet werden. Dies wird später in Azure hinterlegt.</li>
+      <li>Es muss eine Plattform eingerichtet werden: Web (für die Anmeldung mit der automatischen Weiterleitung). Die Umleitungs-URL für die Plattform ist anhand der <a href="https://docs.microsoft.com/en-us/azure/app-service/app-service-authentication-overview#identity-providers">Doku</a> zu ermitteln: In diesem Fall ist es <code>https://&lt;yourapp&gt;.azurewebsites.net/.auth/login/microsoftaccount/callback</code></li>
+    </ol>
+  </li>
+  <li>
+    <p>Die Anwendungs-ID und -geheimnis müssen in Azure für den Authentifizierungsanbieter hinterlegt werden und es muss mindestens der Bereich “wl.basic” ausgewählt werden:</p>
+
+    <p><img src="/assets/images/posts/Azure-Functions-Security/function-example1-appinazure.png" alt="app-id und -geheimnis in Azure" /></p>
+  </li>
+</ol>
+
+<p>Wenn dies eingerichtet ist, lässt sich innerhalb Funktion recht einfach überprüfen, ob der aktuelle Request wirklich authentifiziert ist:</p>
+
+<pre><code class="language-csharp">var principal = ClaimsPrincipal.Current;
+if(principal == null || !principal.Identity.IsAuthenticated)
+{
+    return req.CreateResponse(HttpStatusCode.OK, "Unauthenticated", "text/plain");
+}
+</code></pre>
+
+<h4 id="fazit">Fazit</h4>
+
+<p>Das Zusammenspiel von Authentifizierung auf Seiten des App Service und Autorisierung auf Seiten des Triggers der Funktion ist nicht direkt offensichtlich:</p>
+<ul>
+  <li>Eine Autorisierung erfolgt auf Seiten des Triggers der Funktion. Im Falle des HTTP-Trigges basiert die Autorisierung auf einem geteilten Schlüssel (Shared Secret)</li>
+  <li>Die Authentifizierung erfolgt auf Seite des App Service. Generell lässt sich einstellen, ob unauthentifizierte Anfragen zugelassen oder generell an einen Authentifizierungsanbieter weitergeleitet werden.</li>
+</ul>
+
+<p>Eine Benutzer-Autorisierung ist zum aktuellen Zeitpunkt nicht mit Standardfunktionen (oder <a href="https://en.wikipedia.org/wiki/Out_of_the_box_%28feature%29"><em>OOTB</em></a>) machbar.</p>
+
+</div>
+</div>
+</div>
+</div>]]></field>
+    </document>
+</documents>
