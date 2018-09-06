@@ -87,3 +87,12 @@ mhoeber:
   bio: "Markus Höber ist Senior Quality Manager bei adesso. Sein Herz schlägt für die agile Kultur, qualitätsgetriebene Software-Entwicklung und die neuesten technologischen Entwicklungen. Bei seinen Kunden konzipiert und unterstützt er die Einführung von agilem Software-Testen, begleitet die digitale Transition und evaluiert und etabliert Testwerkzeuge."
   avatar_url: /assets/images/avatars/mhoeber.jpg
   github: https://github.com/thunderger
+
+roland:
+  first_name: Roland
+  last_name: Majchszak
+  github_username: RMajchszak
+  email: roland.majchszak@adesso.de
+  bio: "Roland Majchszak ist Softwarearchitekt bei adesso in Hamburg. Er arbeitet in verschiedenen Projekten im Java Umfeld."
+  avatar_url: /assets/images/avatars/rolandMajchszak.jpg
+  github: https://github.com/RMajchszak

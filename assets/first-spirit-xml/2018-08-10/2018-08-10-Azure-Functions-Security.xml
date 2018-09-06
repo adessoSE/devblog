@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <documents>
-    <document uid="3fdd7b2392f411f8240ad25f75bf3566">
+    <document uid="7c58b7b199ff00bfa7cf1ca44aa6903b">
         <field name="title"><![CDATA[Absichern von Azure Funktionen]]></field>
         <field name="subline"><![CDATA[]]></field>
         <field name="teaser"><![CDATA[<p>Gibt es “Sicherheit” bei Azure Funktionen? Sind diese immer öffentlich zugänglich? Können Funktionen mit Benutzer-Autorisierung abgesichert werden? Dieser Beitrag versucht diesen und anderen Fragen nachzugehen.</p>
@@ -14,9 +14,9 @@
         <field name="tag_multi_keyword"><![CDATA[functions]]></field>
         <field name="tag_multi_keyword"><![CDATA[security]]></field>
         <field name="tag_multi_keyword"><![CDATA[paas]]></field>
-        <field name="date_date"><![CDATA[2018-07-23T08:40:00+02:00]]></field>
-        <field name="date_l"><![CDATA[1532328000000]]></field>
-        <field name="change_date"><![CDATA[1532328000000]]></field>
+        <field name="date_date"><![CDATA[2018-08-10T12:42:00+02:00]]></field>
+        <field name="date_l"><![CDATA[1533897720000]]></field>
+        <field name="change_date"><![CDATA[1533897720000]]></field>
         <!--Picture-->
         <!-- Not in use at the moment-->
         <!--Author Information-->

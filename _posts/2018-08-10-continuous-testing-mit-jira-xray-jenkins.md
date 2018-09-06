@@ -22,19 +22,23 @@ Testfälle werden nach manuellen, cucumber und generisch unterschieden. Generisc
 ![Xray Testfall](/assets/images/posts/jenkins-xray/jira-testcase.jpg)
 
 #Verbindung zwischen Jenkins & XRay herstellen
-## Jenkins Xray-Plugin einrichten
-[Xray-Plugin für Jenkins](https://confluence.xpand-addons.com/display/XRAY/Integration+with+Jenkins)
-![Jenkins Xray Konfiguration](/assets/images/posts/jenkins-xray/jenkins-plugin-config.jpg)
+In Jenkins muss die Verbindung zu JIRA/XRay konfiguriert werden, so dass Ergebnisse von automatisierten Testausführungen direkt übertragen werden können. Hierzu wird das kostenfreie [Xray-Plugin für Jenkins](https://confluence.xpand-addons.com/display/XRAY/Integration+with+Jenkins) benötigt.
 
-# Jenkins-Slave für Testausführung anlegen
-## Node konfigurieren
-Für die Ausführung automatisierter Testfälle sollten eigenständige Jenkins-Slave-Knoten anstelle des Jenkins-Master verwendet werden, damit die Testausführung Build- und Deployment-Jobs nicht blockiert. Einige Oberflächen-Testautomatisierungs-Werkzeuge, beispielsweise HP UFT, lassen sich nur unter Windows ausführen, wodurch häufig ein separater Jenkins-Knoten erforderlich wird.
+## Jenkins Xray-Plugin einrichten
+Nach der Installation des Plugins tragen Sie die Daten der JIRA-Instanz, die Sie verbinden möchten unter `Jenkins verwalten` - `System konfigurieren` - `Xray for JIRA configuration` ein.
+![Jenkins Xray Konfiguration](/assets/images/posts/jenkins-xray/jenkins-plugin-config.jpg)
+Anschließend lässt sich diese Instanz in Jenkins-Jobs verwenden.
+
+## Jenkins-Slave für Testausführung anlegen
+Für die Ausführung automatisierter Testfälle sollten eigenständige Jenkins-Slave-Knoten anstelle des Jenkins-Master verwendet werden, damit die Testausführung Build- und Deployment-Jobs nicht blockiert.
+### Node konfigurieren
+ Einige Oberflächen-Testautomatisierungs-Werkzeuge, beispielsweise HP UFT, lassen sich nur unter Windows ausführen, wodurch häufig ein separater Jenkins-Knoten erforderlich wird.
 In den Jenkins-Einstellungen wird dazu ein neuer Knoten angelegt, ein Label vergeben, damit später nur bestimmte Jobs auf ihm ausgeführt werden und `c:\jenkins` als Workspace definiert.
 
 ![Jenkins Node](/assets/images/posts/jenkins-xray/jenkins-node-config.jpg)
-## JNLP-Verbindung herstellen
-
-![Jenkins JNLP-Slave](/assets/images/posts/jenkins-xray/jenkins-jnlp.jpg)
+### JNLP-Verbindung herstellen
+![Jenkins JNLP-Slave](/assets/images/posts/jenkins-xray/jenkins-jnlp-slave1.jpg)
+![Jenkins JNLP-Slave](/assets/images/posts/jenkins-xray/jenkins-jnlp-slave2.jpg)
 
 # Testausführung über Jenkins
 ## Anlage des Jenkins-Jobs
