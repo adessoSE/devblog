@@ -32,16 +32,21 @@ Anschließend lässt sich diese Instanz in Jenkins-Jobs verwenden.
 ## Jenkins-Slave für Testausführung anlegen
 Für die Ausführung automatisierter Testfälle sollten eigenständige Jenkins-Slave-Knoten anstelle des Jenkins-Master verwendet werden, damit die Testausführung Build- und Deployment-Jobs nicht blockiert.
 ### Node konfigurieren
- Einige Oberflächen-Testautomatisierungs-Werkzeuge, beispielsweise HP UFT, lassen sich nur unter Windows ausführen, wodurch häufig ein separater Jenkins-Knoten erforderlich wird.
+Einige Oberflächen-Testautomatisierungs-Werkzeuge, beispielsweise HP UFT, lassen sich nur unter Windows ausführen, wodurch häufig ein separater Jenkins-Knoten erforderlich wird.
 In den Jenkins-Einstellungen wird dazu ein neuer Knoten angelegt, ein Label vergeben, damit später nur bestimmte Jobs auf ihm ausgeführt werden und `c:\jenkins` als Workspace definiert.
 
 ![Jenkins Node](/assets/images/posts/jenkins-xray/jenkins-node-config.jpg)
 ### JNLP-Verbindung herstellen
+Nachdem der Jenkins-Slave eingerichtet wurde, wird der gewünschte Rechner per JNLP mit dem Jenkins-Master verbunden. In der Übersicht des Knotens klickt man dazu auf die Schaltfläche "Launch".
+Daraufhin öffnet sich ein Java-Dialog, in dem bestätigt wird, dass der Jenkins Remoting Agent ausgeführt werden darf. Anschließend erscheint ein Fenster mit dem Jenkins-Logo, in dem der Text "Connected" anzeigt, dass der verwendete Rechner als Jenkins-Slave verbunden ist.
 ![Jenkins JNLP-Slave](/assets/images/posts/jenkins-xray/jenkins-jnlp-slave1.jpg)
 ![Jenkins JNLP-Slave](/assets/images/posts/jenkins-xray/jenkins-jnlp-slave2.jpg)
 
 # Testausführung über Jenkins
+Die Testausführung erfolgt über sog. Freestyle-Jobs. Es wird empfohlen, zuerst eine Vorlage je Testwerkzeug anzulegen und diese Vorlage später je nach Einsatzzweck zu kopieren und anzupassen.
 ## Anlage des Jenkins-Jobs
+Zur Anlage eines neuen Jenkins-Jobs klickt man auf "Element anlegen", gibt einen eindeutigen Namen ein, wählt "Free Style"-Softwareprojekt bauen aus und klickt auf OK.
+Direkt im Anschluss öffnet sich die Bildschirmmaske zur Konfiguration des angelegten Jenkins-Jobs. Wichtig ist es, dass die Ausführung per Label-Ausdruck auf den zuvor eingerichteten Jenkins-Slave beschränkt wird.
 ![Jenkins Job](/assets/images/posts/jenkins-xray/jenkins-job-config.jpg)
 
 ## Ausführen des Jenkins-Jobs
