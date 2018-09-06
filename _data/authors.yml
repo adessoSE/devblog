@@ -61,6 +61,15 @@ ceverke:
   avatar_url: /assets/images/avatars/ceverke.png
   github: https://github.com/ceverke
 
+stwacker:
+  first_name: Stephan
+  last_name: Wacker
+  github_username: stwacker
+  email: stephan.wacker@adesso.de
+  bio: "Stephan Wacker beschäftigt sich seit seinem Studium der Kerninformatik mit dem Thema Software Testing. Bei adesso leitet er ein Competence Center Leiter Im Bereich Qualitätssicherung und Testing für die adesso Softwareentwicklungsprojekte." 
+  avatar_url: /assets/images/avatars/stwacker.png
+  github: https://github.com/stwacker
+
 maximAtanasov:
   first_name: Maksim
   last_name: Atanasov
@@ -87,3 +96,4 @@ roland:
   bio: "Roland Majchszak ist Softwarearchitekt bei adesso in Hamburg. Er arbeitet in verschiedenen Projekten im Java Umfeld."
   avatar_url: /assets/images/avatars/rolandMajchszak.jpg
   github: https://github.com/RMajchszak
+
