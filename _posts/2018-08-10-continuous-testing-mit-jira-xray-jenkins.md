@@ -37,19 +37,23 @@ In den Jenkins-Einstellungen wird dazu ein neuer Knoten angelegt, ein Label verg
 
 ![Jenkins Node](/assets/images/posts/jenkins-xray/jenkins-node-config.jpg)
 ### JNLP-Verbindung herstellen
-Nachdem der Jenkins-Slave eingerichtet wurde, wird der gewünschte Rechner per JNLP mit dem Jenkins-Master verbunden. In der Übersicht des Knotens klickt man dazu auf die Schaltfläche "Launch".
-Daraufhin öffnet sich ein Java-Dialog, in dem bestätigt wird, dass der Jenkins Remoting Agent ausgeführt werden darf. Anschließend erscheint ein Fenster mit dem Jenkins-Logo, in dem der Text "Connected" anzeigt, dass der verwendete Rechner als Jenkins-Slave verbunden ist.
+Nachdem der Jenkins-Slave eingerichtet wurde, wird der gewünschte Rechner per JNLP mit dem Jenkins-Master verbunden. In der Übersicht des Knotens klickt man dazu auf die Schaltfläche `Launch`.
+Daraufhin öffnet sich ein Java-Dialog, in dem bestätigt wird, dass der Jenkins Remoting Agent ausgeführt werden darf. Anschließend erscheint ein Fenster mit dem Jenkins-Logo, in dem der Text `Connected` anzeigt, dass der verwendete Rechner als Jenkins-Slave verbunden ist.
 ![Jenkins JNLP-Slave](/assets/images/posts/jenkins-xray/jenkins-jnlp-slave1.jpg)
 ![Jenkins JNLP-Slave](/assets/images/posts/jenkins-xray/jenkins-jnlp-slave2.jpg)
 
 # Testausführung über Jenkins
 Die Testausführung erfolgt über sog. Freestyle-Jobs. Es wird empfohlen, zuerst eine Vorlage je Testwerkzeug anzulegen und diese Vorlage später je nach Einsatzzweck zu kopieren und anzupassen.
 ## Anlage des Jenkins-Jobs
-Zur Anlage eines neuen Jenkins-Jobs klickt man auf "Element anlegen", gibt einen eindeutigen Namen ein, wählt "Free Style"-Softwareprojekt bauen aus und klickt auf OK.
+Zur Anlage eines neuen Jenkins-Jobs klickt man auf `Element anlegen`, gibt einen eindeutigen Namen ein, wählt `"Free Style"-Softwareprojekt bauen` aus und klickt auf `OK`.
 Direkt im Anschluss öffnet sich die Bildschirmmaske zur Konfiguration des angelegten Jenkins-Jobs. Wichtig ist es, dass die Ausführung per Label-Ausdruck auf den zuvor eingerichteten Jenkins-Slave beschränkt wird.
 ![Jenkins Job](/assets/images/posts/jenkins-xray/jenkins-job-config.jpg)
-
+### Testwerkzeug aufrufen
+Je nach Testwerkzeug erfolgt der Aufruf anders. Beispielsweise kann SoapUI per `Buildverfahren` `Windows-Batch-Datei ausführen` gestartet werden, in dem man den testrunner mit dem entsprechenden Kommando aufruft. Alternativ lässt sich SoapUI mithilfe von Maven ausführen.
+### Synchronisation mit JIRA/XRay
+Die Synchronisation der Testausführungsergebnisse erfolgt mit dem Jenkins XRay Plugin als `Post Build Step`. Hierzu wird die eingangs angelegte JIRA Instanz ausgewählt, der Dateiname, beispielsweise junit_soapui.xml, angegeben und der Projekt-Schlüssel in JIRA, beispielsweise GTD, eingegeben. Alle weiteren Felder sind optional.
 ## Ausführen des Jenkins-Jobs
+Die Testausführung erfolgt durch den Start des Jenkins-Jobs mittels dem `Pfeil-Symbol` rechts neben dem Job in der Job-Übersicht. Die vorhandenen Testfälle werden auf dem Jenkins-Slave ausgeführt und die Ergebnisse im jUnit-Format auf den Jenkins-Master übertragen und von dort nach JIRA/XRay synchronisiert.
 ![Jenkins Testausfuehrung](/assets/images/posts/jenkins-xray/jenkins-job-run.jpg)
 
 ## Testergebnis in JIRA/Xray
