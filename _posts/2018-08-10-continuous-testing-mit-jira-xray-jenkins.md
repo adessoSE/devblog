@@ -12,7 +12,7 @@ In der agilen Softwareentwicklung werden häufig Jenkins für Build & Deployment
 # Testmanagement mit JIRA & XRay
 Das [JIRA-Plugin XRay](https://www.xpand-addons.com/xray/) vom Anbieter xpand-addons erweitert JIRA um ein umfassende Testmanagement-Funktionen, beispielsweise durch eine Testfallbibliothek, Visualisierung der Anforderungsabdeckung und eine bi-direktionale Nachverfolgbarkeit.
 ![JIRA/Xray Sprint-Board](/assets/images/posts/jenkins-xray/jira-xray-sprint-board-xsmall.jpg)
-![JIRA/Xray Nachverfolgbarkeit](/assets/images/posts/jenkins-xray/jira-xray-traceability-small.jpg)
+![JIRA/Xray Nachverfolgbarkeit](/assets/images/posts/jenkins-xray/jira-xray-traceability-xsmall.jpg)
 XRay integriert sehr gut in bestehende JIRA-Projekte und lässt sich einfach und umfassend an die Projektbedürfnisse anpassen. Unter anderem kann XRay ein eigenständiges Testprojekt verwenden, das mit dazugehörenden Entwicklungsprojekten verknüpft wird, oder bestehende Entwicklungsprojekte maßgeschneidert ergänzen.
 Die neuen Entitäten, darunter Testfälle, Testpläne und Testausführungen, und JQL, die XRay mitbringt ermöglichen eine zielgerichtete und transparente Steterung der erforderlichen Testaktivitäten.
 
@@ -39,7 +39,7 @@ In den Jenkins-Einstellungen wird dazu ein neuer Knoten angelegt, ein Label verg
 ### JNLP-Verbindung herstellen
 Nachdem der Jenkins-Slave eingerichtet wurde, wird der gewünschte Rechner per JNLP mit dem Jenkins-Master verbunden. In der Übersicht des Knotens klickt man dazu auf die Schaltfläche `Launch`.
 Daraufhin öffnet sich ein Java-Dialog, in dem bestätigt wird, dass der Jenkins Remoting Agent ausgeführt werden darf. 
-![Jenkins JNLP-Slave](/assets/images/posts/jenkins-xray/jenkins-jnlp-slave1.jpg)
+![Jenkins JNLP-Slave](/assets/images/posts/jenkins-xray/jenkins-jnlp-slave1_small.jpg)
 Anschließend erscheint ein Fenster mit dem Jenkins-Logo, in dem der Text `Connected` anzeigt, dass der verwendete Rechner als Jenkins-Slave verbunden ist.
 ![Jenkins JNLP-Slave](/assets/images/posts/jenkins-xray/jenkins-jnlp-slave2.jpg)
 
