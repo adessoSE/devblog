@@ -62,5 +62,7 @@ Die Testausführung erfolgt durch den Start des Jenkins-Jobs mittels dem `Pfeil-
 ![Jenkins Testausfuehrung](/assets/images/posts/jenkins-xray/jenkins-job-run.jpg)
 
 ## Testergebnis in JIRA/Xray
-![JIRA/XRay Testausfuehrung](/assets/images/posts/jenkins-xray/jira-testrun.jpg)
-![JIRA/Xray Testfall](/assets/images/posts/jenkins-xray/jira-testcase.jpg)
+Die Testergebnisse, die aus Jenkins nach JIRA übertragen wurden, werden in verschiedenen Ansichten verwendet. Die Übersicht aller ausgeführten Testfälle kann man in Form einer neu angelegten Testausführung sehen. Wurde ein Testplan bei der Testausführung angegeben, so wird dieser ebenfalls aktualisiert.
+![JIRA/XRay Testausfuehrung](/assets/images/posts/jenkins-xray/jira-testexecution.jpg)
+Jeder ausgeführte Testfall wird automatisch aktualisiert. In der Ansicht eines Testfalls sind alle Testausführungen aufgeführt. Die neueste Ausführung zuerst.
+![JIRA/Xray Testfall](/assets/images/posts/jenkins-xray/jira-testcase-executions.png)
