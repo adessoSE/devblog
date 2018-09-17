@@ -14,8 +14,9 @@ Templates erzeugt werden oder manuell nachbearbeitet werden. Dieser Artikel zeig
 
 # DocxStamper
 
-DocxStamper ist eine Open Source Java-Bibliothek, die das .docx-Format mit der Spring Expression Language (SpEL)
-verknüpft.
+[DocxStamper](https://github.com/thombergs/docx-stamper) ist eine Open Source Java-Bibliothek, die das .docx-Format mit der Spring Expression Language (SpEL)
+verknüpft. Sie ist entstanden als Ergebnis von Kundenanforderungen, nachdem eine ausführliche Google-Suche keine
+einfach zu benutzende Templating-Engine für .docx-Dokumente zu Tage brachte.
 
 Die folgende Abbildung veranschaulicht die Arbeitsweise von DocxStamper.
 
@@ -76,6 +77,8 @@ public class BriefContext {
 
 	private Person person;
 
+	// Getter und Setter
+
 }
 ```
 
@@ -128,14 +131,89 @@ folgenden Template korrekt anzeigen:
 
 Im Ergebnis-Dokument wird dann nur eine der beiden Anreden angezeigt und der Kommentar entfernt.
 
-DocxStamper bietet noch weitere Methoden zur Nutzung in Kommentar-Expressions an, so zum Beispiel auch zur Wiederholung
+DocxStamper bietet noch [weitere Methoden](https://github.com/thombergs/docx-stamper#conditional-display-and-repeating-of-elements)
+zur Nutzung in Kommentar-Expressions an, so zum Beispiel auch zur Wiederholung
 von bestimmten Elementen.
 
 # Elemente Wiederholen
 
-Möchten wir z.B. eine Tabelle mit dynamischem Inhalt anzeigen, können wir Tabellenzeilen mit Hilfe der Methode
-`repeatTableRow` wiederholen.
+Ein weiterer häufiger Anwendungsfall einer Template-Engine ist es, Elemente zu wiederholen. Erweitern wir unseren
+Beispiel-Brief um eine Tabelle von Artikeln mit jeweils einen Preis (wie es z.B. für eine Rechnung notwendig wäre).
 
+Um eine Liste von Artikeln anzuzeigen, benötigen wir zunächst eine Datenstruktur für Artikel:
 
+```java
+public class Article {
+
+	private long number;
+
+	private String name;
+
+	private Money price;
+
+	// Getter und Setter
+
+}
+```
+
+Um die Artikel unserem Template zur Verfügung zu stellen, ergänzen wir die `BriefContext`-Klasse um eine Liste
+von Artikeln:
+
+```java
+public class BriefContext {
+
+	private Person person;
+
+	private List<Article> articles;
+
+	// Getter und Setter
+
+}
+```
+
+Nun können wir ein `BriefContext`-Objekt mit einer Liste von Artikeln befüllen und im Template wie folgt eine
+Tabelle anlegen, die einen Artikel pro Zeile auflistet:
+
+![Tabellenzeilen wiederholen](/assets/images/posts/docxstamper/table.png)
+
+# Datentypen konvertieren
+
+Im Beispiel mit der Artikelliste haben wir den selbstgebauten `Money`-Datentyp verwendet, um einen Geldbetrag
+darzustellen. Platzhalter mit unbekannten Datentypen ersetzt DocxStamper standardmäßig mit dem Ergebnis
+der `toString()`-Methode.
+
+In unserem Fall möchten wir den Geldbetrag aber hübsch formatieren, so dass z.B. "42,11 €" angezeigt wird.
+Um dies zu erreichen, können wir einen eigenen [TypeResolver](https://github.com/thombergs/docx-stamper#replacing-expressions-in-a-docx-template)
+implementieren:
+
+```java
+public class MoneyTypeResolver implements ITypeResolver<Money, String> {
+
+	@Override
+	public String resolve(WordprocessingMLPackage document, Money money) {
+		// Money in gewünschten String umwandeln
+	}
+
+}
+```
+
+Diesen machen wir über die `DocxStamperConfiguration` bekannt:
+
+```java
+DocxStamper stamper = new DocxStamperConfiguration()
+  .addTypeResolver(Money.class, new MoneyTypeResolver())
+  .build();
+```
+
+Ist der DocxStamper so konfiguriert, werden alle `Money`-Werte entsprechend der `MoneyTypeResolver`
+in Strings konvertiert.
 
 # Fazit
+
+DocxStamper ist eine Library, die grundsätzliche Templating-Features für .docx-Dokumente zur Verfügung stellt.
+
+Sie ist konfigurierbar und erweiterbar, so dass die meisten Anforderungen an eine .docx-Template-Engine mit ihr
+umgesetzt werden können.
+
+Wenn du neugierig geworden bist, schau auf [Github](https://github.com/thombergs/docx-stamper) vorbei.
+
