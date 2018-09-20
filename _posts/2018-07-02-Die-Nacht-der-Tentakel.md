@@ -12,6 +12,8 @@ Wie ich in einer sturmdurchpeitschten Nacht meine javanesische Braut hart auf di
 Mit Java kann man keinen echten Spaghetti-Code erzeugen, oder doch?<br/>
 In einer langen Hotel-Nacht habe ich Java mit ein wenig Bytecode- Manipulation ein Zeilennummern basiertes „GOTO“ Statement verpasst. Der unsäglich diabolische Spaß, der mir durch die Implementierung dieser vollkommen sinnfreien Spracherweiterung zuteil wurde, wurde nur noch von der Freude übertroffen, möglichst verrückte Nutzungsbeispiele zu ersinnen. In diesem humoristischen Artikel werden Techniken beschrieben, mit denen Java um neue Befehle erweitert werden kann, ohne dass eine eigene JVM-Sprache entwickelt werden muss. Außerdem werden zum allgemeinen Amusement eine Reihe von Beispielen gezeigt, die wohl eher in die Kategorie Evil-Practice als Bad-Practice fallen.
 
+*Der Sourcecode ist auf GitHub verfügbar: https://github.com/FranknJava/TheNightOfTheTentacles*
+
 ![Frank'n Java und die Nacht der Tentakel](/assets/images/posts/Die-Nacht-der-Tentakel/Title.png)
 
 Wie Stahlbolzen trommelte der Regen gegen die Scheiben meiner Kemenate, während flirrende Blitze gellend durch die Nacht zuckten, wie die spastischen Tentakel längst vergessener kosmischer Wesen. Schmatzend klatschte die Dunkelheit in meine Gedanken. Ruhelos schritt ich in meiner Hotelburg auf und ab, und mein Geist begann zu wandern. Ich dachte an den jungen Adepten, der mir bei der Betrachtung eines gewachsenen Sourcery Codes von etwa 100 Zeilen, mit drei Verzweigungen und einer Switch-Anweisung fröhlich den Namen einer italienischen Pasta Sorte entgegenschmetterte: "Uuh, Spaghetticode". Oh, die Unwissenheit der Jugend. Ist es doch mit modernen Sprachen kaum noch möglich, den Kontrollfluss dermaßen verworren zu gestalten, dass selbst ein Riesenkrake vor Neid erblassen würde. Nein! Dies war nur mit den großen Alten möglich, deren cthuloide Tentakel die Programmlogik in ein Zerrbild des Wahnsinns verwandelten. Wir brauchten damals keinen Code Obfuscator. Nein, unser Code war obfuscated by design. Diesem Adepten würde ich zeigen, wie man italienischen Nudel-Code zubereitet. Aber halt, war meine javanesische Braut nicht viel zu unschuldig und rein für solch schmutzige Spielereien? Nicht doch, ich wusste genau, dass auch in ihrem Innern das Böse schlummert. Also schnallte ich sie hart auf die Werkbank und zückte mein Messer. Heute Nacht würde ich eine cthuloide Unaussprechlichkeit erschaffen und Morgen ..., naja ihr wisst schon: Muhahahaha!!!
@@ -80,7 +82,7 @@ Ich glaube, Default-Implementierungen wurden nur aus einem einzigen Grund eingef
 <img align="right" src="/assets/images/posts/Die-Nacht-der-Tentakel/explanationBox003.png"/>
 
 Konnte doch nicht fliegen. Habe es zum Glück noch rechtzeitig gemerkt.
-Weiter geht's. Heute werde ich die Tentakel an meinem Versuchsobjekt befestigen. Habe verschiedene Befestigungsmöglichkeiten evaluiert. Glücklicherweise bekam Java zum achten Geburtstag einen formidablen Knochenleim in Form von Default-Implementierungen für Schnittstellen geschenkt. Eigentlich ein eher schmutziges Geschenk. Ich jedenfalls möchte einer achtjährigen nicht erklären müssen wie multiple Vererbung funktioniert. Aber, genau das was ich brauche. Damit keine Anwendungen unkontrolliert um sich schlagen bevor ich die Tentakel mit ihren Innereien verbunden habe, versetze ich die Default-Implementierung der Tentakel in den Ausnahmezustand.
+Weiter geht's. Heute werde ich die Tentakel an meinem Versuchsobjekt befestigen. Habe verschiedene Befestigungsmöglichkeiten evaluiert. Glücklicherweise bekam Java zum achten Geburtstag einen formidablen Knochenleim in Form von Default-Implementierungen für Schnittstellen geschenkt. Eigentlich ein eher schmutziges Geschenk. Ich jedenfalls möchte einer achtjährigen nicht erklären müssen wie multiple Vererbung funktioniert. Aber, genau das was ich brauche. Damit keine Anwendungen unkontrolliert um sich schlagen bevor ich die Tentakel mit ihren Innereien verbunden habe, versetze ich die Default-Implementierung der Tentakel in den Ausnahmezustand. Die GOTO Statements werde ich wohl groß schreiben müssen, da "goto" ein reserviertes Schlüsselwort in Java ist. Na egal, da schreibe ich gleich alle groß.
 
 ```Java
 public interface Tentacle {
@@ -110,6 +112,13 @@ public interface Tentacle {
 ### Nacht III - Seek ...
 
 Ah, endlich, nun geht es an's Eingemachte. Um die Tentakel mit unseligem Leben zu füllen, muss ich diese zunächst in den Bytecode Gedärmen meiner Anwendung wieder finden. Werfen wir doch einmal das ein oder andere Auge auf die Eingeweide eines GOTO statements.
+Während der Java Code eher als graue Maus daherkommt ...
+
+```Java
+GOTO(f(x++));
+```
+
+... eröffnet uns der dazugehörige Bytecode doch seine ganze Schönheit.
 
 ```Bytecode
 3    3:aload_0
@@ -602,5 +611,5 @@ Frank Meyfarth
 ---
 *Der Sourcecode ist auf GitHub verfügbar: https://github.com/FranknJava/TheNightOfTheTentacles*
 
-
+*Für weitere Späße siehe auch Prof. Volker Claus' Vortrag "GOING GOING GONE": https://microcontroller.com/New_ARM_C_Compiler_Statements_-_Jokes.htm*
 
