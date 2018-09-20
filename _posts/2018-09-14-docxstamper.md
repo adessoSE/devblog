@@ -14,13 +14,14 @@ Templates erzeugt werden oder manuell nachbearbeitet werden. Dieser Artikel zeig
 
 # DocxStamper
 
-[DocxStamper](https://github.com/thombergs/docx-stamper) ist eine Open Source Java-Bibliothek, die das .docx-Format mit der Spring Expression Language (SpEL)
-verknüpft. Sie ist entstanden als Ergebnis von Kundenanforderungen, nachdem eine ausführliche Google-Suche keine
+[DocxStamper](https://github.com/thombergs/docx-stamper) ist eine Open Source Java-Bibliothek, die das 
+.docx-Format mit der Spring Expression Language (SpEL)
+verknüpft. DocxStamper ist entstanden als Ergebnis von Kundenanforderungen, nachdem eine ausführliche Google-Suche keine
 einfach zu benutzende Templating-Engine für .docx-Dokumente zu Tage brachte.
 
 Die folgende Abbildung veranschaulicht die Arbeitsweise von DocxStamper.
 
-TODO: Abbildung
+![Funktionsweise von DocxStamper](/assets/images/posts/docxstamper/doxstamper.jpg)
 
 Wir erstellen ein ganz normales .docx-Dokument, welches als Template dient. In diesem Template
 verwenden wir SpEL-Expressions, um dynamische Inhalte zu definieren.
@@ -31,7 +32,7 @@ werden dann gegen die Kontext-Klasse ausgewertet und das Ergebnis im neu erzeugt
 ausgegeben.
 
 Im Folgenden schauen wir uns einige Features von DocxStamper noch einmal etwas näher an. Wir gehen dabei von
-der Anforderung aus, dass wir aus eine Java-Anwendung heraus einen Geschäftsbrief erzeugen möchten, der je nach
+der Anforderung aus, dass wir aus einer Java-Anwendung heraus einen Geschäftsbrief erzeugen möchten, der je nach
 Empfänger etwas angepasst werden muss.
 
 Um die Beispiele nachzuprogrammieren, muss die folgende Dependency im eigenen Projekt eingetragen werden (Maven-Notation):
@@ -48,7 +49,7 @@ Die jeweils aktuellste Version kann im [Maven Central Repository](https://search
 
 # Platzhalter Ersetzen
 
-Der einfachste Anwendungsfall in so einem Brief ist das Ersetzen von Platzhaltern, z.B. in der Anrede.
+Der einfachste Anwendungsfall in so einem Brief ist das Ersetzen von Platzhaltern, zum Beispiel in der Anrede.
 Die Anrede in unserem Dokument soll so aussehen:
 
 * "Sehr geehrte Frau Müller,", wenn es sich um eine Frau handelt, oder
@@ -56,7 +57,7 @@ Die Anrede in unserem Dokument soll so aussehen:
 
 Alle anderen Anreden klammern wir mal aus, damit das Beispiel einfach bleibt.
 
-Um die Anrede korrekt anzuzeigen, brauchen wir Informationen über das Geschlecht und den Nachnamen des Empfängers. Das bilden wir in einer
+Um die Anrede korrekt anzuzeigen, brauchen wir zunächst Informationen über den Nachnamen des Empfängers. Das bilden wir in einer
 Klasse namens `Person` ab:
 
 ```java
@@ -68,7 +69,8 @@ public class Person {
 }
 ```
 
-Zusätzlich erstellen wir eine Context-Klasse, die später als Input für die Dokumentenerzeugung dient:
+Zusätzlich erstellen wir eine Context-Klasse, die später als Input für die Dokumentenerzeugung dient und zusätzlich noch
+die Anrede für die jeweilige Person enthält:
 
 ```java
 public class BriefContext {
@@ -108,12 +110,12 @@ stamper.stamp(template, context, out);
 out.close();
 ```
 
-Das Ergebnis ist ein Word-Dokument, das die Anrede "Sehr geehrte Frau Müller," beinhaltet.
+Das Ergebnis ist ein Word-Dokument mit der Anrede "Sehr geehrte Frau Müller,".
 
 # Bedingte Anzeige von Elementen
 
 Man möchte die Anrede "Sehr geehrte Frau" bzw. "Sehr geehrter Herr" aber vermutlich gar nicht im Code
-stehen haben. Eine Template-Engine ist schließlich dafür da, solche Text-Schnipsel vom Code in das Template
+stehen haben. Eine Template-Engine ist schließlich dafür da solche Text-Schnipsel vom Code in das Template
 zu verschieben.
 
 Eine Möglichkeit ist es, einfach beide Ausprägungen im Template vorzusehen, und je nach Geschlecht des
@@ -121,10 +123,10 @@ Empfängers einfach nur die eine oder die andere anzuzeigen.
 
 DocxStamper erlaubt es, Elemente im .docx-Template mit Kommentaren zu versehen, in denen ebenfalls Expressions
 genutzt werden können. Um einen Paragraphen nur unter einer bestimmten Bedingung anzuzeigen, wird
-die Methode `displayParagraphIf` zur Verfügung gestellt.
+die Expression-Methode `displayParagraphIf` zur Verfügung gestellt.
 
 Vorausgesetzt, wir ergänzen das Feld `gender` in der `Person`-Klasse und befüllen es
-entpsrechend, können wir die Anrede auch mit dem
+entsprechend, können wir die Anrede auch mit dem
 folgenden Template korrekt anzeigen:
 
 ![Anrede bedingt anzeigen](/assets/images/posts/docxstamper/anrede2.png)
@@ -137,8 +139,8 @@ von bestimmten Elementen.
 
 # Elemente Wiederholen
 
-Ein weiterer häufiger Anwendungsfall einer Template-Engine ist es, Elemente zu wiederholen. Erweitern wir unseren
-Beispiel-Brief um eine Tabelle von Artikeln mit jeweils einen Preis (wie es z.B. für eine Rechnung notwendig wäre).
+Ein weiterer häufiger Anwendungsfall einer Template-Engine ist es, Elemente zu wiederholen. Im nächsten Schritt erweitern wir unseren
+Beispiel-Brief um eine Tabelle von Artikeln mit jeweils einem Preis (wie es z.B. für eine Rechnung notwendig wäre).
 
 Um eine Liste von Artikeln anzuzeigen, benötigen wir zunächst eine Datenstruktur für Artikel:
 
@@ -176,7 +178,7 @@ Tabelle anlegen, die einen Artikel pro Zeile auflistet:
 
 ![Tabellenzeilen wiederholen](/assets/images/posts/docxstamper/table.png)
 
-# Datentypen konvertieren
+# Datentypen Konvertieren
 
 Im Beispiel mit der Artikelliste haben wir den selbstgebauten `Money`-Datentyp verwendet, um einen Geldbetrag
 darzustellen. Platzhalter mit unbekannten Datentypen ersetzt DocxStamper standardmäßig mit dem Ergebnis
@@ -205,10 +207,10 @@ DocxStamper stamper = new DocxStamperConfiguration()
   .build();
 ```
 
-Ist der DocxStamper so konfiguriert, werden alle `Money`-Werte entsprechend der `MoneyTypeResolver`
+Ist der DocxStamper so konfiguriert, werden alle `Money`-Werte entsprechend der Implementierung in `MoneyTypeResolver`
 in Strings konvertiert.
 
-# Fazit
+# Zusammenfassung
 
 DocxStamper ist eine Library, die grundsätzliche Templating-Features für .docx-Dokumente zur Verfügung stellt.
 
