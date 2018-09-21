@@ -134,9 +134,9 @@ folgenden Template korrekt anzeigen:
 
 Im Ergebnis-Dokument wird dann nur eine der beiden Anreden angezeigt und der Kommentar entfernt.
 
-Etwas Vorsicht ist mit Anführungszeichen in den Kommentaren geboten, denn Word macht aus einem "'" automatisch ein
-"‘", was von der SpEL nicht interpretiert werden kann. Am einfachsten kopiert man diese Zeichen aus einem Texteditor
-in das Word-Dokument hinein.
+Etwas Vorsicht ist mit Anführungszeichen in den Kommentaren geboten, denn Word ersetzt Anführungszeichen automatisch
+mit Zeichen, die nicht von der SpEL interpretiert werden können. Um dies zu verhindern, kopiert man diese Zeichen
+einfach aus einem Texteditor in das Word-Dokument hinein.
 
 DocxStamper bietet noch [weitere Methoden](https://github.com/thombergs/docx-stamper#conditional-display-and-repeating-of-elements)
 zur Nutzung in Kommentar-Expressions an, so zum Beispiel auch zur Wiederholung
