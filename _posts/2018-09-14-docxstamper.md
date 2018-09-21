@@ -9,7 +9,7 @@ tags: [docx, word]
 
 Immer mal wieder stolpert man in Projekten über die Anforderung, Word-Dokumente programmatisch zu erzeugen.
 PDF reicht in solchen Fällen oft als Dateiformat nicht aus, weil die Dokumente aus manuell erstellten
-Templates erzeugt werden oder manuell nachbearbeitet werden. Dieser Artikel zeigt, wie man die Open Source Bibliothek
+Templates erzeugt oder manuell nachbearbeitet werden. Dieser Artikel zeigt, wie man die Open Source Bibliothek
 "DocxStamper" nutzen kann, um auf Basis eines Templates aus Java-Code heraus ein Word-Dokument zu erzeugen.
 
 # DocxStamper
@@ -95,9 +95,10 @@ Mit dem folgenden Code können wir aus diesem Template dann ein Dokument für ei
 
 ```java
 BriefContext context = new BriefContext();
-context.setAnrede("Sehr geehrte Frau,")
 Person empfaenger = new Person();
 empfaenger.setName("Müller");
+context.setAnrede("Sehr geehrte Frau,")
+context.setPerson(empfaenger);
 
 InputStream template = ...;  // InputStream, der auf unser Template zeigt
 OutputStream out = ...;      // OutputStream, der auf das Ergebnis-Dokument zeigt
@@ -130,6 +131,10 @@ folgenden Template korrekt anzeigen:
 ![Anrede bedingt anzeigen](/assets/images/posts/docxstamper/anrede2.png)
 
 Im Ergebnis-Dokument wird dann nur eine der beiden Anreden angezeigt und der Kommentar entfernt.
+
+Etwas Vorsicht ist mit Anführungszeichen in den Kommentaren geboten, denn Word macht aus einem "'" automatisch ein
+"‘", was von der SpEL nicht interpretiert werden kann. Am einfachsten kopiert man diese Zeichen aus einem Texteditor
+in das Word-Dokument hinein.
 
 DocxStamper bietet noch [weitere Methoden](https://github.com/thombergs/docx-stamper#conditional-display-and-repeating-of-elements)
 zur Nutzung in Kommentar-Expressions an, so zum Beispiel auch zur Wiederholung
@@ -182,17 +187,16 @@ Im Beispiel mit der Artikelliste haben wir den selbstgebauten `Money`-Datentyp v
 darzustellen. Platzhalter mit unbekannten Datentypen ersetzt DocxStamper standardmäßig mit dem Ergebnis
 der `toString()`-Methode.
 
-In unserem Fall möchten wir den Geldbetrag aber hübsch formatieren, so dass z.B. "42,11 €" angezeigt wird.
+In unserem Fall möchten wir den Geldbetrag aber hübsch formatieren, so dass z.B. "47,11 €" angezeigt wird.
 Um dies zu erreichen, können wir einen eigenen [TypeResolver](https://github.com/thombergs/docx-stamper#replacing-expressions-in-a-docx-template)
 implementieren:
 
 ```java
-public class MoneyTypeResolver implements ITypeResolver<Money, String> {
+public class MoneyTypeResolver extends AbstractToTextResolver<Money> {
 
-	@Override
-	public String resolve(WordprocessingMLPackage document, Money money) {
-		// Money in gewünschten String umwandeln
-	}
+    protected String resolveStringForObject(Money money) {
+        // Money-Objekt in gewünschten String umwandeln...
+    }
 
 }
 ```
