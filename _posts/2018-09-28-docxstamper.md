@@ -1,7 +1,7 @@
 ---
 layout: [post, post-xml]
-title:  "Word-Dokumente aus Templates erzeugen mit DocxStamper"
-date:   2018-09-14 10:25
+title:  "Word-Dokumente aus Templates Erzeugen mit DocxStamper"
+date:   2018-09-28 08:00
 author: thombergs
 categories: [Java]
 tags: [docx, word]
@@ -26,9 +26,9 @@ Die folgende Abbildung veranschaulicht die Arbeitsweise von DocxStamper.
 Wir erstellen ein ganz normales .docx-Dokument, welches als Template dient. In diesem Template
 verwenden wir SpEL-Expressions, um dynamische Inhalte zu definieren.
 
-Im Java Code definieren wir eine Klasse, in der alle dynamischen Inhalte des Dokuments hinterlegt sind. Bei der Generierung
-eines neuen Dokuments dient das Template zusammen mit dieser Kontext-Klasse als Input. Die SpEL-Expressions
-werden dann gegen die Kontext-Klasse ausgewertet und das Ergebnis im neu erzeugten .docx-Dokument
+Im Java Code definieren wir eine Kontext-Klasse, in der alle dynamischen Inhalte des Dokuments hinterlegt sind. Bei der Generierung
+eines neuen Dokuments dient das Template zusammen mit einem Objekt dieser Klasse als Input. Die SpEL-Expressions
+werden dann gegen das Kontext-Objekt ausgewertet und das Ergebnis im neu erzeugten .docx-Dokument
 ausgegeben.
 
 Im Folgenden schauen wir uns einige Features von DocxStamper noch einmal etwas näher an. Wir gehen dabei von
