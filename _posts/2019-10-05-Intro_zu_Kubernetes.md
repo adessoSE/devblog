@@ -135,6 +135,9 @@ Dazu kann man den Befehl
 verwenden.
 Dadurch werden Requests an `localhost:8080` weitergeleitet an den Port 5000 des angegebenen Pods.
 Wenn man also http://localhost:8080/getenv im Browser öffnet, sollte das Wort "nix" angezeigt werden, der default-Wert der Konfigurationsvariable, die wir ausgeben.
+Diese Abbildung zeigt den einfachen Aufbau:
+
+![Clients wenden ich direkt an Pod](/assets/images/posts/intro-zu-kubernetes/k8s-0.png)
 
 ## Services
 Wir können noch einige Pods auf diese Weise erstellen, wobei wir jedes mal den Namen des Pods ändern müssen, was sehr umständlich ist (eine Lösung dazu gibt es später).
@@ -176,6 +179,10 @@ spec:
 ```
 Die Selector-Direktive beschreibt die Labels, die die Pods haben müssen, um von diesem Service erfasst zu werden.
 Port und targetPort zeigen an, das der Service auf Port 8080 läuft und auf die Ports 5000 der Pods weiterleitet.
+Diese Grafik zeigt den momentanen Aufbau:
+
+![Service leitet an Pods weiter](/assets/images/posts/intro-zu-kubernetes/k8s-1.png)
+
 Wir können die Funktion des Services auf die selbe Weise testen, wie die von Pods, mit dem Befehl:
 
 > `kubectl port-forward service/sample-sck-service 8080:8080`
