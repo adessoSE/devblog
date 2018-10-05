@@ -134,7 +134,53 @@ Dazu kann man den Befehl
 
 verwenden.
 Dadurch werden Requests an `localhost:8080` weitergeleitet an den Port 5000 des angegebenen Pods.
-Wenn man die Adresse im Browser öffnet, sollte das Wort "nix" erscheinen, der default-Wert der Konfigurationsvariable, die wir ausgeben.
+Wenn man also http://localhost:8080/getenv im Browser öffnet, sollte das Wort "nix" angezeigt werden, der default-Wert der Konfigurationsvariable, die wir ausgeben.
+
+## Services
+Wir können noch einige Pods auf diese Weise erstellen, wobei wir jedes mal den Namen des Pods ändern müssen, was sehr umständlich ist (eine Lösung dazu gibt es später).
+Die Pods haben immer noch unterschiedliche IPs.
+Wir benötigen also einen Mechanismus zur Service Discovery.
+Dafür gibt es in Kubernetes sogenannte *Services*.
+Ein Service ist nichts anderes als ein Fixpunkt im Cluster, der die Anfragen an die damit verknüpften Pods weiterleitet.
+Dabei achtet ein Service auf alle Pods, die ein bestimmtes *Label* haben, und leitet die Requests an einen dieser Pods weiter.
+Labels sind ein mächtiges Werkzeug in Kubernetes.
+Diese Key-Value-Paare können an alle Arten von Ressourcen angehängt werden und bieten eine flexible Möglichhkeit zur Gruppierung von Ressourcen, inklusive Pods.
+Wenn wir die Pod-Definition von oben um ein Label erweitern:
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: sample-sck
+  labels:
+    app: sample-sck-version1
+spec:
+  containers:
+  - name: sample-sck
+    image: registry.gitlab.com/tbuss/sample-sck/master:778763dd78540773aff9bc21fc3967e6ca3a0cbc
+    ports:
+    - containerPort: 5000
+```
+können wir alle Pods als Gruppe identifizieren.
+Mit diesem Wissen lässt sich leicht ein Service definieren:
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name:  sample-sck-service
+spec:
+  selector:
+    app:  sample-sck-version1
+  ports:
+  - port:  8080
+    targetPort:  5000
+```
+Die Selector-Direktive beschreibt die Labels, die die Pods haben müssen, um von diesem Service erfasst zu werden.
+Port und targetPort zeigen an, das der Service auf Port 8080 läuft und auf die Ports 5000 der Pods weiterleitet.
+Wir können die Funktion des Services auf die selbe Weise testen, wie die von Pods, mit dem Befehl:
+
+> `kubectl port-forward service/sample-sck-service 8080:8080`
+
+Auf http://localhost:8080 sollte jetzt wieder das Wort "nix" zu sehen sein.
 
 ```yaml
 Notizen:
