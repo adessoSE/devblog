@@ -37,11 +37,13 @@ Zur Skalierung müssen mehrere Pods gestartet werden, unter denen sich die Last 
 Diese Probleme nennt man "Service Discovery" und "Load Balancing" und sind in vielen verteilten Anwendungen präsent.
 
 # Zielsetzung
+Konkretisieren wir unser Ziel noch einmal mit den neuen Begriffen, die wir gerade kennen gelernt haben.
 Das Ziel in diesem Blogpost soll es sein, einen REST-Service in einem Kubernetes Cluster bereitzustellen.
 Clients im selben Cluster können eine URI aufrufen und erhalten die erwartete Antwort.
 Wir programmieren eine einfache Anwendung, der den Wert einer Konfigurationsvariablen ausgibt.
-Es soll außerdem sichergestellt werden, dass bei einem Absturz der Anwendung automatisch eine neue Instanz gestartet wird.
-Zudem soll gewährleistet werden, dass während des Ausfalls einer Instanz die Last auf andere Instanzen so verteilt wird, dass der Ausfall von außen quasi nicht zu sehen ist.
+Diese packen wir in einige Pods, die in unserem Cluster laufen.
+Es soll sichergestellt werden, dass bei einem Absturz eines Pods automatisch ein neuer Pod gestartet wird.
+Zudem soll gewährleistet werden, dass die Last auf alle aktiven Pods verteilt wird, sodass der Ausfall eines Pods von außen quasi nicht zu erkennen ist.
 
 # Die Tools
 Schauen wir uns die Tools an, mit denen wir unser Beispiel durchführen werden.
@@ -100,6 +102,39 @@ Normalerweise würde an dieser Stelle jetzt die Erstellung eines Dockerfiles kom
 Da Gitlab allerdings schlau ist und erkennt, dass es sich um ein Gradle-Projekt handelt, kann es das Dockerfile-Schreiben für uns übernehmen.
 Die Anwendung wird automatisch gebaut und ein Docker-Image erstellt.
 Den Link zum aktuellen Image findet man [hier](https://gitlab.com/tbuss/sample-sck/container_registry).
+
+## Pods manuell starten und prüfen
+Wir können jetzt einen oder mehrere Pods in unserem Cluster manuell erstellen.
+Für die Kubernetes-Ressourcen benutzen wir deklarative YAML-Dateien.
+Das hat den Vorteil, dass wir den gewünschten Status unserer Infrastruktur beschreiben können und Kubernetes sich darum kümmert, dass der Status aufrecht erhalten wird.
+Die YAML-Datei für einen einfachen Pod sieht folgendermaßen aus:
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: sample-sck
+spec:
+  containers:
+  - name: sample-sck
+    image: registry.gitlab.com/tbuss/sample-sck/master:778763dd78540773aff9bc21fc3967e6ca3a0cbc
+    ports:
+    - containerPort: 5000
+```
+Um den spezifizierten Pod zu erstellen, muss man die YAML-Datei unter `sample-sck.yaml` abspeichern und den Befehl
+
+> `kubectl create -f sample-sck.yaml` 
+
+ausführen.
+Mit `kubectl get pods` oder dem Dashboard kann man sehen, dass der Pod ausgeführt wird.
+Der Pod wird also ausgeführt, aber wie lässt sich erkennen, dass alles wie erwartet funktioniert?
+Die IP des Pods ist schließlich eine interne IP des Clusters, worauf man von außen keinen Zugriff hat.
+Dazu kann man den Befehl
+
+> `kubectl port-forward pod/sample-sck 8080:5000` 
+
+verwenden.
+Dadurch wird Requests an `localhost:8080` weitergeleitet an den Port 5000 des angegebenen Pods.
+Wenn man die Adresse im Browser öffnet, sollte das Wort "nix" erscheinen, der default-Wert der Konfigurationsvariable, die wir ausgeben.
 
 ```yaml
 Notizen:
