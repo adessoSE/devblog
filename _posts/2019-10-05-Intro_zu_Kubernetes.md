@@ -39,7 +39,7 @@ Diese Probleme nennt man "Service Discovery" und "Load Balancing" und sind in vi
 # Zielsetzung
 Das Ziel in diesem Blogpost soll es sein, einen REST-Service in einem Kubernetes Cluster bereitzustellen.
 Clients im selben Cluster können eine URI aufrufen und erhalten die erwartete Antwort.
-Wir programmieren einen einfachen Service, der den Wert einer Umgebungsvariable ausgibt.
+Wir programmieren eine einfache Anwendung, der den Wert einer Konfigurationsvariablen ausgibt.
 Es soll außerdem sichergestellt werden, dass bei einem Absturz der Anwendung automatisch eine neue Instanz gestartet wird.
 Zudem soll gewährleistet werden, dass während des Ausfalls einer Instanz die Last auf andere Instanzen so verteilt wird, dass der Ausfall von außen quasi nicht zu sehen ist.
 
@@ -94,7 +94,6 @@ class EnvironmentVariableController {
     @GetMapping("/getenv")
     fun getEnvironmentVariable() = this.envVar
 }
-
 ```
 Das Repository mit dem gesamten Quellcode ist [hier](https://gitlab.com/tbuss/sample-sck) zu finden.
 Normalerweise würde an dieser Stelle jetzt die Erstellung eines Dockerfiles kommen.
