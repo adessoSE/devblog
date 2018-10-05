@@ -39,6 +39,7 @@ Diese Probleme nennt man "Service Discovery" und "Load Balancing" und sind in vi
 # Zielsetzung
 Das Ziel in diesem Blogpost soll es sein, einen REST-Service in einem Kubernetes Cluster bereitzustellen.
 Clients im selben Cluster können eine URI aufrufen und erhalten die erwartete Antwort.
+Wir programmieren einen einfachen Service, der den Wert einer Umgebungsvariable ausgibt.
 Es soll außerdem sichergestellt werden, dass bei einem Absturz der Anwendung automatisch eine neue Instanz gestartet wird.
 Zudem soll gewährleistet werden, dass während des Ausfalls einer Instanz die Last auf andere Instanzen so verteilt wird, dass der Ausfall von außen quasi nicht zu sehen ist.
 
@@ -60,7 +61,46 @@ Dazu dient das Kommandozeilentool `kubectl`.
 Mit `kubectl get pods` können wir uns beispielsweise alle Pods anzeigen lassen, die gerade laufen.
 Wer kein Freund von Kommandozeilentools ist, kann sich mit dem Kubernetes Dashboard weiterhelfen.
 Dazu gibt man das Kommando `minikube dashboard` ein, woraufhin sich der Browser öffnet und das Dashboard anzeigt.
-Hier lassen sich Informationen zu allen Kubernetes Ressourcen anzeigen, die aktuell 
+Hier lassen sich Informationen zu allen Kubernetes Ressourcen anzeigen, die aktuell auf dem Cluster ausgeführt werden.
+Wir kennen bereits Services und Pods.
+Auf einige anderen Arten von Ressourcen wird später noch eingegangen.
+
+## Kotlin und Spring
+Als Programmiersprache für unsere Beispielanwendung werden wir Kotlin verwenden.
+Spring ist ein sehr beliebtes Framework für Webanwendungen auf Basis der JVM und eignet sich perfekt für unsere Zwecke:
+Wir benötigen einen einfachen REST-Endpunkt und müssen eine Umgebungsvariable auslesen.
+Beides lässt sich mit Spring relativ leicht bewerkstelligen.
+
+## Docker
+Kubernetes verwaltet Container und die beliebteste Software für Container ist Docker.
+Docker an sich ist bereits ein riesiges Themengebiet, weshalb wir an dieser Stelle nicht weiter darauf eingehen können.
+Soviel sei gesagt: Wir erstellen ein Docker-Image (eine Art Container-Blaupause) für unsere Spring-Anwendung und laden sie in eine Registry hoch (ich verwende GitLabs Docker Registry).
+Der Cluster wird bei der Erstellung von Pods dieses Image runterladen und für die Container verwenden.
+
+# Let's Go!
+Genug der Theorie, gehen wir ans Werk.
+
+## Die Spring Anwendung
+Die Anwendung ist denkbar simpel, sodass wir uns nicht lange mit Erklärungen aufhalten.
+Die interessante Stelle im Quellcode ist die Folgende:
+
+```kotlin
+@RestController
+class EnvironmentVariableController {
+
+    @Value("\${SOME_ENV_VAR}")
+    lateinit var envVar: String
+
+    @GetMapping("/getenv")
+    fun getEnvironmentVariable() = this.envVar
+}
+
+```
+Das Repository mit dem gesamten Quellcode ist [hier](https://gitlab.com/tbuss/sample-sck) zu finden.
+Normalerweise würde an dieser Stelle jetzt die Erstellung eines Dockerfiles kommen.
+Da Gitlab allerdings schlau ist und erkennt, dass es sich um ein Gradle-Projekt handelt, kann es das Dockerfile-Schreiben für uns übernehmen.
+Die Anwendung wird automatisch gebaut und ein Docker-Image erstellt.
+Den Link zum aktuellen Image findet man [hier](https://gitlab.com/tbuss/sample-sck/container_registry).
 
 ```yaml
 Notizen:
