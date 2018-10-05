@@ -133,7 +133,7 @@ Dazu kann man den Befehl
 > `kubectl port-forward pod/sample-sck 8080:5000` 
 
 verwenden.
-Dadurch wird Requests an `localhost:8080` weitergeleitet an den Port 5000 des angegebenen Pods.
+Dadurch werden Requests an `localhost:8080` weitergeleitet an den Port 5000 des angegebenen Pods.
 Wenn man die Adresse im Browser öffnet, sollte das Wort "nix" erscheinen, der default-Wert der Konfigurationsvariable, die wir ausgeben.
 
 ```yaml
