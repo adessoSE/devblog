@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<documents>
+    <document uid="53fc2d06ffb9f026feddc94895005620">
+        <field name="title"><![CDATA[adesso testing day 2018]]></field>
+        <field name="subline"><![CDATA[]]></field>
+        <field name="teaser"><![CDATA[<p>In diesem Jahr feierte der adesso testing day mit seiner inzwischen fünften Auflage in Dortmund ein kleines Jubiläum. Beim adesso testing day handelt es sich um eine adesso-interne Konferenz zum Austausch zwischen allen am Thema Testing interessierten adessi – Bereichs- und Geschäftsstellenübergreifend.</p>
+
+]]></field>
+        <field name="language_multi_keyword"><![CDATA[de]]></field>
+        <field name="content_type_multi_keyword"><![CDATA[blog]]></field>
+        <field name="mime_type_multi_keyword"><![CDATA[text/html]]></field>
+        <field name="category_multi_keyword"><![CDATA[Branchen & People]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Testing]]></field>
+        <field name="date_date"><![CDATA[2018-09-06T10:25:00+02:00]]></field>
+        <field name="date_l"><![CDATA[1536222300000]]></field>
+        <field name="change_date"><![CDATA[1536222300000]]></field>
+        <!--Picture-->
+        <!-- Not in use at the moment-->
+        <!--Author Information-->
+        <field name="author_first_name"><![CDATA[Stephan]]></field>
+        <field name="author_last_name"><![CDATA[Wacker]]></field>
+        <field name="author_id"><![CDATA[stwacker]]></field>
+        <field name="author_picture_stored_only"><![CDATA[http://localhost:4000/assets/images/avatars/stwacker.png]]></field>
+        <!--Postcontent-->
+        <field name="headlines"><![CDATA[adesso testing day 2018]]></field>
+        <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
+            <p>In diesem Jahr feierte der adesso testing day mit seiner inzwischen fünften Auflage in Dortmund ein kleines Jubiläum. Beim adesso testing day handelt es sich um eine adesso-interne Konferenz zum Austausch zwischen allen am Thema Testing interessierten adessi – Bereichs- und Geschäftsstellenübergreifend.</p>
+
+</div>]]></field>
+        <field name="content"><![CDATA[<div class="adesso-text-formate">
+<div class="row p-t-2">
+<div class="adesso-container">
+<div class="col-xl-8 adesso-center p-b-1 p-l-0 p-r-0">
+    <p>In diesem Jahr feierte der adesso testing day mit seiner inzwischen fünften Auflage in Dortmund ein kleines Jubiläum. Beim adesso testing day handelt es sich um eine adesso-interne Konferenz zum Austausch zwischen allen am Thema Testing interessierten adessi – Bereichs- und Geschäftsstellenübergreifend.</p>
+
+<h4 id="großes-interesse-am-thema-testing">Großes Interesse am Thema Testing</h4>
+
+<p>Auch dieses Jahr stieß der adesso testing day wieder auf reges Interesse. Neben Teilnehmern der adesso AG waren diesmal auch Vertreter der adesso mobile solutions, der adesso insurance solutions und auch der adesso Türkei anwesend – insgesamt von 12 Standorten. 
+Daher wird der testing day traditionell auch für die Pflege des persönlichen Netzwerks und dem gegenseitigen Austausch genutzt.</p>
+
+<p><img src="/assets/images/posts/adesso-testing-day-2018/1805407.JPG" alt="Networking auf dem Testing Day" /></p>
+
+<h4 id="fachvorträge-zu-testmanagement-und-testautomatisierung">Fachvorträge zu Testmanagement und Testautomatisierung</h4>
+
+<p>Es gab Fachvorträge zu Testwerkzeugen ebenso wie zum Testmanagement. So berichtete Christian Heinrich über den Einsatz des Behaviour Driven Development Frameworks <a href="https://cucumber.io/">Cucumber</a> in seinem Projekt („Gurken bei der GEMA“) und Aksana Matulskaya beschrieb die Lessons Learned im Großprojekt Core Banking Transformation bei der Postfinance AG. Oral Avci erläuterte in seinem Vortrag “adesso Defect Causal Analysis - Warum lernen wir nicht mehr aus Fehlern in der Softwareentwicklung?” ein konkretes Vorgehen um Fehlermuster zu erkennen und gezielt Gegenmaßnahmen zur präventiven Bekämpfung der Fehlerursachen zu ergreifen.
+Ein wenig technischer ging es bei den Vorträgen von Togoldor Dashnyam und Eliza Danila zu, die die Testwerkzeuge <a href="https://www.cypress.io/">Cypress.io</a> bzw. das <a href="http://galenframework.com/">Galen Framework</a> vorstellten.</p>
+
+<p><img src="/assets/images/posts/adesso-testing-day-2018/1805420.JPG" alt="Fachvortrag von Oral Avci" /></p>
+
+<h4 id="testing-community-themen">Testing Community Themen</h4>
+
+<p>Neben den Fachvorträgen wurden auch Themenvorschläge aus der Testing Community gemeinsam erarbeitet. Moderiert von Christian Stensel beschäftigte sich eine Gruppe mit den Herausforderungen beim Testing von IoT-Anwendungen. Das während der Fachvorträge bereits mehrfach angeklungene Thema Testautomatisierung wurde in der Gruppe von Tim Abrams und Luiza Dyusembaeva aufgegriffen und über falsche Erwartungen versus den tatsächlichen Nutzen diskutiert („Testautomatisierung – Heiliger Gral oder Mittel der Wahl?“). Paulina Lipinski moderierte einen Erfahrungsaustausch beim Wechsel der Teststrategie vom V-Modell zu Scrum, das auch Thema Ihrer Abschlussarbeit ist. Direkt ausprobieren konnten interessierte Teilnehmer unter Anleitung von Markus Höber den Aufbau einer Continuous-Integration/-Delivery Toolkette, bei der die Testausführung unter <a href="https://software.microfocus.com/de-de/products/unified-functional-automated-testing/overview">HP UFT</a> von <a href="https://jenkins.io/">Jenkins</a> gestartet wurde und die Ergebnisse nach <a href="https://www.getxray.app/">Jira/XRay</a> übertragen werden.</p>
+
+<p><img src="/assets/images/posts/adesso-testing-day-2018/1805456.JPG" alt="Diskussion auf dem Testing Day" /></p>
+
+<p>Auch die Pausen wurden intensiv für den persönlichen Austausch genutzt.</p>
+
+<h4 id="rundum-gelungene-veranstaltung">Rundum Gelungene Veranstaltung</h4>
+
+<p>Es war wie jedes Jahr eine rundum gelungene Veranstaltung, die mit 65 Teilnehmern so langsam an die räumlichen Kapazitätsgrenzen stößt. 
+Wir freuen uns schon auf den testing day 2019!</p>
+
+</div>
+</div>
+</div>
+</div>]]></field>
+    </document>
+</documents>

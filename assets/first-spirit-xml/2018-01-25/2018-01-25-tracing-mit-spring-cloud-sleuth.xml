@@ -23,7 +23,7 @@ umzusetzen.</p>
         <field name="date_l"><![CDATA[1516878060000]]></field>
         <field name="change_date"><![CDATA[1516878060000]]></field>
         <!--Picture-->
-        <!-- Not in use in the moment-->
+        <!-- Not in use at the moment-->
         <!--Author Information-->
         <field name="author_first_name"><![CDATA[Tom]]></field>
         <field name="author_last_name"><![CDATA[Hombergs]]></field>
@@ -45,7 +45,15 @@ umzusetzen.</p>
 <div class="row p-t-2">
 <div class="adesso-container">
 <div class="col-xl-8 adesso-center p-b-1 p-l-0 p-r-0">
-    <h4 id="traceability-in-verteilten-systemen">Traceability in verteilten Systemen</h4>
+    <p>In verteilten Systemen ist es selbstverständlich, dass viele verteilte Komponenten
+an der Beantwortung eines einzelnen eingehenden Requests beteiligt sein können. Insbesondere für 
+Debugging-Zwecke ist es unabdingbar, dass ein solcher Request<br />
+innerhalb des verteilten Systems über alle beteiligten Komponenten hinweg nachvollzogen
+werden kann. Dieser Artikel geht auf die Traceability von Requests und Fehlern in verteilten Systemen
+ein und gibt einige Tipps und Tricks mit, um eine Lösung auf Basis von Spring Cloud Sleuth 
+umzusetzen.</p>
+
+<h4 id="traceability-in-verteilten-systemen">Traceability in verteilten Systemen</h4>
 
 <p>Selbst in einem monolithischen System ist die Verfolgung von Fehlern oft schon schwer genug. Um die Ursache eines
 Fehlers zu finden, durchsucht man die Logfiles der Application Server rund um den Zeitpunkt, zu dem der
