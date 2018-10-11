@@ -7,7 +7,8 @@ categories:     [Softwareentwicklung]
 tags:           [cloud, kubernetes]
 ---
 Die Container-Orchestrierungs-Lösung Kubernetes ist das wohlmöglich am stärksten gewachsene Open Source Projekt der letzten Jahre.
-Alle großen Cloud-Anbieter wie Google, Amazon, Microsoft und weitere bieten heutzutage Kubernetes-Instanzen an.
+Container-Orchestrierung, das bedeutet das Management von hunderten lose gekoppelten Anwendungs-Container, die zusammen miteinander interagieren müssen.
+Alle großen Cloud-Anbieter wie Google, Amazon, Microsoft und weitere bieten heutzutage Kubernetes-Instanzen an und unzählige Firmen lagern ihre Anwendungen auf Kubernetes-gestützten Clustern aus.
 Grund genug, sich einmal näher mit Kubernetes und Konzepten dahinter zu beschäftigen.
 
 # Einführung in Kubernetes
@@ -26,14 +27,16 @@ Die Wörtchen "oder mehrere" können dabei leicht zu Verwirrung führen.
 In einer Microservices-Anwendung korrespondiert ein Pod zu einem Microservice, also meistens auch einem Container.
 Es gibt verschiedene Fälle, in denen man gleich mehrere Container in einem Pod starten möchte.
 Dies soll jedoch nicht Inhalt dieses Blogposts sein.
+Da die Nodes miteinander ein virtuelles Netzwerk bilden und verbunden sind, kann es uns grundsätzlich egal sein, auf welchem Node ein Pod läuft.
+Kubernetes verteilt automatisch die Pods auf solche Nodes, die im Moment weniger Last als die anderen haben.
 
 Pods sind kurzlebig.
-Sie werden erstellt, bekommen eine interne IP und führen ihre Container aus.
+Sie werden erstellt, bekommen eine interne IP im virtuellen Netzwerk und führen ihre Container aus.
 Wenn ein Pod beendet wird oder abstürzt, werden lokale Daten und Speicher gelöscht.
-Die IP des Pods kann nun von beliebigen anderen Pods verwendet werden.
+Die IP des Pods kann nun von beliebigen anderen Pods, die der Cluster startet, verwendet werden.
 Es stellt sich also die Frage, wie man eine Anwendung erreichen kann, wenn die interne IP nicht als fest angenommen werden kann.
-Zudem ist es für Anwendungen mit hoher Last nicht möglich, alle Anfragen von nur einer Instanz abwickeln zu lassen.
-Zur Skalierung müssen mehrere Pods gestartet werden, unter denen sich die Last aufteilt.
+Zudem ist es für Anwendungen mit hoher Last nicht möglich, alle Anfragen von nur einer Container-Instanz abwickeln zu lassen.
+Zur Skalierung müssen mehrere identische Pods gestartet werden, unter denen sich die Last aufteilt.
 Diese Probleme nennt man "Service Discovery" und "Load Balancing" und sind in vielen verteilten Anwendungen präsent.
 
 # Zielsetzung
@@ -59,16 +62,17 @@ Normalerweise sind die Master-Prozesse auf designierten Nodes.
 Mit VirtualBox habe ich wesentlich bessere Erfahrungen gemacht und möchte es daher jedem ans Herz legen.*
 
 Nachdem ein lokaler Cluster nach den Anweisungen auf der Minikube-Website installiert und gestartet wurde, können wir uns schon ein wenig in unserem Cluster umsehen.
-Dazu dient das Kommandozeilentool `kubectl`.
+Dazu dient das Kommandozeilentool `kubectl`, dass bei der Installation von Minikube mit installiert wird.
 Mit `kubectl get pods` können wir uns beispielsweise alle Pods anzeigen lassen, die gerade laufen.
 Wer kein Freund von Kommandozeilentools ist, kann sich mit dem Kubernetes Dashboard weiterhelfen.
 Dazu gibt man das Kommando `minikube dashboard` ein, woraufhin sich der Browser öffnet und das Dashboard anzeigt.
 Hier lassen sich Informationen zu allen Kubernetes Ressourcen anzeigen, die aktuell auf dem Cluster ausgeführt werden.
-Wir kennen bereits Services und Pods.
+Wir kennen bereits Nodes und Pods.
 Auf einige anderen Arten von Ressourcen wird später noch eingegangen.
 
 ## Kotlin und Spring
 Als Programmiersprache für unsere Beispielanwendung werden wir Kotlin verwenden.
+Kotlin ist eine moderne Programmiersprache für die JVM und alle coolen Kinder benutzen sie, also machen wir das auch!
 Spring ist ein sehr beliebtes Framework für Webanwendungen auf Basis der JVM und eignet sich perfekt für unsere Zwecke:
 Wir benötigen einen einfachen REST-Endpunkt und müssen eine Umgebungsvariable auslesen.
 Beides lässt sich mit Spring relativ leicht bewerkstelligen.
@@ -99,14 +103,15 @@ class EnvironmentVariableController {
 ```
 Das Repository mit dem gesamten Quellcode ist [hier](https://gitlab.com/tbuss/sample-sck) zu finden.
 Normalerweise würde an dieser Stelle jetzt die Erstellung eines Dockerfiles kommen.
-Da Gitlab allerdings schlau ist und erkennt, dass es sich um ein Gradle-Projekt handelt, kann es das Dockerfile-Schreiben für uns übernehmen.
-Die Anwendung wird automatisch gebaut und ein Docker-Image erstellt.
+Da Gitlab allerdings schlau ist und erkennt, dass es sich um ein Gradle-Projekt handelt, kann es das Schreiben des Dockerfiles für uns übernehmen.
+Die Anwendung wird automatisch gebaut und ein Docker-Image erstellt und in die Registry geladen.
 Den Link zum aktuellen Image findet man [hier](https://gitlab.com/tbuss/sample-sck/container_registry).
 
 ## Pods manuell starten und prüfen
 Wir können jetzt einen oder mehrere Pods in unserem Cluster manuell erstellen.
-Für die Kubernetes-Ressourcen benutzen wir deklarative YAML-Dateien.
-Das hat den Vorteil, dass wir den gewünschten Status unserer Infrastruktur beschreiben können und Kubernetes sich darum kümmert, dass der Status aufrecht erhalten wird.
+Für alle Kubernetes-Ressourcen benutzen wir deklarative YAML-Dateien.
+Dies hat den Vorteil, dass wir unser Setup als Dateien abspeichern und in ein eigenes Git-Repository speichern können.
+Kubernetes ließt den gewünschten Status aus den Dateien aus und kümmert sich für uns dafür, dass dieser Status aufrecht erhalten wird.
 Die YAML-Datei für einen einfachen Pod sieht folgendermaßen aus:
 ```yaml
 apiVersion: v1
@@ -119,14 +124,23 @@ spec:
     image: registry.gitlab.com/tbuss/sample-sck/master:778763dd78540773aff9bc21fc3967e6ca3a0cbc
     ports:
     - containerPort: 5000
+    env:
+      - name: SOME_ENV_VAR
+        value: Foo
 ```
+Die YAML-Dateien in Kubernetes starten immer mit Meta-Informationen über die API, die benutzt wird und die Art von Ressource, die erstellt werden soll.
+Auch ein Name wird angegeben.
+Danach folgt die Spezifizierung des Pods, wo wir nicht nur das Image und den Namen angeben, sondern auch den Port der Anwendung (den müssen wir vorher wissen!) und die Umgebungsvariable, die wir nachher ausgegeben haben möchten.
+
 Um den spezifizierten Pod zu erstellen, muss man die YAML-Datei unter `sample-sck.yaml` abspeichern und den Befehl
 
 > `kubectl create -f sample-sck.yaml` 
 
 ausführen.
+Alternativ kann man auch im Dashboard rechts oben auf "Create" klicken und die Datei dort hochladen.
 Mit `kubectl get pods` oder dem Dashboard kann man sehen, dass der Pod ausgeführt wird.
-Der Pod wird also ausgeführt, aber wie lässt sich erkennen, dass alles wie erwartet funktioniert?
+
+Der Pod läuft also, aber wie lässt sich erkennen, dass alles wie erwartet funktioniert?
 Die IP des Pods ist schließlich eine interne IP des Clusters, worauf man von außen keinen Zugriff hat.
 Dazu kann man den Befehl
 
@@ -134,28 +148,30 @@ Dazu kann man den Befehl
 
 verwenden.
 Dadurch werden Requests an `localhost:8080` weitergeleitet an den Port 5000 des angegebenen Pods.
-Wenn man also http://localhost:8080/getenv im Browser öffnet, sollte das Wort "nix" angezeigt werden, der default-Wert der Konfigurationsvariable, die wir ausgeben.
-Diese Abbildung zeigt den einfachen Aufbau:
+Wenn man also http://localhost:8080/getenv im Browser öffnet, sollte das Wort "Foo" angezeigt werden, den Wert der Umgebungsvariable, die wir in der Definition des Pods angebenen haben.
+Abbildung 1 zeigt den einfachen Aufbau:
 
-![Clients wenden ich direkt an Pod](/assets/images/posts/intro-zu-kubernetes/k8s-0.png)
+![Clients wenden ich direkt an Pod](/assets/images/posts/intro-zu-kubernetes/k8s-0.png "Abbildung 1")
 
 ## Services
 Wir können noch einige Pods auf diese Weise erstellen, wobei wir jedes mal den Namen des Pods ändern müssen, was sehr umständlich ist (eine Lösung dazu gibt es später).
 Die Pods haben immer noch unterschiedliche IPs.
+Daher kann ein Client unserer Anwendung nicht zu einem zentralen Punkt im Cluster navigieren und dort die Anwendung aufrufen.
 Wir benötigen also einen Mechanismus zur Service Discovery.
 Dafür gibt es in Kubernetes sogenannte *Services*.
 Ein Service ist nichts anderes als ein Fixpunkt im Cluster, der die Anfragen an die damit verknüpften Pods weiterleitet.
 Dabei achtet ein Service auf alle Pods, die ein bestimmtes *Label* haben, und leitet die Requests an einen dieser Pods weiter.
 Labels sind ein mächtiges Werkzeug in Kubernetes.
 Diese Key-Value-Paare können an alle Arten von Ressourcen angehängt werden und bieten eine flexible Möglichhkeit zur Gruppierung von Ressourcen, inklusive Pods.
-Wenn wir die Pod-Definition von oben um ein Label erweitern:
+Wenn wir die Pod-Definition von oben um Labels erweitern, können wir alle Pods als Gruppe identifizieren:
 ```yaml
 apiVersion: v1
 kind: Pod
 metadata:
   name: sample-sck
   labels:
-    app: sample-sck-version1
+    app: sample-sck
+    version: v1
 spec:
   containers:
   - name: sample-sck
@@ -163,7 +179,6 @@ spec:
     ports:
     - containerPort: 5000
 ```
-können wir alle Pods als Gruppe identifizieren.
 Mit diesem Wissen lässt sich leicht ein Service definieren:
 ```yaml
 apiVersion: v1
@@ -172,12 +187,13 @@ metadata:
   name:  sample-sck-service
 spec:
   selector:
-    app:  sample-sck-version1
+    app:  sample-sck
   ports:
   - port:  8080
     targetPort:  5000
 ```
 Die Selector-Direktive beschreibt die Labels, die die Pods haben müssen, um von diesem Service erfasst zu werden.
+Wir geben bewusst nur das `app`-Label an, damit unser Service zu allen Versionen der Anwendung weiterleitet (dazu später mehr).
 Port und targetPort zeigen an, das der Service auf Port 8080 läuft und auf die Ports 5000 der Pods weiterleitet.
 Diese Grafik zeigt den momentanen Aufbau:
 
@@ -187,7 +203,7 @@ Wir können die Funktion des Services auf die selbe Weise testen, wie die von Po
 
 > `kubectl port-forward service/sample-sck-service 8080:8080`
 
-Auf http://localhost:8080 sollte jetzt wieder das Wort "nix" zu sehen sein.
+Auf http://localhost:8080 sollte jetzt wieder das Wort "Foo" zu sehen sein.
 
 ```yaml
 Notizen:
