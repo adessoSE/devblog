@@ -112,6 +112,7 @@ Wir können jetzt einen oder mehrere Pods in unserem Cluster manuell erstellen.
 Für alle Kubernetes-Ressourcen benutzen wir deklarative YAML-Dateien.
 Dies hat den Vorteil, dass wir unser Setup als Dateien abspeichern und in ein eigenes Git-Repository speichern können.
 Kubernetes ließt den gewünschten Status aus den Dateien aus und kümmert sich für uns dafür, dass dieser Status aufrecht erhalten wird.
+Einfach ausgedrückt: "Was will ich haben?" anstatt "Was muss passieren?".
 Die YAML-Datei für einen einfachen Pod sieht folgendermaßen aus:
 ```yaml
 apiVersion: v1
@@ -199,29 +200,65 @@ Diese Grafik zeigt den momentanen Aufbau:
 
 ![Service leitet an Pods weiter](/assets/images/posts/intro-zu-kubernetes/k8s-1.png)
 
+Speichern wir die Datei unter `sample-sck-service.yaml` ab und erstellen den Service mit:
+
+> `kubectl create -f sample-sck-service.yaml`
+
 Wir können die Funktion des Services auf die selbe Weise testen, wie die von Pods, mit dem Befehl:
 
 > `kubectl port-forward service/sample-sck-service 8080:8080`
 
 Auf http://localhost:8080 sollte jetzt wieder das Wort "Foo" zu sehen sein.
 
+## Deployments
+Bisher haben wir Pods immer nur manuell erstellt.
+Da dies auf Dauer zu mühselig wird, kann man sich denken.
+Wir können auf diese Weise nicht automatisch Pods starten und ständig den Namen ändern.
+Um diese Probleme zu lösen gibt es *Deployments*.
+Mit Deployments geben wir einerseits eine "Schablone" für unsere Pods an (wie bei der manuellen Definition von Pods) und andererseits die gewünschte Anzahl der Pods.
+
+Hier ist die Definition eines Deployments:
+```yaml
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: sample-sck-deployment
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: sample-sck
+        version: v1
+    spec:
+      containers:
+      - name: sample-sck
+        image: registry.gitlab.com/tbuss/sample-sck/master:778763dd78540773aff9bc21fc3967e6ca3a0cbc
+        ports:
+          - containerPort: 5000
+```
+Wir beschreiben die Anzahl mit `replicas`; hier sind es zwei.
+Der Rest der Definition sollte uns schon bekannt vorkommen.
+
+Speichern wir diese Datei unter `sample-sck-deployment.yaml` ab und erstellen das Deployment:
+
+> `kubectl create -f sample-sck-deployment.yaml`
+
+Wenn wir im Dashboard auf "Workload" gehen, dann sehen wir die Ressourcen, die durch das Deployment erstellt wurden.
+Darunter sind nicht nur das Deployment, sondern auch die Pods (dessen Name durch einen kryptischen Zusatz erweitert wurde) und ein sogenanntes *ReplicaSet*.
+Diese werden intern von Deployments genutzt, um die Anzahl der Pods zu einem Deployment sicherzustellen.
+
 ```yaml
 Notizen:
-- Cluster/Nodes/Master definieren (Hinweis auf Pods)
 - Ziel Service für andere im Cluster unter DNS-Namen bereitstellen
-- Untere Ebene Pods (stateless, können erscheinen und wieder verschwinden)
 - Manuell starten ist doof -> "Deployment"
-	- Als YAML-Datei, Deklarative Beschreibung der Infrastruktur "Was will - - ich haben?" anstatt "Was muss passieren?"
 	- beschreibt welche Pods mit welchen Containern laufen sollen
 	- beschreibt auch Image
 	- beschreibt auch Anzahl (Replicas)
-- Service leitet anfragen an alle Pods, die Label haben (weiß nichts von "Deployment")
-- Service als Datei erstellen oder per CLI?
 - Deployment nutzt intern sog. ReplicaSets
 	Beispiel auf neue Version updaten -> neues ReplicaSet fährt hoch, altes fährt runter
 
 ########## TEIL 2 (?) ##########
 ConfigMaps:
 	- Umgebungsvariablen in Pods injizieren
-	- App also so bauen, dass hauptsächlich auf Umgebungsvariablen geguckt wird
 ```
