@@ -1,10 +1,10 @@
-shahin:
+shsanayei:
   first_name: Shahin
   last_name: Sanayei
   github_username: shsanayei
-  email: shsanayei.gh@gmail.com
-  bio: "Google is your friend."
-  avatar_url: /assets/images/avatars/shahin.png
+  email: shahin.sanayei@adesso.de
+  bio: "Shahin Sanayei ist Softwareengineer bei adesso in Dortmund und entwickelt Software für das Beschaffungsamt des Bundesministeriums des Innern."
+  avatar_url: /assets/images/avatars/shsanayei.png
   github: https://github.com/shsanayei
 
 david:
