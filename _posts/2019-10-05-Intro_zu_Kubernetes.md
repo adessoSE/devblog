@@ -169,7 +169,7 @@ Wenn wir die Pod-Definition von oben um Labels erweitern, können wir alle Pods 
 apiVersion: v1
 kind: Pod
 metadata:
-  name: sample-sck
+  name: sample-sck1
   labels:
     app: sample-sck
     version: v1
@@ -179,6 +179,9 @@ spec:
     image: registry.gitlab.com/tbuss/sample-sck/master:778763dd78540773aff9bc21fc3967e6ca3a0cbc
     ports:
     - containerPort: 5000
+    env:
+      - name: SOME_ENV_VAR
+        value: Foo
 ```
 Mit diesem Wissen lässt sich leicht ein Service definieren:
 ```yaml
@@ -216,6 +219,19 @@ Glücklicherweise können wir über Minikube schnell an die URL kommen, über de
 > `http://192.168.99.100:31862`
 
 Unter dieser Adresse sollte jetzt wieder das Wort "Foo" zu sehen sein.
+
+Beenden wir einmal alle Pods, die wir gerade gestartet haben:
+> `kubectl get pods -l app=sample-sck -o json | kubectl delete -f -`
+
+Nun definieren wir zwei Pods, jeweils mit den Werten `Foo` und `Bar ` für `SOME_ENV_VAR`, in den zwei unterschiedlichen Dateien: `sample-sck1.yaml` und `sample-sck2.yaml`.
+Anschließend starten wir die Pods:
+
+> `kubectl create -f sample-sck1.yaml -f sample-sck2.yaml`
+
+Wenn wir nun ein paar mal die URL des Service aufrufen, wird manchmal der eine, manchmal der andere Wert angezeigt.
+Wir können auch beobachten, was passiert, wenn ein Pod entfernt wird.
+Der Service leitet die Anfragen an den verbleibenden Service weiter, ohne, dass zwischenzeitlich ein Ausfall zu vermerken ist.
+Unser Service funktioniert also.
 
 ## Deployments
 Bisher haben wir Pods immer nur manuell erstellt.
@@ -257,13 +273,10 @@ Diese werden intern von Deployments genutzt, um die Anzahl der Pods zu einem Dep
 
 ```yaml
 Notizen:
-- Ziel Service für andere im Cluster unter DNS-Namen bereitstellen
 - Manuell starten ist doof -> "Deployment"
-	- beschreibt welche Pods mit welchen Containern laufen sollen
-	- beschreibt auch Image
-	- beschreibt auch Anzahl (Replicas)
 - Deployment nutzt intern sog. ReplicaSets
-	Beispiel auf neue Version updaten -> neues ReplicaSet fährt hoch, altes fährt runter
+  Beispiel auf neue Version updaten -> neues ReplicaSet fährt hoch, altes fährt runter
+  WTF?! Connection Refused bei Port Forwarding? Geht nach einer Weile...
 
 ########## TEIL 2 (?) ##########
 ConfigMaps:
