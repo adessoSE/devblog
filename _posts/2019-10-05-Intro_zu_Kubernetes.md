@@ -212,7 +212,7 @@ Speichern wir die Datei unter `sample-sck-service.yaml` ab und erstellen den Ser
 
 Wir können die Funktion des Services leider nicht auf die selbe Weise testen, wie die Funktion eines Pods.
 Es lässt sich zwar ein Port-Forwarding auf einen Service einrichten, jedoch wird dabei implizit ein einzelner Pod ausgewählt, an den "geforwarded" wird.
-Sollte dieser Pod ausfallen, wird nicht automatisch an einen anderen Pod weitergeleitet und der Vorteil unseres Services ist dahin.
+Sollte dieser Pod ausfallen, wird nicht automatisch an einen anderen Pod weitergeleitet und der Vorteil unseres Services ist dahin (ja, ich habe lange gebraucht, um das rauszufinden).
 Glücklicherweise können wir über Minikube schnell an die URL kommen, über den wir den Service erreichen:
 
 > `$ minikube service sample-sck --url`<br>
@@ -235,8 +235,8 @@ Unser Service funktioniert also.
 
 ## Deployments
 Bisher haben wir Pods immer nur manuell erstellt.
-Da dies auf Dauer zu mühselig wird, kann man sich denken.
-Wir können auf diese Weise nicht automatisch Pods starten und ständig den Namen ändern.
+Das dies auf Dauer zu mühselig wird, kann man sich denken.
+Wir können auf diese Weise nicht automatisch Pods starten und müssen ständig den Namen ändern.
 Um diese Probleme zu lösen gibt es *Deployments*.
 Mit Deployments geben wir einerseits eine "Schablone" für unsere Pods an (wie bei der manuellen Definition von Pods) und andererseits die gewünschte Anzahl der Pods.
 
@@ -268,15 +268,16 @@ Speichern wir diese Datei unter `sample-sck-deployment.yaml` ab und erstellen da
 > `kubectl create -f sample-sck-deployment.yaml`
 
 Wenn wir im Dashboard auf "Workload" gehen, dann sehen wir die Ressourcen, die durch das Deployment erstellt wurden.
-Darunter sind nicht nur das Deployment, sondern auch die Pods (dessen Name durch einen kryptischen Zusatz erweitert wurde) und ein sogenanntes *ReplicaSet*.
-Diese werden intern von Deployments genutzt, um die Anzahl der Pods zu einem Deployment sicherzustellen.
+Darunter sind nicht nur das Deployment, sondern auch die Pods (dessen Name durch einen Hash-Wert erweitert wurde) und ein sogenanntes *ReplicaSet*.
+ReplicaSets werden intern von Deployments genutzt, um die gewünschte Anzahl der Pods zu einem Deployment sicherzustellen.
+Dieses Konzept ist von Bedeutung, wenn es um das Updaten von einem Deployment geht:
+Nehmen wir an, wir wollen das Docker-Image unserer Pods aktualisieren.
+Dazu bearbeiten wir die Datei `sample-sck-deployment.yaml` und tragen das neue Image im `template` ein.
 
 ```yaml
 Notizen:
-- Manuell starten ist doof -> "Deployment"
 - Deployment nutzt intern sog. ReplicaSets
   Beispiel auf neue Version updaten -> neues ReplicaSet fährt hoch, altes fährt runter
-  WTF?! Connection Refused bei Port Forwarding? Geht nach einer Weile...
 
 ########## TEIL 2 (?) ##########
 ConfigMaps:
