@@ -189,12 +189,15 @@ metadata:
 spec:
   selector:
     app:  sample-sck
+  type: NodePort
   ports:
   - port:  8080
     targetPort:  5000
 ```
 Die Selector-Direktive beschreibt die Labels, die die Pods haben müssen, um von diesem Service erfasst zu werden.
 Wir geben bewusst nur das `app`-Label an, damit unser Service zu allen Versionen der Anwendung weiterleitet (dazu später mehr).
+Der Typ `NodePort` zeigt an, das Kubernetes für diesen Service auf jedem Node (bei Minikube nur das eine) einen Port öffnen soll, über den man den Service ansprechen kann.
+In einem "richtigen" Kubernetes-Cluster hätten wir auch noch andere Möglichkeiten, den Service öffentlich zugänglich zu machen.
 Port und targetPort zeigen an, das der Service auf Port 8080 läuft und auf die Ports 5000 der Pods weiterleitet.
 Diese Grafik zeigt den momentanen Aufbau:
 
@@ -204,11 +207,15 @@ Speichern wir die Datei unter `sample-sck-service.yaml` ab und erstellen den Ser
 
 > `kubectl create -f sample-sck-service.yaml`
 
-Wir können die Funktion des Services auf die selbe Weise testen, wie die von Pods, mit dem Befehl:
+Wir können die Funktion des Services leider nicht auf die selbe Weise testen, wie die Funktion eines Pods.
+Es lässt sich zwar ein Port-Forwarding auf einen Service einrichten, jedoch wird dabei implizit ein einzelner Pod ausgewählt, an den "geforwarded" wird.
+Sollte dieser Pod ausfallen, wird nicht automatisch an einen anderen Pod weitergeleitet und der Vorteil unseres Services ist dahin.
+Glücklicherweise können wir über Minikube schnell an die URL kommen, über den wir den Service erreichen:
 
-> `kubectl port-forward service/sample-sck-service 8080:8080`
+> `$ minikube service sample-sck --url`<br>
+> `http://192.168.99.100:31862`
 
-Auf http://localhost:8080 sollte jetzt wieder das Wort "Foo" zu sehen sein.
+Unter dieser Adresse sollte jetzt wieder das Wort "Foo" zu sehen sein.
 
 ## Deployments
 Bisher haben wir Pods immer nur manuell erstellt.
