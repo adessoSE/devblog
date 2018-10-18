@@ -267,17 +267,28 @@ Speichern wir diese Datei unter `sample-sck-deployment.yaml` ab und erstellen da
 
 > `kubectl create -f sample-sck-deployment.yaml`
 
+Im Dashboard unter "Pods" kann man sehen, dass die gewünschten Pods automatisch erstellt wurden.
+Der Name der jeweiligen Pods ergibt sich aus dem Namen, der im Deployment im Template angegeben wurde, einem Hash für das Deployment und einem Hash für den Container selbst.
+
+# Update ausführen
+
 Wenn wir im Dashboard auf "Workload" gehen, dann sehen wir die Ressourcen, die durch das Deployment erstellt wurden.
-Darunter sind nicht nur das Deployment, sondern auch die Pods (dessen Name durch einen Hash-Wert erweitert wurde) und ein sogenanntes *ReplicaSet*.
+Darunter sind nicht nur das Deployment, sondern auch die Pods und ein sogenanntes *ReplicaSet*.
 ReplicaSets werden intern von Deployments genutzt, um die gewünschte Anzahl der Pods zu einem Deployment sicherzustellen.
-Dieses Konzept ist von Bedeutung, wenn es um das Updaten von einem Deployment geht:
-Nehmen wir an, wir wollen das Docker-Image unserer Pods aktualisieren.
+Dieses Konzept ist von Bedeutung, wenn es um das Updaten von einem Deployment geht.
+
+## Szenario
+Nehmen wir an, wir haben ein neue Version unserer Anwendung entwickelt.
+Das dazugehörige Docker-Image haben wir bereits in eine Registry hochgeladen.
+Nun wollen wir die Pods in unserem Cluster aktualisieren, und zwar ohne zwischenzeitlich Offline zu sein.
 Dazu bearbeiten wir die Datei `sample-sck-deployment.yaml` und tragen das neue Image im `template` ein.
 
 ```yaml
 Notizen:
 - Deployment nutzt intern sog. ReplicaSets
   Beispiel auf neue Version updaten -> neues ReplicaSet fährt hoch, altes fährt runter
+  Mehr Tutorial-Artig (z.B. Git Repo erstellen, Ordnerstruktur, Dateinamen etc.)
+  Dateien anhand der Best-Practices ausrichten https://kubernetes.io/docs/concepts/configuration/overview/
 
 ########## TEIL 2 (?) ##########
 ConfigMaps:
