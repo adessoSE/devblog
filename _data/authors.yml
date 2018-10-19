@@ -61,6 +61,15 @@ ceverke:
   avatar_url: /assets/images/avatars/ceverke.png
   github: https://github.com/ceverke
 
+Franknjava:
+  first_name: Frank
+  last_name: Meyfarth
+  github_username: Franknjava
+  email: meyfarth@adesso.de
+  bio: "Frank Meyfarth ist Softwarearchitekt bei adesso in Dortmund. Er konzipiert Projekte im Bankenumfeld."
+  avatar_url: /assets/images/avatars/Franknjava.png
+  github: https://github.com/Franknjava
+
 stwacker:
   first_name: Stephan
   last_name: Wacker
@@ -96,4 +105,5 @@ roland:
   bio: "Roland Majchszak ist Softwarearchitekt bei adesso in Hamburg. Er arbeitet in verschiedenen Projekten im Java Umfeld."
   avatar_url: /assets/images/avatars/rolandMajchszak.jpg
   github: https://github.com/RMajchszak
+
 
