@@ -281,12 +281,31 @@ Dieses Konzept ist von Bedeutung, wenn es um das Updaten von einem Deployment ge
 Nehmen wir an, wir haben ein neue Version unserer Anwendung entwickelt.
 Das dazugehörige Docker-Image haben wir bereits in eine Registry hochgeladen.
 Nun wollen wir die Pods in unserem Cluster aktualisieren, und zwar ohne zwischenzeitlich Offline zu sein.
+
+## Update durch Datei
+Wir haben zwei Möglichkeiten, dieses Szenario durchzuführen: Wir können die YAML-Datei ändern und die Änderungen anwenden oder das Image direkt mit einem Befehl von Kommandozeile setzen.
+Sehen wir uns zunächst die Änderung der YAML-Konfiguration an.
 Dazu bearbeiten wir die Datei `sample-sck-deployment.yaml` und tragen das neue Image im `template` ein.
+Bevor wir die Änderungen anwenden, können wir den Befehl
+
+> `watch kubectl get replicasets`
+
+eingeben, um gleich zu beobachten, wie das Update durchgeführt wird.
+Es sollte nur ein ReplicaSet angezeigt werden.
+Geben wir jetzt in einem anderen Terminal den Befehl zum Update:
+
+> `kubectl apply -f sample-sck-deployment.yaml`
+
+Jetzt können wir im ersten Terminal das Update-Verfahren beobachten:
+Ein zweites ReplicaSet für das Deployment wird erstellt.
+Die Spalten DESIRED, CURRENT und READY geben die Anzahl der Pods an, die von diesem ReplicaSet verwaltet werden.
+Nach und nach werden neue Pods durch das zweite ReplicaSet gestartet.
+Parallel dazu werden Pods aus dem alten ReplicaSet heruntergefahren.
+Die Geschwindigkeit und Anzahl der Pods innerhalb dieses Vorgangs kann durch Parameter innerhalb des Deployments angepasst werden, aber wir begnügen uns in diesem Falle mit den default-Werten.
+Irgendwann sind alle Pods des alten ReplicaSets gelöscht und unser Update war erfolgreich.
 
 ```yaml
 Notizen:
-- Deployment nutzt intern sog. ReplicaSets
-  Beispiel auf neue Version updaten -> neues ReplicaSet fährt hoch, altes fährt runter
   Mehr Tutorial-Artig (z.B. Git Repo erstellen, Ordnerstruktur, Dateinamen etc.)
   Dateien anhand der Best-Practices ausrichten https://kubernetes.io/docs/concepts/configuration/overview/
 
