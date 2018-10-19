@@ -282,27 +282,52 @@ Nehmen wir an, wir haben ein neue Version unserer Anwendung entwickelt.
 Das dazugehörige Docker-Image haben wir bereits in eine Registry hochgeladen.
 Nun wollen wir die Pods in unserem Cluster aktualisieren, und zwar ohne zwischenzeitlich Offline zu sein.
 
-## Update durch Datei
-Wir haben zwei Möglichkeiten, dieses Szenario durchzuführen: Wir können die YAML-Datei ändern und die Änderungen anwenden oder das Image direkt mit einem Befehl von Kommandozeile setzen.
-Sehen wir uns zunächst die Änderung der YAML-Konfiguration an.
-Dazu bearbeiten wir die Datei `sample-sck-deployment.yaml` und tragen das neue Image im `template` ein.
-Bevor wir die Änderungen anwenden, können wir den Befehl
-
+## Update durch Kommandozeile
+Wir haben zwei Möglichkeiten, dieses Szenario durchzuführen:
+Wir können das Image direkt mit einem Befehl von der Kommandozeile setzen oder die YAML-Datei ändern und die Änderungen anschließend anwenden.
+Sehen wir uns zunächst das Updaten über die Kommandozeile an.
+Kubectl bietet den Befehl `kubectl set` an, um Änderungen an bestehenden Ressourcen anzuwenden, auch Images.
+Bevor wir den Befehl eingeben, können wir mit
 > `watch kubectl get replicasets`
 
-eingeben, um gleich zu beobachten, wie das Update durchgeführt wird.
-Es sollte nur ein ReplicaSet angezeigt werden.
-Geben wir jetzt in einem anderen Terminal den Befehl zum Update:
+beobachten, wie das Update durchgeführt wird (auf Windows gibt es das Programm `watch` leider nicht, dann einfach nur oft hintereinander `kubectl get replicasets` eingeben).
+Es sollte nur ein ReplicaSet für unser Deployment angezeigt werden.
 
-> `kubectl apply -f sample-sck-deployment.yaml`
+Nun führen wir in einem anderen Terminal den Befehl aus:
+> `kubectl set image deployment sample-sck-deployment sample-sck=registry.gitlab.com/tbuss/sample-sck/master:2af15466e456f7112b8b1b557d75be4dbab78df3`
+
+Wir geben dabei die Aktion und das Deployment an und spezifizieren für den Container `sample-sck` das neue Image.
 
 Jetzt können wir im ersten Terminal das Update-Verfahren beobachten:
 Ein zweites ReplicaSet für das Deployment wird erstellt.
 Die Spalten DESIRED, CURRENT und READY geben die Anzahl der Pods an, die von diesem ReplicaSet verwaltet werden.
 Nach und nach werden neue Pods durch das zweite ReplicaSet gestartet.
 Parallel dazu werden Pods aus dem alten ReplicaSet heruntergefahren.
-Die Geschwindigkeit und Anzahl der Pods innerhalb dieses Vorgangs kann durch Parameter innerhalb des Deployments angepasst werden, aber wir begnügen uns in diesem Falle mit den default-Werten.
+Die Geschwindigkeit und Anzahl der Pods innerhalb dieses Vorgangs kann durch Parameter innerhalb der Deployment-Konfigurationsdatei angepasst werden, aber wir begnügen uns in diesem Falle mit den default-Werten.
 Irgendwann sind alle Pods des alten ReplicaSets gelöscht und unser Update war erfolgreich.
+
+Mit `kubectl rollout undo deployment sample-sck-deployment` kann man das Update wieder rückgängig machen.
+Sehr praktisch, wenn man bemerkt, dass ein Fehler vorliegt und man auf einen alten Stand zurückkehren möchte.
+Führen wir den Befehl einmal aus, damit wird im Folgenden auch das Update per Konfigurationsdatei durchführen können.
+
+## Update durch Datei
+Die zweite Möglichkeit, das Szenario durchzuführen, ist über die YAML-Konfigurationsdateien.
+Dazu bearbeiten wir die Datei `sample-sck-deployment.yaml` und tragen das neue Image im `template` ein:
+```yaml
+    ...
+
+      containers:
+      - name: sample-sck
+        image: registry.gitlab.com/tbuss/sample-sck/master:2af15466e456f7112b8b1b557d75be4dbab78df3
+
+    ...
+```
+Wieder können wir mit `watch kubectl get replicasets` den Fortschritt des Updates verfolgen, während es ausgeführt wird.
+Geben wir jetzt in einem anderen Terminal den Befehl zum Update:
+> `kubectl apply -f sample-sck-deployment.yaml`
+
+Genau wie bei dem Update per Kommandozeile wird ein zweites ReplicaSet erstellt und übernimmt nach und nach die Last des Ursprünglichen.
+Auch hier hat also das Update geklappt.
 
 ```yaml
 Notizen:
