@@ -14,7 +14,7 @@ In diesem humoristischen Artikel wird beschrieben, wie ich in einer langen Hotel
 
 Der unsäglich diabolische Spaß, der mir durch die Implementierung dieser vollkommen sinnfreien Spracherweiterung zuteil wurde, wurde nur noch von der Freude übertroffen, möglichst verrückte Nutzungsbeispiele zu ersinnen. Im Folgenden werden Techniken beschrieben, mit denen Java um neue Befehle erweitert werden kann, ohne dass eine eigene JVM-Sprache entwickelt werden muss. Außerdem werden zum allgemeinen Amusement eine Reihe von Beispielen gezeigt, die wohl eher in die Kategorie Evil-Practice als Bad-Practice fallen.
 
-*Der Sourcecode ist auf [GitHub](https://github.com/FranknJava/TheNightOfTheTentacle) verfügbar.*
+*Der Sourcecode ist auf [GitHub](https://github.com/Franknjava/TheNightOfTheTentacles) verfügbar.*
 
 ![Frank'n Java und die Nacht der Tentakel](/assets/images/posts/Die-Nacht-der-Tentakel/Title.png)
 
