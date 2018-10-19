@@ -1,16 +1,18 @@
 ---
 layout:         [post, post-xml]              
 title:          "Frank'n Java und die Nacht der Tentakel"
-date:           2018-07-02 14:53
+date:           2018-10-19 16:29
 modified_date: 
 author:         Franknjava
-categories:     [Java, Bytecode, Cthulhu]
-tags:           [ASM, GOTO, Spaghetticode]
+categories:     [Java]
+tags:           [ASM, GOTO, Spaghetti-Code]
 ---
 
 Wie ich in einer sturmdurchpeitschten Nacht Java hart auf die Werkbank schnallte um ihr cthulhuoide Tentakel anzunähen, auf dass sie von nun an und für immerdar in der Lage sei, echte italienische Pasta zu bereiten.<br/><br/>
 Mit Java kann man keinen echten Spaghetti-Code erzeugen, oder doch?<br/>
-In einer langen Hotel-Nacht habe ich Java mit ein wenig Bytecode- Manipulation ein Zeilennummern basiertes „GOTO“ Statement verpasst. Der unsäglich diabolische Spaß, der mir durch die Implementierung dieser vollkommen sinnfreien Spracherweiterung zuteil wurde, wurde nur noch von der Freude übertroffen, möglichst verrückte Nutzungsbeispiele zu ersinnen. In diesem humoristischen Artikel werden Techniken beschrieben, mit denen Java um neue Befehle erweitert werden kann, ohne dass eine eigene JVM-Sprache entwickelt werden muss. Außerdem werden zum allgemeinen Amusement eine Reihe von Beispielen gezeigt, die wohl eher in die Kategorie Evil-Practice als Bad-Practice fallen.
+In diesem humoristischen Artikel wird beschrieben, wie ich in einer langen Hotel-Nacht Java mit ein wenig Bytecode- Manipulation ein Zeilennummern-basiertes „GOTO“ Statement verpasst habe. 
+
+Der unsäglich diabolische Spaß, der mir durch die Implementierung dieser vollkommen sinnfreien Spracherweiterung zuteil wurde, wurde nur noch von der Freude übertroffen, möglichst verrückte Nutzungsbeispiele zu ersinnen. Im Folgenden werden Techniken beschrieben, mit denen Java um neue Befehle erweitert werden kann, ohne dass eine eigene JVM-Sprache entwickelt werden muss. Außerdem werden zum allgemeinen Amusement eine Reihe von Beispielen gezeigt, die wohl eher in die Kategorie Evil-Practice als Bad-Practice fallen.
 
 *Der Sourcecode ist auf [GitHub](https://github.com/FranknJava/TheNightOfTheTentacle) verfügbar.*
 
@@ -18,7 +20,7 @@ In einer langen Hotel-Nacht habe ich Java mit ein wenig Bytecode- Manipulation e
 
 Wie Stahlbolzen trommelte der Regen gegen die Scheiben meiner Kemenate, während flirrende Blitze gellend durch die Nacht zuckten, wie die spastischen Tentakel längst vergessener kosmischer Wesen. Schmatzend klatschte die Dunkelheit in meine Gedanken. Ruhelos schritt ich in meiner Hotelburg auf und ab, und mein Geist begann zu wandern.
 
-Ich dachte an den jungen Adepten, der mir bei der Betrachtung eines gewachsenen Sourcery Codes von etwa 100 Zeilen, mit drei Verzweigungen und einer Switch-Anweisung fröhlich den Namen einer italienischen Pasta Sorte entgegenschmetterte: "Uuh, Spaghetticode". Oh, die Unwissenheit der Jugend. Ist es doch mit modernen Sprachen kaum noch möglich, den Kontrollfluss dermaßen verworren zu gestalten, dass selbst ein Riesenkrake vor Neid erblassen würde.
+Ich dachte an den jungen Adepten, der mir bei der Betrachtung eines gewachsenen Sourcery Codes von etwa 100 Zeilen, mit drei Verzweigungen und einer Switch-Anweisung fröhlich den Namen einer italienischen Pasta Sorte entgegenschmetterte: "Uuh, Spaghetti-Code". Oh, die Unwissenheit der Jugend. Ist es doch mit modernen Sprachen kaum noch möglich, den Kontrollfluss dermaßen verworren zu gestalten, dass selbst ein Riesenkrake vor Neid erblassen würde.
 
 Nein! Dies war nur mit den großen Alten möglich, deren cthuloide Tentakel die Programmlogik in ein Zerrbild des Wahnsinns verwandelten. Wir brauchten damals keinen Code Obfuscator. Nein, unser Code war obfuscated by design. Diesem Adepten würde ich zeigen, wie man italienischen Nudel-Code zubereitet. 
 
@@ -36,7 +38,7 @@ Wie mäandernde Unaussprechlichkeiten wälzen sich die Fragen des Tages durch me
 
 ### Was ist Spaghetti-Code überhaupt?
 
->Spaghetticode ist ein abwertender Begriff für Software-Quellcode, der verworrene Kontrollstrukturen aufweist.<br/>
+>Spaghetti-Code ist ein abwertender Begriff für Software-Quellcode, der verworrene Kontrollstrukturen aufweist.<br/>
 *-[Wikipedia](https://de.wikipedia.org/wiki/Spaghetticode)-*
 
 ### Kann man ihn mit Java erzeugen?
@@ -472,9 +474,9 @@ Na, was mag dieses kleine Stück Software wohl ausgeben?
 
 ### Die allwissende Müllhalde
 
-Bevor ich mich den wahren Problemen der Menschheit widme, sollte ich meine Forschung noch pseudowissenschaftlich untermauern. Sehen wir uns also die Literatur zum Thema "Spaghetticode" an.
+Bevor ich mich den wahren Problemen der Menschheit widme, sollte ich meine Forschung noch pseudowissenschaftlich untermauern. Sehen wir uns also die Literatur zum Thema "Spaghetti-Code" an.
 
-Die Allwissende Müllhalde, auch Wikipedia genannt, stellt drei Beispiele für Spaghetticode heraus. Diese sind ausnahmslos in BASIC verfasst. Damit mein Javacode diesem ähnlicher wird, füge ich die Methoden "PRINT", "INPUT" und "CLS" hinzu.
+Die Allwissende Müllhalde, auch Wikipedia genannt, stellt drei Beispiele für Spaghetti-Code heraus. Diese sind ausnahmslos in BASIC verfasst. Damit mein Javacode diesem ähnlicher wird, füge ich die Methoden "PRINT", "INPUT" und "CLS" hinzu.
 
 Abgetippt, kompiliert, getestet und ja, die folgenden drei Beispiele verhalten sich wie auf Wikipedia vorausgesagt. Ich würde sagen: "Mission accomplished".
 
