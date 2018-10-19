@@ -97,3 +97,11 @@ roland:
   avatar_url: /assets/images/avatars/rolandMajchszak.jpg
   github: https://github.com/RMajchszak
 
+florianluediger:
+  first_name: Florian
+  last_name: Lüdiger
+  github_username: florianluediger
+  email: florian.luediger@adesso.de
+  bio: "Florian leistet im Open-Source-Team unter anderem Beiträge zu einigen Spring-Projekten und entwickelt eigene, spannende Software, die der Öffentlichkeit zur Verfügung gestellt wird."
+  avatar_url: /assets/images/avatars/florianluediger.png
+  github: https://github.com/florianluediger
