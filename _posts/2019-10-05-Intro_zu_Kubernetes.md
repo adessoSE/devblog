@@ -270,6 +270,8 @@ Speichern wir diese Datei unter `sample-sck-deployment.yaml` ab und erstellen da
 
 Im Dashboard unter "Pods" kann man sehen, dass die gewünschten Pods automatisch erstellt wurden.
 Der Name der jeweiligen Pods ergibt sich aus dem Namen, der im Deployment im Template angegeben wurde, einem Hash für das Deployment und einem Hash für den Container selbst.
+Hier ist der momentane Status als Grafik:
+![Deployment kümmert sich um Pods](/assets/images/posts/intro-zu-kubernetes/k8s-2.png)
 
 Wenn nun ein Pod abstürzt (oder wir ihn manuell löschen :^) ) manuell löschen können wir sehen, wie über das Deployment ein neuer Pod erstellt wird, um den Platz des alten einzunehmen.
 Das Deployment arbeit also genau so, wie es soll.
@@ -304,6 +306,11 @@ Wir geben dabei die Aktion und das Deployment an und spezifizieren für den Cont
 Jetzt können wir im ersten Terminal das Update-Verfahren beobachten:
 Ein zweites ReplicaSet wird für das Deployment erstellt.
 Die Spalten DESIRED, CURRENT und READY geben die Anzahl und Status der Pods an, die von diesem ReplicaSet verwaltet werden.
+
+Den Status während eines Updates zeigt diese Grafik:
+
+![Mehrere ReplicaSets](/assets/images/posts/intro-zu-kubernetes/k8s-3.png)
+
 Nach und nach werden neue Pods durch das zweite ReplicaSet gestartet.
 Parallel dazu werden Pods aus dem alten ReplicaSet heruntergefahren.
 Die Geschwindigkeit und Anzahl der Pods innerhalb dieses Vorgangs kann durch Parameter innerhalb der Deployment-Konfigurationsdatei angepasst werden, aber wir begnügen uns in diesem Falle mit den default-Werten.
