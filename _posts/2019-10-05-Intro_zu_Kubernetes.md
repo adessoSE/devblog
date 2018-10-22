@@ -18,7 +18,7 @@ Wir betrachten ein kleines Beispiel, indem wir eine triviale Spring-Boot-Anwendu
 Bevor wir zu dem Praxisteil kommen, klären wir erst einmal die Begrifflichkeiten.
 
 # Cluster, Nodes und Pods
-Kuberentes ist eine verteilte Anwendung, wird also auf mehreren physikalischen (oder virtuellen) Rechnern ausgeführt, die man als *Nodes* bezeichnet und zusammen den Kubernetes *Cluster* bilden.
+Kuberentes ist eine verteilte Anwendung, wird also auf mehreren physikalischen (oder virtuellen) Rechnern ausgeführt, die man als *Nodes* bezeichnet und die zusammen den Kubernetes *Cluster* bilden.
 Mindestens ein Node nimmt dabei die Rolle des Masters ein, der den Cluster managed und die Befehle des Benutzers entgegen nimmt.
 
 Auf den Nodes laufen sogenannte *Pods*.
