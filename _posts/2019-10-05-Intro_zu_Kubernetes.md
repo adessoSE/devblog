@@ -195,7 +195,7 @@ spec:
     targetPort:  5000
 ```
 Die Selector-Direktive beschreibt die Labels, die die Pods haben müssen, um von diesem Service erfasst zu werden.
-Der Typ `NodePort` zeigt an, das Kubernetes für diesen Service auf jedem Node (bei Minikube nur das eine) einen Port öffnen soll, über den man den Service ansprechen kann.
+Der Typ `NodePort` zeigt an, dass Kubernetes für diesen Service auf jedem Node (bei Minikube nur der eine) einen Port öffnen soll, über den man den Service ansprechen kann.
 In einem "richtigen" Kubernetes-Cluster hätten wir auch noch andere Möglichkeiten, den Service öffentlich zugänglich zu machen.
 Port und targetPort zeigen an, das der Service auf Port 8080 läuft und auf die Ports 5000 der Pods weiterleitet.
 Diese Grafik zeigt den momentanen Aufbau:
