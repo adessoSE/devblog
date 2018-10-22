@@ -6,7 +6,7 @@ author:         t-buss
 categories:     [Softwareentwicklung]
 tags:           [cloud, kubernetes]
 ---
-Die Container-Orchestrierungs-Lösung Kubernetes ist das wohlmöglich am stärksten gewachsene Open Source Projekt der letzten Jahre.
+Die Container-Orchestrierungs-Lösung Kubernetes ist das wohlmöglich am stärksten gewachsene Open-Source-Projekt der letzten Jahre.
 Container-Orchestrierung, das bedeutet das Management von hunderten lose gekoppelten Anwendungs-Container, die zusammen miteinander interagieren müssen.
 Alle großen Cloud-Anbieter wie Google, Amazon, Microsoft und weitere bieten heutzutage Kubernetes-Instanzen an und unzählige Firmen lagern ihre Anwendungen auf Kubernetes-gestützten Clustern in der Cloud aus, um sich nicht länger selbst um die Infrastruktur ihrer Anwendung kümmern zu müssen.
 Grund genug, sich einmal näher mit Kubernetes und Konzepten dahinter zu beschäftigen.
