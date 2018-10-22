@@ -13,7 +13,7 @@ Grund genug, sich einmal näher mit Kubernetes und Konzepten dahinter zu beschä
 
 # Einführung in Kubernetes
 In diesem Blogpost geht es um die grundlegenden Konzepte, mit denen Kubernetes arbeitet.
-Der Fokus liegt hierbei auf die Sicht eines Entwicklers, nicht des Cluster-Operators.
+Der Fokus liegt hierbei auf der Sicht eines Entwicklers, nicht des Cluster-Operators.
 Wir betrachten ein kleines Beispiel, indem wir eine triviale SpringBoot-Anwendung in einem lokalen Kubernetes-Cluster, Minikube, ausführen.
 Bevor wir zu dem Praxisteil kommen, klären wir erst einmal die Begrifflichkeiten.
 
