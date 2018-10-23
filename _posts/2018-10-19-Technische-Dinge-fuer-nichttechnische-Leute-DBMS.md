@@ -56,7 +56,7 @@ Wir können unsere Daten also quasi nach mehreren Attributen gleichzeitig sortie
 Da wie gerade beschrieben die physikalische Reihenfolge der Daten keine Rolle mehr spielt, löst sich das in **(B)** beschrieben Problem schon fast von alleine.
 Neu eingefügte Daten können einfach hintereinander in beliebiger Reihenfolge in den Speicher geschrieben werden, dabei muss nur darauf geachtet werden, dass die angelegten Indexe entsprechend aktualisiert werden, damit die neuen Einträge auch damit gefunden werden können.
 
-## Normalisierung und Join-Operation
+## Normalisierung
 Für das in **(C)** dargestellte Problem bringt uns die neue Strukturierung der Daten leider noch nichts, da sich schlecht ein Index für das _Auszeichnungen_-Attribut erstellen lässt, da hier mehrere Einträge drin stehen könnten.
 Da außerdem ein Preis an mehrere Wissenschaftler verliehen werden kann, wird hier von einer **many-to-many-Beziehung** gesprochen.
 Daher müssen wir das Datenbankschema etwas anpassen.
@@ -93,5 +93,23 @@ Unser in **(D)** beschriebenes Problem würde hierdurch verhindert werden.
 4. **Durability**: Die Änderungen einer **erfolgreichen** Transaktion müssen in jedem Fall erhalten bleiben, auch beispielsweise nach einem Systemabsturz.
 
 # Die SQL-Anfragesprache
+Die oben beschriebenen Anfragen sind in relationalen Datenbanken stark optimiert und integriert worden.
+Diese werden in der Sprache SQL-Formuliert, welche speziell dafür entwickelt wurde, dass auch weniger technisch ausgebildete Leute einfache Anfragen stellen können.
+Eine entsprechende Anfrage könnte innerhalb unseres Beispiels etwa so aussehen:
+
+```sql
+SELECT Vorname, Telefonnummer FROM Wissenschaftler WHERE Name = 'Einstein'
+```
+
+Hier schränken drei Teile die Ergebnismenge ein:
+
+1. Mit dem **SELECT**-Schlüsselwort werden die **Attribute** ausgewählt, die ihr von den Ergebnissen erfahren wollt. In unserem Falle interessieren uns nur _Vorname_ und _Telefonnummer_.
+2. Das **FROM**-Schlüsselwort definiert die **Relation**, aus der die Ergebnisse abgerufen werden sollen. Wir möchten hier noch nichts über Auszeichnungen erfahren, daher reicht uns die _Wissenschaftler_-Relation.
+3. Mit der **WHERE**-Operation legen wir schließlich noch fest, welche **Tupel** wir aus der Relation bekommen wollen. Hier sind dies alle Wissenschaftler, die den Nachnamen _Einstein_ tragen.
+
+**TODO: Bild einfügen**
+
+In unserem Minimalen Beispiel besteht das Ergebnis nur aus einem einzigen Tupel, es kann aber auch vorkommen, dass mehrere Tupel oder sogar die gesamte Relation im Ergebnis zurückgeliefert werden.
+Mit der SQL-Sprache lassen sich durch weitere Operationen noch sehr viel komplexere Anfragen stellen, sodass diese ein mächtiges Werkzeug zur Datenabfrage darstellt.
 
 # Fazit
