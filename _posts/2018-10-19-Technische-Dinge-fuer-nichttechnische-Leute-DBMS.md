@@ -113,3 +113,8 @@ In unserem Minimalen Beispiel besteht das Ergebnis nur aus einem einzigen Tupel,
 Mit der SQL-Sprache lassen sich durch weitere Operationen noch sehr viel komplexere Anfragen stellen, sodass diese ein mächtiges Werkzeug zur Datenabfrage darstellt.
 
 # Fazit
+Leider konnte ich in diesem Artikel die Welt der Datenbankmanagementsysteme nur ganz kurz anreißen, ich hoffe trotzdem, dass ihr eine Vorstellung davon bekommen habt, warum diese Systeme gebraucht werden, um große Datenmengen zu verwalten.
+Neben relationalen Datenbanksystemen gibt es zum Beispiel auch noch sogenannte NoSQL-Datenbanken, die beispielsweise durch lockern einiger der ACID-Eigenschaften eine höhere Performanz erreichen.
+Sogar innerhalb der relationalen Systeme gibt es erhebliche Unterschiede zwischen den einzelnen Produkten, wodurch die Auswahl der am besten geeigneten Software zur Herausforderung wird.
+
+Falls ihr Interesse an weiteren, einfach erklärten, technischen Themen habt, dann schaut doch mal in die ersten drei Teile der Blog-Serie: [Teil 1 - Datenformate](https://www.adesso.de/de/news/blog/technische-dinge-fuer-nichttechnische-leute-teil-1.jsp), [Teil 2 - Microservices](https://www.adesso.de/de/news/blog/technische-dinge-fuer-nicht-technische-leute-teil-2.jsp), [Teil 3 - Deployments](https://www.adesso.de/de/news/blog/technische-dinge-fuer-nicht-technische-leute-teil-3.jsp)
