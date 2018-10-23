@@ -44,7 +44,7 @@ Einzelne Tabelleneinträge, sogenannte **Tupel** können somit strukturiert abge
 Durch diese Strukturierung und mithilfe einiger intelligenter Kniffe lassen sich die oben genannten Probleme in den Griff bekommen.
 Unser sogenanntes **Datenbankschema**, welches hier nur aus einer Relation besteht, würde somit folgendermaßen aussehen.
 
-**TODO: Bild einfügen**
+![Schema der Beispieldatenbank](assets/images/posts/Technische-Dinge-fuer-nichttechnische-Leute-DBMS/wissenschaftler.png)
 
 ## Erleichterung der Suche durch Indexe
 Für das in **(A)** beschriebene Durchsuchen der Wissenschaftler nach Nachname würde in einem RDBMS ein Index angelegt, mit dem in kürzester Zeit die Stelle gefunden werden kann, an der sich ein Eintrag auf der Festplatte befindet.
