@@ -159,7 +159,7 @@ und so Zugriff auf die Erstellung und Bearbeitung der Nachrichten möglich ist.
 Das Framwork Kafka Connect wird genutzt, um Datenspeicher anzusprechen,
 die von einem Dritthersteller stammen (Datastore, Datenbank, Big-Data-Systeme).
 Das Framwork besteht aus einer API und einer Runtime-Umgebung, um die entwickelten Konnektoren als Plugins auszuführen.
-Beispielsweise kann Kafka Connect genutzt werden, um Daten aus MySQL-Datenbanken laden und in ElasticSearch zu speichern.
+Beispielsweise kann Kafka Connect genutzt werden, um Daten aus MySQL-Datenbanken zu laden und in ElasticSearch zu speichern.
 
 ![Architektur von Kafka](/assets/images/posts/kafka_streaming/Kafka-Architektur.png)
 
