@@ -426,7 +426,7 @@ Es gibt weitere Eigenschaften, die bei Datenströmen beachtet werden müssen:
 
 * Reihenfolge: Die Reihenfolge der Einträge des Datenstroms ist obligatorisch und wird während der Verarbeitung eingehalten.
   Dabei muss definiert werden, was mit Einträgen passiert, die später als erwartet auftauchen.
-* Unveränderbar: Ein Eintrag des Datenstroms wird nicht mehr verändert.
+* Unveränderbarkeit: Ein Eintrag des Datenstroms wird nicht mehr verändert.
   Bei einer Verarbeitung wird aus dem Eintrag ein neuer für den nächsten Datenstrom erstellt, wobei das Original unverändert bleibt.
 * Wiederverwendbar: Der Datenstrom wird über einen langen Zeitraum gespeichert,
   so dass eine Verarbeitung für andere Zwecke nochmals mit denselben Daten wiederholt werden kann.
