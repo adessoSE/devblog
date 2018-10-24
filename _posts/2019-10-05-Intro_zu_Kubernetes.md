@@ -224,7 +224,7 @@ Wir können die Funktion des Services leider nicht auf die selbe Weise testen, w
 Es lässt sich zwar ein Port-Forwarding auf einen Service einrichten, jedoch wird dabei implizit ein einzelner Pod ausgewählt, an den "geforwarded" wird.
 Sollte dieser Pod ausfallen, wird der Service nicht automatisch an einen anderen Pod weiterleiten und der Vorteil unseres Services ist dahin.
 Glücklicherweise können wir über Minikube schnell an die URL kommen, über die wir den Service erreichen:
-> `$ minikube service sample-sck --url`<br>
+> `$ minikube service sample-sck-service --url`<br>
 > `http://192.168.99.100:31862`
 
 Unter dieser Adresse plus Pfad `/getenv` sollte jetzt "Foo" oder "Bar" zu sehen sein.
