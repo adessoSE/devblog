@@ -89,7 +89,7 @@ Allerdings kann konfigurativ bestimmt werden, dass eine Nachricht nach Ablauf ei
 ## Topics
 
 Records werden in Kafka in Topics kategorisiert. Fachlich getrennte Themen können so in eigenen Topics getrennt abgelegt werden.
-Eine Topic kann am ehesten mit einem Order oder einem Ablagefach verglichen werden, in den gleichwertige Dokumente abgelegt werden.
+Eine Topic kann am ehesten mit einem Ordner oder einem Ablagefach verglichen werden, in den gleichwertige Dokumente abgelegt werden.
 
 ## Partitionen
 
