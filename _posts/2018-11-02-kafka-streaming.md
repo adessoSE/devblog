@@ -420,7 +420,7 @@ In diesem Abschnitt schauen wir uns diese Erweiterung exemplarisch an.
 
 Stream-Processing setzt auf Datenströmen auf. Ein Datenstrom kann als eine unendliche Folge von abstrakten
 Datenereignissen bzw. Datensätzen beschrieben werden, die ständig durch neue Einträge erweitert wird.
-Beispielsweise Finanztransaktionen, Aktienhandel, Events aus Webseiten oder auch Protokoll-Einträge.
+Beispielsweise sind dies Finanztransaktionen, Aktienhandel, Events aus Webseiten oder auch Protokoll-Einträge.
 
 Es gibt weitere Eigenschaften, die bei Datenströmen beachtet werden müssen:
 
