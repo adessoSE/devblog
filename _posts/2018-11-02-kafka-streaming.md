@@ -478,7 +478,7 @@ Eine Topologie besteht dabei aus einer Menge an Methoden und Transformationen di
 
 Die Skalierung der Anwendung und einzelner Methoden bzw. Transformationen wird dabei von Kafka Streams selber vorgenommen.
 Die Anwendung kann in mehreren Tasks auf einem Server oder aber verteilt ausgeführt werden. Die Verteilung der Daten geschieht transparent im Hintergrund.
-Jeder Partition einer Topic kann dabei von einem Task bearbeitet werden.
+Jede Partition einer Topic kann dabei von einem Task bearbeitet werden.
 So ist es beispielsweise möglich eine Topic mit vier Partitionen anzulegen und die Stream-Processing-Anwendung auf vier Server zu verteilen.
 Jeder Server bearbeitet dann genau eine Partition.
 
