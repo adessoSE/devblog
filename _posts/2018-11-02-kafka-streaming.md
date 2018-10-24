@@ -42,7 +42,7 @@ Kafka wurde mit dem Gedanken an BigData und Streaming geplant.
 
 In typischen Nachrichten-Systemen werden Nachrichten gelöscht, wenn sie gelesen wurden.
 Kafka speichert die Nachrichten allerdings dauerhaft, um eine Nachrichtenhistorie abbilden zu können.
-Damit können beispielsweise Event-Sourcing Systeme mit Kafka abgebildet werden, ohne dass die angrenzenden Systeme dies selbst implementieren müssen.
+Damit können beispielsweise Event-Sourcing-Systeme mit Kafka abgebildet werden, ohne dass die angrenzenden Systeme dies selbst implementieren müssen.
 
 Zusammengefasst ist Kafka eine Nachrichtenorientierte Publish & Subscribe Open-Source Software
 basierend auf einer verteilten, partitionier- und verteilbaren Architektur.
