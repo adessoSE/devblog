@@ -3,8 +3,8 @@ layout: [post, post-xml]
 title:  "Apache Kafka als Streaming Plattform"
 date:   2018-11-02 08:00
 author: swindisch
-categories: [Architektur, Java]
-tags: [Microservice, Message-Queue]
+categories: [Architektur]
+tags: [Microservice, Message-Queue, Java]
 ---
 In der heutigen Welt wird es immer wichtiger, Mengen verschiedener Informationen zu sammeln,
 auszuwerten und an unterschiedliche Konsumenten zu verteilen.
@@ -50,23 +50,18 @@ basierend auf einer verteilten, partitionier- und verteilbaren Architektur.
 # Einsatzgebiete
 
 Der Einsatz von nachrichtenorientierten System kann in folgende Gebiete unterteilt werden.
-* Nachrichten-Übermittlung (Messaging)
-  * Microservices nutzen eine MOM um Nachrichten und Events untereinander auszutauschen.
-* Website Activity Tracking
-  * Die Bedienung einer Web-Anwendung wird detailliert in Protokollen gespeichert,
-    in Kafka gespeichert, verarbeitet und wieder verteilt.
-    Dies war auch die ursprüngliche Anforderung für die Erschaffung von Kafka
-* Log-Aggregation
-  * Unterschiedliche Quellen und Formate von Protokoll-Dateien werden massenhaft von der MOM gesammelt,
-    zentral gespeichert, in ein einheitliches Format überführt und zur Auswertung zur Verfügung gestellt.
-* Stream Processing
-  * Mehrfache und parallele Bearbeitung von Datenströmen zur Erweiterung oder Transformierung. Dabei werden die Datenströme durch Kafka Topics geschoben.
-* Event Sourcing
-  * Event Sourcing ist ein Enterprise Architecture Pattern, bei dem Veränderungen von Daten bzw. Objekten
-    als Event-Folge gespeichert werden.
-    Dadurch ist es jederzeit möglich den Zustand zu einem bestimmten Zeitpunkt durch das Einlesen der Event-Folge zu ermitteln.
-* Real-Time Processing
-  * Empfänger, die Echtzeit-Verarbeitung ermöglichen, wie beispielsweise Apache Spark oder Storm.
+* Nachrichten-Übermittlung (Messaging): Microservices nutzen eine MOM um Nachrichten und Events untereinander auszutauschen.
+
+* Website Activity Tracking: Die Bedienung einer Web-Anwendung wird detailliert in Protokollen gespeichert, in Kafka gespeichert, verarbeitet und wieder verteilt. Dies war auch die ursprüngliche Anforderung für die Erschaffung von Kafka
+
+* Log-Aggregation: Unterschiedliche Quellen und Formate von Protokoll-Dateien werden massenhaft von der MOM gesammelt, zentral gespeichert, in ein einheitliches Format überführt und zur Auswertung zur Verfügung gestellt.
+
+* Stream Processing: Mehrfache und parallele Bearbeitung von Datenströmen zur Erweiterung oder Transformierung. Dabei werden die Datenströme durch Kafka Topics geschoben.
+
+* Event Sourcing: 
+Event Sourcing ist ein Enterprise Architecture Pattern, bei dem Veränderungen von Daten bzw. Objekten als Event-Folge gespeichert werden. Dadurch ist es jederzeit möglich den Zustand zu einem bestimmten Zeitpunkt durch das Einlesen der Event-Folge zu ermitteln.
+
+* Real-Time Processing: Empfänger, die Echtzeit-Verarbeitung ermöglichen, wie beispielsweise Apache Spark oder Storm.
 
 Bekannte Unternehmen, die Kafka einsetzen sind beispielsweise: LinkedIn, Yahoo, Twitter, Netflix, Square, FourSquare, Pinterest, Spotify, Uber, AirBnB, Tumblr.
 
@@ -133,7 +128,7 @@ Die Anzahl der Replikationen wird pro Topic definiert. Dabei fungiert eine Repli
 
 Kafka unterscheidet zwischen synchroner und asynchroner Replikation:
 * Bei der synchronen Replikation sendet der Erzeuger die Nachricht an Kafka.
-  Die Nachricht wird dann in der führenden Replika gespeichert. Jede Folge-Replika holt sich die Nachricht vom System,
+  Die Nachricht wird dann in der führenden Replika (Leader) gespeichert. Jede Folge-Replika holt sich die Nachricht vom Leader,
   speichert diese und sendet den Status zurück. Erst wenn alle Replikationen gespeichert wurden, wird der Erzeuger darüber informiert.
 * Bei der asynchronen Replikation erhält der Erzeuger direkt nachdem die führende Replika die Nachricht gespeichert hat die Bestätigung.
   Der Rest läuft anschließend im Hintergrund ab.
@@ -146,6 +141,8 @@ abhängig von der gewählten Infrastruktur, bereits möglich, dass ein Broker mi
 
 Bei weiteren Mengen- bzw. Performance-Anforderungen können mehrere Broker als ein Cluster zusammengeschaltet werden,
 so dass dann Partition und Nachrichten auf verschiedene Broker verteilt und repliziert werden.
+
+![Architektur von Kafka](/assets/images/posts/kafka_streaming/Kafka-Architektur.png)
 
 ## Schnittstellen
 
@@ -161,13 +158,11 @@ die von einem Dritthersteller stammen (Datastore, Datenbank, Big-Data-Systeme).
 Das Framwork besteht aus einer API und einer Runtime-Umgebung, um die entwickelten Konnektoren als Plugins auszuführen.
 Beispielsweise kann Kafka Connect genutzt werden, um Daten aus MySQL-Datenbanken zu laden und in ElasticSearch zu speichern.
 
-![Architektur von Kafka](/assets/images/posts/kafka_streaming/Kafka-Architektur.png)
-
 # Installation
 
 Kafka kann für verschiedene Datenmengen unterschiedlich aufgesetzt werden.
-Beispielsweise wird es als ein Cluster installiert, der entweder auf einem Server mit nur einem Broker aufgesetzt wird.
-Oder aber verteilt auf mehreren Servern mit mehreren Brokern.
+Beispielsweise wird es als ein Cluster installiert, der entweder auf einem Server mit nur einem Broker aufgesetzt wird,
+oder aber verteilt auf mehreren Servern mit mehreren Brokern.
 
 Der Cluster setzt sich dann aus den folgenden Themen zusammen:
 
