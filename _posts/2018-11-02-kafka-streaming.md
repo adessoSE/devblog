@@ -450,7 +450,7 @@ Topologies:
       <-- KSTREAM-MAP-0000000002
 ```
 
-Erkennbar ist, das der erste Prozessor die Daten aus der Topic `Kunde1` liest,
+Erkennbar ist, dass der erste Prozessor die Daten aus der Topic `Kunde1` liest,
 dann ein Filter- und –Mapping-Prozessor eingesetzt werden und zum Schluss
 die Daten über den letzten Prozessor an die Topic `Kunde2` übergeben werden.
 
