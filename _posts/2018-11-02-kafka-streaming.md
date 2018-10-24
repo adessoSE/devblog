@@ -51,7 +51,7 @@ basierend auf einer verteilten, partitionier- und verteilbaren Architektur.
 
 Der Einsatz von nachrichtenorientierten System kann in folgende Gebiete unterteilt werden.
 * Nachrichten-Übermittlung (Messaging)
-  * Micro-Services nutzen eine MOM um Nachrichten und Events untereinander auszutauschen.
+  * Microservices nutzen eine MOM um Nachrichten und Events untereinander auszutauschen.
 * Website Activity Tracking
   * Die Bedienung einer Web-Anwendung wird detailliert in Protokollen gespeichert,
     in Kafka gespeichert, verarbeitet und wieder verteilt.
