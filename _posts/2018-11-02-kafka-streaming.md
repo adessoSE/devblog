@@ -257,7 +257,7 @@ Die Konfigurationsdateien sind mit Default-Werten belegt, so dass dieses einfach
 # Konfiguration
 
 Nachdem Kafka installiert und gestartet wurde, kann das System nun direkt genutzt werden.
-Als ersten Schritt müssen die Topics angelegt werden, damit hier die später die Nachrichten (Records) gespeichert werden können.
+Als ersten Schritt müssen die Topics angelegt werden, damit hier später die Nachrichten (Records) gespeichert werden können.
 
 `kafka-topics.bat --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic Kunde1`
 
