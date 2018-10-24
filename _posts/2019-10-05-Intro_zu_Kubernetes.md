@@ -277,7 +277,7 @@ Wenn nun ein Pod abstürzt (oder wir ihn manuell löschen) können wir sehen, wi
 Das Deployment arbeit also genau so, wie es soll.
 
 # Update ausführen
-Wenn wir im Dashboard auf "Workload" gehen, dann sehen wir die Ressourcen, die durch das Deployment erstellt wurden.
+Wenn wir im Dashboard auf "Workloads" gehen, dann sehen wir die Ressourcen, die durch das Deployment erstellt wurden.
 Darunter sind nicht nur das Deployment, sondern auch die Pods und ein sogenanntes *ReplicaSet*.
 ReplicaSets werden intern von Deployments genutzt, um die gewünschte Anzahl der Pods zu einem Deployment sicherzustellen.
 Dieses Konzept ist von Bedeutung, wenn es um das Updaten von einem Deployment geht und dies wollen wir uns jetzt einmal anschauen.
