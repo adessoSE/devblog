@@ -36,7 +36,7 @@ Der Konsument (Subscriber) ist dafür verantwortlich, die Nachrichten entgegen z
 
 Herausgeber und Konsument kennen sich nicht. Sie kommunizieren über einen definierten Kanal in Kafka.
 Da Kafka dann als zentrales System zum Austausch von Nachrichten dient, muss es stabil, hochverfügbar und belastbar aufgesetzt werden.
-Diesen Ansprüchen genügt Kafka durch Grundlegende Architekturentscheidungen, wie beispielsweise einen hohen Daten-Durchsatz
+Diesen Ansprüchen genügt Kafka durch grundlegende Architekturentscheidungen, wie beispielsweise einen hohen Daten-Durchsatz
 oder auch der Replikation der Kafka Nodes, um Ausfälle zu kompensieren.
 Kafka wurde mit dem Gedanken an BigData und Streaming geplant.
 
