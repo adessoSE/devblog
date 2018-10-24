@@ -441,7 +441,7 @@ Es gibt weitere Eigenschaften, die bei Datenströmen beachtet werden müssen:
   oder unabhängig von der Länge ist. Hier wird die Unterscheidung „tumbling / fixed window“ und „sliding window“ genannt.
 
 In dem hier genutzten Sinne wird Stream-Processing als ein Architektur-Muster gesehen,
-beim dem Datenströme in großen Mengen kontinuierlich, und wenn möglich in Echtzeit, verarbeitet werden.
+bei dem Datenströme in großen Mengen kontinuierlich, und wenn möglich in Echtzeit, verarbeitet werden.
 
 Stream-Processing kann in verschiedene Einsatz-Szenarien unterteilt werden.
 
