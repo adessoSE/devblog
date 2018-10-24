@@ -26,7 +26,7 @@ Bei Nachrichtenorientierten Systemen wird zwischen folgenden Protokollen untersc
 * Publish & Subscribe   : Hier stellt ein Herausgeber dem Konsumenten Nachrichten zur Verfügung.
 Der Austausch kann dabei asynchron oder synchron erfolgen.
 
-Kafka ist eine solches Nachrichtenorientiertes System, das Daten in Form von Nachrichten zwischen verschiedenen Systemen austauscht.
+[Kafka](https://kafka.apache.org/) ist eine solches Nachrichtenorientiertes System, das Daten in Form von Nachrichten zwischen verschiedenen Systemen austauscht.
 Es wurde ursprünglich von LinkedIn entwickelt, dann aber an die Apache Software Foundation übergeben.
 
 Kafka wird in der Rolle des Publish & Subscribers implementiert und genutzt.
