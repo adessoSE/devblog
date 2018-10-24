@@ -11,7 +11,7 @@ auszuwerten und an unterschiedliche Konsumenten zu verteilen.
 Zusätzlich müssen Firmen möglichst schnell auf Marktsituationen reagieren und ihre Software-Systeme an diese anpassen.
 Damit die Software-Systeme nicht in eine zu starke Abhängigkeit geraten,
 wird die Architektur dieser Systeme oft als eine verteilte heterogene Landschaft
-mit unterschiedlicher fachspezifischen Technologien umgesetzt,
+mit unterschiedlichen fachspezifischen Technologien umgesetzt,
 deren Schnittstellen meist nur noch über den synchronen oder asynchrone Austausch von Nachrichten lose miteinander verbunden sind.
 In diesem Blog wird der Einsatz von Kafka als Message-Queue und Streaming-Plattform erläutert.
 
