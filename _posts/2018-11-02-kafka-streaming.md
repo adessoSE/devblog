@@ -56,7 +56,7 @@ Der Einsatz von nachrichtenorientierten System kann in folgende Gebiete untertei
   * Die Bedienung einer Web-Anwendung wird detailliert in Protokollen gespeichert,
     in Kafka gespeichert, verarbeitet und wieder verteilt.
     Dies war auch die ursprüngliche Anforderung für die Erschaffung von Kafka
-* Log Aggregation
+* Log-Aggregation
   * Unterschiedliche Quellen und Formate von Protokoll-Dateien werden massenhaft von der MOM gesammelt,
     zentral gespeichert, in ein einheitliches Format überführt und zur Auswertung zur Verfügung gestellt.
 * Stream Processing
