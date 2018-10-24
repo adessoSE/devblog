@@ -451,7 +451,7 @@ Topologies:
 ```
 
 Erkennbar ist, dass der erste Prozessor die Daten aus der Topic `Kunde1` liest,
-dann ein Filter- und –Mapping-Prozessor eingesetzt werden und zum Schluss
+dann ein Filter- und Mapping-Prozessor eingesetzt werden und zum Schluss
 die Daten über den letzten Prozessor an die Topic `Kunde2` übergeben werden.
 
 Die Konfiguration und die Topologie werden zuletzt an ein KafkaStreams-Objekt übergeben und die Bearbeitung gestartet.
