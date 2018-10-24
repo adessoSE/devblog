@@ -6,19 +6,19 @@ author:         t-buss
 categories:     [Softwareentwicklung]
 tags:           [cloud, kubernetes]
 ---
-Die Container-Orchestrierungs-Lösung Kubernetes ist das wohlmöglich am stärksten gewachsene Open Source Projekt der letzten Jahre.
-Container-Orchestrierung, das bedeutet das Management von hunderten lose gekoppelten Anwendungs-Container, die zusammen miteinander interagieren müssen.
+Die Container-Orchestrierungs-Lösung Kubernetes ist das wohlmöglich am stärksten gewachsene Open-Source-Projekt der letzten Jahre.
+Container-Orchestrierung bedeutet das Management von hunderten lose gekoppelten Anwendungs-Containern, die zusammen miteinander interagieren müssen.
 Alle großen Cloud-Anbieter wie Google, Amazon, Microsoft und weitere bieten heutzutage Kubernetes-Instanzen an und unzählige Firmen lagern ihre Anwendungen auf Kubernetes-gestützten Clustern in der Cloud aus, um sich nicht länger selbst um die Infrastruktur ihrer Anwendung kümmern zu müssen.
 Grund genug, sich einmal näher mit Kubernetes und Konzepten dahinter zu beschäftigen.
 
 # Einführung in Kubernetes
 In diesem Blogpost geht es um die grundlegenden Konzepte, mit denen Kubernetes arbeitet.
-Der Fokus liegt hierbei auf die Sicht eines Entwicklers, nicht des Cluster-Operators.
-Wir betrachten ein kleines Beispiel, indem wir eine triviale SpringBoot-Anwendung in einem lokalen Kubernetes-Cluster, Minikube, ausführen.
+Der Fokus liegt hierbei auf der Sicht eines Entwicklers, nicht des Cluster-Operators.
+Wir betrachten ein kleines Beispiel, indem wir eine triviale Spring-Boot-Anwendung in dem lokalen Kubernetes-Cluster Minikube ausführen.
 Bevor wir zu dem Praxisteil kommen, klären wir erst einmal die Begrifflichkeiten.
 
 # Cluster, Nodes und Pods
-Kuberentes ist eine verteilte Anwendung, wird also auf mehreren physikalischen (oder virtuellen) Rechnern ausgeführt, die man als *Nodes* bezeichnet und zusammen den Kubernetes *Cluster* bilden.
+Kuberentes ist eine verteilte Anwendung, wird also auf mehreren physikalischen (oder virtuellen) Rechnern ausgeführt, die man als *Nodes* bezeichnet und die zusammen den Kubernetes *Cluster* bilden.
 Mindestens ein Node nimmt dabei die Rolle des Masters ein, der den Cluster managed und die Befehle des Benutzers entgegen nimmt.
 
 Auf den Nodes laufen sogenannte *Pods*.
@@ -204,7 +204,7 @@ spec:
     targetPort:  5000
 ```
 Die Selector-Direktive beschreibt die Labels, die die Pods haben müssen, um von diesem Service erfasst zu werden.
-Der Typ `NodePort` zeigt an, das Kubernetes für diesen Service auf jedem Node (bei Minikube nur das eine) einen Port öffnen soll, über den man den Service ansprechen kann.
+Der Typ `NodePort` zeigt an, dass Kubernetes für diesen Service auf jedem Node (bei Minikube nur der eine) einen Port öffnen soll, über den man den Service ansprechen kann.
 In einem "richtigen" Kubernetes-Cluster hätten wir auch noch andere Möglichkeiten, den Service öffentlich zugänglich zu machen.
 Port und targetPort zeigen an, das der Service auf Port 8080 läuft und auf die Ports 5000 der Pods weiterleitet.
 Diese Grafik zeigt den momentanen Aufbau:
@@ -218,8 +218,8 @@ oder über "Create" im Dashboard.
 
 Wir können die Funktion des Services leider nicht auf die selbe Weise testen, wie die Funktion eines Pods.
 Es lässt sich zwar ein Port-Forwarding auf einen Service einrichten, jedoch wird dabei implizit ein einzelner Pod ausgewählt, an den "geforwarded" wird.
-Sollte dieser Pod ausfallen, wird der Service nicht automatisch an einen anderen Pod weiterleiten und der Vorteil unseres Services ist dahin (ja, ich habe lange gebraucht, um das rauszufinden).
-Glücklicherweise können wir über Minikube schnell an die URL kommen, über den wir den Service erreichen:
+Sollte dieser Pod ausfallen, wird der Service nicht automatisch an einen anderen Pod weiterleiten und der Vorteil unseres Services ist dahin.
+Glücklicherweise können wir über Minikube schnell an die URL kommen, über die wir den Service erreichen:
 > `$ minikube service sample-sck --url`<br>
 > `http://192.168.99.100:31862`
 
@@ -282,11 +282,11 @@ Der Name der jeweiligen Pods ergibt sich aus dem Namen, der im Deployment im Tem
 Hier ist der momentane Status als Grafik:
 ![Deployment kümmert sich um Pods](/assets/images/posts/intro-zu-kubernetes/k8s-2.png)
 
-Wenn nun ein Pod abstürzt (oder wir ihn manuell löschen :^) ) manuell löschen können wir sehen, wie über das Deployment ein neuer Pod erstellt wird, um den Platz des alten einzunehmen.
+Wenn nun ein Pod abstürzt (oder wir ihn manuell löschen) können wir sehen, wie über das Deployment ein neuer Pod erstellt wird, um den Platz des alten einzunehmen.
 Das Deployment arbeit also genau so, wie es soll.
 
 # Update ausführen
-Wenn wir im Dashboard auf "Workload" gehen, dann sehen wir die Ressourcen, die durch das Deployment erstellt wurden.
+Wenn wir im Dashboard auf "Workloads" gehen, dann sehen wir die Ressourcen, die durch das Deployment erstellt wurden.
 Darunter sind nicht nur das Deployment, sondern auch die Pods und ein sogenanntes *ReplicaSet*.
 ReplicaSets werden intern von Deployments genutzt, um die gewünschte Anzahl der Pods zu einem Deployment sicherzustellen.
 Dieses Konzept ist von Bedeutung, wenn es um das Updaten von einem Deployment geht und dies wollen wir uns jetzt einmal anschauen.
