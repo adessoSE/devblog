@@ -472,7 +472,7 @@ Es gibt weitere zu beachtende Fälle wie beispielsweise den Zugriff auf externe 
 
 # Stream Processing Anwendung
 
-Eine Kafka Streams Processing Anwendung besteht aus einem Konfigurationsteil,
+Eine Kafka-Streams-Processing-Anwendung besteht aus einem Konfigurationsteil,
 mit dem die Umgebung konfiguriert und angesprochen werden kann und einer sogenannten Topologie.
 Eine Topologie besteht dabei aus einer Menge an Methoden und Transformationen die jeder Eintrag eines Datenstroms durchläuft.
 
