@@ -95,7 +95,7 @@ Eine Topic kann am ehesten mit einem Ordner oder einem Ablagefach verglichen wer
 
 Ein Topic wird in Partitionen unterteilt. Neue Records werden an Partitionen gehangen.
 Für jeden Konsumenten speichert Kafka die Position des zuletzt gelesenen Records ab,
-wodurch für die Konsumenten immer erkenntlich bleibt, welcher Records zuletzt gelesen wurde.
+wodurch für die Konsumenten immer erkenntlich bleibt, welcher Record zuletzt gelesen wurde.
 Der Konsument muss das Lesen des Records an Kafka bestätigen, einen sogenannten Commit ausführen.
 Dadurch kann Kafka die Position des Konsumenten speichern.
 
