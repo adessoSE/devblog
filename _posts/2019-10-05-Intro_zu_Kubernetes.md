@@ -210,7 +210,7 @@ oder über "Create" im Dashboard.
 Wir können die Funktion des Services leider nicht auf die selbe Weise testen, wie die Funktion eines Pods.
 Es lässt sich zwar ein Port-Forwarding auf einen Service einrichten, jedoch wird dabei implizit ein einzelner Pod ausgewählt, an den "geforwarded" wird.
 Sollte dieser Pod ausfallen, wird der Service nicht automatisch an einen anderen Pod weiterleiten und der Vorteil unseres Services ist dahin (ja, ich habe lange gebraucht, um das rauszufinden).
-Glücklicherweise können wir über Minikube schnell an die URL kommen, über den wir den Service erreichen:
+Glücklicherweise können wir über Minikube schnell an die URL kommen, über die wir den Service erreichen:
 > `$ minikube service sample-sck --url`<br>
 > `http://192.168.99.100:31862`
 
