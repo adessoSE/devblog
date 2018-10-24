@@ -388,6 +388,8 @@ public class SimpleConsumer
 
 ```
 
+*Der Sourcecode ist auf [GitHub](https://github.com/swindisch/examplekafka) verfügbar.*
+
 # Was ist neu
 
 Die aktuelle Version 2.0 von Kafka bringt ca. 40 neue Features, Kafka Improvement Proposals (KIP) genannt und über 200 Verbesserungen und Korrekturen.
