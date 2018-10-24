@@ -20,7 +20,7 @@ In diesem Blog wird der Einsatz von Kafka als Message-Queue und Streaming-Plattf
 Zum Austausch der Nachrichten werden sogenannte nachrichtenorientierte Systeme, Message Oriented Middleware (MOM), eingesetzt,
 die als eigenständige Produkte am Markt existieren.
 
-Bei Nachrichtenorientierten Systemen wird zwischen folgenden Protokollen unterschieden.
+Bei nachrichtenorientierten Systemen wird zwischen folgenden Protokollen unterschieden.
 * Message Passing   	: Dies ist die direkte Kommunikation zwischen zwei Systemen.
 * Message Queueing	    : Dies ist die indirekte Kommunikation über eine Middleware in Form einer Warteschlange.
 * Publish & Subscribe   : Hier stellt ein Herausgeber dem Konsumenten Nachrichten zur Verfügung.
