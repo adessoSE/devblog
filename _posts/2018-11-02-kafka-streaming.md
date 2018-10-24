@@ -490,7 +490,7 @@ public class SimpleStreamProcessor
 
 # Fazit
 
-Kafka ist ein hochskalierbares nachrichtenorientiertes System, das einen einfachen Einstieg ermöglicht,
+Kafka ist ein hochskalierbares, nachrichtenorientiertes System, das einen einfachen Einstieg ermöglicht,
 aber auch in der Lage ist, für große Datenmengen konfiguriert zu werden.
 
 Durch verschiedene APIs und Frameworks, wie beispielsweise Kafka Streams, wird das System um weitere Features erweitert.
