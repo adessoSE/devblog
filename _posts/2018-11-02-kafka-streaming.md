@@ -17,7 +17,7 @@ In diesem Blog wird der Einsatz von Kafka als Message-Queue und Streaming-Plattf
 
 # Nachrichtenorientierte Systeme, Message Oriented Middleware (MOM)
 
-Zum Austausch der Nachrichten werden sogenannte Nachrichtenorientierte Systeme, Message Oriented Middleware (MOM), eingesetzt,
+Zum Austausch der Nachrichten werden sogenannte nachrichtenorientierte Systeme, Message Oriented Middleware (MOM), eingesetzt,
 die als eigenständige Produkte am Markt existieren.
 
 Bei Nachrichtenorientierten Systemen wird zwischen folgenden Protokollen unterschieden.
