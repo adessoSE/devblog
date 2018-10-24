@@ -166,7 +166,7 @@ Beispielsweise kann Kafka als ein Cluster installiert werden, der entweder auf e
 Der Cluster setzt sich dabei aus den folgenden Systemen zusammen:
 
 * Zookeeper	: Zur zentralen Koordinierung der Konfiguration und Systeme
-* Broker	: Kafka Prozess, verteilt auf einem oder mehrere Server
+* Broker	: Kafka Prozess, verteilt auf einem oder mehreren Servern
 * Topic		: Topic zur Sammlung der Nachrichten
 * Ersteller	: Das System, das Nachrichten in Kafka ablegt
 * Konsument	: Das System, das Nachrichten aus Kafka abholt
