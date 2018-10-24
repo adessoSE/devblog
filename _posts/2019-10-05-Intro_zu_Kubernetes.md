@@ -166,7 +166,11 @@ oder über das Dashboard.
 
 ## Services
 Wir können noch einige Pods auf diese Weise erstellen.
-Dazu kopieren wir die Datei mit dem neuen Namen "sample-sck-pod-2.yaml" und ändern den Namen des Pods innerhalb der Konfiguration ebenfalls auf `sample-sck-pod-2`.
+Dazu kopieren wir die Datei mit dem neuen Namen "sample-sck-pod-2.yaml".
+Innerhalb der Konfiguration machen wir zwei Änderungen:
+Wir ändern den Namen des Pods auf `sample-sck-pod-2`, da der vorherige Name ja schon von dem anderen Pod belegt ist.
+Wir werden später einen Mechanismus kennen lernen, der uns diese Umbenennung bei der Erstellung viele Pods abnimmt.
+Außerdem ändern wir den Wert der Umgebungsvariablen auf `bar`, damit wir sehen können, welchen Pod wir erreicht haben.
 Mit
 >`kubectl create -f sample-sck-pod-2.yaml`
 
@@ -203,7 +207,7 @@ spec:
   - port:  8080
     targetPort:  5000
 ```
-Die Selector-Direktive beschreibt die Labels, die die Pods haben müssen, um von diesem Service erfasst zu werden.
+Die Selector-Direktive beschreibt die Labels, die die Pods haben müssen, um von diesem Service berücksichtigt zu werden.
 Der Typ `NodePort` zeigt an, dass Kubernetes für diesen Service auf jedem Node (bei Minikube nur der eine) einen Port öffnen soll, über den man den Service ansprechen kann.
 In einem "richtigen" Kubernetes-Cluster hätten wir auch noch andere Möglichkeiten, den Service öffentlich zugänglich zu machen.
 Port und targetPort zeigen an, das der Service auf Port 8080 läuft und auf die Ports 5000 der Pods weiterleitet.
@@ -211,7 +215,7 @@ Diese Grafik zeigt den momentanen Aufbau:
 
 ![Service leitet an Pods weiter](/assets/images/posts/intro-zu-kubernetes/k8s-1.png)
 
-Speichern wir die Datei unter `sample-sck-service.yaml` ab und erstellen den Service mit
+Speichern wir die Datei ab und erstellen den Service mit
 > `kubectl create -f sample-sck-service.yaml`
 
 oder über "Create" im Dashboard.
@@ -223,20 +227,12 @@ Glücklicherweise können wir über Minikube schnell an die URL kommen, über di
 > `$ minikube service sample-sck --url`<br>
 > `http://192.168.99.100:31862`
 
-Unter dieser Adresse sollte jetzt wieder das Wort "Foo" zu sehen sein.
-
-Beenden wir einmal alle Pods, die wir gerade gestartet haben:
-> `kubectl get pods -l app=sample-sck -o json | kubectl delete -f -`
-
-Nun definieren wir zwei Pods, jeweils mit den Werten `Foo` und `Bar ` für `SOME_ENV_VAR`, in den zwei unterschiedlichen Dateien: `sample-sck1.yaml` und `sample-sck2.yaml`.
-Anschließend starten wir die Pods:
-> `kubectl create -f sample-sck1.yaml -f sample-sck2.yaml`
-
-Wenn wir nun ein paar mal die URL des Service aufrufen, wird manchmal der eine, manchmal der andere Wert angezeigt.
+Unter dieser Adresse plus Pfad `/getenv` sollte jetzt "Foo" oder "Bar" zu sehen sein.
+Wenn wir nun ein paar mal die URL des Service aufrufen, wird manchmal der eine, manchmal der andere Wert angezeigt (eventuell muss man die URL SEHR oft aufrufen).
 Wir können auch beobachten, was passiert, wenn ein Pod entfernt wird:
-> `kubectl delete pod -f sample-sck1.yaml`
+> `kubectl delete pod -f sample-sck-pod-1.yaml`
 
-Der Service leitet die Anfragen an den verbleibenden Service weiter, ohne, dass zwischenzeitlich ein Ausfall zu vermerken ist.
+Der Service leitet die Anfragen an den verbleibenden Pod weiter, ohne, dass zwischenzeitlich ein Ausfall zu vermerken ist.
 Unser Service funktioniert also.
 
 ## Deployments
@@ -246,14 +242,14 @@ Wir können auf diese Weise nicht automatisch Pods starten und müssen ständig 
 Um diese Probleme zu lösen gibt es *Deployments*.
 Mit Deployments geben wir einerseits eine "Schablone" für unsere Pods an (wie bei der manuellen Definition von Pods) und andererseits die gewünschte Anzahl der Pods.
 
-Hier ist die Definition eines Deployments:
+Erstellen wir eine Deployment-Konfiguration unter dem Namen `sample-sck-deployment.yaml`:
 ```yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: sample-sck-deployment
 spec:
-  replicas: 2
+  replicas: 10
   selector:
     matchLabels:
       app: sample-sck
@@ -261,7 +257,6 @@ spec:
     metadata:
       labels:
         app: sample-sck
-        version: v1
     spec:
       containers:
       - name: sample-sck
@@ -270,14 +265,17 @@ spec:
           - containerPort: 5000
 ```
 Der größte Teil der Definition sollte uns schon bekannt vorkommen und selbsterklärend sein.
-Wir beschreiben die gewünschte Anzahl mit `replicas`; hier sind es zwei.
+Wir beschreiben die gewünschte Anzahl mit `replicas`; hier sind es zehn.
 Mit `selector` legen wir fest, wie das Deployment "seine" Pods erkennt.
-Die Labels im Selector sollten denen im Template entsprechen.
+Die Labels im Selector sollten denen im Template gleichen.
 
-Speichern wir diese Datei unter `sample-sck-deployment.yaml` ab und erstellen das Deployment:
+Bevor wir das Deployment erstellen, sollten wir sicherstellen, dass keine Pods mit desem Label in unserem Cluster laufen, da dies zu unerwünschten Seiteneffekten führen könnte.
+> `kubectl delete -f sample-sck-pod-1.yaml -f sample-sck-pod-2.yaml`
+
+Jetzt erstellen wir das Deployment:
 > `kubectl create -f sample-sck-deployment.yaml`
 
-Im Dashboard unter "Pods" kann man sehen, dass die gewünschten Pods automatisch erstellt wurden.
+Mit `kubectl get pods` oder im Dashboard unter "Pods" kann man sehen, dass die gewünschten Pods automatisch erstellt wurden.
 Der Name der jeweiligen Pods ergibt sich aus dem Namen, der im Deployment im Template angegeben wurde, einem Hash für das Deployment und einem Hash für den Container selbst.
 Hier ist der momentane Status als Grafik:
 ![Deployment kümmert sich um Pods](/assets/images/posts/intro-zu-kubernetes/k8s-2.png)
@@ -307,7 +305,7 @@ Bevor wir den Befehl eingeben, können wir mit
 beobachten, wie das Update durchgeführt wird (auf Windows gibt es das Programm `watch` leider nicht; dann einfach nur oft hintereinander `kubectl get replicasets` ausführen).
 Es sollte nur ein ReplicaSet für unser Deployment angezeigt werden.
 
-Nun führen wir in einem anderen Terminal den Befehl aus:
+Nun führen wir in einem anderen Terminal den Befehl zum Update aus:
 > `kubectl set image deployment sample-sck-deployment sample-sck=registry.gitlab.com/tbuss/sample-sck/master:2af15466e456f7112b8b1b557d75be4dbab78df3`
 
 Wir geben dabei die Aktion und das Deployment an und spezifizieren für den Container `sample-sck` das neue Image.
@@ -348,6 +346,13 @@ Geben wir jetzt in einem anderen Terminal den Befehl zum Update:
 
 Genau wie bei dem Update per Kommandozeile wird ein zweites ReplicaSet erstellt und übernimmt nach und nach die Last des Ursprünglichen.
 Auch hier hat also das Update geklappt.
+Jedoch haben wir bei dem Befehl `kubectl apply ...` eine Warning bekommen:
+>`Warning: kubectl apply should be used on resource created by either kubectl create --save-config or kubectl apply`
+
+Der Hintergrund ist, das Kubernetes bei dem Befehl `kubectl create ...` einige Default-Werte annimmt.
+Diese Default-Werte können sich je nach Version ändern.
+Wenn wir die Änderungen an einer Datei mit `kubectl apply` anwenden, weiß Kubernetes nicht mehr, was wir in der alten Konfiguration explizit angegeben haben und was als Default angenommen wurde.
+Mit dem Flag `--save-config` speichert Kubernetes unsere Konfiguration so ab, dass es diese Unterscheidung machen kann.
 
 # Fazit
 In diesem Blogpost haben wir die grundlegenden Konzepte von Kubernetes kennen gelernt.
