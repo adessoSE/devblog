@@ -459,7 +459,7 @@ Dabei werden die Datenströme nach der Priorität der Protokoll-Einträge (Info,
 ### Verarbeitung mit Statusinformationen
 
 Bei dieser Art der Verarbeitung werden Statusinformationen über die Datenstrom-Einträge hinweg berechnet und gespeichert.
-Typischerweise sind dies Aggregats-Funktionen wie Min- Max- oder Durchschnitt.
+Typischerweise sind dies Aggregats-Funktionen wie Minimum, Maximum oder Durchschnitt.
 
 ### Mehrstufige Verarbeitung
 
