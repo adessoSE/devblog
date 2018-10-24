@@ -273,7 +273,7 @@ Der Name der jeweiligen Pods ergibt sich aus dem Namen, der im Deployment im Tem
 Hier ist der momentane Status als Grafik:
 ![Deployment kümmert sich um Pods](/assets/images/posts/intro-zu-kubernetes/k8s-2.png)
 
-Wenn nun ein Pod abstürzt (oder wir ihn manuell löschen :^) ) manuell löschen können wir sehen, wie über das Deployment ein neuer Pod erstellt wird, um den Platz des alten einzunehmen.
+Wenn nun ein Pod abstürzt (oder wir ihn manuell löschen) können wir sehen, wie über das Deployment ein neuer Pod erstellt wird, um den Platz des alten einzunehmen.
 Das Deployment arbeit also genau so, wie es soll.
 
 # Update ausführen
