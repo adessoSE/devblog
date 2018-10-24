@@ -420,7 +420,7 @@ D.h. die API läuft im Kontext der eigenen Anwendung und kommuniziert intern mit
 
 Das folgende sehr einfache Beispiel zeigt das Konsumieren von Testnachrichten, aus der Kafka Topic `Kunde1`.
 
-Zunächst werden die Konfiguration zum Kafka-System und die Methode der Daten-Serialisierung angegeben
+Zunächst werden die Konfiguration zum Kafka-System und die Methode der Daten-Serialisierung angegeben.
 Im Anschluss wird ein StreamBuilder angelegt und mit einer Kafka Topic verbunden.
 Die Topologie, bestehend aus den Methoden und Transformationen, wird auf dem angelegten StreamBuilder angewendet.
 
