@@ -327,7 +327,7 @@ public class SimpleProducer
 
 ```
 
-Das folgende sehr einfache Beispiel zeigt das Konsumieren von Testnachrichten, aus der Kafka Topic `Kunde1`.
+Das folgende sehr einfache Beispiel zeigt das Konsumieren von Testnachrichten aus der Kafka Topic `Kunde1`.
 Zunächst werden die Konfiguration zum Kafka-System und die Methode der Daten-Serialisierung angegeben.
 Zusätzlich wird die Consumer-Gruppe und Consumer-id übergeben und bestimmt, dass das Commit automatisch durchgeführt werden soll.
 Anschließend wird die Liste der Kafka-Topics angegeben, die für diesen Konsumenten von Interesse sind.
