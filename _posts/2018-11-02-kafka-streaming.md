@@ -160,11 +160,10 @@ Beispielsweise kann Kafka Connect genutzt werden, um Daten aus MySQL-Datenbanken
 
 # Installation
 
-Kafka kann für verschiedene Datenmengen unterschiedlich aufgesetzt werden.
-Beispielsweise wird es als ein Cluster installiert, der entweder auf einem Server mit nur einem Broker aufgesetzt wird,
-oder aber verteilt auf mehreren Servern mit mehreren Brokern.
+Kafka kann für verschiedene Datenmengen unterschiedlich aufgesetzt werden. Das installierte Kafka-System wird dabei als Cluster bezeichnet.
+Beispielsweise kann Kafka als ein Cluster installiert werden, der entweder auf einem Server mit nur einem Broker aufgesetzt wird, oder aber verteilt auf mehreren Servern mit mehreren Brokern.
 
-Der Cluster setzt sich dann aus den folgenden Themen zusammen:
+Der Cluster setzt sich dabei aus den folgenden Systemen zusammen:
 
 * Zookeeper	: Zur zentralen Koordinierung der Konfiguration und Systeme
 * Broker	: Kafka Prozess, verteilt auf einem oder mehrere Server
@@ -174,27 +173,84 @@ Der Cluster setzt sich dann aus den folgenden Themen zusammen:
 
 Für ein einfaches Beispiel nutzen wir Kafka in einer Windows-Umgebung mit einem bereits installierten Java Framework.
 
-![Java Version](/assets/images/posts/kafka_streaming/java.png)
+``` batch
+c:\dev\kafka_2.11-2.0.0>java -version
+java version "10.0.1" 2018-04-17
+Java(TM) SE Runtime Environment 18.3 (build 10.0.1+10)
+Java HotSpot(TM) 64-Bit Server VM 18.3 (build 10.0.1+10, mixed mode)
+```
 
 Kafka kann von der Apache Seite heruntergeladen werden. Die Aktuelle Version ist hier erreichbar:
 [Kafka Download](https://kafka.apache.org/downloads "Kafka Download")
 
 Das genutzte heruntergeladene Archiv `kafka_2.11-2.0.0.tgz` wird in das Verzeichnis `c:\dev` entpackt, so dass die folgende Verzeichnis-Struktur entsteht:
 
-![Kafka Verzeichnis](/assets/images/posts/kafka_streaming/kafka_folder.png)
+``` batch
+Verzeichnis von c:\dev\kafka_2.11-2.0.0
+
+11.10.2018  18:10    <DIR>          .
+11.10.2018  18:10    <DIR>          ..
+09.10.2018  12:34    <DIR>          bin
+11.10.2018  07:44    <DIR>          config
+09.10.2018  12:34    <DIR>          libs
+24.07.2018  16:17            28.824 LICENSE
+24.07.2018  16:17               336 NOTICE
+09.10.2018  12:34    <DIR>          site-docs
+12.10.2018  16:57    <DIR>          _src
+               2 Datei(en),         29.160 Bytes
+               7 Verzeichnis(se), 271.241.490.432 Bytes frei
+```
 
 In dem Unterverzeichnis `c:\dev\kafka_2.11-2.0.0\bin\windows` liegen die Batch-Dateien für die Windows-Umgebung.
 
 Kafka nutzt Apache Zookepper als zentralen Dienst für Konfigurationen und verteilte Verwaltung, so dass dieser zuerst gestartet werden muss:
 `zookeeper-server-start.bat ..\..\config\zookeeper.properties`
 
-![ZooKeeper](/assets/images/posts/kafka_streaming/zookeeper.png)
+``` batch
+[2018-10-24 08:29:06,221] INFO Reading configuration from: ..\..\config\zookeeper.properties (org.apache.zookeeper.server.quorum.QuorumPeerConfig)
+[2018-10-24 08:29:06,252] INFO Starting server (org.apache.zookeeper.server.ZooKeeperServerMain)
+[2018-10-24 08:29:10,847] INFO Server environment:zookeeper.version=3.4.13-2d71af4dbe22557fda74f9a9b4309b15a7487f03, built on 06/29/2018 00:39 GMT (org.apache.zookeeper.server.ZooKeeperServer)
+[2018-10-24 08:29:10,847] INFO Server environment:host.name=192.168.220.1 (org.apache.zookeeper.server.ZooKeeperServer)
+[2018-10-24 08:29:10,847] INFO Server environment:java.version=1.8.0_172 (org.apache.zookeeper.server.ZooKeeperServer)
+[2018-10-24 08:29:10,847] INFO Server environment:java.vendor=Oracle Corporation (org.apache.zookeeper.server.ZooKeeperServer)
+[2018-10-24 08:29:10,847] INFO Server environment:java.home=C:\dev\Java\jdk1.8.0_172_64\jre (org.apache.zookeeper.server.ZooKeeperServer)
+
+...
+
+[2018-10-24 08:29:10,847] INFO Server environment:java.io.tmpdir=C:\Users\windisch\AppData\Local\Temp\ (org.apache.zookeeper.server.ZooKeeperServer)
+[2018-10-24 08:29:10,847] INFO Server environment:java.compiler=<NA> (org.apache.zookeeper.server.ZooKeeperServer)
+[2018-10-24 08:29:10,847] INFO Server environment:os.name=Windows 10 (org.apache.zookeeper.server.ZooKeeperServer)
+[2018-10-24 08:29:10,847] INFO Server environment:os.arch=amd64 (org.apache.zookeeper.server.ZooKeeperServer)
+[2018-10-24 08:29:10,847] INFO Server environment:os.version=10.0 (org.apache.zookeeper.server.ZooKeeperServer)
+[2018-10-24 08:29:10,847] INFO Server environment:user.name=windisch (org.apache.zookeeper.server.ZooKeeperServer)
+[2018-10-24 08:29:10,847] INFO Server environment:user.home=C:\Users\windisch (org.apache.zookeeper.server.ZooKeeperServer)
+[2018-10-24 08:29:10,847] INFO Server environment:user.dir=c:\dev\kafka_2.11-2.0.0\bin\windows (org.apache.zookeeper.server.ZooKeeperServer)
+[2018-10-24 08:29:10,925] INFO binding to port 0.0.0.0/0.0.0.0:2181 (org.apache.zookeeper.server.NIOServerCnxnFactory)
+```
 
 Im Anschluss wird der Kafka Broker gestartet:
 
 `kafka-server-start.bat ..\..\config\server.properties`
 
+``` batch
+[2018-10-24 08:34:49,966] INFO Registered kafka:type=kafka.Log4jController MBean (kafka.utils.Log4jControllerRegistration$)
+[2018-10-24 08:34:50,231] INFO starting (kafka.server.KafkaServer)
+[2018-10-24 08:34:50,231] INFO Connecting to zookeeper on localhost:2181 (kafka.server.KafkaServer)
+[2018-10-24 08:34:50,247] INFO [ZooKeeperClient] Initializing a new session to localhost:2181. (kafka.zookeeper.ZooKeeperClient)
+[2018-10-24 08:34:54,841] INFO Client environment:zookeeper.version=3.4.13-2d71af4dbe22557fda74f9a9b4309b15a7487f03, built on 06/29/2018 00:39 GMT (org.apache.zookeeper.ZooKeeper)
+[2018-10-24 08:34:54,841] INFO Client environment:host.name=192.168.220.1 (org.apache.zookeeper.ZooKeeper)
+[2018-10-24 08:34:54,841] INFO Client environment:java.version=1.8.0_172 (org.apache.zookeeper.ZooKeeper)
+[2018-10-24 08:34:54,841] INFO Client environment:java.vendor=Oracle Corporation (org.apache.zookeeper.ZooKeeper)
+[2018-10-24 08:34:54,841] INFO Client environment:java.home=C:\dev\Java\jdk1.8.0_172_64\jre (org.apache.zookeeper.ZooKeeper)
 ![Kafka](/assets/images/posts/kafka_streaming/kafka.png)
+
+...
+
+[2018-10-24 08:35:00,561] INFO [SocketServer brokerId=0] Started processors for 1 acceptors (kafka.network.SocketServer)
+[2018-10-24 08:35:00,561] INFO Kafka version : 2.0.0 (org.apache.kafka.common.utils.AppInfoParser)
+[2018-10-24 08:35:00,561] INFO Kafka commitId : 3402a8361b734732 (org.apache.kafka.common.utils.AppInfoParser)
+[2018-10-24 08:35:00,561] INFO [KafkaServer id=0] started (kafka.server.KafkaServer)
+```
 
 Die Konfigurationsdateien sind mit Default-Werten belegt, so dass dieses einfache Beispiel ohne viel Aufwand gestartet werden kann.
 
@@ -218,11 +274,24 @@ Nachrichten können mit diesem Kommando erstellt werden:
 
 Dabei wird ein Stream geöffnet, mit der Nachrichten pro Zeile eingegeben werden können.
 
-![Producer](/assets/images/posts/kafka_streaming/producer.png)
+``` batch
+c:\dev\kafka_2.11-2.0.0\bin\windows>kafka-console-producer.bat --broker-list localhost:9092 --topic Kunde1
+>Nachricht1
+>Nachricht2
+>Nachricht3
+```
 
 Nachrichten können mit diesem Kommando abgerufen werden.
 
 `kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic Kunde1  --from-beginning`
+
+``` batch
+c:\dev\kafka_2.11-2.0.0\bin\windows>kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic Kunde1  --from-beginning
+Nachricht1
+Nachricht2
+Nachricht3
+Processed a total of 3 messages
+```
 
 # Code-Beispiele
 
@@ -248,7 +317,9 @@ public class SimpleProducer
         for(int i = 1; i <= 100; i++)
         {
             System.out.println(String.format("Test Nachricht - %03d", i));
-            kafkaProducer.send(new ProducerRecord("Kunde1", Integer.toString(i), String.format("Test Nachricht - %03d", i)));
+            kafkaProducer.send(new ProducerRecord("Kunde1",
+                                                  Integer.toString(i),
+                                                  String.format("Test Nachricht - %03d", i)));
         }
         kafkaProducer.close();
     }
@@ -293,7 +364,12 @@ public class SimpleConsumer
 
                 for (ConsumerRecord<String, String> record : records)
                 {
-                    System.out.println(String.format("Partition = '%s' - Offset = '%s' - Schluessel = '%s' - Wert = '%s'",record.partition(), record.offset(), record.key(), record.value()));
+                    System.out.println(String.format("Partition = '%s' - Offset = '%s' " +
+                                                     "- Schluessel = '%s' - Wert = '%s'",
+                                                     record.partition(),
+                                                     record.offset(),
+                                                     record.key(),
+                                                     record.value()));
                 }
                 System.out.println("Verarbeitung des Stapels beendet. Kurze Pause...");
                 Thread.sleep(1000);
