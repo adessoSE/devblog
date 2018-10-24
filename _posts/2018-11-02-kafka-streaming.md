@@ -135,7 +135,7 @@ Kafka unterscheidet zwischen synchroner und asynchroner Replikation:
 * Bei der synchronen Replikation sendet der Erzeuger die Nachricht an Kafka.
   Die Nachricht wird dann in der führenden Replika gespeichert. Jede Folge-Replika holt sich die Nachricht vom System,
   speichert diese und sendet den Status zurück. Erst wenn alle Replikationen gespeichert wurden, wird der Erzeuger darüber informiert.
-* Bei der asynchronen Replikation erhält der Erzeuger direkt nachdem die führende Replika die Nachricht gespeichert hat, die Bestätigung.
+* Bei der asynchronen Replikation erhält der Erzeuger direkt nachdem die führende Replika die Nachricht gespeichert hat die Bestätigung.
   Der Rest läuft anschließend im Hintergrund ab.
 
 ## Broker
