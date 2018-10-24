@@ -12,7 +12,7 @@ Zusätzlich müssen Firmen möglichst schnell auf Marktsituationen reagieren und
 Damit die Software-Systeme nicht in eine zu starke Abhängigkeit geraten,
 wird die Architektur dieser Systeme oft als eine verteilte heterogene Landschaft
 mit unterschiedlichen fachspezifischen Technologien umgesetzt,
-deren Schnittstellen meist nur noch über den synchronen oder asynchrone Austausch von Nachrichten lose miteinander verbunden sind.
+deren Schnittstellen meist nur noch über den synchronen oder asynchronen Austausch von Nachrichten lose miteinander verbunden sind.
 In diesem Blog wird der Einsatz von Kafka als Message-Queue und Streaming-Plattform erläutert.
 
 # Nachrichtenorientierte Systeme, Message Oriented Middleware (MOM)
