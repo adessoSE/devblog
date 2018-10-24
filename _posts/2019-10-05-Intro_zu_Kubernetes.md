@@ -7,13 +7,13 @@ categories:     [Softwareentwicklung]
 tags:           [cloud, kubernetes]
 ---
 Die Container-Orchestrierungs-Lösung Kubernetes ist das wohlmöglich am stärksten gewachsene Open-Source-Projekt der letzten Jahre.
-Container-Orchestrierung bedeutet das Management von hunderten lose gekoppelten Anwendungs-Containern, die zusammen miteinander interagieren müssen.
-Alle großen Cloud-Anbieter wie Google, Amazon, Microsoft und weitere bieten heutzutage Kubernetes-Instanzen an und unzählige Firmen lagern ihre Anwendungen auf Kubernetes-gestützten Clustern in der Cloud aus, um sich nicht länger selbst um die Infrastruktur ihrer Anwendung kümmern zu müssen.
+Alle großen Cloud-Anbieter wie Google, Amazon, Microsoft und weitere bieten heutzutage Kubernetes-Instanzen an und unzählige Firmen lagern ihre Anwendungen auf Kubernetes-gestützten Clustern in der Cloud aus.
 Grund genug, sich einmal näher mit Kubernetes und Konzepten dahinter zu beschäftigen.
 
 # Einführung in Kubernetes
-In diesem Blogpost geht es um die grundlegenden Konzepte, mit denen Kubernetes arbeitet.
-Der Fokus liegt hierbei auf der Sicht eines Entwicklers, nicht des Cluster-Operators.
+In diesem Blogpost geht es um die grundlegenden Konzepte, mit denen die Container-Orchestrierung Kubernetes arbeitet.
+Container-Orchestrierung bedeutet das Management von hunderten lose gekoppelten Anwendungs-Containern, die zusammen miteinander interagieren müssen.
+Unser Fokus liegt auf der Sicht eines Entwicklers, nicht eines Cluster-Operators.
 Wir betrachten ein kleines Beispiel, indem wir eine triviale Spring-Boot-Anwendung in dem lokalen Kubernetes-Cluster Minikube ausführen.
 Bevor wir zu dem Praxisteil kommen, klären wir erst einmal die Begrifflichkeiten.
 
