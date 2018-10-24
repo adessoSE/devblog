@@ -334,7 +334,7 @@ Unter anderem sind dies:
 
 # Stream Processing
 
-Kafka wird oft als Stream-Processing Software bezeichnet, wobei es eher als ein Nachrichtenorientiertes System zu sehen ist.
+Kafka wird oft als Stream-Processing Software bezeichnet, wobei es eher als ein nachrichtenorientiertes System zu sehen ist.
 Die Nachrichten werden an Kafka übergeben, verwaltet und für Konsumenten bereitgestellt, aber nicht intern bearbeitet.
 
 Für Stream-Processing, bei der Datenströme aufbereitet und verarbeitet werden,
