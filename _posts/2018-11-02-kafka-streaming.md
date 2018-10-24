@@ -433,7 +433,7 @@ Es gibt weitere Eigenschaften, die bei Datenströmen beachtet werden müssen:
 * Echtzeit: Der Eintrag eines Datenstroms wird „direkt“ nach dem Auftreten verarbeitet und nicht erst über
   einen längeren Zeitraum gesammelt und in einem Stapel verarbeitet. Damit überein geht auch die Frage nach der Latenz und dem Durchsatz.
   D.h. wann muss der Eintrag verarbeitet werden und wie viele Einträge pro Zeiteinheit werden auftreten.
-* Datenquelle und –Format: Wie sehen die Einträge des Datenstroms aus und welches System stellt diese bereit.
+* Datenquelle und –format: Wie sehen die Einträge des Datenstroms aus und welches System stellt dieser bereit.
   Kann bei der Planung des Systems ein Einfluss auf diese Eigenschaften genommen werden.
 * Parallelität: Können die Einträge des Datenstroms parallel verarbeitet werden, um eine höhere Last oder einen höheren Durchsatz zu erreichen.
 * Zeitfenster: Bei der Aggregation von Einträgen eines Datenstroms werden oft bestimmte Zeitfenster definiert.
