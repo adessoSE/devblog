@@ -112,15 +112,18 @@ Den Link zum aktuellen Image findet man [hier](https://gitlab.com/tbuss/sample-s
 ## Pods manuell starten und prüfen
 Wir können jetzt einen oder mehrere Pods in unserem Cluster manuell erstellen.
 Für alle Kubernetes-Ressourcen benutzen wir deklarative YAML-Dateien.
-Dies hat den Vorteil, dass wir unser Setup als Dateien verwalten und in ein eigenes Git-Repository speichern können.
 Kubernetes ließt den gewünschten Status aus den Dateien aus und kümmert sich für uns dafür, dass dieser Status aufrecht erhalten wird.
 Einfach ausgedrückt: "Was will ich haben?" anstatt "Was muss passieren?".
-Die YAML-Datei für einen einfachen Pod sieht folgendermaßen aus:
+Erstellen wir uns einen neuen Ordner außerhalb unseres Code-Repositories.
+Manche Teams speichern die Kubernetes-Konfiguration ihrer Anwendung innerhalb des gleichen Git-Repositories, aber ich persönlich finde eine strickte Trennung zwischen Anwendungscode und Deployment eleganter.
+Wir wählen als Ordnernamen "sample-sck-minikube", also eine Kombination aus Anwendungsnamen und Deployment-Umgebung.
+Darin erstellen wir die Datei `sample-sck-pod.yaml` für einen einfachen Pod.
+Die YAML-Datei dafür sieht folgendermaßen aus:
 ```yaml
 apiVersion: v1
 kind: Pod
 metadata:
-  name: sample-sck
+  name: sample-sck-pod-1
 spec:
   containers:
   - name: sample-sck
@@ -133,11 +136,11 @@ spec:
 ```
 Die YAML-Dateien in Kubernetes starten immer mit Meta-Informationen über die API, die benutzt wird und die Art von Ressource, die erstellt werden soll.
 Auch ein Name wird angegeben.
-Danach folgt die Spezifizierung des Pods, wo wir nicht nur das Image und den Namen angeben, sondern auch den Port der Anwendung (den müssen wir vorher wissen!) und die Umgebungsvariable, die wir nachher ausgegeben haben möchten.
+Danach folgt die Spezifizierung des Pods, wo wir nicht nur das Image und den Namen angeben, sondern auch den Port der Anwendung (den müssen wir vorher wissen!) und die Umgebungsvariable, die wir nachher ausgeben möchten.
 
-Um den spezifizierten Pod zu erstellen, muss man die YAML-Datei unter `sample-sck.yaml` abspeichern und den Befehl
+Um den spezifizierten Pod zu erstellen, muss man den Befehl
 
-> `kubectl create -f sample-sck.yaml` 
+> `kubectl create -f sample-sck-pod-1.yaml` 
 
 ausführen.
 Alternativ kann man auch im Dashboard rechts oben auf "Create" klicken und die Datei dort hochladen.
@@ -157,30 +160,36 @@ Abbildung 1 zeigt den einfachen Aufbau:
 ![Clients wenden ich direkt an Pod](/assets/images/posts/intro-zu-kubernetes/k8s-0.png "Abbildung 1")
 
 Wenn wir den Pods wieder löschen wollen, geht das mit
-> `kubectl delete pod sample-sck`
+> `kubectl delete pod sample-sck-pod-1`
 
 oder über das Dashboard.
 
 ## Services
-Wir können noch einige Pods auf diese Weise erstellen, wobei wir jedes mal den Namen des Pods ändern müssen, was sehr umständlich ist (eine Lösung dazu gibt es später).
+Wir können noch einige Pods auf diese Weise erstellen.
+Dazu kopieren wir die Datei mit dem neuen Namen "sample-sck-pod-2.yaml" und ändern den Namen des Pods innerhalb der Konfiguration ebenfalls auf `sample-sck-pod-2`.
+Mit
+>`kubectl create -f sample-sck-pod-2.yaml`
+
+wird der neue Pod erstellt.
 Die Pods haben immer noch unterschiedliche IPs.
 Daher kann ein Client unserer Anwendung nicht zu einem zentralen Punkt im Cluster navigieren und dort die Anwendung aufrufen.
 Wir benötigen also einen Mechanismus zur Service Discovery.
 Dafür gibt es in Kubernetes sogenannte *Services*.
 Ein Service ist nichts anderes als ein Fixpunkt im Cluster, der die Anfragen an die damit verknüpften Pods weiterleitet.
-Dabei achtet ein Service auf alle Pods, die ein bestimmtes *Label* haben, und leitet die Requests an einen dieser Pods weiter.
+Dabei berücksichtigt ein Service alle Pods, die ein bestimmtes *Label* haben, und leitet die Requests an einen dieser Pods weiter.
 Labels sind ein mächtiges Werkzeug in Kubernetes.
 Diese Key-Value-Paare können an alle Arten von Ressourcen angehängt werden und bieten eine flexible Möglichhkeit zur Gruppierung von Ressourcen, inklusive Pods.
-Wenn wir die Pod-Definition von oben um das Label `app: sample-sck` erweitern, können wir alle Pods als Gruppe identifizieren:
+Wenn wir die Pod-Definition in den beiden Dateien um das Label `app: sample-sck` erweitern, können wir alle Pods als Gruppe identifizieren:
 ```yaml
   ...
 metadata:
-  name: sample-sck
+  name: sample-sck-pod-1 # oder 2
   labels:
     app: sample-sck
   ...
 ```
-Mit diesem Wissen lässt sich ein Service definieren:
+Mit diesem Wissen lässt sich ein Service definieren.
+Als Dateinamen verwenden wir `sample-sck-service.yaml`.
 ```yaml
 apiVersion: v1
 kind: Service
