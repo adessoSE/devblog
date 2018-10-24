@@ -154,7 +154,7 @@ gibt es die Möglichkeit dies über die bekannten Ersteller- und Konsumenten-Sch
 zu realisieren oder aber das Framwork Kafka Connect zu nutzen.
 
 Die Producer- und Consumer-API wird genutzt, wenn die umliegenden Anwendungen selbst entwickelt werden,
-und so Zugriff auf die Erstellung bzw. Bearbeitung der Nachrichten möglich sind.
+und so Zugriff auf die Erstellung und Bearbeitung der Nachrichten möglich ist.
 
 Das Framwork Kafka Connect wird genutzt, um Datenspeicher anzusprechen,
 die von einem Dritthersteller sind (Datastore, Datenbank, Big-Data-Systeme).
