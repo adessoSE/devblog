@@ -142,7 +142,7 @@ Kafka unterscheidet zwischen synchroner und asynchroner Replikation:
 
 Ein Kafka Server wird Broker genannt. Der Server empfängt Nachrichten von Erzeugern und speichert diese in seinem Speicherbereich.
 Er liefert die Nachrichten an die Konsumenten, wenn diese sie anfragen. Durch die Kafka Architektur ist es,
-abhängig der gewählten Infrastruktur, bereits möglich, dass ein Broker mit sehr vielen Partitionen und Nachrichten umgehen kann.
+abhängig von der gewählten Infrastruktur, bereits möglich, dass ein Broker mit sehr vielen Partitionen und Nachrichten umgehen kann.
 
 Bei weiteren Mengen- bzw. Performance-Anforderungen können mehrere Broker als ein Cluster zusammengeschaltet werden,
 so dass dann Partition und Nachrichten auf verschiedene Broker verteilt und repliziert werden.
