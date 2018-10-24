@@ -49,7 +49,7 @@ basierend auf einer verteilten, partitionier- und verteilbaren Architektur.
 
 # Einsatzgebiete
 
-Der Einsatz von Nachrichtenorientierten System kann in folgende Gebiete unterteilt werden.
+Der Einsatz von nachrichtenorientierten System kann in folgende Gebiete unterteilt werden.
 * Nachrichten-Übermittlung (Messaging)
   * Micro-Services nutzen eine MOM um Nachrichten und Events untereinander auszutauschen.
 * Website Activity Tracking
