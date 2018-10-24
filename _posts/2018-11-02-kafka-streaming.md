@@ -435,7 +435,7 @@ Es gibt weitere Eigenschaften, die bei Datenströmen beachtet werden müssen:
   D.h. wann muss der Eintrag verarbeitet werden und wie viele Einträge pro Zeiteinheit werden auftreten.
 * Datenquelle und –format: Wie sehen die Einträge des Datenstroms aus und welches System stellt dieser bereit.
   Kann bei der Planung des Systems ein Einfluss auf diese Eigenschaften genommen werden.
-* Parallelität: Können die Einträge des Datenstroms parallel verarbeitet werden, um eine höhere Last oder einen höheren Durchsatz zu erreichen.
+* Parallelität: Können die Einträge des Datenstroms parallel verarbeitet werden, um einen höheren Durchsatz zu erreichen.
 * Zeitfenster: Bei der Aggregation von Einträgen eines Datenstroms werden oft bestimmte Zeitfenster definiert.
   Beispielsweise, alle Daten der letzten 5 Minuten. Es muss geklärt werden, ob das Zeitfenster dann alle 5 Minuten weiterwandert
   oder unabhängig der Länge ist. Hier wird die Unterscheidung „tumbling / fixed window“ und „sliding window“ genannt.
