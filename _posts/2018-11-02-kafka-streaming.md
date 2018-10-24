@@ -428,7 +428,7 @@ Es gibt weitere Eigenschaften, die bei Datenströmen beachtet werden müssen:
   Dabei muss definiert werden, was mit Einträgen passiert, die später als erwartet auftauchen.
 * Unveränderbarkeit: Ein Eintrag des Datenstroms wird nicht mehr verändert.
   Bei einer Verarbeitung wird aus dem Eintrag ein neuer für den nächsten Datenstrom erstellt, wobei das Original unverändert bleibt.
-* Wiederverwendbar: Der Datenstrom wird über einen langen Zeitraum gespeichert,
+* Wiederverwendbarkeit: Der Datenstrom wird über einen langen Zeitraum gespeichert,
   so dass eine Verarbeitung für andere Zwecke nochmals mit denselben Daten wiederholt werden kann.
 * Echtzeit: Der Eintrag eines Datenstroms wird „direkt“ nach dem Auftreten verarbeitet und nicht erst über
   einen längeren Zeitraum gesammelt und in einem Stapel verarbeitet. Damit überein geht auch die Frage nach der Latenz und dem Durchsatz.
