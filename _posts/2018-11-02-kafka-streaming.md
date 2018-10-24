@@ -50,18 +50,24 @@ basierend auf einer verteilten, partitionier- und verteilbaren Architektur.
 # Einsatzgebiete
 
 Der Einsatz von nachrichtenorientierten System kann in folgende Gebiete unterteilt werden.
-* Nachrichten-Übermittlung (Messaging): Microservices nutzen eine MOM um Nachrichten und Events untereinander auszutauschen.
 
-* Website Activity Tracking: Die Bedienung einer Web-Anwendung wird detailliert in Protokollen gespeichert, in Kafka gespeichert, verarbeitet und wieder verteilt. Dies war auch die ursprüngliche Anforderung für die Erschaffung von Kafka
+### Nachrichten-Übermittlung (Messaging)
+Microservices nutzen eine MOM um Nachrichten und Events untereinander auszutauschen.
 
-* Log-Aggregation: Unterschiedliche Quellen und Formate von Protokoll-Dateien werden massenhaft von der MOM gesammelt, zentral gespeichert, in ein einheitliches Format überführt und zur Auswertung zur Verfügung gestellt.
+### Website Activity Tracking
+Die Bedienung einer Web-Anwendung wird detailliert in Protokollen gespeichert, in Kafka gespeichert, verarbeitet und wieder verteilt. Dies war auch die ursprüngliche Anforderung für die Erschaffung von Kafka
 
-* Stream Processing: Mehrfache und parallele Bearbeitung von Datenströmen zur Erweiterung oder Transformierung. Dabei werden die Datenströme durch Kafka Topics geschoben.
+### Log-Aggregation
+Unterschiedliche Quellen und Formate von Protokoll-Dateien werden massenhaft von der MOM gesammelt, zentral gespeichert, in ein einheitliches Format überführt und zur Auswertung zur Verfügung gestellt.
 
-* Event Sourcing: 
+### Stream Processing
+Mehrfache und parallele Bearbeitung von Datenströmen zur Erweiterung oder Transformierung. Dabei werden die Datenströme durch Kafka Topics geschoben.
+
+### Event Sourcing
 Event Sourcing ist ein Enterprise Architecture Pattern, bei dem Veränderungen von Daten bzw. Objekten als Event-Folge gespeichert werden. Dadurch ist es jederzeit möglich den Zustand zu einem bestimmten Zeitpunkt durch das Einlesen der Event-Folge zu ermitteln.
 
-* Real-Time Processing: Empfänger, die Echtzeit-Verarbeitung ermöglichen, wie beispielsweise Apache Spark oder Storm.
+### Real-Time Processing
+Empfänger, die Echtzeit-Verarbeitung ermöglichen, wie beispielsweise Apache Spark oder Storm.
 
 Bekannte Unternehmen, die Kafka einsetzen sind beispielsweise: LinkedIn, Yahoo, Twitter, Netflix, Square, FourSquare, Pinterest, Spotify, Uber, AirBnB, Tumblr.
 
