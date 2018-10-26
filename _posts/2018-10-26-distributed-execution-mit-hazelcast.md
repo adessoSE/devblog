@@ -105,9 +105,9 @@ Die Nodes ließen sich in diesem Setup z.B. durch einen Load-Balancer verbinden 
 ## Implementierung der Fibonacci-Task
 Wie beschrieben, bietet der ```CREATE```-Endpunkt die Berechnung einer Fibonacci-Zahl an. Die Berechnung der Zahl soll nun als Operation an den Hazelcast-Cluster in einem Distributed Executor Service übergeben und dort asynchron ausgeführt werden. Um eine Task oder Berechnung in einem Executor Service des Hazelcast-Clusters ausführen zu können, muss sie eines der beiden folgenden Interfaces implementieren:
 
-- ```java.util.concurrent.Callable```: Wenn ein Rückgabewert erforderlich ist.
+```java.util.concurrent.Callable```: Wenn ein Rückgabewert erforderlich ist.
 
-- ```java.util.concurrent.Runnable```: Wenn kein Rückgabewert erforderlich ist.
+```java.util.concurrent.Runnable```: Wenn kein Rückgabewert erforderlich ist.
 
 **HINWEIS:** Alle Klasse, deren Instanzen in dem Hazelcast-Cluster zwischen den Nodes ausgetauscht werden sollen, müssen das Interface ```java.io.Serializable``` implementieren.
 
@@ -238,5 +238,5 @@ Es gilt es allerdings erneut darauf hinzuweisen, dass die Implementierung bzw. K
 Der vollständige Source des Beispiels steht als [Spring Boot](https://spring.io/projects/spring-boot)-Projekt auf [Github](https://github.com/karnik/devblog-hazelcast) zur Verfügung.
 
 **Quellen:**
-1. [Rest an long running jobs](https://farazdagi.com/2014/rest-and-long-running-jobs/)
+1. [Rest and long running jobs](https://farazdagi.com/2014/rest-and-long-running-jobs/)
 2. [Long running operation polling](http://restalk-patterns.org/long-running-operation-polling.html)
