@@ -8,12 +8,15 @@ categories: [Architekturen]
 tags: [Microservices,Mainframe,Migration,Hazelcast]
 ---
 
-Bei der Migration von Legacy-Anwendungen in eine Serviceorientierte Architektur, stellen einen die meist rechenintensiven und damit häufig auch langläufigen Batch-Verarbeitungen bzw. Tasks vor mindestens zwei architektonische Grundsatzfragen.
+Bei der Migration von Legacy-Anwendungen in eine Serviceorientierte Architektur, stellen einen die meist rechenintensiven und damit häufig auch langläufigen Batch-Verarbeitungen bzw. Tasks vor die Aufgabe der Definition einer geeigneten und vergleichbar leistungsfähigen Zielarchitektur. Eine mögliche Antwort gibt dieser Blog-Artikel.
+
+Für die Definition der Architektur stellen sich mindestens zwei architektonische Grundsatzfragen:
 
 1. Wie ist die Schnittstelle zu definieren, mit der die Steuerung und Überwachung von langläufigen Tasks gewährleistet werden kann?
 2. Wie kann gewährleistet werden, dass die Leistungsfähigkeit des neuen Systems ähnlich skaliert wie beispielsweise die eines Parallel Sysplex der Mainframe-Welt.
 
-Ein Lösungsvorschlag für diese kombinierte Fragestellung wird im Folgenden beschrieben und anhand eines Beispiels demonstriert.
+Ein Lösungsvorschlag für diese kombinierte Fragestellung wird im Folgenden beschrieben und anhand eines [Beispiels](https://github.com/karnik/devblog-hazelcast) demonstriert.
+
 
 # Langläufige Operationen mit REST 
 Als abstraktes Beispiel für die Problemstellung kann an dieser Stelle eine Service angenommen werden, der eine komplexe oder auf großen Datenmengen basierte Operation durchführt, die eine lange Laufzeit aufweist. Wird dieser Service aufgerufen und die Operation gestartet, ist es erforderlich, dass der Client sich jederzeit über den Status informieren und bei Bedarf auch einen Abbruch der Ausführung anfordern kann. Der Start einer solchen Operation darf zudem nicht das System für anderen Clients blockieren.
@@ -28,11 +31,11 @@ Solange noch kein Ergebnis vorliegt, liefert ein Request auf  den ```STATUS```-E
 Zusätzlich hat der Client die Möglichkeit über den ```DELETE```-Endpunkt einen Job während der Verarbeitung abzubrechen und/oder das Ergebnis der Operation zu löschen.
 
 ## Berechnung der Fibonacci-Folge
-Um die Problemstellung zu verdeutlichen, beschreibt das folgende Beispiel ein REST-Endpunkt für die Berechnung der Fibonacci-Zahl an Position $$n$$ der Fibonacci-Folge ($$Fib(n)$$). Diese Berechnung bietet eine gute Möglichkeit zur Demonstration einer langläufigen Task mit einem einfachen Ergebnis. Die rekursive Implementierung ermöglicht zudem einen kontrollierten Abbruch der Operation zur Laufzeit.
+Um die Problemstellung zu verdeutlichen, beschreibt das folgende Beispiel ein REST-Endpunkt für die Berechnung der Fibonacci-Zahl an Position __*n*__ der Fibonacci-Folge (__*Fib(n)*__). Diese Berechnung bietet eine gute Möglichkeit zur Demonstration einer langläufigen Task mit einem einfachen Ergebnis. Die rekursive Implementierung ermöglicht zudem einen kontrollierten Abbruch der Operation zur Laufzeit.
 
 **HINWEIS:** Für die Darstellung dieses Beispiels wird das [httpie-Tool](https://httpie.org/) verwendet.
 
-Im ersten Schritt wird die Erzeugung der Ressource, also die Berechnung der Fibonacci-Zahl an Position $$30$$, mit einem POST-Request auf den ```CREATE```-Endpunkt gestartet. Die Position der gewünschte Zahl in der Fibonacci-Reihe wird im Body übergeben ($$n=30$$).
+Im ersten Schritt wird die Erzeugung der Ressource, also die Berechnung der Fibonacci-Zahl an Position __*30*__, mit einem POST-Request auf den ```CREATE```-Endpunkt gestartet. Die Position der gewünschte Zahl in der Fibonacci-Reihe wird im Body übergeben (__*n=30*__).
 ```bash
 $ http POST http://localhost:8080/fibonacci/ n=30
 HTTP/1.1 202
@@ -55,7 +58,7 @@ Transfer-Encoding: chunked
 }
 ```
 
-Der identische Request liefert nach der erfolgreichen Berechnung von $$Fib(30)$$ den HTTP-Status-Code ```303 SEE OTHER```, sowie die URL für den ```RESULT```-Endpunkt. Das Ergebnis, welches in diesem Fall $$ 832040 $$ lautet, kann anschließend mit einem GET-Request auf den ```RESULT```-Endpunkt abgerufen werden.
+Der identische Request liefert nach der erfolgreichen Berechnung von __*Fib(30)*__ den HTTP-Status-Code ```303 SEE OTHER```, sowie die URL für den ```RESULT```-Endpunkt. Das Ergebnis, welches in diesem Fall __*832040*__ lautet, kann anschließend mit einem GET-Request auf den ```RESULT```-Endpunkt abgerufen werden.
 ```bash
 $ http GET http://localhost:8080/fibonacci/e0e857a0-7654-415e-ae35-8b65bed813b1/result
 HTTP/1.1 200
@@ -89,7 +92,7 @@ Für die Implementierung des Beispiels wurde Hazelcast IMDG gewählt. Das Framew
 Die konkrete Implementierung setzt auf die verteilte Ausführung in einem [Distributed Executor Service](https://docs.hazelcast.org/docs/3.10.6/manual/html-single/index.html#distributed-computing), einer verteilten Variante des Java Executor Service. Damit können Tasks nicht nur über die Ressource eines Servers, sondern über alle Nodes eines Hazelcast-Clusters verteilt und ausgeführt werden.
 
 ## Architektur des Beispiel-Projekts
-Typischerweise setzt sich ein Hazelcast IMDG aus $$n$$ Nodes zu einem Hazelcast-Cluster zusammen. Der Hazelcast-Client verbindet sich dann auf den Cluster und beauftragt Operationen, die auf einer oder mehreren Nodes des Clusters ausgeführt werden.
+Typischerweise setzt sich ein Hazelcast IMDG aus __*n*__ Nodes zu einem Hazelcast-Cluster zusammen. Der Hazelcast-Client verbindet sich dann auf den Cluster und beauftragt Operationen, die auf einer oder mehreren Nodes des Clusters ausgeführt werden.
 
 ![Architektur des Beispielprojekts - Client](/assets/images/posts/distributed-execution-mit-hazelcast/hazelcast-client-example.png)
 
@@ -208,7 +211,7 @@ Members {size:3, ver:2} [
 ]
 ```
 
-Startet man nun via httpie-Tool die Berechnung der Fibonacci-Zahl $$Fib(10)$$, so erscheinen die folgenden Log-Meldungen:
+Startet man nun via httpie-Tool die Berechnung der Fibonacci-Zahl __*Fib(10)*__, so erscheinen die folgenden Log-Meldungen:
 ```bash
 
 $ http POST http://localhost:8080/fibonacci/ n=10
