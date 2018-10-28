@@ -40,7 +40,7 @@ Die Kanten sind gerichtete Pfeile. Um die Beziehung zwischen Schauspielern, Regi
 Dabei bilden „Person“ und „Movie“ die Knoten und „ACTED_IN“ und „DIRECTED“ die Kanten des Graphen. 
 Diese können zusätzlich Eigenschaften haben:
 
-![Neo4j Graph](/assets/images/posts/neo4j-ein-einblick-in-die-welt-der-graphendatenbanken/1-neo4j-graph.png)
+![Neo4j Graph](/assets/images/posts/neo4j-ein-einblick-in-die-welt-der-graphdatenbanken/1-neo4j-graph.png)
 
 In Neo4j werden Beziehungen nach diesem Schema abgebildet. 
 Es ist sehr einfach und intuitiv. Man zeichnet auf einem Blatt Papier oder einer Tafel das Datenbankmodell als Graph, welcher später meist für die Datenbank übernommen werden kann.
@@ -69,7 +69,7 @@ RETURN p,m;
 
 Als Ergebnis wird ein Subgraph zurückgegeben, der die gesuchte Beziehung aus dem Gesamtgraphen zeigt.
 
-![Neo4j Subgraph](/assets/images/posts/neo4j-ein-einblick-in-die-welt-der-graphendatenbanken/2-neo4j-subgraph.png)
+![Neo4j Subgraph](/assets/images/posts/neo4j-ein-einblick-in-die-welt-der-graphdatenbanken/2-neo4j-subgraph.png)
  
 Das gleiche Ergebnis kann man auch erreichen, indem man auf die explizite WHERE-Klausel verzichtet und diese direkt in dem MATCH-Befehl angibt:
 
@@ -87,7 +87,7 @@ RETURN martinMovies.title, martinMovies.released;
 Das Ergebnis der Abfrage wird als Tabelle zurückgegeben:
 
 
-![Ergebnistabelle](/assets/images/posts/neo4j-ein-einblick-in-die-welt-der-graphendatenbanken/query-result-table.png)             
+![Ergebnistabelle](/assets/images/posts/neo4j-ein-einblick-in-die-welt-der-graphdatenbanken/query-result-table.png)             
 
 Die verwendeten Klauseln haben folgende Bedeutung:
 
@@ -114,7 +114,7 @@ CREATE path = (martin)-[:ACTED_IN {role: "Everett K. Ross"}]->(:Movie {title: "B
 RETURN path;
 ```
 
-![Neu erzeugter Knoten](/assets/images/posts/neo4j-ein-einblick-in-die-welt-der-graphendatenbanken/3-create-node.png)
+![Neu erzeugter Knoten](/assets/images/posts/neo4j-ein-einblick-in-die-welt-der-graphdatenbanken/3-create-node.png)
 
 # Vorteile von Neo4j
 **Einfachheit:** Neo4j ist durch die Graphdarstellung sehr anschaulich und intuitiv. 
