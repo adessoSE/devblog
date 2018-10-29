@@ -71,7 +71,7 @@ Wer kein Freund von Kommandozeilentools ist, kann sich mit dem Kubernetes Dashbo
 Dazu gibt man das Kommando `minikube dashboard` ein, woraufhin sich der Browser öffnet und das Dashboard anzeigt.
 Hier lassen sich Informationen zu allen Kubernetes Ressourcen anzeigen, die aktuell auf dem Cluster ausgeführt werden.
 Wir kennen bereits Nodes und Pods.
-Auf einige anderen Arten von Ressourcen wird später noch eingegangen.
+Auf einige andere Arten von Ressourcen wird später noch eingegangen.
 
 ## Kotlin und Spring
 Als Programmiersprache für unsere Beispielanwendung werden wir Kotlin verwenden.
