@@ -112,7 +112,7 @@ Den Link zum aktuellen Image findet man [hier](https://gitlab.com/tbuss/sample-s
 ## Pods manuell starten und prüfen
 Wir können jetzt einen oder mehrere Pods in unserem Cluster manuell erstellen.
 Für alle Kubernetes-Ressourcen benutzen wir deklarative YAML-Dateien.
-Kubernetes ließt den gewünschten Status aus den Dateien aus und kümmert sich für uns dafür, dass dieser Status aufrecht erhalten wird.
+Kubernetes liest den gewünschten Status aus den Dateien aus und kümmert sich für uns darum, dass dieser Status aufrecht erhalten wird.
 Einfach ausgedrückt: "Was will ich haben?" anstatt "Was muss passieren?".
 Erstellen wir uns einen neuen Ordner außerhalb unseres Code-Repositories.
 Manche Teams speichern die Kubernetes-Konfiguration ihrer Anwendung innerhalb des gleichen Git-Repositories, aber ich persönlich finde eine strickte Trennung zwischen Anwendungscode und Deployment eleganter.
