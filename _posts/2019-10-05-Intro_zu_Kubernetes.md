@@ -19,7 +19,7 @@ Bevor wir zu dem Praxisteil kommen, klären wir erst einmal die Begrifflichkeite
 
 # Cluster, Nodes und Pods
 Kuberentes ist eine verteilte Anwendung, wird also auf mehreren physikalischen (oder virtuellen) Rechnern ausgeführt, die man als *Nodes* bezeichnet und die zusammen den Kubernetes *Cluster* bilden.
-Mindestens ein Node nimmt dabei die Rolle des Masters ein, der den Cluster managed und die Befehle des Benutzers entgegen nimmt.
+Mindestens ein Node nimmt dabei die Rolle des Masters ein, der den Cluster verwaltet und die Befehle des Benutzers entgegen nimmt.
 
 Auf den Nodes laufen sogenannte *Pods*.
 Sie sind die kleinste Ressource in Kubernetes.
