@@ -39,7 +39,7 @@ Es stellt sich also die Frage, wie man eine Anwendung erreichen kann, wenn die i
 Zudem ist es für Anwendungen mit hoher Last nicht möglich, alle Anfragen von nur einer Container-Instanz abwickeln zu lassen.
 Zur Skalierung müssen mehrere identische Pods gestartet werden, unter denen sich die Last aufteilt.
 Diese Probleme nennt man "Service Discovery" und "Load Balancing" und sind in vielen verteilten Anwendungen präsent.
-Wir wollen uns in diesem Blogpost nschauen, wie Kubernetes diese Probleme löst.
+Wir wollen uns in diesem Blogpost anschauen, wie Kubernetes diese Probleme löst.
 
 # Zielsetzung
 Konkretisieren wir unser Ziel noch einmal mit den neuen Begriffen, die wir gerade kennen gelernt haben.
