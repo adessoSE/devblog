@@ -134,7 +134,7 @@ spec:
       - name: SOME_ENV_VAR
         value: Foo
 ```
-Die YAML-Dateien in Kubernetes starten immer mit Meta-Informationen über die API, die benutzt wird und die Art von Ressource, die erstellt werden soll.
+Die YAML-Dateien in Kubernetes beginnen immer mit Meta-Informationen über die API, die benutzt wird und mit der Art von Ressource, die erstellt werden soll.
 Auch ein Name wird angegeben.
 Danach folgt die Spezifizierung des Pods, wo wir nicht nur das Image und den Namen angeben, sondern auch den Port der Anwendung (den müssen wir vorher wissen!) und die Umgebungsvariable, die wir nachher ausgeben möchten.
 
