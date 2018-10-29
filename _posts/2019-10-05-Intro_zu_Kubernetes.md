@@ -43,7 +43,7 @@ Wir wollen uns in diesem Blogpost anschauen, wie Kubernetes diese Probleme löst
 
 # Zielsetzung
 Konkretisieren wir unser Ziel noch einmal mit den neuen Begriffen, die wir gerade kennen gelernt haben.
-Das Ziel in diesem Blogpost soll es sein, einen REST-Service in einem Kubernetes Cluster bereitzustellen.
+Das Ziel in diesem Blogpost soll es sein, einen REST-Service in einem Kubernetes-Cluster bereitzustellen.
 Clients im selben Cluster können eine URI aufrufen und erhalten die erwartete Antwort.
 Wir programmieren eine einfache Anwendung, der den Wert einer Konfigurationsvariablen ausgibt.
 Diese packen wir in einige Pods, die in unserem Cluster laufen.
