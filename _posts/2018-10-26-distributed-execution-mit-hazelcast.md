@@ -92,7 +92,7 @@ Für die Implementierung des Beispiels wurde Hazelcast IMDG gewählt. Das Framew
 Die konkrete Implementierung setzt auf die verteilte Ausführung in einem [Distributed Executor Service](https://docs.hazelcast.org/docs/3.10.6/manual/html-single/index.html#distributed-computing), einer verteilten Variante des Java Executor Service. Damit können Tasks nicht nur über die Ressource eines Servers, sondern über alle Nodes eines Hazelcast-Clusters verteilt und ausgeführt werden.
 
 ## Architektur des Beispiel-Projekts
-Typischerweise setzt sich ein Hazelcast IMDG aus __*n*__ Nodes zu einem Hazelcast-Cluster zusammen. Der Hazelcast-Client verbindet sich dann auf den Cluster und beauftragt Operationen, die auf einer oder mehreren Nodes des Clusters ausgeführt werden.
+Typischerweise setzt sich ein Hazelcast IMDG aus __*n*__ Nodes zu einem Hazelcast-Cluster zusammen. Der Hazelcast-Client verbindet sich dann auf den Cluster und beauftragt Operationen, die auf einer oder mehrerer Nodes des Clusters ausgeführt werden.
 
 ![Architektur des Beispielprojekts - Client](/assets/images/posts/distributed-execution-mit-hazelcast/hazelcast-client-example.png)
 
