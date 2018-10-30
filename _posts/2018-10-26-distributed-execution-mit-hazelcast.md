@@ -83,7 +83,7 @@ In der Java-Welt bietet sich dafür das [Java Executor Framework](https://docs.o
 
 Dies alleine würde reichen, um die Last auf einem einzelnen System über mehrere Prozesse bzw. CPU-Cores zu verteilen. Mit der Leistung und Skalierbarkeit eines Mainframe kann dieser Ansatz im Normallfall aber nicht konkurrieren. Hier ist es erforderlich eine Skalierbarkeit über mehrere Systeme, die beispielsweise zu einem Cluster zusammengeschlossen werden, zu gewährleisten.
 
-Für die Umsetzung einer solchen Skalierbarkeit bietet sich der Einsatz einer **In-Memory Computing Platfrom** wie z.B. [Hazelcast IMDG](https://hazelcast.com/), [Apache Ignite](https://ignite.apache.org/) oder [GridGain](https://www.gridgain.com/) an.
+Für die Umsetzung einer solchen Skalierbarkeit bietet sich der Einsatz einer **In-Memory Computing Platform** wie z.B. [Hazelcast IMDG](https://hazelcast.com/), [Apache Ignite](https://ignite.apache.org/) oder [GridGain](https://www.gridgain.com/) an.
 
 Diese Frameworks bieten die Möglichkeit eine beliebige Anzahl von Nodes bzw. Servern zu einem Cluster zusammenzuschließen, in dem die Daten des Clusters, sowie die Ausführung von Tasks gleichmäßig über alle Nodes verteilt  werden. Jede zusätzliche Node erhöht die Leistungsfähigkeit des Clusters, was eine einfache horizontale Skalierung erlaubt.
 
