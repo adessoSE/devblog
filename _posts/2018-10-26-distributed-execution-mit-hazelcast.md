@@ -10,7 +10,7 @@ tags: [Microservices,Mainframe,Migration,Hazelcast]
 
 Bei der Migration von Legacy-Anwendungen in eine Serviceorientierte Architektur, stellen einen die meist rechenintensiven und damit häufig auch langläufigen Batch-Verarbeitungen bzw. Tasks vor die Aufgabe der Definition einer geeigneten und vergleichbar leistungsfähigen Zielarchitektur. Eine mögliche Antwort gibt dieser Blog-Artikel.
 
-Für die Definition der Architektur stellen sich mindestens zwei architektonische Grundsatzfragen:
+Für die Definition der Architektur stellen sich mindestens zwei Grundsatzfragen:
 
 1. Wie ist die Schnittstelle zu definieren, mit der die Steuerung und Überwachung von langläufigen Tasks gewährleistet werden kann?
 2. Wie kann gewährleistet werden, dass die Leistungsfähigkeit des neuen Systems ähnlich skaliert wie beispielsweise die eines Parallel Sysplex der Mainframe-Welt.
