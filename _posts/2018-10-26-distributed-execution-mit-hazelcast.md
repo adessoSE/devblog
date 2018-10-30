@@ -79,7 +79,7 @@ Ein Beispiel für eine Umsetzung dieses Schemas bietet unter anderem die [AWS Gl
 # Lastverteilung mit Hazelcast
 Nach der Definition der REST-API gilt es, die Implementierung der dahinterliegenden Logik so auszulegen, dass das zugrundeliegende System den ```CREATE```-Endpunkt für die Berechnung nicht blockiert und zudem ausreichend skalierbar ist.
 
-In der Java-Welt bietet sich dafür das [Java Executor Framework](https://docs.oracle.com/javase/tutorial/essential/concurrency/executors.html) an, das mit JDK 5 eingeführt wurde. Dieses erlaubt die asynchrone Ausführung von langläufigen Tasks oder Geschäftsprozess wie z.B. umfangreichen SQL-Abfragen oder komplexen Berechnungen in einem Thread-Pool.
+In der Java-Welt bietet sich dafür das [Java Executor Framework](https://docs.oracle.com/javase/tutorial/essential/concurrency/executors.html) an, das mit JDK 5 eingeführt wurde. Dieses erlaubt die asynchrone Ausführung von langläufigen Tasks oder Geschäftsprozessen wie z.B. umfangreichen SQL-Abfragen oder komplexen Berechnungen in einem Thread-Pool.
 
 Dies alleine würde reichen, um die Last auf einem einzelnen System über mehrere Prozesse bzw. CPU-Cores zu verteilen. Mit der Leistung und Skalierbarkeit eines Mainframe kann dieser Ansatz im Normallfall aber nicht konkurrieren. Hier ist es erforderlich eine Skalierbarkeit über mehrere Systeme, die beispielsweise zu einem Cluster zusammengeschlossen werden, zu gewährleisten.
 
