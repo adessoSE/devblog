@@ -8,21 +8,21 @@ tags: [Datenbanken]
 ---
 
 Nachdem Annegret in den ersten drei Teilen der Serie schon einiges über die Welt der IT berichtet hat, möchte ich in diesem Artikel auf das Thema Datenhaltung eingehen.
-Dazu kläre ich auf, wie Datenbankmanagementsysteme dazu verwendet werden können Anwendungsdaten effizient zu verwalten und welche Alternativen es zu den klassischen, relationalen Systemen gibt.
+Dazu kläre ich auf, wie Datenbankmanagementsysteme dazu verwendet werden können, Anwendungsdaten effizient zu verwalten und welche Alternativen es zu den klassischen, relationalen Systemen gibt.
 
 # Wozu werden Datenbankmanagementsysteme überhaupt benötigt?
 Stellt euch vor, wir verwalten ein System mit Wissenschaftlern und deren Errungenschaften und möchten deren Daten effizient speichern, lesen, durchsuchen und verändern können.
 Zu jedem Wissenschaftler speichern wir _Id, Name, Vorname, Telefonnummer_ und _Auszeichnungen_.
-Ein naiver Ansatz für die Speicherung dieser Daten könnte darin bestehen sämtliche Wissenschaftler in einer Textdatei untereinander zu schreiben und diese auf der Festplatte abzulegen.
+Ein naiver Ansatz für die Speicherung dieser Daten könnte darin bestehen, sämtliche Wissenschaftler in einer Textdatei untereinander zu schreiben und diese auf der Festplatte abzulegen.
 Dieser Ansatz hat allerdings einige offensichtliche Schwachstellen.
 
-**(A)** Schon bei einer moderaten Anzahl von Wissenschaftlern, wird das Durchsuchen schwierig. 
+**(A)** Schon bei einer moderaten Anzahl von Wissenschaftlern wird das Durchsuchen schwierig. 
 Das Programm müsste immer die gesamte Liste von oben bis unten durchlaufen, bis es den gesuchten Wissenschaftler findet. 
 Dies könnte leicht optimiert werden, indem die Liste zum Beispiel nach Nachnamen alphabetisch sortiert wird. 
 Somit kann wie bei einem Telefonbuch leichter gesucht werden. 
 Möchten wir dann allerdings zum Beispiel herausfinden, welcher Wissenschaftler zu einer bestimmten Telefonnummer gehört, bringt uns diese Sortierung überhaupt nichts und es müsste wieder die gesamte Liste durchlaufen werden.
  
-**(B)** Wenn wir uns dazu entschieden haben, die Wissenschaftler nach Nachnamen zu sortieren, gibt es das nächste Problem, wenn es um das Hinzufügen neuer Einträge geht. 
+**(B)** Falls wir uns dazu entschieden haben, die Wissenschaftler nach Nachnamen zu sortieren, gibt es das nächste Problem, wenn es um das Hinzufügen neuer Einträge geht. 
 Hat eure Software dazu die Stelle gefunden, an der der neue Wissenschaftler eingefügt werden muss, müssen sämtliche darunterliegende Einträge um eine Position weiter versetzt werden, damit Platz für den neuen Eintrag geschaffen wird.
 Möchten wir also einen neuen Wissenschaftler ganz an den Anfang unserer Liste setzen, müssen sämtliche Daten neu geschrieben werden, was einen enormen Schreibaufwand bedeuten würde.
 
@@ -40,20 +40,20 @@ Die wohl verbreitetste Kategorie von DBMS sind die **relationalen** Systeme(RDBM
 # Grundaufbau und Lösungsansätze einer relationalen Datenbank
 Daten in einer relationalen Datenbank werden in einer Sammlung von Tabellen, sogenannten **Relationen**, abgelegt.
 Die Spalten der Tabellen, in unserem Beispiel _Id, Name, Vorname, Telefonnummer_ und _Auszeichnungen_, werden **Attribute** genannt.
-Einzelne Tabelleneinträge, sogenannte **Tupel** können somit strukturiert abgelegt werden.
+Einzelne Tabelleneinträge, sogenannte **Tupel**, können somit strukturiert abgelegt werden.
 Durch diese Strukturierung und mithilfe einiger intelligenter Kniffe lassen sich die oben genannten Probleme in den Griff bekommen.
 Unser sogenanntes **Datenbankschema**, welches hier nur aus einer Relation besteht, würde somit folgendermaßen aussehen.
 
 ![Schema der Beispieldatenbank](assets/images/posts/Technische-Dinge-fuer-nichttechnische-Leute-DBMS/wissenschaftler.png)
 
 ## Beschleunigung der Suche durch Indexe
-Für das in **(A)** beschriebene Durchsuchen der Wissenschaftler nach Nachname würde in einem RDBMS ein Index angelegt, mit dem in kürzester Zeit die Stelle gefunden werden kann, an der sich ein Eintrag auf der Festplatte befindet.
+Für das in **(A)** beschriebene Durchsuchen der Wissenschaftler nach Nachnamen würde in einem RDBMS ein Index angelegt, mit dem in kürzester Zeit die Stelle gefunden werden kann, an der sich ein Eintrag auf der Festplatte befindet.
 Diesen Index könnt ihr euch vorstellen wie ein Stichwortverzeichnis am Ende eines Buches, in dem die Begriffe alphabetisch aufgelistet sind und zu jedem Begriff vermerkt ist, auf welcher Seite dieser erklärt wird.
 Die tatsächliche Reihenfolge, in der sich die Einträge auf der Festplatte befinden, spielt dadurch keinerlei Rolle mehr.
 Möchten wir zusätzlich jetzt nach einer Telefonnummer in unserem Datensatz suchen, können wir einen zweiten Index anlegen.
 Wir können unsere Daten also quasi nach mehreren Attributen gleichzeitig sortieren.
 
-Da wie gerade beschrieben die physikalische Reihenfolge der Daten keine Rolle mehr spielt, löst sich das in **(B)** beschrieben Problem schon fast von alleine.
+Da wie gerade beschrieben die physikalische Reihenfolge der Daten keine Rolle mehr spielt, löst sich das in **(B)** beschriebene Problem schon fast von alleine.
 Neu eingefügte Daten können einfach hintereinander in beliebiger Reihenfolge in den Speicher geschrieben werden, dabei muss nur darauf geachtet werden, dass die angelegten Indexe entsprechend aktualisiert werden, damit die neuen Einträge auch damit gefunden werden können.
 
 ## Normalisierung
@@ -65,11 +65,11 @@ Daher müssen wir das Datenbankschema etwas anpassen.
 
 Im Vergleich zum vorherigen Schema müssen hier nicht sämtliche Details der Auszeichnungen in der _Wissenschaftler_-Relation gespeichert werden.
 In unserem einfachen Beispiel betrifft das zwar nur den Namen, wir könnten aber in Zukunft weitere Informationen, wie _Institut, Preisgeld, Kategorie, Verleihungsjahr, Thema, ..._ hinzufügen wollen, wodurch die Liste im _Auszeichnungen_-Attribut sehr lang werden würde und jegliche Struktur verloren ging.
-Die Tabelle _Verleihungen_ wird dazu benötigt zu vermerken, welcher Preis an welchen Wissenschaftler verliehen wurde.
+Die Tabelle _Verleihungen_ wird dazu benötigt, zu vermerken, welcher Preis an welchen Wissenschaftler verliehen wurde.
 Da Albert Einstein beispielsweise den Jules-Janssen-Preis bekommen hat, steht das Tupel (1, 2) in dieser Tabelle.
 Das Aufteilen von Relationen in kleinere Relationen wird **Normalisierung** genannt.
 
-Die Normalisierung hat außerdem den Vorteil, dass wir endlich effizient nachschauen können, welche Wissenschaftler alle den Nobelpreis erhalten haben.
+Die Normalisierung hat außerdem den Vorteil, dass wir endlich effizient nachschauen können, welche Wissenschaftler den Nobelpreis erhalten haben.
 Dazu schauen wir in der _Auszeichnungen_-Tabelle, welche Id der Nobelpreis hat, in unserem Falle wäre das 1.
 In der _Verleihungen_-Tabelle können dann die Einträge herausgefiltert werden, welche die Id 1 besitzen, wodurch wir alle Wissenschaftler-Ids erhalten, die einen Nobelpreis erhalten haben.
 Wenn uns das noch nicht reicht, können wir mit den Ids in der _Wissenschaftler_-Tabelle die anderen Informationen nachschlagen.
@@ -80,7 +80,7 @@ Anfragen, auch **Queries** genannt, können in einem RDBMS Tupel erstellen, lese
 Mehrere Anfragen können dabei in **Transaktionen** zusammengefasst werden, mit denen eine gewisse Sicherheit für die Operationen gewährleistet werden kann.
 Beispielsweise würden wir beim Erstellen eines völlig neuen Eintrages die drei Anfragen zum Einfügen der Einträge in die drei Tabellen in einer Transaktion zusammenfassen.
 
-Das in **(D)** beschriebene Problem fällt in die Kategorie **Concurrency-Control**, also Kontrolle von nebenläufigen Datenbankzugriffen, welches ein Hauptgebiet der Datenbankforschung darstellt.
+Das in **(D)** beschriebene Problem fällt in die Kategorie **Concurrency-Control**, also Kontrolle von nebenläufigen Datenbankzugriffen, welche ein Hauptgebiet der Datenbankforschung darstellt.
 Für RDBMS wurden daher die sogenannten ACID-Eigenschaften definiert, welche einige Anforderungen an das DBMS stellen, sodass verschiedenste Anomalien verhindert werden.
 Auf diese Anomalien kann ich hier leider nicht weiter eingehen, die ACID-Eigenschaften dürften aber dennoch interessant sein.
 
