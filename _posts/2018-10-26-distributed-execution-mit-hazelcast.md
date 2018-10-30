@@ -184,7 +184,7 @@ public String submit(FibonacciTaskStatus fibonacciTaskStatus) {
 
 Sobald die Task abgearbeitete wurde, wird über den Callback das Ergebnis in die entsprechende Map geschrieben und der Status aktualisiert. Der Client erfährt bei seiner nächsten Anfrage an den ```STATUS```-Endpunkt, dass die Task abgeschlossen ist und das Ergebnis abgeholt werden kann.
 
-Der gesamte Ablauf der Logik für die erfolgreiche Ausführung der FibonacciTask stellt sich dann wie folgt dar:
+Der gesamte Ablauf der Logik für die erfolgreiche Ausführung der Fibonacci Task stellt sich dann wie folgt dar:
 ![Architektur des Beispielprojekts](/assets/images/posts/distributed-execution-mit-hazelcast/flow.png)
 
 ## Build & Run
