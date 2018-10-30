@@ -169,7 +169,7 @@ Wir können noch einige Pods auf diese Weise erstellen.
 Dazu kopieren wir die Datei mit dem neuen Namen "sample-sck-pod-2.yaml".
 Innerhalb der Konfiguration machen wir zwei Änderungen:
 Wir ändern den Namen des Pods auf `sample-sck-pod-2`, da der vorherige Name ja schon von dem anderen Pod belegt ist.
-Wir werden später einen Mechanismus kennen lernen, der uns diese Umbenennung bei der Erstellung viele Pods abnimmt.
+Wir werden später einen Mechanismus kennen lernen, der uns diese Umbenennung bei der Erstellung vieler Pods abnimmt.
 Außerdem ändern wir den Wert der Umgebungsvariablen auf `bar`, damit wir sehen können, welchen Pod wir erreicht haben.
 Mit
 >`kubectl create -f sample-sck-pod-2.yaml`
