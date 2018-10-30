@@ -12,7 +12,7 @@ Grund genug, sich einmal näher mit Kubernetes und Konzepten dahinter zu beschä
 
 # Einführung in Kubernetes
 In diesem Blogpost geht es um die grundlegenden Konzepte, mit denen die Container-Orchestrierung Kubernetes arbeitet.
-Container-Orchestrierung bedeutet das Management von hunderten lose gekoppelten Anwendungs-Containern, die zusammen miteinander interagieren müssen.
+Container-Orchestrierung bedeutet das Management von hunderten, lose gekoppelten Anwendungs-Containern, die zusammen miteinander interagieren müssen.
 Unser Fokus liegt auf der Sicht eines Entwicklers, nicht eines Cluster-Operators.
 Wir betrachten ein kleines Beispiel, indem wir eine triviale Spring-Boot-Anwendung in dem lokalen Kubernetes-Cluster Minikube ausführen.
 Bevor wir zu dem Praxisteil kommen, klären wir erst einmal die Begrifflichkeiten.
