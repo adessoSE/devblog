@@ -229,7 +229,7 @@ TaskMapListener  : FibonacciTaskStatus with ID a3d0f6a9-a28b-4978-8123-e0e3b0606
 **HINWEIS:** Die Log-Meldungen werden durch einen Map-Listener erzeugt, der an der Distributed Map registriert wurde. Er schreibt eine Meldung in das Log, wenn ein Wert in der Map aktualisiert, hinzugefügt oder gelöscht wird. Dadurch, dass der Status immer in den Maps aktualisiert wird, erhalten wir bei jedem Wechsel eine Log-Ausgabe. Zu dem Wechsel wird auch die Node (Member) gelogged, die die Änderung durchführt.
 
 # Fazit
-Dieser Artikel beantwortet die eingangs gestellte kombinierte Fragestellung, wie ein System zu definieren ist, dass einerseits eine klare Schnittstelle für die Ausführung und Steuerung von langläufigen Tasks anbietet und gleichzeitig eine Skalierbarkeit vorweist, die das System in die Lage versetzt mit der Performance bzw. Belastbarkeit eines Mainframes mithalten zu können.
+Dieser Artikel beantwortet die eingangs gestellte kombinierte Fragestellung, wie ein System zu definieren ist, das einerseits eine klare Schnittstelle für die Ausführung und Steuerung von langläufigen Tasks anbietet und gleichzeitig eine Skalierbarkeit vorweist, die das System in die Lage versetzt mit der Performance bzw. Belastbarkeit eines Mainframes mithalten zu können.
 
 Die gezeigte Implementierung ermöglich es eine langläufige Task in einem frei skalierbaren Cluster asynchron zur Ausführung zu bringen. Zusätzlich lässt sich Ausführung und der Status über eine klar definierte REST-Schnittstelle kontrollieren, die zu keinem Zeitpunkt durch die Ausführung geblockt wird. Damit konnte der Lösungsvorschlag eine Antwort auf beide Fragen der kombinierten Fragestellung geben.
 
