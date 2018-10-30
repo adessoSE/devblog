@@ -109,7 +109,7 @@ Wie beschrieben, bietet der ```CREATE```-Endpunkt die Berechnung einer Fibonacci
 
 ```java.util.concurrent.Runnable```: Wenn kein Rückgabewert erforderlich ist.
 
-**HINWEIS:** Alle Klasse, deren Instanzen in dem Hazelcast-Cluster zwischen den Nodes ausgetauscht werden sollen, müssen das Interface ```java.io.Serializable``` implementieren.
+**HINWEIS:** Alle Klassen, deren Instanzen in dem Hazelcast-Cluster zwischen den Nodes ausgetauscht werden sollen, müssen das Interface ```java.io.Serializable``` implementieren.
 
 Da im Fall der Berechnung der Fibonacci-Zahl eine Rückgabe erwartet wird, wurde die Task auf Basis des ```Callable```-Interface umgesetzt.
 
