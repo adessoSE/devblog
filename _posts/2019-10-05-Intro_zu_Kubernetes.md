@@ -115,7 +115,7 @@ Für alle Kubernetes-Ressourcen benutzen wir deklarative YAML-Dateien.
 Kubernetes liest den gewünschten Status aus den Dateien aus und kümmert sich für uns darum, dass dieser Status aufrecht erhalten wird.
 Einfach ausgedrückt: "Was will ich haben?" anstatt "Was muss passieren?".
 Erstellen wir uns einen neuen Ordner außerhalb unseres Code-Repositories.
-Manche Teams speichern die Kubernetes-Konfiguration ihrer Anwendung innerhalb des gleichen Git-Repositories, aber ich persönlich finde eine strickte Trennung zwischen Anwendungscode und Deployment eleganter.
+Manche Teams speichern die Kubernetes-Konfiguration ihrer Anwendung innerhalb des gleichen Git-Repositories, aber ich persönlich finde eine strikte Trennung zwischen Anwendungscode und Deployment eleganter.
 Wir wählen als Ordnernamen "sample-sck-minikube", also eine Kombination aus Anwendungsnamen und Deployment-Umgebung.
 Darin erstellen wir die Datei `sample-sck-pod.yaml` für einen einfachen Pod.
 Die YAML-Datei dafür sieht folgendermaßen aus:
