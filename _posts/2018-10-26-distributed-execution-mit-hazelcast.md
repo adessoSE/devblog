@@ -235,7 +235,7 @@ Die gezeigte Implementierung ermöglich es eine langläufige Task in einem frei 
 
 Es gilt es allerdings erneut darauf hinzuweisen, dass die Implementierung bzw. Konfiguration des Client bei diesem Verfahren eine entscheidende Rolle spielt. Polled der Client nach dem Ergebnis, so muss eine gute Balance zwischen Frequenz und Last des Systems gefunden werden. Wie Eingangs beschrieben, kann eine zu hohe Frequenz beim Einholen des Status einen negativen Einfluss auf die Leistung des Gesamtsystems haben. Ist der Client aber korrekt konfiguriert, erhält man ein schnell reagierendes und hervorragend skalierbares System, dessen Einsatztauglichkeit bereits erfolgreich in einem Migrations-Projekt bewiesen werden konnte.
 
-Der vollständige Source des Beispiels steht als [Spring Boot](https://spring.io/projects/spring-boot)-Projekt auf [Github](https://github.com/karnik/devblog-hazelcast) zur Verfügung.
+Der vollständige Quellcode des Beispiels steht als [Spring Boot](https://spring.io/projects/spring-boot)-Projekt auf [Github](https://github.com/karnik/devblog-hazelcast) zur Verfügung.
 
 **Quellen:**
 1. [Rest and long running jobs](https://farazdagi.com/2014/rest-and-long-running-jobs/)
