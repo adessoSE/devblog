@@ -77,7 +77,7 @@ Es gilt dabei aber zu beachten, dass der Client eine Polling-Logik implementiere
 Ein Beispiel für eine Umsetzung dieses Schemas bietet unter anderem die [AWS Glacier REST API](https://docs.aws.amazon.com/amazonglacier/latest/dev/job-operations.html).
 
 # Lastverteilung mit Hazelcast
-Nach der Definition der REST-API gilt es die Implementierung der dahinterliegenden Logik so auszulegen, dass das zugrundeliegende System den ```CREATE```-Endpunkt für die Berechnung nicht blockiert und zudem ausreichend skalierbar ist.
+Nach der Definition der REST-API gilt es, die Implementierung der dahinterliegenden Logik so auszulegen, dass das zugrundeliegende System den ```CREATE```-Endpunkt für die Berechnung nicht blockiert und zudem ausreichend skalierbar ist.
 
 In der Java-Welt bietet sich dafür das [Java Executor Framework](https://docs.oracle.com/javase/tutorial/essential/concurrency/executors.html) an, das mit JDK 5 eingeführt wurde. Dieses erlaubt die asynchrone Ausführung von langläufigen Tasks oder Geschäftsprozess wie z.B. umfangreichen SQL-Abfragen oder komplexen Berechnungen in einem Thread-Pool.
 
