@@ -126,7 +126,7 @@ public class FibonacciTask implements Callable<FibonacciTaskResult>, HazelcastIn
 ```
 
 ## Zentrale Speicherung des Task-Status
-Der Status sowie das Ergebnis müssen während und nach der Laufzeit an einer zentralen Stelle, redundant und von allen Nodes des Clusters erreichbar, gespeichert sein. Hierzu bietet sich beim Einsatz von Hazelcast eine [Distributed Map](https://docs.hazelcast.org/docs/3.10.6/manual/html-single/index.html#map) an. Als Key dient dabei wieder die **UUID** der Task. So ist eine einfache systemübergreifende Zuordnung möglich.
+Der Status sowie das Ergebnis müssen während und nach der Laufzeit an einer zentralen Stelle, redundant und von allen Nodes des Clusters erreichbar gespeichert sein. Hierzu bietet sich beim Einsatz von Hazelcast eine [Distributed Map](https://docs.hazelcast.org/docs/3.10.6/manual/html-single/index.html#map) an. Als Key dient dabei wieder die **UUID** der Task. So ist eine einfache, systemübergreifende Zuordnung möglich.
 
 Das Ergebnis der Berechnung besteht in diesem Fall aus einem einfach ```Long```.
 **Definition der [FibonacciTaskResult](https://github.com/karnik/devblog-hazelcast/blob/master/src/main/java/com/adt/devblog/hazelcast/task/FibonacciTaskResult.java)-Klasse:**
