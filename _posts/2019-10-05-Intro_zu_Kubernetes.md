@@ -346,7 +346,7 @@ Geben wir jetzt in einem anderen Terminal den Befehl zum Update:
 
 Genau wie bei dem Update per Kommandozeile wird ein zweites ReplicaSet erstellt und übernimmt nach und nach die Last des Ursprünglichen.
 Auch hier hat also das Update geklappt.
-Jedoch haben wir bei dem Befehl `kubectl apply ...` eine Warning bekommen:
+Jedoch haben wir bei dem Befehl `kubectl apply ...` eine Warnung bekommen:
 >`Warning: kubectl apply should be used on resource created by either kubectl create --save-config or kubectl apply`
 
 Der Hintergrund ist, das Kubernetes bei dem Befehl `kubectl create ...` einige Default-Werte annimmt.
