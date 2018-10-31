@@ -12,7 +12,7 @@ Bei der Migration von Legacy-Anwendungen in eine Serviceorientierte Architektur,
 Für die Definition der Architektur stellen sich mindestens zwei Grundsatzfragen:
 
 1. Wie ist die Schnittstelle zu definieren, mit der die Steuerung und Überwachung von langläufigen Tasks gewährleistet werden kann?
-2. Wie kann gewährleistet werden, dass die Leistungsfähigkeit des neuen Systems ähnlich skaliert wie beispielsweise die eines Parallel Sysplex der Mainframe-Welt.
+2. Wie kann gewährleistet werden, dass die Leistungsfähigkeit des neuen Systems ähnlich skaliert wie beispielsweise die eines [Parallel Sysplex](https://de.wikipedia.org/wiki/Parallel_Sysplex) der Mainframe-Welt.
 
 Ein Lösungsvorschlag für diese kombinierte Fragestellung wird im Folgenden beschrieben und anhand eines [Beispiels](https://github.com/karnik/devblog-hazelcast) demonstriert.
 
@@ -32,7 +32,7 @@ Zusätzlich hat der Client die Möglichkeit über den ```DELETE```-Endpunkt eine
 ## Berechnung der Fibonacci-Folge
 Um die Problemstellung zu verdeutlichen, beschreibt das folgende Beispiel ein REST-Endpunkt für die Berechnung der Fibonacci-Zahl an Position __*n*__ der Fibonacci-Folge (__*Fib(n)*__). Diese Berechnung bietet eine gute Möglichkeit zur Demonstration einer langläufigen Task mit einem einfachen Ergebnis. Die rekursive Implementierung ermöglicht zudem einen kontrollierten Abbruch der Operation zur Laufzeit.
 
-**HINWEIS:** Für die Darstellung dieses Beispiels wird das [httpie-Tool](https://httpie.org/) verwendet.
+**HINWEIS:** Für die Darstellung des beispielhaften Ablaufs wird das [httpie-Tool](https://httpie.org/) verwendet. Als Basis dafür werden die REST-Endpunkte des [Beispielprojekts](https://github.com/karnik/devblog-hazelcast) genutzt. Dazu später mehr im Kapitel **Build & Run**.
 
 Im ersten Schritt wird die Erzeugung der Ressource, also die Berechnung der Fibonacci-Zahl an Position __*30*__, mit einem POST-Request auf den ```CREATE```-Endpunkt gestartet. Die Position der gewünschte Zahl in der Fibonacci-Reihe wird im Body übergeben (__*n=30*__).
 ```bash
@@ -127,7 +127,7 @@ public class FibonacciTask implements Callable<FibonacciTaskResult>, HazelcastIn
 ## Zentrale Speicherung des Task-Status
 Der Status sowie das Ergebnis müssen während und nach der Laufzeit an einer zentralen Stelle, redundant und von allen Nodes des Clusters erreichbar gespeichert sein. Hierzu bietet sich beim Einsatz von Hazelcast eine [Distributed Map](https://docs.hazelcast.org/docs/3.10.6/manual/html-single/index.html#map) an. Als Key dient dabei wieder die **UUID** der Task. So ist eine einfache, systemübergreifende Zuordnung möglich.
 
-Das Ergebnis der Berechnung besteht in diesem Fall aus einem einfach ```Long```.
+Das Ergebnis der Berechnung besteht in diesem Fall aus einem einfach ```Long``` welches in der Result-Klasse gekapselt wird.
 **Definition der [FibonacciTaskResult](https://github.com/karnik/devblog-hazelcast/blob/master/src/main/java/com/adt/devblog/hazelcast/task/FibonacciTaskResult.java)-Klasse:**
 ```Java
 public class FibonacciTaskResult implements Serializable {
