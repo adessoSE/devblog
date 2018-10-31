@@ -2,7 +2,6 @@
 layout: [post, post-xml]
 title: "Distributed Execution mit Hazelcast"
 date: 2018-10-26 09:00:00
-modified_date: 2018-10-26 09:00:00
 author: karnik
 categories: [Architekturen]
 tags: [Microservices,Mainframe,Migration,Hazelcast]
