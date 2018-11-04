@@ -30,7 +30,7 @@ Das Unternehmen hat seinen Hauptsitz in Sillicon Valley und verfügt weltweit ü
 
 Neo4j ist eine Open Source Software, die in zwei Lizenzvarianten angeboten wird. Zum einen gibt es die Community Edition, die unter der [GPL v3 Lizenz](http://www.gnu.org/licenses/quick-guide-gplv3.html) läuft. 
 Diese Version ist sehr gut geeignet für private, kleinere oder Unternehmensinterne Projekte. 
-Zum anderen gibt es die Enterprise Edition. Sie ist für größere Projekte, die unter anderem eine hohe Verfügbarkeit und Sicherheit benötigen geeignet. 
+Zum anderen gibt es die Enterprise Edition. Sie ist für größere Projekte, die unter anderem eine hohe Verfügbarkeit und Sicherheit benötigen, geeignet. 
 Diese Version besitzt zusätzlich zur GPL v3 auch die [AGPL v3](https://www.gnu.org/licenses/agpl-3.0.en.html) Lizenz.
 
 # Datenbank modellieren
@@ -124,7 +124,7 @@ Die Abfragesprache Cypher ist durch die „ASCII-Kunst“ verständlich gehalten
 **Performanz:** Einfache und komplexe Suchabfragen werden in Echtzeit ausgeführt. 
 Die Abfragezeit verhält sich proportional zur Ergebnismenge und nicht zur Gesamtdatenmenge und führt dazu, dass ein und dieselbe Abfrage ähnlich schnell ist, unabhängig von der Gesamtmenge der Daten in der Datenbank. Folglich führt dies zu konstant schnellen Abfragen, Vermeidung von Join-Problemen und nur teilweiser Verarbeitung der gesamten Datenmenge.
 
-**Agilität:** Neue Strukturen lassen sich gut in den Graphen integrieren und existierende Daten können erweitert werden ohne bestehende Applikationen dadurch zu beeinflussen. 
+**Agilität:** Neue Strukturen lassen sich gut in den Graphen integrieren und existierende Daten können erweitert werden, ohne bestehende Applikationen dadurch zu beeinflussen. 
 Beispielsweise ist es möglich, einem Knoten Labels und Properties hinzuzufügen oder diese zu entfernen. 
 Mit Einschränkungen ist dies auch für Kanten möglich. 
 
