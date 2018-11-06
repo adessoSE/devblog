@@ -249,7 +249,7 @@ kind: Deployment
 metadata:
   name: sample-sck-deployment
 spec:
-  replicas: 10
+  replicas: 4
   selector:
     matchLabels:
       app: sample-sck
@@ -277,7 +277,7 @@ Jetzt erstellen wir das Deployment:
 
 Mit `kubectl get pods` oder im Dashboard unter "Pods" kann man sehen, dass die gewünschten Pods automatisch erstellt wurden.
 Der Name der jeweiligen Pods ergibt sich aus dem Namen, der im Deployment im Template angegeben wurde, einem Hash für das Deployment und einem Hash für den Container selbst.
-Hier ist der momentane Status als Grafik:
+Hier ist der momentane Status als Grafik (die IP des Services muss natürlich angepasst werden; siehe oben bei Services):
 ![Deployment kümmert sich um Pods](/assets/images/posts/intro-zu-kubernetes/k8s-2.png)
 
 Wenn nun ein Pod abstürzt (oder wir ihn manuell löschen) können wir sehen, wie über das Deployment ein neuer Pod erstellt wird, um den Platz des alten einzunehmen.
