@@ -7,9 +7,9 @@ categories: [Architekturen]
 tags: [Microservices,Mainframe,Migration,Hazelcast]
 ---
 
-Bei der Migration von Legacy-Anwendungen in eine Serviceorientierte Architektur, stellen einen die meist rechenintensiven und damit häufig auch langläufigen Batch-Verarbeitungen bzw. Tasks vor die Aufgabe der Definition einer geeigneten und vergleichbar leistungsfähigen Zielarchitektur. Eine mögliche Antwort gibt dieser Blog-Artikel.
+Bei der Migration von Legacy-Anwendungen vom IBM Mainframe in eine Linux basierte Infrastruktur, stellen einen die meist rechenintensiven und damit häufig auch langläufigen Batch-Verarbeitungen bzw. Tasks vor die Aufgabe der Definition einer geeigneten Zielarchitektur. Eine mögliche Antwort gibt dieser Blog-Artikel.
 
-Für die Definition der Architektur stellen sich mindestens zwei Grundsatzfragen:
+Der IBM Mainframe, eine über Dekaden gewachsene und gehärtete Plattform, verfügt über eine hervorragende Skalierbarkeit, Performance und Stabilität. Diese Eigenschaften müssen auch in der neuen Zielumgebung abbildbar sein um die abgelösten Software-Module entsprechend zuverlässig betreiben zu können. Eine besondere Herausforderung besteht also darin, eine vergleichbar skalierende und performante Architektur zu definieren, die zudem einfach und zuverlässig in eine bestehende Infrastruktur eingebunden werden kann. Für die Definition der Architektur stellen sich somit mindestens zwei Grundsatzfragen:
 
 1. Wie ist die Schnittstelle zu definieren, mit der die Steuerung und Überwachung von langläufigen Tasks gewährleistet werden kann?
 2. Wie kann gewährleistet werden, dass die Leistungsfähigkeit des neuen Systems ähnlich skaliert wie beispielsweise die eines [Parallel Sysplex](https://de.wikipedia.org/wiki/Parallel_Sysplex) der Mainframe-Welt.
