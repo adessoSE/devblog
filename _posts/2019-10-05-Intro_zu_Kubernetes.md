@@ -349,9 +349,8 @@ Auch hier hat also das Update geklappt.
 Jedoch haben wir bei dem Befehl `kubectl apply ...` eine Warnung bekommen:
 >`Warning: kubectl apply should be used on resource created by either kubectl create --save-config or kubectl apply`
 
-Der Hintergrund ist, das Kubernetes bei dem Befehl `kubectl create ...` einige Default-Werte annimmt.
-Diese Default-Werte können sich je nach Version ändern.
-Wenn wir die Änderungen an einer Datei mit `kubectl apply` anwenden, weiß Kubernetes nicht mehr, was wir in der alten Konfiguration explizit angegeben haben und was als Default angenommen wurde.
+Der Hintergrund ist, dass Kubernetes bei dem Befehl `kubectl create ...` einige Standardwerte annimmt, welche sich je nach Version ändern können.
+Wenn wir die Änderungen an einer Datei mit `kubectl apply` anwenden, weiß Kubernetes nicht mehr, was wir in der alten Konfiguration explizit angegeben haben und was als "Default" angenommen wurde.
 Mit dem Flag `--save-config` speichert Kubernetes unsere Konfiguration so ab, dass es diese Unterscheidung machen kann.
 
 # Fazit
