@@ -117,7 +117,7 @@ Einfach ausgedrückt: "Was will ich haben?" anstatt "Was muss passieren?".
 Erstellen wir uns einen neuen Ordner außerhalb unseres Code-Repositories.
 Manche Teams speichern die Kubernetes-Konfiguration ihrer Anwendung innerhalb des gleichen Git-Repositories, aber ich persönlich finde eine strikte Trennung zwischen Anwendungscode und Deployment eleganter.
 Wir wählen als Ordnernamen "sample-sck-minikube", also eine Kombination aus Anwendungsnamen und Deployment-Umgebung.
-Darin erstellen wir die Datei `sample-sck-pod.yaml` für einen einfachen Pod.
+Darin erstellen wir die Datei `sample-sck-pod-1.yaml` für einen einfachen Pod.
 Die YAML-Datei dafür sieht folgendermaßen aus:
 ```yaml
 apiVersion: v1
@@ -154,7 +154,7 @@ Dazu kann man den Befehl
 
 verwenden.
 Dadurch werden Requests an `localhost:8080` weitergeleitet an den Port 5000 des angegebenen Pods.
-Wenn man also http://localhost:8080/getenv im Browser öffnet, sollte das Wort "Foo" angezeigt werden, den Wert der Umgebungsvariable, die wir in der Definition des Pods angebenen haben.
+Wenn man also `http://localhost:8080/getenv` im Browser öffnet, sollte das Wort "Foo" angezeigt werden, den Wert der Umgebungsvariable, die wir in der Definition des Pods angebenen haben.
 Abbildung 1 zeigt den einfachen Aufbau:
 
 ![Clients wenden ich direkt an Pod](/assets/images/posts/intro-zu-kubernetes/k8s-0.png "Abbildung 1")
@@ -229,7 +229,7 @@ Glücklicherweise können wir über Minikube schnell an die URL kommen, über di
 > `http://192.168.99.100:31862`
 
 Unter dieser Adresse plus Pfad `/getenv` sollte jetzt "Foo" oder "Bar" zu sehen sein.
-Wenn wir nun ein paar mal die URL des Service aufrufen, wird manchmal der eine, manchmal der andere Wert angezeigt (eventuell muss man die URL SEHR oft aufrufen).
+Wenn wir nun ein paar mal die URL des Service aufrufen, wird manchmal der eine, manchmal der andere Wert angezeigt (eventuell muss man die URL **sehr** oft aufrufen).
 Wir können auch beobachten, was passiert, wenn ein Pod entfernt wird:
 > `kubectl delete pod -f sample-sck-pod-1.yaml`
 
