@@ -64,7 +64,7 @@ Normalerweise sind die Master-Prozesse auf designierten Nodes, um für Ausfallsi
 *Achtung: Obwohl V-Sphere offiziell von Minikube als Virtualisierungs-Lösung unterstütz wird, hatte ich einige Probleme, es damit zu starten.
 Mit VirtualBox habe ich wesentlich bessere Erfahrungen gemacht und möchte es daher jedem ans Herz legen.*
 
-Nachdem ein lokaler Cluster nach den Anweisungen auf der Minikube-Website installiert und gestartet wurde, können wir uns schon ein wenig in unserem Cluster umsehen.
+Nachdem ein lokaler Cluster nach den Anweisungen auf der Minikube-Website installiert und mit `minikube start` gestartet wurde, können wir uns schon ein wenig in unserem Cluster umsehen.
 Dazu dient das Kommandozeilentool `kubectl`, dass bei der Installation von Minikube mit installiert wird.
 Mit `kubectl get pods` können wir uns beispielsweise alle Pods anzeigen lassen, die gerade laufen.
 Wer kein Freund von Kommandozeilentools ist, kann sich mit dem Kubernetes Dashboard weiterhelfen.
