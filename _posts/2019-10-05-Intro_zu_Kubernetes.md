@@ -228,7 +228,7 @@ Glücklicherweise können wir über Minikube schnell an die URL kommen, über di
 > `http://192.168.99.100:31862`
 
 Unter dieser Adresse plus Pfad `/getenv` sollte jetzt "Foo" oder "Bar" zu sehen sein.
-Wenn wir nun ein paar mal die URL des Service aufrufen, wird manchmal der eine, manchmal der andere Wert angezeigt (eventuell muss man die URL SEHR oft aufrufen).
+Wenn wir nun ein paar mal die URL des Service aufrufen, wird manchmal der eine, manchmal der andere Wert angezeigt (eventuell muss man die URL **sehr** oft aufrufen).
 Wir können auch beobachten, was passiert, wenn ein Pod entfernt wird:
 > `kubectl delete pod -f sample-sck-pod-1.yaml`
 
