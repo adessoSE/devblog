@@ -219,6 +219,7 @@ Speichern wir die Datei ab und erstellen den Service mit
 > `kubectl create -f sample-sck-service.yaml`
 
 oder über "Create" im Dashboard.
+Unsere Pods von vorhin sollten ebenfalls noch laufen, damit der Service an die Pods weiterleiten kann.
 
 Wir können die Funktion des Services leider nicht auf die selbe Weise testen, wie die Funktion eines Pods.
 Es lässt sich zwar ein Port-Forwarding auf einen Service einrichten, jedoch wird dabei implizit ein einzelner Pod ausgewählt, an den "geforwarded" wird.
