@@ -127,7 +127,7 @@ metadata:
 spec:
   containers:
   - name: sample-sck
-    image: registry.gitlab.com/tbuss/sample-sck/master:778763dd78540773aff9bc21fc3967e6ca3a0cbc
+    image: registry.gitlab.com/tbuss/sample-sck/master:5936260e1ee9c42745ac7f4f1d062d55c42d228e
     ports:
     - containerPort: 5000
     env:
@@ -261,7 +261,7 @@ spec:
     spec:
       containers:
       - name: sample-sck
-        image: registry.gitlab.com/tbuss/sample-sck/master:778763dd78540773aff9bc21fc3967e6ca3a0cbc
+        image: registry.gitlab.com/tbuss/sample-sck/master:5936260e1ee9c42745ac7f4f1d062d55c42d228e
         ports:
           - containerPort: 5000
 ```
@@ -281,6 +281,7 @@ Der Name der jeweiligen Pods ergibt sich aus dem Namen, der im Deployment im Tem
 Hier ist der momentane Status als Grafik (die IP des Services muss natürlich angepasst werden; siehe oben bei Services):
 ![Deployment kümmert sich um Pods](/assets/images/posts/intro-zu-kubernetes/k8s-2.png)
 
+Da wir keine Umgebungsvariable angegeben haben, wird im Browser der Standardwert ausgegeben, der auch die Versionsnummer der Anwendung enthält.
 Wenn nun ein Pod abstürzt (oder wir ihn manuell löschen) können wir sehen, wie über das Deployment ein neuer Pod erstellt wird, um den Platz des alten einzunehmen.
 Das Deployment arbeit also genau so, wie es soll.
 
@@ -307,7 +308,7 @@ beobachten, wie das Update durchgeführt wird (auf Windows gibt es das Programm 
 Es sollte nur ein ReplicaSet für unser Deployment angezeigt werden.
 
 Nun führen wir in einem anderen Terminal den Befehl zum Update aus:
-> `kubectl set image deployment sample-sck-deployment sample-sck=registry.gitlab.com/tbuss/sample-sck/master:2af15466e456f7112b8b1b557d75be4dbab78df3`
+> `kubectl set image deployment sample-sck-deployment sample-sck=registry.gitlab.com/tbuss/sample-sck/master:bd67f6f2b686d74641680365d7a49117bc012bb0`
 
 Wir geben dabei die Aktion und das Deployment an und spezifizieren für den Container `sample-sck` das neue Image.
 
@@ -323,6 +324,7 @@ Nach und nach werden neue Pods durch das zweite ReplicaSet gestartet.
 Parallel dazu werden Pods aus dem alten ReplicaSet heruntergefahren.
 Die Geschwindigkeit und Anzahl der Pods innerhalb dieses Vorgangs kann durch Parameter innerhalb der Deployment-Konfigurationsdatei angepasst werden, aber wir begnügen uns in diesem Falle mit den default-Werten.
 Irgendwann sind alle Pods des alten ReplicaSets gelöscht und die des neuen ReplicaSets gestartet.
+Im Browser sollte nun auch die neue Versionsnummer angezeigt werden.
 Unser Update war erfolgreich.
 
 Mit `kubectl rollout undo deployment sample-sck-deployment` kann man das Update wieder rückgängig machen.
@@ -337,7 +339,7 @@ Dazu bearbeiten wir die Datei `sample-sck-deployment.yaml` und tragen das neue I
 
       containers:
       - name: sample-sck
-        image: registry.gitlab.com/tbuss/sample-sck/master:2af15466e456f7112b8b1b557d75be4dbab78df3
+        image: registry.gitlab.com/tbuss/sample-sck/master:bd67f6f2b686d74641680365d7a49117bc012bb0
 
     ...
 ```
@@ -346,6 +348,7 @@ Geben wir jetzt in einem anderen Terminal den Befehl zum Update:
 > `kubectl apply -f sample-sck-deployment.yaml`
 
 Genau wie bei dem Update per Kommandozeile wird ein zweites ReplicaSet erstellt und übernimmt nach und nach die Last des Ursprünglichen.
+Im Browserfenster wird nun ebenfalls die neue Versionsnummer angezeigt.
 Auch hier hat also das Update geklappt.
 Jedoch haben wir bei dem Befehl `kubectl apply ...` eine Warnung bekommen:
 >`Warning: kubectl apply should be used on resource created by either kubectl create --save-config or kubectl apply`
