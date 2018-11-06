@@ -150,7 +150,7 @@ Der Pod läuft also, aber wie lässt sich erkennen, dass alles wie erwartet funk
 Die IP des Pods ist schließlich eine interne IP des Clusters, worauf man von außen keinen Zugriff hat.
 Dazu kann man den Befehl
 
-> `kubectl port-forward pod/sample-sck 8080:5000` 
+> `kubectl port-forward sample-sck-pod-1 8080:5000` 
 
 verwenden.
 Dadurch werden Requests an `localhost:8080` weitergeleitet an den Port 5000 des angegebenen Pods.
