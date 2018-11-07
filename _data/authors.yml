@@ -75,7 +75,7 @@ stwacker:
   last_name: Wacker
   github_username: stwacker
   email: stephan.wacker@adesso.de
-  bio: "Stephan Wacker beschäftigt sich seit seinem Studium der Kerninformatik mit dem Thema Software Testing. Bei adesso leitet er ein Competence Center Leiter Im Bereich Qualitätssicherung und Testing für die adesso Softwareentwicklungsprojekte." 
+  bio: "Stephan Wacker beschäftigt sich seit seinem Studium der Kerninformatik mit dem Thema Software Testing. Bei adesso leitet er ein Competence Center Leiter Im Bereich Qualitätssicherung und Testing für die adesso Softwareentwicklungsprojekte."
   avatar_url: /assets/images/avatars/stwacker.png
   github: https://github.com/stwacker
 
@@ -106,4 +106,11 @@ roland:
   avatar_url: /assets/images/avatars/rolandMajchszak.jpg
   github: https://github.com/RMajchszak
 
-
+schirmer:
+  first_name: Uwe
+  last_name: Schirmer
+  github_username: Space42
+  email: uwe.schirmer@adesso.de
+  bio: "Uwe M. Schirmer ist Leiter des Competence Center im Bereich Banking bei adesso. Er ist zertifizierter Scrum Experte, Software-Architekt, Projektmanager und Requirements Engineer. Als agiler Coach unterstützt Uwe Unternehmen dabei, ihre Organisation ganzheitlich zu modernisieren und dabei auch ihre Produkte, die Qualität und die Architektur ihrer Anwendungen nicht aus den Augen zu verlieren."
+  avatar_url: /assets/images/avatars/schirmer.jpg
+  github: https://github.com/Space42
