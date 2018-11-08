@@ -114,3 +114,13 @@ schirmer:
   bio: "Uwe M. Schirmer ist Leiter des Competence Center im Bereich Banking bei adesso. Er ist zertifizierter Scrum Experte, Software-Architekt, Projektmanager und Requirements Engineer. Als agiler Coach unterstützt Uwe Unternehmen dabei, ihre Organisation ganzheitlich zu modernisieren und dabei auch ihre Produkte, die Qualität und die Architektur ihrer Anwendungen nicht aus den Augen zu verlieren."
   avatar_url: /assets/images/avatars/schirmer.jpg
   github: https://github.com/Space42
+
+swindisch:
+  first_name: Sascha
+  last_name: Windisch
+  github_username: swindisch
+  email: sascha.windisch@adesso.de
+  bio: "Sascha Windisch ist Lösungs-Architekt bei adesso in Essen. Er plant und modelliert Software-Systeme in verschiedenen Branchen."
+  avatar_url: /assets/images/avatars/swindisch.png
+  github: https://github.com/swindisch
+
