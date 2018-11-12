@@ -106,6 +106,15 @@ roland:
   avatar_url: /assets/images/avatars/rolandMajchszak.jpg
   github: https://github.com/RMajchszak
 
+karnik:
+  first_name: Markus
+  last_name: Karnik
+  github_username: karnik
+  email: markus.karnik@adesso-transformer.com
+  bio: "Markus Karnik ist Migrationsarchitekt bei der adesso Transformer Deutschland GmbH in Dortmund. Er ist spezialisiert auf die Modernisierung und Ablösung von Legacy-Systemen."
+  avatar_url: /assets/images/avatars/karnik.jpg
+  github: https://github.com/karnik
+
 schirmer:
   first_name: Uwe
   last_name: Schirmer
