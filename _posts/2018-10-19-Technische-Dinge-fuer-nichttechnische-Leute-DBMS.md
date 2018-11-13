@@ -34,8 +34,8 @@ Es muss jeder Eintrag der Liste untersucht werden und innerhalb jedes Eintrages 
 Dabei kann es schnell vorkommen, dass Inkonsistenzen entstehen, wenn ein Eintrag gleichzeitig von unterschiedlichen Leuten geändert wird.
 
 Es gibt noch einige weitere Nachteile dieses naiven Ansatzes, wodurch er für wirklich große Datenmengen völlig unpraktikabel ist.
-Um diese ganzen Probleme zu lösen, wurden **Datenbankmanagementsysteme(DBMS)** entwickelt, die mit intelligenten Algorithmen und Datenstrukturen das Erstellen, Lesen, Anpassen und Löschen von Datenmengen verwalten.
-Die wohl verbreitetste Kategorie von DBMS sind die **relationalen** Systeme(RDBMS), für die ich klären möchte, wie sie die Probleme **A-D** zu lösen versuchen.
+Um diese ganzen Probleme zu lösen, wurden **Datenbankmanagementsysteme (DBMS)** entwickelt, die mit intelligenten Algorithmen und Datenstrukturen das Erstellen, Lesen, Anpassen und Löschen von Datenmengen verwalten.
+Die wohl verbreitetste Kategorie von DBMS sind die **relationalen** Systeme (RDBMS), für die ich klären möchte, wie sie die Probleme **A-D** zu lösen versuchen.
 
 # Grundaufbau und Lösungsansätze einer relationalen Datenbank
 Daten in einer relationalen Datenbank werden in einer Sammlung von Tabellen, sogenannten **Relationen**, abgelegt.
@@ -53,7 +53,7 @@ Die tatsächliche Reihenfolge, in der sich die Einträge auf der Festplatte befi
 Möchten wir zusätzlich jetzt nach einer Telefonnummer in unserem Datensatz suchen, können wir einen zweiten Index anlegen.
 Wir können unsere Daten also quasi nach mehreren Attributen gleichzeitig sortieren.
 
-Da wie gerade beschrieben die physikalische Reihenfolge der Daten keine Rolle mehr spielt, löst sich das in **(B)** beschriebene Problem schon fast von alleine.
+Da, wie gerade beschrieben, die physikalische Reihenfolge der Daten keine Rolle mehr spielt, löst sich das in **(B)** beschriebene Problem schon fast von alleine.
 Neu eingefügte Daten können einfach hintereinander in beliebiger Reihenfolge in den Speicher geschrieben werden, dabei muss nur darauf geachtet werden, dass die angelegten Indexe entsprechend aktualisiert werden, damit die neuen Einträge auch damit gefunden werden können.
 
 ## Normalisierung
