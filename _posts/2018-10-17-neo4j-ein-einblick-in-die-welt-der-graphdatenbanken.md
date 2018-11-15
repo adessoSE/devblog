@@ -14,22 +14,22 @@ Letztere, wie Neo4j, bieten viele Vorteile gegenüber von relationalen Datenbank
 Relationale Datenbanken halten Daten in Tabellen und bilden Beziehungen mit Fremdschlüsseln ab. 
 Bei der Abfrage dieser Daten sind oft mehrere Tabellen involviert. 
 Das zugehörige SQL-Statement kann daher mehrere JOIN-Operationen enthalten, um in einer großen Datenstruktur korrekte Ergebnisse zu liefern. 
-Das Problem besteht darin, dass dabei die Beziehungen erst zur Laufzeit der Abfrage ermittelt werden. 
+Das Problem bei diesem Vorgehen besteht darin, dass dabei die Beziehungen erst zur Laufzeit der Abfrage ermittelt werden. 
 Die dafür verwendeten JOIN-Operationen verbrauchen viel Speicher und CPU-Leistung. 
-Das führt dazu, dass eine Abfrage, abhängig von der Größe der Abfrage und der Anzahl an Joins, mehrere Minuten bis Stunden dauern kann. 
+Das führt dazu, dass eine Abfrage, abhängig von der Größe der Abfrage und der Anzahl an JOINs mehrere Minuten oder gar Stunden dauern kann. 
 Die Performanz und Effizienz leiden darunter. 
 
-Eine alternative Lösung für dieses Problem bieten Graphendatenbanken. 
-Sie bilden Beziehungen zwischen Elementen effektiver ab und erlauben dadurch effiziente und performante Datenabfragen. Neo4j ist dabei der bekannteste und verbreitetste Vertreter dieser Kategorie.
+Eine alternative Lösung für dieses Problem bieten Graphdatenbanken. 
+Sie bilden Beziehungen zwischen Elementen effektiver ab und erlauben dadurch effiziente und performante Datenabfragen. Neo4j ist dabei der bekannteste und am weitesten verbreitete Vertreter dieser Kategorie.
 
 # Neo4j
 [Neo4j Inc.](https://neo4j.com) ist das Unternehmen, das hinter der gleichnamigen Graphdatenbank steckt und wurde von Emil Eifrem und Johan Svensson 2007 gegründet. 
 Die Datenbank hatte seine Anfänge im Jahr 2000 als die Gründer mit Performanzproblemen mit relationalen Datenbanken zu kämpfen hatten. 
 Die erste offizielle Version wurde 2010 veröffentlicht. 
-Das Unternehmen hat seinen Hauptsitz in Sillicon Valley und verfügt weltweit über mehrere Zweigstellen, unter anderem in München. 
+Das Unternehmen hat seinen Hauptsitz im Silicon Valley und verfügt weltweit über mehrere Zweigstellen, unter anderem in München. 
 
 Neo4j ist eine Open Source Software, die in zwei Lizenzvarianten angeboten wird. Zum einen gibt es die Community Edition, die unter der [GPL v3 Lizenz](http://www.gnu.org/licenses/quick-guide-gplv3.html) läuft. 
-Diese Version ist sehr gut geeignet für private, kleinere oder Unternehmensinterne Projekte. 
+Diese Version ist sehr gut geeignet für private, kleinere oder unternehmensinterne Projekte. 
 Zum anderen gibt es die Enterprise Edition. Sie ist für größere Projekte, die unter anderem eine hohe Verfügbarkeit und Sicherheit benötigen, geeignet. 
 Diese Version besitzt zusätzlich zur GPL v3 auch die [AGPL v3](https://www.gnu.org/licenses/agpl-3.0.en.html) Lizenz.
 
@@ -50,9 +50,9 @@ Auf diese Weise lassen sich komplexe Zusammenhänge zwischen Daten als Graph dar
 
 # Cypher - Die Abfragesprache von Neo4j
 
-Neo4j hat eine eigene deklarative Abfragesprache, die sich Cypher nennt. 
+Neo4j hat eine eigene deklarative Abfragesprache, die sich [Cypher](https://neo4j.com/docs/developer-manual/current/cypher/) nennt. 
 Sie orientiert sich an SQL und ist einfach aufgebaut. 
-Die Syntax besteht zum Teil aus „ASCII-Kunst“, die Knoten und Kanten repräsentiert: 
+Die Syntax besteht zum Teil aus „ASCII-Art“, die Knoten und Kanten repräsentiert: 
 * Knoten werden als `(...)` dargestellt
 * Kanten werden als `-[...]->` dargestellt
 
@@ -74,7 +74,8 @@ Als Ergebnis wird ein Subgraph zurückgegeben, der die gesuchte Beziehung aus de
 Das gleiche Ergebnis kann man auch erreichen, indem man auf die explizite WHERE-Klausel verzichtet und diese direkt in dem MATCH-Befehl angibt:
 
 ```graphql
-MATCH (martin:Person {name: "Martin Freeman"})-[:ACTED_IN]->(martinMovies:Movie) RETURN martin,martinMovies;
+MATCH (martin:Person {name: "Martin Freeman"})-[:ACTED_IN]->(martinMovies:Movie)
+RETURN martin,martinMovies;
 ```
 
 Möchte man statt dem Graphen eine tabellarische Darstellung des Ergebnisses erhalten, kann dies mit folgender Query erreicht werden:
@@ -95,7 +96,7 @@ Die verwendeten Klauseln haben folgende Bedeutung:
 * `WHERE`: Diese Klausel definiert Bedingungen für den MATCH-Befehl, um die Suche zu präzisieren.
 * `RETURN`: Definiert was im Abfrageergebnis hinzugefügt werden soll.
 
-Mit Cypher ist es auch möglich komplexe, verschachtelte Abfragen zu formulieren. 
+Mit Cypher ist es auch möglich, komplexe, verschachtelte Abfragen zu formulieren. 
 Es lassen sich natürlich auch Knoten und Kanten hinzufügen, aktualisieren und löschen. 
 Sie bietet außerdem eine Vielzahl von Funktionen wie *size()*, *count()* und *avg()* an, die in der Anwendungsentwicklung sinnvoll eingesetzt werden können.
 Das [Cypher-Entwickler-Handbuch](https://neo4j.com/docs/developer-manual/current/cypher/functions/) verfügt über eine Liste aller Funktionen.
@@ -119,10 +120,10 @@ RETURN path;
 # Vorteile von Neo4j
 **Einfachheit:** Neo4j ist durch die Graphdarstellung sehr anschaulich und intuitiv. 
 Ein auf einem Whiteboard gezeichneter Graph kann meist 1:1 in die Datenbank übernommen werden. 
-Die Abfragesprache Cypher ist durch die „ASCII-Kunst“ verständlich gehalten. 
+Die Abfragesprache Cypher ist durch die „ASCII-Art“ verständlich gehalten. 
 
 **Performanz:** Einfache und komplexe Suchabfragen werden in Echtzeit ausgeführt. 
-Die Abfragezeit verhält sich proportional zur Ergebnismenge und nicht zur Gesamtdatenmenge und führt dazu, dass ein und dieselbe Abfrage ähnlich schnell ist, unabhängig von der Gesamtmenge der Daten in der Datenbank. Folglich führt dies zu konstant schnellen Abfragen, Vermeidung von Join-Problemen und nur teilweiser Verarbeitung der gesamten Datenmenge.
+Die Abfragezeit verhält sich proportional zur Ergebnismenge und nicht zur Gesamtdatenmenge und führt dazu, dass ein und dieselbe Abfrage ähnlich schnell ist, unabhängig von der Gesamtmenge der Daten in der Datenbank. Folglich führt dies zu konstant schnellen Abfragen, Vermeidung von JOIN-Problemen und nur teilweiser Verarbeitung der gesamten Datenmenge.
 
 **Agilität:** Neue Strukturen lassen sich gut in den Graphen integrieren und existierende Daten können erweitert werden, ohne bestehende Applikationen dadurch zu beeinflussen. 
 Beispielsweise ist es möglich, einem Knoten Labels und Properties hinzuzufügen oder diese zu entfernen. 
@@ -140,6 +141,7 @@ Eine sehr gute und umfangreiche Dokumentation rundet das ganze ab.
 # Fazit
 Für Applikationen mit großen Datenmengen, komplexen und stark vernetzten Strukturen bietet sich Neo4j als Datenbank-Technologie am besten an. 
 Durch ihre Einfachheit ist es viel angenehmer eine Datenbank zu modellieren und sie dann in die Applikation zu integrieren. 
+
 Da keine Join-Probleme existieren und in einer Abfrage keine komplizierten Ergebnistabellen erzeugt werden, arbeitet Neo4j sehr effizient. 
 Zudem ist die Technologie durch ihre Skalierbarkeit und die hohe Verfügbarkeit der Datenbank sehr empfehlenswert. 
 Schließlich machen die verschiedenen Lernmöglichkeiten den Einstieg ziemlich einfach.
