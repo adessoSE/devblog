@@ -46,7 +46,7 @@ Unser sogenanntes **Datenbankschema**, welches hier nur aus einer Relation beste
 
 ![Schema der Beispieldatenbank](assets/images/posts/Technische-Dinge-fuer-nichttechnische-Leute-DBMS/wissenschaftler.png)
 
-## Beschleunigung der Suche durch Indexe
+## Beschleunigung der Suche durch Indizes
 Für das in **(A)** beschriebene Durchsuchen der Wissenschaftler nach Nachnamen würde in einem RDBMS ein Index angelegt, mit dem in kürzester Zeit die Stelle gefunden werden kann, an der sich ein Eintrag auf der Festplatte befindet.
 Diesen Index könnt ihr euch vorstellen wie ein Stichwortverzeichnis am Ende eines Buches, in dem die Begriffe alphabetisch aufgelistet sind und zu jedem Begriff vermerkt ist, auf welcher Seite dieser erklärt wird.
 Die tatsächliche Reihenfolge, in der sich die Einträge auf der Festplatte befinden, spielt dadurch keinerlei Rolle mehr.
@@ -57,9 +57,9 @@ Da, wie gerade beschrieben, die physikalische Reihenfolge der Daten keine Rolle 
 Neu eingefügte Daten können einfach hintereinander in beliebiger Reihenfolge in den Speicher geschrieben werden, dabei muss nur darauf geachtet werden, dass die angelegten Indexe entsprechend aktualisiert werden, damit die neuen Einträge auch damit gefunden werden können.
 
 ## Normalisierung
-Für das in **(C)** dargestellte Problem bringt uns die neue Strukturierung der Daten leider noch nichts, da sich schlecht ein Index für das _Auszeichnungen_-Attribut erstellen lässt, da hier mehrere Einträge drin stehen könnten.
+Für das in **(C)** dargestellte Problem bringt uns die neue Strukturierung der Daten leider noch nichts, da sich schlecht ein Index für das _Auszeichnungen_-Attribut erstellen lässt, da hier mehrere Einträge enthalten sein könnten.
 Da außerdem ein Preis an mehrere Wissenschaftler verliehen werden kann, wird hier von einer **many-to-many-Beziehung** gesprochen.
-Daher müssen wir das Datenbankschema etwas anpassen.
+Daher müssen wir das Datenbankschema etwas anpassen:
 
 ![Schema einer normalisierten Datenbank](assets/images/posts/Technische-Dinge-fuer-nichttechnische-Leute-DBMS/normalisiert.png)
 
@@ -77,7 +77,7 @@ Dieses Vorgehen scheint vielleicht auf den ersten Blick umständlich, allerdings
 
 ## Atomicity, Consistency, Isolation, Durability (ACID)
 Anfragen, auch **Queries** genannt, können in einem RDBMS Tupel erstellen, lesen, verändern oder löschen.
-Mehrere Anfragen können dabei in **Transaktionen** zusammengefasst werden, mit denen eine gewisse Sicherheit für die Operationen gewährleistet werden kann.
+Mehrere Anfragen können dabei in **Transaktionen** zusammengefasst werden, mit denen eine gewisse Konsistenz für mehrere gleichzeitige Operationen gewährleistet werden kann.
 Beispielsweise würden wir beim Erstellen eines völlig neuen Eintrages die drei Anfragen zum Einfügen der Einträge in die drei Tabellen in einer Transaktion zusammenfassen.
 
 Das in **(D)** beschriebene Problem fällt in die Kategorie **Concurrency-Control**, also Kontrolle von nebenläufigen Datenbankzugriffen, welche ein Hauptgebiet der Datenbankforschung darstellt.
@@ -117,4 +117,4 @@ Leider konnte ich in diesem Artikel die Welt der Datenbankmanagementsysteme nur 
 Neben relationalen Datenbanksystemen gibt es zum Beispiel auch noch sogenannte NoSQL-Datenbanken, die beispielsweise durch Lockern einiger der ACID-Eigenschaften eine höhere Performanz erreichen.
 Sogar innerhalb der relationalen Systeme gibt es erhebliche Unterschiede zwischen den einzelnen Produkten, wodurch die Auswahl der am besten geeigneten Software zur Herausforderung wird.
 
-Falls ihr Interesse an weiteren, einfach erklärten, technischen Themen habt, dann schaut doch mal in die ersten drei Teile der Blog-Serie: [Teil 1 - Datenformate](https://www.adesso.de/de/news/blog/technische-dinge-fuer-nichttechnische-leute-teil-1.jsp), [Teil 2 - Microservices](https://www.adesso.de/de/news/blog/technische-dinge-fuer-nicht-technische-leute-teil-2.jsp), [Teil 3 - Deployments](https://www.adesso.de/de/news/blog/technische-dinge-fuer-nicht-technische-leute-teil-3.jsp)
+Falls ihr Interesse an weiteren, einfach erklärten, technischen Themen habt, dann schaut doch mal in die ersten drei Teile der Blog-Serie: [Teil 1 - Datenformate](https://www.adesso.de/de/news/blog/technische-dinge-fuer-nichttechnische-leute-teil-1.jsp), [Teil 2 - Microservices](https://www.adesso.de/de/news/blog/technische-dinge-fuer-nicht-technische-leute-teil-2.jsp), [Teil 3 - Deployments](https://www.adesso.de/de/news/blog/technische-dinge-fuer-nicht-technische-leute-teil-3.jsp).
