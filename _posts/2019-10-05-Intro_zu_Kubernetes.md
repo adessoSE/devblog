@@ -7,18 +7,17 @@ categories:     [Softwareentwicklung]
 tags:           [cloud, kubernetes]
 ---
 Die Container-Orchestrierungs-Lösung Kubernetes ist das wohlmöglich am stärksten gewachsene Open-Source-Projekt der letzten Jahre.
-Alle großen Cloud-Anbieter wie Google, Amazon, Microsoft und weitere bieten heutzutage Kubernetes-Instanzen an und unzählige Firmen lagern ihre Anwendungen auf Kubernetes-gestützten Clustern in der Cloud aus.
-Grund genug, sich einmal näher mit Kubernetes und Konzepten dahinter zu beschäftigen.
+Alle großen Cloud-Anbieter wie Google, Amazon, Microsoft und weitere bieten heutzutage Kubernetes-Instanzen an und unzählige Firmen lagern ihre Anwendungen auf Kubernetes-gestützte Clustern in der Cloud aus.
+Grund genug, sich einmal näher mit Kubernetes und den Konzepten dahinter zu beschäftigen.
 
-# Einführung in Kubernetes
 In diesem Blogpost geht es um die grundlegenden Konzepte, mit denen die Container-Orchestrierung Kubernetes arbeitet.
 Container-Orchestrierung bedeutet das Management von hunderten, lose gekoppelten Anwendungs-Containern, die zusammen miteinander interagieren müssen.
-Unser Fokus liegt auf der Sicht eines Entwicklers, nicht eines Cluster-Operators.
+Unser Fokus liegt auf der Sicht eines Entwicklers, nicht der eines Cluster-Operators.
 Wir betrachten ein kleines Beispiel, indem wir eine triviale Spring-Boot-Anwendung in dem lokalen Kubernetes-Cluster Minikube ausführen.
-Bevor wir zu dem Praxisteil kommen, klären wir erst einmal die Begrifflichkeiten.
+Bevor wir zum Praxisteil kommen, klären wir aber erst einmal die Begrifflichkeiten.
 
 # Cluster, Nodes und Pods
-Kuberentes ist eine verteilte Anwendung, wird also auf mehreren physikalischen (oder virtuellen) Rechnern ausgeführt, die man als *Nodes* bezeichnet und die zusammen den Kubernetes *Cluster* bilden.
+Kubernetes ist eine verteilte Anwendung, wird also auf mehreren physikalischen (oder virtuellen) Rechnern ausgeführt, die man als *Nodes* bezeichnet und die zusammen den Kubernetes *Cluster* bilden.
 Mindestens ein Node nimmt dabei die Rolle des Masters ein, der den Cluster verwaltet und die Befehle des Benutzers entgegen nimmt.
 
 Auf den Nodes laufen sogenannte *Pods*.
@@ -35,19 +34,21 @@ Pods sind kurzlebig.
 Sie werden erstellt, bekommen eine interne IP im virtuellen Netzwerk und führen ihre Container aus.
 Wenn ein Pod beendet wird oder abstürzt, werden lokale Daten und Speicher gelöscht.
 Die IP des Pods kann nun von beliebigen anderen Pods, die der Cluster startet, verwendet werden.
+
 Es stellt sich also die Frage, wie man eine Anwendung erreichen kann, wenn die interne IP nicht als fest angenommen werden kann.
 Zudem ist es für Anwendungen mit hoher Last nicht möglich, alle Anfragen von nur einer Container-Instanz abwickeln zu lassen.
 Zur Skalierung müssen mehrere identische Pods gestartet werden, unter denen sich die Last aufteilt.
-Diese Probleme nennt man "Service Discovery" und "Load Balancing" und sind in vielen verteilten Anwendungen präsent.
+Diese Probleme nennt man "Service Discovery" und "Load Balancing" und sie sind in vielen verteilten Anwendungen präsent.
 Wir wollen uns in diesem Blogpost anschauen, wie Kubernetes diese Probleme löst.
 
 # Zielsetzung
 Konkretisieren wir unser Ziel noch einmal mit den neuen Begriffen, die wir gerade kennen gelernt haben.
-Das Ziel in diesem Blogpost soll es sein, einen REST-Service in einem Kubernetes-Cluster bereitzustellen.
+**Das Ziel in diesem Blogpost soll es sein, einen REST-Service in einem Kubernetes-Cluster bereitzustellen**.
 Clients im selben Cluster können eine URI aufrufen und erhalten die erwartete Antwort.
 Wir programmieren eine einfache Anwendung, die den Wert einer Konfigurationsvariablen ausgibt.
 Diese packen wir in einige Pods, die in unserem Cluster laufen.
-Es soll sichergestellt werden, dass bei einem Absturz eines Pods automatisch ein neuer Pod gestartet wird.
+
+Es soll sichergestellt werden, dass beim Absturz eines Pods automatisch ein neuer Pod gestartet wird.
 Zudem soll gewährleistet werden, dass die Last auf alle aktiven Pods verteilt wird, sodass der Ausfall eines Pods von außen quasi nicht zu erkennen ist.
 Zuletzt wollen wir noch ein Update der Anwendung durchführen.
 
@@ -57,14 +58,15 @@ Schauen wir uns die Tools an, mit denen wir unser Beispiel durchführen werden.
 ## Minikube
 Allen voran brauchen wir einen Cluster, auf dem wir unsere Beispielanwendung laufen lassen.
 Für die lokale Entwicklung eignet sich [Minikube](https://kubernetes.io/docs/setup/minikube/) sehr gut.
-Es stellt einen Cluster mit nur einem Node in einer virtuellen Maschine bereit.
+**Es stellt einen Cluster mit nur einem Node in einer virtuellen Maschine bereit**.
 Dieser unterscheidet sich von einem "echten" Kubernetes Cluster unter anderem darin, dass auf dem einen Node sowohl die Pods als auch die Master-Prozesse zur Verwaltung des Clusters laufen.
 Normalerweise sind die Master-Prozesse auf designierten Nodes, um für Ausfallsicherheit zu sorgen.
 
-*Achtung: Obwohl V-Sphere offiziell von Minikube als Virtualisierungs-Lösung unterstütz wird, hatte ich einige Probleme, es damit zu starten.
+***Achtung**: Obwohl V-Sphere offiziell von Minikube als Virtualisierungs-Lösung unterstützt wird, hatte ich einige Probleme, es damit zu starten.
 Mit VirtualBox habe ich wesentlich bessere Erfahrungen gemacht und möchte es daher jedem ans Herz legen.*
 
-Nachdem ein lokaler Cluster nach den Anweisungen auf der Minikube-Website installiert und mit `minikube start` gestartet wurde, können wir uns schon ein wenig in unserem Cluster umsehen.
+Nachdem ein lokaler Cluster nach den Anweisungen auf der [Minikube-Website](https://kubernetes.io/docs/setup/minikube/) installiert und mit `minikube start` gestartet wurde, können wir uns schon ein wenig in unserem Cluster umsehen.
+
 Dazu dient das Kommandozeilentool `kubectl`, dass bei der Installation von Minikube mit installiert wird.
 Mit `kubectl get pods` können wir uns beispielsweise alle Pods anzeigen lassen, die gerade laufen.
 Wer kein Freund von Kommandozeilentools ist, kann sich mit dem Kubernetes Dashboard weiterhelfen.
@@ -106,6 +108,7 @@ class EnvironmentVariableController {
 Das Repository mit dem gesamten Quellcode ist [hier](https://gitlab.com/tbuss/sample-sck) zu finden.
 Normalerweise müssten wir an dieser Stelle jetzt ein Dockerfile erstellen.
 Da Gitlab allerdings schlau ist und erkennt, dass es sich um ein Gradle-Projekt handelt, kann es das für uns übernehmen.
+
 Die Anwendung wird automatisch gebaut, ein Docker-Image erstellt und selbiges in die Registry hochgeladen.
 Den Link zum aktuellen Image findet man [hier](https://gitlab.com/tbuss/sample-sck/container_registry).
 
@@ -114,8 +117,10 @@ Wir können jetzt einen oder mehrere Pods in unserem Cluster manuell erstellen.
 Für alle Kubernetes-Ressourcen benutzen wir deklarative YAML-Dateien.
 Kubernetes liest den gewünschten Status aus den Dateien aus und kümmert sich für uns darum, dass dieser Status aufrecht erhalten wird.
 Einfach ausgedrückt: "Was will ich haben?" anstatt "Was muss passieren?".
+
 Erstellen wir uns einen neuen Ordner außerhalb unseres Code-Repositories.
 Manche Teams speichern die Kubernetes-Konfiguration ihrer Anwendung innerhalb des gleichen Git-Repositories, aber ich persönlich finde eine strikte Trennung zwischen Anwendungscode und Deployment eleganter.
+
 Wir wählen als Ordnernamen "sample-sck-minikube", also eine Kombination aus Anwendungsnamen und Deployment-Umgebung.
 Darin erstellen wir die Datei `sample-sck-pod-1.yaml` für einen einfachen Pod.
 Die YAML-Datei dafür sieht folgendermaßen aus:
@@ -165,12 +170,14 @@ Wenn wir den Pods wieder löschen wollen, geht das mit
 oder über das Dashboard.
 
 ## Services
-Wir können noch einige Pods auf diese Weise erstellen.
+Wir können noch einige weitere Pods auf diese Weise erstellen.
 Dazu kopieren wir die Datei mit dem neuen Namen "sample-sck-pod-2.yaml".
+
 Innerhalb der Konfiguration machen wir zwei Änderungen:
 Wir ändern den Namen des Pods auf `sample-sck-pod-2`, da der vorherige Name ja schon von dem anderen Pod belegt ist.
 Wir werden später einen Mechanismus kennen lernen, der uns diese Umbenennung bei der Erstellung vieler Pods abnimmt.
 Außerdem ändern wir den Wert der Umgebungsvariablen auf `Bar`, damit wir sehen können, welchen Pod wir erreicht haben.
+
 Mit
 >`kubectl create -f sample-sck-pod-2.yaml`
 
@@ -179,10 +186,13 @@ Die Pods haben immer noch unterschiedliche IPs.
 Daher kann ein Client unserer Anwendung nicht zu einem zentralen Punkt im Cluster navigieren und dort die Anwendung aufrufen.
 Wir benötigen also einen Mechanismus zur Service Discovery.
 Dafür gibt es in Kubernetes sogenannte *Services*.
-Ein Service ist nichts anderes als ein Fixpunkt im Cluster, der die Anfragen an die damit verknüpften Pods weiterleitet.
+
+**Ein Service ist nichts anderes als ein Fixpunkt im Cluster, der die Anfragen an die damit verknüpften Pods weiterleitet**.
 Dabei berücksichtigt ein Service alle Pods, die ein bestimmtes *Label* haben, und leitet die Requests an einen dieser Pods weiter.
+
 Labels sind ein mächtiges Werkzeug in Kubernetes.
 Diese Key-Value-Paare können an alle Arten von Ressourcen angehängt werden und bieten eine flexible Möglichhkeit zur Gruppierung von Ressourcen, inklusive Pods.
+
 Wenn wir die Pod-Definition in den beiden Dateien um das Label `app: sample-sck` erweitern, können wir alle Pods als Gruppe identifizieren:
 ```yaml
   ...
@@ -209,6 +219,7 @@ spec:
 ```
 Die Selector-Direktive beschreibt die Labels, die die Pods haben müssen, um von diesem Service berücksichtigt zu werden.
 Der Typ `NodePort` zeigt an, dass Kubernetes für diesen Service auf jedem Node (bei Minikube nur der eine) einen Port öffnen soll, über den man den Service ansprechen kann.
+
 In einem "richtigen" Kubernetes-Cluster hätten wir auch noch andere Möglichkeiten, den Service öffentlich zugänglich zu machen.
 Port und targetPort zeigen an, das der Service auf Port 8080 läuft und auf die Ports 5000 der Pods weiterleitet.
 Diese Grafik zeigt den momentanen Aufbau:
@@ -233,7 +244,7 @@ Wenn wir nun ein paar mal die URL des Service aufrufen, wird manchmal der eine, 
 Wir können auch beobachten, was passiert, wenn ein Pod entfernt wird:
 > `kubectl delete pod -f sample-sck-pod-1.yaml`
 
-Der Service leitet die Anfragen an den verbleibenden Pod weiter, ohne, dass zwischenzeitlich ein Ausfall zu vermerken ist.
+Der Service leitet die Anfragen an den verbleibenden Pod weiter, ohne dass zwischenzeitlich ein Ausfall zu vermerken ist.
 Unser Service funktioniert also.
 
 ## Deployments
@@ -266,7 +277,7 @@ spec:
           - containerPort: 5000
 ```
 Der größte Teil der Definition sollte uns schon bekannt vorkommen und selbsterklärend sein.
-Wir beschreiben die gewünschte Anzahl mit `replicas`; hier sind es zehn.
+Wir beschreiben die gewünschte Anzahl mit `replicas`; hier sind es vier.
 Mit `selector` legen wir fest, wie das Deployment "seine" Pods erkennt.
 Die Labels im Selector sollten denen im Template gleichen.
 
@@ -335,19 +346,17 @@ Führen wir den Befehl einmal aus, damit wir im Folgenden auch das Update per Ko
 Die zweite Möglichkeit, das Szenario durchzuführen, ist über die YAML-Konfigurationsdateien.
 Dazu bearbeiten wir die Datei `sample-sck-deployment.yaml` und tragen das neue Image im `template` ein:
 ```yaml
-    ...
-
-      containers:
-      - name: sample-sck
-        image: registry.gitlab.com/tbuss/sample-sck/master:bd67f6f2b686d74641680365d7a49117bc012bb0
-
-    ...
+...
+containers:
+- name: sample-sck
+  image: registry.gitlab.com/tbuss/sample-sck/master:bd67f6f2b686d74641680365d7a49117bc012bb0
+...
 ```
 Wieder können wir mit `watch kubectl get replicasets` den Fortschritt des Updates verfolgen, während es ausgeführt wird.
 Geben wir jetzt in einem anderen Terminal den Befehl zum Update:
 > `kubectl apply -f sample-sck-deployment.yaml`
 
-Genau wie bei dem Update per Kommandozeile wird ein zweites ReplicaSet erstellt und übernimmt nach und nach die Last des Ursprünglichen.
+Genau wie bei dem Update per Kommandozeile wird ein zweites ReplicaSet erstellt und übernimmt nach und nach die Last des rrsprünglichen ReplicaSets.
 Im Browserfenster wird nun ebenfalls die neue Versionsnummer angezeigt.
 Auch hier hat also das Update geklappt.
 Jedoch haben wir bei dem Befehl `kubectl apply ...` eine Warnung bekommen:
