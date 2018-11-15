@@ -7,8 +7,8 @@
 Software-Entwickler einfacher machen. In diesem Dschungel der Möglichkeiten ist es undenkbar die bekannten 
 Sicherheitslücken für alle verwendeten Abhängigkeiten ohne Tool-Unterstützung im Blick zu behalten. 
 In der OWASP Top 10 Liste der häufigsten Sicherheitsprobleme existiert ebenfalls ein Eintrag zur
-<a href="https://www.owasp.org/index.php/Top_10-2017_A9-Using_Components_with_Known_Vulnerabilities">Verwendung von Komponenten mit bekannten Sicherheitslücken</a>. 
-Mit dem OWASP Dependency Check lässt sich der Abgleich mit der NIST’s <a href="https://nvd.nist.gov/">National Vulnerability Database (NVD)</a> 
+“Verwendung von Komponenten mit bekannten Sicherheitslücken”. 
+Mit dem OWASP Dependency Check lässt sich der Abgleich mit der NIST’s National Vulnerability Database (NVD) 
 automatisieren. In diesem Blog-Eintrag möchte ich gerne zeigen wie das funktioniert.</p>
 
 ]]></field>
@@ -23,7 +23,7 @@ automatisieren. In diesem Blog-Eintrag möchte ich gerne zeigen wie das funktion
         <field name="date_l"><![CDATA[1522058460000]]></field>
         <field name="change_date"><![CDATA[1522058460000]]></field>
         <!--Picture-->
-        <!-- Not in use in the moment-->
+        <!-- Not in use at the moment-->
         <!--Author Information-->
         <field name="author_first_name"><![CDATA[Sascha]]></field>
         <field name="author_last_name"><![CDATA[Grebe]]></field>
@@ -36,8 +36,8 @@ automatisieren. In diesem Blog-Eintrag möchte ich gerne zeigen wie das funktion
 Software-Entwickler einfacher machen. In diesem Dschungel der Möglichkeiten ist es undenkbar die bekannten 
 Sicherheitslücken für alle verwendeten Abhängigkeiten ohne Tool-Unterstützung im Blick zu behalten. 
 In der OWASP Top 10 Liste der häufigsten Sicherheitsprobleme existiert ebenfalls ein Eintrag zur
-<a href="https://www.owasp.org/index.php/Top_10-2017_A9-Using_Components_with_Known_Vulnerabilities">Verwendung von Komponenten mit bekannten Sicherheitslücken</a>. 
-Mit dem OWASP Dependency Check lässt sich der Abgleich mit der NIST’s <a href="https://nvd.nist.gov/">National Vulnerability Database (NVD)</a> 
+“Verwendung von Komponenten mit bekannten Sicherheitslücken”. 
+Mit dem OWASP Dependency Check lässt sich der Abgleich mit der NIST’s National Vulnerability Database (NVD) 
 automatisieren. In diesem Blog-Eintrag möchte ich gerne zeigen wie das funktioniert.</p>
 
 </div>]]></field>
@@ -45,7 +45,15 @@ automatisieren. In diesem Blog-Eintrag möchte ich gerne zeigen wie das funktion
 <div class="row p-t-2">
 <div class="adesso-container">
 <div class="col-xl-8 adesso-center p-b-1 p-l-0 p-r-0">
-    <h4 id="sicherheitslücken-in-software">Sicherheitslücken in Software</h4>
+    <p>Moderne Software-Systeme basieren auf einer Vielzahl von Bibliotheken und Frameworks, die das Leben der 
+Software-Entwickler einfacher machen. In diesem Dschungel der Möglichkeiten ist es undenkbar die bekannten 
+Sicherheitslücken für alle verwendeten Abhängigkeiten ohne Tool-Unterstützung im Blick zu behalten. 
+In der OWASP Top 10 Liste der häufigsten Sicherheitsprobleme existiert ebenfalls ein Eintrag zur
+“Verwendung von Komponenten mit bekannten Sicherheitslücken”. 
+Mit dem OWASP Dependency Check lässt sich der Abgleich mit der NIST’s National Vulnerability Database (NVD) 
+automatisieren. In diesem Blog-Eintrag möchte ich gerne zeigen wie das funktioniert.</p>
+
+<h4 id="sicherheitslücken-in-software">Sicherheitslücken in Software</h4>
 <p>Sicherheitslücken verstecken sich nicht nur in selbstgeschriebener Software, sondern ebenfalls in den 3rd-Party 
 Bibliotheken und Frameworks, die bei der Erstellung von komplexen Anwendungssystemen eingesetzt werden. Im
 früheren Blog-Post <a href="https://www.adesso.de/de/news/blog/verwundbarkeitsanalyse-von-softwareprodukten-anhand-oeffentlicher-datenbanken.jsp">Verwundbarkeitsanalyse von Softwareprodukten anhand öffentlicher Datenbanken</a>

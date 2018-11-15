@@ -17,7 +17,7 @@ Dieser Beitrag stellt dar, wie beide Technologien zusammenspielen können.</p>
         <field name="date_l"><![CDATA[1520334000000]]></field>
         <field name="change_date"><![CDATA[1519084800000]]></field>
         <!--Picture-->
-        <!-- Not in use in the moment-->
+        <!-- Not in use at the moment-->
         <!--Author Information-->
         <field name="author_first_name"><![CDATA[Marcus]]></field>
         <field name="author_last_name"><![CDATA[Danner]]></field>
@@ -35,7 +35,11 @@ Dieser Beitrag stellt dar, wie beide Technologien zusammenspielen können.</p>
 <div class="row p-t-2">
 <div class="adesso-container">
 <div class="col-xl-8 adesso-center p-b-1 p-l-0 p-r-0">
-    <h5 id="worum-gehts-hier">Worum geht’s hier?</h5>
+    <p>Seit über zehn Jahren sind JEE-Applikationen etabliert, um unternehmenskritische Verfahren auf einer vereinheitlichten IT-Infrastruktur zu entwickeln.
+In den letzten Jahren sind leichtgewichtigere Alternativen wie NodeJs immer beliebter geworden und werden oft als Alternative zu JEE-Applikationsservern angesehen.
+Dieser Beitrag stellt dar, wie beide Technologien zusammenspielen können.</p>
+
+<h5 id="worum-gehts-hier">Worum geht’s hier?</h5>
 
 <p>Im Zuge der Digitalisierung von Geschäftsprozessen laufen große unternehmenskritische Applikationen zunehmend nicht mehr ausschließlich im internen Betrieb, sondern
 müssen auch unternehmensexterne Benutzer wie Geschäftspartner und Kunden ansprechen. Diesen werden ausgewählte Informationen zu laufenden Geschäftsvorgängen zugänglich gemacht.
