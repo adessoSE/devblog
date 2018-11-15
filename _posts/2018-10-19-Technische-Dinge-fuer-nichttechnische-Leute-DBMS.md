@@ -54,7 +54,7 @@ Möchten wir zusätzlich jetzt nach einer Telefonnummer in unserem Datensatz suc
 Wir können unsere Daten also quasi nach mehreren Attributen gleichzeitig sortieren.
 
 Da, wie gerade beschrieben, die physikalische Reihenfolge der Daten keine Rolle mehr spielt, löst sich das in **(B)** beschriebene Problem schon fast von alleine.
-Neu eingefügte Daten können einfach hintereinander in beliebiger Reihenfolge in den Speicher geschrieben werden, dabei muss nur darauf geachtet werden, dass die angelegten Indexe entsprechend aktualisiert werden, damit die neuen Einträge auch damit gefunden werden können.
+Neu eingefügte Daten können einfach hintereinander in beliebiger Reihenfolge in den Speicher geschrieben werden, dabei muss nur darauf geachtet werden, dass die angelegten Indizes entsprechend aktualisiert werden, damit die neuen Einträge auch damit gefunden werden können.
 
 ## Normalisierung
 Für das in **(C)** dargestellte Problem bringt uns die neue Strukturierung der Daten leider noch nichts, da sich schlecht ein Index für das _Auszeichnungen_-Attribut erstellen lässt, da hier mehrere Einträge enthalten sein könnten.
@@ -73,7 +73,7 @@ Die Normalisierung hat außerdem den Vorteil, dass wir endlich effizient nachsch
 Dazu schauen wir in der _Auszeichnungen_-Tabelle, welche Id der Nobelpreis hat, in unserem Falle wäre das 1.
 In der _Verleihungen_-Tabelle können dann die Einträge herausgefiltert werden, welche die Id 1 besitzen, wodurch wir alle Wissenschaftler-Ids erhalten, die einen Nobelpreis erhalten haben.
 Wenn uns das noch nicht reicht, können wir mit den Ids in der _Wissenschaftler_-Tabelle die anderen Informationen nachschlagen.
-Dieses Vorgehen scheint vielleicht auf den ersten Blick umständlich, allerdings können all diese Operationen mithilfe von Indexen erfolgen und somit hocheffizient durchgeführt werden.
+Dieses Vorgehen scheint vielleicht auf den ersten Blick umständlich, allerdings können all diese Operationen mithilfe von Indizes erfolgen und somit hocheffizient durchgeführt werden.
 
 ## Atomicity, Consistency, Isolation, Durability (ACID)
 Anfragen, auch **Queries** genannt, können in einem RDBMS Tupel erstellen, lesen, verändern oder löschen.
