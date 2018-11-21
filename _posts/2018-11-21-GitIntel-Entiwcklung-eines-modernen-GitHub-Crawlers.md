@@ -4,16 +4,11 @@ title:  "Git Intel - Entwicklung eines modernen GitHub-Crawlers"         # Pflic
 date:   2018-11-21 10:25              # Pflichtfeld. Format "YYYY-MM-DD HH:MM". Muss für Veröffentlichung in der Vergangenheit liegen. (Für Preview egal)
 modified_date: 2018-11-21             # Optional. Muss angegeben werden, wenn eine bestehende Datei geändert wird.
 author: dariobraun                    # Pflichtfeld. Es muss in der "authors.yml" einen Eintrag mit diesem Namen geben.
-categories: [Java] # Pflichtfeld. Maximal eine der angegebenen Kategorien verwenden.
+categories: [Softwareentwicklung] # Pflichtfeld. Maximal eine der angegebenen Kategorien verwenden.
 tags: [Spring, Angular, GitHub, Open Source, SPA]         # Optional.
 ---
 
-Wer sich in letzter Zeit mit dem Thema Open-Source auseinandergesetzt hat, wird festgestellt haben,
-dass der Hype um das Konzept und die dazugehörigen Plattformen kaum nachgelassen hat.
-Viele große Unternehmen werden zunehmend aktiv und lassen ihre Mitarbeiter auf GitHub und Co. los,
-um Projekte zu entwickeln, die der Öffentlichkeit frei zur Verfügung stehen.  
-Wir haben einen GitHub-Crawler entwickelt, der euch alle interessanten Informationen zu Organisationen
-auf GitHub liefert - Git Intel!
+Wer sich in letzter Zeit mit dem Thema Open-Source auseinandergesetzt hat, wird festgestellt haben, dass der Hype um das Konzept und die dazugehörigen Plattformen kaum nachgelassen hat. Viele große Unternehmen werden zunehmend aktiv und lassen ihre Mitarbeiter auf GitHub und Co. los, um Projekte zu entwickeln, die der Öffentlichkeit frei zur Verfügung stehen. Wir haben einen GitHub-Crawler entwickelt, der euch alle interessanten Informationen zu Organisationen auf GitHub liefert - Git Intel!
 
 # Andauernder Trend 'Open-Source'
 
@@ -28,7 +23,7 @@ Mit 80 Mitgliedern, 11 Teams und 23 eigenen Repositories ist adesso bereits gut 
 Die oben genannten Daten lassen sich ganz leicht auf der [GitHub-Profilseite](https://github.com/adessoag) der adesso AG einsehen. Aber wäre es nicht interessant, noch mehr Informationen bezüglich der Aktivität von Unternehmen auf GitHub einsehen zu können?
 
 * Zu welchen großen Projekten haben Mitglieder von adesso bereits beigetragen? 
-* Gibt es adessi, die beliebte GitHub-Projekte in’s Leben gerufen haben?
+* Gibt es adessi, die beliebte GitHub-Projekte ins Leben gerufen haben?
 * Welches Organisationsmitglied hat diese Woche die meisten Commits geleistet?
 
 Zum Glück bietet GitHub eine API, die solche Informationen bereitstellt…  
@@ -61,7 +56,7 @@ Sind die vom Nutzer angeforderten Daten bereits in der Datenbank vorhanden, frag
 
 ![Ablauf einer Git Intel-Anfrage für neue Daten](/assets/images/posts/gitintel/case2.png)
  
-Sind die angeforderten Daten nicht in der Datenbank vorhanden, stellt Git Intel eine Anfrage an die GitHub-API, nimmt die angeforderten Daten entgegen und speichert sie in der Datenbank. Ein Validierungsmechanismus prüft, ob der vom Nutzer eingegebene Name dem einer auf GitHub regsitrierten Organisation entspricht. Sollte dies nicht der Fall sein, wirft die API einen Fehler und der Nutzer erhält eine entsprechende Nachricht.  
+Sind die angeforderten Daten nicht in der Datenbank vorhanden, stellt Git Intel eine Anfrage an die GitHub-API, nimmt die angeforderten Daten entgegen und speichert sie in der Datenbank. Ein Validierungsmechanismus prüft, ob der vom Nutzer eingegebene Name dem einer auf GitHub registrierten Organisation entspricht. Sollte dies nicht der Fall sein, wirft die API einen Fehler und der Nutzer erhält eine entsprechende Nachricht.  
 Während des Datensammlungsprozesses erhält der Nutzer visuelles Feedback in Form einer Fortschrittsanzeige, welche sich an der Menge der bereits gesammelten orientiert.  
 Um die Reihenfolge der abgearbeiteten Nutzeranfragen kontrollieren zu können, werden diese in einer Warteschlange gespeichert. Dem Nutzer wird mitgeteilt, an welcher Position er sich in der Warteschlange befindet, sodass er nachvollziehen kann, wann die Verarbeitung seiner Anfrage beginnt.
 
