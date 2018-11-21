@@ -157,7 +157,7 @@ Diese ist auch in die Pull-Request-Template eingebunden, sodass Du dort deine Ä
 1. Wurde der [Github Fork- und Pullprozess](https://reflectoring.io/github-fork-and-pull/) beachtet?
 2. Dateien eingebunden
   * [Artikeldatei einbinden](https://github.com/adessoAG/devblog/blob/master/examples/2017-08-10-blog-post-guide.md#dateiname-und-ablageort)
-  * Autorenfoto: attets/images/avatars/mein_avatar.jpg/png
+  * Autorenfoto: assets/images/avatars/mein_avatar.jpg/png
   * [Artikel-Bilder hinterlegt](https://github.com/adessoAG/devblog/blob/master/examples/2017-08-10-blog-post-guide.md#bilder)
 3. Dateien angepasst:
   * [Autorinfo gepflegt](https://github.com/adessoAG/devblog/blob/master/examples/2017-08-10-blog-post-guide.md#autoren-informationen)
