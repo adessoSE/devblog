@@ -1,6 +1,6 @@
 ---
 layout: [post, post-xml]              # Pflichtfeld. Nicht ändern!
-title:  "Git Intel - Entwicklung eines modernen GitHub-Crawlers"         # Pflichtfeld. Bitte einen Titel für den Blog Post angeben.
+title:  "Git-Intel - Entwicklung eines modernen GitHub-Crawlers"         # Pflichtfeld. Bitte einen Titel für den Blog Post angeben.
 date:   2018-11-21 10:25              # Pflichtfeld. Format "YYYY-MM-DD HH:MM". Muss für Veröffentlichung in der Vergangenheit liegen. (Für Preview egal)
 modified_date: 2018-11-21             # Optional. Muss angegeben werden, wenn eine bestehende Datei geändert wird.
 author: dariobraun                    # Pflichtfeld. Es muss in der "authors.yml" einen Eintrag mit diesem Namen geben.
@@ -8,7 +8,7 @@ categories: [Softwareentwicklung] # Pflichtfeld. Maximal eine der angegebenen Ka
 tags: [Spring, Angular, GitHub, Open Source, SPA]         # Optional.
 ---
 
-Wer sich in letzter Zeit mit dem Thema Open-Source auseinandergesetzt hat, wird festgestellt haben, dass der Hype um das Konzept und die dazugehörigen Plattformen kaum nachgelassen hat. Viele große Unternehmen werden zunehmend aktiv und lassen ihre Mitarbeiter auf GitHub und Co. los, um Projekte zu entwickeln, die der Öffentlichkeit frei zur Verfügung stehen. Wir haben einen GitHub-Crawler entwickelt, der euch alle interessanten Informationen zu Organisationen auf GitHub liefert - Git Intel!
+Wer sich in letzter Zeit mit dem Thema Open-Source auseinandergesetzt hat, wird festgestellt haben, dass der Hype um das Konzept und die dazugehörigen Plattformen kaum nachgelassen hat. Viele große Unternehmen werden zunehmend aktiv und lassen ihre Mitarbeiter auf GitHub und Co. los, um Projekte zu entwickeln, die der Öffentlichkeit frei zur Verfügung stehen. Wir haben einen GitHub-Crawler entwickelt, der euch alle interessanten Informationen zu Organisationen auf GitHub liefert - Git-Intel!
 
 # Andauernder Trend 'Open-Source'
 
@@ -27,36 +27,36 @@ Die oben genannten Daten lassen sich ganz leicht auf der [GitHub-Profilseite](ht
 * Welches Organisationsmitglied hat diese Woche die meisten Commits geleistet?
 
 Zum Glück bietet GitHub eine API, die solche Informationen bereitstellt…  
-…und zum Glück haben wir ein Programm entwickelt, dass sich diese API zunutze macht, um alle möglichen spannenden Daten zu sammeln und aufzubereiten – Git Intel!
+…und zum Glück haben wir ein Programm entwickelt, dass sich diese API zunutze macht, um alle möglichen spannenden Daten zu sammeln und aufzubereiten – Git-Intel!
 
 # Das Konzept
 
-Mit Hilfe von Git Intel können alle Informationen zu Organisationen, die auf GitHub registriert sind, visuell aufbereitet eingesehen werden.
-Nutzer geben den Namen der Organisation ein, über die sie Informationen erhalten wollen, woraufhin Git Intel Anfragen an die GitHub-API schickt und die Antworten entsprechend in seiner Datenbank speichert. Wurde die Organisation, aufgrund einer früheren Abfrage, bereits in der Datenbank gespeichert, werden die Ergebnisse direkt angezeigt. 
+Mit Hilfe von Git-Intel können alle Informationen zu Organisationen, die auf GitHub registriert sind, visuell aufbereitet eingesehen werden.
+Nutzer geben den Namen der Organisation ein, über die sie Informationen erhalten wollen, woraufhin Git-Intel Anfragen an die GitHub-API schickt und die Antworten entsprechend in seiner Datenbank speichert. Wurde die Organisation, aufgrund einer früheren Abfrage, bereits in der Datenbank gespeichert, werden die Ergebnisse direkt angezeigt. 
 
-![Benutzeroberfläche der Git Intel-Anwendung](/assets/images/posts/gitintel/gitintel1.png)
+![Benutzeroberfläche der Git-Intel-Anwendung](/assets/images/posts/gitintel/gitintel1.png)
   
-Die besondere Stärke von Git Intel liegt darin, dass es die von der GitHub-API bereitgestellten Daten abfragen und so aufbereiten kann, dass relevante Informationen zu Organisationen, Mitarbeitern und Projekten übersichtlich präsentiert werden. So können beispielsweise Informationen bezüglich der Aktivitäten von Mitgliedern vergleichend dargestellt oder eine Übersicht über die Beteiligungen an organisationsfremden Projekten eingesehen werden.
+Die besondere Stärke von Git-Intel liegt darin, dass es die von der GitHub-API bereitgestellten Daten abfragen und so aufbereiten kann, dass relevante Informationen zu Organisationen, Mitarbeitern und Projekten übersichtlich präsentiert werden. So können beispielsweise Informationen bezüglich der Aktivitäten von Mitgliedern vergleichend dargestellt oder eine Übersicht über die Beteiligungen an organisationsfremden Projekten eingesehen werden.
 
 # Die Funktionsweise
 
-Die Interaktion mit Git Intel funktioniert grundlegend wie folgt:
+Die Interaktion mit Git-Intel funktioniert grundlegend wie folgt:
 1.	Der Nutzer stellt eine Anfrage
-2.	Git Intel sammelt Daten und bereitet sie auf
+2.	Git-Intel sammelt Daten und bereitet sie auf
 3.	Die Daten werden zurück zum Nutzer gesendet
 Der zweite Schritt unterliegt hierbei einer Fallunterscheidung:
 
 **Fall 1 – Die angeforderten Daten befinden sich bereits in der Datenbank:**
 
-![Ablauf einer Git Intel-Anfrage für bereits gespeicherte Daten](/assets/images/posts/gitintel/case1.png)
+![Ablauf einer Git-Intel-Anfrage für bereits gespeicherte Daten](/assets/images/posts/gitintel/case1.png)
 
 Sind die vom Nutzer angeforderten Daten bereits in der Datenbank vorhanden, fragt das Back-End sie aus dieser ab und schickt sie an den Nutzer zurück.
 
 **Fall 2 – Die angeforderten Daten befinden sich nicht in der Datenbank:**
 
-![Ablauf einer Git Intel-Anfrage für neue Daten](/assets/images/posts/gitintel/case2.png)
+![Ablauf einer Git-Intel-Anfrage für neue Daten](/assets/images/posts/gitintel/case2.png)
  
-Sind die angeforderten Daten nicht in der Datenbank vorhanden, stellt Git Intel eine Anfrage an die GitHub-API, nimmt die angeforderten Daten entgegen und speichert sie in der Datenbank. Ein Validierungsmechanismus prüft, ob der vom Nutzer eingegebene Name dem einer auf GitHub registrierten Organisation entspricht. Sollte dies nicht der Fall sein, wirft die API einen Fehler und der Nutzer erhält eine entsprechende Nachricht.  
+Sind die angeforderten Daten nicht in der Datenbank vorhanden, stellt Git-Intel eine Anfrage an die GitHub-API, nimmt die angeforderten Daten entgegen und speichert sie in der Datenbank. Ein Validierungsmechanismus prüft, ob der vom Nutzer eingegebene Name dem einer auf GitHub registrierten Organisation entspricht. Sollte dies nicht der Fall sein, wirft die API einen Fehler und der Nutzer erhält eine entsprechende Nachricht.  
 Während des Datensammlungsprozesses erhält der Nutzer visuelles Feedback in Form einer Fortschrittsanzeige, welche sich an der Menge der bereits gesammelten orientiert.  
 Um die Reihenfolge der abgearbeiteten Nutzeranfragen kontrollieren zu können, werden diese in einer Warteschlange gespeichert. Dem Nutzer wird mitgeteilt, an welcher Position er sich in der Warteschlange befindet, sodass er nachvollziehen kann, wann die Verarbeitung seiner Anfrage beginnt.
 
@@ -69,7 +69,7 @@ Aus diesem Grund müssen viele Anfragen entsprechend getaktet werden, was zu erh
 
 # Die Technologien dahinter
 
-Zum jetzigen Zeitpunkt besteht Git Intel aus den drei Hauptkomponenten Nutzeranwendung (Front-End), Systemlogik (Back-End) und Datenbank.  
+Zum jetzigen Zeitpunkt besteht Git-Intel aus den drei Hauptkomponenten Nutzeranwendung (Front-End), Systemlogik (Back-End) und Datenbank.  
 Das Back-End wurde durch eine Spring-Boot-Anwendung realisiert, welche das Zentrum für die Interaktion aller Komponenten darstellt. Es kommuniziert mit der GitHub-API, verarbeitet empfangene Daten, nimmt Anfragen des Front-Ends entgegen, speichert Daten in der Datenbank ab und liest diese, entsprechend eingehender Anfragen, auch wieder aus.  
 Das Front-End ist eine SPA (Single Page Application) auf Angular-Basis. Googles Framework erlaubt es eine Anwendung zu gestalten, die die erfassten Daten übersichtlich und optisch ansprechend darstellt und relevante Zusammenhänge aufschlussreich präsentiert. Features, wie Routing und Tabs ermöglichen eine angenehme Navigation der Anwendung und tragen so zu einer ausgereiften User Experience bei.  
 Die Datenbank ist vom Typ MongoDB. Mit Hilfe der dokumentenbasierten Datenbank können Datensätze in JSON-ähnlichen Strukturen verwaltet werden, wodurch die Weitergabe der Daten zwischen den einzelnen Komponenten sehr leicht ist.
@@ -90,12 +90,15 @@ Eine Abfrage, die den Namen einer Organisation, sowie die Namen der ersten hunde
 }
 ```
 
-Wer sich jetzt fragt „Warum nur die ersten hundert?“, ist gleich über den Kernaspekt der v4-API gestolpert. Durch die GraphQL-Spezifikation ist die GitHub-API auf die Abfrage kleiner, sehr spezifischer Datensätze ausgelegt, nicht aber für die Abfrage großer Datensätze. Diese Tatsache macht die API für die Verwendung bei Git Intel zwar nicht ideal, aber keinesfalls  unbrauchbar, weshalb wir uns entschlossen haben, einige Kompromisse einzugehen, um dieses doch sehr interessante Projekt in die Tat umzusetzen. 
+Wer sich jetzt fragt „Warum nur die ersten hundert?“, ist gleich über den Kernaspekt der v4-API gestolpert. Durch die GraphQL-Spezifikation ist die GitHub-API auf die Abfrage kleiner, sehr spezifischer Datensätze ausgelegt, nicht aber für die Abfrage großer Datensätze. Diese Tatsache macht die API für die Verwendung bei Git-Intel zwar nicht ideal, aber keinesfalls  unbrauchbar, weshalb wir uns entschlossen haben, einige Kompromisse einzugehen, um dieses doch sehr interessante Projekt in die Tat umzusetzen. 
 
 
-# Abschließendes
+# Die Zukunft von Git-Intel
 
-Ungeachtet seines Einsatzzweckes bietet Git Intel eine spannende Möglichkeit, interessante Informationen zum Engagement von Organisationen in der Open-Source-Welt zu einzusehen.  
+Ungeachtet seines Einsatzzweckes bietet Git-Intel eine spannende Möglichkeit, interessante Informationen zum Engagement von Organisationen in der Open-Source-Welt zu einzusehen.  
 Entwicklungen zeigen, dass große Unternehmen immer mehr Wert auf die aktive Beteiligung in der Open-Source-Community legen, was das Gebiet auch für andere Firmen interessant machen könnte.  
 Mit steigender Relevanz des Themas Open-Source wird es wohl auch interessant zu verfolgen, wie sich adesso auf diesem Gebiet entwickelt und im Vergleich zu anderen Unternehmen dasteht.  
-Die Informationen, die Git Intel bereitstellt geben Aufschluss über die kurz- und langfristigen Entwicklungen von Unternehmen auf GitHub und geben einen spannenden Einblick in die Welt der Open-Source-Plattform aus ihrer Sicht. 
+Die Informationen, die Git-Intel bereitstellt geben Aufschluss über die kurz- und langfristigen Entwicklungen von Unternehmen auf GitHub und geben einen spannenden Einblick in die Welt der Open-Source-Plattform aus ihrer Sicht.  
+Zur Zeit befindet sich das Projekt noch vor seinem ersten Release, doch wird dieser nicht mehr lange auf sich warten lassen.  
+Auf GitHub findet ihr das Projekt noch unter seinem alten Namen [GitStalker](https://github.com/adessoAG/GitStalker-Spring).  
+Sollte euer Interesse geweckt worden sein und ihr habt Fragen zum Projekt, dann wendet euch gerne an Frederik Schlemmer oder mich.
