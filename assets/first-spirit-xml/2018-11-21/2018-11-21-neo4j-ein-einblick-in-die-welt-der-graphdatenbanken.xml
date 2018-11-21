@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<documents>
+    <document uid="aed270a20a94d45633ef1dddc0af5994">
+        <field name="title"><![CDATA[Neo4j – Ein Einblick in die Welt der Graphdatenbanken]]></field>
+        <field name="subline"><![CDATA[]]></field>
+        <field name="teaser"><![CDATA[<p>Es gibt viele komplexe Daten, die miteinander in Beziehung stehen. 
+Um diese Daten auf eine Datenbank abzubilden, existieren verschiedene Technologien, unter denen sich die relationalen Datenbanken und Graphdatenbanken etabliert haben.
+Letztere, wie Neo4j, bieten viele Vorteile gegenüber von relationalen Datenbanken, die es wert sind näher betrachtet zu werden.</p>
+
+]]></field>
+        <field name="language_multi_keyword"><![CDATA[de]]></field>
+        <field name="content_type_multi_keyword"><![CDATA[blog]]></field>
+        <field name="mime_type_multi_keyword"><![CDATA[text/html]]></field>
+        <field name="category_multi_keyword"><![CDATA[Softwareentwicklung]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Graphdatenbanken]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Neo4j]]></field>
+        <field name="date_date"><![CDATA[2018-11-21T14:00:00+01:00]]></field>
+        <field name="date_l"><![CDATA[1542805200000]]></field>
+        <field name="change_date"><![CDATA[1542805200000]]></field>
+        <!--Picture-->
+        <!-- Not in use at the moment-->
+        <!--Author Information-->
+        <field name="author_first_name"><![CDATA[Shahin]]></field>
+        <field name="author_last_name"><![CDATA[Sanayei]]></field>
+        <field name="author_id"><![CDATA[shsanayei]]></field>
+        <field name="author_picture_stored_only"><![CDATA[http://localhost:4000/assets/images/avatars/shsanayei.png]]></field>
+        <!--Postcontent-->
+        <field name="headlines"><![CDATA[Neo4j – Ein Einblick in die Welt der Graphdatenbanken]]></field>
+        <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
+            <p>Es gibt viele komplexe Daten, die miteinander in Beziehung stehen. 
+Um diese Daten auf eine Datenbank abzubilden, existieren verschiedene Technologien, unter denen sich die relationalen Datenbanken und Graphdatenbanken etabliert haben.
+Letztere, wie Neo4j, bieten viele Vorteile gegenüber von relationalen Datenbanken, die es wert sind näher betrachtet zu werden.</p>
+
+</div>]]></field>
+        <field name="content"><![CDATA[<div class="adesso-text-formate">
+<div class="row p-t-2">
+<div class="adesso-container">
+<div class="col-xl-8 adesso-center p-b-1 p-l-0 p-r-0">
+    <p>Es gibt viele komplexe Daten, die miteinander in Beziehung stehen. 
+Um diese Daten auf eine Datenbank abzubilden, existieren verschiedene Technologien, unter denen sich die relationalen Datenbanken und Graphdatenbanken etabliert haben.
+Letztere, wie Neo4j, bieten viele Vorteile gegenüber von relationalen Datenbanken, die es wert sind näher betrachtet zu werden.</p>
+
+<p>Relationale Datenbanken halten Daten in Tabellen und bilden Beziehungen mit Fremdschlüsseln ab. 
+Bei der Abfrage dieser Daten sind oft mehrere Tabellen involviert. 
+Das zugehörige SQL-Statement kann daher mehrere JOIN-Operationen enthalten, um in einer großen Datenstruktur korrekte Ergebnisse zu liefern. 
+Das Problem bei diesem Vorgehen besteht darin, dass dabei die Beziehungen erst zur Laufzeit der Abfrage ermittelt werden. 
+Die dafür verwendeten JOIN-Operationen verbrauchen viel Speicher und CPU-Leistung. 
+Das führt dazu, dass eine Abfrage, abhängig von der Größe der Abfrage und der Anzahl an JOINs mehrere Minuten oder gar Stunden dauern kann. 
+Die Performanz und Effizienz leiden darunter.</p>
+
+<p>Eine alternative Lösung für dieses Problem bieten Graphdatenbanken. 
+Sie bilden Beziehungen zwischen Elementen effektiver ab und erlauben dadurch effiziente und performante Datenabfragen. Neo4j ist dabei der bekannteste und am weitesten verbreitete Vertreter dieser Kategorie.</p>
+
+<h4 id="neo4j">Neo4j</h4>
+<p><a href="https://neo4j.com">Neo4j Inc.</a> ist das Unternehmen, das hinter der gleichnamigen Graphdatenbank steckt und wurde von Emil Eifrem und Johan Svensson 2007 gegründet. 
+Die Datenbank hatte seine Anfänge im Jahr 2000 als die Gründer mit Performanzproblemen mit relationalen Datenbanken zu kämpfen hatten. 
+Die erste offizielle Version wurde 2010 veröffentlicht. 
+Das Unternehmen hat seinen Hauptsitz im Silicon Valley und verfügt weltweit über mehrere Zweigstellen, unter anderem in München.</p>
+
+<p>Neo4j ist eine Open Source Software, die in zwei Lizenzvarianten angeboten wird. Zum einen gibt es die Community Edition, die unter der <a href="http://www.gnu.org/licenses/quick-guide-gplv3.html">GPL v3 Lizenz</a> läuft. 
+Diese Version ist sehr gut geeignet für private, kleinere oder unternehmensinterne Projekte. 
+Zum anderen gibt es die Enterprise Edition. Sie ist für größere Projekte, die unter anderem eine hohe Verfügbarkeit und Sicherheit benötigen, geeignet. 
+Diese Version besitzt zusätzlich zur GPL v3 auch die <a href="https://www.gnu.org/licenses/agpl-3.0.en.html">AGPL v3</a> Lizenz.</p>
+
+<h4 id="datenbank-modellieren">Datenbank modellieren</h4>
+<p>Ein Graph besteht aus Knoten und Kanten. 
+Die Knoten haben durch die Kanten eine Beziehung zueinander. 
+Die Kanten sind gerichtete Pfeile. Um die Beziehung zwischen Schauspielern, Regisseuren und Filmen zu modellieren, kann man diese ganz einfach auf ein Whiteboard als Graphen zeichnen. 
+Dabei bilden „Person“ und „Movie“ die Knoten und „ACTED_IN“ und „DIRECTED“ die Kanten des Graphen. 
+Diese können zusätzlich Eigenschaften haben:</p>
+
+<p><img src="/assets/images/posts/neo4j-ein-einblick-in-die-welt-der-graphdatenbanken/1-neo4j-graph.png" alt="Neo4j Graph" /></p>
+
+<p>In Neo4j werden Beziehungen nach diesem Schema abgebildet. 
+Es ist sehr einfach und intuitiv. Man zeichnet auf einem Blatt Papier oder einer Tafel das Datenbankmodell als Graph, welcher später meist für die Datenbank übernommen werden kann.
+Die Knoten und Kanten einer Graphdatenbank besitzen zusätzliche Eigenschaften. 
+Zum einen sind das Labels wie „:Person“,  „:Movie“ oder „:ACTED_IN“, zum anderen Properties, die aus Key-/Value-Paaren bestehen. Knoten können beliebig viele Labels und Properties haben, Kanten nur ein Label und beliebig viele Properties. 
+Auf diese Weise lassen sich komplexe Zusammenhänge zwischen Daten als Graph darstellen.</p>
+
+<h4 id="cypher---die-abfragesprache-von-neo4j">Cypher - Die Abfragesprache von Neo4j</h4>
+
+<p>Neo4j hat eine eigene deklarative Abfragesprache, die sich <a href="https://neo4j.com/docs/developer-manual/current/cypher/">Cypher</a> nennt. 
+Sie orientiert sich an SQL und ist einfach aufgebaut. 
+Die Syntax besteht zum Teil aus „ASCII-Art“, die Knoten und Kanten repräsentiert:</p>
+<ul>
+  <li>Knoten werden als <code>(...)</code> dargestellt</li>
+  <li>Kanten werden als <code>-[...]-&gt;</code> dargestellt</li>
+</ul>
+
+<p>Innerhalb der Klammerung stehen Labels und Properties, die dann die gesuchten Daten genauer spezifizieren können.</p>
+
+<h5 id="abfragen">Abfragen</h5>
+<p>Möchte man die Beziehung zwischen Martin Freeman und allen Filmen, in denen er mitgespielt hat, abfragen, sieht die Syntax wie folgt aus:</p>
+
+<pre><code class="language-graphql">MATCH (martin:Person)-[:ACTED_IN]-&gt;(martinMovies:Movie)
+WHERE p.name = "Martin Freeman"
+RETURN p,m;
+</code></pre>
+
+<p>Als Ergebnis wird ein Subgraph zurückgegeben, der die gesuchte Beziehung aus dem Gesamtgraphen zeigt.</p>
+
+<p><img src="/assets/images/posts/neo4j-ein-einblick-in-die-welt-der-graphdatenbanken/2-neo4j-subgraph.png" alt="Neo4j Subgraph" /></p>
+
+<p>Das gleiche Ergebnis kann man auch erreichen, indem man auf die explizite WHERE-Klausel verzichtet und diese direkt in dem MATCH-Befehl angibt:</p>
+
+<pre><code class="language-graphql">MATCH (martin:Person {name: "Martin Freeman"})-[:ACTED_IN]-&gt;(martinMovies:Movie)
+RETURN martin,martinMovies;
+</code></pre>
+
+<p>Möchte man statt dem Graphen eine tabellarische Darstellung des Ergebnisses erhalten, kann dies mit folgender Query erreicht werden:</p>
+
+<pre><code class="language-graphql">MATCH (martin:Person {name: "Martin Freeman"})-[:ACTED_IN]-&gt;(martinMovies:Movie)
+RETURN martinMovies.title, martinMovies.released;
+</code></pre>
+
+<p>Das Ergebnis der Abfrage wird als Tabelle zurückgegeben:</p>
+
+<p><img src="/assets/images/posts/neo4j-ein-einblick-in-die-welt-der-graphdatenbanken/query-result-table.png" alt="Ergebnistabelle" /></p>
+
+<p>Die verwendeten Klauseln haben folgende Bedeutung:</p>
+
+<ul>
+  <li><code>MATCH</code>: Der Ausdruck gibt an, nach welchem Muster in der Datenbank gesucht werden soll (wie das <code>SELECT</code> in SQL).</li>
+  <li><code>WHERE</code>: Diese Klausel definiert Bedingungen für den MATCH-Befehl, um die Suche zu präzisieren.</li>
+  <li><code>RETURN</code>: Definiert was im Abfrageergebnis hinzugefügt werden soll.</li>
+</ul>
+
+<p>Mit Cypher ist es auch möglich, komplexe, verschachtelte Abfragen zu formulieren. 
+Es lassen sich natürlich auch Knoten und Kanten hinzufügen, aktualisieren und löschen. 
+Sie bietet außerdem eine Vielzahl von Funktionen wie <em>size()</em>, <em>count()</em> und <em>avg()</em> an, die in der Anwendungsentwicklung sinnvoll eingesetzt werden können.
+Das <a href="https://neo4j.com/docs/developer-manual/current/cypher/functions/">Cypher-Entwickler-Handbuch</a> verfügt über eine Liste aller Funktionen.</p>
+
+<h5 id="datensätze-einfügen">Datensätze einfügen</h5>
+
+<p>Mit <code>CREATE</code> kann man neue Knoten und Beziehungen hinzufügen. 
+Das folgende Beispiel fügt den Film „Black Panther“, in dem Martin Freeman 2018 gespielt hat, als Knoten hinzu. 
+Anschließend wird eine neue Beziehung zwischen beiden Knoten erzeugt. 
+Das Ergebnis wird in die Variable „path“ gespeichert und im <code>RETURN</code> ausgegeben:</p>
+
+<pre><code class="language-graphql">MATCH (martin:Person)
+WHERE martin.name = "Martin Freeman"
+CREATE path = (martin)-[:ACTED_IN {role: "Everett K. Ross"}]-&gt;(:Movie {title: "Black Panther", released: 2018})
+RETURN path;
+</code></pre>
+
+<p><img src="/assets/images/posts/neo4j-ein-einblick-in-die-welt-der-graphdatenbanken/3-create-node.png" alt="Neu erzeugter Knoten" /></p>
+
+<h4 id="vorteile-von-neo4j">Vorteile von Neo4j</h4>
+<p><strong>Einfachheit:</strong> Neo4j ist durch die Graphdarstellung sehr anschaulich und intuitiv. 
+Ein auf einem Whiteboard gezeichneter Graph kann meist 1:1 in die Datenbank übernommen werden. 
+Die Abfragesprache Cypher ist durch die „ASCII-Art“ verständlich gehalten.</p>
+
+<p><strong>Performanz:</strong> Einfache und komplexe Suchabfragen werden in Echtzeit ausgeführt. 
+Die Abfragezeit verhält sich proportional zur Ergebnismenge und nicht zur Gesamtdatenmenge und führt dazu, dass ein und dieselbe Abfrage ähnlich schnell ist, unabhängig von der Gesamtmenge der Daten in der Datenbank. Folglich führt dies zu konstant schnellen Abfragen, Vermeidung von JOIN-Problemen und nur teilweiser Verarbeitung der gesamten Datenmenge.</p>
+
+<p><strong>Agilität:</strong> Neue Strukturen lassen sich gut in den Graphen integrieren und existierende Daten können erweitert werden, ohne bestehende Applikationen dadurch zu beeinflussen. 
+Beispielsweise ist es möglich, einem Knoten Labels und Properties hinzuzufügen oder diese zu entfernen. 
+Mit Einschränkungen ist dies auch für Kanten möglich.</p>
+
+<p><strong>Zuverlässigkeit:</strong> Neo4j verfügt über ausgereifte Funktionen, die die Erstellung zuverlässiger Systeme ermöglichen. 
+Sie erfüllt die ACID-Anforderungen an Transaktionen und hat durch Clustering hohe Verfügbarkeit und Datendurchsatzrate.</p>
+
+<h4 id="neo4j-näher-kennenlernen">Neo4j näher kennenlernen</h4>
+<p>Die <a href="https://neo4j.com/sandbox-v2/">Neo4j-Sandbox</a> ermöglicht einen interaktiven Einstieg in die Technologie. 
+Sie besitzt eingebaute Anleitungen mit Beispielqueries und -codes. Man kann aus Sandboxen auszuwählen, die jeweils einen bekannten Anwendungsfall darstellen oder mit einer leeren Sandbox beginnen. 
+Darüber hinaus bietet Neo4j ein kostenloses <a href="https://neo4j.com/graphacademy/online-training/">Online-Training</a>, in dem mit anschaulichen Übungsaufgaben, die unterschiedlichsten Datenbank-Operationen vermittelt werden. 
+Eine sehr gute und umfangreiche Dokumentation rundet das ganze ab.</p>
+
+<h4 id="fazit">Fazit</h4>
+<p>Für Applikationen mit großen Datenmengen, komplexen und stark vernetzten Strukturen bietet sich Neo4j als Datenbank-Technologie am besten an. 
+Durch ihre Einfachheit ist es viel angenehmer eine Datenbank zu modellieren und sie dann in die Applikation zu integrieren.</p>
+
+<p>Da keine Join-Probleme existieren und in einer Abfrage keine komplizierten Ergebnistabellen erzeugt werden, arbeitet Neo4j sehr effizient. 
+Zudem ist die Technologie durch ihre Skalierbarkeit und die hohe Verfügbarkeit der Datenbank sehr empfehlenswert. 
+Schließlich machen die verschiedenen Lernmöglichkeiten den Einstieg ziemlich einfach.</p>
+
+</div>
+</div>
+</div>
+</div>]]></field>
+    </document>
+</documents>
