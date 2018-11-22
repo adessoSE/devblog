@@ -56,11 +56,11 @@ Sind die vom Nutzer angeforderten Daten bereits in der Datenbank vorhanden, frag
 
 ![Ablauf einer Git-Intel-Anfrage für neue Daten](/assets/images/posts/gitintel/case2.png)
  
-Sind die angeforderten Daten nicht in der Datenbank vorhanden, stellt Git-Intel eine Anfrage an die GitHub-API, nimmt die angeforderten Daten entgegen und speichert sie in der Datenbank. Ein Validierungsmechanismus prüft, ob der vom Nutzer eingegebene Name dem einer auf GitHub registrierten Organisation entspricht. Sollte dies nicht der Fall sein, wirft die API einen Fehler und der Nutzer erhält eine entsprechende Nachricht.  
-Während des Datensammlungsprozesses erhält der Nutzer visuelles Feedback in Form einer Fortschrittsanzeige, welche sich an der Menge der bereits gesammelten orientiert.  
-Um die Reihenfolge der abgearbeiteten Nutzeranfragen kontrollieren zu können, werden diese in einer Warteschlange gespeichert. Dem Nutzer wird mitgeteilt, an welcher Position er sich in der Warteschlange befindet, sodass er nachvollziehen kann, wann die Verarbeitung seiner Anfrage beginnt.
+Sind die angeforderten Daten nicht in der Datenbank vorhanden, stellt Git-Intel eine Anfrage an die GitHub-API, nimmt die angeforderten Daten entgegen und speichert sie in der Datenbank. Bei der Anfrage prüft ein Validierungsmechanismus, ob der vom Nutzer eingegebene Name dem einer auf GitHub registrierten Organisation entspricht. Sollte dies nicht der Fall sein, wirft die API einen Fehler und der Nutzer erhält eine entsprechende Nachricht.  
+Während des Datensammlungsprozesses erhält der Nutzer visuelles Feedback in Form einer Fortschrittsanzeige, welche sich an der Menge der bereits gesammelten Informationen orientiert.  
+Um die Reihenfolge der abzuarbeitenden Nutzeranfragen kontrollieren zu können, werden diese in einer Warteschlange gespeichert. Dem Nutzer wird mitgeteilt, an welcher Position er sich in der Warteschlange befindet, sodass er nachvollziehen kann, wann die Verarbeitung seiner Anfrage beginnt.
 
-Ein Ausnahmefall tritt ein, wenn der Nutzer eine Organisation abzufragen versucht, die so nicht auf GitHub existiert. In diesem Fall wird der Nutzer darauf aufmerksam gemacht und aufgefordert, einen Validen Organisationsnamen in das Suchfeld einzutragen.
+Ein Ausnahmefall tritt ein, wenn der Nutzer eine Organisation abzufragen versucht, die so nicht auf GitHub existiert. In diesem Fall wird der Nutzer darauf aufmerksam gemacht und aufgefordert, einen validen Organisationsnamen in das Suchfeld einzutragen.
 
 Da das Sammeln der Daten bestimmten Limitierungen durch GitHubs API unterliegt, kann dieser Prozess, je nach Datenmenge, einige Zeit in Anspruch nehmen.
 Je größer die Datenmengen sind, die einer Organisation auf GitHub entsprechen, desto mehr Abfragen müssen an die GitHub-API gestellt werden. Je mehr Abfragen gestellt werden, desto mehr Antworten müssen verarbeitet werden. Logisch.  
@@ -80,7 +80,7 @@ Eine Abfrage, die den Namen einer Organisation, sowie die Namen der ersten hunde
 ```JavaScript
 {
   organization(login: "adessoag") {
-    websiteUrl
+    name
     members(first: 100) {
       nodes {
         name
@@ -95,7 +95,7 @@ Wer sich jetzt fragt „Warum nur die ersten hundert?“, ist gleich über den K
 
 # Die Zukunft von Git-Intel
 
-Ungeachtet seines Einsatzzweckes bietet Git-Intel eine spannende Möglichkeit, interessante Informationen zum Engagement von Organisationen in der Open-Source-Welt zu einzusehen.  
+Ungeachtet seines Einsatzzweckes bietet Git-Intel eine spannende Möglichkeit, interessante Informationen zum Engagement von Organisationen in der Open-Source-Welt einzusehen.  
 Entwicklungen zeigen, dass große Unternehmen immer mehr Wert auf die aktive Beteiligung in der Open-Source-Community legen, was das Gebiet auch für andere Firmen interessant machen könnte.  
 Mit steigender Relevanz des Themas Open-Source wird es wohl auch interessant zu verfolgen, wie sich adesso auf diesem Gebiet entwickelt und im Vergleich zu anderen Unternehmen dasteht.  
 Die Informationen, die Git-Intel bereitstellt geben Aufschluss über die kurz- und langfristigen Entwicklungen von Unternehmen auf GitHub und geben einen spannenden Einblick in die Welt der Open-Source-Plattform aus ihrer Sicht.  
