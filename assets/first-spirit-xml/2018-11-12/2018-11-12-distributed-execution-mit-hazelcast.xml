@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<documents>
+    <document uid="7f9e0bc65d63562ac0949d20245d3cc2">
+        <field name="title"><![CDATA[Distributed Execution mit Hazelcast]]></field>
+        <field name="subline"><![CDATA[]]></field>
+        <field name="teaser"><![CDATA[<p>Bei der Migration von Legacy-Anwendungen vom IBM Mainframe in eine Linux basierte Infrastruktur stellen einen die meist rechenintensiven und damit häufig auch langläufigen Batch-Verarbeitungen bzw. Tasks vor die Aufgabe der Definition einer geeigneten Zielarchitektur. Eine mögliche Antwort gibt dieser Blog-Artikel.</p>
+
+]]></field>
+        <field name="language_multi_keyword"><![CDATA[de]]></field>
+        <field name="content_type_multi_keyword"><![CDATA[blog]]></field>
+        <field name="mime_type_multi_keyword"><![CDATA[text/html]]></field>
+        <field name="category_multi_keyword"><![CDATA[Architekturen]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Microservices]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Mainframe]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Migration]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Hazelcast]]></field>
+        <field name="date_date"><![CDATA[2018-11-12T15:00:00+01:00]]></field>
+        <field name="date_l"><![CDATA[1542031200000]]></field>
+        <field name="change_date"><![CDATA[1542031200000]]></field>
+        <!--Picture-->
+        <!-- Not in use at the moment-->
+        <!--Author Information-->
+        <field name="author_first_name"><![CDATA[Markus]]></field>
+        <field name="author_last_name"><![CDATA[Karnik]]></field>
+        <field name="author_id"><![CDATA[karnik]]></field>
+        <field name="author_picture_stored_only"><![CDATA[http://localhost:4000/assets/images/avatars/karnik.jpg]]></field>
+        <!--Postcontent-->
+        <field name="headlines"><![CDATA[Distributed Execution mit Hazelcast]]></field>
+        <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
+            <p>Bei der Migration von Legacy-Anwendungen vom IBM Mainframe in eine Linux basierte Infrastruktur stellen einen die meist rechenintensiven und damit häufig auch langläufigen Batch-Verarbeitungen bzw. Tasks vor die Aufgabe der Definition einer geeigneten Zielarchitektur. Eine mögliche Antwort gibt dieser Blog-Artikel.</p>
+
+</div>]]></field>
+        <field name="content"><![CDATA[<div class="adesso-text-formate">
+<div class="row p-t-2">
+<div class="adesso-container">
+<div class="col-xl-8 adesso-center p-b-1 p-l-0 p-r-0">
+    <p>Bei der Migration von Legacy-Anwendungen vom IBM Mainframe in eine Linux basierte Infrastruktur stellen einen die meist rechenintensiven und damit häufig auch langläufigen Batch-Verarbeitungen bzw. Tasks vor die Aufgabe der Definition einer geeigneten Zielarchitektur. Eine mögliche Antwort gibt dieser Blog-Artikel.</p>
+
+<p>Der IBM Mainframe, eine über Dekaden gewachsene und gehärtete Plattform, verfügt über eine hervorragende Skalierbarkeit, Performance und Stabilität. Diese Eigenschaften müssen auch in der neuen Zielumgebung abbildbar sein um die abgelösten Software-Module entsprechend zuverlässig betreiben zu können. Eine besondere Herausforderung besteht also darin, eine vergleichbar skalierende und performante Architektur zu definieren, die zudem einfach und zuverlässig in eine bestehende Infrastruktur eingebunden werden kann. Für die Definition der Architektur stellen sich somit mindestens zwei Grundsatzfragen:</p>
+
+<ol>
+  <li>Wie ist die Schnittstelle zu definieren, mit der die Steuerung und Überwachung von langläufigen Tasks gewährleistet werden kann?</li>
+  <li>Wie kann gewährleistet werden, dass die Leistungsfähigkeit des neuen Systems ähnlich skaliert wie beispielsweise die eines <a href="https://de.wikipedia.org/wiki/Parallel_Sysplex">Parallel Sysplex</a> der Mainframe-Welt.</li>
+</ol>
+
+<p>Ein Lösungsvorschlag für diese kombinierte Fragestellung wird im Folgenden beschrieben und anhand eines <a href="https://github.com/karnik/devblog-hazelcast">Beispiels</a> demonstriert.</p>
+
+<h4 id="langläufige-operationen-mit-rest">Langläufige Operationen mit REST</h4>
+<p>Als abstraktes Beispiel für die Problemstellung kann an dieser Stelle ein Service angenommen werden, der eine komplexe oder auf großen Datenmengen basierte Operation durchführt, die eine lange Laufzeit aufweist. Wird dieser Service aufgerufen und die Operation gestartet, ist es erforderlich, dass der Client sich jederzeit über den Status informieren und bei Bedarf auch einen Abbruch der Ausführung anfordern kann. Der Start einer solchen Operation darf zudem nicht das System für anderen Clients blockieren.</p>
+
+<p>Besteht außerdem noch die Vorgabe diesen Service als RESTful Web Service für die Außenwelt anzubieten, muss sichergestellt sein, dass der Client Zugriff auf das Ergebnis der Operation erhält, ohne die Verbindung während der Laufzeit offenzuhalten. Eine über einen langen Zeitraum offene HTTP-Verbindung gilt es aufgrund der Fehleranfälligkeit von Netzwerkverbindungen, möglicher Timeouts und der hohen Ressourcenbelastung beim Offenhalten von HTTP-Verbindungen und Sessions, zu vermeiden.</p>
+
+<h5 id="lösungsansatz">Lösungsansatz</h5>
+<p>Als Lösung für diese Problemstellung bietet sich an, die langläufige Operation als Ressource zu definieren, deren Erzeugung über einen definierten <code>CREATE</code>-Endpunkt beauftragt werden kann. Wird der <code>CREATE</code>-Endpunkt aufgerufen, startet er die Operation asynchron und liefert ein Response mit einer <code>Location</code> zu dem <code>STATUS</code>-Endpunkt, unter welchem der Client den Status der Operation abrufen kann. Damit kehrt der Request umgehend zurück und die Operation läuft in einem asynchronen Prozess, ohne den Endpunkt oder den Client zu blockieren.</p>
+
+<p>Solange noch kein Ergebnis vorliegt, liefert ein Request auf  den <code>STATUS</code>-Endpunkt ein Response mit dem Status der Verarbeitung. Erst nachdem das Ergebnis vollständig erzeugt wurde, antwortet der <code>STATUS</code>-Endpunkt mit einer weiteren <code>Location</code> auf den <code>RESULT</code>-Endpunkt unter dem das Ergebnis abgerufen werden kann.</p>
+
+<p>Zusätzlich hat der Client die Möglichkeit über den <code>DELETE</code>-Endpunkt einen Job während der Verarbeitung abzubrechen und/oder das Ergebnis der Operation zu löschen.</p>
+
+<h5 id="berechnung-der-fibonacci-folge">Berechnung der Fibonacci-Folge</h5>
+<p>Um die Problemstellung zu verdeutlichen, beschreibt das folgende Beispiel ein REST-Endpunkt für die Berechnung der Fibonacci-Zahl an Position <strong><em>n</em></strong> der Fibonacci-Folge (<strong><em>Fib(n)</em></strong>). Diese Berechnung bietet eine gute Möglichkeit zur Demonstration einer langläufigen Task mit einem einfachen Ergebnis. Die rekursive Implementierung ermöglicht zudem einen kontrollierten Abbruch der Operation zur Laufzeit.</p>
+
+<p><strong>HINWEIS:</strong> Für die Darstellung des beispielhaften Ablaufs wird das <a href="https://httpie.org/">httpie-Tool</a> verwendet. Als Basis dafür werden die REST-Endpunkte des <a href="https://github.com/karnik/devblog-hazelcast">Beispielprojekts</a> genutzt. Dazu später mehr im Kapitel <strong>Build &amp; Run</strong>.</p>
+
+<p>Im ersten Schritt wird die Erzeugung der Ressource, also die Berechnung der Fibonacci-Zahl an Position <strong><em>30</em></strong>, mit einem POST-Request auf den <code>CREATE</code>-Endpunkt gestartet. Die Position der gewünschten Zahl in der Fibonacci-Reihe wird im Body übergeben (<strong><em>n=30</em></strong>).</p>
+<pre><code class="language-bash">$ http POST http://localhost:8080/fibonacci/ n=30
+HTTP/1.1 202
+Location: http://localhost:8080/fibonacci/e0e857a0-7654-415e-ae35-8b65bed813b1
+</code></pre>
+
+<p>Bei einer fehlerfreien Übergabe wird die Berechnung gestartet und der <code>CREATE</code>-Endpunkt antwortet mit dem HTTP-Status-Code <code>202 ACCEPTED</code>, sowie der URL des <code>STATUS</code>-Endpunkt für die Abfrage des Status. Die URL ist durch eine UUID, an die auch die Berechnungs-Task gebunden ist, eindeutig.</p>
+
+<p>Bei einem GET-Request auf den <code>STATUS</code>-Endpunkt liefert er den HTTP-Status-Code <code>200 OK</code>, sowie den Status der Berechnung.</p>
+<pre><code class="language-bash">$ http GET http://localhost:8080/fibonacci/e0e857a0-7654-415e-ae35-8b65bed813b1
+HTTP/1.1 200
+Content-Type: application/json;charset=UTF-8
+Transfer-Encoding: chunked
+{
+    "id": "e0e857a0-7654-415e-ae35-8b65bed813b1",
+    "n": 30,
+    "status": "RUNNING",
+    "statusMessage": null
+}
+</code></pre>
+
+<p>Der identische Request liefert nach der erfolgreichen Berechnung von <strong><em>Fib(30)</em></strong> den HTTP-Status-Code <code>303 SEE OTHER</code>, sowie die URL für den <code>RESULT</code>-Endpunkt. Das Ergebnis, welches in diesem Fall <strong><em>832040</em></strong> lautet, kann anschließend mit einem GET-Request auf den <code>RESULT</code>-Endpunkt abgerufen werden.</p>
+<pre><code class="language-bash">$ http GET http://localhost:8080/fibonacci/e0e857a0-7654-415e-ae35-8b65bed813b1/result
+HTTP/1.1 200
+Content-Type: application/json;charset=UTF-8
+Transfer-Encoding: chunked
+{
+    "result": 832040
+}
+</code></pre>
+
+<h5 id="bewertung">Bewertung</h5>
+<p>Durch den beschriebenen Aufbau steht dem Client eine robuste und für verteilte Systeme geeignete Schnittstelle zur Verfügung, die zudem noch ressourcenschonend arbeitet.</p>
+
+<p>Es gilt dabei aber zu beachten, dass der Client eine Polling-Logik implementieren muss, die eine zusätzliche Komplexität und damit Fehlerquelle einbringt. Wird z.B. zu oft nach dem Status gefragt, kann das die Leistung des Gesamtsystems negativ beeinflussen. Auch muss darauf geachtet werden, dass die Ergebnisse nach einer Zeit automatisch bereinigt werden, da man nicht davon ausgehen kann, dass die Clients die Möglichkeit zur Löschung der Ergebnisse und Jobs auch nutzen.</p>
+
+<p>Ein Beispiel für eine Umsetzung dieses Schemas bietet unter anderem die <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/job-operations.html">AWS Glacier REST API</a>.</p>
+
+<h4 id="lastverteilung-mit-hazelcast">Lastverteilung mit Hazelcast</h4>
+<p>Nach der Definition der REST-API gilt es, die Implementierung der dahinterliegenden Logik so auszulegen, dass das zugrundeliegende System den <code>CREATE</code>-Endpunkt für die Berechnung nicht blockiert und zudem ausreichend skalierbar ist.</p>
+
+<p>In der Java-Welt bietet sich dafür das <a href="https://docs.oracle.com/javase/tutorial/essential/concurrency/executors.html">Java Executor Framework</a> an, das mit JDK 5 eingeführt wurde. Dieses erlaubt die asynchrone Ausführung von langläufigen Tasks oder Geschäftsprozessen wie z.B. umfangreichen SQL-Abfragen oder komplexen Berechnungen in einem Thread-Pool.</p>
+
+<p>Dies alleine würde reichen, um die Last auf einem einzelnen System über mehrere Prozesse bzw. CPU-Cores zu verteilen. Mit der Leistung und Skalierbarkeit eines Mainframe kann dieser Ansatz im Normallfall aber nicht konkurrieren. Hier ist es erforderlich eine Skalierbarkeit über mehrere Systeme, die beispielsweise zu einem Cluster zusammengeschlossen werden, zu gewährleisten.</p>
+
+<p>Für die Umsetzung einer solchen Skalierbarkeit bietet sich der Einsatz einer <strong>In-Memory Computing Platform</strong> wie z.B. <a href="https://hazelcast.com/">Hazelcast IMDG</a>, <a href="https://ignite.apache.org/">Apache Ignite</a> oder <a href="https://www.gridgain.com/">GridGain</a> an.</p>
+
+<p>Diese Frameworks bieten die Möglichkeit eine beliebige Anzahl von Nodes bzw. Servern zu einem Cluster zusammenzuschließen, in dem die Daten des Clusters, sowie die Ausführung von Tasks gleichmäßig über alle Nodes verteilt  werden. Jede zusätzliche Node erhöht die Leistungsfähigkeit des Clusters, was eine einfache horizontale Skalierung erlaubt.</p>
+
+<p>Für die Implementierung des Beispiels wurde Hazelcast IMDG gewählt. Das Framework, sowie die API von Hazelcast, haben sich in mehreren Projekten bewährt und als sehr praktikabel erwiesen.</p>
+
+<p>Die konkrete Implementierung setzt auf die verteilte Ausführung in einem <a href="https://docs.hazelcast.org/docs/3.10.6/manual/html-single/index.html#distributed-computing">Distributed Executor Service</a>, einer verteilten Variante des Java Executor Service. Damit können Tasks nicht nur über die Ressource eines Servers, sondern über alle Nodes eines Hazelcast-Clusters verteilt und ausgeführt werden.</p>
+
+<h5 id="architektur-des-beispiel-projekts">Architektur des Beispiel-Projekts</h5>
+<p>Typischerweise setzt sich ein Hazelcast IMDG (In-Memory Data Grid) aus <strong><em>n</em></strong> Nodes zu einem Hazelcast-Cluster zusammen. Der Hazelcast-Client verbindet sich dann auf den Cluster und beauftragt Operationen, die auf einer oder mehreren Nodes des Clusters ausgeführt werden.</p>
+
+<p><img src="/assets/images/posts/distributed-execution-mit-hazelcast/hazelcast-client-example.png" alt="Architektur des Beispielprojekts - Client" /></p>
+
+<p>Für die Demonstration des Distributed Executor Service, sowie der REST-API wurden Hazelcast Node und Client in dem Beispiel-Projekt vereint. Jede gestartete <em>Spring Boot</em>-Instanz ist so konfiguriert, dass sie als Node dem konfigurierten Hazelcast-Cluster beitritt und zudem noch die REST-API anbietet, deren Aufrufe über den integrierten Hazelcast-Client den Cluster ansprechen.</p>
+
+<p><img src="/assets/images/posts/distributed-execution-mit-hazelcast/hazelcast-cluster-example.png" alt="Architektur des Beispielprojekts - Cluster" /></p>
+
+<p>Die Nodes ließen sich in diesem Setup z.B. durch einen Load-Balancer verbinden und damit auch die Last der Berechnungs-Anfragen über die Nodes verteilen.</p>
+
+<h5 id="implementierung-der-fibonacci-task">Implementierung der Fibonacci-Task</h5>
+<p>Wie beschrieben, bietet der <code>CREATE</code>-Endpunkt die Berechnung einer Fibonacci-Zahl an. Die Berechnung der Zahl soll nun als Operation an den Hazelcast-Cluster in einem Distributed Executor Service übergeben und dort asynchron ausgeführt werden. Um eine Task oder Berechnung in einem Executor Service des Hazelcast-Clusters ausführen zu können, muss sie eines der beiden folgenden Interfaces implementieren:</p>
+
+<ul>
+  <li><code>java.util.concurrent.Callable</code>: Wenn ein Rückgabewert erforderlich ist.</li>
+  <li><code>java.util.concurrent.Runnable</code>: Wenn kein Rückgabewert erforderlich ist.</li>
+</ul>
+
+<p><strong>HINWEIS:</strong> Alle Klassen, deren Instanzen in dem Hazelcast-Cluster zwischen den Nodes ausgetauscht werden sollen, müssen das Interface <code>java.io.Serializable</code> implementieren.</p>
+
+<p>Da im Fall der Berechnung der Fibonacci-Zahl eine Rückgabe erwartet wird, wurde die Task auf Basis des <code>Callable</code>-Interface umgesetzt.</p>
+
+<p>In diesem Beispiel wird zusätzlich noch das Interface <code>com.hazelcast.core.HazelcastInstanceAware</code> implementiert. Damit erhält die Task Zugriff auf die aktuelle Hazelcast-Umgebung und kann dem System seinen aktuellen Status mitteilen.</p>
+
+<p>Um die Task eindeutig zu identifizieren, erhält sie eine <strong>UUID</strong>. Diese <strong>UUID</strong> ist identisch zu der ID, die auch im <code>CREATE</code>-Endpunkt an den Client übertragen wird.</p>
+
+<p><strong>Definition der <a href="https://github.com/karnik/devblog-hazelcast/blob/master/src/main/java/com/adt/devblog/hazelcast/task/FibonacciTask.java">FibonacciTask</a>-Klasse:</strong></p>
+<pre><code class="language-Java">public class FibonacciTask implements Callable&lt;FibonacciTaskResult&gt;, HazelcastInstanceAware,
+    Serializable {
+  
+  private String taskUUID;
+  ...
+}
+</code></pre>
+
+<h5 id="zentrale-speicherung-des-task-status">Zentrale Speicherung des Task-Status</h5>
+<p>Der Status sowie das Ergebnis müssen während und nach der Laufzeit an einer zentralen Stelle, redundant und von allen Nodes des Clusters erreichbar gespeichert sein. Hierzu bietet sich beim Einsatz von Hazelcast eine <a href="https://docs.hazelcast.org/docs/3.10.6/manual/html-single/index.html#map">Distributed Map</a> an. Als Key dient dabei wieder die <strong>UUID</strong> der Task. So ist eine einfache, systemübergreifende Zuordnung möglich.</p>
+
+<p>Das Ergebnis der Berechnung besteht in diesem Fall aus einem einfach <code>Long</code> welches in der Result-Klasse gekapselt wird.</p>
+
+<p><strong>Definition der <a href="https://github.com/karnik/devblog-hazelcast/blob/master/src/main/java/com/adt/devblog/hazelcast/task/FibonacciTaskResult.java">FibonacciTaskResult</a>-Klasse:</strong></p>
+<pre><code class="language-Java">public class FibonacciTaskResult implements Serializable {
+  private Long result;
+}
+</code></pre>
+
+<p>Der Status der Task hält die Position der zu berechnenden Zahl, den aktuellen Status, sowie eine mögliche Text-Information zu dem Status.</p>
+
+<p><strong>Definition der <a href="https://github.com/karnik/devblog-hazelcast/blob/master/src/main/java/com/adt/devblog/hazelcast/task/FibonacciTaskStatus.java">FibonacciTaskStatus</a>-Klasse:</strong></p>
+<pre><code class="language-Java">public class FibonacciTaskStatus implements Serializable {
+  @NotNull
+  private Long n;
+  private STATUS status;
+  private String statusMessage;
+
+  public enum STATUS {
+    SUBMITTED,
+    RUNNING,
+    FINISHED,
+    CANCELLED,
+    ERROR
+  }
+}
+</code></pre>
+
+<h5 id="ausführung-der-task-in-einem-distributed-executor-service">Ausführung der Task in einem Distributed Executor Service</h5>
+<p>Um die Task auszuführen muss sie dem Distributed Executor Service (<code>IExecutorService</code>) über eine der <code>submit</code>-Methoden übergeben werden. Zusätzlich zu der Task wird noch ein <code>ExecutionCallback</code> gesetzt, mit dem auf das erfolgreiche Ende oder einen Fehler der Task reagiert werden kann. Diese Logik könnte zwar auch in der Task implementiert werden, würde diese aber unnötig verkomplizieren oder im schlimmsten Fall sogar ein negativen Einfluss auf die Performance nehmen.</p>
+
+<p><strong>Definition der <a href="https://github.com/karnik/devblog-hazelcast/blob/master/src/main/java/com/adt/devblog/hazelcast/service/DistributedFibonacciTaskService.java">DistributedFibonacciTaskService#submit</a>-Methode:</strong></p>
+<pre><code class="language-java">public String submit(FibonacciTaskStatus fibonacciTaskStatus) {
+  String taskUUID = UUID.randomUUID().toString();
+  IExecutorService executorService = 
+      hcInstance.getExecutorService(HazelcastConfiguration.REST_EXECUTOR_SERVICE);
+
+  // submit the task for execution
+  FibonacciTask fibonacciTask = new FibonacciTask(taskUUID, fibonacciTaskStatus.getN());
+  executorService.submit(fibonacciTask, new ExecutionCallback&lt;FibonacciTaskResult&gt;() {
+      @Override
+      public void onResponse(FibonacciTaskResult response) {
+        ...
+      }
+
+      @Override
+      public void onFailure(Throwable t) {
+        ...
+      }
+    });
+
+    return taskUUID;
+  }
+</code></pre>
+
+<p>Sobald die Task abgearbeitete wurde, wird über den Callback das Ergebnis in die entsprechende Map geschrieben und der Status aktualisiert. Der Client erfährt bei seiner nächsten Anfrage an den <code>STATUS</code>-Endpunkt, dass die Task abgeschlossen ist und das Ergebnis abgeholt werden kann.</p>
+
+<p>Der gesamte Ablauf der Logik für die erfolgreiche Ausführung der Fibonacci Task stellt sich dann wie folgt dar:
+<img src="/assets/images/posts/distributed-execution-mit-hazelcast/flow.png" alt="Architektur des Beispielprojekts" /></p>
+
+<h5 id="build--run">Build &amp; Run</h5>
+<p>Das ausführbare FatJar der Spring Boot Anwendung wird mit dem folgenden Befehl <code>$ gradle clean bootJar</code> gebaut.</p>
+
+<p>Anschließend werden drei Nodes mit jeweils einem  dedizierten Server-Port für den HTTP-Server gestartet:</p>
+<pre><code class="language-bash"># Konsole 1
+$ java -jar build/libs/devblog-hazelcast-&lt;version&gt;.jar --server.port=8080
+
+# Konsole 2
+$ java -jar build/libs/devblog-hazelcast-&lt;version&gt;.jar --server.port=8081
+
+# Konsole 3
+$ java -jar build/libs/devblog-hazelcast-&lt;version&gt;.jar --server.port=8082
+</code></pre>
+
+<p>Nach dem Start erkennt man in <strong>allen</strong> Konsolen, dass die Nodes einen Cluster gebildet haben. Anhand des “<strong>this</strong>” erkennt man zudem die Node, die zu der aktuellen Konsole gehört.</p>
+<pre><code class="language-bash">Members {size:3, ver:2} [
+ Member [127.0.0.1]:5701 - 5ee54b4d-5957-4b8b-9dc1-6c106e9a0f2a this
+ Member [127.0.0.1]:5702 - 34e82cd3-77cc-46cc-9ba9-947b04b54b24
+ Member [127.0.0.1]:5703 - cc0a6ba7-6d99-4bc4-b9e4-a6d5afd7de27
+]
+</code></pre>
+
+<p>Startet man nun via httpie-Tool die Berechnung der Fibonacci-Zahl <strong><em>Fib(10)</em></strong>, so erscheinen die folgenden Log-Meldungen (zur besseren Lesbarkeit wurden Zeilenumbrüche eingefügt):</p>
+<pre><code class="language-bash">
+$ http POST http://localhost:8080/fibonacci/ n=10
+
+# Task wurde erzeugt - Status wurde durch Client in Node 1 geschrieben
+TaskMapListener  : FibonacciTaskStatus with ID a3d0f6a9-a28b-4978-8123-e0e3b0606b4b 
+  added by Member [127.0.0.1]:5701 - 5ee54b4d-5957-4b8b-9dc1-6c106e9a0f2a this
+
+# Task wurde gestartet - Status wurde durch die Task selbst in Node 3 aktualisiert
+TaskMapListener  : FibonacciTaskStatus with ID a3d0f6a9-a28b-4978-8123-e0e3b0606b4b 
+  updated by Member [127.0.0.1]:5703 - cc0a6ba7-6d99-4bc4-b9e4-a6d5afd7de27. 
+  New value: FibonacciTaskStatus(n=10, status=RUNNING, statusMessage=null), 
+  Old value: FibonacciTaskStatus(n=10, status=SUBMITTED, statusMessage=null)
+
+# Task wurde erfolgreich beendet - Status wurde durch Callback an Client in Node 1 aktualisiert
+TaskMapListener  : FibonacciTaskStatus with ID a3d0f6a9-a28b-4978-8123-e0e3b0606b4b 
+  updated by Member [127.0.0.1]:5701 - 5ee54b4d-5957-4b8b-9dc1-6c106e9a0f2a this. 
+  New value: FibonacciTaskStatus(n=10, status=FINISHED, statusMessage=null), 
+  Old value: FibonacciTaskStatus(n=10, status=RUNNING, statusMessage=null)
+</code></pre>
+
+<p><strong>HINWEIS:</strong> Die Log-Meldungen werden durch einen Map-Listener erzeugt, der an der Distributed Map registriert wurde. Er schreibt eine Meldung in das Log, wenn ein Wert in der Map aktualisiert, hinzugefügt oder gelöscht wird. Dadurch, dass der Status immer in den Maps aktualisiert wird, erhalten wir bei jedem Wechsel eine Log-Ausgabe. Zu dem Wechsel wird auch die Node (Member) gelogged, die die Änderung durchführt.</p>
+
+<h4 id="fazit">Fazit</h4>
+<p>Dieser Artikel beantwortet die eingangs gestellte kombinierte Fragestellung, wie ein System zu definieren ist, das einerseits eine klare Schnittstelle für die Ausführung und Steuerung von langläufigen Tasks anbietet und gleichzeitig eine Skalierbarkeit vorweist, die das System in die Lage versetzt mit der Performance bzw. Belastbarkeit eines Mainframes mithalten zu können.</p>
+
+<p>Die gezeigte Implementierung ermöglicht es eine langläufige Task in einem frei skalierbaren Cluster asynchron zur Ausführung zu bringen. Zusätzlich lässt sich Ausführung und der Status über eine klar definierte REST-Schnittstelle kontrollieren, die zu keinem Zeitpunkt durch die Ausführung geblockt wird. Damit konnte der Lösungsvorschlag eine Antwort auf beide Fragen der kombinierten Fragestellung geben.</p>
+
+<p>Es gilt allerdings erneut darauf hinzuweisen, dass die Implementierung bzw. Konfiguration des Client bei diesem Verfahren eine entscheidende Rolle spielt. Fragt der Client das System nach dem Ergebnis, so muss eine gute Balance zwischen Frequenz und Last des Systems gefunden werden. Wie Eingangs beschrieben, kann eine zu hohe Frequenz beim Einholen des Status einen negativen Einfluss auf die Leistung des Gesamtsystems haben. Ist der Client aber korrekt konfiguriert, erhält man ein schnell reagierendes und hervorragend skalierbares System, dessen Einsatztauglichkeit bereits erfolgreich in einem Migrations-Projekt bewiesen werden konnte.</p>
+
+<p>Der vollständige Quellcode des Beispiels steht als <a href="https://spring.io/projects/spring-boot">Spring Boot</a>-Projekt auf <a href="https://github.com/karnik/devblog-hazelcast">Github</a> zur Verfügung.</p>
+
+<p><strong>Quellen:</strong></p>
+<ol>
+  <li><a href="https://farazdagi.com/2014/rest-and-long-running-jobs/">Rest and long running jobs</a></li>
+  <li><a href="http://restalk-patterns.org/long-running-operation-polling.html">Long running operation polling</a></li>
+</ol>
+
+</div>
+</div>
+</div>
+</div>]]></field>
+    </document>
+</documents>
