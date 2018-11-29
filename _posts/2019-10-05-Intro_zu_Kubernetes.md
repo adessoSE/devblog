@@ -6,7 +6,7 @@ author:         t-buss
 categories:     [Softwareentwicklung]
 tags:           [cloud, kubernetes]
 ---
-Die Container-Orchestrierungs-Lösung Kubernetes ist das wohlmöglich am stärksten gewachsene Open-Source-Projekt der letzten Jahre.
+Die Container-Orchestrierungs-Lösung Kubernetes ist eines der am stärksten gewachsenen Open-Source-Projekte der letzten Jahre.
 Alle großen Cloud-Anbieter wie Google, Amazon, Microsoft und weitere bieten heutzutage Kubernetes-Instanzen an und unzählige Firmen lagern ihre Anwendungen auf Kubernetes-gestützte Clustern in der Cloud aus.
 Grund genug, sich einmal näher mit Kubernetes und den Konzepten dahinter zu beschäftigen.
 
@@ -294,13 +294,15 @@ Hier ist der momentane Status als Grafik (die IP des Services muss natürlich an
 
 Da wir keine Umgebungsvariable angegeben haben, wird im Browser der Standardwert ausgegeben, der auch die Versionsnummer der Anwendung enthält.
 Wenn nun ein Pod abstürzt (oder wir ihn manuell löschen) können wir sehen, wie über das Deployment ein neuer Pod erstellt wird, um den Platz des alten einzunehmen.
-Das Deployment arbeit also genau so, wie es soll.
+Das Deployment arbeitet also genau so, wie es soll.
 
 # Update ausführen
 Wenn wir im Dashboard auf "Workloads" gehen, dann sehen wir die Ressourcen, die durch das Deployment erstellt wurden.
 Darunter sind nicht nur das Deployment, sondern auch die Pods und ein sogenanntes *ReplicaSet*.
 ReplicaSets werden intern von Deployments genutzt, um die gewünschte Anzahl der Pods zu einem Deployment sicherzustellen.
-Dieses Konzept ist von Bedeutung, wenn es um das Updaten von einem Deployment geht und dies wollen wir uns jetzt einmal anschauen.
+Dieses Konzept ist von Bedeutung, wenn es um das Updaten von einem Deployment geht.
+Unter "Update" verstehen wir hierbei das Aktualisieren des Docker-Images auf eine neue Version der Anwendung.
+Dies wollen wir uns jetzt einmal anschauen.
 
 ## Szenario
 Nehmen wir an, wir haben ein neue Version unserer Anwendung entwickelt.
@@ -321,7 +323,8 @@ Es sollte nur ein ReplicaSet für unser Deployment angezeigt werden.
 Nun führen wir in einem anderen Terminal den Befehl zum Update aus:
 > `kubectl set image deployment sample-sck-deployment sample-sck=registry.gitlab.com/tbuss/sample-sck/master:bd67f6f2b686d74641680365d7a49117bc012bb0`
 
-Wir geben dabei die Aktion und das Deployment an und spezifizieren für den Container `sample-sck` das neue Image.
+Wir geben dabei die Aktion und das Deployment an und spezifizieren für den Container `sample-sck` den Pfad für das neue Image, den wir in Gitlab in unserer Registry finden.
+Wer lieber sein eigenes Image verwenden möchte, muss natürlich den Pfad zum Docker-Image ersetzen.
 
 Jetzt können wir im ersten Terminal das Update-Verfahren beobachten:
 Ein zweites ReplicaSet wird für das Deployment erstellt.
