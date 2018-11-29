@@ -336,7 +336,7 @@ Den Status während eines Updates zeigt diese Grafik:
 
 Nach und nach werden neue Pods durch das zweite ReplicaSet gestartet.
 Parallel dazu werden Pods aus dem alten ReplicaSet heruntergefahren.
-Die Geschwindigkeit und Anzahl der Pods innerhalb dieses Vorgangs kann durch Parameter innerhalb der Deployment-Konfigurationsdatei angepasst werden, aber wir begnügen uns in diesem Falle mit den default-Werten.
+Die Geschwindigkeit und Anzahl der Pods innerhalb dieses Vorgangs kann durch Parameter innerhalb der Deployment-Konfigurationsdatei angepasst werden, aber wir begnügen uns in diesem Falle mit den default-Werten (maximal ein Pod nicht verfügbar, maximal ein Pod mehr gestartet als angefordert).
 Irgendwann sind alle Pods des alten ReplicaSets gelöscht und die des neuen ReplicaSets gestartet.
 Im Browser sollte nun auch die neue Versionsnummer angezeigt werden.
 Unser Update war erfolgreich.
