@@ -18,6 +18,9 @@ Wir betrachten ein kleines Beispiel, indem wir eine triviale Spring-Boot-Anwendu
 Ein kurzes Wort der Warnung: Minikube eignet sich zwar, um grundlegende Konzepte von Kubernetes-Clustern zu erklären, ist jedoch weiterführend in vielerlei Hinsicht nicht mit einem _echten_, produktionsreifen Cluster in der Cloud vergleichbar.
 An den Stellen, wo Minikube sich von anderen Clustern unterscheidet, wird explizit darauf hingewiesen.
 
+Desweiteren sollte man beachten, das Kubernetes sich schnell weiterentwickelt und unter Umständen einige der Beispiele aus diesem Artikel aufgrund von Änderungen an der Kubernetes-API nicht mehr funktionieren könnten.
+Es ist daher ratsam, sowohl die Versionsnummern (hier v1.10.0) als auch die [Kubernetes-Dokumentation](https://kubernetes.io/docs/home/) und den [Entwickler-Blog](https://kubernetes.io/blog/) im Auge zu behalten.
+
 Bevor wir zum Praxisteil kommen, klären wir aber erst einmal die Begrifflichkeiten.
 
 # Cluster, Nodes und Pods
@@ -36,13 +39,13 @@ Kubernetes verteilt automatisch die Pods auf solche Nodes, die im Moment weniger
 
 Pods sind kurzlebig.
 Sie werden erstellt, bekommen eine interne IP im virtuellen Netzwerk und führen ihre Container aus.
-Wenn ein Pod beendet wird oder abstürzt, werden lokale Daten und Speicher gelöscht.
+Wenn ein Pod beendet wird oder abstürzt, werden lokale Daten und Speicher gelöscht (dieses Problem lässt sich durch Verwendung von verschiedenen Persistent-Storage-Ansätzen lösen, die wir hier allerdings nicht betrachten).
 Die IP des Pods kann nun von beliebigen anderen Pods, die der Cluster startet, verwendet werden.
 
 Es stellt sich also die Frage, wie man eine Anwendung erreichen kann, wenn die interne IP nicht als fest angenommen werden kann.
 Zudem ist es für Anwendungen mit hoher Last nicht möglich, alle Anfragen von nur einer Container-Instanz abwickeln zu lassen.
 Zur Skalierung müssen mehrere identische Pods gestartet werden, unter denen sich die Last aufteilt.
-Diese Probleme nennt man "Service Discovery" und "Load Balancing" und sie sind in vielen verteilten Anwendungen präsent.
+Diese Lösungen für diese Probleme nennt man "Service Discovery" und "Load Balancing".
 Wir wollen uns in diesem Blogpost anschauen, wie Kubernetes diese Probleme löst.
 
 # Zielsetzung
@@ -62,12 +65,14 @@ Schauen wir uns die Tools an, mit denen wir unser Beispiel durchführen werden.
 ## Minikube
 Allen voran brauchen wir einen Cluster, auf dem wir unsere Beispielanwendung laufen lassen.
 Für die lokale Entwicklung eignet sich [Minikube](https://kubernetes.io/docs/setup/minikube/) sehr gut.
-**Es stellt einen Cluster mit nur einem Node in einer virtuellen Maschine bereit**.
-Dieser unterscheidet sich von einem "echten" Kubernetes Cluster unter anderem darin, dass auf dem einen Node sowohl die Pods als auch die Master-Prozesse zur Verwaltung des Clusters laufen.
-Normalerweise sind die Master-Prozesse auf designierten Nodes, um für Ausfallsicherheit zu sorgen.
+Ich verwende die Version v0.28.2.
 
 ***Achtung**: Obwohl V-Sphere offiziell von Minikube als Virtualisierungs-Lösung unterstützt wird, hatte ich einige Probleme, es damit zu starten.
 Mit VirtualBox habe ich wesentlich bessere Erfahrungen gemacht und möchte es daher jedem ans Herz legen.*
+
+**Minkube stellt einen "Cluster" mit nur einem Node in einer virtuellen Maschine bereit**.
+Dieser unterscheidet sich von einem "echten" Kubernetes Cluster unter anderem darin, dass auf dem einen Node sowohl die Pods als auch die Master-Prozesse zur Verwaltung des Clusters laufen.
+Normalerweise sind die Master-Prozesse auf designierten Nodes, um für Ausfallsicherheit zu sorgen.
 
 Nachdem ein lokaler Cluster nach den Anweisungen auf der [Minikube-Website](https://kubernetes.io/docs/setup/minikube/) installiert und mit `minikube start` gestartet wurde, können wir uns schon ein wenig in unserem Cluster umsehen.
 
@@ -87,9 +92,10 @@ Wir benötigen einen einfachen REST-Endpunkt und müssen eine Umgebungsvariable 
 Beides lässt sich mit Spring relativ leicht bewerkstelligen.
 
 ## Docker
-Kubernetes verwaltet Container und die beliebteste Software für Container ist Docker.
+Kubernetes verwaltet Container und die beliebteste Software für Container ist [Docker](https://www.docker.com/), welches auch Minikube verwendet.
+Andere Container-Lösungen wie [_rkt_](https://coreos.com/rkt/docs/latest/) sind ebenfalls möglich.
 Docker an sich ist bereits ein riesiges Themengebiet, weshalb wir an dieser Stelle nicht weiter darauf eingehen können.
-Soviel sei gesagt: Wir erstellen ein Docker-Image (eine Art Container-Blaupause) für unsere Spring-Anwendung und laden sie in eine Registry hoch (ich verwende GitLabs Docker Registry).
+Soviel sei gesagt: Wir erstellen ein Docker-Image (eine Art Container-Blaupause) für unsere Spring-Anwendung und laden sie in eine Registry hoch (ich verwende Docker Hub).
 Der Cluster wird bei der Erstellung von Pods dieses Image runterladen und für die Container verwenden.
 
 # Let's Go!
@@ -109,12 +115,7 @@ class EnvironmentVariableController {
     fun getEnvironmentVariable() = this.envVar
 }
 ```
-Das Repository mit dem gesamten Quellcode ist [hier](https://gitlab.com/tbuss/sample-sck) zu finden.
-Normalerweise müssten wir an dieser Stelle jetzt ein Dockerfile erstellen.
-Da Gitlab allerdings schlau ist und erkennt, dass es sich um ein Gradle-Projekt handelt, kann es das für uns übernehmen.
-
-Die Anwendung wird automatisch gebaut, ein Docker-Image erstellt und selbiges in die Registry hochgeladen.
-Den Link zum aktuellen Image findet man [hier](https://gitlab.com/tbuss/sample-sck/container_registry).
+Das Repository mit dem gesamten Quellcode ist [hier](https://gitlab.com/tbuss/sample-sck) zu finden, das Docker-Image findet sich [hier](https://hub.docker.com/r/tbuss93/sample-sck/).
 
 ## Pods manuell starten und prüfen
 Wir können jetzt einen oder mehrere Pods in unserem Cluster manuell erstellen.
@@ -136,14 +137,14 @@ metadata:
 spec:
   containers:
   - name: sample-sck
-    image: registry.gitlab.com/tbuss/sample-sck/master:5936260e1ee9c42745ac7f4f1d062d55c42d228e
+    image: tbuss93/sample-sck:v1
     ports:
     - containerPort: 5000
     env:
       - name: SOME_ENV_VAR
         value: Foo
 ```
-Die YAML-Dateien in Kubernetes beginnen immer mit Meta-Informationen über die API, die benutzt wird und mit der Art von Ressource, die erstellt werden soll.
+Die YAML-Dateien in Kubernetes beginnen immer mit Meta-Informationen über die [API](https://kubernetes.io/docs/concepts/overview/kubernetes-api/), die benutzt wird und mit der Art von Ressource, die erstellt werden soll.
 Auch ein Name wird angegeben.
 Danach folgt die Spezifizierung des Pods, wo wir nicht nur das Image und den Namen angeben, sondern auch den Port der Anwendung (den müssen wir vorher wissen!) und die Umgebungsvariable, die wir nachher ausgeben möchten.
 
@@ -276,11 +277,11 @@ spec:
     spec:
       containers:
       - name: sample-sck
-        image: registry.gitlab.com/tbuss/sample-sck/master:5936260e1ee9c42745ac7f4f1d062d55c42d228e
+        image: tbuss93/sample-sck:v1
         ports:
           - containerPort: 5000
 ```
-Der größte Teil der Definition sollte uns schon bekannt vorkommen und selbsterklärend sein.
+Der größte Teil der Definition sollte uns schon bekannt vorkommen und selbsterklärend sein (ansonsten siehe [Doku](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/)).
 Wir beschreiben die gewünschte Anzahl mit `replicas`; hier sind es vier.
 Mit `selector` legen wir fest, wie das Deployment "seine" Pods erkennt.
 Die Labels im Selector sollten denen im Template gleichen.
@@ -325,9 +326,9 @@ beobachten, wie das Update durchgeführt wird (auf Windows gibt es das Programm 
 Es sollte nur ein ReplicaSet für unser Deployment angezeigt werden.
 
 Nun führen wir in einem anderen Terminal den Befehl zum Update aus:
-> `kubectl set image deployment sample-sck-deployment sample-sck=registry.gitlab.com/tbuss/sample-sck/master:bd67f6f2b686d74641680365d7a49117bc012bb0`
+> `kubectl set image deployment sample-sck-deployment sample-sck=tbuss93/sample-sck:v2`
 
-Wir geben dabei die Aktion und das Deployment an und spezifizieren für den Container `sample-sck` den Pfad für das neue Image, den wir in Gitlab in unserer Registry finden.
+Wir geben dabei die Aktion und das Deployment an und spezifizieren für den Container `sample-sck` den Pfad für das neue Image, den wir bei Docker Hub finden.
 Wer lieber sein eigenes Image verwenden möchte, muss natürlich den Pfad zum Docker-Image ersetzen.
 
 Jetzt können wir im ersten Terminal das Update-Verfahren beobachten:
@@ -356,7 +357,7 @@ Dazu bearbeiten wir die Datei `sample-sck-deployment.yaml` und tragen das neue I
 ...
 containers:
 - name: sample-sck
-  image: registry.gitlab.com/tbuss/sample-sck/master:bd67f6f2b686d74641680365d7a49117bc012bb0
+  image: tbuss93/sample-sck:v2
 ...
 ```
 Wieder können wir mit `watch kubectl get replicasets` den Fortschritt des Updates verfolgen, während es ausgeführt wird.
