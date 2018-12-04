@@ -29,7 +29,7 @@ Sie sind die kleinste Ressource in Kubernetes.
 Ein Pod führt einen oder mehrere Container aus, die zusammen als Einheit gestartet werden.
 Die Wörtchen "oder mehrere" können dabei leicht zu Verwirrung führen.
 In einer Microservices-Anwendung korrespondiert ein Pod zu einem Microservice, also meistens auch einem Container.
-Es gibt verschiedene Fälle, in denen man gleich mehrere Container in einem Pod starten möchte.
+Es gibt verschiedene Fälle, in denen man gleich mehrere Container in einem Pod starten möchte; zum Beispiel um Pod-zu-Pod-Kommunikation über ein Service-Mesh wie _Istio_ zu betreiben.
 Dies soll jedoch nicht Inhalt dieses Blogposts sein.
 Da die Nodes miteinander ein virtuelles Netzwerk bilden und verbunden sind, kann es uns (als Entwickler) grundsätzlich egal sein, auf welchem Node ein Pod läuft.
 Kubernetes verteilt automatisch die Pods auf solche Nodes, die im Moment weniger Last haben als die anderen.
