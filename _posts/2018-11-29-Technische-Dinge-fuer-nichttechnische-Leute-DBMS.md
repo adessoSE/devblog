@@ -44,7 +44,7 @@ Einzelne Tabelleneinträge, sogenannte **Tupel**, können somit strukturiert abg
 Durch diese Strukturierung und mithilfe einiger intelligenter Kniffe lassen sich die oben genannten Probleme in den Griff bekommen.
 Unser sogenanntes **Datenbankschema**, welches hier nur aus einer Relation besteht, würde somit folgendermaßen aussehen.
 
-![Schema der Beispieldatenbank](assets/images/posts/Technische-Dinge-fuer-nichttechnische-Leute-DBMS/wissenschaftler.png)
+![Schema der Beispieldatenbank](/assets/images/posts/Technische-Dinge-fuer-nichttechnische-Leute-DBMS/wissenschaftler.png)
 
 ## Beschleunigung der Suche durch Indizes
 Für das in **(A)** beschriebene Durchsuchen der Wissenschaftler nach Nachnamen würde in einem RDBMS ein Index angelegt, mit dem in kürzester Zeit die Stelle gefunden werden kann, an der sich ein Eintrag auf der Festplatte befindet.
@@ -61,7 +61,7 @@ Für das in **(C)** dargestellte Problem bringt uns die neue Strukturierung der 
 Da außerdem ein Preis an mehrere Wissenschaftler verliehen werden kann, wird hier von einer **many-to-many-Beziehung** gesprochen.
 Daher müssen wir das Datenbankschema etwas anpassen:
 
-![Schema einer normalisierten Datenbank](assets/images/posts/Technische-Dinge-fuer-nichttechnische-Leute-DBMS/normalisiert.png)
+![Schema einer normalisierten Datenbank](/assets/images/posts/Technische-Dinge-fuer-nichttechnische-Leute-DBMS/normalisiert.png)
 
 Im Vergleich zum vorherigen Schema müssen hier nicht sämtliche Details der Auszeichnungen in der _Wissenschaftler_-Relation gespeichert werden.
 In unserem einfachen Beispiel betrifft das zwar nur den Namen, wir könnten aber in Zukunft weitere Informationen, wie _Institut, Preisgeld, Kategorie, Verleihungsjahr, Thema, ..._ hinzufügen wollen, wodurch die Liste im _Auszeichnungen_-Attribut sehr lang werden würde und jegliche Struktur verloren ging.
@@ -107,7 +107,7 @@ Hier schränken drei Teile die Ergebnismenge ein:
 2. Das **FROM**-Schlüsselwort definiert die **Relation**, aus der die Ergebnisse abgerufen werden sollen. Wir möchten hier noch nichts über Auszeichnungen erfahren, daher reicht uns die _Wissenschaftler_-Relation.
 3. Mit der **WHERE**-Operation legen wir schließlich noch fest, welche **Tupel** wir aus der Relation bekommen wollen. Hier sind dies alle Wissenschaftler, die den Nachnamen _Einstein_ tragen.
 
-![Ergebnis der Anfrage](assets/images/posts/Technische-Dinge-fuer-nichttechnische-Leute-DBMS/ergebnis.png)
+![Ergebnis der Anfrage](/assets/images/posts/Technische-Dinge-fuer-nichttechnische-Leute-DBMS/ergebnis.png)
 
 In unserem minimalen Beispiel besteht das Ergebnis nur aus einem einzigen Tupel, es kann aber auch vorkommen, dass mehrere Tupel oder sogar die gesamte Relation im Ergebnis zurückgeliefert werden.
 Mit der SQL-Sprache lassen sich durch weitere Operationen noch sehr viel komplexere Anfragen stellen, sodass diese ein mächtiges Werkzeug zur Datenabfrage darstellt.
