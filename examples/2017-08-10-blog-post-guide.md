@@ -173,6 +173,11 @@ Diese ist auch in die Pull-Request-Template eingebunden, sodass Du dort deine Ä
 	* Reviewer angegeben (Liste mit Reviewern?)
   * Online-Preview angesehen
 
+# Nachträgliche Änderungen am Post
+Es können auch nach Veröffentlichung nachträglich Änderungen an einem Post durchgeführt werden, wenn beispielsweise Bilder nicht korrekt dargestellt werden oder sich ein Fehler im Text eingeschlichen hat, der vorher nicht aufgefallen ist.
+Damit die Änderungen auch im adesso Blog landen, muss dazu das `modified_date` im Kopf der Date hinzugefügt bzw. aktualisiert werden.
+Ist dieses angepasst, wird der Artikel wieder automatisch im Blog veröffentlicht.
+
 # Technischer Hintergrund
 
 Wenn dich interessiert, wie die Blog Posts aus einer Markdown-Datei im adesso Blog landen, kannst
