@@ -2,6 +2,7 @@
 layout: [post, post-xml]
 title:  "Technische Dinge für nichttechnische Leute (Teil 4)"
 date:   2018-11-29 12:00
+modified_date: 2018-12-12
 author: florianluediger
 categories: [Softwareentwicklung]
 tags: [Datenbanken]
