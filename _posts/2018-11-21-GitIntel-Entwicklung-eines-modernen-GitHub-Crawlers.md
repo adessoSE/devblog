@@ -100,5 +100,5 @@ Entwicklungen zeigen, dass große Unternehmen immer mehr Wert auf die aktive Bet
 Mit steigender Relevanz des Themas Open-Source wird es wohl auch interessant zu verfolgen, wie sich adesso auf diesem Gebiet entwickelt und im Vergleich zu anderen Unternehmen dasteht.  
 Die Informationen, die Git-Intel bereitstellt geben Aufschluss über die kurz- und langfristigen Entwicklungen von Unternehmen auf GitHub und geben einen spannenden Einblick in die Welt der Open-Source-Plattform aus ihrer Sicht.  
 Zur Zeit befindet sich das Projekt noch vor seinem ersten Release, doch wird dieser nicht mehr lange auf sich warten lassen.  
-Auf GitHub findet ihr das Projekt noch unter seinem alten Namen [GitStalker](https://github.com/adessoAG/GitStalker-Spring).  
+Auf GitHub findet ihr das Projekt hier: https://github.com/adessoAG/Git-Intel-Spring.  
 Sollte euer Interesse geweckt worden sein und ihr habt Fragen zum Projekt, dann wendet euch gerne an Frederik Schlemmer oder mich.
