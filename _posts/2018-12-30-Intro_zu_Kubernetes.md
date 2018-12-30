@@ -1,7 +1,7 @@
 ---
 layout:         [post, post-xml]              
 title:          "Einführung in Kubernetes"
-date:           2018-12-31 14:00
+date:           2018-12-30 14:00
 author:         t-buss
 categories:     [Softwareentwicklung]
 tags:           [cloud, kubernetes]
