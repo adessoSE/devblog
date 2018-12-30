@@ -6,12 +6,14 @@ author:         t-buss
 categories:     [Softwareentwicklung]
 tags:           [cloud, kubernetes]
 ---
-Die Container-Orchestrierungs-Lösung Kubernetes ist eines der am stärksten gewachsenen Open-Source-Projekte der letzten Jahre (siehe [Github Blog](https://blog.github.com/2018-02-08-open-source-project-trends-for-2018/)).
+Die Container-Orchestrierungs-Lösung Kubernetes ist eines der am stärksten gewachsenen Open-Source-Projekte der letzten Jahre.
 Alle großen Cloud-Anbieter wie Google, Amazon, Microsoft und weitere bieten heutzutage Kubernetes-Instanzen an und unzählige Firmen lagern ihre Anwendungen auf Cluster in der Cloud aus, die mit Kubernetes betrieben werden.
 Grund genug, sich einmal näher mit Kubernetes und den Konzepten dahinter zu beschäftigen.
 
+Der [Octoverse-Report](https://octoverse.github.com/projects) von Github zeigt, dass man sich mit Kubernetes beschäftigen sollte,
+um am Ball der Container-Technologien zu bleiben. 
 In diesem Blogpost geht es um die grundlegenden Konzepte, mit denen die Container-Orchestrierung Kubernetes arbeitet.
-Container-Orchestrierung bedeutet das Management von hunderten, lose gekoppelten Anwendungs-Containern, die zusammen miteinander interagieren müssen.
+Container-Orchestrierung bedeutet das Management von hunderten lose gekoppelten Anwendungs-Containern, die zusammen miteinander interagieren müssen.
 Unser Fokus liegt auf der Sicht eines Entwicklers, nicht der eines Cluster-Operators.
 Wir betrachten ein kleines Beispiel, indem wir eine triviale Spring-Boot-Anwendung in dem lokalen Kubernetes-Cluster Minikube ausführen.
 
