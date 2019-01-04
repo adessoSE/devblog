@@ -66,7 +66,7 @@ Um dies zu erreichen, sei *Workbench* in Verbindung mit der CI (Continious Integ
 
 Wie die *Drools*-Community kürzlich bekannt gab, wird *Workbench*, geläufig auch als KIE-*Workbench* (KIE = Knowledge is everything), in Zukunft den Namen *Business Central* tragen. 
 
-![Erstellung von Geschäftsregeln über die grafische Benutzeroberfläche von *Workbench*](/assets/images/posts/Drools-post-ceverke2/Workbench.png | width=250)
+![Erstellung von Geschäftsregeln über die grafische Benutzeroberfläche von *Workbench*](/assets/images/posts/Drools-post-ceverke2/Workbench.png)
 
 *Workbench* stellt viele Möglichkeiten zur Arbeit mit Geschäftsregeln bereit. Neben dem klassischen Regeleditor aus dem Screenshot gibt es auch die Möglichkeit, die Regeln z.B. basierend auf Templates zu verwalten. Hierbei werden Regelfragmenten Sätze aus natürlicher Sprache zugeordnet und durch konfigurierbare Felder erweitert. So könnte z.B. der Satz *"Mehr als X Transaktionen innerhalb von Y Minuten"* mit der zweiten Regel assoziiert werden, wobei die Platzhalter *X* und *Y* durch den Modellierer zur Laufzeit über die GUI ergänzt werden. Mit Hilfe dieser Regeltemplates können Regeln somit auch von Benutzern verwaltet werden, die über keine oder nur geringfügige Programmierkenntnisse verfügen.
 
