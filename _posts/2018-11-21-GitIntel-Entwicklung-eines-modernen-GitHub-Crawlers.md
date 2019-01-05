@@ -38,6 +38,8 @@ Nutzer geben den Namen der Organisation ein, über die sie Informationen erhalte
   
 Die besondere Stärke von Git-Intel liegt darin, dass es die von der GitHub-API bereitgestellten Daten abfragen und so aufbereiten kann, dass relevante Informationen zu Organisationen, Mitarbeitern und Projekten übersichtlich präsentiert werden. So können beispielsweise Informationen bezüglich der Aktivitäten von Mitgliedern vergleichend dargestellt oder eine Übersicht über die Beteiligungen an organisationsfremden Projekten eingesehen werden.
 
+Die von Git-Intel gesammelten Daten umfassen Informationen zu internen und externen Repositories, Mitglieder- und Teamzahlen, zeitliche Verläufe von aktivitäten in Form von Commits, Pull Requests und Issues, detaillierte Informationen zu Mitgliederaktivitäten und Weitere.
+
 # Die Funktionsweise
 
 Die Interaktion mit Git-Intel funktioniert grundlegend wie folgt:
@@ -65,6 +67,8 @@ Je größer die Datenmengen sind, die einer Organisation auf GitHub entsprechen,
 Da die verwendete GitHub-API auf die Abfrage kleiner, sehr spezifischer Datensätze ausgelegt ist, reagiert sie sehr empfindlich, sobald man versucht, große Datenmengen abzufragen. Sendet ein Client zu viele Abfragen zu schnell hintereinander, schiebt GitHubs API ihm den ‚Spam‘-Riegel vor. Hinzu kommt, dass GitHub die Anzahl der erlaubten Anfragen pro Stunde durch ein sogenanntes "Rate Limit" einschränkt. Das Rate Limit der v4-API beträgt 5000 Punkte pro Stunde, wobei die verbrauchten Punkte pro Anfrage anhand bestimmter Faktoren berechnet werden. Grundsätzlich gilt: Eine komplexe Anfrage verbraucht mehr Punkte als eine simple Anfrage. Die Anzahl der verbleibenden **Punkte** ist somit nicht gleichzusetzen mit der Anzahl der verbleibenden **Anfragen**.  
 Aus diesem Grund müssen viele Anfragen entsprechend getaktet werden, was zu erhöhten Verarbeitungszeiten führen kann. An dieser Stelle ist es wichtig, ein angenehmes Gleichgewicht zwischen der Belastung der GitHub-Schnittstelle und der User Experience zu finden. Genaueres zur GitHub-API erfahrt ihr im nächsten Abschnitt.
 
+Damit die von Git-Intel gesammelten Daten möglichst aktuell sind, werden die Datenbankeinträge regelmäßig aktualisiert und überschrieben. 
+
 # Die Technologien dahinter
 
 Zum jetzigen Zeitpunkt besteht Git-Intel aus den drei Hauptkomponenten Nutzeranwendung (Front-End), Systemlogik (Back-End) und Datenbank.  
@@ -90,6 +94,17 @@ Eine Abfrage, die den Namen einer Organisation sowie die Namen der ersten hunder
 
 Wer sich jetzt fragt „Warum nur die ersten hundert?“, ist gleich über den Kernaspekt von GitHubs API gestolpert. Durch die GraphQL-Spezifikation ist die API auf die Abfrage kleiner, sehr spezifischer Datensätze ausgelegt, nicht aber für die Abfrage großer Datensätze. Diese Tatsache macht die API für die Verwendung bei Git-Intel zwar nicht ideal, aber keinesfalls  unbrauchbar, weshalb wir uns entschlossen haben, einige Kompromisse einzugehen, um dieses doch sehr interessante Projekt in die Tat umzusetzen. 
 
+# Git-Intel ausprobieren
+
+Zum jetzigen Zeitpunkt ist Git-Intel nicht live, also auch nicht im Web zu erreichen.
+Ihr habt natürlich dennoch die Möglichkeit die Anwendung lokal zu testen und daran herumzuschrauben.
+
+Der einfachste Weg, um auf der eigenen Maschine mit Git-Intel herumzuspielen, ist die Nutzung des Git-Intel-Docker-Builds.
+Mit Hilfe von Docker könnt ihr mittels eines einzigen Kommandos das Gesamte Projekt starten und nach Belieben mit der Nutzeranwendung interagieren.
+
+All diejenigen, die Interesse daran haben an dem Projekt herumzubasteln, können über die entsprechenden GitHub-Repositories auf die einzelnen Anwendungen zugreifen und sich diese auf ihren Rechner kopieren.
+
+Details zur Installation von Git-Intel findet ihr im [GitHub-Repository](https://github.com/adessoAG/Git-Intel-Spring).
 
 # Die Zukunft von Git-Intel
 
@@ -99,4 +114,4 @@ Mit steigender Relevanz des Themas Open-Source wird es wohl auch interessant zu 
 Die Informationen, die Git-Intel bereitstellt geben Aufschluss über die kurz- und langfristigen Entwicklungen von Unternehmen auf GitHub und geben einen spannenden Einblick in die Welt der Open-Source-Plattform aus ihrer Sicht.  
 Zur Zeit befindet sich das Projekt noch vor seinem ersten Release, doch wird dieser nicht mehr lange auf sich warten lassen.  
 Auf GitHub findet ihr das Projekt hier: https://github.com/adessoAG/Git-Intel-Spring.  
-Sollte euer Interesse geweckt worden sein, dann wendet euch mit Fragen und Anregungen gerne an [Frederik Schlemmer](mailto:frederik.schlemmer@adesso.de) oder mich ([Dario Braun](mailto:dario.braun@adesso.de)).
+Sollte euer Interesse geweckt worden sein, dann wendet euch mit Fragen und Anregungen gerne an [Frederik Schlemmer](mailto:frederik.schlemmer@adesso.de) oder mich, ([Dario Braun](mailto:dario.braun@adesso.de)).
