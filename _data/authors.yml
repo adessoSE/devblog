@@ -106,6 +106,15 @@ roland:
   avatar_url: /assets/images/avatars/rolandMajchszak.jpg
   github: https://github.com/RMajchszak
 
+t-buss:
+  first_name: Thomas
+  last_name: Buß
+  github_username: t-buss
+  email: thomas.buss@adesso.de
+  bio: "Thomas ist Werkstudent in Dortmund und interessiert sich für Open Source und Cloud-Technologien."
+  avatar_url: /assets/images/avatars/tbuss.jpg
+  github: https://github.com/t-buss
+  
 florianluediger:
   first_name: Florian
   last_name: Lüdiger
