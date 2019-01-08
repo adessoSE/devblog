@@ -26,8 +26,7 @@ Die oben genannten Daten lassen sich ganz leicht auf der [GitHub-Profilseite](ht
 * Gibt es adessi, die beliebte GitHub-Projekte ins Leben gerufen haben?
 * Welches Organisationsmitglied hat diese Woche die meisten Commits geleistet?
 
-Zum Glück bietet GitHub eine API, die solche Informationen bereitstellt…  
-…und zum Glück haben wir ein Programm entwickelt, dass sich diese API zunutze macht, um alle möglichen spannenden Daten zu sammeln und aufzubereiten – Git-Intel!
+Zum Glück bietet GitHub eine API, die solche Informationen bereitstellt und wir haben eine Anwendung entwickelt, die sich diese API zunutze macht, um alle möglichen spannenden Daten zu sammeln und aufzubereiten – Git-Intel!
 
 # Das Konzept
 
@@ -36,9 +35,11 @@ Nutzer geben den Namen der Organisation ein, über die sie Informationen erhalte
 
 ![Benutzeroberfläche der Git-Intel-Anwendung](/assets/images/posts/gitintel/gitintel1.png)
   
-Die besondere Stärke von Git-Intel liegt darin, dass es die von der GitHub-API bereitgestellten Daten abfragen und so aufbereiten kann, dass relevante Informationen zu Organisationen, Mitarbeitern und Projekten übersichtlich präsentiert werden. So können beispielsweise Informationen bezüglich der Aktivitäten von Mitgliedern vergleichend dargestellt oder eine Übersicht über die Beteiligungen an organisationsfremden Projekten eingesehen werden.
+Die besondere Stärke von Git-Intel liegt darin, dass es die von der GitHub-API bereitgestellten Daten abfragen und so aufbereiten kann, dass relevante Informationen zu Organisationen, Mitarbeitern und Projekten übersichtlich präsentiert werden. So können beispielsweise Informationen bezüglich der Aktivitäten von Mitgliedern dargestellt oder eine Übersicht über die Beteiligungen an organisationsfremden Projekten eingesehen werden.
 
 Die von Git-Intel gesammelten Daten umfassen Informationen zu internen und externen Repositories, Mitglieder- und Teamzahlen, zeitliche Verläufe von aktivitäten in Form von Commits, Pull Requests und Issues, detaillierte Informationen zu Mitgliederaktivitäten und Weitere.
+
+Zu beachten ist hierbei, dass Git-Intel nur öffentliche Daten sammelt.
 
 # Die Funktionsweise
 
@@ -71,9 +72,12 @@ Damit die von Git-Intel gesammelten Daten möglichst aktuell sind, werden die Da
 
 # Die Technologien dahinter
 
-Zum jetzigen Zeitpunkt besteht Git-Intel aus den drei Hauptkomponenten Nutzeranwendung (Front-End), Systemlogik (Back-End) und Datenbank.  
-Das Back-End wurde durch eine Spring-Boot-Anwendung realisiert, welche das Zentrum für die Interaktion aller Komponenten darstellt. Es kommuniziert mit der GitHub-API, verarbeitet empfangene Daten, nimmt Anfragen des Front-Ends entgegen, speichert Daten in der Datenbank ab und liest diese entsprechend eingehender Anfragen auch wieder aus.  
-Das Front-End ist eine SPA (Single Page Application) auf Angular-Basis. Das Framework erlaubt es eine Anwendung zu gestalten, die die erfassten Daten übersichtlich und optisch ansprechend darstellt und relevante Zusammenhänge aufschlussreich präsentiert. Features, wie Routing und Tabs ermöglichen eine angenehme Navigation der Anwendung und tragen so zu einer ausgereiften User Experience bei.  
+Zum jetzigen Zeitpunkt besteht Git-Intel aus den drei Hauptkomponenten Nutzeranwendung (Front-End), Systemlogik (Back-End) und Datenbank.
+
+Das Back-End wurde durch eine Spring-Boot-Anwendung realisiert, welche das Zentrum für die Interaktion aller Komponenten darstellt. Es kommuniziert mit der GitHub-API, verarbeitet empfangene Daten, nimmt Anfragen des Front-Ends entgegen, speichert Daten in der Datenbank ab und liest diese entsprechend eingehender Anfragen auch wieder aus.
+
+Das Front-End ist eine SPA (Single Page Application) auf Angular-Basis. Das Framework erlaubt es eine Anwendung zu gestalten, die die erfassten Daten übersichtlich und optisch ansprechend darstellt und relevante Zusammenhänge aufschlussreich präsentiert. Features, wie Routing und Tabs ermöglichen eine angenehme Navigation der Anwendung und tragen so zu einer ausgereiften User Experience bei.
+
 Die Datenbank ist vom Typ MongoDB. Mit Hilfe der dokumentenbasierten Datenbank können Datensätze in JSON-ähnlichen Strukturen verwaltet werden, wodurch die Weitergabe der Daten zwischen den einzelnen Komponenten sehr leicht ist.
 
 Für das Sammeln der Daten wird die neue GitHub-API, mit dem Namen „GitHub GraphQL API v4“, konsumiert. Wie der Name bereits verrät, empfängt die neue API Abfragen, die der [GraphQL-Spezifikation](https://developer.github.com/v4/#what-is-graphql) entsprechen. Abfragen dieser Art sind in Form von Graphen strukturiert. Sie sind hierarchisch aufgebaut und entsprechen in etwa der Form der JSON-Daten, die sie zurückliefern.
@@ -100,18 +104,18 @@ Zum jetzigen Zeitpunkt ist Git-Intel nicht live, also auch nicht im Web zu errei
 Ihr habt natürlich dennoch die Möglichkeit die Anwendung lokal zu testen und daran herumzuschrauben.
 
 Der einfachste Weg, um auf der eigenen Maschine mit Git-Intel herumzuspielen, ist die Nutzung des Git-Intel-Docker-Builds.
-Mit Hilfe von Docker könnt ihr mittels eines einzigen Kommandos das Gesamte Projekt starten und nach Belieben mit der Nutzeranwendung interagieren.
+Mit Hilfe von Docker könnt ihr mittels eines einzigen Kommandos das Gesamte Projekt starten und nach Belieben mit der Nutzeranwendung interagieren. Eine Anleitung dazu, wie ihr Git-Intel-Docker installiert findet ihr [hier](https://github.com/adessoAG/Git-Intel-Spring).
 
-All diejenigen, die Interesse daran haben an dem Projekt herumzubasteln, können über die entsprechenden GitHub-Repositories auf die einzelnen Anwendungen zugreifen und sich diese auf ihren Rechner kopieren.
-
-Details zur Installation von Git-Intel findet ihr im [GitHub-Repository](https://github.com/adessoAG/Git-Intel-Spring).
+All diejenigen, die Interesse daran haben an dem Projekt herumzubasteln, können über die entsprechenden GitHub-Repositories auf die einzelnen Anwendungen zugreifen und sich diese auf ihren Rechner kopieren. Wie ihr die einzelnen Repositories nutzen könnt, um die Anwendung lokal zu bauen, findet ihr ebenfalls [hier](https://github.com/adessoAG/Git-Intel-Spring).
 
 # Die Zukunft von Git-Intel
 
-Ungeachtet seines Einsatzzweckes bietet Git-Intel eine spannende Möglichkeit, interessante Informationen zum Engagement von Organisationen in der Open-Source-Welt einzusehen.  
-Entwicklungen zeigen, dass große Unternehmen immer mehr Wert auf die aktive Beteiligung in der Open-Source-Community legen, was das Gebiet auch für andere Firmen interessant machen könnte.  
-Mit steigender Relevanz des Themas Open-Source wird es wohl auch interessant zu verfolgen, wie sich adesso auf diesem Gebiet entwickelt und im Vergleich zu anderen Unternehmen dasteht.  
+Git-Intel bietet eine spannende Möglichkeit, interessante Informationen zum Engagement von Organisationen in der Open-Source-Welt einzusehen.  
+Entwicklungen zeigen, dass große Unternehmen immer mehr Wert auf die aktive Beteiligung in der Open-Source-Community legen, was das Gebiet auch für andere Firmen interessant machen könnte. Mit steigender Relevanz des Themas Open-Source wird es wohl auch interessant zu verfolgen, wie sich adesso auf diesem Gebiet entwickelt und im Vergleich zu anderen Unternehmen dasteht.
+
 Die Informationen, die Git-Intel bereitstellt geben Aufschluss über die kurz- und langfristigen Entwicklungen von Unternehmen auf GitHub und geben einen spannenden Einblick in die Welt der Open-Source-Plattform aus ihrer Sicht.  
 Zur Zeit befindet sich das Projekt noch vor seinem ersten Release, doch wird dieser nicht mehr lange auf sich warten lassen.  
-Auf GitHub findet ihr das Projekt hier: https://github.com/adessoAG/Git-Intel-Spring.  
-Sollte euer Interesse geweckt worden sein, dann wendet euch mit Fragen und Anregungen gerne an [Frederik Schlemmer](mailto:frederik.schlemmer@adesso.de) oder mich, ([Dario Braun](mailto:dario.braun@adesso.de)).
+Ihr findet das Projekt auf [GitHub](https://github.com/adessoAG/Git-Intel-Spring) und sollte euer Interesse geweckt worden sein, dann wendet euch mit Fragen und Anregungen gerne an [Frederik Schlemmer](mailto:frederik.schlemmer@adesso.de) oder mich, [Dario Braun](mailto:dario.braun@adesso.de).
+
+Abbildungsnachweis:  
+https://medium.freecodecamp.org/the-top-contributors-to-github-2017-be98ab854e87
