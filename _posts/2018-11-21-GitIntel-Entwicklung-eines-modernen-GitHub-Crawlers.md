@@ -76,7 +76,7 @@ Zum jetzigen Zeitpunkt besteht Git-Intel aus den drei Hauptkomponenten Nutzeranw
 
 Das Back-End wurde durch eine Spring-Boot-Anwendung realisiert, welche das Zentrum für die Interaktion aller Komponenten darstellt. Es kommuniziert mit der GitHub-API, verarbeitet empfangene Daten, nimmt Anfragen des Front-Ends entgegen, speichert Daten in der Datenbank ab und liest diese entsprechend eingehender Anfragen auch wieder aus.
 
-Das Front-End ist eine SPA (Single Page Application) auf Angular-Basis. Das Framework erlaubt es eine Anwendung zu gestalten, die die erfassten Daten übersichtlich und optisch ansprechend darstellt und relevante Zusammenhänge aufschlussreich präsentiert. Features, wie Routing und Tabs ermöglichen eine angenehme Navigation der Anwendung und tragen so zu einer ausgereiften User Experience bei.
+Das Front-End ist eine SPA (Single Page Application) auf Angular-Basis. Das Framework erlaubt es eine Anwendung zu gestalten, die die erfassten Daten übersichtlich und optisch ansprechend darstellt und relevante Zusammenhänge aufschlussreich präsentiert. Features wie Routing und Tabs ermöglichen eine angenehme Navigation der Anwendung und tragen so zu einer ausgereiften User Experience bei.
 
 Die Datenbank ist vom Typ MongoDB. Mit Hilfe der dokumentenbasierten Datenbank können Datensätze in JSON-ähnlichen Strukturen verwaltet werden, wodurch die Weitergabe der Daten zwischen den einzelnen Komponenten sehr leicht ist.
 
