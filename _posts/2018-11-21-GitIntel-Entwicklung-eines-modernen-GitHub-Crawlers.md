@@ -37,7 +37,7 @@ Nutzer geben den Namen der Organisation ein, über die sie Informationen erhalte
   
 Die besondere Stärke von Git-Intel liegt darin, dass es die von der GitHub-API bereitgestellten Daten abfragen und so aufbereiten kann, dass relevante Informationen zu Organisationen, Mitarbeitern und Projekten übersichtlich präsentiert werden. So können beispielsweise Informationen bezüglich der Aktivitäten von Mitgliedern dargestellt oder eine Übersicht über die Beteiligungen an organisationsfremden Projekten eingesehen werden.
 
-Die von Git-Intel gesammelten Daten umfassen Informationen zu internen und externen Repositories, Mitglieder- und Teamzahlen, zeitliche Verläufe von aktivitäten in Form von Commits, Pull Requests und Issues, detaillierte Informationen zu Mitgliederaktivitäten und Weitere.
+Die von Git-Intel gesammelten Daten umfassen Informationen zu internen und externen Repositories, Mitglieder- und Teamzahlen, zeitliche Verläufe von Aktivitäten in Form von Commits, Pull Requests und Issues, detaillierte Informationen zu Mitgliederaktivitäten und Weitere.
 
 Zu beachten ist hierbei, dass Git-Intel nur öffentliche Daten sammelt.
 
@@ -101,12 +101,12 @@ Wer sich jetzt fragt „Warum nur die ersten hundert?“, ist gleich über den K
 # Git-Intel ausprobieren
 
 Zum jetzigen Zeitpunkt ist Git-Intel nicht live, also auch nicht im Web zu erreichen.
-Ihr habt natürlich dennoch die Möglichkeit die Anwendung lokal zu testen und daran herumzuschrauben.
+Ihr habt natürlich dennoch die Möglichkeit, die Anwendung lokal zu testen und daran herumzuschrauben.
 
 Der einfachste Weg, um auf der eigenen Maschine mit Git-Intel herumzuspielen, ist die Nutzung des Git-Intel-Docker-Builds.
-Mit Hilfe von Docker könnt ihr mittels eines einzigen Kommandos das Gesamte Projekt starten und nach Belieben mit der Nutzeranwendung interagieren. Eine Anleitung dazu, wie ihr Git-Intel-Docker installiert findet ihr [hier](https://github.com/adessoAG/Git-Intel-Spring).
+Mit Hilfe von Docker könnt ihr mittels eines einzigen Kommandos das gesamte Projekt starten und nach Belieben mit der Nutzeranwendung interagieren. Eine Anleitung dazu, wie ihr Git-Intel-Docker installiert findet ihr [hier](https://github.com/adessoAG/Git-Intel-Spring).
 
-All diejenigen, die Interesse daran haben an dem Projekt herumzubasteln, können über die entsprechenden GitHub-Repositories auf die einzelnen Anwendungen zugreifen und sich diese auf ihren Rechner kopieren. Wie ihr die einzelnen Repositories nutzen könnt, um die Anwendung lokal zu bauen, findet ihr ebenfalls [hier](https://github.com/adessoAG/Git-Intel-Spring).
+All diejenigen, die Interesse daran haben an dem Projekt mitzuwirken, können über die entsprechenden GitHub-Repositories auf die einzelnen Anwendungen zugreifen und sich diese auf ihren Rechner kopieren. Wie ihr die einzelnen Repositories nutzen könnt, um die Anwendung lokal zu bauen, erfahrt ihr ebenfalls [hier](https://github.com/adessoAG/Git-Intel-Spring).
 
 # Die Zukunft von Git-Intel
 
