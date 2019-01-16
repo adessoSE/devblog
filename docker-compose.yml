@@ -1,5 +1,5 @@
 jekyll:
-    image: jekyll/jekyll:3.5.2
+    image: jekyll/jekyll:3.8.5
     command: bash -c "bundle install && bundle exec jekyll build && jekyll serve --watch --incremental"
     ports:
         - 4000:4000
