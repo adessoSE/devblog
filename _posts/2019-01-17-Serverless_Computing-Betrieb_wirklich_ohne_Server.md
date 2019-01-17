@@ -84,7 +84,7 @@ während des Buildprozesses mit hinzugenommen, ist der JAR nahezu 20.000 kB gro�
 Bei der Ausführung als AWS Lambda ist der Speicherverbrauch während der Ausführung mit annähernd 100 MB nicht gerade klein. 
 Ohne den Overhead von Spring würde sich der benötigte Speicherverbrauch bei ca. 20 MB bewegen. Auch bei der Ausführungsdauer 
 kann man mit ca. 100 ms gegenüber von ca. 10 ms ausgehen. Siehe hierzu auch den folgenden Blog Beitrag auf [Developer Zone](https://dzone.com/articles/run-code-with-spring-cloud-function-on-aws-lambda) 
-und das [Einstiegstutorial von AWS Lambda] (https://docs.aws.amazon.com/de_de/lambda/latest/dg/get-started-create-function.html).
+und das [Einstiegstutorial zu AWS Lambda](https://docs.aws.amazon.com/de_de/lambda/latest/dg/get-started-create-function.html).
 
 Da die Ausführungsdauer und der Speicherverbrauch bei dem [Abrechnungsmodell von AWS Lambda](https://aws.amazon.com/de/lambda/pricing/#Free_Tier) 
 die abrechnungsrelevanten Faktoren sind, ist vor der produktiven Nutzung von Spring Cloud Functions abzuklären, ob die aus 
