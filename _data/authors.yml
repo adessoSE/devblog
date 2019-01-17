@@ -150,3 +150,12 @@ swindisch:
   bio: "Sascha Windisch ist Lösungs-Architekt bei adesso in Essen. Er plant und modelliert Software-Systeme in verschiedenen Branchen."
   avatar_url: /assets/images/avatars/swindisch.png
   github: https://github.com/swindisch
+
+hartmann42:
+  first_name: Andreas
+  last_name: Hartmann
+  github_username: hartmann42
+  email: hartmann@adesso.de
+  bio: "Andreas Hartmann ist Principal Software Architect und Mitglied des Technologiebeirates bei der adesso AG, Vortragender auf diversen Konferenzen und Autor verschiedener Fachartikel. Sein Tätigkeitsschwerpunkt liegt in der Konzeption und Implementierung von Softwarearchitekturen auf Basis der Java-Plattform. Seine aktuellen Interessensschwerpunkte sind effiziente Entwicklungsprozesse unter Einbezug von Virtualisierungslösungen wie Docker, Architekturen im Kontext von IoT und Portalen sowie NoSQL. "
+  avatar_url: /assets/images/avatars/hartmann42.jpg
+  github: https://github.com/hartmann42
