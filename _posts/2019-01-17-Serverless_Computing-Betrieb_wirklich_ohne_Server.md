@@ -24,7 +24,7 @@ Schaut man sich nun FaaS und Serverless Computing an, so wird man mit folgenden 
 * Die klar fokussierte fachliche Komplexität einer FaaS führt zu einer sehr guten Wartbarkeit. 
 * Eine FaaS ist prinzipiell stateless. Die ggf. notwendige Persistierung von Daten ist in einem externen System vorzunehmen.
 * Eine FaaS ist ereignisgetrieben und hat keinen laufenden Serverprozess. 
-* Bei der Ausführung einer FaaS wird jeweils eine neue Instanz erzeugt und nach der Ausführung verworfen. Die Ausführung einer FaaS kann z.B. mittels ein Http Request oder Event ausgelöst werden.  
+* Bei der Ausführung einer FaaS wird jeweils eine neue Instanz erzeugt und nach der Ausführung verworfen. Die Ausführung einer FaaS kann z.B. durch einen Http Request oder ein Event ausgelöst werden.  
 * FaaS Laufzeitumgebungen skalieren automatisch. Im Rahmen der Entwicklung und des Betriebs muss man sich zunächst keine Gedanken hinsichtlich der Skalierbarkeit machen. Dies übernimmt der Cloudprovider.
 * Serverless bedeutet in diesem Zusammenhang nicht, dass es keine Infrastruktur gibt, auf dem die Funktion ausgeführt wird. Vielmehr wird eine optimierte Laufzeitumgebung zur Ausführung der Funktionen von einem Cloudprovider zur Verfügung gestellt. 
 * Der Einsatz von FaaS bietet sich insbesondere bei deutlichen Schwankungen hinsichtlich des Nutzungsverhaltens an.
