@@ -38,7 +38,7 @@ Des Weiteren kann eine FaaS herkömmlich betrieben werden. Hierbei kommt dann ei
 zum Einsatz. Dies reduziert im Rahmen der Entwicklung die Aufwände, da diese on Premise durchgeführt werden kann und 
 lediglich die Tests und Produktion in der Cloud stattfinden.
 
-Zur Entwicklung einer FaaS können die bekannten Spring Boot Features wie die Konfiguration und das Dependency Injektion 
+Zur Entwicklung einer FaaS können die bekannten Spring Boot Features wie die Konfiguration und die Dependency Injektion 
 genutzt sowie mittels Spring Boot Actuator das Monitoring der FaaS durchgeführt werden. Darüber hinaus steht prinzipiell 
 das gesamte Spring Ökosystem zur Verfügung, um möglichst effizient eine FaaS umzusetzen. Aus Entwicklungssicht 
 unterscheidet sich somit die Programmierung einer FaaS nicht von der herkömmlichen Entwicklung mit Spring.
