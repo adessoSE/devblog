@@ -50,7 +50,7 @@ genutzt sowie mittels Spring Boot Actuator das Monitoring der FaaS durchgeführt
 das gesamte Spring Ökosystem zur Verfügung, um möglichst effizient eine FaaS umzusetzen. Aus Entwicklungssicht 
 unterscheidet sich somit die Programmierung einer FaaS nicht von der herkömmlichen Entwicklung mit Spring.
 
-Die einfachste Form ein FaaS mittels Spring Cloud Function besteht dabei aus dem eigentlich Startklasse, 
+Die einfachste Form ein FaaS mittels Spring Cloud Function besteht dabei aus der eigentlichen Startklasse, 
 siehe Application Klasse, und der FaaS Implementierung, siehe Greeter Klasse, selbst.
 
 ```java
