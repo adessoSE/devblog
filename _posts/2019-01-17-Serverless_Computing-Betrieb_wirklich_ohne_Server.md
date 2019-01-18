@@ -75,7 +75,7 @@ Auf den ersten Blick hat dieser Ansatz zahlreiche Vorteile. So kann im Rahmen de
 Programmiermodell mit dem umfangreichen Ökosystem eingesetzt werden. Auch das Thema polyglotte Ausführungsumgebungen 
 ist entsprechend berücksichtigt, da man die FaaS sowohl On Premise als auch auf ausgewählten Cloud Providern betreiben kann.
 
-Aus Sicht der Ausführungsdauer einer FaaS und der damit einhergehenden laufenden Kosten und der Ressourcen schonenden Nutzung 
+Aus Sicht der Ausführungsdauer einer FaaS und der damit einhergehenden laufenden Kosten und der ressourcenschonenden Nutzung 
 stellt es sich leider nicht so positiv dar. Um die FaaS auf einer Cloud Plattform betreiben zu können, sind alle eingesetzten 
 abhängigen Bibliotheken mit auszuliefern. Betrachtet man das oben aufgeführte Bsp. so ist der JAR File letztendlich wenige kB 
 groß, wenn die benötigten Bibliotheken nicht mit ausgeliefert werden. Werden diese jedoch mittels des Maven Shade Plugins 
