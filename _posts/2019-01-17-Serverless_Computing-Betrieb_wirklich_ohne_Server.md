@@ -1,7 +1,7 @@
 ---
 layout:         [post, post-xml]              
 title:          "Serverless Computing – Betrieb wirklich ohne Server"
-date:           2019-01-27 12:01
+date:           2019-01-18 12:00
 modified_date: 
 author:         hartmann42 
 categories:     [Java]
@@ -12,7 +12,14 @@ Nachdem Microservice basierte Architekturen sich zunehmend als Architekturansatz
 Anwendungslandschaften und der Modernisierung von Monolithen etabliert haben, baut sich bereits die nächste 
 Innovationswelle mit Function as a Service (FaaS) und Serverless Computing auf.
 
-Schaut man sich nun Function as a Service (FaaS) und Serverless Computing an, so wird man mit folgenden Aussagen konfrontiert:
+Function as a service (FaaS) gehört zum Bereich des Cloud Computing und ermöglicht es fachliche Funktionalität zur 
+Verfügung zu stellen ohne sich um den Aufbau und Betrieb der hierfür Infrastruktur kümmern zu müssen. Dies ermöglicht 
+es z.B. neue Geschäftsideen schnell umzusetzen und produktiv zu Stellen. Desweitern fördert es durch die klare 
+technische Trennung der einzelnen Funktionen eine entsprechend klare Umsetzung der einzelnen Domänen. Bei der 
+Modernisierung monolithischer IT Systeme ist dies ein nicht zu unterschätzender Aspekt .Ebenso bietet es sich zu 
+
+Auslagerung von besonders Rechenintensiven Funktionen in die Cloud an.
+Schaut man sich nun FaaS und Serverless Computing an, so wird man mit folgenden Aussagen konfrontiert:
 * Eine FaaS beinhaltet lediglich den Fachcode einer Funktion. 
 * Die klar fokussierte fachliche Komplexität einer FaaS führt zu einer sehr guten Wartbarkeit. 
 * Eine FaaS ist prinzipiell stateless. Die ggf. notwendige Persistierung von Daten ist in einem externen System vorzunehmen.
