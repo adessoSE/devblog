@@ -8,7 +8,7 @@ categories:     [Java]
 tags:           [Spring, FaaS, Architektur]
 ---
 
-Nach dem Microservice basierte Architekturen sich zunehmend als Architekturansatz der Wahl bei der Neuentwicklung von 
+Nachdem Microservice basierte Architekturen sich zunehmend als Architekturansatz der Wahl bei der Neuentwicklung von 
 Anwendungslandschaften und der Modernisierung von Monolithen etabliert haben, baut sich bereits die nächste 
 Innovationswelle mit Function as a Service (FaaS) und Serverless Computing auf.
 
