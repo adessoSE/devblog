@@ -14,7 +14,7 @@ Dazu kläre ich auf, wie Datenbankmanagementsysteme dazu verwendet werden könne
         <field name="tag_multi_keyword"><![CDATA[Datenbanken]]></field>
         <field name="date_date"><![CDATA[2018-11-29T12:00:00+01:00]]></field>
         <field name="date_l"><![CDATA[1543489200000]]></field>
-        <field name="change_date"><![CDATA[1543489200000]]></field>
+        <field name="change_date"><![CDATA[1544572800000]]></field>
         <!--Picture-->
         <!-- Not in use at the moment-->
         <!--Author Information-->
@@ -70,7 +70,7 @@ Einzelne Tabelleneinträge, sogenannte <strong>Tupel</strong>, können somit str
 Durch diese Strukturierung und mithilfe einiger intelligenter Kniffe lassen sich die oben genannten Probleme in den Griff bekommen.
 Unser sogenanntes <strong>Datenbankschema</strong>, welches hier nur aus einer Relation besteht, würde somit folgendermaßen aussehen.</p>
 
-<p><img src="assets/images/posts/Technische-Dinge-fuer-nichttechnische-Leute-DBMS/wissenschaftler.png" alt="Schema der Beispieldatenbank" /></p>
+<p><img src="/assets/images/posts/Technische-Dinge-fuer-nichttechnische-Leute-DBMS/wissenschaftler.png" alt="Schema der Beispieldatenbank" /></p>
 
 <h5 id="beschleunigung-der-suche-durch-indizes">Beschleunigung der Suche durch Indizes</h5>
 <p>Für das in <strong>(A)</strong> beschriebene Durchsuchen der Wissenschaftler nach Nachnamen würde in einem RDBMS ein Index angelegt, mit dem in kürzester Zeit die Stelle gefunden werden kann, an der sich ein Eintrag auf der Festplatte befindet.
@@ -87,7 +87,7 @@ Neu eingefügte Daten können einfach hintereinander in beliebiger Reihenfolge i
 Da außerdem ein Preis an mehrere Wissenschaftler verliehen werden kann, wird hier von einer <strong>many-to-many-Beziehung</strong> gesprochen.
 Daher müssen wir das Datenbankschema etwas anpassen:</p>
 
-<p><img src="assets/images/posts/Technische-Dinge-fuer-nichttechnische-Leute-DBMS/normalisiert.png" alt="Schema einer normalisierten Datenbank" /></p>
+<p><img src="/assets/images/posts/Technische-Dinge-fuer-nichttechnische-Leute-DBMS/normalisiert.png" alt="Schema einer normalisierten Datenbank" /></p>
 
 <p>Im Vergleich zum vorherigen Schema müssen hier nicht sämtliche Details der Auszeichnungen in der <em>Wissenschaftler</em>-Relation gespeichert werden.
 In unserem einfachen Beispiel betrifft das zwar nur den Namen, wir könnten aber in Zukunft weitere Informationen, wie <em>Institut, Preisgeld, Kategorie, Verleihungsjahr, Thema, …</em> hinzufügen wollen, wodurch die Liste im <em>Auszeichnungen</em>-Attribut sehr lang werden würde und jegliche Struktur verloren ging.
@@ -136,7 +136,7 @@ Eine entsprechende Anfrage könnte innerhalb unseres Beispiels etwa so aussehen:
   <li>Mit der <strong>WHERE</strong>-Operation legen wir schließlich noch fest, welche <strong>Tupel</strong> wir aus der Relation bekommen wollen. Hier sind dies alle Wissenschaftler, die den Nachnamen <em>Einstein</em> tragen.</li>
 </ol>
 
-<p><img src="assets/images/posts/Technische-Dinge-fuer-nichttechnische-Leute-DBMS/ergebnis.png" alt="Ergebnis der Anfrage" /></p>
+<p><img src="/assets/images/posts/Technische-Dinge-fuer-nichttechnische-Leute-DBMS/ergebnis.png" alt="Ergebnis der Anfrage" /></p>
 
 <p>In unserem minimalen Beispiel besteht das Ergebnis nur aus einem einzigen Tupel, es kann aber auch vorkommen, dass mehrere Tupel oder sogar die gesamte Relation im Ergebnis zurückgeliefert werden.
 Mit der SQL-Sprache lassen sich durch weitere Operationen noch sehr viel komplexere Anfragen stellen, sodass diese ein mächtiges Werkzeug zur Datenabfrage darstellt.</p>
