@@ -150,3 +150,13 @@ swindisch:
   bio: "Sascha Windisch ist Lösungs-Architekt bei adesso in Essen. Er plant und modelliert Software-Systeme in verschiedenen Branchen."
   avatar_url: /assets/images/avatars/swindisch.png
   github: https://github.com/swindisch
+
+dariobraun:
+  first_name: Dario
+  last_name: Braun
+  github_username: dariobraun
+  email: dario.braun@adesso.de
+  bio: "Dario Braun ist Werkstudent bei adesso in Dortmund und im Open-Source-Bereich tätig."
+  avatar_url: /assets/images/avatars/dariobraun.jpg
+  github: https://github.com/dariobraun
+
