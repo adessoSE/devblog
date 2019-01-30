@@ -26,17 +26,34 @@ Eine andere, wichtige Metrik ist die Startzeit einer Anwendung.
 Durch den Reflection-Ansatz von Spring sind Startzeiten jenseits der 20 Sekunden keine Seltenheit.
 Auch das ist besonders für Serverless-Anwendungen nicht hinnehmbar.
 
+# Was Micronaut unterscheidet
 Micronaut geht einen anderen Weg als Spring und kann damit einige der Performance-Einbußen wett machen.
-Besonders die Startzeit wird durch die Vermeidung von Reflection ungeheuer verringert, was Java-Entwicklern den Einstieg in die Serverless-Welt eröffnet.
+Besonders die Startzeit wird ungeheuer verringert, was Java-Entwicklern den Einstieg in die Serverless-Welt eröffnet.
 Aber auch der RAM-Verbrauch sinkt.
-Wie stark diese Verbesserungen sind, wollen wir uns jetzt einmal in einer einfachen Anwendung anschauen.
+
+Wie erreicht Micronaut diese Verbesserungen?
+Die Antwort liegt in der Kompilation.
+Spring durchsucht zur Laufzeit per Reflection den Classpath nach Beans, initialisiert diese und lädt sie dann dynamisch in den Application Context.
+Dann werden die Beans dort "injected", wo sie benötigt werden.
+Während das ein sehr einfacher Ansatz ist, verlängert er jedoch die Startzeit durch diesen Overhead.
+Micronaut hingegen verwendet "Annotation Processors", die die nötigen Informationen zur Compile-Zeit sammlen und Ahead-of-Time (AOT) die nötigen Transformationen für Dependency Injection und Aspect-Oriented-Programming erledigen.
+Dadurch verkürzt sich die Startzeit der Anwendung, erhöht jedoch die Compile-Zeit.
+Zudem fallen durch dieses Vorgehen etwaige Fehler wie eine nicht-zu-erfüllende Abhängigkeit schon zur Compile-Zeit auf.
+Zudem ist die Startzeit nicht abhängig von der Größe der Anwendung.
+Einmal kompiliert ist die Startzeit der Anwendung dadurch relativ konstant.
+
+Die Implikation dieses Reflection-vermeidenden Ansatzes ist natürlich, dass die Libraries, die zusätzlich zum Framework in die Anwendung einfließen, ebenfalls auf Reflection verzichten müssen.
+Das AOP-Framework AspectJ ist beispielsweise ungeeignet für Micronaut, weswegen Micronaut selbst eine AOP-Lösung bereitstellt.
+
+Wie stark die durch das Framework erzielten Verbesserungen sind, wollen wir uns jetzt einmal in einer einfachen Anwendung anschauen.
 
 # Die Spring-Anwendung
 Als Beispiel nehmen wir eine einfache Anwendung für einen Einkaufswagen.
-Per HTTP können wir Produkte in den Einkaufswagen ablegen oder wieder löschen.
+Per HTTP können wir Produkte in den Einkaufswagen abfragen, ablegen oder wieder löschen.
 Wir starten mit der Spring-Boot-Anwendung.
 Dazu gehen wir auf [https://start.spring.io/](https://start.spring.io/) und stellen uns zusammen, was wir brauchen: Eine Java 8 Anwendung mit Gradle und Spring Boot 2.1.2.
-Die Namen für Group und Artifact sind prinzipiell egal, ich wähle `com.example.myshop` und `shopping-cart`:
+Die Namen für Group und Artifact sind prinzipiell egal, ich wähle `com.example.myshop` und `shopping-cart`.
+Als Abhängigkeiten benötigen wir lediglich das Web-Paket.
 
 ![Die Spring Initializer Konfiguration](/assets/images/posts/micronaut/spring-initializer.png "Die Spring Initializer Konfiguration")
 
@@ -266,4 +283,4 @@ Schauen wir uns die Zahlen der Micronaut-Lösung an und vergleichen sie direkt m
 | Startzeit mit JVM  | ~5s       | ~3s       | <span style="color: green">-40,0% </span>|
 | RAM-Verbrauch      | 289,9 MiB | 194,4 MiB | <span style="color: green">-32,9% </span>|
 
-# Vergleich
+# Vergleich 
