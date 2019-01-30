@@ -283,4 +283,76 @@ Schauen wir uns die Zahlen der Micronaut-Lösung an und vergleichen sie direkt m
 | Startzeit mit JVM  | ~5s       | ~3s       | <span style="color: green">-40,0% </span>|
 | RAM-Verbrauch      | 289,9 MiB | 194,4 MiB | <span style="color: green">-32,9% </span>|
 
-# Vergleich 
+# Vergleich
+Der Vergleich mit Spring zeigt die Verbesserungen von Micronaut gegenüber Spring.
+Während zwar die Compile-Zeit nun signifikant länger ist, kann das Framework bei anderen Metriken mächtig punkten.
+Dabei ist zu beachten, dass die Startzeit je nach Größe der Anwendung bei Spring immer länger werden wird, während die Startzeit der Micronaut-Anwendung relativ konstant bleiben wird.
+
+# BONUS: GraalVM Native Image
+Als wir die Micronaut-Anwendung über das Kommandozeilen-Tool erstellt haben, haben wir dabei das Feature `graal-native-image` angegeben.
+Bei [GraalVM](https://www.graalvm.org/) handelt es sich um eine multi-language-Virtual-Machine, die von Oracle entwickelt wird.
+Dadurch erhalten wir die Möglichkeit, Code aus verschiedenen Sprachen innerhalb der gleichen Runtime laufen zu lassen.
+Aber das ist nur der Anfang: GraalVM bietet die Möglichkeit,Java-Anwendungen in native Binaries kompilieren zu lassen.
+Diese können dann ohne JVM oder GraalVM ausgeführt werden und sind besonders klein gehalten.
+Dieser Schritt wird nur möglich, wenn die Anwendung wenig bis gar keine Reflection benutzt.
+Daher eignet sich eine Micronaut-Anwendung ausgesprochen gut für den Einsatz mit GraalVM.
+
+Nachdem man GraalVM [installiert](https://www.graalvm.org/docs/getting-started/) hat, erhält man einen "JDK-Ersatz".
+Alle Programme wie `java` und `javac` sind enthalten und verhalten sich genau wie ihr ursprüngliches Gegenstück.
+Der Unterschied liegt darin, dass die Java-Programme nun in der GraalVM, nicht in der JVM ausgeführt werden.
+Jedoch liefert GraalVM zusätzlich zu den normalen JDK-Programmen ein Tool, welches die Kompilierung zu einer nativen Binary vornehmen kann.
+
+## Micronaut-Anwendung binär kompilieren
+Wir wollen dieses Tool bei unserer kleinen Micronaut-Anwendung einmal ausprobieren.
+Dazu installieren wir also GraalVM nach der offiziellen [Dokumentation](https://www.graalvm.org/docs/getting-started/).
+Wenn alles glatt lief, sollte die Version der GraalVM nun neben der Java-Version angezeigt werden:
+```sh
+$ java -version
+openjdk version "1.8.0_192"
+OpenJDK Runtime Environment (build 1.8.0_192-20181024121959.buildslave.jdk8u-src-tar--b12)
+GraalVM 1.0.0-rc11 (build 25.192-b12-jvmci-0.53, mixed mode)
+```
+
+Bei dieser Ausgabe sollten nun auch das Programm `native-image` über die Kommandozeile verfügbar sein.
+Die Micronaut-CLI hat uns bereits das Bash-Script `build-native-image.sh` generiert.
+Es enthält im Wesentlichen einen Gradle-Aufruf zur Generierung der JAR und den Aufruf von `native-image` mit einigen Flags, wie für die Generierung der nativen Binary nötig sind.
+Der Nachteil an diesem Verfahren: Es benötigt eine MENGE RAM.
+Wer nicht genug RAM bereitstellt, für den wird der Prozess mit dem ominösen Fehler 137 enden.
+Ich musste meiner Ubuntu-VM, die ich zur Entwicklung benutze, mindestens 16GB RAM zuweisen, damit es gelingen wollte.
+
+Wem es gelungen ist, der wird belohnt: Die erzeugte Binary lässt sich bequem ohne eine JVM starten:
+```bash
+$ ./shopping-cart-micronaut
+14:53:31.707 [main] INFO  io.micronaut.runtime.Micronaut - Startup completed in 16ms. Server Running: http://localhost:8080
+```
+
+16ms!
+Eine gigantische Reduzierung der Startzeit!
+Schauen wir uns die restlichen Metriken in der Tabelle an:
+|                    | Micronaut (JVM) | Graal Native Image | Unterschied                             |
+| ------------------ | --------------- | ------------------ | --------------------------------------- |
+| Compile-Zeit       | 10,5s           | 2,5min = 150s      | <span style="color: red">+1428,6%</span>|
+| Executable-Größe   | 11,3 MiB        | 41,2 MiB           | <span style="color: red"> +364,6%</span>|
+| Startzeit ohne JVM | 1,39s           | 16ms               | <span style="color: green">-98,8%</span>|
+| Startzeit mit JVM  | ~3s             | 16ms               | <span style="color: green">-99,4%</span>|
+| RAM-Verbrauch      | 194,4 MiB       | 23,5 MiB           | <span style="color: green">-87,9%</span>|
+
+Die Compile-Zeit ist verständlicherweise miserabel.
+Nicht nur, dass Micronaut die Beans zur Compile-Zeit auflöst.
+Darüber hinaus wird der resultierende Java-Bytecode in nativen Code übersetzt.
+Vorteil für Entwickler: Der Schritt muss lokal eigentlich nie ausgeführt werden.
+Während man lokal auch die Java-Version nutzen kann, führt lediglich der Build-Server den zeitfressenden Kompilierungsschritt aus.
+
+Auch der Größenunterschied ist nicht wirklich problematisch.
+Die JAR an sich ist zwar nur 11,3 MiB groß, jedoch benötigt man hierfür noch eine JRE, die noch einmal Platz verbraucht.
+Die Binary kommt auch ohne eine JRE aus.
+
+Besonders der geringe RAM-Verbrauch zeigt, wie wertvoll der Ansatz für die Serverless-Welt sein kann, in der jedes Megabyte RAM bares Geld kostet.
+
+## Als Docker-Image
+Wer Docker installiert hat, kann sich ein Image mit dem beiliegenden Dockerfile bauen:
+```bash
+$ docker build -t shopping-cart:graal .
+```
+Das Docker-Image ist mit 52,3 MiB marginal größer als die Binary, während das kleinste Docker-Image mit einer JRE (`openjdk:8-jre-alpine`) bereits 83,1 MiB groß ist.
+Wer also ein Docker-Image als Deployable-Artifact ausliefert, spart über 40 MiB ein.
