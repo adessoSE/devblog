@@ -247,6 +247,7 @@ public class ShoppingCartController {
 ```
 Kommt einem sehr bekannt vor!
 Micronaut will den Entwicklern kein neues Programmiermodell aufzwingen, weshalb der "reine" Java-Code identisch mit dem der Spring-Lösung ist.
+Tatsächlich gibt es ein [Projekt](https://github.com/micronaut-projects/micronaut-spring), welches das Ziel hat, Spring-Annotationen in Micronaut verfügbar zu machen.
 Es ändert jedoch einige Namen der Annotationen.
 Aus `@RestController` wird `@Controller`, aus `@GetMapping` wird `@Get` usw.
 Auch den Service, den wir über das Kommandozeilen-Tool erstellt haben, können wir fast genau so übernehmen.
@@ -356,3 +357,17 @@ $ docker build -t shopping-cart:graal .
 ```
 Das Docker-Image ist mit 52,3 MiB marginal größer als die Binary, während das kleinste Docker-Image mit einer JRE (`openjdk:8-jre-alpine`) bereits 83,1 MiB groß ist.
 Wer also ein Docker-Image als Deployable-Artifact ausliefert, spart über 40 MiB ein.
+
+# Fazit
+Das noch junge Framework Micronaut bietet Java-Entwicklern die Möglichkeit, schlanke und schnelle Anwendungen für die Cloud zu schreiben, ohne dabei auf das vertraute Programmiermodell von Spring zu verzichten oder gar auf eine andere Programmiersprache wie Go umsatteln zu müssen.
+
+Sollten wir also alle Micronaut verwenden und Spring abschreiben?
+Meiner Meinung nach ist es noch nicht so weit.
+Bei der Entscheidung, welches Framework man für eine größere Anwendung verwenden will, kommt es nicht nur auf die Performance an.
+Auch die Community und Lehrmaterialien müssen stimmig sein und da hängt Micronaut noch hinterher.
+Bei den meisten Projekten auf Github handelt es sich um kleinere Beispielanwendungen wie die, die wir in diesem Artikel geschrieben haben.
+Wie sich das Framework bei einer großen monolithischen Anwendung verhält, ist also noch ungewiss.
+
+Dennoch ist Micronaut einen Blick wert für kleine Anwendungen, gerade im schon so oft erwähnten Serverless-Umfeld.
+Und nicht zuletzt ist Wettbewerb gut für den Markt.
+Vielleicht halten ja einige Ideen der Micronaut-Entwickler Einzug ins Spring Framework.
