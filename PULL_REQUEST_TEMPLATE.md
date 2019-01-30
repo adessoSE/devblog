@@ -5,7 +5,7 @@ Wenn du einen Pull-Request stellst, teile uns bitte deine Änderungen mit, indem
 - **Meta** (abzuhaken durch den Autor)
   - [ ] [Artikeldatei am richtigen Ort abgelegt](https://github.com/adessoAG/devblog/blob/master/examples/2017-08-10-blog-post-guide.md#dateiname-und-ablageort)
   - [ ] [Autoreninfo gepflegt](https://github.com/adessoAG/devblog/blob/master/examples/2017-08-10-blog-post-guide.md#autoren-informationen)
-  - [Metadaten gepflegt:](https://github.com/adessoAG/devblog/blob/master/examples/2017-08-10-blog-post-guide.md#metadaten)
+  - [ ] [Metadaten gepflegt:](https://github.com/adessoAG/devblog/blob/master/examples/2017-08-10-blog-post-guide.md#metadaten)
     - [ ] "title" vergeben
     - [ ] "author" angegeben
     - [ ] "categories" enthält maximal eine der Hauptkategorien (Java, Microsoft, Methodik, Architekturen, Softwareentwicklung, Business & People)
@@ -21,7 +21,7 @@ Wenn du einen Pull-Request stellst, teile uns bitte deine Änderungen mit, indem
   - [ ] Rechtschreibung korrigiert
   - [ ] Der Artikel wurde in der [Vorschau](https://github.com/adessoAG/devblog/blob/master/examples/2017-08-10-blog-post-guide.md#online-preview) geprüft 
   - [ ] CCO wurde über neuen Artikel informiert
-  - Date-Angaben 
+  - [ ] Date-Angaben 
     - [ ] stimmen im Header und im Dateinamen überein
     - [ ] stehen auf dem heutigen Tag (aber in der Vergangenheit)
 
