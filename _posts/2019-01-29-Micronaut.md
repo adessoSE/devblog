@@ -12,8 +12,8 @@ In diesem Blog-Artikel soll es um Micronaut gehen, ein noch vergleichsweise jung
 Wir implementieren in diesem Artikel eine Anwendung einmal mit Spring Boot und einmal mit Micronaut.
 Danach vergleichen wir die beiden Ansätze und schauen, wo welches Framework überlegen ist.
 
-Entwickelt wird das [Micronaut-Framework](http://micronaut.io) von [OCI](https://objectcomputing.com/), genauer gesagt unter der Federführung von Graeme Rocher, der schon das Grails Framework ins Leben gerufen hat.
-Sowohl die Erfahrungen mit Grails als auch mit Spring sind in Micronaut eingeflossen.
+Entwickelt wird das [Micronaut-Framework](http://micronaut.io) von [OCI](https://objectcomputing.com/), genauer gesagt unter der Federführung von [Graeme Rocher](https://twitter.com/graemerocher), der schon das [Grails](https://grails.org/) Framework ins Leben gerufen hat.
+Sowohl die Erfahrungen mit Spring als auch mit Grails sind in Micronaut eingeflossen.
 Das Framework beschreibt sich selbst als "modernes, JVM-basiertes Full-Stack-Framework um modulare, einfach zu testende Microservices- und Serverless-Anwendungen zu bauen".
 In dieser Beschreibung liegt auch schon der wesentliche Unterschied zum Spring Framework: Es legt den Fokus auf Microservices und Serverless-Anwendung, womit sich JVM-Frameworks aktuell noch eher schwer tun.
 
@@ -35,12 +35,12 @@ Wie erreicht Micronaut diese Verbesserungen?
 Die Antwort liegt in der Kompilation.
 Spring durchsucht zur Laufzeit per Reflection den Classpath nach Beans, initialisiert diese und lädt sie dann dynamisch in den Application Context.
 Dann werden die Beans dort "injected", wo sie benötigt werden.
-Während das ein sehr einfacher Ansatz ist, verlängert er jedoch die Startzeit durch diesen Overhead.
+Während das ein sehr einfacher und erprobter Ansatz ist, verlängert er jedoch die Startzeit durch diesen Overhead.
 Micronaut hingegen verwendet "Annotation Processors", die die nötigen Informationen zur Compile-Zeit sammlen und Ahead-of-Time (AOT) die nötigen Transformationen für Dependency Injection und Aspect-Oriented-Programming erledigen.
 Dadurch verkürzt sich die Startzeit der Anwendung, erhöht jedoch die Compile-Zeit.
 Zudem fallen durch dieses Vorgehen etwaige Fehler wie eine nicht-zu-erfüllende Abhängigkeit schon zur Compile-Zeit auf.
-Zudem ist die Startzeit nicht abhängig von der Größe der Anwendung.
-Einmal kompiliert ist die Startzeit der Anwendung dadurch relativ konstant.
+Außerdem ist die Startzeit nicht abhängig von der Größe der Anwendung.
+Einmal kompiliert ist die Startzeit dadurch relativ konstant.
 
 Die Implikation dieses Reflection-vermeidenden Ansatzes ist natürlich, dass die Libraries, die zusätzlich zum Framework in die Anwendung einfließen, ebenfalls auf Reflection verzichten müssen.
 Das AOP-Framework AspectJ ist beispielsweise ungeeignet für Micronaut, weswegen Micronaut selbst eine AOP-Lösung bereitstellt.
@@ -180,12 +180,13 @@ $ ./gradlew bootJar
 
 ## Resourcenverbrauch
 Schauen wir uns nun die nackten Zahlen an:
-|               | Spring    | Micronaut |
-| ------------- | --------  | --------- |
-| Compile-Zeit  | 1937ms    | ?         |
-| JAR-Größe     | 15,2 MiB  | ?         |
-| Startzeit     | ~5s       | ?         |
-| RAM-Verbrauch | 289,9 MiB | ?         |
+|                    | Spring    | Micronaut |
+| -------------      | --------  | --------- |
+| Compile-Zeit       | 1937ms    | ?         |
+| JAR-Größe          | 15,2 MiB  | ?         |
+| Startzeit ohne JVM | 3,72s     | ?         |
+| Startzeit mit JVM  | ~5s       | ?         |
+| RAM-Verbrauch      | 289,9 MiB | ?         |
 
 Als Compile-Zeit nehmen wir die Zeit für den Gradle Task `bootJar` nach einem vorherigen `./gradlew clean`.
 Die Startzeit beträgt laut Spring-Ausgabe 3,72 Sekunden. Die tatsächliche Startzeit enthält zusätlich noch die Startzeit der JVM, was in Summe in etwa 5 Sekunden resultiert.
@@ -201,7 +202,7 @@ Mit dem Tool `mn` können wir nun die Anwendung erstellen:
 $ mn
 ```
 
-Nun landen wir in einer Shell, wo uns einige Micronaut-spezifische Befehle zur Verfügung stehen (dazu später mehr).
+Nun landen wir in einer Shell, wo uns einige Micronaut-spezifische Befehle zur Verfügung stehen.
 Wir erstellen eine neue Anwendung im aktuellen Verzeichnis mit `create-app`.
 Wenn wir dahinter noch `--features=` eingeben und ein mal auf TAB drücken, bekommen wir eine Übersicht über die zusätzlichen Features, die Micronaut mitliefert.
 Darunter finden sich auch die JVM-Sprachen Groovy und Kotlin, sowie mehrere Projekte aus dem Netflix-Stack für Microservices.
@@ -265,10 +266,10 @@ public class ShoppingCartController {
 Kommt einem sehr bekannt vor!
 Micronaut will den Entwicklern kein neues Programmiermodell aufzwingen, weshalb der "reine" Java-Code identisch mit dem der Spring-Lösung ist.
 Tatsächlich gibt es ein [Projekt](https://github.com/micronaut-projects/micronaut-spring), welches das Ziel hat, Spring-Annotationen in Micronaut verfügbar zu machen.
-Es ändert jedoch einige Namen der Annotationen.
+Das Framework ändert jedoch einige Namen der Annotationen.
 Aus `@RestController` wird `@Controller`, aus `@GetMapping` wird `@Get` usw.
 Auch den Service, den wir über das Kommandozeilen-Tool erstellt haben, können wir fast genau so übernehmen.
-Aus `@Service` wird hier `@Singleton`, wie wir Template erkennen können, welches wir zuvor durch das Kommandozeilen-Tool erstellt haben.
+Aus `@Service` wird hier `@Singleton`, wie wir dem Template erkennen können, welches wir zuvor durch das Kommandozeilen-Tool erstellt haben.
 Der Rest des Java-Codes bleibt hier ebenfalls gleich.
 
 Das Produkt-POJO unterscheidet sich etwas von seinem Spring-Pendant:
@@ -305,7 +306,6 @@ Schauen wir uns die Zahlen der Micronaut-Lösung an und vergleichen sie direkt m
 | Startzeit mit JVM  | ~5s       | ~3s       | <span style="color: green">-40,0% </span>|
 | RAM-Verbrauch      | 289,9 MiB | 194,4 MiB | <span style="color: green">-32,9% </span>|
 
-# Vergleich
 Der Vergleich mit Spring zeigt die Verbesserungen von Micronaut gegenüber Spring.
 Während zwar die Compile-Zeit nun signifikant länger ist, kann das Framework bei anderen Metriken mächtig punkten.
 Dabei ist zu beachten, dass die Startzeit je nach Größe der Anwendung bei Spring immer länger werden wird, während die Startzeit der Micronaut-Anwendung relativ konstant bleiben wird.
@@ -314,8 +314,8 @@ Dabei ist zu beachten, dass die Startzeit je nach Größe der Anwendung bei Spri
 Als wir die Micronaut-Anwendung über das Kommandozeilen-Tool erstellt haben, haben wir dabei das Feature `graal-native-image` angegeben.
 Bei [GraalVM](https://www.graalvm.org/) handelt es sich um eine multi-language-Virtual-Machine, die von Oracle entwickelt wird.
 Dadurch erhalten wir die Möglichkeit, Code aus verschiedenen Sprachen innerhalb der gleichen Runtime laufen zu lassen.
-Aber das ist nur der Anfang: GraalVM bietet die Möglichkeit,Java-Anwendungen in native Binaries kompilieren zu lassen.
-Diese können dann ohne JVM oder GraalVM ausgeführt werden und sind besonders klein gehalten.
+Aber das ist nur der Anfang: GraalVM bietet die Möglichkeit, Java-Anwendungen in native Binaries kompilieren zu lassen.
+Diese können dann ohne JVM oder GraalVM ausgeführt werden.
 Dieser Schritt wird nur möglich, wenn die Anwendung wenig bis gar keine Reflection benutzt.
 Daher eignet sich eine Micronaut-Anwendung ausgesprochen gut für den Einsatz mit GraalVM.
 
@@ -335,12 +335,12 @@ OpenJDK Runtime Environment (build 1.8.0_192-20181024121959.buildslave.jdk8u-src
 GraalVM 1.0.0-rc11 (build 25.192-b12-jvmci-0.53, mixed mode)
 ```
 
-Bei dieser Ausgabe sollten nun auch das Programm `native-image` über die Kommandozeile verfügbar sein.
-Die Micronaut-CLI hat uns bereits das Bash-Script `build-native-image.sh` generiert.
+Jetzt sollte auch das Programm `native-image` über die Kommandozeile verfügbar sein.
+Die Micronaut-CLI hat uns bereits das Bash-Script `build-native-image.sh` in unserem Projektverzeichnis generiert.
 Es enthält im Wesentlichen einen Gradle-Aufruf zur Generierung der JAR und den Aufruf von `native-image` mit einigen Flags, wie für die Generierung der nativen Binary nötig sind.
 Der Nachteil an diesem Verfahren: Es benötigt eine MENGE RAM.
 Wer nicht genug RAM bereitstellt, für den wird der Prozess mit dem ominösen Fehler 137 enden.
-Ich musste meiner Ubuntu-VM, die ich zur Entwicklung benutze, mindestens 16GB RAM zuweisen, damit es gelingen wollte.
+16GB RAM sollten mindestens vorhanden sein.
 
 Wem es gelungen ist, der wird belohnt: Die erzeugte Binary lässt sich bequem ohne eine JVM starten:
 ```bash
@@ -363,11 +363,11 @@ Die Compile-Zeit ist verständlicherweise miserabel.
 Nicht nur, dass Micronaut die Beans zur Compile-Zeit auflöst.
 Darüber hinaus wird der resultierende Java-Bytecode in nativen Code übersetzt.
 Vorteil für Entwickler: Der Schritt muss lokal eigentlich nie ausgeführt werden.
-Während man lokal auch die Java-Version nutzen kann, führt lediglich der Build-Server den zeitfressenden Kompilierungsschritt aus.
+Während man lokal auch die Java-Version zum Testen nutzen kann, führt lediglich der Build-Server den zeitfressenden Kompilierungsschritt aus.
 
 Auch der Größenunterschied ist nicht wirklich problematisch.
 Die JAR an sich ist zwar nur 11,3 MiB groß, jedoch benötigt man hierfür noch eine JRE, die noch einmal Platz verbraucht.
-Die Binary kommt auch ohne eine JRE aus.
+Die Binary kommt auch ohne eine JRE aus und kann so ausgeliefert werden.
 
 Besonders der geringe RAM-Verbrauch zeigt, wie wertvoll der Ansatz für die Serverless-Welt sein kann, in der jedes Megabyte RAM bares Geld kostet.
 
