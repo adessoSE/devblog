@@ -155,19 +155,28 @@ public class Product {
 
 ## Befehle
 Die Anwendung lässt sich mit folgendem Befehl über die Kommandozeile oder über die IDE starten:
-> `$ ./gradlew bootRun`
+```bash
+$ ./gradlew bootRun
+```
 
 Zum Erstellen eines Produkts:
-> `$ curl -X POST -H "Content-Type: application/json" -d '{"id": 1, "description": "Tricorder"}' http://localhost:8080/shoppingCart`
+```bash
+$ curl -X POST -H "Content-Type: application/json" -d '{"id": 1, "description": "Tricorder"}' http://localhost:8080/shoppingCart
+```
 
 Zum Abfragen der Liste:
-> `$ curl http://localhost:8080/shoppingCart`
+```bash
+$ curl http://localhost:8080/shoppingCart`
+```
 
 Zum Löschen:
-> `$ curl -X DELETE -H "Content-Type: application/json" -d '{"id": 1}' http://localhost:8080/shoppingCart`
-
+```bash
+$ curl -X DELETE -H "Content-Type: application/json" -d '{"id": 1}' http://localhost:8080/shoppingCart
+```
 Wir können eine ausführbare JAR-Datei mit folgendem Befehl generieren:
-> `$ ./gradlew bootJar`
+```bash
+$ ./gradlew bootJar
+```
 
 ## Resourcenverbrauch
 Schauen wir uns nun die nackten Zahlen an:
@@ -188,7 +197,9 @@ Anders als bei Spring Boot kommt Micronaut mit einem Kommandozeilen-Tool daher, 
 Für die Installation sei auf die offizielle Micronaut-Seite verwiesen: http://micronaut.io/download.html.
 
 Mit dem Tool `mn` können wir nun die Anwendung erstellen:
-> `$ mn`
+```bash
+$ mn
+```
 
 Nun landen wir in einer Shell, wo uns einige Micronaut-spezifische Befehle zur Verfügung stehen (dazu später mehr).
 Wir erstellen eine neue Anwendung im aktuellen Verzeichnis mit `create-app`.
@@ -197,7 +208,9 @@ Darunter finden sich auch die JVM-Sprachen Groovy und Kotlin, sowie mehrere Proj
 Für's erste begnügen wir uns mit den Standard-Einstellungen bis auf eine "Kleinigkeit": GraalVM Native Image.
 Worum es sich dabei handelt, dazu später mehr.
 Wir erstellen das Projekt mit diesem Befehl:
-> `mn> create-app --features=graal-native-image com.example.myshop.shoppingcart.shopping-cart-micronaut` 
+```bash
+mn> create-app --features=graal-native-image com.example.myshop.shoppingcart.shopping-cart-micronaut
+```
 
 Mit `exit` können wir die Shell verlassen, um dann in den just erstellten Ordner zu welchseln und dort wieder `mn` auszuführen.
 Nun können wir direkt mit der Programmierung anfangen.
@@ -205,11 +218,15 @@ Nun können wir direkt mit der Programmierung anfangen.
 ## Der Code
 Beginnen wir wieder mit dem Controller.
 Noch in der Micronaut-Shell geben wir den Befehl zur Erstellung des Controllers ein:
-> `mn> create-controller ShoppingCart`
+```bash
+mn> create-controller ShoppingCart
+```
 
 Dies erstellt sowohl den Controller als auch einen dazugehörigen Test und erspart uns etwas Zeit, da wir die Dateien nicht von Hand selbst erstellen müssen.
 Und da wir gerade dabei sind erstellen wir die Service-Bean gleich mit:
-> `mn> create-bean ShoppingCartService`
+```bash
+mn> create-bean ShoppingCartService
+```
 
 Nun an den Code für unseren Controller:
 ```java
@@ -267,10 +284,14 @@ Der Konstruktor benötigt in den Argumenten die `@JsonProperty`-Annotation, um e
 
 ## Befehle
 Die Anwendung lässt sich mit diesem Befehl starten:
-> `$ ./gradlew run`
+```bash
+$ ./gradlew run
+```
 
 Eine ausführbare JAR-Datei erzeugen wir mit:
-> `$ ./gradlew assemble`
+```bash
+$ ./gradlew assemble
+```
 
 Die cURL-Befehle sind identisch mit denen der Spring-Version.
 
