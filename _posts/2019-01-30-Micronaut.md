@@ -180,13 +180,40 @@ $ ./gradlew bootJar
 
 ## Resourcenverbrauch
 Schauen wir uns nun die nackten Zahlen an:
-|                    | Spring    | Micronaut |
-| -------------      | --------  | --------- |
-| Compile-Zeit       | 1937ms    | ?         |
-| JAR-Größe          | 15,2 MiB  | ?         |
-| Startzeit ohne JVM | 3,72s     | ?         |
-| Startzeit mit JVM  | ~5s       | ?         |
-| RAM-Verbrauch      | 289,9 MiB | ?         |
+<table>
+    <thead>
+        <tr>
+            <th></th>
+            <th>Spring</th>
+            <th> Micronaut</th>
+        </tr>
+    </thead>
+    <tr>
+        <td>Compile-Zeit</td>
+        <td>1937ms</td>
+        <td>?</td>
+    </tr>
+    <tr>
+        <td>JAR-Größe</td>
+        <td>15,2 MiB</td>
+        <td>?</td>
+    </tr>
+    <tr>
+        <td>Startzeit ohne JVM</td>
+        <td>3,72s</td>
+        <td>?</td>
+    </tr>
+    <tr>
+        <td>Startzeit mit JVM</td>
+        <td>~5s</td>
+        <td>?</td>
+    </tr>
+    <tr>
+        <td>RAM-Verbrauch</td>
+        <td>289,9 MiB</td>
+        <td>?</td>
+    </tr>
+</table>
 
 Als Compile-Zeit nehmen wir die Zeit für den Gradle Task `bootJar` nach einem vorherigen `./gradlew clean`.
 Die Startzeit beträgt laut Spring-Ausgabe 3,72 Sekunden. Die tatsächliche Startzeit enthält zusätlich noch die Startzeit der JVM, was in Summe in etwa 5 Sekunden resultiert.
@@ -298,14 +325,48 @@ Die cURL-Befehle sind identisch mit denen der Spring-Version.
 
 ## Resourcenverbrauch
 Schauen wir uns die Zahlen der Micronaut-Lösung an und vergleichen sie direkt mit den Zahlen der Spring-Lösung:
-|                    | Spring    | Micronaut | Unterschied |
-| -------------      | --------  | --------- | ----------- |
-| Compile-Zeit       | 1937ms    | 10,5s     | <span style="color: red">  +442%  </span>|
-| JAR-Größe          | 15,2 MiB  | 11,3 MiB  | <span style="color: green">-25,6% </span>|
-| Startzeit ohne JVM | 3,72s     | 1,39s     | <span style="color: green">-62,6% </span>|
-| Startzeit mit JVM  | ~5s       | ~3s       | <span style="color: green">-40,0% </span>|
-| RAM-Verbrauch      | 289,9 MiB | 194,4 MiB | <span style="color: green">-32,9% </span>|
-
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Spring</th>
+<th>Micronaut</th>
+<th>Unterschied</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Compile-Zeit</td>
+<td>1937ms</td>
+<td>10,5s</td>
+<td><span style="color: red">  +442%  </span></td>
+</tr>
+<tr>
+<td>JAR-Größe</td>
+<td>15,2 MiB</td>
+<td>11,3 MiB</td>
+<td><span style="color: green">-25,6% </span></td>
+</tr>
+<tr>
+<td>Startzeit ohne JVM</td>
+<td>3,72s</td>
+<td>1,39s</td>
+<td><span style="color: green">-62,6% </span></td>
+</tr>
+<tr>
+<td>Startzeit mit JVM</td>
+<td>~5s</td>
+<td>~3s</td>
+<td><span style="color: green">-40,0% </span></td>
+</tr>
+<tr>
+<td>RAM-Verbrauch</td>
+<td>289,9 MiB</td>
+<td>194,4 MiB</td>
+<td><span style="color: green">-32,9% </span></td>
+</tr>
+</tbody>
+</table>
 Der Vergleich mit Spring zeigt die Verbesserungen von Micronaut gegenüber Spring.
 Während zwar die Compile-Zeit nun signifikant länger ist, kann das Framework bei anderen Metriken mächtig punkten.
 Dabei ist zu beachten, dass die Startzeit je nach Größe der Anwendung bei Spring immer länger werden wird, während die Startzeit der Micronaut-Anwendung relativ konstant bleiben wird.
@@ -351,13 +412,48 @@ $ ./shopping-cart-micronaut
 16ms!
 Eine gigantische Reduzierung der Startzeit!
 Schauen wir uns die restlichen Metriken in der Tabelle an:
-|                    | Micronaut (JVM) | Graal Native Image | Unterschied                             |
-| ------------------ | --------------- | ------------------ | --------------------------------------- |
-| Compile-Zeit       | 10,5s           | 2,5min = 150s      | <span style="color: red">+1428,6%</span>|
-| Executable-Größe   | 11,3 MiB        | 41,2 MiB           | <span style="color: red"> +364,6%</span>|
-| Startzeit ohne JVM | 1,39s           | 16ms               | <span style="color: green">-98,8%</span>|
-| Startzeit mit JVM  | ~3s             | 16ms               | <span style="color: green">-99,4%</span>|
-| RAM-Verbrauch      | 194,4 MiB       | 23,5 MiB           | <span style="color: green">-87,9%</span>|
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Micronaut (JVM)</th>
+<th>Graal Native Image</th>
+<th>Unterschied</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Compile-Zeit</td>
+<td>10,5s</td>
+<td>2,5min = 150s</td>
+<td><span style="color: red">+1428,6%</span></td>
+</tr>
+<tr>
+<td>Executable-Größe</td>
+<td>11,3 MiB</td>
+<td>41,2 MiB</td>
+<td><span style="color: red"> +364,6%</span></td>
+</tr>
+<tr>
+<td>Startzeit ohne JVM</td>
+<td>1,39s</td>
+<td>16ms</td>
+<td><span style="color: green">-98,8%</span></td>
+</tr>
+<tr>
+<td>Startzeit mit JVM</td>
+<td>~3s</td>
+<td>16ms</td>
+<td><span style="color: green">-99,4%</span></td>
+</tr>
+<tr>
+<td>RAM-Verbrauch</td>
+<td>194,4 MiB</td>
+<td>23,5 MiB</td>
+<td><span style="color: green">-87,9%</span></td>
+</tr>
+</tbody>
+</table>
 
 Die Compile-Zeit ist verständlicherweise miserabel.
 Nicht nur, dass Micronaut die Beans zur Compile-Zeit auflöst.
