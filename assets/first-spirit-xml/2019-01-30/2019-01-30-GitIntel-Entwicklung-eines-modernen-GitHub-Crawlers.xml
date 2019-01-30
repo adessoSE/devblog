@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<documents>
+    <document uid="457f6482c9247a11dad1777c578ba76d">
+        <field name="title"><![CDATA[Git-Intel - Entwicklung eines modernen GitHub-Crawlers]]></field>
+        <field name="subline"><![CDATA[]]></field>
+        <field name="teaser"><![CDATA[<p>Wer sich in letzter Zeit mit dem Thema Open-Source auseinandergesetzt hat, wird festgestellt haben, dass der Hype um das Konzept und die dazugehörigen Plattformen kaum nachgelassen hat. Viele große Unternehmen werden zunehmend aktiv und lassen ihre Mitarbeiter auf GitHub und Co. los, um Projekte zu entwickeln, die der Öffentlichkeit frei zur Verfügung stehen. Wir haben einen GitHub-Crawler entwickelt, der euch alle interessanten Informationen zu Organisationen auf GitHub liefert - Git-Intel!</p>
+
+]]></field>
+        <field name="language_multi_keyword"><![CDATA[de]]></field>
+        <field name="content_type_multi_keyword"><![CDATA[blog]]></field>
+        <field name="mime_type_multi_keyword"><![CDATA[text/html]]></field>
+        <field name="category_multi_keyword"><![CDATA[Softwareentwicklung]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Spring]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Angular]]></field>
+        <field name="tag_multi_keyword"><![CDATA[GitHub]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Open Source]]></field>
+        <field name="tag_multi_keyword"><![CDATA[SPA]]></field>
+        <field name="date_date"><![CDATA[2019-01-30T15:00:00+01:00]]></field>
+        <field name="date_l"><![CDATA[1548856800000]]></field>
+        <field name="change_date"><![CDATA[1548806400000]]></field>
+        <!--Picture-->
+        <!-- Not in use at the moment-->
+        <!--Author Information-->
+        <field name="author_first_name"><![CDATA[Dario]]></field>
+        <field name="author_last_name"><![CDATA[Braun]]></field>
+        <field name="author_id"><![CDATA[dariobraun]]></field>
+        <field name="author_picture_stored_only"><![CDATA[http://localhost:4000/assets/images/avatars/dariobraun.jpg]]></field>
+        <!--Postcontent-->
+        <field name="headlines"><![CDATA[Git-Intel - Entwicklung eines modernen GitHub-Crawlers]]></field>
+        <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
+            <p>Wer sich in letzter Zeit mit dem Thema Open-Source auseinandergesetzt hat, wird festgestellt haben, dass der Hype um das Konzept und die dazugehörigen Plattformen kaum nachgelassen hat. Viele große Unternehmen werden zunehmend aktiv und lassen ihre Mitarbeiter auf GitHub und Co. los, um Projekte zu entwickeln, die der Öffentlichkeit frei zur Verfügung stehen. Wir haben einen GitHub-Crawler entwickelt, der euch alle interessanten Informationen zu Organisationen auf GitHub liefert - Git-Intel!</p>
+
+</div>]]></field>
+        <field name="content"><![CDATA[<div class="adesso-text-formate">
+<div class="row p-t-2">
+<div class="adesso-container">
+<div class="col-xl-8 adesso-center p-b-1 p-l-0 p-r-0">
+    <p>Wer sich in letzter Zeit mit dem Thema Open-Source auseinandergesetzt hat, wird festgestellt haben, dass der Hype um das Konzept und die dazugehörigen Plattformen kaum nachgelassen hat. Viele große Unternehmen werden zunehmend aktiv und lassen ihre Mitarbeiter auf GitHub und Co. los, um Projekte zu entwickeln, die der Öffentlichkeit frei zur Verfügung stehen. Wir haben einen GitHub-Crawler entwickelt, der euch alle interessanten Informationen zu Organisationen auf GitHub liefert - Git-Intel!</p>
+
+<h4 id="andauernder-trend-open-source">Andauernder Trend ‘Open-Source’</h4>
+
+<p>Dass große, auf Profit ausgelegte Unternehmen Ressourcen aufwenden, um „freie“ Software zu entwickeln, klingt für den einen oder anderen erstmal befremdlich. Tatsächlich sind es einige der bekanntesten Tech-Giganten, die die Liste der „Top Contributors“ auf GitHub anführen.</p>
+
+<p><img src="/assets/images/posts/gitintel/contributions.png" alt="Statistik zu Contributions von Organisationen auf www.github.com" /></p>
+
+<p>Mit mehr als 31 Mio. Entwicklern und mehr als 2.1 Mio. Organisationen stellt GitHub die wohl <a href="https://octoverse.github.com/">größte und aktivste Open-Source-Community</a> dar. Es ist deshalb nicht verwunderlich, dass auch große Unternehmen vornehmlich hier anzutreffen sind. Aufgrund der Größe und Popularität eignet sich GitHub wahrscheinlich am besten als Quelle für Open-Source-Statistiken und als Ziel für das Sammeln Open-Source-spezifischer Daten.</p>
+
+<p>Auch adesso ist nicht untätig im Bereich Open-Source!
+Mit 80 Mitgliedern, 11 Teams und 23 eigenen Repositories ist adesso für ein Unternehmen seiner Größe bereits gut aufgestellt.<br />
+Die oben genannten Daten lassen sich ganz leicht auf der <a href="https://github.com/adessoag">GitHub-Profilseite</a> der adesso AG einsehen. Aber wäre es nicht interessant, noch mehr Informationen bezüglich der Aktivität von Unternehmen auf GitHub einsehen zu können?</p>
+
+<ul>
+  <li>Zu welchen großen Projekten haben Mitglieder von adesso bereits beigetragen?</li>
+  <li>Gibt es adessi, die beliebte GitHub-Projekte ins Leben gerufen haben?</li>
+  <li>Welches Organisationsmitglied hat diese Woche die meisten Commits geleistet?</li>
+</ul>
+
+<p>Zum Glück bietet GitHub eine API, die solche Informationen bereitstellt und wir haben eine Anwendung entwickelt, die sich diese API zunutze macht, um alle möglichen spannenden Daten zu sammeln und aufzubereiten – Git-Intel!</p>
+
+<h4 id="das-konzept">Das Konzept</h4>
+
+<p>Mit Hilfe von Git-Intel können alle Informationen zu Organisationen, die auf GitHub registriert sind, visuell aufbereitet eingesehen werden.
+Nutzer geben den Namen der Organisation ein, über die sie Informationen erhalten wollen, woraufhin Git-Intel Anfragen an die GitHub-API schickt und die Antworten entsprechend in seiner Datenbank speichert. Wurde die Organisation aufgrund einer früheren Abfrage bereits in der Datenbank gespeichert, werden die Ergebnisse direkt angezeigt.</p>
+
+<p><img src="/assets/images/posts/gitintel/gitintel1.png" alt="Benutzeroberfläche der Git-Intel-Anwendung" /></p>
+
+<p>Die besondere Stärke von Git-Intel liegt darin, dass es die von der GitHub-API bereitgestellten Daten abfragen und so aufbereiten kann, dass relevante Informationen zu Organisationen, Mitarbeitern und Projekten übersichtlich präsentiert werden. So können beispielsweise Informationen bezüglich der Aktivitäten von Mitgliedern dargestellt oder eine Übersicht über die Beteiligungen an organisationsfremden Projekten eingesehen werden.</p>
+
+<p>Die von Git-Intel gesammelten Daten umfassen Informationen zu internen und externen Repositories, Mitglieder- und Teamzahlen, zeitliche Verläufe von Aktivitäten in Form von Commits, Pull Requests und Issues, detaillierte Informationen zu Mitgliederaktivitäten und Weitere.</p>
+
+<p>Zu beachten ist hierbei, dass Git-Intel nur öffentliche Daten sammelt.</p>
+
+<h4 id="die-funktionsweise">Die Funktionsweise</h4>
+
+<p>Die Interaktion mit Git-Intel funktioniert grundlegend wie folgt:</p>
+<ol>
+  <li>Der Nutzer stellt eine Anfrage.</li>
+  <li>Git-Intel sammelt Daten und bereitet sie auf.</li>
+  <li>Die Daten werden zurück zum Nutzer gesendet.</li>
+</ol>
+
+<p>Der zweite Schritt unterliegt hierbei einer Fallunterscheidung:</p>
+
+<p><strong>Fall 1 – Die angeforderten Daten befinden sich bereits in der Datenbank:</strong></p>
+
+<p><img src="/assets/images/posts/gitintel/case1.png" alt="Ablauf einer Git-Intel-Anfrage für bereits gespeicherte Daten" /></p>
+
+<p>Sind die vom Nutzer angeforderten Daten bereits in der Datenbank vorhanden, fragt das Back-End sie aus dieser ab und schickt sie an den Nutzer zurück.</p>
+
+<p><strong>Fall 2 – Die angeforderten Daten befinden sich nicht in der Datenbank:</strong></p>
+
+<p><img src="/assets/images/posts/gitintel/case2.png" alt="Ablauf einer Git-Intel-Anfrage für neue Daten" /></p>
+
+<p>Sind die angeforderten Daten nicht in der Datenbank vorhanden, stellt Git-Intel eine Anfrage an die GitHub-API, nimmt die angeforderten Daten entgegen und speichert sie in der Datenbank. Bei der Anfrage prüft ein Validierungsmechanismus, ob der vom Nutzer eingegebene Name dem einer auf GitHub registrierten Organisation entspricht. Sollte dies nicht der Fall sein, wirft die API einen Fehler und der Nutzer erhält eine entsprechende Nachricht.<br />
+Während des Datensammlungsprozesses erhält der Nutzer visuelles Feedback in Form einer Fortschrittsanzeige, welche sich an der Menge der bereits gesammelten Informationen orientiert.</p>
+
+<p>Da das Sammeln der Daten bestimmten Limitierungen durch GitHubs API unterliegt, kann dieser Prozess, je nach Datenmenge, einige Zeit in Anspruch nehmen.
+Je größer die Datenmengen sind, die einer Organisation auf GitHub entsprechen, desto mehr Abfragen müssen an die GitHub-API gestellt werden. Je mehr Abfragen gestellt werden, desto mehr Antworten müssen verarbeitet werden. Logisch.<br />
+Da die verwendete GitHub-API auf die Abfrage kleiner, sehr spezifischer Datensätze ausgelegt ist, reagiert sie sehr empfindlich, sobald man versucht, große Datenmengen abzufragen. Sendet ein Client zu viele Abfragen zu schnell hintereinander, schiebt GitHubs API ihm den ‚Spam‘-Riegel vor. Hinzu kommt, dass GitHub die Anzahl der erlaubten Anfragen pro Stunde durch ein sogenanntes “Rate Limit” einschränkt. Das Rate Limit der v4-API beträgt 5000 Punkte pro Stunde, wobei die verbrauchten Punkte pro Anfrage anhand bestimmter Faktoren berechnet werden. Grundsätzlich gilt: Eine komplexe Anfrage verbraucht mehr Punkte als eine simple Anfrage. Die Anzahl der verbleibenden <strong>Punkte</strong> ist somit nicht gleichzusetzen mit der Anzahl der verbleibenden <strong>Anfragen</strong>.<br />
+Aus diesem Grund müssen viele Anfragen entsprechend getaktet werden, was zu erhöhten Verarbeitungszeiten führen kann. An dieser Stelle ist es wichtig, ein angenehmes Gleichgewicht zwischen der Belastung der GitHub-Schnittstelle und der User Experience zu finden. Genaueres zur GitHub-API erfahrt ihr im nächsten Abschnitt.</p>
+
+<p>Damit die von Git-Intel gesammelten Daten möglichst aktuell sind, werden die Datenbankeinträge regelmäßig aktualisiert und überschrieben.</p>
+
+<h4 id="die-technologien-dahinter">Die Technologien dahinter</h4>
+
+<p>Zum jetzigen Zeitpunkt besteht Git-Intel aus den drei Hauptkomponenten Nutzeranwendung (Front-End), Systemlogik (Back-End) und Datenbank.</p>
+
+<p>Das Back-End wurde durch eine Spring-Boot-Anwendung realisiert, welche das Zentrum für die Interaktion aller Komponenten darstellt. Es kommuniziert mit der GitHub-API, verarbeitet empfangene Daten, nimmt Anfragen des Front-Ends entgegen, speichert Daten in der Datenbank ab und liest diese entsprechend eingehender Anfragen auch wieder aus.</p>
+
+<p>Das Front-End ist eine SPA (Single Page Application) auf Angular-Basis. Das Framework erlaubt es eine Anwendung zu gestalten, die die erfassten Daten übersichtlich und optisch ansprechend darstellt und relevante Zusammenhänge aufschlussreich präsentiert. Features wie Routing und Tabs ermöglichen eine angenehme Navigation der Anwendung und tragen so zu einer ausgereiften User Experience bei.</p>
+
+<p>Die Datenbank ist vom Typ MongoDB. Mit Hilfe der dokumentenbasierten Datenbank können Datensätze in JSON-ähnlichen Strukturen verwaltet werden, wodurch die Weitergabe der Daten zwischen den einzelnen Komponenten sehr leicht ist.</p>
+
+<p>Für das Sammeln der Daten wird die neue GitHub-API, mit dem Namen „GitHub GraphQL API v4“, konsumiert. Wie der Name bereits verrät, empfängt die neue API Abfragen, die der <a href="https://developer.github.com/v4/#what-is-graphql">GraphQL-Spezifikation</a> entsprechen. Abfragen dieser Art sind in Form von Graphen strukturiert. Sie sind hierarchisch aufgebaut und entsprechen in etwa der Form der JSON-Daten, die sie zurückliefern.
+Eine Abfrage, die den Namen einer Organisation sowie die Namen der ersten hundert Mitglieder dieser Organisation liefert, sieht so aus:</p>
+
+<pre><code class="language-JavaScript">{
+  organization(login: "adessoag") {
+    name
+    members(first: 100) {
+      nodes {
+        name
+      }
+    }
+  }
+}
+</code></pre>
+
+<p>Wer sich jetzt fragt „Warum nur die ersten hundert?“, ist gleich über den Kernaspekt von GitHubs API gestolpert. Durch die GraphQL-Spezifikation ist die API auf die Abfrage kleiner, sehr spezifischer Datensätze ausgelegt, nicht aber für die Abfrage großer Datensätze. Diese Tatsache macht die API für die Verwendung bei Git-Intel zwar nicht ideal, aber keinesfalls  unbrauchbar, weshalb wir uns entschlossen haben, einige Kompromisse einzugehen, um dieses doch sehr interessante Projekt in die Tat umzusetzen.</p>
+
+<h4 id="git-intel-ausprobieren">Git-Intel ausprobieren</h4>
+
+<p>Zum jetzigen Zeitpunkt ist Git-Intel nicht live, also auch nicht im Web zu erreichen.
+Ihr habt natürlich dennoch die Möglichkeit, die Anwendung lokal zu testen und daran herumzuschrauben.</p>
+
+<p>Der einfachste Weg, um auf der eigenen Maschine mit Git-Intel herumzuspielen, ist die Nutzung des Git-Intel-Docker-Builds.
+Mit Hilfe von Docker könnt ihr mittels eines einzigen Kommandos das gesamte Projekt starten und nach Belieben mit der Nutzeranwendung interagieren. Eine Anleitung dazu, wie ihr Git-Intel-Docker installiert findet ihr <a href="https://github.com/adessoAG/Git-Intel-Spring">hier</a>.</p>
+
+<p>All diejenigen, die Interesse daran haben an dem Projekt mitzuwirken, können über die entsprechenden GitHub-Repositories auf die einzelnen Anwendungen zugreifen und sich diese auf ihren Rechner kopieren. Wie ihr die einzelnen Repositories nutzen könnt, um die Anwendung lokal zu bauen, erfahrt ihr ebenfalls <a href="https://github.com/adessoAG/Git-Intel-Spring">hier</a>.</p>
+
+<h4 id="die-zukunft-von-git-intel">Die Zukunft von Git-Intel</h4>
+
+<p>Git-Intel bietet eine spannende Möglichkeit, interessante Informationen zum Engagement von Organisationen in der Open-Source-Welt einzusehen.<br />
+Entwicklungen zeigen, dass große Unternehmen immer mehr Wert auf die aktive Beteiligung in der Open-Source-Community legen, was das Gebiet auch für andere Firmen interessant machen könnte. Mit steigender Relevanz des Themas Open-Source wird es wohl auch interessant zu verfolgen, wie sich adesso auf diesem Gebiet entwickelt und im Vergleich zu anderen Unternehmen dasteht.</p>
+
+<p>Die Informationen, die Git-Intel bereitstellt geben Aufschluss über die kurz- und langfristigen Entwicklungen von Unternehmen auf GitHub und geben einen spannenden Einblick in die Welt der Open-Source-Plattform aus ihrer Sicht.<br />
+Zur Zeit befindet sich das Projekt noch vor seinem ersten Release, doch wird dieser nicht mehr lange auf sich warten lassen.<br />
+Ihr findet das Projekt auf <a href="https://github.com/adessoAG/Git-Intel-Spring">GitHub</a> und sollte euer Interesse geweckt worden sein, dann wendet euch mit Fragen und Anregungen gerne an <a href="mailto:frederik.schlemmer@adesso.de">Frederik Schlemmer</a> oder mich, <a href="mailto:dario.braun@adesso.de">Dario Braun</a>.</p>
+
+<p>Abbildungsnachweis:<br />
+https://medium.freecodecamp.org/the-top-contributors-to-github-2017-be98ab854e87</p>
+
+</div>
+</div>
+</div>
+</div>]]></field>
+    </document>
+</documents>
