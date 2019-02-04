@@ -488,3 +488,4 @@ Wie sich das Framework bei einer großen monolithischen Anwendung verhält, ist 
 Dennoch ist Micronaut einen Blick wert für kleine Anwendungen, gerade im schon so oft erwähnten Serverless-Umfeld.
 Und nicht zuletzt ist Wettbewerb gut für den Markt.
 Vielleicht halten ja einige Ideen der Micronaut-Entwickler Einzug ins Spring Framework.
+
