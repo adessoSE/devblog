@@ -10,15 +10,14 @@ tags:           [Spring, FaaS, Architektur]
 
 Nachdem Microservice basierte Architekturen sich zunehmend als Architekturansatz der Wahl bei der Neuentwicklung von 
 Anwendungslandschaften und der Modernisierung von Monolithen etabliert haben, baut sich bereits die nächste 
-Innovationswelle mit Function as a Service (FaaS) und Serverless Computing auf.
+Innovationswelle mit Function as a Service (FaaS) und Serverless Computing auf. 
+Dieser Artikel beschreibt die Idee hinter FaaS und zeigt, wie man Funktionen mit Spring Cloud Function umsetzen kann.
 
-Function as a service (FaaS) gehört zum Bereich des Cloud Computing und ermöglicht es fachliche Funktionalität zur 
-Verfügung zu stellen ohne sich um den Aufbau und Betrieb der hierfür Infrastruktur kümmern zu müssen. Dies ermöglicht 
-es z.B. neue Geschäftsideen schnell umzusetzen und produktiv zu Stellen. Desweitern fördert es durch die klare 
-technische Trennung der einzelnen Funktionen eine entsprechend klare Umsetzung der einzelnen Domänen. Bei der 
-Modernisierung monolithischer IT Systeme ist dies ein nicht zu unterschätzender Aspekt .Ebenso bietet es sich zu 
+Function as a service (FaaS) gehört zum Bereich des Cloud Computing und ermöglicht es fachliche Funktionalität zur Verfügung zu stellen ohne sich um den Aufbau und Betrieb der hierfür notwendigen Infrastruktur kümmern zu müssen. 
+Dies ermöglicht es z.B. neue Geschäftsideen schnell umzusetzen und produktiv zu Stellen. Desweitern fördert es durch die klare technische Trennung der einzelnen Funktionen eine entsprechend klare Umsetzung der einzelnen Domänen. 
+Bei der Modernisierung monolithischer IT Systeme ist dies ein nicht zu unterschätzender Aspekt.
+Ebenso bietet es sich zur Auslagerung von besonders rechenintensiven Funktionen in die Cloud an.
 
-Auslagerung von besonders Rechenintensiven Funktionen in die Cloud an.
 Schaut man sich nun FaaS und Serverless Computing an, so wird man mit folgenden Aussagen konfrontiert:
 * Eine FaaS beinhaltet lediglich den Fachcode einer Funktion. 
 * Die klar fokussierte fachliche Komplexität einer FaaS führt zu einer sehr guten Wartbarkeit. 
@@ -35,8 +34,9 @@ ein Lösungsansatz zur Umsetzung von verteilten Systemen geworden.
 
 Bezüglich der Implementierung einer FaaS stellt sich schnell heraus, dass es kein einheitliches Programmiermodell für 
 FaaS gibt, sondern man ein entsprechendes Vendor Lock-in hat. Will man also den FaaS Anbieter zu einem späteren Zeitpunkt 
-wechseln oder gar von der Cloud hin zu On Premises wechseln hat, man prinzipiell Portierungs- und Testaufwand. 
+wechseln oder gar von der Cloud hin zu On-Premises wechseln, hat man prinzipiell Portierungs- und Testaufwand. 
 
+### Spring Cloud Function
 Für das Problem des Vendor Lock-in bietet das Spring Cloud Function Projekt den passenden Lösungsansatz. Es stellt ein 
 einheitliches FaaS Programmiermodell über eine Vielzahl von Cloud Providern hinweg zur Verfügung. So werden die Cloud 
 Provider Amazon Web Services, Microsoft Azure und die Open Source Servless Plattform OpenWhisk von Apache unterstützt. 
@@ -86,13 +86,14 @@ Aus Sicht der Ausführungsdauer einer FaaS und der damit einhergehenden laufende
 stellt es sich leider nicht so positiv dar. Um die FaaS auf einer Cloud Plattform betreiben zu können, sind alle eingesetzten 
 abhängigen Bibliotheken mit auszuliefern. Betrachtet man das oben aufgeführte Bsp. so ist der JAR File letztendlich wenige kB 
 groß, wenn die benötigten Bibliotheken nicht mit ausgeliefert werden. Werden diese jedoch mittels des Maven Shade Plugins 
-während des Buildprozesses mit hinzugenommen, ist der JAR nahezu 20.000 kB groß. 
+während des Buildprozesses mit hinzugenommen, ist der JAR nahezu 20 MB groß. 
 
 Bei der Ausführung als AWS Lambda ist der Speicherverbrauch während der Ausführung mit annähernd 100 MB nicht gerade klein. 
 Ohne den Overhead von Spring würde sich der benötigte Speicherverbrauch bei ca. 20 MB bewegen. Auch bei der Ausführungsdauer 
-kann man mit ca. 100 ms gegenüber von ca. 10 ms ausgehen. Siehe hierzu auch den folgenden Blog Beitrag auf [Developer Zone](https://dzone.com/articles/run-code-with-spring-cloud-function-on-aws-lambda) 
+kann man von ca. 100 ms gegenüber von ca. 10 ms ausgehen. Siehe hierzu auch den folgenden Blog Beitrag auf [Developer Zone](https://dzone.com/articles/run-code-with-spring-cloud-function-on-aws-lambda) 
 und das [Einstiegstutorial zu AWS Lambda](https://docs.aws.amazon.com/de_de/lambda/latest/dg/get-started-create-function.html).
 
+### Fazit
 Da die Ausführungsdauer und der Speicherverbrauch bei dem [Abrechnungsmodell von AWS Lambda](https://aws.amazon.com/de/lambda/pricing/#Free_Tier) 
 die abrechnungsrelevanten Faktoren sind, ist vor der produktiven Nutzung von Spring Cloud Functions abzuklären, ob die aus 
 Sicht der Produktionskosten ein gangbarer Weg ist. Desweitern ist natürlich auch zu klären, ob die längere Ausführungsdauer 
