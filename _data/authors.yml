@@ -106,6 +106,24 @@ roland:
   avatar_url: /assets/images/avatars/rolandMajchszak.jpg
   github: https://github.com/RMajchszak
 
+t-buss:
+  first_name: Thomas
+  last_name: Buß
+  github_username: t-buss
+  email: thomas.buss@adesso.de
+  bio: "Thomas ist Werkstudent in Dortmund und interessiert sich für Open Source und Cloud-Technologien."
+  avatar_url: /assets/images/avatars/tbuss.jpg
+  github: https://github.com/t-buss
+  
+florianluediger:
+  first_name: Florian
+  last_name: Lüdiger
+  github_username: florianluediger
+  email: florian.luediger@adesso.de
+  bio: "Florian leistet im Open-Source-Team unter anderem Beiträge zu einigen Spring-Projekten und entwickelt eigene, spannende Software, die der Öffentlichkeit zur Verfügung gestellt wird."
+  avatar_url: /assets/images/avatars/florianluediger.jpg
+  github: https://github.com/florianluediger
+
 karnik:
   first_name: Markus
   last_name: Karnik
@@ -132,4 +150,13 @@ swindisch:
   bio: "Sascha Windisch ist Lösungs-Architekt bei adesso in Essen. Er plant und modelliert Software-Systeme in verschiedenen Branchen."
   avatar_url: /assets/images/avatars/swindisch.png
   github: https://github.com/swindisch
+
+dariobraun:
+  first_name: Dario
+  last_name: Braun
+  github_username: dariobraun
+  email: dario.braun@adesso.de
+  bio: "Dario Braun ist Werkstudent bei adesso in Dortmund und im Open-Source-Bereich tätig."
+  avatar_url: /assets/images/avatars/dariobraun.jpg
+  github: https://github.com/dariobraun
 
