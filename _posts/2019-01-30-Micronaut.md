@@ -223,7 +223,7 @@ Wir erstellen das Projekt mit diesem Befehl:
 mn> create-app --features=graal-native-image com.example.myshop.shoppingcart.shopping-cart-micronaut
 ```
 
-Mit `exit` können wir die Shell verlassen, um dann in den just erstellten Ordner zu welchseln und dort wieder `mn` auszuführen.
+Mit `exit` können wir die Shell verlassen, um dann in den gerade erstellten Ordner zu wechseln und dort wieder `mn` auszuführen.
 Nun können wir direkt mit der Programmierung anfangen.
 
 ## Der Code
