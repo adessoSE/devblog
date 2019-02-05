@@ -399,7 +399,7 @@ GraalVM 1.0.0-rc11 (build 25.192-b12-jvmci-0.53, mixed mode)
 Jetzt sollte auch das Programm `native-image` über die Kommandozeile verfügbar sein.
 Die Micronaut-CLI hat uns bereits das Bash-Script `build-native-image.sh` in unserem Projektverzeichnis generiert.
 Es enthält im Wesentlichen einen Gradle-Aufruf zur Generierung der JAR und den Aufruf von `native-image` mit einigen Flags, die für die Generierung der nativen Binary nötig sind.
-Der Nachteil an diesem Verfahren: Es benötigt eine MENGE RAM.
+Der Nachteil an diesem Verfahren: Es benötigt eine Menge(!) RAM.
 Wer nicht genug RAM bereitstellt, für den wird der Prozess mit dem ominösen Fehler 137 enden.
 16GB RAM sollten mindestens vorhanden sein.
 
