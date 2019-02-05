@@ -61,7 +61,7 @@ Wir erhalten eine Archiv-Datei, die wir irgendwo auf unserem Rechner entpacken k
 
 ## Der Code
 Schreiben wir nun die Anwendung.
-Wer mit Spring Boot vertraut ist sollte mit diesem Code keine Probleme haben.
+Wer mit Spring Boot vertraut ist, sollte mit diesem Code keine Probleme haben.
 Wir beginenn mit einem Controller unter dem Namen `ShoppingCartController.java`:
 
 ```java
