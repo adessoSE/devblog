@@ -181,13 +181,11 @@ $ ./gradlew bootJar
 ## Resourcenverbrauch
 Schauen wir uns nun die nackten Zahlen an:
 <table>
-    <thead>
         <tr>
-            <th></th>
-            <th>Spring</th>
-            <th> Micronaut</th>
+            <td></td>
+            <td>Spring</td>
+            <td> Micronaut</td>
         </tr>
-    </thead>
     <tr>
         <td>Compile-Zeit</td>
         <td>1937ms</td>
@@ -326,15 +324,12 @@ Die cURL-Befehle sind identisch mit denen der Spring-Version.
 ## Resourcenverbrauch
 Schauen wir uns die Zahlen der Micronaut-Lösung an und vergleichen sie direkt mit den Zahlen der Spring-Lösung:
 <table>
-<thead>
 <tr>
-<th></th>
-<th>Spring</th>
-<th>Micronaut</th>
-<th>Unterschied</th>
+<td></td>
+<td>Spring</td>
+<td>Micronaut</td>
+<td>Unterschied</td>
 </tr>
-</thead>
-<tbody>
 <tr>
 <td>Compile-Zeit</td>
 <td>1937ms</td>
@@ -365,7 +360,6 @@ Schauen wir uns die Zahlen der Micronaut-Lösung an und vergleichen sie direkt m
 <td>194,4 MiB</td>
 <td><span style="color: green">-32,9% </span></td>
 </tr>
-</tbody>
 </table>
 Der Vergleich mit Spring zeigt die Verbesserungen von Micronaut gegenüber Spring.
 Während zwar die Compile-Zeit nun signifikant länger ist, kann das Framework bei anderen Metriken mächtig punkten.
@@ -413,15 +407,12 @@ $ ./shopping-cart-micronaut
 Eine gigantische Reduzierung der Startzeit!
 Schauen wir uns die restlichen Metriken in der Tabelle an:
 <table>
-<thead>
 <tr>
-<th></th>
-<th>Micronaut (JVM)</th>
-<th>Graal Native Image</th>
-<th>Unterschied</th>
+<td></td>
+<td>Micronaut (JVM)</td>
+<td>Graal Native Image</td>
+<td>Unterschied</td>
 </tr>
-</thead>
-<tbody>
 <tr>
 <td>Compile-Zeit</td>
 <td>10,5s</td>
@@ -452,7 +443,6 @@ Schauen wir uns die restlichen Metriken in der Tabelle an:
 <td>23,5 MiB</td>
 <td><span style="color: green">-87,9%</span></td>
 </tr>
-</tbody>
 </table>
 
 Die Compile-Zeit ist verständlicherweise miserabel.
