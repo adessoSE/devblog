@@ -36,7 +36,7 @@ Die Antwort liegt in der Kompilation.
 Spring durchsucht zur Laufzeit per Reflection den Classpath nach Beans, initialisiert diese und lädt sie dann dynamisch in den Application Context.
 Dann werden die Beans dort "injected", wo sie benötigt werden.
 Während das ein sehr einfacher und erprobter Ansatz ist, verlängert er jedoch die Startzeit durch diesen Overhead.
-Micronaut hingegen verwendet "Annotation Processors", die die nötigen Informationen zur Compile-Zeit sammlen und Ahead-of-Time (AOT) die nötigen Transformationen für Dependency Injection und Aspect-Oriented-Programming erledigen.
+Micronaut hingegen verwendet "Annotation Processors", die die nötigen Informationen zur Compile-Zeit sammlen und Ahead-of-Time (AOT) die nötigen Transformationen für Dependency Injection (DI) und Aspect Oriented Programming (AOP) erledigen.
 Dadurch verkürzt sich die Startzeit der Anwendung, erhöht jedoch die Compile-Zeit.
 Zudem fallen durch dieses Vorgehen etwaige Fehler wie eine nicht-zu-erfüllende Abhängigkeit schon zur Compile-Zeit auf.
 Außerdem ist die Startzeit nicht abhängig von der Größe der Anwendung.
