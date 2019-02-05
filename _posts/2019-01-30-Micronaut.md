@@ -345,7 +345,7 @@ Dabei ist zu beachten, dass die Startzeit je nach Größe der Anwendung bei Spri
 
 # BONUS: GraalVM Native Image
 Als wir die Micronaut-Anwendung über das Kommandozeilen-Tool erstellt haben, haben wir dabei das Feature `graal-native-image` angegeben.
-Bei [GraalVM](https://www.graalvm.org/) handelt es sich um eine multi-language-Virtual-Machine, die von Oracle entwickelt wird.
+Bei [GraalVM](https://www.graalvm.org/) handelt es sich um eine virtuelle Maschine mit Unterstützung für verschiedene Sprachen, die von Oracle entwickelt wird.
 Dadurch erhalten wir die Möglichkeit, Code aus verschiedenen Sprachen innerhalb der gleichen Runtime laufen zu lassen.
 Aber das ist nur der Anfang: GraalVM bietet die Möglichkeit, Java-Anwendungen in native Binaries kompilieren zu lassen.
 Diese können dann ohne JVM oder GraalVM ausgeführt werden.
