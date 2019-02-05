@@ -65,13 +65,6 @@ Wer mit Spring Boot vertraut ist, sollte mit diesem Code keine Probleme haben.
 Wir beginnen mit einem Controller mit dem Namen `ShoppingCartController.java`:
 
 ```java
-package com.example.myshop.shoppingcart;
-
-import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
-import java.util.Optional;
-
 @RestController("/shoppingCart")
 public class ShoppingCartController {
 
@@ -100,12 +93,6 @@ public class ShoppingCartController {
 
 Als nächstes erstellen wir den Service unter `ShoppingCartService.java`:
 ```java
-package com.example.myshop.shoppingcart;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
-
 @Service
 public class ShoppingCartService {
 
@@ -131,8 +118,6 @@ public class ShoppingCartService {
 Der Service hält der Einfachheit halber alle Produkte in einer lokalen Liste.
 Das POJO für ein Produkt schreiben wir in `Product.java`:
 ```java
-package com.example.myshop.shoppingcart;
-
 public class Product {
 
     private final Long id;
@@ -256,13 +241,6 @@ mn> create-bean ShoppingCartService
 
 Nun an den Code für unseren Controller:
 ```java
-package com.example.myshop.shoppingcart;
-
-import io.micronaut.http.annotation.*;
-
-import java.util.List;
-import java.util.Optional;
-
 @Controller("/shoppingCart")
 public class ShoppingCartController {
 
