@@ -251,7 +251,7 @@ mn> create-controller ShoppingCart
 ```
 
 Dies erstellt sowohl den Controller als auch einen dazugehörigen Test und erspart uns etwas Zeit, da wir die Dateien nicht von Hand selbst erstellen müssen.
-Und da wir gerade dabei sind erstellen wir die Service-Bean gleich mit:
+Und da wir gerade dabei sind, erstellen wir die Service-Bean gleich mit:
 ```bash
 mn> create-bean ShoppingCartService
 ```
