@@ -15,7 +15,7 @@ Danach vergleichen wir die beiden Ansätze und schauen, wo welches Framework üb
 Entwickelt wird das [Micronaut-Framework](http://micronaut.io) von [OCI](https://objectcomputing.com/), genauer gesagt unter der Federführung von [Graeme Rocher](https://twitter.com/graemerocher), der schon das [Grails](https://grails.org/) Framework ins Leben gerufen hat.
 Sowohl die Erfahrungen mit Spring als auch mit Grails sind in Micronaut eingeflossen.
 Das Framework beschreibt sich selbst als "modernes, JVM-basiertes Full-Stack-Framework um modulare, einfach zu testende Microservices- und Serverless-Anwendungen zu bauen".
-In dieser Beschreibung liegt auch schon der wesentliche Unterschied zum Spring Framework: Es legt den Fokus auf Microservices und Serverless-Anwendung, womit sich JVM-Frameworks aktuell noch eher schwer tun.
+In dieser Beschreibung liegt auch schon der wesentliche Unterschied zum Spring Framework: Es legt den Fokus auf Microservices und Serverless-Anwendungen, womit sich JVM-Frameworks aktuell noch eher schwer tun.
 
 # Der kleine Nachteil von Spring
 Java-Anwendungen kommen von Haus aus mit einigem Overhead daher.
@@ -49,7 +49,7 @@ Wie stark die durch das Framework erzielten Verbesserungen sind, wollen wir uns 
 
 # Die Spring-Anwendung
 Als Beispiel nehmen wir eine einfache Anwendung für einen Einkaufswagen.
-Per HTTP können wir Produkte in den Einkaufswagen abfragen, ablegen oder wieder löschen.
+Per HTTP können wir Produkte in den Einkaufswagen legen, diese abfragen oder wieder löschen.
 Wir starten mit der Spring-Boot-Anwendung.
 Dazu gehen wir auf [https://start.spring.io/](https://start.spring.io/) und stellen uns zusammen, was wir brauchen: Eine Java 8 Anwendung mit Gradle und Spring Boot 2.1.2.
 Die Namen für Group und Artifact sind prinzipiell egal, ich wähle `com.example.myshop` und `shopping-cart`.
@@ -61,8 +61,8 @@ Wir erhalten eine Archiv-Datei, die wir irgendwo auf unserem Rechner entpacken k
 
 ## Der Code
 Schreiben wir nun die Anwendung.
-Wer mit Spring Boot vertraut ist sollte mit diesem Code keine Probleme haben.
-Wir beginenn mit einem Controller unter dem Namen `ShoppingCartController.java`:
+Wer mit Spring Boot vertraut ist, sollte mit diesem Code keine Probleme haben.
+Wir beginnen mit einem Controller mit dem Namen `ShoppingCartController.java`:
 
 ```java
 package com.example.myshop.shoppingcart;
@@ -128,7 +128,7 @@ public class ShoppingCartService {
     }
 }
 ```
-Der Service hält der Einfachheit halber die Liste der Produkte einfach in einer lokalen Liste.
+Der Service hält der Einfachheit halber alle Produkte in einer lokalen Liste.
 Das POJO für ein Produkt schreiben wir in `Product.java`:
 ```java
 package com.example.myshop.shoppingcart;
@@ -220,7 +220,7 @@ Die Startzeit beträgt laut Spring-Ausgabe 3,72 Sekunden. Die tatsächliche Star
 Die vorangegangene Anwendung dient uns nun als Vergleichspunkt.
 Schauen wir mal, wie sich die Micronaut-Anwendung schlägt.
 Anders als bei Spring Boot kommt Micronaut mit einem Kommandozeilen-Tool daher, welches die Erstellung von Projekten übernimmt.
-Für die Installation sei auf die offizielle Micronaut-Seite verwiesen: http://micronaut.io/download.html.
+Für die Installation sei auf die [offizielle Micronaut-Seite](http://micronaut.io/download.html) verwiesen.
 
 Mit dem Tool `mn` können wir nun die Anwendung erstellen:
 ```bash
@@ -249,7 +249,7 @@ mn> create-controller ShoppingCart
 ```
 
 Dies erstellt sowohl den Controller als auch einen dazugehörigen Test und erspart uns etwas Zeit, da wir die Dateien nicht von Hand selbst erstellen müssen.
-Und da wir gerade dabei sind erstellen wir die Service-Bean gleich mit:
+Und da wir gerade dabei sind, erstellen wir die Service-Bean gleich mit:
 ```bash
 mn> create-bean ShoppingCartService
 ```
@@ -294,7 +294,7 @@ Tatsächlich gibt es ein [Projekt](https://github.com/micronaut-projects/microna
 Das Framework ändert jedoch einige Namen der Annotationen.
 Aus `@RestController` wird `@Controller`, aus `@GetMapping` wird `@Get` usw.
 Auch den Service, den wir über das Kommandozeilen-Tool erstellt haben, können wir fast genau so übernehmen.
-Aus `@Service` wird hier `@Singleton`, wie wir dem Template erkennen können, welches wir zuvor durch das Kommandozeilen-Tool erstellt haben.
+Aus `@Service` wird hier `@Singleton`, wie wir in dem Template erkennen können, welches wir zuvor durch das Kommandozeilen-Tool erstellt haben.
 Der Rest des Java-Codes bleibt hier ebenfalls gleich.
 
 Das Produkt-POJO unterscheidet sich etwas von seinem Spring-Pendant:
@@ -392,8 +392,8 @@ GraalVM 1.0.0-rc11 (build 25.192-b12-jvmci-0.53, mixed mode)
 
 Jetzt sollte auch das Programm `native-image` über die Kommandozeile verfügbar sein.
 Die Micronaut-CLI hat uns bereits das Bash-Script `build-native-image.sh` in unserem Projektverzeichnis generiert.
-Es enthält im Wesentlichen einen Gradle-Aufruf zur Generierung der JAR und den Aufruf von `native-image` mit einigen Flags, wie für die Generierung der nativen Binary nötig sind.
-Der Nachteil an diesem Verfahren: Es benötigt eine MENGE RAM.
+Es enthält im Wesentlichen einen Gradle-Aufruf zur Generierung der JAR und den Aufruf von `native-image` mit einigen Flags, die für die Generierung der nativen Binary nötig sind.
+Der Nachteil an diesem Verfahren: Es benötigt eine Menge(!) RAM.
 Wer nicht genug RAM bereitstellt, für den wird der Prozess mit dem ominösen Fehler 137 enden.
 16GB RAM sollten mindestens vorhanden sein.
 
@@ -472,9 +472,10 @@ Sollten wir also alle Micronaut verwenden und Spring abschreiben?
 Meiner Meinung nach ist es noch nicht so weit.
 Bei der Entscheidung, welches Framework man für eine größere Anwendung verwenden will, kommt es nicht nur auf die Performance an.
 Auch die Community und Lehrmaterialien müssen stimmig sein und da hängt Micronaut noch hinterher.
-Bei den meisten Projekten auf Github handelt es sich um kleinere Beispielanwendungen wie die, die wir in diesem Artikel geschrieben haben.
+Bei den meisten Projekten auf GitHub handelt es sich um kleinere Beispielanwendungen wie die, die wir in diesem Artikel geschrieben haben.
 Wie sich das Framework bei einer großen monolithischen Anwendung verhält, ist also noch ungewiss.
 
 Dennoch ist Micronaut einen Blick wert für kleine Anwendungen, gerade im schon so oft erwähnten Serverless-Umfeld.
 Und nicht zuletzt ist Wettbewerb gut für den Markt.
 Vielleicht halten ja einige Ideen der Micronaut-Entwickler Einzug ins Spring Framework.
+
