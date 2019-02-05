@@ -163,7 +163,7 @@ Wir können eine ausführbare JAR-Datei mit folgendem Befehl generieren:
 $ ./gradlew bootJar
 ```
 
-## Resourcenverbrauch
+## Ressourcenverbrauch
 Schauen wir uns nun die nackten Zahlen an:
 <table>
         <tr>
