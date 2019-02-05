@@ -296,7 +296,7 @@ Tatsächlich gibt es ein [Projekt](https://github.com/micronaut-projects/microna
 Das Framework ändert jedoch einige Namen der Annotationen.
 Aus `@RestController` wird `@Controller`, aus `@GetMapping` wird `@Get` usw.
 Auch den Service, den wir über das Kommandozeilen-Tool erstellt haben, können wir fast genau so übernehmen.
-Aus `@Service` wird hier `@Singleton`, wie wir dem Template erkennen können, welches wir zuvor durch das Kommandozeilen-Tool erstellt haben.
+Aus `@Service` wird hier `@Singleton`, wie wir in dem Template erkennen können, welches wir zuvor durch das Kommandozeilen-Tool erstellt haben.
 Der Rest des Java-Codes bleibt hier ebenfalls gleich.
 
 Das Produkt-POJO unterscheidet sich etwas von seinem Spring-Pendant:
