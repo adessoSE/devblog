@@ -222,7 +222,7 @@ Die Startzeit beträgt laut Spring-Ausgabe 3,72 Sekunden. Die tatsächliche Star
 Die vorangegangene Anwendung dient uns nun als Vergleichspunkt.
 Schauen wir mal, wie sich die Micronaut-Anwendung schlägt.
 Anders als bei Spring Boot kommt Micronaut mit einem Kommandozeilen-Tool daher, welches die Erstellung von Projekten übernimmt.
-Für die Installation sei auf die offizielle Micronaut-Seite verwiesen: http://micronaut.io/download.html.
+Für die Installation sei auf die [offizielle Micronaut-Seite](http://micronaut.io/download.html) verwiesen.
 
 Mit dem Tool `mn` können wir nun die Anwendung erstellen:
 ```bash
