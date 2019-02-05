@@ -128,7 +128,7 @@ public class ShoppingCartService {
     }
 }
 ```
-Der Service hält der Einfachheit halber die Liste der Produkte einfach in einer lokalen Liste.
+Der Service hält der Einfachheit halber alle Produkte in einer lokalen Liste.
 Das POJO für ein Produkt schreiben wir in `Product.java`:
 ```java
 package com.example.myshop.shoppingcart;
