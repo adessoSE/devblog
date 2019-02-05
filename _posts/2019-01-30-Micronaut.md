@@ -199,7 +199,7 @@ Schauen wir uns nun die nackten Zahlen an:
 </table>
 
 Als Compile-Zeit nehmen wir die Zeit für den Gradle Task `bootJar` nach einem vorherigen `./gradlew clean`.
-Die Startzeit beträgt laut Spring-Ausgabe 3,72 Sekunden. Die tatsächliche Startzeit enthält zusätlich noch die Startzeit der JVM, was in Summe in etwa 5 Sekunden resultiert.
+Die Startzeit beträgt laut Spring-Ausgabe 3,72 Sekunden. Die tatsächliche Startzeit enthält zusätzlich noch die Startzeit der JVM, womit wir in Summe bei etwa 5 Sekunden landen.
 
 # Die Micronaut-Anwendung
 Die vorangegangene Anwendung dient uns nun als Vergleichspunkt.
