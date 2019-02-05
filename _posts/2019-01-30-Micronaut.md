@@ -14,7 +14,7 @@ Danach vergleichen wir die beiden Ansätze und schauen, wo welches Framework üb
 
 Entwickelt wird das [Micronaut-Framework](http://micronaut.io) von [OCI](https://objectcomputing.com/), genauer gesagt unter der Federführung von [Graeme Rocher](https://twitter.com/graemerocher), der schon das [Grails](https://grails.org/) Framework ins Leben gerufen hat.
 Sowohl die Erfahrungen mit Spring als auch mit Grails sind in Micronaut eingeflossen.
-Das Framework beschreibt sich selbst als "modernes, JVM-basiertes Full-Stack-Framework um modulare, einfach zu testende Microservices- und Serverless-Anwendungen zu bauen".
+Das Framework beschreibt sich selbst als "modernes, JVM-basiertes Full Stack Framework um modulare, einfach zu testende Microservices- und Serverless-Anwendungen zu bauen".
 In dieser Beschreibung liegt auch schon der wesentliche Unterschied zum Spring Framework: Es legt den Fokus auf Microservices und Serverless-Anwendungen, womit sich JVM-Frameworks aktuell noch eher schwer tun.
 
 # Der kleine Nachteil von Spring
@@ -443,7 +443,7 @@ Wer Docker installiert hat, kann sich ein Image mit dem beiliegenden Dockerfile 
 $ docker build -t shopping-cart:graal .
 ```
 Das Docker-Image ist mit 52,3 MiB marginal größer als die Binary, während das kleinste Docker-Image mit einer JRE (`openjdk:8-jre-alpine`) bereits 83,1 MiB groß ist.
-Wer also ein Docker-Image als Deployable-Artifact ausliefert, spart über 40 MiB ein.
+Wer also ein Docker-Image als Deployable Artifact ausliefert, spart über 40 MiB ein.
 
 # Fazit
 Das noch junge Framework Micronaut bietet Java-Entwicklern die Möglichkeit, schlanke und schnelle Anwendungen für die Cloud zu schreiben, ohne dabei auf das vertraute Programmiermodell von Spring zu verzichten oder gar auf eine andere Programmiersprache wie Go umsatteln zu müssen.
