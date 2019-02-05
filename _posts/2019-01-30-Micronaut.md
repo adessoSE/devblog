@@ -163,7 +163,7 @@ Wir können eine ausführbare JAR-Datei mit folgendem Befehl generieren:
 $ ./gradlew bootJar
 ```
 
-## Resourcenverbrauch
+## Ressourcenverbrauch
 Schauen wir uns nun die nackten Zahlen an:
 <table>
         <tr>
@@ -271,6 +271,7 @@ Micronaut will den Entwicklern kein neues Programmiermodell aufzwingen, weshalb 
 Tatsächlich gibt es ein [Projekt](https://github.com/micronaut-projects/micronaut-spring), welches das Ziel hat, Spring-Annotationen in Micronaut verfügbar zu machen.
 Das Framework ändert jedoch einige Namen der Annotationen.
 Aus `@RestController` wird `@Controller`, aus `@GetMapping` wird `@Get` usw.
+
 Auch den Service, den wir über das Kommandozeilen-Tool erstellt haben, können wir fast genau so übernehmen.
 Aus `@Service` wird hier `@Singleton`, wie wir in dem Template erkennen können, welches wir zuvor durch das Kommandozeilen-Tool erstellt haben.
 Der Rest des Java-Codes bleibt hier ebenfalls gleich.
@@ -278,7 +279,8 @@ Der Rest des Java-Codes bleibt hier ebenfalls gleich.
 Das Produkt-POJO unterscheidet sich etwas von seinem Spring-Pendant:
 ```java
     ...
-    public Product(@JsonProperty("id") Long id, @JsonProperty("description") String description) {
+    public Product(@JsonProperty("id") Long id,
+                   @JsonProperty("description") String description) {
         this.id = id;
         this.description = description;
     }
@@ -299,7 +301,7 @@ $ ./gradlew assemble
 
 Die cURL-Befehle sind identisch mit denen der Spring-Version.
 
-## Resourcenverbrauch
+## Ressourcenverbrauch
 Schauen wir uns die Zahlen der Micronaut-Lösung an und vergleichen sie direkt mit den Zahlen der Spring-Lösung:
 <table>
 <tr>
