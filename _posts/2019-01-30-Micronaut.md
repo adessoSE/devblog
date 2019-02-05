@@ -15,7 +15,7 @@ Danach vergleichen wir die beiden Ansätze und schauen, wo welches Framework üb
 Entwickelt wird das [Micronaut-Framework](http://micronaut.io) von [OCI](https://objectcomputing.com/), genauer gesagt unter der Federführung von [Graeme Rocher](https://twitter.com/graemerocher), der schon das [Grails](https://grails.org/) Framework ins Leben gerufen hat.
 Sowohl die Erfahrungen mit Spring als auch mit Grails sind in Micronaut eingeflossen.
 Das Framework beschreibt sich selbst als "modernes, JVM-basiertes Full-Stack-Framework um modulare, einfach zu testende Microservices- und Serverless-Anwendungen zu bauen".
-In dieser Beschreibung liegt auch schon der wesentliche Unterschied zum Spring Framework: Es legt den Fokus auf Microservices und Serverless-Anwendung, womit sich JVM-Frameworks aktuell noch eher schwer tun.
+In dieser Beschreibung liegt auch schon der wesentliche Unterschied zum Spring Framework: Es legt den Fokus auf Microservices und Serverless-Anwendungen, womit sich JVM-Frameworks aktuell noch eher schwer tun.
 
 # Der kleine Nachteil von Spring
 Java-Anwendungen kommen von Haus aus mit einigem Overhead daher.
