@@ -49,7 +49,7 @@ Wie stark die durch das Framework erzielten Verbesserungen sind, wollen wir uns 
 
 # Die Spring-Anwendung
 Als Beispiel nehmen wir eine einfache Anwendung für einen Einkaufswagen.
-Per HTTP können wir Produkte in den Einkaufswagen abfragen, ablegen oder wieder löschen.
+Per HTTP können wir Produkte in den Einkaufswagen legen, diese abfragen oder wieder löschen.
 Wir starten mit der Spring-Boot-Anwendung.
 Dazu gehen wir auf [https://start.spring.io/](https://start.spring.io/) und stellen uns zusammen, was wir brauchen: Eine Java 8 Anwendung mit Gradle und Spring Boot 2.1.2.
 Die Namen für Group und Artifact sind prinzipiell egal, ich wähle `com.example.myshop` und `shopping-cart`.
