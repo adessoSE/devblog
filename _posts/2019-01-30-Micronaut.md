@@ -289,7 +289,7 @@ Das Produkt-POJO unterscheidet sich etwas von seinem Spring-Pendant:
     }
     ...
 ```
-Der Konstruktor benötigt in den Argumenten die `@JsonProperty`-Annotation, um eintreffende Daten im JSON-Format richtig mappen zu können.
+Der Konstruktor benötigt in den Argumenten die `@JsonProperty`-Annotation aus der [Jackson-Bibliothek](https://github.com/FasterXML/jackson), um eintreffende Daten im JSON-Format richtig mappen zu können.
 
 ## Befehle
 Die Anwendung lässt sich mit diesem Befehl starten:
@@ -346,7 +346,7 @@ Schauen wir uns die Zahlen der Micronaut-Lösung an und vergleichen sie direkt m
 </table>
 Der Vergleich mit Spring zeigt die Verbesserungen von Micronaut gegenüber Spring.
 Während zwar die Compile-Zeit nun signifikant länger ist, kann das Framework bei anderen Metriken mächtig punkten.
-Dabei ist zu beachten, dass die Startzeit je nach Größe der Anwendung bei Spring immer länger werden wird, während die Startzeit der Micronaut-Anwendung relativ konstant bleiben wird.
+Dabei ist zu beachten, dass die Startzeit je nach Größe der Anwendung bei Spring immer länger werden wird, während die Startzeit der Micronaut-Anwendung relativ konstant bleibt.
 
 # BONUS: GraalVM Native Image
 Als wir die Micronaut-Anwendung über das Kommandozeilen-Tool erstellt haben, haben wir dabei das Feature `graal-native-image` angegeben.
@@ -454,7 +454,7 @@ Das noch junge Framework Micronaut bietet Java-Entwicklern die Möglichkeit, sch
 Sollten wir also alle Micronaut verwenden und Spring abschreiben?
 Meiner Meinung nach ist es noch nicht so weit.
 Bei der Entscheidung, welches Framework man für eine größere Anwendung verwenden will, kommt es nicht nur auf die Performance an.
-Auch die Community und Lehrmaterialien müssen stimmig sein und da hängt Micronaut noch hinterher.
+Auch die Community und Lehrmaterialien müssen stimmig sein und da hängt Micronaut (noch) hinterher.
 Bei den meisten Projekten auf GitHub handelt es sich um kleinere Beispielanwendungen wie die, die wir in diesem Artikel geschrieben haben.
 Wie sich das Framework bei einer realen Anwendung verhält, ist also noch ungewiss.
 
