@@ -455,9 +455,8 @@ Meiner Meinung nach ist es noch nicht so weit.
 Bei der Entscheidung, welches Framework man für eine größere Anwendung verwenden will, kommt es nicht nur auf die Performance an.
 Auch die Community und Lehrmaterialien müssen stimmig sein und da hängt Micronaut noch hinterher.
 Bei den meisten Projekten auf GitHub handelt es sich um kleinere Beispielanwendungen wie die, die wir in diesem Artikel geschrieben haben.
-Wie sich das Framework bei einer großen monolithischen Anwendung verhält, ist also noch ungewiss.
+Wie sich das Framework bei einer realen Anwendung verhält, ist also noch ungewiss.
 
 Dennoch ist Micronaut einen Blick wert für kleine Anwendungen, gerade im schon so oft erwähnten Serverless-Umfeld.
 Und nicht zuletzt ist Wettbewerb gut für den Markt.
 Vielleicht halten ja einige Ideen der Micronaut-Entwickler Einzug ins Spring Framework.
-
