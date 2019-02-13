@@ -1,7 +1,7 @@
 ---
 layout:         [post, post-xml]              
 title:          "Serverless Computing – Betrieb wirklich ohne Server"
-date:           2019-01-18 12:00
+date:           2019-02-13 12:00
 modified_date: 
 author:         hartmann42 
 categories:     [Java]
