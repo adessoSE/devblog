@@ -9,12 +9,12 @@ tags: [Angular, Typescript, Angular forms]
 
 In fast jeder Angular Applikation wird man früher oder später Eingaben von Nutzern annehmen und verarbeiten wollen. Reactive Forms haben den Vorteil, dass die Strukturen und alle Validierungen an einem Platz definiert werden und feldübergreifende Validierung so sehr einfach umsetzbar ist.  Für den Nachteil, dass sämtliche Typinformationen über das Form verloren geht, soll hier eine Alternative aufgezeigt werden.
 
+# Typisierte Forms in Angular
+
 In der aktuellen Implementierung der Reactive Forms ist keine Typinformationen über die Struktur der Daten in der `FormGroup` mehr vorhanden. Dies kann gerade bei größeren Formularen problematisch sein.
 Zuerst leidet die Übersicht und da der Zugriff auf die einzelnen Felder über Strings erfolgt, ist es bei Änderungen der Struktur nicht refactoring sicher. Fehler finden man dann erst bei Unit-Tests oder zur Laufzeit. Die IDE kann auch keine Unterstützung wie Code-Completion anbieten.
 
 Da sich Typescript in diesem Bereich stark weiterentwickelt hat, haben wir als Lösung in einem aktuellen Projekt eine Typisierung auf die Form-Klassen des Angular Projekt aufgesetzt und als Open Source Paket `ngx-strongly-typed-forms` über [npm](https://www.npmjs.com/package/ngx-strongly-typed-forms) veröffentlicht.
-
-# Typisierte Forms in Angular
 
 ## Vorstellung am Beispiel HeroForm
 
