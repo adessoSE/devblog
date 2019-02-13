@@ -13,6 +13,8 @@ Anwendungslandschaften und der Modernisierung von Monolithen etabliert haben, ba
 Innovationswelle mit Function as a Service (FaaS) und Serverless Computing auf. 
 Dieser Artikel beschreibt die Idee hinter FaaS und zeigt, wie man Funktionen mit Spring Cloud Function umsetzen kann.
 
+# Function as a Service
+
 Function as a service (FaaS) gehört zum Bereich des Cloud Computing und ermöglicht es fachliche Funktionalität zur Verfügung zu stellen ohne sich um den Aufbau und Betrieb der hierfür notwendigen Infrastruktur kümmern zu müssen. 
 Dies ermöglicht es z.B. neue Geschäftsideen schnell umzusetzen und produktiv zu Stellen. Desweitern fördert es durch die klare technische Trennung der einzelnen Funktionen eine entsprechend klare Umsetzung der einzelnen Domänen. 
 Bei der Modernisierung monolithischer IT Systeme ist dies ein nicht zu unterschätzender Aspekt.
@@ -36,7 +38,7 @@ Bezüglich der Implementierung einer FaaS stellt sich schnell heraus, dass es ke
 FaaS gibt, sondern man ein entsprechendes Vendor Lock-in hat. Will man also den FaaS Anbieter zu einem späteren Zeitpunkt 
 wechseln oder gar von der Cloud hin zu On-Premises wechseln, hat man prinzipiell Portierungs- und Testaufwand. 
 
-### Spring Cloud Function
+# Spring Cloud Function
 Für das Problem des Vendor Lock-in bietet das Spring Cloud Function Projekt den passenden Lösungsansatz. Es stellt ein 
 einheitliches FaaS Programmiermodell über eine Vielzahl von Cloud Providern hinweg zur Verfügung. So werden die Cloud 
 Provider Amazon Web Services, Microsoft Azure und die Open Source Servless Plattform OpenWhisk von Apache unterstützt. 
@@ -93,7 +95,7 @@ Ohne den Overhead von Spring würde sich der benötigte Speicherverbrauch bei ca
 kann man von ca. 100 ms gegenüber von ca. 10 ms ausgehen. Siehe hierzu auch den folgenden Blog Beitrag auf [Developer Zone](https://dzone.com/articles/run-code-with-spring-cloud-function-on-aws-lambda) 
 und das [Einstiegstutorial zu AWS Lambda](https://docs.aws.amazon.com/de_de/lambda/latest/dg/get-started-create-function.html).
 
-### Fazit
+# Fazit
 Da die Ausführungsdauer und der Speicherverbrauch bei dem [Abrechnungsmodell von AWS Lambda](https://aws.amazon.com/de/lambda/pricing/#Free_Tier) 
 die abrechnungsrelevanten Faktoren sind, ist vor der produktiven Nutzung von Spring Cloud Functions abzuklären, ob die aus 
 Sicht der Produktionskosten ein gangbarer Weg ist. Desweitern ist natürlich auch zu klären, ob die längere Ausführungsdauer 
