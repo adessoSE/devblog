@@ -63,8 +63,8 @@ Möchte man die Beziehung zwischen Martin Freeman und allen Filmen, in denen er 
 
 ```graphql
 MATCH (martin:Person)-[:ACTED_IN]->(martinMovies:Movie)
-WHERE p.name = "Martin Freeman"
-RETURN p,m;
+WHERE martin.name = "Martin Freeman"
+RETURN martin, martinMovies;
 ```
 
 Als Ergebnis wird ein Subgraph zurückgegeben, der die gesuchte Beziehung aus dem Gesamtgraphen zeigt.
@@ -75,7 +75,7 @@ Das gleiche Ergebnis kann man auch erreichen, indem man auf die explizite WHERE-
 
 ```graphql
 MATCH (martin:Person {name: "Martin Freeman"})-[:ACTED_IN]->(martinMovies:Movie)
-RETURN martin,martinMovies;
+RETURN martin, martinMovies;
 ```
 
 Möchte man statt dem Graphen eine tabellarische Darstellung des Ergebnisses erhalten, kann dies mit folgender Query erreicht werden:

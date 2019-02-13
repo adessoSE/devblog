@@ -93,8 +93,8 @@ Die Syntax besteht zum Teil aus „ASCII-Art“, die Knoten und Kanten repräsen
 <p>Möchte man die Beziehung zwischen Martin Freeman und allen Filmen, in denen er mitgespielt hat, abfragen, sieht die Syntax wie folgt aus:</p>
 
 <pre><code class="language-graphql">MATCH (martin:Person)-[:ACTED_IN]-&gt;(martinMovies:Movie)
-WHERE p.name = "Martin Freeman"
-RETURN p,m;
+WHERE martin.name = "Martin Freeman"
+RETURN martin, martinMovies;
 </code></pre>
 
 <p>Als Ergebnis wird ein Subgraph zurückgegeben, der die gesuchte Beziehung aus dem Gesamtgraphen zeigt.</p>
@@ -104,7 +104,7 @@ RETURN p,m;
 <p>Das gleiche Ergebnis kann man auch erreichen, indem man auf die explizite WHERE-Klausel verzichtet und diese direkt in dem MATCH-Befehl angibt:</p>
 
 <pre><code class="language-graphql">MATCH (martin:Person {name: "Martin Freeman"})-[:ACTED_IN]-&gt;(martinMovies:Movie)
-RETURN martin,martinMovies;
+RETURN martin, martinMovies;
 </code></pre>
 
 <p>Möchte man statt dem Graphen eine tabellarische Darstellung des Ergebnisses erhalten, kann dies mit folgender Query erreicht werden:</p>
