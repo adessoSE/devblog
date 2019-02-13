@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<documents>
+    <document uid="47e920acdfc3eccf81876ccda0951aba">
+        <field name="title"><![CDATA[Serverless Computing – Betrieb wirklich ohne Server]]></field>
+        <field name="subline"><![CDATA[]]></field>
+        <field name="teaser"><![CDATA[<p>Nachdem Microservice basierte Architekturen sich zunehmend als Architekturansatz der Wahl bei der Neuentwicklung von 
+Anwendungslandschaften und der Modernisierung von Monolithen etabliert haben, baut sich bereits die nächste 
+Innovationswelle mit Function as a Service (FaaS) und Serverless Computing auf. 
+Dieser Artikel beschreibt die Idee hinter FaaS und zeigt, wie man Funktionen mit Spring Cloud Function umsetzen kann.</p>
+
+]]></field>
+        <field name="language_multi_keyword"><![CDATA[de]]></field>
+        <field name="content_type_multi_keyword"><![CDATA[blog]]></field>
+        <field name="mime_type_multi_keyword"><![CDATA[text/html]]></field>
+        <field name="category_multi_keyword"><![CDATA[Java]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Spring]]></field>
+        <field name="tag_multi_keyword"><![CDATA[FaaS]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Architektur]]></field>
+        <field name="date_date"><![CDATA[2019-02-13T12:00:00+01:00]]></field>
+        <field name="date_l"><![CDATA[1550055600000]]></field>
+        <field name="change_date"><![CDATA[1550055600000]]></field>
+        <!--Picture-->
+        <!-- Not in use at the moment-->
+        <!--Author Information-->
+        <field name="author_first_name"><![CDATA[Andreas]]></field>
+        <field name="author_last_name"><![CDATA[Hartmann]]></field>
+        <field name="author_id"><![CDATA[hartmann42]]></field>
+        <field name="author_picture_stored_only"><![CDATA[http://localhost:4000/assets/images/avatars/hartmann42.jpg]]></field>
+        <!--Postcontent-->
+        <field name="headlines"><![CDATA[Serverless Computing – Betrieb wirklich ohne Server]]></field>
+        <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
+            <p>Nachdem Microservice basierte Architekturen sich zunehmend als Architekturansatz der Wahl bei der Neuentwicklung von 
+Anwendungslandschaften und der Modernisierung von Monolithen etabliert haben, baut sich bereits die nächste 
+Innovationswelle mit Function as a Service (FaaS) und Serverless Computing auf. 
+Dieser Artikel beschreibt die Idee hinter FaaS und zeigt, wie man Funktionen mit Spring Cloud Function umsetzen kann.</p>
+
+</div>]]></field>
+        <field name="content"><![CDATA[<div class="adesso-text-formate">
+<div class="row p-t-2">
+<div class="adesso-container">
+<div class="col-xl-8 adesso-center p-b-1 p-l-0 p-r-0">
+    <p>Nachdem Microservice basierte Architekturen sich zunehmend als Architekturansatz der Wahl bei der Neuentwicklung von 
+Anwendungslandschaften und der Modernisierung von Monolithen etabliert haben, baut sich bereits die nächste 
+Innovationswelle mit Function as a Service (FaaS) und Serverless Computing auf. 
+Dieser Artikel beschreibt die Idee hinter FaaS und zeigt, wie man Funktionen mit Spring Cloud Function umsetzen kann.</p>
+
+<h4 id="function-as-a-service">Function as a Service</h4>
+
+<p>Function as a service (FaaS) gehört zum Bereich des Cloud Computing und ermöglicht es fachliche Funktionalität zur Verfügung zu stellen ohne sich um den Aufbau und Betrieb der hierfür notwendigen Infrastruktur kümmern zu müssen. 
+Dies ermöglicht es z.B. neue Geschäftsideen schnell umzusetzen und produktiv zu Stellen. Desweitern fördert es durch die klare technische Trennung der einzelnen Funktionen eine entsprechend klare Umsetzung der einzelnen Domänen. 
+Bei der Modernisierung monolithischer IT Systeme ist dies ein nicht zu unterschätzender Aspekt.
+Ebenso bietet es sich zur Auslagerung von besonders rechenintensiven Funktionen in die Cloud an.</p>
+
+<p>Schaut man sich nun FaaS und Serverless Computing an, so wird man mit folgenden Aussagen konfrontiert:</p>
+<ul>
+  <li>Eine FaaS beinhaltet lediglich den Fachcode einer Funktion.</li>
+  <li>Die klar fokussierte fachliche Komplexität einer FaaS führt zu einer sehr guten Wartbarkeit.</li>
+  <li>Eine FaaS ist prinzipiell stateless. Die ggf. notwendige Persistierung von Daten ist in einem externen System vorzunehmen.</li>
+  <li>Eine FaaS ist ereignisgetrieben und hat keinen laufenden Serverprozess.</li>
+  <li>Bei der Ausführung einer FaaS wird jeweils eine neue Instanz erzeugt und nach der Ausführung verworfen. Die Ausführung einer FaaS kann z.B. durch einen Http Request oder ein Event ausgelöst werden.</li>
+  <li>FaaS Laufzeitumgebungen skalieren automatisch. Im Rahmen der Entwicklung und des Betriebs muss man sich zunächst keine Gedanken hinsichtlich der Skalierbarkeit machen. Dies übernimmt der Cloudprovider.</li>
+  <li>Serverless bedeutet in diesem Zusammenhang nicht, dass es keine Infrastruktur gibt, auf dem die Funktion ausgeführt wird. Vielmehr wird eine optimierte Laufzeitumgebung zur Ausführung der Funktionen von einem Cloudprovider zur Verfügung gestellt.</li>
+  <li>Der Einsatz von FaaS bietet sich insbesondere bei deutlichen Schwankungen hinsichtlich des Nutzungsverhaltens an.</li>
+</ul>
+
+<p>Die drei großen Cloudprovider, Amazon Web Services, Microsoft Azure und Google Cloud Plattform bieten schon heute die 
+entsprechenden Dienste zur Nutzung von FaaS an. Das Thema hat damit längst den experimentellen Rahmen verlassen und ist 
+ein Lösungsansatz zur Umsetzung von verteilten Systemen geworden.</p>
+
+<p>Bezüglich der Implementierung einer FaaS stellt sich schnell heraus, dass es kein einheitliches Programmiermodell für 
+FaaS gibt, sondern man ein entsprechendes Vendor Lock-in hat. Will man also den FaaS Anbieter zu einem späteren Zeitpunkt 
+wechseln oder gar von der Cloud hin zu On-Premises wechseln, hat man prinzipiell Portierungs- und Testaufwand.</p>
+
+<h4 id="spring-cloud-function">Spring Cloud Function</h4>
+<p>Für das Problem des Vendor Lock-in bietet das Spring Cloud Function Projekt den passenden Lösungsansatz. Es stellt ein 
+einheitliches FaaS Programmiermodell über eine Vielzahl von Cloud Providern hinweg zur Verfügung. So werden die Cloud 
+Provider Amazon Web Services, Microsoft Azure und die Open Source Servless Plattform OpenWhisk von Apache unterstützt.</p>
+
+<p>Des Weiteren kann eine FaaS herkömmlich betrieben werden. Hierbei kommt dann eine Spring Boot Anwendung mit einem Tomcat 
+zum Einsatz. Dies reduziert im Rahmen der Entwicklung die Aufwände, da diese on Premise durchgeführt werden kann und 
+lediglich die Tests und Produktion in der Cloud stattfinden.</p>
+
+<p>Zur Entwicklung einer FaaS können die bekannten Spring Boot Features wie die Konfiguration und die Dependency Injektion 
+genutzt sowie mittels Spring Boot Actuator das Monitoring der FaaS durchgeführt werden. Darüber hinaus steht prinzipiell 
+das gesamte Spring Ökosystem zur Verfügung, um möglichst effizient eine FaaS umzusetzen. Aus Entwicklungssicht 
+unterscheidet sich somit die Programmierung einer FaaS nicht von der herkömmlichen Entwicklung mit Spring.</p>
+
+<p>Die einfachste Form ein FaaS mittels Spring Cloud Function besteht dabei aus der eigentlichen Startklasse, 
+siehe Application Klasse, und der FaaS Implementierung, siehe Greeter Klasse, selbst.</p>
+
+<pre><code class="language-java">import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class Application {
+
+	public static void main(String[] args) {
+		SpringApplication.run(Application.class, args);
+	}
+}
+</code></pre>
+
+<pre><code class="language-java">import java.util.function.Function;
+
+public class Greeter implements Function&lt;String, String&gt; {
+
+	@Override
+	public String apply(String name) {
+		return "Hello " + name;
+	}	
+}
+</code></pre>
+
+<p>Auf den ersten Blick hat dieser Ansatz zahlreiche Vorteile. So kann im Rahmen der Entwicklung das etablierte Spring 
+Programmiermodell mit dem umfangreichen Ökosystem eingesetzt werden. Auch das Thema polyglotte Ausführungsumgebungen 
+ist entsprechend berücksichtigt, da man die FaaS sowohl On Premise als auch auf ausgewählten Cloud Providern betreiben kann.</p>
+
+<p>Aus Sicht der Ausführungsdauer einer FaaS und der damit einhergehenden laufenden Kosten und der ressourcenschonenden Nutzung 
+stellt es sich leider nicht so positiv dar. Um die FaaS auf einer Cloud Plattform betreiben zu können, sind alle eingesetzten 
+abhängigen Bibliotheken mit auszuliefern. Betrachtet man das oben aufgeführte Bsp. so ist der JAR File letztendlich wenige kB 
+groß, wenn die benötigten Bibliotheken nicht mit ausgeliefert werden. Werden diese jedoch mittels des Maven Shade Plugins 
+während des Buildprozesses mit hinzugenommen, ist der JAR nahezu 20 MB groß.</p>
+
+<p>Bei der Ausführung als AWS Lambda ist der Speicherverbrauch während der Ausführung mit annähernd 100 MB nicht gerade klein. 
+Ohne den Overhead von Spring würde sich der benötigte Speicherverbrauch bei ca. 20 MB bewegen. Auch bei der Ausführungsdauer 
+kann man von ca. 100 ms gegenüber von ca. 10 ms ausgehen. Siehe hierzu auch den folgenden Blog Beitrag auf <a href="https://dzone.com/articles/run-code-with-spring-cloud-function-on-aws-lambda">Developer Zone</a> 
+und das <a href="https://docs.aws.amazon.com/de_de/lambda/latest/dg/get-started-create-function.html">Einstiegstutorial zu AWS Lambda</a>.</p>
+
+<h4 id="fazit">Fazit</h4>
+<p>Da die Ausführungsdauer und der Speicherverbrauch bei dem <a href="https://aws.amazon.com/de/lambda/pricing/#Free_Tier">Abrechnungsmodell von AWS Lambda</a> 
+die abrechnungsrelevanten Faktoren sind, ist vor der produktiven Nutzung von Spring Cloud Functions abzuklären, ob die aus 
+Sicht der Produktionskosten ein gangbarer Weg ist. Desweitern ist natürlich auch zu klären, ob die längere Ausführungsdauer 
+bei der Nutzung von Spring Cloud Functions aus Benutzersicht akzeptabel ist.</p>
+
+</div>
+</div>
+</div>
+</div>]]></field>
+    </document>
+</documents>

@@ -106,6 +106,24 @@ roland:
   avatar_url: /assets/images/avatars/rolandMajchszak.jpg
   github: https://github.com/RMajchszak
 
+t-buss:
+  first_name: Thomas
+  last_name: Buß
+  github_username: t-buss
+  email: thomas.buss@adesso.de
+  bio: "Thomas ist Werkstudent in Dortmund und interessiert sich für Open Source und Cloud-Technologien."
+  avatar_url: /assets/images/avatars/tbuss.jpg
+  github: https://github.com/t-buss
+
+florianluediger:
+  first_name: Florian
+  last_name: Lüdiger
+  github_username: florianluediger
+  email: florian.luediger@adesso.de
+  bio: "Florian leistet im Open-Source-Team unter anderem Beiträge zu einigen Spring-Projekten und entwickelt eigene, spannende Software, die der Öffentlichkeit zur Verfügung gestellt wird."
+  avatar_url: /assets/images/avatars/florianluediger.jpg
+  github: https://github.com/florianluediger
+
 karnik:
   first_name: Markus
   last_name: Karnik
@@ -132,6 +150,24 @@ swindisch:
   bio: "Sascha Windisch ist Lösungs-Architekt bei adesso in Essen. Er plant und modelliert Software-Systeme in verschiedenen Branchen."
   avatar_url: /assets/images/avatars/swindisch.png
   github: https://github.com/swindisch
+
+hartmann42:
+  first_name: Andreas
+  last_name: Hartmann
+  github_username: hartmann42
+  email: hartmann@adesso.de
+  bio: "Andreas Hartmann ist Principal Software Architect und Mitglied des Technologiebeirates bei der adesso AG, Vortragender auf diversen Konferenzen und Autor verschiedener Fachartikel. Sein Tätigkeitsschwerpunkt liegt in der Konzeption und Implementierung von Softwarearchitekturen auf Basis der Java-Plattform. Seine aktuellen Interessensschwerpunkte sind effiziente Entwicklungsprozesse unter Einbezug von Virtualisierungslösungen wie Docker, Architekturen im Kontext von IoT und Portalen sowie NoSQL. "
+  avatar_url: /assets/images/avatars/hartmann42.jpg
+  github: https://github.com/hartmann42
+
+dariobraun:
+  first_name: Dario
+  last_name: Braun
+  github_username: dariobraun
+  email: dario.braun@adesso.de
+  bio: "Dario Braun ist Werkstudent bei adesso in Dortmund und im Open-Source-Bereich tätig."
+  avatar_url: /assets/images/avatars/dariobraun.jpg
+  github: https://github.com/dariobraun
 
 
 no0x9d:

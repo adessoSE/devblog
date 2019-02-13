@@ -100,8 +100,7 @@ verlinke sie dann in der Markdown-Datei wie in diesem Beispiel:
 ![Logo der adesso AG](https://github.com/adessoAG/devblog/raw/master/assets/images/blog-post-guide/logo.png)
 
 **Hinweis:** im Gegensatz zum Beispiel-Bild oben muss der Pfad zum Bild in einem Blog Post erst bei "assets" beginnen,
-müsste also so aussehen: "/assets/images/blog-post-guide/logo.png". Zur Veranschaulichung wurde im Beispiel der
-absolute Pfad angegeben.
+müsste also so aussehen: "/assets/images/blog-post-guide/logo.png". Wichtig dabei ist, dass der Pfad mit einem **"/"** beginnt, ansonsten funktionieren die Bilder zwar in der Vorschau, allerdings nicht im eigentlichen Blog.
 
 # GitHub Fork & Pull Workflow
 
@@ -173,6 +172,11 @@ Diese ist auch in die Pull-Request-Template eingebunden, sodass Du dort deine Ä
 	* [Bilder korrekt in den Artikel eingebunden](https://github.com/adessoAG/devblog/blob/master/examples/2017-08-10-blog-post-guide.md#bilder)
 	* Reviewer angegeben (Liste mit Reviewern?)
   * Online-Preview angesehen
+
+# Nachträgliche Änderungen am Post
+Es können auch nach Veröffentlichung nachträglich Änderungen an einem Post durchgeführt werden, wenn beispielsweise Bilder nicht korrekt dargestellt werden oder sich ein Fehler im Text eingeschlichen hat, der vorher nicht aufgefallen ist.
+Damit die Änderungen auch im adesso Blog landen, muss dazu das `modified_date` im Kopf der Date hinzugefügt bzw. aktualisiert werden.
+Ist dieses angepasst, wird der Artikel wieder automatisch im Blog veröffentlicht.
 
 # Technischer Hintergrund
 
