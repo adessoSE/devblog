@@ -24,7 +24,7 @@ Die JVM allein benötigt nach [offiziellen Angaben](https://www.java.com/en/down
 Für traditionelle Anwendungen ist dies voll und ganz vertretbar, bei Docker-Containern in einem Cluster oder gar als FaaS-Instanz sind solche Zahlen aber nicht mehr zeitgemäß.
 Zum Vergleich: nicht-triviale Anwendungen in der Programmiersprache Go sind nach der Kompilation oftmals nur 20-30Mb groß.
 Eine andere, wichtige Metrik ist die Startzeit einer Anwendung.
-Durch den Reflection-Ansatz von Spring sind Startzeiten jenseits der 20 Sekunden keine Seltenheit.
+Durch den Laufzeit-Reflection-Ansatz von Spring sind Startzeiten jenseits der 20 Sekunden keine Seltenheit.
 Auch das ist besonders für Serverless-Anwendungen nicht hinnehmbar.
 
 # Was Micronaut unterscheidet
@@ -43,7 +43,7 @@ Zudem fallen durch dieses Vorgehen etwaige Fehler wie eine nicht-zu-erfüllende 
 Außerdem ist die Startzeit nicht abhängig von der Größe der Anwendung.
 Einmal kompiliert ist die Startzeit dadurch relativ konstant.
 
-Die Implikation dieses Reflection-vermeidenden Ansatzes ist natürlich, dass die Libraries, die zusätzlich zum Framework in die Anwendung einfließen, ebenfalls auf Reflection verzichten müssen.
+Die Implikation dieses Compile-Zeit-Ansatzes ist natürlich, dass die Libraries, die zusätzlich zum Framework in die Anwendung einfließen, ebenfalls auf das Nachladen von Beans per Reflection verzichten müssen.
 Das AOP-Framework AspectJ ist beispielsweise ungeeignet für Micronaut, weswegen Micronaut selbst eine AOP-Lösung bereitstellt.
 
 Wie stark die durch das Framework erzielten Verbesserungen sind, wollen wir uns jetzt einmal in einer einfachen Anwendung anschauen.
@@ -354,7 +354,7 @@ Bei [GraalVM](https://www.graalvm.org/) handelt es sich um eine virtuelle Maschi
 Dadurch erhalten wir die Möglichkeit, Code aus verschiedenen Sprachen innerhalb der gleichen Runtime laufen zu lassen.
 Aber das ist nur der Anfang: GraalVM bietet die Möglichkeit, Java-Anwendungen in native Binaries kompilieren zu lassen.
 Diese können dann ohne JVM oder GraalVM ausgeführt werden.
-Dieser Schritt wird nur möglich, wenn die Anwendung wenig bis gar keine Reflection benutzt.
+Dieser Schritt wird nur möglich, wenn die Anwendung wenig bis gar kein reflexives Nachladen benutzt (siehe [hier](https://github.com/oracle/graal/blob/master/substratevm/REFLECTION.md) für eine detailierte Erklärung).
 Daher eignet sich eine Micronaut-Anwendung ausgesprochen gut für den Einsatz mit GraalVM.
 
 Nachdem man GraalVM [installiert](https://www.graalvm.org/docs/getting-started/) hat, erhält man einen "JDK-Ersatz".
