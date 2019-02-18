@@ -39,7 +39,7 @@ Dann werden die Beans dort "injected", wo sie benötigt werden.
 Während das ein sehr einfacher und erprobter Ansatz ist, verlängert er jedoch die Startzeit durch diesen Overhead.
 Die Startzeit leidet dabei umso mehr, je mehr Klassen die Anwendung enthält.
 Micronaut hingegen verwendet "Annotation Processors", die die nötigen Informationen zur Compile-Zeit sammlen und Ahead-of-Time (AOT) die nötigen Transformationen für Dependency Injection (DI) und Aspect Oriented Programming (AOP) erledigen.
-Dadurch verkürzt sich die Startzeit der Anwendung, erhöht jedoch die Compile-Zeit.
+Das verkürzt die Startzeit der Anwendung, erhöht jedoch die Compile-Zeit.
 Zudem fallen durch dieses Vorgehen etwaige Fehler wie eine nicht-zu-erfüllende Abhängigkeit schon zur Compile-Zeit auf.
 Außerdem ist die Startzeit nicht abhängig von der Größe der Anwendung.
 Einmal kompiliert ist die Startzeit dadurch relativ konstant.
