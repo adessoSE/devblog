@@ -1,7 +1,7 @@
 ---
 layout:         [post, post-xml]              
 title:          "Micronaut - Eine Alternative zu Spring"
-date:           2019-01-30 16:56
+date:           2019-02-18 09:00
 author:         t-buss
 categories:     [Softwareentwicklung]
 tags:           [microservices, java, micronaut]
