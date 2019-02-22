@@ -32,7 +32,8 @@ end
 rule "Fraud detection rule 1"
     when
         $tx: Transaction() from entry-point "MonitoringStream";
-        Transaction( this != $tx, this after[0s,120s] $tx, !$tx.getExecutionLocation().equals(this.getExecutionLocation), $tx.getCreditCard() == this.getCreditCard())
+        Transaction(this != $tx, this after[0s,120s] $tx, !$tx.getExecutionLocation().equals(this.getExecutionLocation), 
+					$tx.getCreditCard() == this.getCreditCard())
         from entry-point "MonitoringStream";
     then
         System.out.println("Fraud suspected by rule 1. Two transactions from two different countries in a short time");
