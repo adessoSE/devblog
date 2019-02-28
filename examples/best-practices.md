@@ -38,9 +38,12 @@ Diese Liste kann auch gut als Checkliste verwendet werden, damit du sicher gehen
 - Quellcode kann oft **vereinfacht oder durch Pseudocode ersetzt** werden, da nicht immer alle Details nötig sind, um die Essenz zu verstehen.
 - Erkläre, wie der Leser die von dir vorgestellte Technologie einfach ausprobieren kann, oder verweise auf ein entsprechendes Tutorial. Schön ist auch ein minimales Beispiel, welches man als ZIP oder von GitHub herunterladen kann.
 
-# Sonstiges
+# Der GitHub-Kanal
+Du kannst deinen Beitrag über [GitHub](https://github.com/adessoAG/devblog/) als Pull Request einreichen. In diesem Fall, achte auf die folgenden Punkte:
+- Mache dich mit der [Anleitung](https://github.com/adessoAG/devblog/blob/master/examples/2017-08-10-blog-post-guide.md) vertraut. 
 - Mache dich vor dem Schreiben mit dem **Markdown-Format** vertraut.
 - Schreibe **jeden Satz in eine eigene Zeile**. Dies ändert an dem Endergebnis nichts, erleichtert aber das Review ungemein, da auf GitHub nur zeilenweise kommentiert werden kann.
 - Fülle die **Publish-Checkliste** in deinem Pull-Request aus.
 - Bilder sollten **nicht viel breiter als 1000 Pixel** sein. Größere Bilder werden zwar automatisch runter skaliert, werden dann aber nicht mehr gut dargestellt. Größere Bilder sollten auch nicht manuell runter skaliert werden.
 - Screenshots sollten direkt in der **passenden Breite** aufgenommen werden. Dazu ggf. die Skalierungsfunktion des Browsers verwenden.
+- Wende dich an [devblog@adesso.de](mailto:devblog@adesso.de), wenn du Fragen zum Github-Kanal hast.
