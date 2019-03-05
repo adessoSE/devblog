@@ -14,7 +14,7 @@ möglichst Entwickler-freundlich zu gestalten, indem wir Blog Posts wie Source C
 Diese Anleitung beschreibt, was dafür zu tun ist. Es sollte aber nahe an dem sein, was du aus
 deiner Erfahrung als Softwareentwickler bereits kennst :).
 
-Schaue gerne vor dem schreiben in die
+Schaue gerne vor dem Schreiben in die
 [Best Practices zum Schreiben von Blogbeiträgen](https://github.com/adessoAG/devblog/blob/master/examples/best-practices.md),
 wo einige Tipps für einen erfolgreichen Beitrag gesammelt wurden.
 
