@@ -12,7 +12,7 @@ Im folgenden Artikel werde ich dir das ITC näher bringen und auch mein eigenes 
 
 # Das IT-Center und das Aufnahmeverfahren
 Das IT-Center Dortmund (kurz: ITC) ist eine private Bildungseinrichtung in Dortmund und bietet ein duales bzw. praxisnahes Informatik Studium an.
-Es wurde im Jahr 2000 mit der Unterstützung des Bundeslandes Nordrhein-Westfalen, der TU-Dortmund sowie. FH-Dortmund und der Stadt Dortmund gegründet.
+Es wurde im Jahr 2000 mit der Unterstützung des Bundeslandes Nordrhein-Westfalen, der TU-Dortmund sowie der FH-Dortmund und der Stadt Dortmund gegründet.
 Das Besondere am ITC ist der alleinstehende Studiengang IT- und Softwaresysteme dieser beinhaltet eine Regelstudienzeit von 7 Semestern.
 In den ersten vier Semestern studiert man dual, danach berufsbegleitend d.h man ist Vollzeit berufstätig.
 Nach dem Studium erhält man den Bachelor of Science, der von der FH-Dortmund ausgestellt wird.
