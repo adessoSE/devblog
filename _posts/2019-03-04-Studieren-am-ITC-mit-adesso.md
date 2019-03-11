@@ -19,7 +19,7 @@ Nach dem Studium erhält man den Bachelor of Science, der von der FH-Dortmund au
 Das ITC ist eine Art Franchise Unternehmen.
 Ein Jahrgang besteht aus maximal 30 Personen, nach einem komplexen Aufnahmeverfahren kann man den Studienvertrag unterschreiben.
 Das Aufnahmeverfahren besteht aus der Online-Bewerbung und einem anschließendem Assessment-Center das aus einem Eignungstest und einer Präsentation besteht.
-Im späteren Verlauf bekommt man einen Termin für eine Kennenlernrunde mit Partnerunternehmen, denn der Studiengang ist darauf ausgelegt, dass man in einem Unternehmen untergebracht ist, dass die monatlichen Studiengebühren finanziert.
+Im späteren Verlauf bekommt man einen Termin für eine Kennenlernrunde mit Partnerunternehmen, denn der Studiengang ist darauf ausgelegt, dass man in einem Unternehmen untergebracht ist, das die monatlichen Studiengebühren finanziert.
 Letztendlich habe ich mich nach einem intensiven Gespräch mit Tom Hombergs und Pascal Logah für Adesso entschieden, woraufhin ich mich initiativ beworben habe.
 Die Einladung zu einem Termin erreichte mich nur wenig später und ich konnte anschließend erfreut feststellen, dass man sich für mich entschieden hatte.
 
