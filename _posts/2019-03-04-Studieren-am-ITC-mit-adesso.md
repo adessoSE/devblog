@@ -7,7 +7,7 @@ author: ccaylak
 categories: [Branchen & People]       
 ---
 
-Die meisten Studenten, die an der Dortmunder Geschäftsstelle arbeiten studieren für gewöhnlich an der TU oder an der FH aber hast du schonmal etwas vom IT-Center gehört?
+Die meisten Studenten, die an der Dortmunder Geschäftsstelle arbeiten, studieren für gewöhnlich an der TU oder an der FH, aber hast du schonmal etwas vom IT-Center gehört?
 Im folgenden Artikel werde ich dir das ITC näher bringen aber auch mein eigenes kleines Fazit nach dem ersten Semester aufführen.
 
 #Das IT-Center und das Aufnahmeverfahren
