@@ -8,7 +8,7 @@ categories: [Branchen & People]
 ---
 
 Die meisten Studenten, die an der Dortmunder Geschäftsstelle arbeiten, studieren für gewöhnlich an der TU oder an der FH, aber hast du schonmal etwas vom IT-Center gehört?
-Im folgenden Artikel werde ich dir das ITC näher bringen aber auch mein eigenes kleines Fazit nach dem ersten Semester aufführen.
+Im folgenden Artikel werde ich dir das ITC näher bringen und auch mein eigenes kleines Fazit nach dem ersten Semester aufführen.
 
 #Das IT-Center und das Aufnahmeverfahren
 Das IT-Center Dortmund (kurz: ITC) ist eine private Bildungseinrichtung in Dortmund und bietet ein duales bzw. praxisnahes Informatik Studium an.
