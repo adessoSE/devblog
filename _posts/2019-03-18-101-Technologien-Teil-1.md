@@ -31,7 +31,7 @@ Hier eine kurze Übersicht der Themen und damit verbundenen Technologien, die di
 - **5. Artikel:** _Front-End mittels Vue_
 
 Die Beispielanwendung ist eine soziale Plattform, in der Nutzer Kurznachrichten posten und anderen Nutzern folgen können.
-Das sollte dir sehr bekannt vorkommen, Stichwort 'blauer Vogel'.
+Das sollte dir sehr bekannt vorkommen, Stichwort ['blauer Vogel'](https://twitter.com/).
 Doch zunächst die Anforderungen an die Beispielanwendung.
 Der Nutzer soll...
 
@@ -133,7 +133,6 @@ Zunächst ein Vergleich der Sprachen Kotlin, Java und C: [Google Trends](https:/
 Da kommt Kotlin aber nicht gut weg.
 Zugegebenermaßen, der Vergleich hinkt ein wenig.
 C und Java existieren bereits seit Jahrzenten.
-Gerade Java hat sich mit der Zeit vermutlich zu der ersten Sprache eines herangehenden Entwicklers hervorgetan.
 Ein [Vergleich](https://trends.google.de/trends/explore?date=today%205-y&q=Kotlin,Groovy) mit dem direkten Konkurrenten Groovy sieht dann schon etwas anders aus.
 Gerade in den Jahren 2017 und 2018 konnte Kotlin an Interesse gewinnen.
 
