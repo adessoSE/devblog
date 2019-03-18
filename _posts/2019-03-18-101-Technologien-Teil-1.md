@@ -20,7 +20,7 @@ Es gibt eine Menge Technologien.
 Und es werden immer mehr!
 Front-End-Entwickler können ein Lied von singen, denn gerade in diesem Bereich tummeln sich schier unendlich viele Frameworks.
 Doch auch im Back-End bewegt sich einiges.
-In dieser Blogreihe zeige ich dir anhand einer Beispielanwendung fünf spannende, moderne Technologien.
+In dieser Blogreihe zeige ich dir anhand einer Beispielanwendung fünf moderne Technologien.
 Für jede Technologie ist ein eigener Artikel geplant.
 Hier eine kurze Übersicht der Themen und damit verbundenen Technologien, die dich erwarten:
 
@@ -30,9 +30,9 @@ Hier eine kurze Übersicht der Themen und damit verbundenen Technologien, die di
 - **4. Artikel:** _API mittels GraphQL_
 - **5. Artikel:** _Front-End mittels Vue_
 
-Die Beispielanwendung in dieser Blogreihe sollte dir sehr bekannt vorkommen.
-Es ist eine soziale Plattform, in der Nutzer Kurznachrichten posten und andere Nutzer folgen können.
-Zunächst die Anforderungen an die Beispielanwendung.
+Die Beispielanwendung ist eine soziale Plattform, in der Nutzer Kurznachrichten posten und andere Nutzer folgen können.
+Das sollte dir sehr bekannt vorkommen, Stichwort 'blauer Vogel'.
+Doch zunächst die Anforderungen an die Beispielanwendung.
 Der Nutzer soll...
 
 - ... sich bei dem Dienst anmelden / abmelden.
@@ -41,14 +41,16 @@ Der Nutzer soll...
 - ... eine Liste mit allen verfügbaren Nutzern sehen.
 - ... in der Liste der verfügbaren Nutzern Nutzer folgen / entfolgen.
 
+Die gesamte Beispielanwendung ist auf [GitHub](https://github.com/zwiebelbrot/keycloak-kotlin-graphql-neo4j-spring-vue-example) verfügbar.
+
 # Lasst die Hunde los!
 
-Ohne ein Fundament steht selbst das stabilste Haus nicht, weswegen die Beispielanwendung auf zwei bereits etablierte Technologien aufbaut, die nicht zu den fünf modernen Technologien zählen: [Spring Boot](https://spring.io/projects/spring-boot) und [Gradle](https://gradle.org/).
+Ohne ein Fundament steht selbst das stabilste Haus nicht, weswegen die Beispielanwendung auf zwei bereits etablierten Technologien aufbaut, die nicht zu den fünf modernen Technologien zählen: [Spring Boot](https://spring.io/projects/spring-boot) und [Gradle](https://gradle.org/).
 Mit diesen zwei Technologien wird dir eine Menge Arbeit erspart.
 Du kannst mit denen ohne viel Konfigurationen eine eigenständige Anwendung entwickeln und ausliefern.
 Mit dem [Spring Initializr](https://start.spring.io/) kannst du ein solches Projekt initialisieren.
 Die Parameter kannst du wie in der folgenden Abbildung auswählen.
-Abhängigkeiten fügen wir später händisch hinzu, weswegen du hier noch keine auswählen musst.
+Abhängigkeiten werden später händisch hinzugefügt, weswegen du hier noch keine auswählen musst.
 _Group_ und _Artifact_ kannst du beim Standard belassen.
 
 ![Initialisierung des Projekts mit Spring Initializr](/assets/images/posts/101-technologien/projekt.png)
@@ -56,7 +58,7 @@ _Group_ und _Artifact_ kannst du beim Standard belassen.
 Wenn du aus Gewohnheit Java ausgewählt hast, keine Sorge: Mir ist das auch passiert.
 Doch die Beispielanwendung soll in der Programmiersprache Kotlin entwickelt werden.
 Kotlin ist somit die erste von den fünf modernen Technologien, die in dieser Blogreihe behandelt werden.
-Bevor du die Besonderheiten von Kotlin kennenlernst, muss die Beispielanwendung noch weiter konfiguriert werden.
+Bevor du die Besonderheiten von Kotlin kennenlernst, muss jedoch die Beispielanwendung noch weiter konfiguriert werden.
 
 Die Beispielanwendung soll aus den folgenden zwei Modulen bestehen:
 
@@ -69,7 +71,7 @@ Außerdem musst du die ArtifactId, also in unserem fall api und core, vergeben.
 Erstellst du über IntelliJ ein Modul, wird auch automatisch eine build.gradle-Datei erzeugt.
 Den Inhalt der build.gradle-Dateien kannst du zunächst in beiden Modulen löschen.
 Außerdem kann es passieren, dass IntelliJ vergisst, die Module der settings.gradle-Datei hinzuzufügen.
-Sollte dies zutreffen, musst die Module nachträglich einfügen.
+Sollte dies zutreffen, musst du die Module nachträglich einfügen.
 In jedem Fall sollte die settings.gradle-Datei wie folgt aussehen:
 
 ```groovy
@@ -87,7 +89,7 @@ Im Stammverzeichnis selbst befindet sich ebenfalls eine build.gradle-Datei.
 In dieser kannst du die beiden Module konfigurieren.
 Dafür musst du alle Zeilen bis auf das Closure `buildscript { ... }` in das Closure `subproject { ... }` einfügen.
 Konfigurationen im Closure `subproject { ... }` gelten für alle Module im Projekt. 
-Damit die Referenzen zwischen den Modulen und Abhängigkeiten korrekt aufgelöst werden, musst du die Zeile `apply plugin: 'org.springframework.boot'` entfernen und die folgenden Zeilen hinzugefügen. Ansonsten kann Gradle die Abhängigkeiten nicht korrekt auflösen und dir es hagelt _ReferenceUnkown_-Errors.
+Damit die Referenzen zwischen den Modulen und Abhängigkeiten korrekt aufgelöst werden, musst du die Zeile `apply plugin: 'org.springframework.boot'` entfernen und die folgenden Zeilen hinzugefügen. Ansonsten kann Gradle die Abhängigkeiten nicht korrekt auflösen und es hagelt _ReferenceUnkown_-Errors.
 
 ```groovy
 dependencyManagement {
@@ -122,11 +124,11 @@ dependencies {
 
 Die Konfiguration ist damit fertig.
 Zumindest fast... es fehlen noch die Abhängigkeiten.
-Doch der spannungshalber erfährst du die Abhängigkeiten, und somit die konkreten Technologien, erst in den jeweiligen Artikeln.
+Diese kommen in folgenden Artikeln hinzu.
 
 # Sitz, Pongo!
 
-Beginnen wir mit einem Vergleich: [Google Trends](https://trends.google.de/trends/explore?date=today%205-y&q=Kotlin,Java,C)
+Zunächst ein Vergleich der Sprachen Kotlin, Java und C: [Google Trends](https://trends.google.de/trends/explore?date=today%205-y&q=Kotlin,Java,C)
 
 Da kommt Kotlin aber nicht gut weg.
 Zugegebenermaßen, der Vergleich hinkt ein wenig.
@@ -302,7 +304,7 @@ Für Entwickler, die ohne _null pointer exceptions_ nicht leben können, existie
 Dadurch wird jeder Wert in einen null-Typ konvertiert.
 Ansonsten besteht für nicht veränderbare Variablen die Möglichkeit, mittels einer if-Verzweigung auf den null-Typ zu überprüfen (Funktioniert nicht für veränderbare Variablen, da ansonsten nach der Überprüfung der Variable null zugewiesen werden könnte).
 
-Der **Safe Call** kann mit dem `.?`-Operatoren ausgeführt werden.
+Der **Safe Call** wird mit dem `.?`-Operatoren ausgeführt.
 Dabei wird überprüft, ob der Wert nicht null ist.
 Wenn dies zutrifft, wird der Wert verwendet, ansonsten wird null zurückgegeben, ohne eine _null pointer exception_ zu werfen.
 
