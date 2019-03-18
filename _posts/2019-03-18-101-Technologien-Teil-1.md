@@ -13,7 +13,8 @@ Diese Blogreihe beschäftigt sich mit 'modernen' Technologien, die sich aktuell 
 
 # "Have you ever seen so many puppies?"
 
-![Titelbild](/assets/images/posts/101-technologien/dalmatiner.png)
+<!-- TODO: Füge Titelbild hinzu -->
+<!-- TODO: Passe die Analogie & somit den Text an -->
 
 Die Analogie zu dem Klassiker vom Regisseur Wolfgang Reitherman ist nicht so weit hergeholt.
 Es gibt eine Menge Technologien.
@@ -84,6 +85,8 @@ Aktuell befindet sich bis auf die build.gradle-Dateien nichts in den Modulen.
 Um die gewohnte Verzeichnisstruktur _src/..._ zu erhalten, kannst du das src-Verzeichnis aus dem Stammverzeichnis kopieren und in beide Module einfügen.
 Anschließend muss noch in beiden Modulen ein Package mit dem jeweiligen Modulnamen, also api und core, erzeugt werden.
 Das src-Verzeichnis aus dem Stammverzeichnis kannst du löschen.
+
+<!-- TODO: Anpassen an die neue Standard-build.gradle-Datei von Spring Initializr -->
 
 Im Stammverzeichnis selbst befindet sich ebenfalls eine build.gradle-Datei.
 In dieser kannst du die beiden Module konfigurieren.
