@@ -13,13 +13,9 @@ Diese Blogreihe beschäftigt sich mit 'modernen' Technologien, die sich aktuell 
 
 # "Have you ever seen so many puppies?"
 
-<!-- TODO: Füge Titelbild hinzu -->
-<!-- TODO: Passe die Analogie & somit den Text an -->
-
-Die Analogie zu dem Klassiker vom Regisseur Wolfgang Reitherman ist nicht so weit hergeholt.
-Es gibt eine Menge Technologien.
-Und es werden immer mehr!
-Front-End-Entwickler können ein Lied davon singen, denn gerade in diesem Bereich tummeln sich schier unendlich viele Frameworks.
+In dem Klassiker _101 Dalmatiner_ vom Regisseur Wolfgang Reitherman tummeln sich jede Menge Hunde herum.
+Ein Zeichentrickfilm über Technologien im Bereich der Software würde wohl ähnlich ablaufen.
+Front-End-Entwickler können ein Lied davon singen, denn gerade in diesem Bereich existieren schier unendlich viele Frameworks.
 Doch auch im Back-End bewegt sich einiges.
 In dieser Blogreihe zeige ich dir anhand einer Beispielanwendung fünf moderne Technologien.
 Für jede Technologie ist ein eigener Artikel geplant.
@@ -44,7 +40,7 @@ Der Nutzer soll...
 
 Die gesamte Beispielanwendung ist auf [GitHub](https://github.com/zwiebelbrot/keycloak-kotlin-graphql-neo4j-spring-vue-example) verfügbar.
 
-# Lasst die Hunde los!
+# Initialisierung des Projekts
 
 Ohne ein Fundament steht selbst das stabilste Haus nicht, weswegen die Beispielanwendung auf zwei bereits etablierten Technologien aufbaut, die nicht zu den fünf modernen Technologien zählen: [Spring Boot](https://spring.io/projects/spring-boot) und [Gradle](https://gradle.org/).
 Mit diesen zwei Technologien wird dir eine Menge Arbeit erspart.
@@ -129,7 +125,7 @@ Die Konfiguration ist damit fertig.
 Zumindest fast... es fehlen noch die Abhängigkeiten.
 Diese kommen in folgenden Artikeln hinzu.
 
-# Sitz, Pongo!
+# Die Programmiersprache Kotlin
 
 Zunächst ein Vergleich der Sprachen Kotlin, Java und C: [Google Trends](https://trends.google.de/trends/explore?date=today%205-y&q=Kotlin,Java,C)
 
