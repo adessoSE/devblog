@@ -14,7 +14,7 @@ Diese Blogreihe beschäftigt sich mit 'modernen' Technologien, die sich aktuell 
 # "Have you ever seen so many puppies?"
 
 In dem Klassiker _101 Dalmatiner_ vom Regisseur Wolfgang Reitherman tummeln sich jede Menge Hunde herum.
-Ein Zeichentrickfilm über Technologien im Bereich der Software würde wohl ähnlich ablaufen.
+Ein Zeichentrickfilm über Technologien im Bereich der Softwareentwicklung würde wohl ähnlich ablaufen.
 Front-End-Entwickler können ein Lied davon singen, denn gerade in diesem Bereich existieren schier unendlich viele Frameworks.
 Doch auch im Back-End bewegt sich einiges.
 In dieser Blogreihe zeige ich dir anhand einer Beispielanwendung fünf moderne Technologien.
