@@ -311,7 +311,7 @@ val username: String? = null
 System.out.println(username?.length) // Funktioniert, es wird null ausgegeben
 ```
 
-Mit dem Elvis-Operator **?:** kannst du (ähnlich einer if-Verzweigung) überprüfen, ob der Wert vom null-Typ ist und eine bestimmte Anweisung ausführen, ansonsten eine andere.
+Mit dem Elvis-Operator `?:` kannst du (ähnlich einer if-Verzweigung) überprüfen, ob der Wert vom null-Typ ist und eine bestimmte Anweisung ausführen, ansonsten eine andere.
 
 ```kotlin
 val username: String? = null
