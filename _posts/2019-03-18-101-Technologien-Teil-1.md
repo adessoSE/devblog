@@ -9,7 +9,7 @@ tags: [101 Technologien, Kotlin, Spring Boot, Gradle]
 
 Die Auswahl der Technologien ist für manch Entwickler eine Glaubensangelegenheit.
 Für andere wiederum ist die Suche nach der 'perfekten' Technologie so was wie der heilige Gral der Softwareentwicklung.
-Diese Blogreihe beschäftigt sich anhand einer Beispielanwendung mit vergleichsweise 'modernen' Technologien, die sich aktuell großer Beliebtheit erfreuen.
+Diese Blogreihe beschäftigt sich mit vergleichsweise 'modernen' Technologien, die sich aktuell großer Beliebtheit erfreuen.
 
 # "Have you ever seen so many puppies?"
 
@@ -326,7 +326,7 @@ val length = username?.length ?: throw NotFoundException() // Der Wert 3 wird zu
 # Fazit
 
 Die vorgestellten Funktionen von Kotlin existieren in ähnlicher Form auch in anderen Programmiersprachen, denn Technologien bauen in der Regel aufeinander auf.
-Java wurde auch maßgeblich von Smalltalk beeinflusst.
+Java wurde beispielsweise maßgeblich von Smalltalk beeinflusst.
 Doch neue Technologien ermöglichen es, immer schneller & effizienter sichere Anwendungen zu entwickeln.
 _Boilerplate code_ wird vermieden und die Entwickler können sich auf das Wesentliche konzentrieren.
 
