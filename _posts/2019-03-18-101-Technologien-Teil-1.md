@@ -7,9 +7,9 @@ categories: [Softwareentwicklung]
 tags: [101 Technologien, Kotlin, Spring Boot, Gradle]
 ---
 
-Die Auswahl der Technologien ist für manch Entwickler eine Glaubensangelegenheit.
+Die Auswahl der Technologien ist für manch einen Entwickler eine Glaubensfrage.
 Für andere wiederum ist die Suche nach der 'perfekten' Technologie so was wie der heilige Gral der Softwareentwicklung.
-Diese Blogreihe beschäftigt sich mit vergleichsweise 'modernen' Technologien, die sich aktuell großer Beliebtheit erfreuen.
+Diese Blogreihe beschäftigt sich mit 'modernen' Technologien, die sich aktuell großer Beliebtheit erfreuen.
 
 # "Have you ever seen so many puppies?"
 
@@ -18,7 +18,7 @@ Diese Blogreihe beschäftigt sich mit vergleichsweise 'modernen' Technologien, d
 Die Analogie zu dem Klassiker vom Regisseur Wolfgang Reitherman ist nicht so weit hergeholt.
 Es gibt eine Menge Technologien.
 Und es werden immer mehr!
-Front-End-Entwickler können ein Lied von singen, denn gerade in diesem Bereich tummeln sich schier unendlich viele Frameworks.
+Front-End-Entwickler können ein Lied davon singen, denn gerade in diesem Bereich tummeln sich schier unendlich viele Frameworks.
 Doch auch im Back-End bewegt sich einiges.
 In dieser Blogreihe zeige ich dir anhand einer Beispielanwendung fünf moderne Technologien.
 Für jede Technologie ist ein eigener Artikel geplant.
@@ -30,14 +30,14 @@ Hier eine kurze Übersicht der Themen und damit verbundenen Technologien, die di
 - **4. Artikel:** _API mittels GraphQL_
 - **5. Artikel:** _Front-End mittels Vue_
 
-Die Beispielanwendung ist eine soziale Plattform, in der Nutzer Kurznachrichten posten und andere Nutzer folgen können.
+Die Beispielanwendung ist eine soziale Plattform, in der Nutzer Kurznachrichten posten und anderen Nutzern folgen können.
 Das sollte dir sehr bekannt vorkommen, Stichwort 'blauer Vogel'.
 Doch zunächst die Anforderungen an die Beispielanwendung.
 Der Nutzer soll...
 
 - ... sich bei dem Dienst anmelden / abmelden.
 - ... Kurznachrichten posten.
-- ... eine Timeline mit allen Kurznachrichten von gefolgten Nutzern und einem selber sehen.
+- ... eine Timeline mit allen Kurznachrichten von gefolgten Nutzern und sich selbst sehen.
 - ... eine Liste mit allen verfügbaren Nutzern sehen.
 - ... in der Liste der verfügbaren Nutzern Nutzer folgen / entfolgen.
 
@@ -47,7 +47,7 @@ Die gesamte Beispielanwendung ist auf [GitHub](https://github.com/zwiebelbrot/ke
 
 Ohne ein Fundament steht selbst das stabilste Haus nicht, weswegen die Beispielanwendung auf zwei bereits etablierten Technologien aufbaut, die nicht zu den fünf modernen Technologien zählen: [Spring Boot](https://spring.io/projects/spring-boot) und [Gradle](https://gradle.org/).
 Mit diesen zwei Technologien wird dir eine Menge Arbeit erspart.
-Du kannst mit denen ohne viel Konfigurationen eine eigenständige Anwendung entwickeln und ausliefern.
+Du kannst mit ihnen ohne größere Konfigurationen eine eigenständige Anwendung entwickeln und ausliefern.
 Mit dem [Spring Initializr](https://start.spring.io/) kannst du ein solches Projekt initialisieren.
 Die Parameter kannst du wie in der folgenden Abbildung auswählen.
 Abhängigkeiten werden später händisch hinzugefügt, weswegen du hier noch keine auswählen musst.
@@ -88,7 +88,7 @@ Das src-Verzeichnis aus dem Stammverzeichnis kannst du löschen.
 Im Stammverzeichnis selbst befindet sich ebenfalls eine build.gradle-Datei.
 In dieser kannst du die beiden Module konfigurieren.
 Dafür musst du alle Zeilen bis auf das Closure `buildscript { ... }` in das Closure `subproject { ... }` einfügen.
-Konfigurationen im Closure `subproject { ... }` gelten für alle Module im Projekt. 
+Konfigurationen im Closure `subprojects { ... }` gelten für alle Module im Projekt. 
 Damit die Referenzen zwischen den Modulen und Abhängigkeiten korrekt aufgelöst werden, musst du die Zeile `apply plugin: 'org.springframework.boot'` entfernen und die folgenden Zeilen hinzugefügen. Ansonsten kann Gradle die Abhängigkeiten nicht korrekt auflösen und es hagelt _ReferenceUnkown_-Errors.
 
 ```groovy
@@ -145,7 +145,7 @@ Neben der Möglichkeit der funktionalen Programmierung bietet die Sprache Null-S
 ## Programmieren mit Kotlin
 
 In diesem Blogartikel kann ich dir leider nur einen kurzen Einblick in Kotlin bieten.
-Das Hauptaugenmerk dieser Blogreihe soll auf das Präsentieren von modernen Technologien liegen.
+Das Hauptaugenmerk dieser Blogreihe soll auf dem Präsentieren von modernen Technologien liegen.
 Hast du Interesse an Kotlin, kann ich dir eines [der zahlreichen Bücher](https://kotlinlang.org/docs/books.html) empfehlen.
 Oder du schaust dich in [der ausführlichen Referenz](https://kotlinlang.org/docs/reference/) von Kotlin um.
 Und vielleicht erscheinen noch weitere Blogartikel, die sich tiefergehend mit der Materie auseinandersetzen ;).
@@ -170,7 +170,7 @@ System.out.print("World") // Durch den Zeilenumbruch werden die Ausdrücke getre
 
 In Kotlin wird, ähnlich zu JavaScript, eine Variable mit den Schlüsselwörtern `val` und `var` angekündigt.
 Eine veränderbare Variable wird mit dem Schlüsselwort `var` angekündigt.
-Veränderbare Variablen können beliebig oft neue Werte zugewiesen werden. 
+Veränderbaren Variablen können beliebig oft neue Werte zugewiesen werden. 
 Eine schreibgeschützte Variable wird hingegen mit dem Schlüsselwort `val` angekündigt.
 Bei einer schreibgeschützten Variable ist nach einer Zuweisung Schluss.
 
@@ -211,7 +211,7 @@ var username = "Sebastian"
 username = 123 // Error
 ```
 
-So ist die Variable username vom Typ String.
+So ist die Variable `username` vom Typ String.
 Der Compiler bricht mit einem Error beim Zuweisen von 123 ab, da der Integer-Wert 123 nicht dem Typ String entspricht.
 Denn Kotlin ist weiterhin eine statisch typisierte Programmiersprache, in der alle Typen bei der Kompilierung festgelegt werden.
 
@@ -234,7 +234,7 @@ val user = User("Sebastian") // Funktioniert
 
 Klassen, die nur dazu dienen, Daten zu halten, werden Datenklassen genannt.
 Innerhalb von Kotlin können diese mit `data` markiert werden.
-Der Compiler generiert für solche Klassen Funktionen wie beispielsweise equals und hashCode.
+Der Compiler generiert für solche Klassen Funktionen wie beispielsweise `equals` und `hashCode`.
 Alle Variablen innerhalb des Konstruktors werden dabei berücksichtigt.
 
 ```kotlin
@@ -257,7 +257,7 @@ System.out.println(user1 == user2) // true
 ### Null-Sicherheit
 
 Jeder kennt sie, jeder liebt sie: Die _null pointer exception_.
-Tony Hoare nennt es seinen _billion-dollar mistake_, die Erfindung der Null-Referenz.
+Tony Hoare nennt die Erfindung der Null-Referenz seinen _billion-dollar mistake_.
 Kotlin möchte damit brechen und bietet daher eine Null-Sicherheit.
 
 ```kotlin
@@ -266,8 +266,8 @@ username = null // Compiler bricht mit Error ab
 ```
 
 Der Compiler bricht mit einem Error ab.
-Damit entfällt eine Fehlerquelle, denn so kann einer Variable nicht _ausversehen_ null zugewiesen werden.
-Dennoch existieren Anwendungsfälle, in denen null erforderlich ist.
+Damit entfällt eine Fehlerquelle, denn so kann einer Variable nicht _aus Versehen_ `null` zugewiesen werden.
+Dennoch existieren Anwendungsfälle, in denen `null` erforderlich ist.
 Beispielsweise wenn du Daten aus einer Datenbank abfragst, die eventuell nicht vorhanden sind.
 Zur Verdeutlichung ein kurzer Ausflug in die Welt von Java.
 
@@ -282,7 +282,7 @@ if (username.length == 0) { // NullPointerException
 }
 ```
 
-Der Username wird nicht gefunden und somit wird `null` von der Methode `getUsernameById` zurückgegeben, weswegen beim Abfragen der Länge des Usernamen eine NullPointerException geworfen wird.
+Der Username wird nicht gefunden und somit wird `null` von der Methode `getUsernameById` zurückgegeben, weswegen beim Abfragen der Länge des Usernamen eine `NullPointerException` geworfen wird.
 Java bietet hierfür seit der Version 8 die Klasse [Optional](https://docs.oracle.com/javase/8/docs/api/java/util/Optional.html) an.
 Kotlin löst die Null-Sicherheit auf einen anderen Weg.
 Damit ein Typ einen null-Wert annehmen kann, wird dieser explizit mit `?` gekennzeichnet.
@@ -304,7 +304,7 @@ Für Entwickler, die ohne _null pointer exceptions_ nicht leben können, existie
 Dadurch wird jeder Wert in einen null-Typ konvertiert.
 Ansonsten besteht für nicht veränderbare Variablen die Möglichkeit, mittels einer if-Verzweigung auf den null-Typ zu überprüfen (Funktioniert nicht für veränderbare Variablen, da ansonsten nach der Überprüfung der Variable null zugewiesen werden könnte).
 
-Der **Safe Call** wird mit dem `.?`-Operatoren ausgeführt.
+Der **Safe Call** wird mit dem `?`-Operator ausgeführt.
 Dabei wird überprüft, ob der Wert nicht null ist.
 Wenn dies zutrifft, wird der Wert verwendet, ansonsten wird null zurückgegeben, ohne eine _null pointer exception_ zu werfen.
 
