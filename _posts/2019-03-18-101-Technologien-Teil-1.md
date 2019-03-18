@@ -256,7 +256,7 @@ System.out.println(user1 == user2) // true
 ### Null-Sicherheit
 
 Jeder kennt sie, jeder liebt sie: Die _null pointer exception_.
-Tony Hoare nennt die Erfindung der Null-Referenz seinen _billion-dollar mistake_.
+Tony Hoare nennt die Erfindung der Null-Referenz seinen _billion-dollar mistake_ [(Quelle)](https://www.infoq.com/presentations/Null-References-The-Billion-Dollar-Mistake-Tony-Hoare).
 Kotlin möchte damit brechen und bietet daher eine Null-Sicherheit.
 
 ```kotlin
