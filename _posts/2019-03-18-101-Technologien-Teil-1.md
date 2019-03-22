@@ -65,9 +65,7 @@ Die Beispielanwendung soll aus den folgenden zwei Modulen bestehen:
 Module kannst du beispielsweise in IntelliJ mittels eines Rechtsklick und dann auf _New -> Module_ hinzufügen.
 Beim Hinzufügen eines Moduls musst du darauf achten, dass du Kotlin anstatt Java auswählst.
 Außerdem musst du die ArtifactId, also in unserem fall api und core, vergeben.
-Erstellst du über IntelliJ ein Modul, wird auch automatisch eine build.gradle-Datei erzeugt.
-Den Inhalt der build.gradle-Dateien kannst du zunächst in beiden Modulen löschen.
-Außerdem kann es passieren, dass IntelliJ vergisst, die Module der settings.gradle-Datei hinzuzufügen.
+Es kann passieren, dass IntelliJ vergisst, die Module der settings.gradle-Datei hinzuzufügen.
 Sollte dies zutreffen, musst du die Module nachträglich einfügen.
 In jedem Fall sollte die settings.gradle-Datei wie folgt aussehen:
 
@@ -77,44 +75,41 @@ include 'api'
 include 'core'
 ```
 
-Aktuell befindet sich bis auf die build.gradle-Dateien nichts in den Modulen.
 Um die gewohnte Verzeichnisstruktur _src/..._ zu erhalten, kannst du das src-Verzeichnis aus dem Stammverzeichnis kopieren und in beide Module einfügen.
 Anschließend muss noch in beiden Modulen ein Package mit dem jeweiligen Modulnamen, also api und core, erzeugt werden.
 Das src-Verzeichnis aus dem Stammverzeichnis kannst du löschen.
+Die Datei _DemoApplication.kt_ soll nur im api-Modul liegen, weswegen du die Datei _DemoApplication.kt_ im core-Modul löschen kannst.
+Außerdem kannst du die Datei _application.properties_ im core-Modul löschen, da diese ebenfalls nur im api-Modul liegen soll.
 
-<!-- TODO: Anpassen an die neue Standard-build.gradle-Datei von Spring Initializr -->
-
-Im Stammverzeichnis selbst befindet sich ebenfalls eine build.gradle-Datei.
+Im Stammverzeichnis befindet sich eine build.gradle-Datei.
 In dieser kannst du die beiden Module konfigurieren.
-Dafür musst du alle Zeilen bis auf das Closure `buildscript { ... }` in das Closure `subproject { ... }` einfügen.
+Dafür musst du alle Zeilen bis auf das Closure `plugins { ... }` in das Closure `subprojects { ... }` einfügen.
 Konfigurationen im Closure `subprojects { ... }` gelten für alle Module im Projekt. 
-Damit die Referenzen zwischen den Modulen und Abhängigkeiten korrekt aufgelöst werden, musst du die Zeile `apply plugin: 'org.springframework.boot'` entfernen und die folgenden Zeilen hinzugefügen. Ansonsten kann Gradle die Abhängigkeiten nicht korrekt auflösen und es hagelt _ReferenceUnkown_-Errors.
+Hinter den drei Plugins (Spring Boot, Kotlin-JVM, Kotlin-Spring) im plugins-Closure musst du noch `apply false` hinzufügen
+Diese drei Plugins fügst wie im folgenden Listing in das subprojects-Closure ein, damit diese für jedes Modul angewendet werden.
 
 ```groovy
-dependencyManagement {
-    imports {
-        mavenBom("org.springframework.boot:spring-boot-dependencies:${springBootVersion}")
-    }
-}
+    apply plugin: 'org.springframework.boot'
+    apply plugin: 'kotlin'
+    apply plugin: 'kotlin-spring'
 ```
 
-Als Kotlin-Version kannst du die Version 1.3.21 verwenden.
-Da Gradle aktuell noch ein wenig wegen der Kotlin-Version durcheinander gerät, musst du zusätzlich im Stammverzeichnis eine gradle.properties-Datei erzeugen und mit folgendem Inhalt füllen:
+Außerdem kannst du noch zusätzlich das Plugin `apply plugin: 'idea'` hinzufügen.
+Das erleichtert das Importieren von Projekten in IntelliJ.
+Im subprojects-Closure sollten nun die im Listing gezeigten Plugins aufgelistet sein.
 
 ```groovy
-kotlin.version=1.3.21
+    apply plugin: 'org.springframework.boot'
+    apply plugin: 'kotlin'
+    apply plugin: 'kotlin-spring'
+    apply plugin: 'idea'
+    apply plugin: 'io.spring.dependency-management'
 ```
 
-Zum Schluss musst du noch die build.gradle-Datei im Modul api wie folgt anpassen:
+Zum Schluss musst du im api-Modul eine build.gradle-Datei hinzufügen.
+Die sollte wie folgt aussehen:
 
 ```groovy
-// U.a. für den Run-Task
-apply plugin: 'application' 
-
-// Main-Klasse
-// Für eine Kotlin-Klasse wird ein "Kt" angehängt
-mainClassName = 'com.example.demo.api.DemoApplicationKt'
-
 // Das Modul "core" wird als Abhängigkeit hinzugefügt
 dependencies {
     implementation project(':core')
@@ -123,7 +118,9 @@ dependencies {
 
 Die Konfiguration ist damit fertig.
 Zumindest fast... es fehlen noch die Abhängigkeiten.
-Diese kommen in folgenden Artikeln hinzu.
+Diese kommen in den folgenden Artikeln hinzu.
+Das initialisierte Projekt kannst du [hier](https://github.com/zwiebelbrot/keycloak-kotlin-graphql-neo4j-spring-vue-example/raw/master/backend/demo.zip) herunterladen.
+Dort sind bereits alle Konfigurationen vorhanden, die in diesem Artikel vorgenommen wurden.
 
 # Die Programmiersprache Kotlin
 
