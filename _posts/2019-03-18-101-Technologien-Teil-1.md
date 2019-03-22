@@ -148,7 +148,7 @@ Im Folgenden zeige ich dir anhand kleinerer Beispiele einige der grundlegenden F
 
 ### Semikolon
 
-Studenten, die die Entwicklung mit Java beginnen, verzweifeln regelrecht an ihnen: die geliebten Semikolons.
+Sie kommen in zahlreichen Programmiersprachen vor und treiben so manchen Entwickler zur Weißglut: die Semikolons.
 Doch ich muss leider enttäuschen.
 In Kotlin existieren Semikolons weiterhin.
 Doch dank der Semikolon-Inferenz, also dem Herleiten von Semikolons anhand definierter Regeln, nimmt uns Kotlin eine potentiell nervige Fehlerquelle ab.
