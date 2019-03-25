@@ -8,12 +8,12 @@ tags: [101 Technologien, Kotlin, Spring Boot, Gradle]
 ---
 
 Die Auswahl der Technologien ist für manch einen Entwickler eine Glaubensfrage.
-Für andere wiederum ist die Suche nach der 'perfekten' Technologie so was wie der heilige Gral der Softwareentwicklung.
+Für andere wiederum ist die Suche nach der 'perfekten' Technologie so etwas wie der heilige Gral der Softwareentwicklung.
 Diese Blogreihe beschäftigt sich mit 'modernen' Technologien, die sich aktuell großer Beliebtheit erfreuen.
 
 # "Have you ever seen so many puppies?"
 
-In dem Klassiker _101 Dalmatiner_ vom Regisseur Wolfgang Reitherman tummeln sich jede Menge Hunde herum.
+In dem Klassiker _101 Dalmatiner_ von Regisseur Wolfgang Reitherman tummeln sich jede Menge Hunde herum.
 Ein Zeichentrickfilm über Technologien im Bereich der Softwareentwicklung würde wohl ähnlich ablaufen.
 Front-End-Entwickler können ein Lied davon singen, denn gerade in diesem Bereich existieren schier unendlich viele Frameworks.
 Doch auch im Back-End bewegt sich einiges.
@@ -21,7 +21,7 @@ In dieser Blogreihe zeige ich dir anhand einer Beispielanwendung fünf moderne T
 Für jede Technologie ist ein eigener Artikel geplant.
 Hier eine kurze Übersicht der Themen und damit verbundenen Technologien, die dich erwarten:
 
-- **1. Artikel:** _Initialisierung des Projektes + Kotlin_
+- **1. Artikel:** _Initialisierung des Projektes mit Kotlin_
 - **2. Artikel:** _Benutzerverwaltung mittels Keycloak_
 - **3. Artikel:** _Datenbank mittels Neo4j_
 - **4. Artikel:** _API mittels GraphQL_
@@ -42,7 +42,7 @@ Die gesamte Beispielanwendung ist auf [GitHub](https://github.com/zwiebelbrot/ke
 
 # Initialisierung des Projekts
 
-Ohne ein Fundament steht selbst das stabilste Haus nicht, weswegen die Beispielanwendung auf zwei bereits etablierten Technologien aufbaut, die nicht zu den fünf modernen Technologien zählen: [Spring Boot](https://spring.io/projects/spring-boot) und [Gradle](https://gradle.org/).
+Ohne ein Fundament steht selbst das stabilste Haus nicht, weswegen die Beispielanwendung auf zwei bereits etablierten Technologien aufbaut, die nicht zu den oben bereits genannten Technologien zählen: [Spring Boot](https://spring.io/projects/spring-boot) und [Gradle](https://gradle.org/).
 Mit diesen zwei Technologien wird dir eine Menge Arbeit erspart.
 Du kannst mit ihnen ohne größere Konfigurationen eine eigenständige Anwendung entwickeln und ausliefern.
 Mit dem [Spring Initializr](https://start.spring.io/) kannst du ein solches Projekt initialisieren.
@@ -67,7 +67,7 @@ Beim Hinzufügen eines Moduls musst du darauf achten, dass du Kotlin anstatt Jav
 Außerdem musst du die ArtifactId, also in unserem fall api und core, vergeben.
 Es kann passieren, dass IntelliJ vergisst, die Module der settings.gradle-Datei hinzuzufügen.
 Sollte dies zutreffen, musst du die Module nachträglich einfügen.
-In jedem Fall sollte die settings.gradle-Datei wie folgt aussehen:
+In jedem Fall sollte die Datei `settings.gradle` wie folgt aussehen:
 
 ```groovy
 rootProject.name = 'demo'
@@ -81,7 +81,7 @@ Das src-Verzeichnis aus dem Stammverzeichnis kannst du löschen.
 Die Datei _DemoApplication.kt_ soll nur im api-Modul liegen, weswegen du die Datei _DemoApplication.kt_ im core-Modul löschen kannst.
 Außerdem kannst du die Datei _application.properties_ im core-Modul löschen, da diese ebenfalls nur im api-Modul liegen soll.
 
-Im Stammverzeichnis befindet sich eine build.gradle-Datei.
+Im Stammverzeichnis befindet sich die Datei `build.gradle`.
 In dieser kannst du die beiden Module konfigurieren.
 Dafür musst du alle Zeilen bis auf das Closure `plugins { ... }` in das Closure `subprojects { ... }` einfügen.
 Konfigurationen im Closure `subprojects { ... }` gelten für alle Module im Projekt. 
@@ -190,7 +190,7 @@ class User {
 }
 ```
 
-Die schreibgeschützt Variable `age` wird dynamisch berechnet.
+Die schreibgeschützte Variable `age` wird dynamisch berechnet.
 Vergeht ein Jahr, so wird sich auch der Inhalt von age ändern.
 Zwar kann beispielsweise nicht explizit mit `age = 18` ein neuer Wert der Variable zugewiesen werden, das bedeutet im Umkehrschluss aber nicht, dass der Wert der Variable sich nie verändert.
 
@@ -251,7 +251,7 @@ System.out.println(user1 == user2) // true
 
 ### Null-Sicherheit
 
-Jeder kennt sie, jeder liebt sie: Die _null pointer exception_.
+Jeder kennt sie, jeder liebt sie: Die _NullPointerException_.
 Tony Hoare nennt die Erfindung der Null-Referenz seinen _billion-dollar mistake_ [(Quelle)](https://www.infoq.com/presentations/Null-References-The-Billion-Dollar-Mistake-Tony-Hoare).
 Kotlin möchte damit brechen und bietet daher eine Null-Sicherheit.
 
@@ -295,13 +295,13 @@ System.out.println(username.length) // Compiler bricht mit Error ab
 
 Es existieren vier Varianten, um diese Variablen zu verwenden.
 In der Beispielanwendung werden der sichere Aufruf (Safe Call) und der Elvis-Operator verwendet.
-Für Entwickler, die ohne _null pointer exceptions_ nicht leben können, existiert zusätzlich der `!!`-Operator.
+Für Entwickler, die ohne _NullPointerExceptions_ nicht leben können, existiert zusätzlich der `!!`-Operator.
 Dadurch wird jeder Wert in einen null-Typ konvertiert.
 Ansonsten besteht für nicht veränderbare Variablen die Möglichkeit, mittels einer if-Verzweigung auf den null-Typ zu überprüfen (Funktioniert nicht für veränderbare Variablen, da ansonsten nach der Überprüfung der Variable null zugewiesen werden könnte).
 
 Der **Safe Call** wird mit dem `?`-Operator ausgeführt.
 Dabei wird überprüft, ob der Wert nicht null ist.
-Wenn dies zutrifft, wird der Wert verwendet, ansonsten wird null zurückgegeben, ohne eine _null pointer exception_ zu werfen.
+Wenn dies zutrifft, wird der Wert verwendet, ansonsten wird null zurückgegeben, ohne eine _NullPointerException_ zu werfen.
 
 ```kotlin
 val username: String? = null
