@@ -1,6 +1,6 @@
 ---
 layout: [post, post-xml]
-title:  "101 Technologien - Teil 1"
+title:  "101 Technologien (Teil 1) - Ein Projekt mit Kotlin, Spring Boot und Gradle aufsetzen"
 date:   2019-03-18 09:00
 author: zwiebelbrot
 categories: [Softwareentwicklung]
