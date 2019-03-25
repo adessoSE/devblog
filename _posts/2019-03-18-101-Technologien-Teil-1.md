@@ -17,9 +17,9 @@ In dem Klassiker _101 Dalmatiner_ von Regisseur Wolfgang Reitherman tummeln sich
 Ein Zeichentrickfilm über Technologien im Bereich der Softwareentwicklung würde wohl ähnlich ablaufen.
 Front-End-Entwickler können ein Lied davon singen, denn gerade in diesem Bereich existieren schier unendlich viele Frameworks.
 Doch auch im Back-End bewegt sich einiges.
-In dieser Blogreihe zeige ich dir anhand einer Beispielanwendung fünf moderne Technologien.
+In dieser Blogreihe schauen wir uns anhand einer Beispielanwendung fünf moderne Technologien an.
 Für jede Technologie ist ein eigener Artikel geplant.
-Hier eine kurze Übersicht der Themen und damit verbundenen Technologien, die dich erwarten:
+Hier eine kurze Übersicht der Themen und damit verbundenen Technologien, die uns erwarten:
 
 - **1. Artikel:** _Initialisierung des Projektes mit Kotlin_
 - **2. Artikel:** _Benutzerverwaltung mittels Keycloak_
@@ -28,45 +28,43 @@ Hier eine kurze Übersicht der Themen und damit verbundenen Technologien, die di
 - **5. Artikel:** _Front-End mittels Vue_
 
 Die Beispielanwendung ist eine soziale Plattform, in der Nutzer Kurznachrichten posten und anderen Nutzern folgen können.
-Das sollte dir sehr bekannt vorkommen, Stichwort ['blauer Vogel'](https://twitter.com/).
-Doch zunächst die Anforderungen an die Beispielanwendung.
+Doch zunächst die Anforderungen an die Beispielanwendung, damit wir die geforderten Funktionalitäten der Beispielanwendung kennen.
 Der Nutzer soll...
 
 - ... sich bei dem Dienst anmelden / abmelden.
 - ... Kurznachrichten posten.
 - ... eine Timeline mit allen Kurznachrichten von gefolgten Nutzern und sich selbst sehen.
 - ... eine Liste mit allen verfügbaren Nutzern sehen.
-- ... in der Liste der verfügbaren Nutzern Nutzer folgen / entfolgen.
+- ... andere Nutzer folgen / entfolgen.
 
 Die gesamte Beispielanwendung ist auf [GitHub](https://github.com/zwiebelbrot/keycloak-kotlin-graphql-neo4j-spring-vue-example) verfügbar.
 
 # Initialisierung des Projekts
 
 Ohne ein Fundament steht selbst das stabilste Haus nicht, weswegen die Beispielanwendung auf zwei bereits etablierten Technologien aufbaut, die nicht zu den oben bereits genannten Technologien zählen: [Spring Boot](https://spring.io/projects/spring-boot) und [Gradle](https://gradle.org/).
-Mit diesen zwei Technologien wird dir eine Menge Arbeit erspart.
-Du kannst mit ihnen ohne größere Konfigurationen eine eigenständige Anwendung entwickeln und ausliefern.
-Mit dem [Spring Initializr](https://start.spring.io/) kannst du ein solches Projekt initialisieren.
-Die Parameter kannst du wie in der folgenden Abbildung auswählen.
-Abhängigkeiten werden später händisch hinzugefügt, weswegen du hier noch keine auswählen musst.
-_Group_ und _Artifact_ kannst du beim Standard belassen.
+Mit diesen zwei Technologien wird uns eine Menge Arbeit erspart.
+Mit ihnen können wir ohne größere Konfigurationen eine eigenständige Anwendung entwickeln und ausliefern.
+Mit dem [Spring Initializr](https://start.spring.io/) können wir ein solches Projekt initialisieren.
+Die Parameter können wir wie in der folgenden Abbildung auswählen.
+Abhängigkeiten werden später händisch hinzugefügt, weswegen wir hier noch keine auswählen müssen.
+_Group_ und _Artifact_ können wir beim Standard belassen.
 
 ![Initialisierung des Projekts mit Spring Initializr](/assets/images/posts/101-technologien/projekt.png)
 
-Wenn du aus Gewohnheit Java ausgewählt hast, keine Sorge: Mir ist das auch passiert.
-Doch die Beispielanwendung soll in der Programmiersprache Kotlin entwickelt werden.
+Die Beispielanwendung soll in der Programmiersprache Kotlin entwickelt werden.
 Kotlin ist somit die erste von den fünf modernen Technologien, die in dieser Blogreihe behandelt werden.
-Bevor du die Besonderheiten von Kotlin kennenlernst, muss jedoch die Beispielanwendung noch weiter konfiguriert werden.
+Bevor wir die Besonderheiten von Kotlin kennenlernen, muss jedoch die Beispielanwendung noch weiter konfiguriert werden.
 
 Die Beispielanwendung soll aus den folgenden zwei Modulen bestehen:
 
 - **api** - _Beinhaltet die main-Funktion und die Schnittstelle zur Außenwelt_
 - **core** - _Beinhaltet die Konfiguration, Services, Entitäten, usw._
 
-Module kannst du beispielsweise in IntelliJ mittels eines Rechtsklick und dann auf _New -> Module_ hinzufügen.
-Beim Hinzufügen eines Moduls musst du darauf achten, dass du Kotlin anstatt Java auswählst.
-Außerdem musst du die ArtifactId, also in unserem fall api und core, vergeben.
+Module können wir beispielsweise in IntelliJ mittels eines Rechtsklick und dann auf _New -> Module_ hinzufügen.
+Beim Hinzufügen eines Moduls müssen wir darauf achten, dass ir Kotlin anstatt Java auswählen.
+Außerdem müssen wir die ArtifactId, also in unserem fall api und core, vergeben.
 Es kann passieren, dass IntelliJ vergisst, die Module der settings.gradle-Datei hinzuzufügen.
-Sollte dies zutreffen, musst du die Module nachträglich einfügen.
+Sollte dies zutreffen, müssen wir die Module nachträglich einfügen.
 In jedem Fall sollte die Datei `settings.gradle` wie folgt aussehen:
 
 ```groovy
@@ -75,18 +73,18 @@ include 'api'
 include 'core'
 ```
 
-Um die gewohnte Verzeichnisstruktur _src/..._ zu erhalten, kannst du das src-Verzeichnis aus dem Stammverzeichnis kopieren und in beide Module einfügen.
+Um die gewohnte Verzeichnisstruktur _src/..._ zu erhalten, können wir das src-Verzeichnis aus dem Stammverzeichnis kopieren und in beide Module einfügen.
 Anschließend muss noch in beiden Modulen ein Package mit dem jeweiligen Modulnamen, also api und core, erzeugt werden.
-Das src-Verzeichnis aus dem Stammverzeichnis kannst du löschen.
-Die Datei _DemoApplication.kt_ soll nur im api-Modul liegen, weswegen du die Datei _DemoApplication.kt_ im core-Modul löschen kannst.
-Außerdem kannst du die Datei _application.properties_ im core-Modul löschen, da diese ebenfalls nur im api-Modul liegen soll.
+Das src-Verzeichnis aus dem Stammverzeichnis können wir löschen.
+Die Datei _DemoApplication.kt_ soll nur im api-Modul liegen, weswegen wir die Datei _DemoApplication.kt_ im core-Modul löschen können.
+Außerdem können wir die Datei _application.properties_ im core-Modul löschen, da diese ebenfalls nur im api-Modul liegen soll.
 
 Im Stammverzeichnis befindet sich die Datei `build.gradle`.
-In dieser kannst du die beiden Module konfigurieren.
-Dafür musst du alle Zeilen bis auf das Closure `plugins { ... }` in das Closure `subprojects { ... }` einfügen.
+In dieser können wir die beiden Module konfigurieren.
+Dafür müssen wir alle Zeilen bis auf das Closure `plugins { ... }` in das Closure `subprojects { ... }` einfügen.
 Konfigurationen im Closure `subprojects { ... }` gelten für alle Module im Projekt. 
-Hinter den drei Plugins (Spring Boot, Kotlin-JVM, Kotlin-Spring) im plugins-Closure musst du noch `apply false` hinzufügen
-Diese drei Plugins fügst wie im folgenden Listing in das subprojects-Closure ein, damit diese für jedes Modul angewendet werden.
+Hinter den drei Plugins (Spring Boot, Kotlin-JVM, Kotlin-Spring) im plugins-Closure müssen wir noch `apply false` hinzufügen.
+Diese drei Plugins fügen wir wie im folgenden Listing in das subprojects-Closure ein, damit diese für jedes Modul angewendet werden.
 
 ```groovy
     apply plugin: 'org.springframework.boot'
@@ -94,7 +92,7 @@ Diese drei Plugins fügst wie im folgenden Listing in das subprojects-Closure ei
     apply plugin: 'kotlin-spring'
 ```
 
-Außerdem kannst du noch zusätzlich das Plugin `apply plugin: 'idea'` hinzufügen.
+Außerdem können wir noch zusätzlich das Plugin `apply plugin: 'idea'` hinzufügen.
 Das erleichtert das Importieren von Projekten in IntelliJ.
 Im subprojects-Closure sollten nun die im Listing gezeigten Plugins aufgelistet sein.
 
@@ -106,7 +104,7 @@ Im subprojects-Closure sollten nun die im Listing gezeigten Plugins aufgelistet 
     apply plugin: 'io.spring.dependency-management'
 ```
 
-Zum Schluss musst du im api-Modul eine build.gradle-Datei hinzufügen.
+Zum Schluss müssen wir im api-Modul eine build.gradle-Datei hinzufügen.
 Die sollte wie folgt aussehen:
 
 ```groovy
@@ -119,7 +117,7 @@ dependencies {
 Die Konfiguration ist damit fertig.
 Zumindest fast... es fehlen noch die Abhängigkeiten.
 Diese kommen in den folgenden Artikeln hinzu.
-Das initialisierte Projekt kannst du [hier](https://github.com/zwiebelbrot/keycloak-kotlin-graphql-neo4j-spring-vue-example/raw/master/backend/demo.zip) herunterladen.
+Das initialisierte Projekt kann unter [hier](https://github.com/zwiebelbrot/keycloak-kotlin-graphql-neo4j-spring-vue-example/raw/master/backend/demo.zip) herunterladen werden.
 Dort sind bereits alle Konfigurationen vorhanden, die in diesem Artikel vorgenommen wurden.
 
 # Die Programmiersprache Kotlin
@@ -139,12 +137,11 @@ Neben der Möglichkeit der funktionalen Programmierung bietet die Sprache Null-S
 
 ## Programmieren mit Kotlin
 
-In diesem Blogartikel kann ich dir leider nur einen kurzen Einblick in Kotlin bieten.
+In diesem Blogartikel kriegen wir leider nur einen kurzen Einblick in Kotlin.
 Das Hauptaugenmerk dieser Blogreihe soll auf dem Präsentieren von modernen Technologien liegen.
-Hast du Interesse an Kotlin, kann ich dir eines [der zahlreichen Bücher](https://kotlinlang.org/docs/books.html) empfehlen.
-Oder du schaust dich in [der ausführlichen Referenz](https://kotlinlang.org/docs/reference/) von Kotlin um.
+Interessierte können mehr über Kotlin aus eines [der zahlreichen Bücher](https://kotlinlang.org/docs/books.html) erfahren.
 Und vielleicht erscheinen noch weitere Blogartikel, die sich tiefergehend mit der Materie auseinandersetzen ;).
-Im Folgenden zeige ich dir anhand kleinerer Beispiele einige der grundlegenden Funktionen, die für die Beispielanwendung benötigt werden.
+Im Folgenden schauen wir uns anhand kleinerer Beispiele einige der grundlegenden Funktionen an, die für die Beispielanwendung benötigt werden.
 
 ### Semikolon
 
@@ -197,9 +194,9 @@ Zwar kann beispielsweise nicht explizit mit `age = 18` ein neuer Wert der Variab
 ### Typinferenz
 
 Neue Programmiersprachen versuchen den Entwicklern möglichst viel Schreibarbeit zu sparen, ohne die Aussagekraft des Quellcodes zu verändern.
-Eine Möglichkeit kennst du bereits: Die Semikolon-Inferenz.
+Eine Möglichkeit kennen wir bereits: Die Semikolon-Inferenz.
 In Kotlin kommt dazu noch die Typinferenz, also das Herleiten von Typen für Variablen anhand definierter Regeln.
-Wie in dem folgenden Beispiel musst du also nicht den Typ der Variable angeben, wenn dieser klar ersichtlich ist.
+Wie in dem folgenden Beispiel müssen wir also nicht den Typ der Variable angeben, wenn dieser klar ersichtlich ist.
 
 ```kotlin
 var username = "Sebastian"
@@ -263,7 +260,7 @@ username = null // Compiler bricht mit Error ab
 Der Compiler bricht mit einem Error ab.
 Damit entfällt eine Fehlerquelle, denn so kann einer Variable nicht _aus Versehen_ `null` zugewiesen werden.
 Dennoch existieren Anwendungsfälle, in denen `null` erforderlich ist.
-Beispielsweise wenn du Daten aus einer Datenbank abfragst, die eventuell nicht vorhanden sind.
+Beispielsweise wenn wir Daten aus einer Datenbank abfragen, die eventuell nicht vorhanden sind.
 Zur Verdeutlichung ein kurzer Ausflug in die Welt von Java.
 
 ```java
@@ -308,7 +305,7 @@ val username: String? = null
 System.out.println(username?.length) // Funktioniert, es wird null ausgegeben
 ```
 
-Mit dem Elvis-Operator `?:` kannst du (ähnlich einer if-Verzweigung) überprüfen, ob der Wert vom null-Typ ist und eine bestimmte Anweisung ausführen, ansonsten eine andere.
+Mit dem Elvis-Operator `?:` können wir (ähnlich einer if-Verzweigung) überprüfen, ob der Wert vom null-Typ ist und eine bestimmte Anweisung ausführen, ansonsten eine andere.
 
 ```kotlin
 val username: String? = null
@@ -325,7 +322,7 @@ Java wurde beispielsweise maßgeblich von Smalltalk beeinflusst.
 Doch neue Technologien ermöglichen es, immer schneller & effizienter sichere Anwendungen zu entwickeln.
 _Boilerplate code_ wird vermieden und die Entwickler können sich auf das Wesentliche konzentrieren.
 
-In diesem ersten Artikel der Blogreihe '101 Technologien' hast du das Projekt für die Beispielanwendung initialisiert.
-Außerdem hast du die grundlegenden Funktionen von Kotlin kennengelernt, die für die nächsten Blogartikel benötigt werden.
-Im nächsten Blogartikel zeige ich dir, wie du mittels der Technologie Keycloak die Benutzerverwaltung für die Beispielanwendung einrichtest.
+In diesem ersten Artikel der Blogreihe '101 Technologien' haben wir das Projekt für die Beispielanwendung initialisiert.
+Außerdem haben wir die grundlegenden Funktionen von Kotlin kennengelernt, die für die nächsten Blogartikel benötigt werden.
+Im nächsten Blogartikel schauen wir uns an, wie wir mittels der Technologie Keycloak die Benutzerverwaltung für die Beispielanwendung einrichten.
 Bis demnächst!
