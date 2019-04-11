@@ -1,0 +1,24 @@
+<div class="blog-image-header">
+    <article class="row">
+        <div class="card picture-card adesso-imageheader adesso-no-border col-md-12">
+            <div class="adesso-container">
+                <h1>adesso<span> Blog</span></h1>
+            </div>
+            <figure>
+                <picture>
+                    <!--[if IE 9]><video style="display: none;"><![endif]-->
+                    <!--source srcset="assets/images/transformation/1600@1x.jpg" media="(min-width: 1600px)" />
+                        <source srcset="assets/images/transformation/1400@1x.jpg 1x" media="(min-width: 1440px)" />
+                        <source srcset="assets/images/transformation/480@1x.jpg 1x, assets/images/transformation/480@2x.jpg 2x" media="(min-width: 480px)"
+                        /-->
+                    <!--[if IE 9]></video><![endif]-->
+                    <!--img src="assets/images/transformation/480@1x.jpg" sizes="640vw" srcset="assets/images/transformation/480@1x.jpg 640w" alt="adesso"/-->
+                    <img src="{{ "/assets/images/transformation/blog_header.jpg" | prepend: site.baseurl }}"
+                        sizes="640vw"
+                        srcset="{{ "/assets/images/transformation/blog_header.jpg 640w" | prepend: site.baseurl }}"
+                        alt="adesso" />
+                </picture>
+            </figure>
+        </div>
+    </article>
+</div>
