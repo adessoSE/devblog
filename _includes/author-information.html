@@ -1,0 +1,48 @@
+{% assign author = site.data.authors[page.author] %}
+<div class="adesso-blog-author col-md-12 col-xl-8 adesso-center p-b-3">
+    <div class="author-information">
+        <img src="{{ author.avatar_url | prepend: site.baseurl }}" alt="">
+        <div class="author-about">
+            <p class="name">
+                {% if author %}
+                <strong>Autor:</strong>{{author.first_name}} {{author.last_name}}</p>
+                <p></p>
+            <p>{{author.bio}}</p>
+            {%  endif %}
+        </div>
+    </div>
+    <div class="category-information">
+        <table>
+            <tbody>
+                <tr>
+                    <td>
+                        <p>Kategorie:</p>
+                    </td>
+                    <td>
+                        <p>
+                            {% if page.categories %}
+                            {% for category in page.categories  %}
+                            <a href="#">{{ category }}</a> {% unless forloop.last %} <span>|</span> {% endunless %}
+                            {% endfor %}
+                            {% endif %}
+                        </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>Schlagwörter:</p>
+                    </td>
+                    <td>
+                        <p>
+                            {% if page.tags %}
+                            {% for tag in page.tags  %}
+                            <a href="#">{{ tag }}</a>
+                            {% endfor %}
+                            {% endif %}
+                    </td>
+                    </p>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
