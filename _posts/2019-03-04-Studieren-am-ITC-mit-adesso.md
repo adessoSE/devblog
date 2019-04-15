@@ -2,7 +2,7 @@
 layout: [post, post-xml]              
 title:  "Studieren am ITC"            
 date:   2019-03-04 08:37              
-modified_date: 2019-04-15 11:11             
+modified_date: 2019-04-15 11:15            
 author: ccaylak                       
 categories: [Branchen & People]       
 ---
@@ -43,8 +43,8 @@ In einigen aber wenigen Ausnahmen, meldet sich kein Unternehmen, in diesen Fäll
 # ITC-Student/in bei adesso
 
 Als ITC-Student arbeite ich im Open-Source-Team bei Tom Hombergs.
-Das erste Projekt durften wir uns selbst aussuchen und zwar arbeiten wir aktuell noch am "adesso-Kicker".
-Der "adesso-kicker" ist eine Webanwendung, die es ermöglicht gespielte Kicker-Spiele einzutragen, von Season zu Season kann man in der Rangliste aufsteigen und sich mit den anderen Adessi messen.
+Das erste Projekt durften wir uns selbst aussuchen und zwar arbeiten wir aktuell noch am [adesso-Kicker](https://github.com/adessoAG/adessoKicker).
+Der [adesso-Kicker](https://github.com/adessoAG/adessoKicker) ist eine Webanwendung, die es ermöglicht gespielte Kicker-Spiele einzutragen, von Season zu Season kann man in der Rangliste aufsteigen und sich mit den anderen Adessi messen.
 Das Studentenleben bei adesso ist relativ entspannt, in der Regel muss ich zweimal pro Woche arbeiten und dreimal zum ITC.
 Wenn Klausuren anstehen werde ich von adesso-Tätigkeiten freigestellt, sodass ich mich auf diese vorbereiten kann.
 
