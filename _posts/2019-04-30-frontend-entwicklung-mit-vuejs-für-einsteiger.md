@@ -16,13 +16,13 @@ Die Welt der Webentwicklung ist groß und im ständigen Wandel. Neue Libraries, 
 
 _Grunt, Gulp, Broccoli, underscore, Mustache, Handlebars, Knockout etc: JavaScript Tools oder zufällige Einträge aus einem englischen Wörterbuch?_
 
-Bis in die frühen 2000er hatten Browser nicht die Möglichkeiten wie heute. Komplexe Applikationen darin umzusetzen war einfach nicht praktikabel. Mit der Weiterentwicklung der Browser kamen auch Libraries wie jQuery, um die Kommunikation mit den Browsern zu vereinfachen. Zur ersten Welle der Frontend Frameworks zählten Backbone, Ember, Knockout und AngularJS. Aktuell sind Angular (ehemalig Angular 2), React und Vue die _big players_. Vue wurde von Evan You entwickelt, während er für Google an AngularJS Web-Apps arbeitete. Vue versucht die guten Features aus Angular und React zu vereinen… und macht dabei ein echt guten Job!
+Bis in die frühen 2000er hatten Browser nicht die Möglichkeiten wie heute. Komplexe Applikationen darin umzusetzen war einfach nicht praktikabel. Mit der Weiterentwicklung der Browser kamen auch Libraries wie jQuery, um die Kommunikation mit den Browsern zu vereinfachen. Zur ersten Welle der Frontend Frameworks zählten Backbone, Ember, Knockout und AngularJS. Aktuell sind Angular (ehemalig Angular 2), React und Vue die _big players_. Vue wurde von Evan You entwickelt, während er für Google an AngularJS Web-Apps arbeitete. Vue versucht die guten Features aus Angular und React zu vereinen… und macht dabei einen echt guten Job!
 
 ![Stack Overflow Question Trends](/assets/images/frontend-entwicklung-mit-vuejs-für-einsteiger/stackoverflow-trends.png "Stack Overflow Question Trends")
 
 _Vue steht mittlerweile auf Platz 1. der JavaScript Toplist auf GitHub mit ~137k Sternen_
 
-Frameworks abstrahieren die Interaktion mit dem Browser und dem DOM (um mit Vue anzufangen, müsst ihr nicht einmal wissen, was genau das Domain-Object-Model eigentlich ist). Statt Elemente aus dem DOM zu referenzieren, um sie zu manipulieren, definiert man sie [deklarativ](https://de.wikipedia.org/wiki/Deklarative_Programmierung) auf einer höheren Abstraktionsebene. Oder einfacher ausgedrückt: Man gibt man von vornherein an, wie die Elemente aussehen sollten und überlässt die Arbeit Vue.
+Frameworks abstrahieren die Interaktion mit dem Browser und dem DOM (um mit Vue anzufangen, müsst ihr nicht einmal wissen, was genau das Domain-Object-Model eigentlich ist). Statt Elemente aus dem DOM zu referenzieren, um sie anschließend zu manipulieren, definiert man sie [deklarativ](https://de.wikipedia.org/wiki/Deklarative_Programmierung) auf einer höheren Abstraktionsebene. Oder einfacher ausgedrückt: Man gibt man von vornherein an, wie die Elemente aussehen sollten und überlässt die Arbeit Vue.
 
 Solange man weiß was HTML, CSS und JavaScript ist, kann man ohne viel Aufwand loslegen:
 
@@ -44,7 +44,7 @@ Solange man weiß was HTML, CSS und JavaScript ist, kann man ohne viel Aufwand l
     </body>
 </html>
 ```
-_Speichert den Code in einer .html Datei und öffnet sie im Browser um es auszuprobieren (in den folgenden Beispielen wird der HTML Boilerplate Code ausgelassen)._
+_Speichert den Code in einer .html Datei und öffnet diese im Browser, um es auszuprobieren (in den folgenden Beispielen wird der HTML Boilerplate Code ausgelassen)._
 
 __Ergebnis:__
 ```
@@ -55,7 +55,6 @@ Mit `new Vue()` wird eine neue Vue Instanz erzeugt, `el: '#app'` definiert das `
 
 Die doppelten geschweiften Klammern kennzeichnen _text interpolation_ (auch "Mustache" Syntax genannt). Der `{{ message }}` Bereich innerhalb des `div` Elements wird mit dem Inhalt der `message` Variablen im `data` Objekt ersetzt. Auch, wenn sich der Wert der Variablen ändert (z.B. in dem ihr `app.message = 'Hallo'` in die Entwicklerkonsole des Browsers eingebt).
 
-
 Das war doch gar nicht so schwer, oder? Das Tolle an Vue ist, dass Vues Prinzipen diese Einfachheit auch in größeren Projekten beibehält.
 
 
@@ -65,11 +64,11 @@ Laut Vues Website lauten diese:
 
 > __1. Approachable:__ Already know HTML, CSS and JavaScript? Read the guide and start building things in no time!
 
-Wie schon erwähnt reichen Grundkenntnisse in HTML und JavaScript aus, um mit Vue loszulegen. Außerdem hat Vue eine ausgesprochen gute Dokumentation und Guides in denen so gut wie alles, was ihr über Vue wissen müsst, mit Beispielen erklärt wird (Links findet ihr am Ende des Artikels). 
+Wie schon erwähnt reichen Grundkenntnisse in HTML und JavaScript aus, um mit Vue loszulegen. Außerdem hat Vue eine ausgesprochen gute Dokumentation und Guides. Alles, was man über Vue wissen muss findet man dort mit Beispielen erklärt (Links findet ihr am Ende des Artikels). 
 
 >__2. Versatile:__ An incrementally adoptable ecosystem that scales between a library and a full-featured framework.
 
-Andere Frameworks benötigen eine komplette Neugestaltung einer bestehenden Web-App, Vue hingegen ist progressiv: Mit einem einfachen `script` Tag und Dreizeiler ist man schon startbereit, ohne jemals irgendwas von webpack, Babel oder npm gehört haben zu müssen. Das bedeutet Vue kann schrittweise in bestehende Projekte integriert werden. Die _core library_ kann alleinstehend oder in Verbindung mit Vues offiziellen begleitenden Libraries für _global state management_ (vuex) und _routing_ (vue-router) verwendet werden.
+Andere Frameworks benötigen meist eine komplette Neugestaltung einer bestehenden Web-App, Vue hingegen ist progressiv: Mit einem einfachen `script` Tag und Dreizeiler ist man schon startbereit, ohne jemals irgendwas von webpack, Babel oder npm gehört haben zu müssen. Das bedeutet Vue kann schrittweise in bestehende Projekte integriert werden. Die _core library_ kann alleinstehend oder in Verbindung mit Vues offiziellen begleitenden Libraries für _global state management_ (vuex) und _routing_ (vue-router) verwendet werden.
 
 >__3. Performant:__ 20KB min+gzip Runtime, Blazing Fast Virtual DOM, Minimal Optimization Efforts
 
@@ -83,7 +82,7 @@ In React ist alles reines JavaScript. Man hat dadurch zwar ein klassisches Progr
 const element = <h1>{title}</h1>;
 ``` 
 
-Es handelt sich hierbei weder um einen String noch um HTML, sondern JSX: eine Syntaxerweiterung für JavaScript. Auch wenn es ähnlich aussieht, unterscheidet es sich von HTML. Das bedeutet, neue Entwickler oder Designer können nicht ohne weiteres damit arbeiten. Außerdem resultiert aus dieser Verwobenheit eher unübersichtlicher und gegebener Falls auch schlecht wartbarer Code.
+Es handelt sich hierbei weder um einen String noch um HTML, sondern JSX: eine Syntaxerweiterung für JavaScript. Auch wenn es ähnlich aussieht, unterscheidet es sich von HTML. Das bedeutet: neue Entwickler oder Designer können nicht ohne Weiteres damit arbeiten. Außerdem resultiert aus dieser Verwobenheit eher unübersichtlicher und gegebener Falls auch schlecht wartbarer Code.
 
 Zwar kann man Vue auch mit JSX verwenden aber Vues Stärke liegt in dem weitaus simpleren Templating System. Vue Komponenten können in HTML Template (`<template>`), JavaScript (`<script>`) und CSS (`<style>`) unterteilt werden. Da gültiges HTML auch gleichzeitig gültiges Vue Template ist, kann man Vue ohne große Änderungen in bestehende HTML Websites einbauen. Dass man diese Aufteilung in einer einzelnen `.vue` Datei halten kann, macht den Entwicklungsprozess übersichtlich und ermöglicht unkompliziertes komponentenspezifisches Styling:
 
@@ -114,17 +113,17 @@ export default {
 </style>
 ```
 
-_Wer besonders aufgepasst hat, dem ist aufgefallen das `data` im ersten Beispiel ein Objekt war, in diesem aber eine Funktion. Im ersten Beispiel wurde mit `new Vue(...)` eine simple __Vue Instanz__ erzeugt: in diesem Fall ist es okay `data` als einfaches Objekt zu definieren. In diesem Beispiel handelt es sich um eine __Vue Komponente__ (die unter Umständen mehr als einmal instanziiert wird). Um zu verhindern, dass das `data` Objekt zwischen verschiedenen Instanzen geteilt wird, verwendet man innerhalb Komponenten eine Funktion._
+_Wer besonders aufgepasst hat, dem ist aufgefallen, dass `data` im ersten Beispiel ein Objekt war, in diesem aber eine Funktion. Im ersten Beispiel wurde mit `new Vue(...)` eine einzelne __Vue Instanz__ erzeugt: in diesem Fall ist es okay `data` als einfaches Objekt zu definieren. In diesem Beispiel handelt es sich um eine __Vue Komponente__ (die unter Umständen mehr als einmal instanziiert wird). Um zu verhindern, dass das `data` Objekt zwischen verschiedenen Instanzen geteilt wird, verwendet man innerhalb Komponenten eine Funktion._
 
-An sich unterscheiden sich die zwei Frameworks kaum in Performance aber Vue implementiert sein virtual DOM mit einer Art automatischen Abhängigkeitsverwaltung. Das bedeutet Vue weiß, welche Komponenten von einer Zustandsänderung betroffen sind und rendert nur diese neu.
+An sich unterscheiden sich die zwei Frameworks kaum in Performance aber Vue implementiert sein virtual DOM mit einer Art automatischen Abhängigkeitsverwaltung. Das bedeutet: Vue weiß, welche Komponenten von einer Zustandsänderung betroffen sind und rendert nur diese neu.
 
 Im Fall von React hingegen löst eine Zustandsänderung ein rerendering aller Kind-Elemente einer Komponente aus. Das lässt sich zwar verhindern, muss aber für alle Komponenten manuell gemacht werden.
 
 Vue hat daher minimalen Optimierungsaufwand und liefert etwas bessere Performance out of the box.
 
-Mit React Native hat man noch einen Vorteil gegenüber Vue, wenn es um iOS und Android Entwicklung geht. Vues Antwort auf React Native (Weex) ist momentan noch in aktiver Entwicklung.
+Mit React Native hat man jedoch noch einen Vorteil gegenüber Vue, wenn es um iOS und Android Entwicklung geht. Vues Antwort auf React Native (Weex) ist momentan noch in aktiver Entwicklung.
 
-Ein letzter Punkt, der nicht zu missachten ist: Vue ist independent, es wird durch Spenden und die Community unterstützt. Das bedeutet, dass es nicht durch die Agenda einer Firma wie Google (Angular) oder Facebook (React) gelenkt wird.
+Ein letzter Punkt, der nicht zu missachten ist: Vue ist unabhängig, es wird durch Spenden und die Community unterstützt. Das bedeutet, dass es nicht durch die Agenda einer Firma wie Google (Angular) oder Facebook (React) gelenkt wird.
 
 
 # Wie funktioniert Vue?
@@ -152,7 +151,7 @@ var app = new Vue({
 });
 ```
 
-Computed properties können genauso verwendet werden wie gewöhnliche:
+Computed properties können genauso verwendet werden wie gewöhnliche properties:
 ```html
 <img v-bind:src="imageSrc" />
 ```
@@ -328,7 +327,7 @@ Komponenten können Properties (`props`) besitzen. Das ermöglicht es, Werte an 
 
 Globale Komponenten werden mit `Vue.component(...)` registriert und können in allen Vue Instanzen verwendet werden, die nach der Regristrierung mit `new Vue(...)` instanziiert werden. Um komplexere Strukturen aufzubauen, kann man eine Komponente aber auch in einer `.vue` Datei anlegen, um sie anschließend an anderer Stelle als lokale Komponente zu importieren.
 
-Hier ist das gleiche Beispiel mit der Blog Post Komponente mit lokalen Komponenten:
+Hier ist das gleiche Beispiel der Blog Post Komponente umgesetzt mit lokalen Komponenten in `.vue` Dateien:
 
 __BlogPost.vue__
 ```html
@@ -366,7 +365,7 @@ h1 {
 </style>
 ```
 
-In dieser Komponente wurde innerhalb des `<script>` Tags (Der JavaScript Teil der Vue Komponente) ein Property `title` vom Typ `String` definiert, welcher `required` ist. Dieses Property wird in dem `<template>` Bereich innerhalb eines `<h1>` Tag angezeigt. Darunter ist noch ein `<p>` Tag mit einem Platzhalter Text.
+In dieser Komponente wurde innerhalb des `<script>` Tags (Der JavaScript Teil der Vue Komponente) ein Property `title` vom Typ `String` definiert, welches `required` ist. Dieses Property wird in dem `<template>` Bereich innerhalb eines `<h1>` Tag angezeigt. Darunter ist noch ein `<p>` Tag mit einem Platzhalter Text.
 
 Der `<style>` Tag ist `scoped` und wird deshalb nur auf diese Komponente angewendet.
 
@@ -413,7 +412,7 @@ export default {
 
 In dieser Komponente wird die BlogPost Komponente mit `import BlogPost from './components/BlogPost'` importiert und kann anschließend im Template mit `<BlogPost ...>` verwendet werden.
 
-In `data` ist hier beispielsweise ein Array aus JavaScript Objekten mit den Titeln der Blog Posts (`posts`) angelegt worden, typischerweise würden diese Daten aber von einem Server asynchron via REST API geladen werden.
+In `data` ist hier beispielsweise ein Array aus JavaScript Objekten mit den Titeln der Blog Posts (`posts`) angelegt worden, typischerweise würden diese Daten aber von einem Server asynchron via (REST) API geladen werden.
 
 Weil hier mehrere BlogPosts angezeigt werden sollen, wird über das `posts` Array mit `v-for="post in posts"` iteriert. Dadurch wird für jedes Objekt in `posts` eine BlogPost Komponente erzeugt.
 
@@ -425,7 +424,7 @@ __Ergebnis:__
 
 ![Vue Komponenten Beispiel](/assets/images/frontend-entwicklung-mit-vuejs-für-einsteiger/vue-components-example.png "Vue Komponenten Beispiel")
 
-_Dieses Beispiel auf [codesandbox.io](https://codesandbox.io/s/8xp35z1r70?fontsize=14&module=%2Fsrc%2FApp.vue)_
+_Falls das etwas zu schnell ging, kann man dieses Beispiel auf [codesandbox.io](https://codesandbox.io/s/8xp35z1r70?fontsize=14&module=%2Fsrc%2FApp.vue) – einem online Code Editor – genauer anschauen._
 
 Vues Komponenten System macht es sehr einfach, komplexe Strukturen aufzubauen und zu pflegen. Man könnte die BlogPost Komponente ohne Probleme erweitern. Beispielsweise mit einer BlogPostContent Komponente anstelle des Lorem ipsum Platzhalters.
 
