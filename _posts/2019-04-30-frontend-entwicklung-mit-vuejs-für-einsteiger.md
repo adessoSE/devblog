@@ -12,13 +12,13 @@ Die Welt der Webentwicklung ist groß und im ständigen Wandel. Neue Libraries, 
 
 # Was ist überhaupt ein Frontend Framework?
 
-![JavaScript Frameworks / Tools](/assets/images/frontend-entwicklung-mit-vuejs-für-einsteiger/javascript-frameworks-tools.png "JavaScript Frameworks / Tools")
+![JavaScript Frameworks / Tools](/assets/images/posts/frontend-entwicklung-mit-vuejs-für-einsteiger/javascript-frameworks-tools.png "JavaScript Frameworks / Tools")
 
 _Grunt, Gulp, Broccoli, underscore, Mustache, Handlebars, Knockout etc: JavaScript Tools oder zufällige Einträge aus einem englischen Wörterbuch?_
 
 Bis in die frühen 2000er hatten Browser nicht die Möglichkeiten wie heute. Komplexe Applikationen darin umzusetzen war einfach nicht praktikabel. Mit der Weiterentwicklung der Browser kamen auch Libraries wie jQuery, um die Kommunikation mit den Browsern zu vereinfachen. Zur ersten Welle der Frontend Frameworks zählten Backbone, Ember, Knockout und AngularJS. Aktuell sind Angular (ehemalig Angular 2), React und Vue die _big players_. Vue wurde von Evan You entwickelt, während er für Google an AngularJS Web-Apps arbeitete. Vue versucht die guten Features aus Angular und React zu vereinen… und macht dabei einen echt guten Job!
 
-![Stack Overflow Question Trends](/assets/images/frontend-entwicklung-mit-vuejs-für-einsteiger/stackoverflow-trends.png "Stack Overflow Question Trends")
+![Stack Overflow Question Trends](/assets/images/posts/frontend-entwicklung-mit-vuejs-für-einsteiger/stackoverflow-trends.png "Stack Overflow Question Trends")
 
 _Vue steht mittlerweile auf Platz 1. der JavaScript Toplist auf GitHub mit ~137k Sternen_
 
@@ -422,7 +422,7 @@ Darüber hinaus wird noch die `id` mit `v-bind:key="post.id"` übergeben, damit 
 
 __Ergebnis:__
 
-![Vue Komponenten Beispiel](/assets/images/frontend-entwicklung-mit-vuejs-für-einsteiger/vue-components-example.png "Vue Komponenten Beispiel")
+![Vue Komponenten Beispiel](/assets/images/posts/frontend-entwicklung-mit-vuejs-für-einsteiger/vue-components-example.png "Vue Komponenten Beispiel")
 
 _Falls das etwas zu schnell ging, kann man dieses Beispiel auf [codesandbox.io](https://codesandbox.io/s/8xp35z1r70?fontsize=14&module=%2Fsrc%2FApp.vue) – einem online Code Editor – genauer anschauen._
 
