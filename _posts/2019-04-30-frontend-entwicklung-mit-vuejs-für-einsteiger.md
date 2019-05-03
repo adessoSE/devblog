@@ -30,7 +30,7 @@ Mit einem bisschen Grundwissen zu HTML, CSS und JavaScript kann man ohne viel Au
 <html>
     <body>
         <div id="app">
-            {% raw %}{{ message }}{% endraw %}
+            {{{{ "{% "{% message " " }}%}%}
         </div>
         <script src="https://unpkg.com/vue"></script>
         <script>
@@ -53,7 +53,7 @@ _Beispiel auf [JSFiddle](https://jsfiddle.net/oj5veb9x/) anschauen._
 
 Mit `new Vue()` wird eine neue Vue Instanz erzeugt, `el: '#app'` definiert das `<div id="app">` Element als den Einstiegspunkt für Vue.
 
-Die doppelten geschweiften Klammern kennzeichnen _text interpolation_ (auch "Mustache" Syntax genannt). Der `{% raw %}{{ message }}{% endraw %}` Bereich innerhalb des `div` Elements wird mit dem Inhalt der `message` Variablen im `data` Objekt ersetzt. Auch wenn sich der Wert der Variablen ändert (z.B. in dem ihr `app.message = 'Hallo'` in die Entwicklerkonsole des Browsers eingebt).
+Die doppelten geschweiften Klammern kennzeichnen _text interpolation_ (auch "Mustache" Syntax genannt). Der `{{{ "{% message " }}%}` Bereich innerhalb des `div` Elements wird mit dem Inhalt der `message` Variablen im `data` Objekt ersetzt. Auch wenn sich der Wert der Variablen ändert (z.B. in dem ihr `app.message = 'Hallo'` in die Entwicklerkonsole des Browsers eingebt).
 
 Das war doch gar nicht so schwer, oder? Das Tolle an Vue ist, dass Vues Prinzipen diese Einfachheit auch in größeren Projekten beibehält.
 
@@ -96,7 +96,7 @@ Zwar kann man Vue auch mit JSX verwenden aber Vues Stärke liegt in dem weitaus 
 ```html
 <template>
     <div id="app">
-        {% raw %}{{ message }}{% endraw %}
+        {{{ "{% message " }}%}
     </div>
 </template>
 
@@ -137,7 +137,7 @@ Ein letzter Punkt, der nicht zu missachten ist: Vue ist unabhängig, es wird dur
 
 # Wie funktioniert Vue?
 
-Ein grundgelegenes Konzept von Vue sind die sogenannten _directives_. Diese beginnen mit dem `v-` Prefix. Der Wert eines _directives_ (und auch innerhalb `{% raw %}{% raw %}{{ ... }}{% endraw %}{% endraw %}`) muss eine einzelne JavaScript Expression sein.
+Ein grundgelegenes Konzept von Vue sind die sogenannten _directives_. Diese beginnen mit dem `v-` Prefix. Der Wert eines _directives_ (und auch innerhalb `{{{ "{% ... " }}%}`) muss eine einzelne JavaScript Expression sein.
 
 ```html
 <img v-bind:src="'/assets/images/' + filename" />
@@ -201,7 +201,7 @@ Schleifen können innerhalb eines Templates mit `v-for` realisiert werden. Die S
 <div id="app">
     <ol>
         <li v-for="item in items">
-            {% raw %}{{ item.text }}{% endraw %}
+            {{{ "{% item.text " }}%}
         </li>
     </ol>
 </div>
@@ -233,25 +233,25 @@ Alternativ kann man auch folgende Syntax verwenden, um Zugriff auf den aktuellen
 Außerdem kann `v-for` nicht nur über Arrays, sondern auch über JavaScript Objekte iterieren. Entweder iteriert man nur über die Attribute:
 ```html
 <li v-for="value in object">
-    {% raw %}{{ value }}{% endraw %}
+    {{{ "{% value " }}%}
 </li>
 ```
 oder über _key value_ -Paare:
 ```html
 <li v-for="(value, key) in object">
-    {% raw %}{{ key }}{% endraw %}: {% raw %}{{ value }}{% endraw %}
+    {{{ "{% key " }}%}: {{{ "{% value " }}%}
 </li>
 ```
 
 
 ## Zwei-Wege Bindung
 
-Die Inhalte des Templates an Variablen aus dem Model binden ist mit _directives_ und `{% raw %}{{ ... }}{% endraw %}` einfach. Aber was, wenn man Bindung in die andere Richtung erreichen möchte? Zum Beispiel, wenn der Wert einer Variablen den eines `input` Tags annehmen soll?
+Die Inhalte des Templates an Variablen aus dem Model binden ist mit _directives_ und `{{{ "{% ... " }}%}` einfach. Aber was, wenn man Bindung in die andere Richtung erreichen möchte? Zum Beispiel, wenn der Wert einer Variablen den eines `input` Tags annehmen soll?
 
 Das `v-model` _directive_ macht _bidirectional binding_ einfach. Tippt der User etwas in das `<input>` Feld ein, wird der Inhalt an die `message` Variable übertragen und die Änderung wiederum löst ein erneutes rendering des `<p>` Tags aus:
 ```html
 <div id="app">
-    <p>{% raw %}{{ message }}{% endraw %}</p>
+    <p>{{{ "{% message " }}%}</p>
     <input v-model="message">
 </div>
 ```
@@ -318,7 +318,7 @@ Es ist typisch für Vue Apps in einem Baum von verschachtelten Komponenten organ
 ```javascript
 Vue.component('blog-post', {
     props: ['title'],
-    template: '<h3>{% raw %}{{ title }}{% endraw %}</h3>'
+    template: '<h3>{{{ "{% title " }}%}</h3>'
 })
 
 ...
@@ -344,7 +344,7 @@ __BlogPost.vue__
 ```html
 <template>
     <div class="blogpost">
-        <h1>{% raw %}{{ title }}{% endraw %}</h1>
+        <h1>{{{ "{% title " }}%}</h1>
         <p>
             Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
         </p>
