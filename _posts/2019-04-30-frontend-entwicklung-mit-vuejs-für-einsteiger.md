@@ -2,7 +2,7 @@
 layout: [post, post-xml]                # Pflichtfeld. Nicht ändern!
 title:  "Frontend Entwicklung mit Vue.js für Einsteiger"         # Pflichtfeld. Bitte einen Titel für den Blog Post angeben.
 date:   2019-04-30 10:00                # Pflichtfeld. Format "YYYY-MM-DD HH:MM". Muss für Veröffentlichung in der Vergangenheit liegen. (Für Preview egal)
-modified_date: 2019-04-30               # Optional. Muss angegeben werden, wenn eine bestehende Datei geändert wird.
+modified_date: 2019-05-03               # Optional. Muss angegeben werden, wenn eine bestehende Datei geändert wird.
 author: vincentmathis                   # Pflichtfeld. Es muss in der "authors.yml" einen Eintrag mit diesem Namen geben.
 categories: [Softwareentwicklung]       # Pflichtfeld. Maximal eine der angegebenen Kategorien verwenden.
 tags: [JavaScript, Frontend, Vue.js]    # Optional.
