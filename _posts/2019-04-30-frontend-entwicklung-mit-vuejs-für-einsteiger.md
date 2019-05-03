@@ -44,12 +44,12 @@ Mit einem bisschen Grundwissen zu HTML, CSS und JavaScript kann man ohne viel Au
     </body>
 </html>
 ```
-_Speichert den Code in einer .html Datei und öffnet diese im Browser, um es auszuprobieren (in den folgenden Beispielen wird der HTML Boilerplate Code ausgelassen)._
 
 __Ergebnis:__
 ```
 Du hast diese Seite am 2019.04.23, 09:22:17 geladen.
 ```
+_Beispiel auf [JSFiddle](https://jsfiddle.net/oj5veb9x/) anschauen._
 
 Mit `new Vue()` wird eine neue Vue Instanz erzeugt, `el: '#app'` definiert das `<div id="app">` Element als den Einstiegspunkt für Vue.
 
@@ -119,6 +119,8 @@ export default {
 }
 </style>
 ```
+_Ein ausführliches Beispiel zu den sogenannten Single File Components findet ihr am Ende dieses Artikels._
+
 
 _Wer besonders aufgepasst hat, dem ist aufgefallen, dass `data` im ersten Beispiel ein Objekt war, in diesem aber eine Funktion. Im ersten Beispiel wurde mit `new Vue(...)` eine einzelne __Vue Instanz__ erzeugt: in diesem Fall ist es okay `data` als einfaches Objekt zu definieren. In diesem Beispiel handelt es sich um eine __Vue Komponente__ (die unter Umständen mehr als einmal instanziiert wird). Um zu verhindern, dass das `data` Objekt zwischen verschiedenen Instanzen geteilt wird, verwendet man innerhalb Komponenten eine Funktion._
 
@@ -187,6 +189,7 @@ __Ergebnis:__
 ```
 Ansonsten wird dieses Element gerendert
 ```
+_Beispiel auf [JSFiddle](https://jsfiddle.net/a3fkrxvg/) anschauen._
 
 Natürlich gibt es zu dem `v-if` _directive_ auch die entsprechenden `v-else` und `v-else-if` _directives_, wie man sie aus den meisten Programmiersprachen kennt.
 
@@ -221,6 +224,8 @@ __Ergebnis:__
 2. Das ist ein anderes
 3. Und noch eins
 ```
+_Beispiel auf [JSFiddle](https://jsfiddle.net/bx2w57y9/) anschauen._
+
 
 Alternativ kann man auch folgende Syntax verwenden, um Zugriff auf den aktuellen Index zu bekommen:
 `v-for="(item, index) in items"`. 
@@ -266,9 +271,9 @@ Seht euch das Beispiel auf [JSFiddle](https://jsfiddle.net/wbv0ec2j/) an und tip
 
 Einige _directives_ können Argumente annehmen, diese werden mit einem Doppelpunkt gekennzeichnet. Zum Beispiel `v-bind`, mit dem man gewöhnliche HTML Attribute an das Model binden kann. Der Wert des `href` Attributes ist an die `url` Variable gebunden und ändert sich dynamisch:
 ```html
-...
-<a v-bind:href="url"> ... </a>
-...
+<div id="app">
+    <a v-bind:href="url"> Ein Link </a>
+</div>
 ```
 ```javascript
 new Vue({
@@ -278,26 +283,27 @@ new Vue({
     }
 })
 ```
+_Beispiel auf [JSFiddle](https://jsfiddle.net/qLjxfbep/) anschauen._
+
 
 Ein weiteres Beispiel ist `v-on`, welches auf DOM Events hört:
 ```html
-...
-<a v-on:click="doSomething"> ... </a>
-...
+<div id="app">
+    <p v-on:click="doSomething"> Klick mich </p>
+</div>
 ```
 ```javascript
 new Vue({
     el: "#app",
-    data: {
-        ...
-    },
     methods: {
         doSomething() {
-            ...
+            alert("Hallo")
         }
     }
 })
 ```
+_Beispiel auf [JSFiddle](https://jsfiddle.net/nctvzs85/) anschauen._
+
 Klickt der User also auf diesen Link, wird die `doSomething` Methode aufgerufen. Methoden sind bei Vue innerhalb des `methods` Objektes anzulegen, damit sie vom Template aus verwendbar sind.
 
 Da `v-bind` und `v-on` sehr häufig auftreten können sie abgekürzt werden: 
