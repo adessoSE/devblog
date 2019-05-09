@@ -4,8 +4,8 @@ title:  "Blog Post Anleitung"         # Pflichtfeld. Bitte einen Titel für den 
 date:   2017-08-10 10:25              # Pflichtfeld. Format "YYYY-MM-DD HH:MM". Muss für Veröffentlichung in der Vergangenheit liegen. (Für Preview egal)
 modified_date: 2017-08-18             # Optional. Muss angegeben werden, wenn eine bestehende Datei geändert wird.
 author: johndoe                       # Pflichtfeld. Es muss in der "authors.yml" einen Eintrag mit diesem Namen geben.
-categories: [Java] # Pflichtfeld. Maximal eine der angegebenen Kategorien verwenden.
-tags: [Spring, Microservices]         # Optional.
+categories: [Java]                    # Pflichtfeld. Maximal eine der angegebenen Kategorien verwenden.
+tags: [Spring, Microservices]         # Bitte auf Großschreibung achten.
 ---
 
 Wenn du das hier liest, bist du vermutlich daran interessiert einen Blog Post für den
