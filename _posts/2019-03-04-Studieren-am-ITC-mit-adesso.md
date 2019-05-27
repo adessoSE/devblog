@@ -2,60 +2,77 @@
 layout: [post, post-xml]              
 title:  "Duales Studium am IT-Center Dortmund mit adesso als Partner"            
 date:   2019-03-04 08:37              
-modified_date: 2019-04-15 11:15            
+modified_date: 2019-05-27 09:32          
 author: ccaylak                       
 categories: [Branchen & People]       
 ---
-Die meisten Studenten, die an der Dortmunder adesso-Geschäftsstelle arbeiten, studieren für gewöhnlich an der TU oder FH, aber hast du schon mal etwas vom IT-Center (kurz: ITC) gehört?
-Im folgenden Artikel werde ich dir das ITC näher bringen und auch mein eigenes Fazit nach dem ersten Semester aufführen.
+Du bist demnächst mit dem Abitur fertig und denkst über ein Studium in der Welt der Informatik nach?
+Du möchtest gleichzeitig schon etwas Geld in einem Unternehmen verdienen?
+Dann ist ein duales Studium am IT-Center (kurz: _ITC_) in Kooperation mit adesso in Dortmund eine interessante Möglichkeit für dich!
+In diesem Artikel stelle ich das Studium am IT-Center vor und teile meine Erfahrung nach dem ersten Semester.
 
-# Duales Studium
-
-Das bedeutet ganz einfach erklärt, dass du auf einer Hochschule studierst und parallel dazu in einem Betrieb arbeitest. 
-Dadurch sammelst du schon wertvolle Praxiserfahrung und verdienst nebenbei auch schon etwas Geld.
 
 # Das IT-Center Dortmund
 
-Das ITC ist eine private Hochschule und bietet ein sehr praxisnahes Informatik Studium an.
-Es wurde im Jahr 2000 mit der Unterstützung des Bundeslands Nordrhein-Westfalen, der TU Dortmund sowie der FH Dortmund und der Stadt Dortmund gegründet.
-Anders als die FH Dortmund bietet das ITC nur den alleinstehenden, dualen Studiengang _IT- und Softwaresysteme_ an.
-Außerdem beträgt die Regelstudienzeit 7 Semester und es werden maximal 30 Studierende pro Jahrgang aufgenommen.
-Nach vier dualen Semestern sind die Studierenden vollbeschäftigt und studieren berufsbegleitend.
-Der Studienabschluss (B.Sc.) wird von der FH Dortmund ausgestellt.
-In der dualen Phase werden praktische Grundlagen zu Datenbanken, Web-Engineering, objektorientiertem Programmieren und Rechnernetzen gesammelt.
-Im 3. Semester des Studiums können sich die Studierenden auf eines der genannten Fächer spezialisieren, durch das Vertiefungsfach werden die individuellen Leistungen im Betrieb gefördert.
-Wenn man dann in der berufsbegleitenden Phase angelangt ist, wird das Studium etwas theoretischer.
-Die Studierenden lernen etwas zu den Fächern IT-Sicherheit, Kostenplanung und DV-Recht aber natürlich werden auch die Programmierkenntnisse erweitert.
-Später wird auch wieder ein Vertiefungsfach gewählt und im letzten Semester geht es dann um den Studienabschluss.
+Die meisten Werkstudenten in der Dortmunder adesso-Geschäftsstelle studieren an der Universität oder an der Fachhochschule, aber mit dem IT-Center gibt es in Dortmund noch eine weitere Möglichkeit, Informatik zu studieren.
+Es handelt sich dabei um ein duales Studium, was bedeutet, dass du auf einer Hochschule studierst und parallel dazu in einem Partnerunternehmen arbeitest.
+Die Hochschule ist in diesem Fall das ITC und das Partnerunternehmen adesso.
+Das Schöne am dualen Studium ist, dass du durch die Arbeit im Partnerunternehmen schon während dem Studium wertvolle Praxiserfahrung sammelst und nebenbei auch schon etwas Geld verdienst. 
+
+Das ITC ist eine private Hochschule und bietet ein sehr praxisnahes Informatikstudium an.
+Es wurde im Jahr 2000 mit der Unterstützung des Bundeslands Nordrhein-Westfalen, der TU Dortmund, der FH Dortmund und der Stadt Dortmund gegründet.
+
+Das ITC bietet lediglich den alleinstehenden, dualen Studiengang **IT- und Softwaresysteme** an.
+Die Regelstudienzeit beträgt 7 Semester und es werden maximal 30 Studierende pro Jahrgang aufgenommen.
+Die Vorlesungen werden hauptsächlich von Dozenten der FH Dortmund und der TU Dortmund gehalten.
+Einige Module werden aber auch von Dozenten aus der Industrie übernommen, sodass der Praxisbezug gewährleistet ist.
+Man kann den Vorlesungen gut folgen, da die Anzahl der Studenten sehr niedrig ist.
+
+Nach vier dualen Semestern bist du Vollzeit im Partnerunternehmen beschäftigt und studierst bis zum Ende des Studiums berufsbegleitend.
+Der Studienabschluss (Bachelor of Science) wird von der FH Dortmund ausgestellt.
+
+In der dualen Phase sammelst du praktische Grundlagen zu Datenbanken, Web-Engineering, objektorientiertem Programmieren und Rechnernetzen.
+Im 3. Semester des Studiums kannst du dich auf eines der genannten Gebiete spezialisieren.
+Durch diese Vertiefung kannst du die Interessen fördern, die du während der Arbeit im Partnerunternehmen in den ersten beiden Semestern gesammelt hast.
+
+Wenn du in der berufsbegleitenden Phase angelangt bist, wird das Studium etwas theoretischer.
+Du lernst etwas zu IT-Sicherheit, Kostenplanung und DV-Recht aber natürlich werden auch die Programmierkenntnisse stetig erweitert.
+Später wählst du ein weiteres Vertiefungsmodul und im letzten Semester dreht sich alles um den Studienabschluss.
+
+Ist das Studium geschafft, ist die Wahrscheinlichkeit sehr groß, dass du bei deinem Partnerunternehmen in eine Festanstellung wechselst.
 
 # Das Bewerbungsverfahren
 
-Das Aufnahmeverfahren beginnt mit der Online-Bewerbung. Sobald die Dokumente geprüft wurden erhält man eine Einladung zum Assessment-Center.
-Im späteren Verlauf bekommt man einen Termin für eine Kennenlernrunde mit Partnerunternehmen des ITCs. Der Studiengang ist darauf ausgelegt, dass du in einem Partnerunternehmen arbeitest, welches die monatlichen Studiengebühren übernimmt.
-Letztendlich habe ich mich nach einem intensiven Gespräch am adesso-Stand für adesso entschieden, woraufhin ich mich initiativ beworben habe.
+Das Aufnahmeverfahren beginnt mit einer Online-Bewerbung, sobald die Dokumente geprüft wurden, erhält man eine Einladung zum Assessment-Center.
+Im Assessment-Center werden deine individuellen Qualifikationen sowie die sozialen Kompetenzen getestet.
+Somit schreibst du zunächst einen Eignungstest und anschließend stellst du eine bereits vorbereitete Präsentation vor.
+
+Nachdem du das Assessment-Center erfolgreich durchlaufen hast, bekommst du eine Einladung für eine Kennenlernrunde mit den Partnerunternehmen des ITC. 
+Die Partnerunternehmen haben jeweils einen Stand, stellen sich im persönlichen Gespräch vor, und du hast die Gelegenheit alle Fragen zum Unternehmen zu stellen, die dir auf dem Herzen liegen.
+Für eines der Partnerunternehmen musst du dich letztendlich entscheiden (und das Partnerunternehmen für dich), denn in diesem Unternehmen
+wirst du studienbegleitend arbeiten und es übernimmt für dich die monatlichen Studiengebühren.
+
+Parallel zur Kennenlernrunde hilft das ITC dabei, ein Profil mit deinen bisherigen IT-Kenntnissen zu erstellen, welches dann an alle Partnerunternehmen verschickt wird.
+Die Partnerunternehmen melden sich entweder bei dir oder du bewirbst dich initiativ und wirst bei Interesse zu einem Vorstellungsgespräch eingeladen.
+
+Ich selbst habe mich nach einem intensiven Gespräch während der Kennenlernrunde mit den adesso-Mitarbeitern für adesso entschieden, woraufhin ich mich initiativ beworben habe.
 Die Einladung zu einem Bewerbungsgespräch erreichte mich nur wenig später und ich durfte mich anschließend über ein Vertragsangebot freuen.
-Parallel zur Kennenlernrunde werden Profile für die Studierenden erstellt. 
-Diese werden an alle Partnerunternehmen des ITCs versendet, bei Interesse melden sich die Unternehmen persönlich.
-In einigen wenigen Ausnahmen, meldet sich kein Unternehmen, in diesen Fällen bemüht sich das ITC stets diese Person unterzubringen.
 
 # ITC-Student/in bei adesso
 
-Als ITC-Student arbeite ich im Open-Source-Team bei Tom Hombergs.
-Das erste Projekt durften wir uns selbst aussuchen und zwar arbeiten wir aktuell noch am [adesso-Kicker](https://github.com/adessoAG/adessoKicker).
-Der [adesso-Kicker](https://github.com/adessoAG/adessoKicker) ist eine Webanwendung, die es ermöglicht gespielte Kicker-Spiele einzutragen, von Season zu Season kann man in der Rangliste aufsteigen und sich mit den anderen Adessi messen.
+Ich arbeite seitdem in einem Team mit 3 anderen ITC-Studenten bei adesso. 
+Das erste Projekt durften wir uns selbst aussuchen. Wir entwickeln den [adesso-Kicker](https://github.com/adessoAG/adessoKicker).
+Dabei handelt es sich um eine Webanwendung, die es ermöglicht die Ergebnisse von Spielen an unserem Kicker-Tisch einzutragen.
+Über den Browser kann man sich dann die Rangliste anschauen und sich mit anderen Mitarbeitern messen.
+
 Das Studentenleben bei adesso ist relativ entspannt, in der Regel muss ich zweimal pro Woche arbeiten und dreimal zum ITC.
 Wenn Klausuren anstehen werde ich von adesso-Tätigkeiten freigestellt, sodass ich mich auf diese vorbereiten kann.
 
 # Mein Fazit
 
-Nach dem ersten Semester kann ich sagen, dass es hauptsächlich positive aber auch wenige negative Aspekte gibt.
-Die Vorlesungen werden von Dozenten der FH-Dortmund gehalten, einige Module übernehmen sogar Dozenten aus der Industrie.
-Man kann den Vorlesungen folgen, da die Anzahl der Studenten sehr gering ist.
-Die meiste Zeit arbeitet man am Laptop und der Großteil des Erlernten kann auf der Arbeit angewendet werden.
-Das ITC verfügt über einen eigenen Parkplatz mit Schranke, auf dem Unbefugte nicht geduldet werden, sodass ihr nicht stundenlang nach einem Parkplatz suchen müsst.
-Ein weiterer Pluspunkt für das ITC ist, dass die Studierenden mit einer sehr hohen Wahrscheinlichkeit von ihren Partnerunternehmen übernommen werden.
-Die Bildungsstätte ist ein kleines, übersichtliches Gebäude der International School of Management (kurz: ISM).
-Die ISM ist auch eine private Hochschule, auf der man alles rund um BWL studieren kann.
-Bis zur berufsbegleitenden Phase ist Anwesenheitspflicht.
-Außerdem muss ich gelegentlich mit einer 6-Tage Woche rechnen, da es einigen Dozenten aufgrund ihrer Arbeit in der Industrie nicht möglich ist eine Vorlesung an den Wochentagen zu halten.
-Dennoch freue ich mich, mein Studium in Kooperation mit adesso in 6 Semestern abschließen zu dürfen.
+Nach dem ersten Semester kann ich sagen, dass mir das Studium am ITC in Kombination mit der Arbeit bei adesso sehr viel Spaß macht.
+Viel von dem Erlernten konnte ich auf der Arbeit direkt anwenden und bei adesso können wir selbstorganisiert echte
+Software entwickeln, die auch von anderen Leuten genutzt wird.
+
+Gelegentlich muss ich mit einer 6-Tage Woche rechnen, da es einigen Dozenten aufgrund ihrer Arbeit in der Industrie nicht möglich ist,
+eine Vorlesung in der Woche zu halten. Dennoch freue ich mich, mein Studium in Kooperation mit adesso in 6 Semestern abschließen zu dürfen.
