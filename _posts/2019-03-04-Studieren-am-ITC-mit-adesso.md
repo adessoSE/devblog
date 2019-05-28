@@ -17,7 +17,7 @@ In diesem Artikel stelle ich das Studium am IT-Center vor und teile meine Erfahr
 Die meisten Werkstudenten in der Dortmunder adesso-Geschäftsstelle studieren an der Universität oder an der Fachhochschule, aber mit dem IT-Center gibt es in Dortmund noch eine weitere Möglichkeit, Informatik zu studieren.
 Es handelt sich dabei um ein duales Studium, was bedeutet, dass du auf einer Hochschule studierst und parallel dazu in einem Partnerunternehmen arbeitest.
 Die Hochschule ist in diesem Fall das ITC und das Partnerunternehmen adesso.
-Das Schöne am dualen Studium ist, dass du durch die Arbeit im Partnerunternehmen schon während dem Studium wertvolle Praxiserfahrung sammelst und nebenbei auch schon etwas Geld verdienst. 
+Das Schöne am dualen Studium ist, dass du durch die Arbeit im Partnerunternehmen schon während des Studiums wertvolle Praxiserfahrung sammelst und nebenbei auch etwas Geld verdienst. 
 
 Das ITC ist eine private Hochschule und bietet ein sehr praxisnahes Informatikstudium an.
 Es wurde im Jahr 2000 mit der Unterstützung des Bundeslands Nordrhein-Westfalen, der TU Dortmund, der FH Dortmund und der Stadt Dortmund gegründet.
