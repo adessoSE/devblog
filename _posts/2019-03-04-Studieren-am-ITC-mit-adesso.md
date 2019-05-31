@@ -43,7 +43,7 @@ Ist das Studium geschafft, ist die Wahrscheinlichkeit sehr groß, dass du bei de
 
 # Das Bewerbungsverfahren
 
-Das Aufnahmeverfahren beginnt mit einer Online-Bewerbung, sobald die Dokumente geprüft wurden, erhält man eine Einladung zum Assessment-Center.
+Das Aufnahmeverfahren beginnt mit einer Online-Bewerbung. Sobald die Dokumente geprüft wurden, erhält man eine Einladung zum Assessment-Center.
 Im Assessment-Center werden deine individuellen Qualifikationen sowie die sozialen Kompetenzen getestet.
 Somit schreibst du zunächst einen Eignungstest und anschließend stellst du eine bereits vorbereitete Präsentation vor.
 
@@ -65,7 +65,7 @@ Das erste Projekt durften wir uns selbst aussuchen. Wir entwickeln den [adesso-K
 Dabei handelt es sich um eine Webanwendung, die es ermöglicht die Ergebnisse von Spielen an unserem Kicker-Tisch einzutragen.
 Über den Browser kann man sich dann die Rangliste anschauen und sich mit anderen Mitarbeitern messen.
 
-Das Studentenleben bei adesso ist relativ entspannt, in der Regel muss ich zweimal pro Woche arbeiten und dreimal zum ITC.
+Das Studentenleben bei adesso ist relativ entspannt, in der Regel gehe ich zwei Tage pro Woche arbeiten und drei Tage zum ITC.
 Wenn Klausuren anstehen werde ich von adesso-Tätigkeiten freigestellt, sodass ich mich auf diese vorbereiten kann.
 
 # Mein Fazit
