@@ -28,12 +28,13 @@ Aus dieser Definition werden die Schlüsselelemente einer SPA deutlich.
 Die Weboberfläche bietet einen ähnlichen Funktions-, Feature- und Komplexitätsumfang wie eine Desktopanwendung, wodurch dem Nutzer vermittelt wird eine vollwertige Desktop-Anwendung anstelle einer einfachen Internetanwendung zu benutzen.
 Durch den Anstieg der Komplexität ist eine Modularität von SPA unausweichlich. 
 Die komplette Anwendung kann mithilfe von individuellen Komponenten realisiert werden, wodurch eine erhöhte Wartbarkeit und Wiederverwendbarkeit der Funktionalitäten erreicht werden.
+
 Diese individuellen Komponenten ermöglichen ein dynamisches Nachladen der Inhalte während der Laufzeit.
 Entweder können diese Komponenten ein Update vollziehen und neue Werte annehmen oder können vollständig ersetzt werden.
 Diese Aktualisierungsmöglichkeiten benötigen keine neue Initalisierung der Seite und bieten dadurch eine gesteigerte User Experience.
+
 Des Weiteren kann mit der Anwendung uneingeschränkt interagiert werden und Aktionen ausgelöst werden.
 Die Aktionen werden, wie in einer Desktop-Anwendung, in Echtzeit verarbeitet und die Oberfläche reagiert dynamisch auf das Ereignis.
-
 Aus der Beschreibung werden schon einige Vorteile gegenüber MPAs deutlich. Aber was sind denn nun konkrete Vorteile?
 
 **1. Wartbarkeit des Codes**
@@ -144,5 +145,19 @@ Der Fragebogen ist beispielhaft in der Abbildung anhand von einer Leitfrage darg
 
 ![Darstellung einer Leitfrage in der Anwendung](/assets/images/posts/Die-Qual-der-Wahl-bei-Single-Page-Application-Frameworks/fragebogen.png)
 
+Ergänzend zu der theoretischen Sichtweise auf die Kriterien wurde intern bei adesso eine Umfrage mit erfahrenen Entwicklern durchgeführt, welche bereits Erfahrung mit den Frameworks Angular, React oder Vue.js besitzen.
+Hierraus ergab sich eine Gewichtung der jeweiligen Leitfragen im Praxiskontext.
+Dadurch wird das ermittelte Ergebnisse durch die Anwendung praxisbezogenener und optimiert.
+
+Das ermittelte Ergebnisse sollte als Vorschlag angesehen werden, da die Auswahl noch weitere Faktoren zur Entscheidung einbeziehen sollte.
 
 # Welches Framework sollte man nun verwenden?
+
+Nach einer genauen Vergleich der drei Frameworks stellt sich nun die Frage, welches Framework nun die richtige Wahl sein könnte.
+Falls bereits ein Blick in die Anwendung geworfen wurde fällt auf, dass es von dem jeweiligen Anwendungsfall abhängig ist.
+
+Die richtige Auswahl des Frameworks hängt durch die unterschiedlichen Ansätze der Frameworks nicht nur ganz von der Technik sondern auch wesentlich vom Entwicklungsteam ab.
+Teams mit einem starken Java-Hintergrund würden sich in dem Umfeld von Angular mit den vielen Strukturen durch TypeScript wohler fühlen. 
+Teams mit einem starken JavaScript-Hintergrund würden in Angular die gewohnte Freiheiten und flexiblen Möglichkeiten vermissen. 
+Daher würden sich hier React oder Vue.js eher anbieten.
+
