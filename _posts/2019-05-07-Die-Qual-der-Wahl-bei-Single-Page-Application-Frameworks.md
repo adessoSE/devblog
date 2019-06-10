@@ -21,7 +21,7 @@ Nutzer von Netflix, Paypal oder Google Maps benutzen bereits täglich Single Pag
 **Aber was ist überhaupt eine SPA und welche Vorteile bietet diese?**
 
 Zum allgemeinen Verständnis des Begriffes Single Page Application bietet Dr. Siepermann von der TU Dortmund eine treffende Definition:
-> SPA; webbasierte Anwendung oder Website, die statt wie üblich auf mehrere Seiten verteilt, komplett auf einer Seite realisiert ist, um den Nutzern den Eindruck und das Gefühl einer Desktop-Anwendung zu vermitteln. Die Inhalte der Anwendung werden entweder zu Beginn einmalig geladen, oder dynamisch während der Laufzeit, sobald Nutzer eine Aktion ausführen möchten.
+    SPA; webbasierte Anwendung oder Website, die statt wie üblich auf mehrere Seiten verteilt, komplett auf einer Seite realisiert ist, um den Nutzern den Eindruck und das Gefühl einer Desktop-Anwendung zu vermitteln. Die Inhalte der Anwendung werden entweder zu Beginn einmalig geladen, oder dynamisch während der Laufzeit, sobald Nutzer eine Aktion ausführen möchten.
 
 Aus dieser Definition werden die Schlüsselelemente einer SPA deutlich. 
 Die Weboberfläche bietet einen ähnlichen Funktions-, Feature- und Komplexitätsumfang wie eine Desktopanwendung, wodurch dem Nutzer vermittelt wird eine vollwertige Desktop-Anwendung anstelle einer einfachen Internetanwendung zu benutzen.
@@ -37,31 +37,31 @@ Aus der Beschreibung werden schon einige Vorteile gegenüber MPAs deutlich. Aber
 
 **1. Wartbarkeit des Codes**
    
-    Durch die ansteigende Komplexität der Internetanwendungen ist die Wartbarkeit des Codes ein wichtiges Kritierium.
-    Die Frameworks versuchen dieses Problem mithilfe von verschiedenen Entwurfsmustern zu beheben.
-    Beispielsweise benutzt das Framework Vue.js eine MVVM-Architektur. Diese Abkürzung steht für Model, View und View-Model.
-    Das Model beinhaltet die Logik sowie die Daten der Anwendung.
-    Die View spiegelt die visuelle Repräsentation der Anwendung dar, welcher der Nutzer zur Interaktion nutzt.
-    Das View-Model bildet das Bindemittel der vorherigen Schichten und beinhaltet die Logik und Daten der View. Diese Schicht reagiert auf die Eingaben des Nutzers.
+Durch die ansteigende Komplexität der Internetanwendungen ist die Wartbarkeit des Codes ein wichtiges Kritierium.
+Die Frameworks versuchen dieses Problem mithilfe von verschiedenen Entwurfsmustern zu beheben.
+Beispielsweise benutzt das Framework Vue.js eine MVVM-Architektur. Diese Abkürzung steht für Model, View und View-Model.
+Das Model beinhaltet die Logik sowie die Daten der Anwendung.
+Die View spiegelt die visuelle Repräsentation der Anwendung dar, welcher der Nutzer zur Interaktion nutzt.
+Das View-Model bildet das Bindemittel der vorherigen Schichten und beinhaltet die Logik und Daten der View. Diese Schicht reagiert auf die Eingaben des Nutzers.
 
-    Durch diese strikte Trennung von den einzelnen Komponenten der Anwendung entstehen keine Abhängigkeiten zwischen diesen.
-    Das Resultat dieser Entwurfsmuster ist ein strukturierter und wartbarer Programmcode.
+Durch diese strikte Trennung von den einzelnen Komponenten der Anwendung entstehen keine Abhängigkeiten zwischen diesen.
+Das Resultat dieser Entwurfsmuster ist ein strukturierter und wartbarer Programmcode.
 
 **2. Modularität**
    
-    Eine Internetanwendung besteht grundlegend aus einem Client und einem Server.
-    Das grundlegende Prinzip beruht darauf, dass der Client verschiedene Anfragen an den Server stellt und darauf eine Antwort erhält.
-    Allerdings beinhaltet bei einer SPA die Antwort des Servers nicht eine HTML-Datei, sondern besteht aus dem Datenaustauschformat JSON.
-    Durch diesen Vorteil findet eine Entkopplung der serverseitigen Implementierung bzw. Anwendungslogik und der Anzeige beim Client statt.
-    Der Client muss nur wissen, welche HTTP-Abfragen für die benötigten Informationen zur Verfügung stehen.
-    Hierdurch wird es ermöglicht eine SPA im Webbrowser und eine mobile Anwendung mit dem identischen Server mit Informationen zu versorgen.
+Eine Internetanwendung besteht grundlegend aus einem Client und einem Server.
+Das grundlegende Prinzip beruht darauf, dass der Client verschiedene Anfragen an den Server stellt und darauf eine Antwort erhält.
+Allerdings beinhaltet bei einer SPA die Antwort des Servers nicht eine HTML-Datei, sondern besteht aus dem Datenaustauschformat JSON.
+Durch diesen Vorteil findet eine Entkopplung der serverseitigen Implementierung bzw. Anwendungslogik und der Anzeige beim Client statt.
+Der Client muss nur wissen, welche HTTP-Abfragen für die benötigten Informationen zur Verfügung stehen.
+Hierdurch wird es ermöglicht eine SPA im Webbrowser und eine mobile Anwendung mit dem identischen Server mit Informationen zu versorgen.
 
 **3. Verbesserte User Experience**
 
-    Eine SPA bietet einen enorm verbesserte User Experience im Vergleich zu MPA.
-    Dieses beruht auf dem flüssigen und reaktionsschnellen Verhalten der Anwendungen.
-    Das Nutzererlebnis wird nicht mehr durch das typische Neuladen und Rendering der Anwendung gestört.
-    Darüber hinaus kann die Anwendung während einer Abfrage mit erhöhter Bearbeitungsdauer dem Nutzer signifikante Informationen über den Status vermitteln.
+Eine SPA bietet einen enorm verbesserte User Experience im Vergleich zu MPA.
+Dieses beruht auf dem flüssigen und reaktionsschnellen Verhalten der Anwendungen.
+Das Nutzererlebnis wird nicht mehr durch das typische Neuladen und Rendering der Anwendung gestört.
+Darüber hinaus kann die Anwendung während einer Abfrage mit erhöhter Bearbeitungsdauer dem Nutzer signifikante Informationen über den Status vermitteln.
 
 # Welche Frameworks werden in diesem Blogpost thematisiert?
 
