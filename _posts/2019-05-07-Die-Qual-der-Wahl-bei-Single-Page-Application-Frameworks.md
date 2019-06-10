@@ -153,8 +153,8 @@ Das ermittelte Ergebnisse sollte als Vorschlag angesehen werden, da die Auswahl 
 
 # Welches Framework sollte man nun verwenden?
 
-Nach einer genauen Vergleich der drei Frameworks stellt sich nun die Frage, welches Framework nun die richtige Wahl sein könnte.
-Falls bereits ein Blick in die Anwendung geworfen wurde fällt auf, dass es von dem jeweiligen Anwendungsfall abhängig ist.
+Nach einem genauen Vergleich der drei Frameworks stellt sich nun die Frage, welches Framework nun die richtige Wahl sein könnte.
+Falls bereits ein Blick in die Anwendung geworfen wurde fällt auf, dass es von dem jeweiligen Anwendungsfall abhängig ist und weitere nicht-technische Faktoren einbezogen werden sollten.
 
 Die richtige Auswahl des Frameworks hängt durch die unterschiedlichen Ansätze der Frameworks nicht nur ganz von der Technik sondern auch wesentlich vom Entwicklungsteam ab.
 Teams mit einem starken Java-Hintergrund würden sich in dem Umfeld von Angular mit den vielen Strukturen durch TypeScript wohler fühlen. 
