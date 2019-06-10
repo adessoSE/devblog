@@ -116,6 +116,7 @@ Die Bibliothek bietet ähnlich wie React nur Funktionalität für die Ansichtseb
 Der Vergleich wurde zunächst mit einer Evaluation von groben Themengebieten begonnen.
 Diese wurde basierend auf literarischen Quellen durchgeführt und brachte folgende Themengebiete als Ergebnis hervor:
 
+|Themengebiet &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Beschreibung |
 | :-------------|:-------------| 
 | **Sicherheit**                                    | Durch den Anstieg der Funktionalitäten werden vertrauliche Informationen durch Internetanwendungen gespeichert. Hierdurch steigt die Anzahl der Angriffe auf solche Systeme enorm an. Ebenfalls wird                                                          die Top 10 der Sicherheitsrisiken von der Organisation *Open Web Application Secruity Project* berücksichtigt. |
 | **Modularität**                                   | Ein erhöhter Funktionsumfang resultiert in einer komplexeren Anwendung, wodurch die Modularität einen wichtigen Aspekt für moderene Internetanwendungen wiederspiegelt. Es sollte eine Unterteilung in                                                        kleinere isolierte Komponenten ermöglicht werden, damit diese in späteren Anwendungen wiederverwendet werden können. |
@@ -135,6 +136,7 @@ Hierdurch sollte Abdeckung aller relevanten Merkmale der Frameworks gegeben sein
 
 Die gewonnen Ergebnisse über die Frameworks wurden in einer Anwendung namens FrameworkBuddy visuell zugänglich gemacht. 
 Veröffentlicht wurde diese Anwendung als Open-Source-Software [auf Github](https://github.com/FrederikSchlemmer/FrameworkBuddy).
+
 In dieser Anwendung kann der Nutzer die Leitfragen aus dem Vergleich passend zu seinem Projekt gewichten.
 Hierdurch wird das Kriterium in dem Vergleich einbezogen oder vernachlässigt.
 Der Fragebogen ist beispielhaft in der Abbildung anhand von einer Leitfrage dargestellt.
