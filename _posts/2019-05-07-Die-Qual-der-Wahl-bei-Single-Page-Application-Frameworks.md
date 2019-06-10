@@ -12,7 +12,7 @@ Wie wird heutzutage die Fragestellung beantwortet mit welcher Technologie eine I
 
 Die Entwicklung von Internetanwendung in Form von Multi Page Applications (MPAs) mittels den Beschreibungssprachen HTML, CSS und JavaScript wird zunehmend durch die steigende Anzahl von Single Page Application (SPA) Frameworks verdrängt.
 Dieser Trend hält nun bereits seit 10 Jahren an, wodurch eine Vielzahl von verschiedenen Frameworks mit unterschiedlichen Ansätzen entstanden sind.
-So unterschiedlich die Ansätze der Frameworks untereinander sind, so identisch ist das gemeinsame Ziel: * Performante Internetanwendungen mit einer guten User Experience.
+So unterschiedlich die Ansätze der Frameworks untereinander sind, so identisch ist das gemeinsame Ziel: *Performante Internetanwendungen mit einer guten User Experience.*
 
 # Was ist eine Single Page Application überhaupt?
 
@@ -21,7 +21,8 @@ Nutzer von Netflix, Paypal oder Google Maps benutzen bereits täglich Single Pag
 **Aber was ist überhaupt eine SPA und welche Vorteile bietet diese?**
 
 Zum allgemeinen Verständnis des Begriffes Single Page Application bietet Dr. Siepermann von der TU Dortmund eine treffende Definition:
-    SPA; webbasierte Anwendung oder Website, die statt wie üblich auf mehrere Seiten verteilt, komplett auf einer Seite realisiert ist, um den Nutzern den Eindruck und das Gefühl einer Desktop-Anwendung zu vermitteln. Die Inhalte der Anwendung werden entweder zu Beginn einmalig geladen, oder dynamisch während der Laufzeit, sobald Nutzer eine Aktion ausführen möchten.
+
+*SPA; webbasierte Anwendung oder Website, die statt wie üblich auf mehrere Seiten verteilt, komplett auf einer Seite realisiert ist, um den Nutzern den Eindruck und das Gefühl einer Desktop-Anwendung zu vermitteln. Die Inhalte der Anwendung werden entweder zu Beginn einmalig geladen, oder dynamisch während der Laufzeit, sobald Nutzer eine Aktion ausführen möchten.*
 
 Aus dieser Definition werden die Schlüsselelemente einer SPA deutlich. 
 Die Weboberfläche bietet einen ähnlichen Funktions-, Feature- und Komplexitätsumfang wie eine Desktopanwendung, wodurch dem Nutzer vermittelt wird eine vollwertige Desktop-Anwendung anstelle einer einfachen Internetanwendung zu benutzen.
@@ -110,22 +111,25 @@ Genauso wie React wurde Vue.js mittels JavaScript umgesetzt, allerdings bietet e
 Vue.js bietet dem Nutzer passend zum Anwendungszweck Skalierungsmöglichkeiten an. Es kann zwischen einer leichtgewichtigen Bibliothek oder einem gesamten Framework ausgewählt werden.
 Die Bibliothek bietet ähnlich wie React nur Funktionalität für die Ansichtsebene und kann daher zur Integration in bestehende Projekte genutzt werden.
 
-# Wie ist der Vergleich der Frameworks abgelaufen?
+# Was wurde bei den Frameworks verglichen?
 
 Der Vergleich wurde zunächst mit einer Evaluation von groben Themengebieten begonnen.
 Diese wurde basierend auf literarischen Quellen durchgeführt und brachte folgende Themengebiete als Ergebnis hervor:
 
-| Themengebiet   | Beschreibung|
 | :-------------|:-------------| 
-| Sicherheit       | Durch den Anstieg der Funktionalitäten werden vertrauliche Informationen durch Internetanwendungen gespeichert. Hierdurch steigt die Anzahl der Angriffe auf solche Systeme enorm an. Ebenfalls                            wird die Top 10 der Sicherheitsrisiken von der Organisation *Open Web Application Secruity Project* berücksichtigt.|
-| Modularität       | Ein erhöhter Funktionsumfang resultiert in einer komplexeren Anwendung, wodurch die Modularität einen wichtigen Aspekt für moderene Internetanwendungen wiederspiegelt. Es sollte eine Unterteilung in kleinere isolierte Komponenten ermöglicht werden, damit diese in späteren Anwendungen wiederverwendet werden können.|
-| Performance  | are neat      |
-| Testbarkeit       | right-aligned |
-| Wartbarkeit und Zukunftssicherheit       | centered      |
-| Plattformunabhängigkeit und Kompatibilität  | are neat      |
-| Popularität und verfügbares Know-How       | right-aligned |
-| Einfachheit und Benutzerfreundlichkeit       | centered      |
-| Eignung zur Umsetzung von Lean- und Fat-SPAs  | are neat      |
+| **Sicherheit**       | Durch den Anstieg der Funktionalitäten werden vertrauliche Informationen durch Internetanwendungen gespeichert. Hierdurch steigt die Anzahl der Angriffe auf solche Systeme enorm an. Ebenfalls wird die Top 10 der Sicherheitsrisiken von der Organisation *Open Web Application Secruity Project* berücksichtigt. |
+| **Modularität**       | Ein erhöhter Funktionsumfang resultiert in einer komplexeren Anwendung, wodurch die Modularität einen wichtigen Aspekt für moderene Internetanwendungen wiederspiegelt. Es sollte eine Unterteilung in kleinere isolierte Komponenten ermöglicht werden, damit diese in späteren Anwendungen wiederverwendet werden können. |
+| **Performance**  | Die User Experience kann gravierend durch die Performance beeinträchtigt werden. In diesem Bereich können darüber Sekunden entscheiden. Des Weitern können notwendige Datentransfers reduziert werden. |
+| **Testbarkeit**       | Testbasierte Entwicklung ist heutzutage in aller Munde. Eine Anwendung muss ausreichend auf ihre Richtigkeit durchgetestet worden sein. |
+| **Wartbarkeit und Zukunftssicherheit**       | Eine hohe Wartbarkeit eines Projektes ist für die Zukunft entscheidend. Außerdem sollte das verwendete Framework stetig weiterentwickelt werden. |
+| **Plattformunabhängigkeit und Kompatibilität**  | Anwendungen müssen heutzutage auf mobilen Geräten sowie in Browsern mit identischen Funktionsumfang funktionieren. |
+| **Popularität und verfügbares Know-How**       | Eine erhöhte Popularität bietet eine größere Community. Dadurch ist ein breites verfügbares Know-How durch Foren oder Blogs verfügbar. |
+| **Einfachheit und Benutzerfreundlichkeit**       | Das Frameworks sollte den Entwickler in dem Entstehungsprozess der Anwendung unterstützen. Außerdem sollten standardisierte Abläufe vorhanden sein.  |
+| **Eignung zur Umsetzung von Lean- und Fat-SPAs**  | Eine flexible Anpassung zur Umsetzung von Lean oder Fat-SPAs sollte ermöglicht werden. Hierdurch wird ein Overload verhindert. |
+
+Passend zu diesen einzelnen Themengebieten wurden Leitfragen formuliert, welche auf spezifische Aspekte des Themas eingehen. 
+Dadurch wurden die Frameworks in diesem Vergleich mit 62 verschiedenen Kriterien untersucht.
+Hierdurch sollte Abdeckung aller relevanten Merkmale der Frameworks gegeben sein.
 
 # Komfortabler Zugang zu den Ergebnissen mittels FrameworkBuddy
 
