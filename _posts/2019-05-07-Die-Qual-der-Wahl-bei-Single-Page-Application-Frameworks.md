@@ -127,7 +127,6 @@ Diese wurde basierend auf literarischen Quellen durchgeführt und brachte folgen
 | **Popularität und verfügbares Know-How**          | Eine erhöhte Popularität bietet eine größere Community. Dadurch ist ein breites verfügbares Know-How durch Foren oder Blogs verfügbar. |
 | **Einfachheit und Benutzerfreundlichkeit**        | Das Frameworks sollte den Entwickler in dem Entstehungsprozess der Anwendung unterstützen. Außerdem sollten standardisierte Abläufe vorhanden sein.  |
 | **Eignung zur Umsetzung von Lean- und Fat-SPAs**  | Eine flexible Anpassung zur Umsetzung von Lean oder Fat-SPAs sollte ermöglicht werden. Hierdurch wird ein Overload verhindert. |
-|<img width=500/>|<img width=250/>|
 
 
 Passend zu diesen einzelnen Themengebieten wurden Leitfragen formuliert, welche auf spezifische Aspekte des Themas eingehen. 
