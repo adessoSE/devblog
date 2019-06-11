@@ -117,10 +117,10 @@ Die Bibliothek bietet ähnlich wie React nur Funktionalität für die Ansichtseb
 Der Vergleich wurde zunächst mit einer Evaluation von groben Themengebieten begonnen.
 Diese wurde basierend auf literarischen Quellen durchgeführt und brachte folgende Themengebiete als Ergebnis hervor:
 
-<table>
+<table style="width:100%">
 <tr>
-<td>Themengebiet</td>
-<td>Beschreibung</td>
+<td width="70%">Themengebiet</td>
+<td width="30%">Beschreibung</td>
 </tr>
 <tr>
 <td>Sicherheit</td>
