@@ -119,9 +119,8 @@ Diese wurde basierend auf literarischen Quellen durchgeführt und brachte folgen
 
 <table style="width:100%">
 <tr>
-<td width="35%" style="color:rgb(239, 130, 0)"><b>Themengebiet</b></td>
-<td width="65%" style="color:rgb(239, 130, 0)"><b>Beschreibung</b></td>
-<hr>
+<td width="35%" style="color:rgb(239, 130, 0); font-size:16px"><b>Themengebiet</b></td>
+<td width="65%" style="color:rgb(239, 130, 0); font-size:16px"><b>Beschreibung</b></td>
 </tr>
 <tr>
 <td><b>Sicherheit</b></td>
