@@ -9,6 +9,7 @@ tags: [Angular, React, Vue.js, SPA]         # Optional.
 ---
 
 Wie wird heutzutage die Fragestellung beantwortet mit welcher Technologie eine Internetanwendung umgesetzt werden soll? Angular, React oder Vue.js!
+
 Die Entwicklung von Internetanwendung in Form von Multi Page Applications (MPAs) mittels den Beschreibungssprachen HTML, CSS und JavaScript wird zunehmend durch die steigende Anzahl von Single Page Application (SPA) Frameworks verdrängt.
 Dieser Trend hält nun bereits seit 10 Jahren an, wodurch eine Vielzahl von verschiedenen Frameworks mit unterschiedlichen Ansätzen entstanden sind.
 So unterschiedlich die Ansätze der Frameworks untereinander sind, so identisch ist das gemeinsame Ziel: *Performante Internetanwendungen mit einer guten User Experience.*
