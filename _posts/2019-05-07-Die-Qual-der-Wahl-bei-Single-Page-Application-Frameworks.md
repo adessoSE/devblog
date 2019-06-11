@@ -119,44 +119,44 @@ Diese wurde basierend auf literarischen Quellen durchgeführt und brachte folgen
 
 <table style="width:100%">
 <tr>
-<td width="70%">Themengebiet</td>
-<td width="30%">Beschreibung</td>
+<td width="40%"><b>Themengebiet</b></td>
+<td width="60%"><b>Beschreibung</b></td>
 </tr>
 <tr>
 <td>Sicherheit</td>
-<td>Durch den Anstieg der Funktionalitäten werden vertrauliche Informationen durch Internetanwendungen gespeichert. Hierdurch steigt die Anzahl der Angriffe auf solche Systeme enorm an. Ebenfalls wird die Top 10 der Sicherheitsrisiken von der Organisation *Open Web Application Secruity Project* berücksichtigt.</td>
+<td><i>Durch den Anstieg der Funktionalitäten werden vertrauliche Informationen durch Internetanwendungen gespeichert. Hierdurch steigt die Anzahl der Angriffe auf solche Systeme enorm an. Ebenfalls wird die Top 10 der Sicherheitsrisiken von der Organisation *Open Web Application Secruity Project* berücksichtigt.</i></td>
 </tr>
 <tr>
 <td>Modularität</td>
-<td>Ein erhöhter Funktionsumfang resultiert in einer komplexeren Anwendung, wodurch die Modularität einen wichtigen Aspekt für moderene Internetanwendungen wiederspiegelt. Es sollte eine Unterteilung in kleinere isolierte Komponenten ermöglicht werden, damit diese in späteren Anwendungen wiederverwendet werden können.</td>
+<td><i>Ein erhöhter Funktionsumfang resultiert in einer komplexeren Anwendung, wodurch die Modularität einen wichtigen Aspekt für moderene Internetanwendungen wiederspiegelt. Es sollte eine Unterteilung in kleinere isolierte Komponenten ermöglicht werden, damit diese in späteren Anwendungen wiederverwendet werden können.</i></td>
 </tr>
 <tr>
 <td>Performance</td>
-<td>Die User Experience kann gravierend durch die Performance beeinträchtigt werden. In diesem Bereich können darüber Sekunden entscheiden. Des Weitern können notwendige Datentransfers reduziert werden.</td>
+<td><i>Die User Experience kann gravierend durch die Performance beeinträchtigt werden. In diesem Bereich können darüber Sekunden entscheiden. Des Weitern können notwendige Datentransfers reduziert werden.</i></td>
 </tr>
 <tr>
 <td>Testbarkeit</td>
-<td>Testbasierte Entwicklung ist heutzutage in aller Munde. Eine Anwendung muss ausreichend auf ihre Richtigkeit durchgetestet worden sein.</td>
+<td><i>Testbasierte Entwicklung ist heutzutage in aller Munde. Eine Anwendung muss ausreichend auf ihre Richtigkeit durchgetestet worden sein.</i></td>
 </tr>
 <tr>
 <td>Wartbarkeit und Zukunftssicherheit</td>
-<td>Eine hohe Wartbarkeit eines Projektes ist für die Zukunft entscheidend. Außerdem sollte das verwendete Framework stetig weiterentwickelt werden.</td>
+<td><i>Eine hohe Wartbarkeit eines Projektes ist für die Zukunft entscheidend. Außerdem sollte das verwendete Framework stetig weiterentwickelt werden.</i></td>
 </tr>
 <tr>
 <td>Plattformunabhängigkeit und Kompatibilität</td>
-<td>Anwendungen müssen heutzutage auf mobilen Geräten sowie in Browsern mit identischen Funktionsumfang funktionieren.</td>
+<td><i>Anwendungen müssen heutzutage auf mobilen Geräten sowie in Browsern mit identischen Funktionsumfang funktionieren.</i></td>
 </tr>
 <tr>
 <td>Popularität und verfügbares Know-How</td>
-<td>Eine erhöhte Popularität bietet eine größere Community. Dadurch ist ein breites verfügbares Know-How durch Foren oder Blogs verfügbar.</td>
+<td><i>Eine erhöhte Popularität bietet eine größere Community. Dadurch ist ein breites verfügbares Know-How durch Foren oder Blogs verfügbar.</i></td>
 </tr>
 <tr>
 <td>Einfachheit und Benutzerfreundlichkeit</td>
-<td>Das Frameworks sollte den Entwickler in dem Entstehungsprozess der Anwendung unterstützen. Außerdem sollten standardisierte Abläufe vorhanden sein.</td>
+<td><i>Das Frameworks sollte den Entwickler in dem Entstehungsprozess der Anwendung unterstützen. Außerdem sollten standardisierte Abläufe vorhanden sein.</i></td>
 </tr>
 <tr>
 <td>Eignung zur Umsetzung von Lean- und Fat-SPAs</td>
-<td>Eine flexible Anpassung zur Umsetzung von Lean oder Fat-SPAs sollte ermöglicht werden. Hierdurch wird ein Overload verhindert.</td>
+<td><i>Eine flexible Anpassung zur Umsetzung von Lean oder Fat-SPAs sollte ermöglicht werden. Hierdurch wird ein Overload verhindert.</i></td>
 </tr>
 </table>
 
