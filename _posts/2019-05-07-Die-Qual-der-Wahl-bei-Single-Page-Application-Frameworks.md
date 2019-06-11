@@ -121,8 +121,8 @@ Diese wurde basierend auf literarischen Quellen durchgeführt und brachte folgen
 <tr>
 <td width="35%" style="color:rgb(239, 130, 0)"><b>Themengebiet</b></td>
 <td width="65%" style="color:rgb(239, 130, 0)"><b>Beschreibung</b></td>
-</tr>
 <hr>
+</tr>
 <tr>
 <td><b>Sicherheit</b></td>
 <td><i>Durch den Anstieg der Funktionalitäten werden vertrauliche Informationen durch Internetanwendungen gespeichert. Hierdurch steigt die Anzahl der Angriffe auf solche Systeme enorm an. Ebenfalls wird die Top 10 der Sicherheitsrisiken von der Organisation Open Web Application Secruity Project berücksichtigt.</i></td>
