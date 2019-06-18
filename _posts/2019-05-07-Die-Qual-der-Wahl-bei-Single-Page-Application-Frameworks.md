@@ -10,7 +10,7 @@ tags: [Angular, React, Vue.js, SPA]         # Optional.
 
 Wie wird heutzutage die Fragestellung beantwortet mit welcher Technologie eine Internetanwendung umgesetzt werden soll? Angular, React oder Vue.js!
 Die Entwicklung von Internetanwendung in Form von Multi Page Applications (MPAs) mittels den Beschreibungssprachen HTML, CSS und JavaScript wird zunehmend durch die steigende Anzahl von Single Page Application (SPA) Frameworks verdrängt.
-Dieser Trend hält nun bereits seit 10 Jahren an, wodurch eine Vielzahl von verschiedenen Frameworks mit unterschiedlichen Ansätzen entstanden sind.
+Dieser Trend hält nun bereits seit 10 Jahren an, wodurch eine Vielzahl von verschiedenen Frameworks mit unterschiedlichen Ansätzen entstanden ist.
 So unterschiedlich die Ansätze der Frameworks untereinander sind, so identisch ist das gemeinsame Ziel: *Performante Internetanwendungen mit einer guten User Experience.*
 
 # Was ist eine Single Page Application überhaupt?
@@ -30,7 +30,7 @@ Die komplette Anwendung kann mithilfe von individuellen Komponenten realisiert w
 
 Diese individuellen Komponenten ermöglichen ein dynamisches Nachladen der Inhalte während der Laufzeit.
 Entweder können diese Komponenten ein Update vollziehen und neue Werte annehmen oder können vollständig ersetzt werden.
-Diese Aktualisierungsmöglichkeiten benötigen keine neue Initalisierung der Seite und bieten dadurch eine gesteigerte User Experience.
+Diese Aktualisierungsmöglichkeiten benötigen keine neue Initialisierung der Seite und bieten dadurch eine gesteigerte User Experience.
 
 Des Weiteren kann mit der Anwendung uneingeschränkt interagiert werden und Aktionen ausgelöst werden.
 Die Aktionen werden, wie in einer Desktop-Anwendung, in Echtzeit verarbeitet und die Oberfläche reagiert dynamisch auf das Ereignis.
@@ -38,7 +38,7 @@ Aus der Beschreibung werden schon einige Vorteile gegenüber MPAs deutlich. Aber
 
 **1. Wartbarkeit des Codes**
    
-Durch die ansteigende Komplexität der Internetanwendungen ist die Wartbarkeit des Codes ein wichtiges Kritierium.
+Durch die ansteigende Komplexität der Internetanwendungen ist die Wartbarkeit des Codes ein wichtiges Kriterium.
 Die Frameworks versuchen dieses Problem mithilfe von verschiedenen Entwurfsmustern zu beheben.
 Beispielsweise benutzt das Framework Vue.js eine MVVM-Architektur. Diese Abkürzung steht für Model, View und View-Model.
 Das Model beinhaltet die Logik sowie die Daten der Anwendung.
@@ -95,10 +95,10 @@ Veröffentlicht wurde React im Jahr 2013 und wird entwickelt durch Facebook.
 Es ist ebenfalls als Open-Source-Software unter der MIT-Lizenz veröffentlicht.
 
 Die Bezeichnung eines Frameworks ist ebenfalls bei React nicht korrekt. 
-React versteht sich als View-Bibliothek, da es im Bezug auf das Model-View-Controller Prinzip nur die View widerspiegelt. 
+React versteht sich als View-Bibliothek, da es in Bezug auf das Model-View-Controller Prinzip nur die View widerspiegelt. 
 Zur Entwicklung wurde JavaScript verwendet, allerdings ist die Nutzung von der JavaScript-Erweiterung JSX (JavaScript XML) empfohlen seitens React.
 Durch die Verwendung von JSX wird eine Kombination von JavaScript und HTML produziert.
-Hierdurch entstehen Komponenten, welche sowohl Markup als auch dei Logik beinhalten.
+Hierdurch entstehen Komponenten, welche sowohl Markup als auch die Logik beinhalten.
 
 ## Vue.js
 
@@ -127,7 +127,7 @@ Diese wurde basierend auf literarischen Quellen durchgeführt und brachte folgen
 </tr>
 <tr>
 <td><b>Modularität</b></td>
-<td><i>Ein erhöhter Funktionsumfang resultiert in einer komplexeren Anwendung, wodurch die Modularität einen wichtigen Aspekt für moderene Internetanwendungen wiederspiegelt. Es sollte eine Unterteilung in kleinere isolierte Komponenten ermöglicht werden, damit diese in späteren Anwendungen wiederverwendet werden können.</i></td>
+<td><i>Ein erhöhter Funktionsumfang resultiert in einer komplexeren Anwendung, wodurch die Modularität einen wichtigen Aspekt für moderne Internetanwendungen wiederspiegelt. Es sollte eine Unterteilung in kleinere isolierte Komponenten ermöglicht werden, damit diese in späteren Anwendungen wiederverwendet werden können.</i></td>
 </tr>
 <tr>
 <td><b>Performance</b></td>
@@ -165,7 +165,7 @@ Hierdurch sollte Abdeckung aller relevanten Merkmale der Frameworks gegeben sein
 
 # Komfortabler Zugang zu den Ergebnissen mittels FrameworkBuddy
 
-Die gewonnen Ergebnisse über die Frameworks wurden in einer Anwendung namens FrameworkBuddy visuell zugänglich gemacht. 
+Die gewonnen Ergebnisse über die Frameworks wurden in einer Anwendung namens *FrameworkBuddy* visuell zugänglich gemacht. 
 Veröffentlicht wurde diese Anwendung als Open-Source-Software [auf Github](https://github.com/FrederikSchlemmer/FrameworkBuddy).
 
 In dieser Anwendung kann der Nutzer die Leitfragen aus dem Vergleich passend zu seinem Projekt gewichten.
@@ -175,10 +175,10 @@ Der Fragebogen ist beispielhaft in der Abbildung anhand von einer Leitfrage darg
 ![Darstellung einer Leitfrage in der Anwendung](/assets/images/posts/Die-Qual-der-Wahl-bei-Single-Page-Application-Frameworks/fragebogen.png)
 
 Ergänzend zu der theoretischen Sichtweise auf die Kriterien wurde intern bei adesso eine Umfrage mit erfahrenen Entwicklern durchgeführt, welche bereits Erfahrung mit den Frameworks Angular, React oder Vue.js besitzen.
-Hierraus ergab sich eine Gewichtung der jeweiligen Leitfragen im Praxiskontext.
-Dadurch wird das ermittelte Ergebnisse durch die Anwendung praxisbezogenener und optimiert.
+Hieraus ergab sich eine Gewichtung der jeweiligen Leitfragen im Praxiskontext.
+Dadurch wird das ermittelte Ergebnis durch die Anwendung praxisbezogen und optimiert.
 
-Das ermittelte Ergebnisse sollte als Vorschlag angesehen werden, da die Auswahl noch weitere Faktoren zur Entscheidung einbeziehen sollte.
+Das Ergebnis sollte als Vorschlag angesehen werden, da die Auswahl noch weitere Faktoren zur Entscheidung einbeziehen sollte.
 
 # Welches Framework sollte man nun verwenden?
 
