@@ -4,8 +4,8 @@ title:  "Blog Post Anleitung"         # Pflichtfeld. Bitte einen Titel für den 
 date:   2017-08-10 10:25              # Pflichtfeld. Format "YYYY-MM-DD HH:MM". Muss für Veröffentlichung in der Vergangenheit liegen. (Für Preview egal)
 modified_date: 2017-08-18             # Optional. Muss angegeben werden, wenn eine bestehende Datei geändert wird.
 author: johndoe                       # Pflichtfeld. Es muss in der "authors.yml" einen Eintrag mit diesem Namen geben.
-categories: [Java] # Pflichtfeld. Maximal eine der angegebenen Kategorien verwenden.
-tags: [Spring, Microservices]         # Optional.
+categories: [Java]                    # Pflichtfeld. Maximal eine der angegebenen Kategorien verwenden.
+tags: [Spring, Microservices]         # Bitte auf Großschreibung achten.
 ---
 
 Wenn du das hier liest, bist du vermutlich daran interessiert einen Blog Post für den
@@ -94,13 +94,13 @@ public class HelloWorld {
 
 ## Bilder
 
-Um ein Bild zu verwenden, lege die Bild-Datei im Ordner `assets/images/posts/titel-deines-blog-posts` ab und
+Um ein Bild zu verwenden, lege die Bild-Datei im Ordner `/assets/images/posts/titel-deines-blog-posts/` ab und
 verlinke sie dann in der Markdown-Datei wie in diesem Beispiel:
 
 ![Logo der adesso AG](https://github.com/adessoAG/devblog/raw/master/assets/images/blog-post-guide/logo.png)
 
 **Hinweis:** im Gegensatz zum Beispiel-Bild oben muss der Pfad zum Bild in einem Blog Post erst bei "assets" beginnen,
-müsste also so aussehen: "/assets/images/blog-post-guide/logo.png". Wichtig dabei ist, dass der Pfad mit einem **"/"** beginnt, ansonsten funktionieren die Bilder zwar in der Vorschau, allerdings nicht im eigentlichen Blog.
+müsste also so aussehen: "/assets/images/posts/titel-deines-blog-posts/bild.png". Wichtig dabei ist, dass der Pfad mit einem **"/"** beginnt, ansonsten funktionieren die Bilder zwar in der Vorschau, allerdings nicht im eigentlichen Blog.
 
 # GitHub Fork & Pull Workflow
 

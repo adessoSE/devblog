@@ -3,93 +3,104 @@ layout: default
 ---
 
 <div class="row">
-<div class="adesso-container">
-<div class="col-xl-8 adesso-center p-b-3 p-t-3 p-l-0 p-r-0 ">
-{% if paginator.total_pages > 1 %}
-<nav aria-label="Page navigation">
-{% assign first_page_path = site.paginate_path | replace: 'pages/page:num', '' | replace: '//', '/' | absolute_url %}
-<ul class="adesso-pagination">
-{% comment %} Link for previous page {% endcomment %}
-{% if paginator.previous_page %}
-<li class="page-item">
-<a class="page-link" href="{{ base }}{{ paginator.previous_page_path | prepend: site.baseurl }}" aria-label="Zurück">
-<span aria-hidden="true">
-<svg class="adesso-pfeil-icon adesso-prev">
-<use xlink:href="#adesso--pfeil"></use>
-</svg>
-</span>
-<span class="sr-only">Zurück</span>
-</a>
-</li>
-{% else %}
-<li class="page-item disabled">
-<a class="page-link" href="#" aria-label="Zurück">
-<span aria-hidden="true">
-<svg class="adesso-pfeil-icon adesso-prev">
-<use xlink:href="#adesso--pfeil"></use>
-</svg>
-</span>
-<span class="sr-only">Zurück</span>
-</a>
-</li>
-{% endif %}
+    <div class="adesso-container">
+        <div class="col-xl-8 adesso-center p-b-3 p-t-3 p-l-0 p-r-0 ">
+            {% if paginator.total_pages > 1 %}
+            <nav aria-label="Page navigation">
+                {% assign first_page_path = site.paginate_path | replace: 'pages/page:num', '' | replace: '//', '/' | absolute_url %}
+                <ul class="adesso-pagination">
+                    {% comment %} Link for previous page {% endcomment %}
+                    {% if paginator.previous_page %}
+                    <li class="page-item">
+                        <a class="page-link" href="{{ base }}{{ paginator.previous_page_path | prepend: site.baseurl }}"
+                            aria-label="Zurück">
+                            <span aria-hidden="true">
+                                <svg class="adesso-pfeil-icon adesso-prev">
+                                    <use xlink:href="#adesso--pfeil"></use>
+                                </svg>
+                            </span>
+                            <span class="sr-only">Zurück</span>
+                        </a>
+                    </li>
+                    {% else %}
+                    <li class="page-item disabled">
+                        <a class="page-link" href="#" aria-label="Zurück">
+                            <span aria-hidden="true">
+                                <svg class="adesso-pfeil-icon adesso-prev">
+                                    <use xlink:href="#adesso--pfeil"></use>
+                                </svg>
+                            </span>
+                            <span class="sr-only">Zurück</span>
+                        </a>
+                    </li>
+                    {% endif %}
 
-{% assign page_start = 1 %}
-{% assign page_end = paginator.total_pages %}
-{% assign pages_to_end = paginator.total_pages | minus: 1 %}
-    
-{% if paginator.total_pages > 1 %}
-    {% if paginator.page > 2 %}
-        {% assign page_start = paginator.page %}
-        {% comment %} Ellipsis for truncated links {% endcomment %}
-        <li class="page-item"><a href="{{ site.url }}" class="page-link">1</a></li>
-        <li class="page-item"><a href="#" class="page-link">&hellip;</a></li>
-        {% if paginator.previous_page == 2 %}
-        {% else %}
-        <li class="page-item"><a href="{{paginator.previous_page_path}}" class="page-link">{{ page_start | minus: 1}}</a></li>
-        {% endif %}
-    {% endif %}
-    {% for page in (page_start..page_end) %}
-        {% if page == paginator.page %}
-        <li class="page-item active"><a href="#" class="page-link">{{ page }}</a></li>
-        {% elsif page == 1 %}
-        <li class="page-item"><a href="{{ site.url }}" class="page-link">{{ page }}</a></li>
-        {% else %}
-            {% assign dist = page_end | minus: page %}
-            {% if pages_to_end > paginator.page and dist >= 1 %}
-            <li class="page-item"><a href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}" class="page-link">{{ page }}</a></li>
-            {% break %}
+                    {% assign page_start = 1 %}
+                    {% assign page_end = paginator.total_pages %}
+                    {% assign pages_to_end = paginator.total_pages | minus: 1 %}
+
+                    {% if paginator.total_pages > 1 %}
+                    {% if paginator.page > 2 %}
+                    {% assign page_start = paginator.page %}
+                    {% comment %} Ellipsis for truncated links {% endcomment %}
+                    <li class="page-item"><a href="{{ site.url }}" class="page-link">1</a></li>
+                    <li class="page-item"><a href="#" class="page-link">&hellip;</a></li>
+                    {% if paginator.previous_page == 2 %}
+                    {% else %}
+                    <li class="page-item"><a href="{{paginator.previous_page_path}}"
+                            class="page-link">{{ page_start | minus: 1}}</a></li>
+                    {% endif %}
+                    {% endif %}
+                    {% for page in (page_start..page_end) %}
+                    {% if page == paginator.page %}
+                    <li class="page-item active"><a href="#" class="page-link">{{ page }}</a></li>
+                    {% elsif page == 1 %}
+                    <li class="page-item"><a href="{{ site.url }}" class="page-link">{{ page }}</a></li>
+                    {% else %}
+                    {% assign dist = page_end | minus: page %}
+                    {% if pages_to_end > paginator.page and dist >= 1 %}
+                    <li class="page-item"><a
+                            href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}"
+                            class="page-link">{{ page }}</a></li>
+                    {% break %}
+                    {% endif %}
+                    {% endif %}
+                    {% endfor %}
+                    {% if page_end > paginator.page%}
+                    {% if pages_to_end == paginator.page or pages_to_end == paginator.next_page %}
+                    <li class="page-item"><a
+                            href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page_end }}"
+                            class="page-link">{{ page_end }}</a></li>
+                    {% else %}
+                    <li class="page-item"><a href="#" class="page-link">&hellip;</a></li>
+                    <li class="page-item"><a
+                            href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page_end }}"
+                            class="page-link">{{ page_end }}</a></li>
+                    {% endif %}
+                    {% endif %}
+                    {% endif %}
+
+                    {% if paginator.next_page %}
+                    <li class="page-item">
+                        <a class="page-link" href="{{ base }}{{ paginator.next_page_path | prepend: site.baseurl}}"
+                            aria-label="Weiter">
+                            {% else %}
+                    <li class="page-item disabled">
+                        <a class="page-link" href="#" aria-label="Weiter">
+                            {% endif %}
+                            <span aria-hidden="true">
+                                <svg class="adesso-pfeil-icon adesso-next">
+                                    <use xlink:href="#adesso--pfeil"></use>
+                                </svg>
+                            </span>
+                            <span class="sr-only">Weiter</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
             {% endif %}
-        {% endif %}
-    {% endfor %}
-    {% if page_end > paginator.page%}
-        {% if pages_to_end == paginator.page or pages_to_end == paginator.next_page %}
-        <li class="page-item"><a href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page_end }}" class="page-link">{{ page_end }}</a></li>
-        {% else %}
-        <li class="page-item"><a href="#" class="page-link">&hellip;</a></li>
-        <li class="page-item"><a href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page_end }}" class="page-link">{{ page_end }}</a></li>
-        {% endif %}
-    {% endif %}
-{% endif %}
-
-{% if paginator.next_page %}
-<li class="page-item">
-    <a class="page-link" href="{{ base }}{{ paginator.next_page_path | prepend: site.baseurl}}" aria-label="Weiter">
-{% else %}
-<li class="page-item disabled">
-    <a class="page-link" href="#" aria-label="Weiter">
-{% endif %}
-        <span aria-hidden="true">
-            <svg class="adesso-pfeil-icon adesso-next">
-                <use xlink:href="#adesso--pfeil"></use>
-            </svg>
-        </span>
-        <span class="sr-only">Weiter</span>
-    </a>
-</li>
-</ul>
-</nav>
-{% endif %}
-</div><!--/col-md-8-->
-</div><!--./adesso-container-->
+        </div>
+        <!--/col-md-8-->
+    </div>
+    <!--./adesso-container-->
 </div>

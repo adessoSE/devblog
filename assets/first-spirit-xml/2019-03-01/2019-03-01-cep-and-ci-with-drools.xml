@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<documents>
+    <document uid="59295fa2f0b28881effd3d2413f5c5bb">
+        <field name="title"><![CDATA[Echtzeitdatenverarbeitung von Eventströmen]]></field>
+        <field name="subline"><![CDATA[]]></field>
+        <field name="teaser"><![CDATA[<p>Ereignisse, im Englischen als Events bezeichnet, dienen im Software Engineering zur Steuerung des Programmablaufes von Software und werden durch Aktionen ausgelöst oder lösen selbst Aktionen aus. Neben technischen Events ist es auch möglich, fachliche Aktionen aus Events zu herzuleiten. In diesem Blogbeitrag widmen wir uns der Fragestellung, wie eingehende Events in Echtzeit ausgewertet werden können. Dazu greifen wir auf die Konzepte des Complex Event Processings (CEP) zurück, die als <em>Drools</em> <em>Fusion</em> in dem Business-Rules-Management-System <em>Drools</em> enthalten sind. Ein Beispiel aus der Banking-Branche zeigt ein mögliches und realistisches Szenario, in dem die hier vorgestellten Konzepte, Ideen und Technologien Anwendung finden könnten.</p>
+
+]]></field>
+        <field name="language_multi_keyword"><![CDATA[de]]></field>
+        <field name="content_type_multi_keyword"><![CDATA[blog]]></field>
+        <field name="mime_type_multi_keyword"><![CDATA[text/html]]></field>
+        <field name="category_multi_keyword"><![CDATA[Java]]></field>
+        <field name="tag_multi_keyword"><![CDATA[BRMS]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Business Rules]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Geschäftsregeln]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Drools]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Complex Event Processing]]></field>
+        <field name="date_date"><![CDATA[2019-03-01T09:30:00+01:00]]></field>
+        <field name="date_l"><![CDATA[1551429000000]]></field>
+        <field name="change_date"><![CDATA[1551429000000]]></field>
+        <!--Picture-->
+        <!-- Not in use at the moment-->
+        <!--Author Information-->
+        <field name="author_first_name"><![CDATA[Christian]]></field>
+        <field name="author_last_name"><![CDATA[Everke]]></field>
+        <field name="author_id"><![CDATA[ceverke]]></field>
+        <field name="author_picture_stored_only"><![CDATA[http://localhost:4000/assets/images/avatars/ceverke.png]]></field>
+        <!--Postcontent-->
+        <field name="headlines"><![CDATA[Echtzeitdatenverarbeitung von Eventströmen]]></field>
+        <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
+            <p>Ereignisse, im Englischen als Events bezeichnet, dienen im Software Engineering zur Steuerung des Programmablaufes von Software und werden durch Aktionen ausgelöst oder lösen selbst Aktionen aus. Neben technischen Events ist es auch möglich, fachliche Aktionen aus Events zu herzuleiten. In diesem Blogbeitrag widmen wir uns der Fragestellung, wie eingehende Events in Echtzeit ausgewertet werden können. Dazu greifen wir auf die Konzepte des Complex Event Processings (CEP) zurück, die als <em>Drools</em> <em>Fusion</em> in dem Business-Rules-Management-System <em>Drools</em> enthalten sind. Ein Beispiel aus der Banking-Branche zeigt ein mögliches und realistisches Szenario, in dem die hier vorgestellten Konzepte, Ideen und Technologien Anwendung finden könnten.</p>
+
+</div>]]></field>
+        <field name="content"><![CDATA[<div class="adesso-text-formate">
+<div class="row p-t-2">
+<div class="adesso-container">
+<div class="col-xl-8 adesso-center p-b-1 p-l-0 p-r-0">
+    <p>Ereignisse, im Englischen als Events bezeichnet, dienen im Software Engineering zur Steuerung des Programmablaufes von Software und werden durch Aktionen ausgelöst oder lösen selbst Aktionen aus. Neben technischen Events ist es auch möglich, fachliche Aktionen aus Events zu herzuleiten. In diesem Blogbeitrag widmen wir uns der Fragestellung, wie eingehende Events in Echtzeit ausgewertet werden können. Dazu greifen wir auf die Konzepte des Complex Event Processings (CEP) zurück, die als <em>Drools</em> <em>Fusion</em> in dem Business-Rules-Management-System <em>Drools</em> enthalten sind. Ein Beispiel aus der Banking-Branche zeigt ein mögliches und realistisches Szenario, in dem die hier vorgestellten Konzepte, Ideen und Technologien Anwendung finden könnten.</p>
+
+<h4 id="szenarioausgangssituation">Szenario/Ausgangssituation</h4>
+<p>Dieser Beitrag knüpft an den <a href="https://www.adesso.de/de/technisches/githubblog/wie-sich-business-strategien-in-software-umsetzen-lassen.jsp">Blogbeitrag vom 4. Juni 2018</a> an. Wir betrachten dazu ein fiktives Kreditinstitut, das zur Vorbeugung von Kreditkartenbetrug eine Software einsetzen möchte, die die Transaktionen der Benutzer überwacht und auffälliges Verhalten erkennt. Dazu erstellt die zuständige Fachabteilung des Kreditinstitutes Regeln, die auffälliges Verhalten in den Transaktionen darstellen und somit einen potentiellen Betrug erkennen.</p>
+
+<p>Es liegt etwa dann ein Betrugsverdacht vor, wenn zwei Transaktionen mit einer Kreditkarte von zwei verschiedenen Ländern aus innerhalb einer kurzen Zeitspanne gestartet werden. Wird eine Transaktion aus Deutschland und innerhalb von zwei Minuten eine weitere Transaktion mit selbigen Kartendaten aus einem anderen Land (z.B. USA) heraus ausgeführt, so muss von einem Betrug ausgegangen werden. Ebenfalls wird von einem Betrug ausgegangen, wenn in einer Zeitspanne von 20 Minuten mehr als fünf Transaktionen für eine Kreditkarte getätigt werden, die nicht von einem Benutzer persönlich durch PIN-Eingabe oder per Unterschrift am Point of Sale bestätigt werden. Solche Transaktionen entstehen, wenn Zahlungen nur durch Angabe der Kreditkarteninformationen (Kartennummer und Gültigkeit, Prüfziffern) erfolgen, wie etwa im eCommerce.</p>
+
+<h4 id="umsetzung-mit-complex-event-processing">Umsetzung mit Complex Event Processing</h4>
+<p>Wir werden einen Lösungsansatz vorstellen, der auf eine Business Rule Engine (BRE) zurückgreift. Dazu werden die von der Fachabteilung definierten Geschäftsregeln, die die Situationen eines potentiellen Betruges darstellen, für die BRE implementiert. Wird die BRE zur Laufzeit mit Kreditkartentransaktionen als Events “gefüttert”, so wertet die Engine diese anhand der Regeln aus und handelt entsprechend der Anweisungen. Eine wichtige Anforderung für die Erkennung von Kreditkartenbetrug ist die Echtzeitfähigkeit: unmittelbar bei Erfüllung einer Bedingung der Regeln wollen wir eine Maßnahme treffen, wie z.B. das Sperren der Karte. Andere Kategorien von Software, etwa eine Batchüberprüfung aller Transaktionen zu einem bestimmten, nächtlichen Zeitpunkt, sind für das voliegende Beispiel keine Alternative.</p>
+
+<p>Das sog. Complex Event Processing wird uns an dieser Stelle weiterhelfen, das gewünschte Ziel zu erreichen. Unter Complex Event Processing verstehen wir eine Sammlung von Methoden, um große Mengen von anfallenden Events in Echtzeit zu analysieren. Ziel ist es, Zusammenhänge zwischen einzelnen auftretenden Events zu finden und komplexeres Wissen abzuleiten. Im vorliegenden Szenario könnten wir beispielseise die einzelnen Transaktionen als Events darstellen; das höhere bzw. komplexere Wissen entspricht den Betrugsverdachtsfällen, die durch das CEP aus den Transaktionen abgeleitet werden. Auf die genauen Algorithmen und Verfahren der Informatik, die CEP ermöglichen, gehen wir in diesedm Beitrag nicht ein. Für interessierte Leser sei auf das <a href="https://dl.acm.org/citation.cfm?id=3093742.3095106">Papier von Artikies et al.</a> verwiesen. Im weiteren Verlauf dieses Textes lernen wir mit <em>Drools</em> <em>Fusion</em> eine Softwarekomponente vorgestellt, die CEP implementiert.</p>
+
+<p>Bereits im <a href="https://www.adesso.de/de/technisches/githubblog/wie-sich-business-strategien-in-software-umsetzen-lassen.jsp">ersten Blogbeitrag</a> haben wir die Grundlagen von <em>Drools</em> kennengelernt. Hier haben wir insbesondere Faktenwissen in die Regelengine „geworfen“, welches im Anschluss anhand der definierten Regeln ausgewertet wurde. Verwenden wir <em>Drools</em> <em>Fusion</em>, so ist das Vorgehen ähnlich. Nur wird die Regelengine nicht nur mit Fakten versorgt, sondern auch mit Events. Technischer und funktionaler Unterschied zwischen den Konzepten Events und Faktenwissen ist, dass bei Events benötigte zeitliche Informationen erfasst werden. Bei reinem Faktenwissen nehmen wir an, dass alle Informationen zum Zeitpunkt der Regelausführung vorhanden sind. Die zeitliche Dimension ist hierbei außen vor gelassen.</p>
+
+<p>Über die <em>Drools</em> Rule Language (DRL) können wir die Geschäftsregeln definieren. Erweiterungen der DRL ermöglichen es, auch zeitliche Zusammenhänge über Events zu abzubilden, die eben durch das Complex Event Processing ausgewertet werden. Insgesamt verhalten sich die Geschäftsregeln wie gewohnt: ist die Prämisse (<code>when</code>-Teil der zeitbasierten Regel) erfüllt, „feuert“ die Regel und die entsprechende Konklusion (<code>then</code>-Teil) wird ausgeführt. Das folgende Listing zeigt die Implementierung des oben beschriebenen, fachlichen Szenarios.</p>
+
+<pre><code class="language-java">// Package declaration and imports
+
+declare Transaction // (Kreditkarten-)Transaktionen als Event deklarieren
+	@role (event)
+end
+
+rule "Fraud detection rule 1"
+    when
+        $tx: Transaction() from entry-point "MonitoringStream";
+        Transaction(this != $tx, this after[0s,120s] $tx, !$tx.getExecutionLocation().equals(this.getExecutionLocation), 
+					$tx.getCreditCard() == this.getCreditCard())
+        from entry-point "MonitoringStream";
+    then
+        System.out.println("Fraud suspected by rule 1. Two transactions from two different countries in a short time");
+        $tx.getCreditCard().setActive(false);
+end
+
+rule "Fraud detection rule 2"
+    when
+        $tx: Transaction() from entry-point "MonitoringStream";
+        $collection : ArrayList(size==5)  from collect (
+				Transaction(isPersonalApproved()==false, getCreditCard() == $tx.getCreditCard())  over window:time( 1200s )  
+				from entry-point "MonitoringStream"
+		) 
+		eval ($collection.get($collection.size()-1).equals($tx));
+    then
+        System.out.println("Fraud suspected by rule 2. Too many not approved transactions within 20 minutes");
+        $tx.getCreditCard().setActive(false);
+end
+</code></pre>
+
+<p>Verwenden wir <em>Drools</em> <em>Fusion</em>, um zeitliche Abhängigkeiten in Geschäftsregeln zu definieren, so müssen wir der BRE mitteilen, ob Eingaben als Faktenwissen oder als Events betrachtet werden sollen. Dass Kreditkartentransaktionen Events repräsentieren, wird mit der  <code>declare</code>-Anweisung zu Beginn determiniert.</p>
+
+<p>Im Anschluss folgen die fachlichen Regeln, die die Events, im konkreten Fall also die Transaktionen, zeitbasiert untersuchen. Events müssen über verschiedene „Kanäle“ (sog. Entry-Points) in die BRE eingefügt werden. Wie im Listing erkennbar ist, verwenden wir hier den Entry-Point mit der Bezeichnung <code>MonitoringStream</code>. Die darauffolgende Zeile beschreibt den zeitlichen Zusammenhang: gibt es nach dem Eingang der Transaktion, die in der Variable <code>$tx</code> gespeichert ist, zwischen 0 und 120 Sekunden (zwei Minuten) ein weiteres Event vom Typ <code>Transaction</code> mit gleicher Kartennummer aber unterschiedlichem Ausführungsland, so liegt ein Verdacht auf Kreditkartenbetrug vor und die betroffene Kreditkarte wird unmittelbar gesperrt. Die zweite Regel handelt ähnlich: gibt es eine Transaktion <code>$tx</code> und eine Menge von fünf Events innerhalb von 0 und 1200 Sekunden (20 Minuten), wobei alle Elemente der Menge die Bedingung <code>Transaction(isPersonalApproved()==false, getCreditCard() == $tx.getCreditCard()</code> erfüllen, liegt ebenfalls Verdacht auf Kreditkartenbetrug vor.</p>
+
+<p>Dieses einfache und kurze Beispiel demonstriert, dass wir <em>Drools</em>-Regeln definieren können, die zeitliche Zusammenhänge zwischen Events mit Hilfe des Complex Event Processings aufdecken. Die <em>Drools</em>-Rules-Language stellt viele weitere Konzepte zur Definition von Regeln bereit. So sind Aggregationen, wie etwa die Mittelwertbildung möglich, um z.B. auch kontinuierliche Datenströme permanent auszuwerten. Etwa könnten wir hiermit Sensordaten im Kontext des Internets der Dinge (IoT),die in regelmäßigen Abständen erfasst werden, als Event ansehen. Die Regeln sind z.B. dann erfüllt, wenn der Mittelwert der erfassten Daten in einem Zeitfenster einen bestimmten Grenzwert überschreitet. Weitere Einsatzbereiche des Complex Event Processings sind die Überwachung von Geschäftsprozessen und Ressourcen in Unternehmen oder von Marktdaten wie Aktien- oder Rohstoffpreisen. In der Wissenschaft wird die Generierung von CEP-Regeln durch Verfahren des maschinellen Lernens verfolgt. Muster zwischen Events, die für uns Modellierer nicht erkennbar sind, können wir somit automatisiert erkennen und als Geschäftsregel darstellen.</p>
+
+<h4 id="continuous-integration">Continuous Integration</h4>
+<p>Als Einführung in <em>Drools</em>-<em>Fusion</em> soll uns dieses Beispiel genügen. Weitere Möglichkeiten zeigt die zugehörige <a href="https://docs.jboss.org/drools/release/7.16.0.Final/drools-docs/html_single/index.html#DroolsComplexEventProcessingChapter">Dokumentation</a> auf. Neben <em>Drools</em> <em>Fusion</em> soll ein weiteres, nützliches Feature diesen Beitrag abrunden. In der <a href="https://github.com/ceverke/DroolsBrmsDemo">Demo-Applikation zum ersten Beitrag </a> haben wir die DRL-Datei mit den einfachen Regeln zur Festsetzung von Kontoführungsgebühren in die Spring-Boot-Demo-Applikation eingebunden. Die Regeln sind somit, auch wenn sie zur Laufzeit ausgetauscht werden können, sehr nah am Code platziert. Unser Ziel in einem Unternehmen könnte es sein, eine Personengruppe wie Business Analysten zu befähigen, die Regeln zu verändern - und das, ohne dabei lokal am Code arbeiten zu müssen.</p>
+
+<p>Um dies zu erreichen, verwenden wir <em>Workbench</em> in Verbindung mit der Continuous Integration Funktion von <em>Drools</em>. Bei <em>Workbench</em> handelt es sich um eine Java-Webapplikation mit grafischer Oberfläche. Sie ermöglicht es uns unter anderem, <em>Drools</em>-Regelprojekte zu erstellen, zu verwalten und insbesondere auch mit Hilfe von <em>Maven</em> zu bauen und auszuliefern. <em>Workbench</em> ist für verschiedene Applikationsserver verfügbar. Ein guter Start mit <em>Workbench</em> ist, wenn wir uns das passende Docker Image holen und den Container starten. Die Drools-Comunity stellt uns eine geeignete <a href="https://hub.docker.com/r/jboss/drools-workbench/">Anleitung</a> bereit, anhand der wir innerhalb weniger Minuten Workbench lokal auf unseren Maschinen hochfahren können</p>
+
+<p>Wie die <em>Drools</em>-Community kürzlich bekannt gab, wird <em>Workbench</em>, geläufig auch als KIE-<em>Workbench</em> (KIE = Knowledge is everything), in Zukunft den Namen <em>Business Central</em> tragen.</p>
+
+<p><em>Workbench</em> stellt viele Möglichkeiten zur Arbeit mit Geschäftsregeln bereit. Neben dem klassischen Regeleditor aus dem Screenshot gibt es auch die Möglichkeit, Regeln z.B. basierend auf Templates zu verwalten. Hierbei werden Regelfragmenten Sätze aus natürlicher Sprache zugeordnet und durch konfigurierbare Felder erweitert. So könnten wir z.B. den Satz <em>“Mehr als X Transaktionen innerhalb von Y Minuten”</em> mit der zweiten Regel assoziieren, wobei die Platzhalter <em>X</em> und <em>Y</em> durch den Modellierer zur Laufzeit über die GUI ergänzt werden. Mit Hilfe dieser Regeltemplates können Regeln somit auch von Benutzern verwaltet werden, die über keine oder nur geringfügige Programmierkenntnisse verfügen.</p>
+
+<p>Ein wichtiges Feature von <em>Workbench</em> ist es, dass die Projekte mit <em>Maven</em> gebaut und deployt werden können. Wir können die Regeln zur Erkennung von möglichem Kreditkartenbetrug also per <em>Workbench</em> erstellen und als JAR-Artefakt auslieern. Über das CI-Feature von <em>Drools</em> sind wir in der Lage, die Regeln zur Laufzeit in ein Projekt einzubinden. Das wollen wir uns folgenden Abschnitt anschauen und demonstrieren.</p>
+
+<p>Auf <a href="https://github.com/ceverke/CreditCardDemoApplication">Github ist eine Demoapplikation</a> zu finden. Diese beinhaltet neben dem Datenmodell einen Service, der für das Einfügen der Events in die Regelengine verantwortlich ist.  Die dortige <code>initRuleEngine()</code>-Methode (siehe Listing unten) ist, wie der Name bereits ausdrückt, für die Initialisierung der Engine verantwortlich. Dabei greifen wir mit Hilfe eines ReleaseID-Objektes auf das entsprechende <em>Maven</em>-Artefakt zurzurück. Geben wir also die <em>GAV</em>-Informationen, bestehend aus <em>GroupId</em>, <em>ArtefactId</em> und <em>Version</em> an, so können wir auf das über <em>Workbench</em> erzeugte Regelprojekt zugreifen. Da wir im Beispiel kein bestimmtes Repository konfigurieren, greifen die <em>Maven</em> Standards und es wird zunächst das lokale <em>Maven</em>-Repository verwendet. Wenn somit auch in <em>Workbench</em> kein bestimmtes Deployment-Repository angegeben wird, landet das Artefakt in dem lokalen Repository des <em>Docker</em> Containers, auf dem wir Workbench betreiben.</p>
+
+<pre><code class="language-java">public void initRuleEngine() {
+	LOGGER.info("Starting KIE Session...");
+
+	KieServices kieService = KieServices.Factory.get();
+
+	ReleaseId releaseId = kieService.newReleaseId(GROUPID, ARTIFACTID, VERSION); // Definition z.B. über PROPERTIES-Datei
+	LOGGER.info("Reading rules from *Maven* repository: GroupId: " + GROUPID + ", ArtifactId: " + ARTIFACTID
+			+ ", Version " + VERSION);
+
+	KieContainer kieContainer = kieService.newKieContainer(releaseId, this.getClass().getClassLoader());
+	KieScanner kieScanner = kieService.newKieScanner(kieContainer);
+	kieScanner.start(1000L);
+
+	KieBaseConfiguration kieBaseConfig = kieService.newKieBaseConfiguration();
+	kieBaseConfig.setOption(EventProcessingOption.STREAM);
+
+	KieBase kBase = kieContainer.newKieBase(kieBaseConfig);
+	try {
+		kieSession = kBase.newKieSession();
+		LOGGER.info("Starting KIE-Session");
+		startSession();
+		LOGGER.info("Session started");
+	} catch (Exception exception) {
+		LOGGER.info("Session could not be started");
+		exception.printStackTrace();
+	}
+}
+
+public void startSession() {
+	//...
+}
+
+</code></pre>
+
+<p>Die Konfiguration des <code>STREAM</code>-Modus als <code>EventProcessingOption</code> ist für die Nutzung von <em>Drools</em> <em>Fusion</em> erforderlich. Auch gibt es die Möglichkeit, für Test- und Evaluierungszwecke die zu verwendende Uhr zu tauschen, wenn das Drools Projekt auf das Complex Event Processing zurückgreift. Während wir für die Echtzeitanwendung entsprechend die <em>Real Time Clock</em> verwenden, können wir mit der <em>Pseudo-Clock</em> zum Testen, zur Simulation oder zur Wiederholung einiger Szenarien die Uhr dahingehend manipulieren, dass Zeitabstände künstlich verkürzt werden.</p>
+
+<p>Um die <a href="https://github.com/ceverke/CreditCardDemoApplication">Beispielanwendung</a> lokal zu starten, sei folgende Vorgehensweise empfohlen: zunächst müssen wir eine Instanz von <em>Workbench</em> einrichten und starten. Es empfiehlt sich an dieser Stelle, wie bereits erwähnt, der Einsatz von <em>Docker</em>. Ist das <em>Docker</em>-Image geladen und der Container gestartet, so müssen wir zunächst gemäß der <a href="https://hub.docker.com/r/jboss/drools-workbench/"><em>Docker</em> Anleitung für <em>Workbench</em></a> einen neuen Benutzer für den im Container enthaltenen <em>Wildfly</em>-Applikationsserver anlegen. Im Anschluss können wir <em>Workbench</em> aufrufen und und ein neues Regelprojekt erstellen. Damit sich die Regeln kompilieren, bauen und deployen lassen, müssen wir das Datenmodell als JAR aus der Entwicklungsumgebung exportieren und als Abhängigkeit in <em>Workbench</em> wiederum importiertieren. Der Buildprozess und das Deployment lassen sich vollständig über die grafische Oberfläche ausführen. Da das lokale <em>Maven</em> Repository im <em>Docker</em> Container als Ablageort für das Artefakt des <em>Drools</em>-Projektes dient, empfiehlt es sich, die Demo Applikation ebenfalls in dem <em>Docker</em> Container abzulegen und von dort zu starten, um auf das Artefakt mit den Regeln zugreifen zu können.</p>
+
+<p>Zur Demonstration verfügt das Demo-Projekt über einen Controller, der in regelmäßigen Abständen Events zur Regelengine sendet. Neben den zwei o.g. Regeln zur Festlegung von Betrugsverdacht gibt es weitere Regeln die festlegen, dass wenn innerhalb von 20 Minuten die PIN am Point of Sale dreimal falsch eingegeben wird, die Karte gesperrt wird. Diese Sperrung wird nach 20 Minuten, auch per CEP-Regel, wieder aufgehoben.</p>
+
+<h4 id="fazit">Fazit</h4>
+<p>Neben der klassischen Auswertung von reinem Faktenwissen sind wir mit <em>Drools</em> in der Lage, mit Methoden des Complex Event Processing auch Events zu verarbeiten und anhand von Regeln mit zeitlicher Dimension höheres, komplexes Wissens aus den Events abzuleiten. Damit lassen sich viele Alltagsprobleme lösen. Das Beispiel zur Erkennung von Kreditkartenbetrug ist hier nur eines von vielen, realen Szenarien.</p>
+
+<p>Weiterhin bietet <em>Drools</em> mit <em>Workbench</em> bzw. <em>Business Central</em> eine Webapplikation mit grafischer Oberfläche an, um Geschäftsregeln und Prozesse zu modellieren, zu verwalten und auszuliefern. Vereinfachende Features ermöglichen es, dass auch nicht programmieraffine Mitarbeiter aus Fachabteilungen in der Lage sind, an diesen Projekten mitzuarbeiten und somit aktiv Einfluss auf die fachliche Logik der Software nehmen können. Durch Continuous Integration Features können wir diese Regeln einfach und insbesondere zur Laufzeit in Java-basierte Softwareanwendungen integrieren.</p>
+
+</div>
+</div>
+</div>
+</div>]]></field>
+    </document>
+</documents>

@@ -57,7 +57,7 @@ ceverke:
   last_name: Everke
   github_username: ceverke
   email: christian.everke@adesso.de
-  bio: "Christian Everke ist Softwareengineer bei adesso. Seine Schwerpunkte liegen in der Backendentwicklung, u.a. für den Bankensektor, basierend auf gängigen Java Frameworks (JEE, Spring) und Produkten aus der Red Hat JBoss Middleware Produktfamilie."
+  bio: "Christian Everke ist Software Engineer bei adesso. Die Schwerpunkte des studierten Informatikers liegen in der Backendentwicklung, u.a. für den Bankensektor, basierend auf gängigen Java Frameworks und Produkten aus der Red Hat Middleware Produktfamilie."
   avatar_url: /assets/images/avatars/ceverke.png
   github: https://github.com/ceverke
 
@@ -169,7 +169,6 @@ dariobraun:
   avatar_url: /assets/images/avatars/dariobraun.jpg
   github: https://github.com/dariobraun
 
-
 no0x9d:
   first_name: Christoph
   last_name: Hoffmann
@@ -178,3 +177,22 @@ no0x9d:
   bio: "Christoph Hoffmann ist als Senior Software Engineer bei adesso in Dortmund tätig und tummelt sich im Bereich Angular-Entwicklung. In seiner Freizeit versucht er mit selbst geschriebenen Tools den Entwickleralltag zu vereinfachen."
   avatar_url: /assets/images/avatars/christophhoffmann.jpg
   github: https://github.com/no0x9d
+
+ccaylak:
+  first_name: Cem
+  last_name: Caylak
+  github_username: ccaylak
+  email: cem.caylak@adesso.de
+  bio: "Cem Caylak ist ein dualer Student bei adesso und studiert am ITC."
+  avatar_url: /assets/images/avatars/ccaylak.png
+  github: https://github.com/ccaylak
+
+vincentmathis:
+  first_name: Vincent
+  last_name: Mathis
+  github_username: vincentmathis
+  email: vincent.mathis@adesso.de
+  bio: "Vincent Mathis ist Praktikant in der Software-Entwicklung. Er arbeitet in Frankfurt im Insurance Bereich."
+  avatar_url: /assets/images/avatars/vincentmathis.jpg
+  github: https://github.com/vincentmathis
+

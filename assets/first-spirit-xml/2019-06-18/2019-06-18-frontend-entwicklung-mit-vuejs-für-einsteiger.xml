@@ -1,0 +1,469 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<documents>
+    <document uid="e3b7be7e3bf18c07066ec303d7d34b3b">
+        <field name="title"><![CDATA[Frontend Entwicklung mit Vue.js für Einsteiger]]></field>
+        <field name="subline"><![CDATA[]]></field>
+        <field name="teaser"><![CDATA[<p>Die Welt der Webentwicklung ist groß und im ständigen Wandel. Neue Libraries, Frameworks und Tools verschwinden genauso schnell, wie sie aufgetaucht sind. Für Einsteiger in die Webentwicklung stellt das eine Hürde da, der man sich kaum gewachsen fühlt. Ich kann nicht garantieren, dass während des Verfassens dieses Blog-Eintrags keine neuen Frontend Frameworks entstanden sind.</p>
+
+]]></field>
+        <field name="language_multi_keyword"><![CDATA[de]]></field>
+        <field name="content_type_multi_keyword"><![CDATA[blog]]></field>
+        <field name="mime_type_multi_keyword"><![CDATA[text/html]]></field>
+        <field name="category_multi_keyword"><![CDATA[Softwareentwicklung]]></field>
+        <field name="tag_multi_keyword"><![CDATA[JavaScript]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Frontend]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Vue.js]]></field>
+        <field name="date_date"><![CDATA[2019-06-18T10:00:00+02:00]]></field>
+        <field name="date_l"><![CDATA[1560844800000]]></field>
+        <field name="change_date"><![CDATA[1560816000000]]></field>
+        <!--Picture-->
+        <!-- Not in use at the moment-->
+        <!--Author Information-->
+        <field name="author_first_name"><![CDATA[Vincent]]></field>
+        <field name="author_last_name"><![CDATA[Mathis]]></field>
+        <field name="author_id"><![CDATA[vincentmathis]]></field>
+        <field name="author_picture_stored_only"><![CDATA[http://localhost:4000/assets/images/avatars/vincentmathis.jpg]]></field>
+        <!--Postcontent-->
+        <field name="headlines"><![CDATA[Frontend Entwicklung mit Vue.js für Einsteiger]]></field>
+        <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
+            <p>Die Welt der Webentwicklung ist groß und im ständigen Wandel. Neue Libraries, Frameworks und Tools verschwinden genauso schnell, wie sie aufgetaucht sind. Für Einsteiger in die Webentwicklung stellt das eine Hürde da, der man sich kaum gewachsen fühlt. Ich kann nicht garantieren, dass während des Verfassens dieses Blog-Eintrags keine neuen Frontend Frameworks entstanden sind.</p>
+
+</div>]]></field>
+        <field name="content"><![CDATA[<div class="adesso-text-formate">
+<div class="row p-t-2">
+<div class="adesso-container">
+<div class="col-xl-8 adesso-center p-b-1 p-l-0 p-r-0">
+    <p>Die Welt der Webentwicklung ist groß und im ständigen Wandel. Neue Libraries, Frameworks und Tools verschwinden genauso schnell, wie sie aufgetaucht sind. Für Einsteiger in die Webentwicklung stellt das eine Hürde da, der man sich kaum gewachsen fühlt. Ich kann nicht garantieren, dass während des Verfassens dieses Blog-Eintrags keine neuen Frontend Frameworks entstanden sind.</p>
+
+<h4 id="was-ist-überhaupt-ein-frontend-framework">Was ist überhaupt ein Frontend Framework?</h4>
+
+<p><img src="/assets/images/posts/frontend-entwicklung-mit-vuejs-für-einsteiger/javascript-frameworks-tools.png" alt="JavaScript Frameworks / Tools" title="JavaScript Frameworks / Tools" /></p>
+
+<p><em>Grunt, Gulp, Broccoli, underscore, Mustache, Handlebars, Knockout etc.: JavaScript Tools oder zufällige Einträge aus einem englischen Wörterbuch?</em></p>
+
+<p>Bis in die frühen 2000er hatten Browser nicht die Möglichkeiten wie heute. Komplexe Applikationen darin umzusetzen war einfach nicht praktikabel. Mit der Weiterentwicklung der Browser kamen auch Libraries wie jQuery, um die Kommunikation zwischen Server und Client zu vereinfachen. Zur ersten Welle der Frontend Frameworks zählten Backbone, Ember, Knockout und AngularJS. Aktuell sind Angular (ehemalig Angular 2), React und Vue die <em>big players</em>. Vue wurde von Evan You entwickelt, während er für Google an AngularJS Web-Apps arbeitete. Vue versucht die guten Features aus Angular und React zu vereinen - und macht dabei einen echt guten Job!</p>
+
+<p><img src="/assets/images/posts/frontend-entwicklung-mit-vuejs-für-einsteiger/stackoverflow-trends.png" alt="Stack Overflow Question Trends" title="Stack Overflow Question Trends" /></p>
+
+<p><em>Vue steht mittlerweile auf Platz 1 der JavaScript Toplist auf GitHub mit ~137k Sternen</em></p>
+
+<p>Frameworks abstrahieren die Interaktion mit dem Browser und dem DOM (um mit Vue anzufangen, müsst ihr nicht einmal wissen, was genau das Document-Object-Model eigentlich ist). Statt Elemente aus dem DOM zu referenzieren, um sie anschließend zu manipulieren, definiert man sie <a href="https://de.wikipedia.org/wiki/Deklarative_Programmierung">deklarativ</a> auf einer höheren Abstraktionsebene. Oder einfacher ausgedrückt: Man gibt von vornherein an wie die Elemente aussehen sollten und überlässt die Arbeit Vue.</p>
+
+<p>Mit einem bisschen Grundwissen zu HTML, CSS und JavaScript kann man ohne viel Aufwand loslegen:</p>
+
+<pre><code class="language-html">&lt;html&gt;
+    &lt;body&gt;
+        &lt;div id="app"&gt;
+            {{ message }}
+        &lt;/div&gt;
+        &lt;script src="https://unpkg.com/vue"&gt;&lt;/script&gt;
+        &lt;script&gt;
+            var app = new Vue({
+                el: '#app',
+                data: {
+                    message: 'Du hast diese Seite am ' + new Date().toLocaleString() + ' geladen.'
+                }
+            })
+        &lt;/script&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<p><strong>Ergebnis:</strong></p>
+<pre><code>Du hast diese Seite am 2019.04.23, 09:22:17 geladen.
+</code></pre>
+<p><em>Beispiel auf <a href="https://jsfiddle.net/oj5veb9x/">JSFiddle</a> anschauen.</em></p>
+
+<p>Mit <code>new Vue()</code> wird eine neue Vue Instanz erzeugt, <code>el: '#app'</code> definiert das <code>&lt;div id="app"&gt;</code> Element als den Einstiegspunkt für Vue.</p>
+
+<p>Die doppelten geschweiften Klammern kennzeichnen <em>text interpolation</em> (auch “Mustache” Syntax genannt). Der <code>{{ message }}</code> Bereich innerhalb des <code>div</code> Elements wird mit dem Inhalt der <code>message</code> Variablen im <code>data</code> Objekt ersetzt. Auch wenn sich der Wert der Variablen ändert (z.B. in dem ihr <code>app.message = 'Hallo'</code> in die Entwicklerkonsole des Browsers eingebt).</p>
+
+<p>Das war doch gar nicht so schwer, oder? Das Tolle an Vue ist, dass Vues Prinzipen diese Einfachheit auch in größeren Projekten beibehält.</p>
+
+<h4 id="was-sind-die-kernprinzipien-von-vue">Was sind die Kernprinzipien von Vue?</h4>
+
+<p>Laut Vues Website lauten diese:</p>
+
+<blockquote>
+  <p><strong>1. Approachable:</strong> Already know HTML, CSS and JavaScript? Read the guide and start building things in no time!</p>
+</blockquote>
+
+<p>Wie schon erwähnt reichen Grundkenntnisse in HTML und JavaScript aus, um mit Vue loszulegen. Außerdem hat Vue eine ausgesprochen gute Dokumentation und Guides. Alles, was man über Vue wissen muss findet man dort mit Beispielen erklärt (Links findet ihr am Ende des Artikels).</p>
+
+<blockquote>
+  <p><strong>2. Versatile:</strong> An incrementally adoptable ecosystem that scales between a library and a full-featured framework.</p>
+</blockquote>
+
+<p>Andere Frameworks benötigen meist eine komplette Neugestaltung einer bestehenden Web-App, Vue hingegen ist progressiv: Mit einem einfachen <code>script</code> Tag und Dreizeiler ist man schon startbereit, ohne jemals irgendwas von webpack, Babel oder npm gehört haben zu müssen. Das bedeutet Vue kann schrittweise in bestehende Projekte integriert werden. Die <em>core library</em> kann alleinstehend oder in Verbindung mit Vues offiziellen begleitenden Libraries für <em>global state management</em> (vuex) und <em>routing</em> (vue-router) verwendet werden.</p>
+
+<blockquote>
+  <p><strong>3. Performant:</strong> 20KB min+gzip Runtime, Blazing Fast Virtual DOM, Minimal Optimization Efforts</p>
+</blockquote>
+
+<p>Wer Erfahrung mit React hat, dem wird auffallen, dass Vue sich genauso ein virtual DOM zunutze macht, reactive ist und zusammensetzbare Komponenten anbietet. Außerdem werden bei React genauso unterstützende Libraries angeboten, diese werden jedoch nicht wie bei Vue vom core Team gepflegt und sind daher fragmentierter.</p>
+
+<p>Wenn Vue doch so ähnlich zu React ist, warum sollte man überhaupt das neuere Vue in Betracht ziehen? Vue unterscheidet sich in folgenden Punkten zu React:</p>
+
+<p>In React ist alles reines JavaScript. Man hat dadurch zwar ein klassisches Programmiererlebnis (man kann temporäre Variablen verwenden und hat einen typischen Kontrollfluss), wie man es aus Programmiersprachen üblicherweise kennt, muss aber HTML und CSS in den JavaScript Code einbetten:</p>
+
+<pre><code class="language-javascript">const message = 'Du hast diese Seite am ' + new Date().toLocaleString() + ' geladen.';
+const element = &lt;div&gt;{message}&lt;/div&gt;;
+
+ReactDOM.render(
+    element,
+    document.getElementById('root')
+);
+</code></pre>
+<p><em>Das gleiche Beispiel wie oben in React umgesetzt.</em></p>
+
+<p>Der Wert von <code>element</code> ist hier weder String noch um HTML, sondern JSX: eine Syntaxerweiterung für JavaScript. Auch wenn es ähnlich aussieht, unterscheidet es sich von HTML. Das bedeutet: neue Entwickler oder Designer können nicht ohne Weiteres damit arbeiten. Außerdem resultiert aus dieser Verwobenheit eher unübersichtlicher und gegebenenfalls auch schlecht wartbarer Code.</p>
+
+<p>Zwar kann man Vue auch mit JSX verwenden aber Vues Stärke liegt in dem weitaus simpleren Templating System. Vue Komponenten können in HTML Template (<code>&lt;template&gt;</code>), JavaScript (<code>&lt;script&gt;</code>) und CSS (<code>&lt;style&gt;</code>) unterteilt werden. Da gültiges HTML auch gleichzeitig gültiges Vue Template ist, kann man Vue ohne große Änderungen in bestehende HTML Websites einbauen. Dass man diese Aufteilung in einer einzelnen <code>.vue</code> Datei halten kann, macht den Entwicklungsprozess übersichtlich und ermöglicht unkompliziertes komponentenspezifisches Styling:</p>
+
+<pre><code class="language-html">&lt;template&gt;
+    &lt;div id="app"&gt;
+        {{ message }}
+    &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+export default {
+    el: '#app',
+    data() {
+        return {
+            message: 'Hello World!'
+        }
+    }
+}
+&lt;/script&gt;
+
+&lt;style scoped&gt;
+#app {
+    font-family: Helvetica, Arial, sans-serif;
+    text-align: center;
+    color: #2c3e50;
+}
+&lt;/style&gt;
+</code></pre>
+<p><em>Ein ausführliches Beispiel zu den sogenannten Single File Components findet ihr am Ende dieses Artikels.</em></p>
+
+<p><em>Wer besonders aufgepasst hat, dem ist aufgefallen, dass <code>data</code> im ersten Beispiel ein Objekt war, in diesem aber eine Funktion. Im ersten Beispiel wurde mit <code>new Vue(...)</code> eine einzelne <strong>Vue Instanz</strong> erzeugt: in diesem Fall ist es okay <code>data</code> als einfaches Objekt zu definieren. In diesem Beispiel handelt es sich um eine <strong>Vue Komponente</strong> (die unter Umständen mehr als einmal instanziiert wird). Um zu verhindern, dass das <code>data</code> Objekt zwischen verschiedenen Instanzen geteilt wird, verwendet man innerhalb Komponenten eine Funktion.</em></p>
+
+<p>Grundsätzlich unterscheidet sich die Performance von Vue.js und React nur geringfügig, Vue implementiert sein virtual DOM allerdings mit einer Art automatischer Abhängigkeitsverwaltung. Das bedeutet: Vue weiß, welche Komponenten von einer Zustandsänderung betroffen sind und rendert nur diese neu.</p>
+
+<p>Im Fall von React hingegen löst eine Zustandsänderung ein rerendering aller Kind-Elemente einer Komponente aus. Das lässt sich zwar verhindern, muss aber für alle Komponenten manuell gemacht werden.</p>
+
+<p>Vue hat daher minimalen Optimierungsaufwand und liefert etwas bessere Performance out of the box.</p>
+
+<p>Mit React Native hat man jedoch noch einen Vorteil gegenüber Vue, wenn es um iOS und Android Entwicklung geht. Vues Antwort (Weex) auf React Native ist momentan noch in aktiver Entwicklung.</p>
+
+<p>Ein letzter Punkt, der nicht zu missachten ist: Vue ist unabhängig, es wird durch Spenden und die Community unterstützt. Das bedeutet, dass es nicht durch die Agenda einer Firma wie Google (Angular) oder Facebook (React) gelenkt wird.</p>
+
+<h4 id="wie-funktioniert-vue">Wie funktioniert Vue?</h4>
+
+<p>Ein grundgelegenes Konzept von Vue sind die sogenannten <em>directives</em>. Diese beginnen mit dem <code>v-</code> Prefix. Der Wert eines <em>directives</em> (und auch innerhalb <code>{{ ... }}</code>) muss eine einzelne JavaScript Expression sein.</p>
+
+<pre><code class="language-html">&lt;img v-bind:src="'/assets/images/' + filename" /&gt;
+</code></pre>
+<p><em>Was genau <code>v-bind</code> tut, erfahrt ihr später in diesem Artikel</em></p>
+
+<p>Ein Ausdruck wie dieser wäre zwar möglich, sollte aber vermieden werden, um Logik von Template getrennt zu lassen. Stattdessen sollten <em>computed properties</em> verwendet werden:</p>
+
+<pre><code class="language-javascript">var app = new Vue({ 
+    el: '#app',
+    data: {
+        filename: 'logo.png'
+    },
+    computed: {
+        imageSrc() {
+            return '/assets/images/' + this.filename
+        }
+    }
+});
+</code></pre>
+
+<p>Computed properties können genauso verwendet werden wie gewöhnliche properties:</p>
+<pre><code class="language-html">&lt;img v-bind:src="imageSrc" /&gt;
+</code></pre>
+
+<p>Aber zurück zu den <em>directives</em>, wofür sind sie gut und wie verwendet man sie?</p>
+
+<h5 id="bedingtes-rendern">Bedingtes Rendern</h5>
+
+<p>Mit <code>v-if</code> setzt man <em>conditinal rendering</em> um. Vue ist <em>reactive</em>: ändert sich der Wert von <code>visible</code> wird ein <em>rerendering</em> der HTML Struktur ausgelöst.</p>
+
+<pre><code class="language-html">&lt;div id="app"&gt;
+    &lt;span v-if="visible"&gt;Dieses HTML Element wird nur gerendert, wenn visible true ist&lt;/span&gt;
+    &lt;span v-else&gt;Ansonsten wird dieses Element gerendert&lt;/span&gt;
+&lt;/div&gt;
+</code></pre>
+<pre><code class="language-javascript">var app = new Vue({ 
+    el: '#app',
+    data: {
+        visible: false
+    }
+});
+</code></pre>
+<p><strong>Ergebnis:</strong></p>
+<pre><code>Ansonsten wird dieses Element gerendert
+</code></pre>
+<p><em>Beispiel auf <a href="https://jsfiddle.net/a3fkrxvg/">JSFiddle</a> anschauen.</em></p>
+
+<p>Natürlich gibt es zu dem <code>v-if</code> <em>directive</em> auch die entsprechenden <code>v-else</code> und <code>v-else-if</code> <em>directives</em>, wie man sie aus den meisten Programmiersprachen kennt.</p>
+
+<h5 id="listen-rendern">Listen Rendern</h5>
+
+<p>Schleifen können innerhalb eines Templates mit <code>v-for</code> realisiert werden. Die Syntax ist vergleichbar mit JavaScripts <code>for...of</code> statement:</p>
+<pre><code class="language-html">&lt;div id="app"&gt;
+    &lt;ol&gt;
+        &lt;li v-for="item in items"&gt;
+            {{ item.text }}
+        &lt;/li&gt;
+    &lt;/ol&gt;
+&lt;/div&gt;
+</code></pre>
+<pre><code class="language-javascript">var app = new Vue({
+    el: '#app',
+    data: {
+        items: [
+            { text: 'Das ist ein Listenelement' },
+            { text: 'Das ist ein anderes' },
+            { text: 'Und noch eins' }
+        ]
+    }
+})
+</code></pre>
+<p><strong>Ergebnis:</strong></p>
+<pre><code>1. Das ist ein Listenelement
+2. Das ist ein anderes
+3. Und noch eins
+</code></pre>
+<p><em>Beispiel auf <a href="https://jsfiddle.net/bx2w57y9/">JSFiddle</a> anschauen.</em></p>
+
+<p>Alternativ kann man auch folgende Syntax verwenden, um Zugriff auf den aktuellen Index zu bekommen:
+<code>v-for="(item, index) in items"</code>.</p>
+
+<p>Außerdem kann <code>v-for</code> nicht nur über Arrays, sondern auch über JavaScript Objekte iterieren. Entweder iteriert man nur über die Attribute:</p>
+<pre><code class="language-html">&lt;li v-for="value in object"&gt;
+    {{ value }}
+&lt;/li&gt;
+</code></pre>
+<p>oder über <em>key value</em> -Paare:</p>
+<pre><code class="language-html">&lt;li v-for="(value, key) in object"&gt;
+    {{ key }}: {{ value }}
+&lt;/li&gt;
+</code></pre>
+
+<h5 id="zwei-wege-bindung">Zwei-Wege Bindung</h5>
+
+<p>Die Inhalte des Templates an Variablen aus dem Model binden ist mit <em>directives</em> und <code>{{ ... }}</code> einfach. Aber was, wenn man Bindung in die andere Richtung erreichen möchte? Zum Beispiel, wenn der Wert einer Variablen den eines <code>input</code> Tags annehmen soll?</p>
+
+<p>Das <code>v-model</code> <em>directive</em> macht <em>bidirectional binding</em> einfach. Tippt der User etwas in das <code>&lt;input&gt;</code> Feld ein, wird der Inhalt an die <code>message</code> Variable übertragen und die Änderung wiederum löst ein erneutes rendering des <code>&lt;p&gt;</code> Tags aus:</p>
+<pre><code class="language-html">&lt;div id="app"&gt;
+    &lt;p&gt;{{ message }}&lt;/p&gt;
+    &lt;input v-model="message"&gt;
+&lt;/div&gt;
+</code></pre>
+<pre><code class="language-javascript">var app = new Vue({
+    el: '#app',
+    data: {
+        message: 'User-Eingabe mit Vue'
+    }
+})
+</code></pre>
+
+<p>Seht euch das Beispiel auf <a href="https://jsfiddle.net/wbv0ec2j/">JSFiddle</a> an und tippt etwas in das Eingabefeld.</p>
+
+<h5 id="directive-argumente">Directive Argumente</h5>
+
+<p>Einige <em>directives</em> können Argumente annehmen, diese werden mit einem Doppelpunkt gekennzeichnet. Zum Beispiel <code>v-bind</code>, mit dem man gewöhnliche HTML Attribute an das Model binden kann. Der Wert des <code>href</code> Attributes ist an die <code>url</code> Variable gebunden und ändert sich dynamisch:</p>
+<pre><code class="language-html">&lt;div id="app"&gt;
+    &lt;a v-bind:href="url"&gt; Ein Link &lt;/a&gt;
+&lt;/div&gt;
+</code></pre>
+<pre><code class="language-javascript">new Vue({
+    el: "#app",
+    data: {
+        url: 'https://vuejs.org/'
+    }
+})
+</code></pre>
+<p><em>Beispiel auf <a href="https://jsfiddle.net/qLjxfbep/">JSFiddle</a> anschauen.</em></p>
+
+<p>Ein weiteres Beispiel ist <code>v-on</code>, welches auf DOM Events hört:</p>
+<pre><code class="language-html">&lt;div id="app"&gt;
+    &lt;p v-on:click="doSomething"&gt; Klick mich &lt;/p&gt;
+&lt;/div&gt;
+</code></pre>
+<pre><code class="language-javascript">new Vue({
+    el: "#app",
+    methods: {
+        doSomething() {
+            alert("Hallo")
+        }
+    }
+})
+</code></pre>
+<p><em>Beispiel auf <a href="https://jsfiddle.net/nctvzs85/">JSFiddle</a> anschauen.</em></p>
+
+<p>Klickt der User also auf diesen Link, wird die <code>doSomething</code> Methode aufgerufen. Methoden sind bei Vue innerhalb des <code>methods</code> Objektes anzulegen, damit sie vom Template aus verwendbar sind.</p>
+
+<p>Da <code>v-bind</code> und <code>v-on</code> sehr häufig auftreten können sie abgekürzt werden: 
+<code>v-bind:class="..."</code> ist equivalent zu <code>:class="..."</code>. Das gleiche gilt für
+<code>v-on:click="..."</code> und <code>@click="..."</code>.</p>
+
+<h4 id="was-sind-vue-komponenten">Was sind Vue Komponenten?</h4>
+
+<p>Es ist typisch für Vue Apps in einem Baum von verschachtelten Komponenten organisiert zu sein. Komponenten sind wiederverwendbare Vue Instanzen.</p>
+
+<pre><code class="language-javascript">Vue.component('blog-post', {
+    props: ['title'],
+    template: '&lt;h3&gt;{{ title }}&lt;/h3&gt;'
+})
+
+...
+
+new Vue(
+    ...
+)
+</code></pre>
+
+<pre><code class="language-html">&lt;blog-post title="Eine Überschrift" /&gt;
+&lt;blog-post title="Eine weitere Überschrift" /&gt;
+&lt;blog-post title="Und noch eine Überschrift" /&gt;
+</code></pre>
+
+<p>Komponenten können Properties (<code>props</code>) besitzen. Das ermöglicht es, Werte an Kind-Komponenten zu übergeben, wie hier mit <code>title="..."</code>.</p>
+
+<p>Globale Komponenten werden mit <code>Vue.component(...)</code> registriert und können in allen Vue-Instanzen verwendet werden, die nach der Regristrierung mit <code>new Vue(...)</code> instanziiert werden. Um komplexere Strukturen aufzubauen, kann man eine Komponente aber auch in einer <code>.vue</code> Datei anlegen, um sie anschließend an anderer Stelle als lokale Komponente zu importieren.</p>
+
+<p>Hier ist das gleiche Beispiel der Blog Post Komponente umgesetzt mit lokalen Komponenten in <code>.vue</code> Dateien:</p>
+
+<p><strong>BlogPost.vue</strong></p>
+<pre><code class="language-html">&lt;template&gt;
+    &lt;div class="blogpost"&gt;
+        &lt;h1&gt;{{ title }}&lt;/h1&gt;
+        &lt;p&gt;
+            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+        &lt;/p&gt;
+    &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+export default {
+    name: 'BlogPost',
+    props: {
+        title: {
+            type: String,
+            required: true
+        }
+    }
+}
+&lt;/script&gt;
+
+&lt;style scoped&gt;
+h1 {
+    font-weight: normal;
+    color: #42b983;
+}
+
+.blogpost {
+    margin: 60px;
+    width: 600px;
+}
+&lt;/style&gt;
+</code></pre>
+
+<p>In dieser Komponente wurde innerhalb des <code>&lt;script&gt;</code> Tags (Der JavaScript-Teil der Vue-Komponente) ein Property <code>title</code> vom Typ <code>String</code> definiert, welches <code>required</code> ist. Dieses Property wird in dem <code>&lt;template&gt;</code> Bereich innerhalb eines <code>&lt;h1&gt;</code> Tag angezeigt. Darunter ist noch ein <code>&lt;p&gt;</code> Tag mit einem Platzhalter-Text.</p>
+
+<p>Der <code>&lt;style&gt;</code> Tag ist <code>scoped</code> und wird deshalb nur auf diese Komponente angewendet.</p>
+
+<p>Die BlogPost-Komponente wird hier in der App-Komponente verwendet:</p>
+
+<p><strong>App.vue</strong></p>
+<pre><code class="language-html">&lt;template&gt;
+    &lt;div id="app"&gt;
+        &lt;BlogPost 
+            v-for="post in posts"
+            v-bind:title="post.title"
+            v-bind:key="post.id"
+        /&gt;
+    &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+import BlogPost from './components/BlogPost'
+
+export default {
+    name: 'App',
+    components: {
+        BlogPost
+    },
+    data() {
+      return {
+        posts: [
+            { id: 1, title: 'Eine Überschrift'},
+            { id: 2, title: 'Eine weitere Überschrift'},
+            { id: 3, title: 'Und noch eine Überschrift'}
+        ]
+      }
+    }
+}
+&lt;/script&gt;
+
+&lt;style&gt;
+#app {
+    font-family: Helvetica, Arial, sans-serif;
+}
+&lt;/style&gt;
+</code></pre>
+
+<p>In dieser Komponente wird die BlogPost-Komponente mit <code>import BlogPost from './components/BlogPost'</code> importiert und kann anschließend im Template mit <code>&lt;BlogPost ...&gt;</code> verwendet werden.</p>
+
+<p>In <code>data</code> ist hier beispielsweise ein Array aus JavaScript Objekten mit den Titeln der Blog Posts (<code>posts</code>) angelegt worden, typischerweise würden diese Daten aber von einem Server asynchron via (REST) API geladen werden.</p>
+
+<p>Weil hier mehrere BlogPosts angezeigt werden sollen, wird über das <code>posts</code> Array mit <code>v-for="post in posts"</code> iteriert. Dadurch wird für jedes Objekt in <code>posts</code> eine BlogPost-Komponente erzeugt.</p>
+
+<p>Da in der BlogPost-Komponente das Property <code>title</code> als <code>required</code> definiert wurde, muss dieses mit <code>v-bind:title="post.title"</code> an die Komponente übergeben werden.</p>
+
+<p>Darüber hinaus wird noch die <code>id</code> mit <code>v-bind:key="post.id"</code> übergeben, damit Vue in der Lage ist die Komponenten-Instanzen eindeutig zu identifizieren.</p>
+
+<p><strong>Ergebnis:</strong></p>
+
+<p><img src="/assets/images/posts/frontend-entwicklung-mit-vuejs-für-einsteiger/vue-components-example.png" alt="Vue Komponenten Beispiel" title="Vue Komponenten Beispiel" /></p>
+
+<p><em>Falls das etwas zu schnell ging, kann man dieses Beispiel auf <a href="https://codesandbox.io/s/8xp35z1r70?fontsize=14&amp;module=%2Fsrc%2FApp.vue">codesandbox.io</a> – einem online Code Editor – genauer anschauen.</em></p>
+
+<p>Vues Komponenten-System macht es sehr einfach, komplexe Strukturen aufzubauen und zu pflegen. Man könnte die BlogPost-Komponente ohne Probleme erweitern. Beispielsweise mit einer BlogPostContent-Komponente anstelle des Lorem ipsum Platzhalters.</p>
+
+<h4 id="sollte-ich-vue-für-mein-nächstes-projekt-verwenden">Sollte ich Vue für mein nächstes Projekt verwenden?</h4>
+
+<p>Vue macht Spaß, ist einsteigerfreundlich und performant. Aber wie immer gilt:
+“whatever does the job”. Es wird immer Fälle geben, in denen andere Frameworks überlegen sein werden oder es einfachere Lösungen gibt. Ich kann euch Vue trotzdem nahelegen, vor allem wenn ihr ohne viel Aufwand Prototypen entwerfen wollt oder Einsteiger in die Web-Entwicklung seid.</p>
+
+<p>Falls ich euer Interesse geweckt habe, könnt ihr hier weiterlesen:</p>
+
+<ol>
+  <li>
+    <p>Guide &amp; Documentation: <a href="https://vuejs.org/v2/guide/">vuejs.org</a></p>
+  </li>
+  <li>
+    <p>Commandline Interface zum einfachen Anlegen von neuen Projekten: <a href="https://cli.vuejs.org/guide/">Vue CLI</a></p>
+  </li>
+  <li>
+    <p>Vue Devtools: <a href="https://chrome.google.com/webstore/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd">Chrome</a> / <a href="https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/">Firefox</a></p>
+  </li>
+  <li>
+    <p>Offizielle Liste mit Ressourcen, Guides, Libraries, Komponeten etc: <a href="https://github.com/vuejs/awesome-vue">awesome-vue</a></p>
+  </li>
+  <li>
+    <p>VS Code Extension: <a href="https://marketplace.visualstudio.com/items?itemName=octref.vetur">Vetur</a></p>
+  </li>
+</ol>
+
+</div>
+</div>
+</div>
+</div>]]></field>
+    </document>
+</documents>

@@ -1,0 +1,486 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<documents>
+    <document uid="5bf97ac7f4ed2b715b13ed7c09550456">
+        <field name="title"><![CDATA[Micronaut - Eine Alternative zu Spring]]></field>
+        <field name="subline"><![CDATA[]]></field>
+        <field name="teaser"><![CDATA[<p>Ja, richtig gelesen, es gibt Alternativen!
+Obwohl der Platzhirsch Spring sich bei Java-Anwendungen großer Beliebtheit erfreut, sollte man nicht vergessen, dass es daneben auch noch andere Frameworks gibt, die einen Blick wert sind.
+In diesem Blog-Artikel soll es um Micronaut gehen, ein noch vergleichsweise junges Framework, welches jedoch einige interessante Eigenschaften hat, die es besonders im Cloud-Umfeld zu einem echten Rivalen gegenüber Spring machen.
+Wir implementieren in diesem Artikel eine Anwendung einmal mit Spring Boot und einmal mit Micronaut.
+Danach vergleichen wir die beiden Ansätze und schauen, wo welches Framework überlegen ist.</p>
+
+]]></field>
+        <field name="language_multi_keyword"><![CDATA[de]]></field>
+        <field name="content_type_multi_keyword"><![CDATA[blog]]></field>
+        <field name="mime_type_multi_keyword"><![CDATA[text/html]]></field>
+        <field name="category_multi_keyword"><![CDATA[Java]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Microservices]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Micronaut]]></field>
+        <field name="date_date"><![CDATA[2019-02-18T09:00:00+01:00]]></field>
+        <field name="date_l"><![CDATA[1550476800000]]></field>
+        <field name="change_date"><![CDATA[1557385200000]]></field>
+        <!--Picture-->
+        <!-- Not in use at the moment-->
+        <!--Author Information-->
+        <field name="author_first_name"><![CDATA[Thomas]]></field>
+        <field name="author_last_name"><![CDATA[Buß]]></field>
+        <field name="author_id"><![CDATA[t-buss]]></field>
+        <field name="author_picture_stored_only"><![CDATA[http://localhost:4000/assets/images/avatars/tbuss.jpg]]></field>
+        <!--Postcontent-->
+        <field name="headlines"><![CDATA[Micronaut - Eine Alternative zu Spring]]></field>
+        <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
+            <p>Ja, richtig gelesen, es gibt Alternativen!
+Obwohl der Platzhirsch Spring sich bei Java-Anwendungen großer Beliebtheit erfreut, sollte man nicht vergessen, dass es daneben auch noch andere Frameworks gibt, die einen Blick wert sind.
+In diesem Blog-Artikel soll es um Micronaut gehen, ein noch vergleichsweise junges Framework, welches jedoch einige interessante Eigenschaften hat, die es besonders im Cloud-Umfeld zu einem echten Rivalen gegenüber Spring machen.
+Wir implementieren in diesem Artikel eine Anwendung einmal mit Spring Boot und einmal mit Micronaut.
+Danach vergleichen wir die beiden Ansätze und schauen, wo welches Framework überlegen ist.</p>
+
+</div>]]></field>
+        <field name="content"><![CDATA[<div class="adesso-text-formate">
+<div class="row p-t-2">
+<div class="adesso-container">
+<div class="col-xl-8 adesso-center p-b-1 p-l-0 p-r-0">
+    <p>Ja, richtig gelesen, es gibt Alternativen!
+Obwohl der Platzhirsch Spring sich bei Java-Anwendungen großer Beliebtheit erfreut, sollte man nicht vergessen, dass es daneben auch noch andere Frameworks gibt, die einen Blick wert sind.
+In diesem Blog-Artikel soll es um Micronaut gehen, ein noch vergleichsweise junges Framework, welches jedoch einige interessante Eigenschaften hat, die es besonders im Cloud-Umfeld zu einem echten Rivalen gegenüber Spring machen.
+Wir implementieren in diesem Artikel eine Anwendung einmal mit Spring Boot und einmal mit Micronaut.
+Danach vergleichen wir die beiden Ansätze und schauen, wo welches Framework überlegen ist.</p>
+
+<p>Entwickelt wird das <a href="http://micronaut.io">Micronaut-Framework</a> von <a href="https://objectcomputing.com/">OCI</a>, genauer gesagt unter der Federführung von <a href="https://twitter.com/graemerocher">Graeme Rocher</a>, der schon das <a href="https://grails.org/">Grails</a> Framework ins Leben gerufen hat.
+Sowohl die Erfahrungen mit Spring als auch mit Grails sind in Micronaut eingeflossen.
+Daher kommen die Paradigmen und das Programmiermodell erfahrenen Spring-Entwicklern schon von Beginn an sehr vertraut vor (mehr dazu später).
+Das Framework beschreibt sich selbst als “modernes, JVM-basiertes Full Stack Framework um modulare, einfach zu testende Microservices- und Serverless-Anwendungen zu bauen”.
+In dieser Beschreibung liegt auch schon der wesentliche Unterschied zum Spring Framework: Es legt den Fokus auf Microservices und Serverless-Anwendungen, womit sich JVM-Frameworks aktuell noch eher schwer tun.</p>
+
+<h4 id="der-kleine-nachteil-von-spring">Der kleine Nachteil von Spring</h4>
+<p>Java-Anwendungen kommen von Haus aus mit einigem Overhead daher.
+Die JVM allein benötigt nach <a href="https://www.java.com/en/download/help/sysreq.xml">offiziellen Angaben</a> bereits etwa 128Mb RAM und 124Mb Festplattenspeicher.
+Für traditionelle Anwendungen ist dies voll und ganz vertretbar, bei Docker-Containern in einem Cluster oder gar als FaaS-Instanz sind solche Zahlen aber nicht mehr zeitgemäß.
+Zum Vergleich: nicht-triviale Anwendungen in der Programmiersprache Go sind nach der Kompilation oftmals nur 20-30Mb groß.
+Eine andere, wichtige Metrik ist die Startzeit einer Anwendung.
+Durch den Laufzeit-Reflection-Ansatz von Spring sind Startzeiten jenseits der 20 Sekunden keine Seltenheit.
+Auch das ist besonders für Serverless-Anwendungen nicht hinnehmbar.</p>
+
+<h4 id="was-micronaut-unterscheidet">Was Micronaut unterscheidet</h4>
+<p>Micronaut geht einen anderen Weg als Spring und kann damit einige der Performance-Einbußen wett machen.
+Besonders die Startzeit wird ungeheuer verringert, was Java-Entwicklern den Einstieg in die Serverless-Welt eröffnet.
+Aber auch der RAM-Verbrauch sinkt.</p>
+
+<p>Wie erreicht Micronaut diese Verbesserungen?
+Die Antwort liegt in der Kompilation.
+Spring durchsucht zur Laufzeit per Reflection den Classpath nach Beans, initialisiert diese und lädt sie dann dynamisch in den Application Context.
+Dann werden die Beans dort “injected”, wo sie benötigt werden.
+Während das ein sehr einfacher und erprobter Ansatz ist, verlängert er jedoch die Startzeit durch diesen Overhead.
+Die Startzeit leidet dabei umso mehr, je mehr Klassen die Anwendung enthält.
+Micronaut hingegen verwendet “Annotation Processors”, die die nötigen Informationen zur Compile-Zeit sammlen und Ahead-of-Time (AOT) die nötigen Transformationen für Dependency Injection (DI) und Aspect Oriented Programming (AOP) erledigen.
+Das verkürzt die Startzeit der Anwendung, erhöht jedoch die Compile-Zeit.
+Zudem fallen durch dieses Vorgehen etwaige Fehler wie eine nicht-zu-erfüllende Abhängigkeit schon zur Compile-Zeit auf.
+Außerdem ist die Startzeit nicht abhängig von der Größe der Anwendung.
+Einmal kompiliert ist die Startzeit dadurch relativ konstant.</p>
+
+<p>Die Implikation dieses Compile-Zeit-Ansatzes ist natürlich, dass die Libraries, die zusätzlich zum Framework in die Anwendung einfließen, ebenfalls auf das Nachladen von Beans per Reflection verzichten müssen.
+Das AOP-Framework AspectJ ist beispielsweise ungeeignet für Micronaut, weswegen Micronaut selbst eine AOP-Lösung bereitstellt.</p>
+
+<p>Wie stark die durch das Framework erzielten Verbesserungen sind, wollen wir uns jetzt einmal in einer einfachen Anwendung anschauen.</p>
+
+<h4 id="die-spring-anwendung">Die Spring-Anwendung</h4>
+<p>Als Beispiel nehmen wir eine einfache Anwendung für einen Einkaufswagen.
+Den kompletten Code findet man auf <a href="https://github.com/t-buss/shopping-cart/tree/master/shopping-cart-spring">GitHub</a>.
+Per HTTP können wir Produkte in den Einkaufswagen legen, diese abfragen oder wieder löschen.
+Wir starten mit der Spring-Boot-Anwendung.
+Dazu gehen wir auf <a href="https://start.spring.io/">https://start.spring.io/</a> und stellen uns zusammen, was wir brauchen: Eine Java 8 Anwendung mit Gradle und Spring Boot 2.1.2.
+Die Namen für Group und Artifact sind prinzipiell egal, ich wähle <code>com.example.myshop</code> und <code>shopping-cart</code>.
+Als Abhängigkeiten benötigen wir lediglich das Web-Paket.</p>
+
+<p><img src="/assets/images/posts/micronaut/spring-initializer.png" alt="Die Spring Initializer Konfiguration" title="Die Spring Initializer Konfiguration" /></p>
+
+<p>Wir erhalten eine Archiv-Datei, die wir irgendwo auf unserem Rechner entpacken können.</p>
+
+<h5 id="der-code">Der Code</h5>
+<p>Schreiben wir nun die Anwendung.
+Wer mit Spring Boot vertraut ist, sollte mit diesem Code keine Probleme haben.
+Wir beginnen mit einem Controller mit dem Namen <code>ShoppingCartController.java</code>:</p>
+
+<pre><code class="language-java">@RestController("/shoppingCart")
+public class ShoppingCartController {
+
+    private final ShoppingCartService shoppingCartService;
+
+    public ShoppingCartController(ShoppingCartService shoppingCartService) {
+        this.shoppingCartService = shoppingCartService;
+    }
+
+    @GetMapping
+    public List&lt;Product&gt; getAllProducts() {
+        return shoppingCartService.getAllProducts();
+    }
+
+    @PostMapping
+    public void addProduct(@RequestBody Product product) {
+        shoppingCartService.addProduct(product);
+    }
+
+    @DeleteMapping
+    public Optional&lt;Product&gt; deleteProduct(@RequestBody Product product) {
+        return shoppingCartService.deleteProduct(product);
+    }
+}
+</code></pre>
+
+<p>Als nächstes erstellen wir den Service unter <code>ShoppingCartService.java</code>:</p>
+<pre><code class="language-java">@Service
+public class ShoppingCartService {
+
+    private final ArrayList&lt;Product&gt; products = new ArrayList&lt;&gt;();
+
+    public List&lt;Product&gt; getAllProducts() {
+        return products;
+    }
+
+    public void addProduct(Product product) {
+        products.add(product);
+    }
+
+    public Optional&lt;Product&gt; deleteProduct(Product product) {
+        Optional&lt;Product&gt; result = products.stream()
+                .filter(p -&gt; p.getId().equals(product.getId()))
+                .findFirst();
+        result.ifPresent(products::remove);
+        return result;
+    }
+}
+</code></pre>
+<p>Der Service hält der Einfachheit halber alle Produkte in einer lokalen Liste.
+Das POJO für ein Produkt schreiben wir in <code>Product.java</code>:</p>
+<pre><code class="language-java">public class Product {
+
+    private final Long id;
+    private final String description;
+
+    public Product(Long id, String description) {
+        this.id = id;
+        this.description = description;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+}
+</code></pre>
+
+<h5 id="befehle">Befehle</h5>
+<p>Die Anwendung lässt sich mit folgendem Befehl über die Kommandozeile oder über die IDE starten:</p>
+<pre><code class="language-bash">$ ./gradlew bootRun
+</code></pre>
+
+<p>Zum Erstellen eines Produkts:</p>
+<pre><code class="language-bash">$ curl -X POST -H "Content-Type: application/json" -d '{"id": 1, "description": "Tricorder"}' http://localhost:8080/shoppingCart
+</code></pre>
+
+<p>Zum Abfragen der Liste:</p>
+<pre><code class="language-bash">$ curl http://localhost:8080/shoppingCart`
+</code></pre>
+
+<p>Zum Löschen:</p>
+<pre><code class="language-bash">$ curl -X DELETE -H "Content-Type: application/json" -d '{"id": 1}' http://localhost:8080/shoppingCart
+</code></pre>
+<p>Wir können eine ausführbare JAR-Datei mit folgendem Befehl generieren:</p>
+<pre><code class="language-bash">$ ./gradlew bootJar
+</code></pre>
+
+<h5 id="ressourcenverbrauch">Ressourcenverbrauch</h5>
+<p>Schauen wir uns nun die nackten Zahlen an:</p>
+<table>
+        <tr>
+            <td></td>
+            <td>Spring</td>
+            <td> Micronaut</td>
+        </tr>
+    <tr>
+        <td>Compile-Zeit</td>
+        <td>1937ms</td>
+        <td>?</td>
+    </tr>
+    <tr>
+        <td>JAR-Größe</td>
+        <td>15,2 MiB</td>
+        <td>?</td>
+    </tr>
+    <tr>
+        <td>Startzeit ohne JVM</td>
+        <td>3,72s</td>
+        <td>?</td>
+    </tr>
+    <tr>
+        <td>Startzeit mit JVM</td>
+        <td>~5s</td>
+        <td>?</td>
+    </tr>
+    <tr>
+        <td>RAM-Verbrauch</td>
+        <td>289,9 MiB</td>
+        <td>?</td>
+    </tr>
+</table>
+
+<p>Als Compile-Zeit nehmen wir die Zeit für den Gradle Task <code>bootJar</code> nach einem vorherigen <code>./gradlew clean</code>.
+Die Startzeit beträgt laut Spring-Ausgabe 3,72 Sekunden. Die tatsächliche Startzeit enthält zusätzlich noch die Startzeit der JVM, womit wir in Summe bei etwa 5 Sekunden landen.</p>
+
+<h4 id="die-micronaut-anwendung">Die Micronaut-Anwendung</h4>
+<p>Die vorangegangene Anwendung dient uns nun als Vergleichspunkt.
+Schauen wir mal, wie sich die Micronaut-Anwendung schlägt.
+Der komplette Code ist ebenfalls auf <a href="https://github.com/t-buss/shopping-cart/tree/master/shopping-cart-micronaut">GitHub</a> verfügbar.
+Anders als bei Spring Boot kommt Micronaut mit einem Kommandozeilen-Tool daher, welches die Erstellung von Projekten übernimmt.
+Für die Installation sei auf die <a href="http://micronaut.io/download.html">offizielle Micronaut-Seite</a> verwiesen.</p>
+
+<p>Mit dem Tool <code>mn</code> können wir nun die Anwendung erstellen:</p>
+<pre><code class="language-bash">$ mn
+</code></pre>
+
+<p>Nun landen wir in einer Shell, wo uns einige Micronaut-spezifische Befehle zur Verfügung stehen.
+Wir erstellen eine neue Anwendung im aktuellen Verzeichnis mit <code>create-app</code>.
+Wenn wir dahinter noch <code>--features=</code> eingeben und ein mal auf TAB drücken, bekommen wir eine Übersicht über die zusätzlichen Features, die Micronaut mitliefert.
+Darunter finden sich auch die JVM-Sprachen Groovy und Kotlin, sowie mehrere Projekte aus dem Netflix-Stack für Microservices.
+Für’s erste begnügen wir uns mit den Standard-Einstellungen bis auf eine “Kleinigkeit”: GraalVM Native Image.
+Worum es sich dabei handelt, dazu später mehr.
+Wir erstellen das Projekt mit diesem Befehl:</p>
+<pre><code class="language-bash">mn&gt; create-app --features=graal-native-image com.example.myshop.shoppingcart.shopping-cart-micronaut
+</code></pre>
+
+<p>Mit <code>exit</code> können wir die Shell verlassen, um dann in den gerade erstellten Ordner zu wechseln und dort wieder <code>mn</code> auszuführen.
+Nun können wir direkt mit der Programmierung anfangen.</p>
+
+<h5 id="der-code-1">Der Code</h5>
+<p>Beginnen wir wieder mit dem Controller.
+Noch in der Micronaut-Shell geben wir den Befehl zur Erstellung des Controllers ein:</p>
+<pre><code class="language-bash">mn&gt; create-controller ShoppingCart
+</code></pre>
+
+<p>Dies erstellt sowohl den Controller als auch einen dazugehörigen Test und erspart uns etwas Zeit, da wir die Dateien nicht von Hand selbst erstellen müssen.
+Und da wir gerade dabei sind, erstellen wir die Service-Bean gleich mit:</p>
+<pre><code class="language-bash">mn&gt; create-bean ShoppingCartService
+</code></pre>
+
+<p>Nun an den Code für unseren Controller:</p>
+<pre><code class="language-java">@Controller("/shoppingCart")
+public class ShoppingCartController {
+
+    private final ShoppingCartService shoppingCartService;
+
+    public ShoppingCartController(ShoppingCartService shoppingCartService) {
+        this.shoppingCartService = shoppingCartService;
+    }
+
+    @Get
+    public List&lt;Product&gt; getAllProducts() {
+        return shoppingCartService.getAllProducts();
+    }
+
+    @Post
+    public void addProduct(@Body Product product) {
+        shoppingCartService.addProduct(product);
+    }
+
+    @Delete
+    public Optional&lt;Product&gt; deleteProduct(@Body Product product) {
+        return shoppingCartService.deleteProduct(product);
+    }
+}
+</code></pre>
+<p>Kommt einem sehr bekannt vor!
+Micronaut will den Entwicklern kein neues Programmiermodell aufzwingen, weshalb der “reine” Java-Code identisch mit dem der Spring-Lösung ist.
+Tatsächlich gibt es ein <a href="https://github.com/micronaut-projects/micronaut-spring">Projekt</a>, welches das Ziel hat, Spring-Annotationen in Micronaut verfügbar zu machen.
+Das Framework ändert jedoch einige Namen der Annotationen.
+Aus <code>@RestController</code> wird <code>@Controller</code>, aus <code>@GetMapping</code> wird <code>@Get</code> usw.</p>
+
+<p>Auch den Service, den wir über das Kommandozeilen-Tool erstellt haben, können wir fast genau so übernehmen.
+Aus <code>@Service</code> wird hier <code>@Singleton</code>, wie wir in dem Template erkennen können, welches wir zuvor durch das Kommandozeilen-Tool erstellt haben.
+Der Rest des Java-Codes bleibt hier ebenfalls gleich.</p>
+
+<p>Das Produkt-POJO unterscheidet sich etwas von seinem Spring-Pendant:</p>
+<pre><code class="language-java">    ...
+    public Product(@JsonProperty("id") Long id,
+                   @JsonProperty("description") String description) {
+        this.id = id;
+        this.description = description;
+    }
+    ...
+</code></pre>
+<p>Der Konstruktor benötigt in den Argumenten die <code>@JsonProperty</code>-Annotation aus der <a href="https://github.com/FasterXML/jackson">Jackson-Bibliothek</a>, um eintreffende Daten im JSON-Format richtig mappen zu können.</p>
+
+<h5 id="befehle-1">Befehle</h5>
+<p>Die Anwendung lässt sich mit diesem Befehl starten:</p>
+<pre><code class="language-bash">$ ./gradlew run
+</code></pre>
+
+<p>Eine ausführbare JAR-Datei erzeugen wir mit:</p>
+<pre><code class="language-bash">$ ./gradlew assemble
+</code></pre>
+
+<p>Die cURL-Befehle sind identisch mit denen der Spring-Version.</p>
+
+<h5 id="ressourcenverbrauch-1">Ressourcenverbrauch</h5>
+<p>Schauen wir uns die Zahlen der Micronaut-Lösung an und vergleichen sie direkt mit den Zahlen der Spring-Lösung:</p>
+<table>
+<tr>
+<td></td>
+<td>Spring</td>
+<td>Micronaut</td>
+<td>Unterschied</td>
+</tr>
+<tr>
+<td>Compile-Zeit</td>
+<td>1937ms</td>
+<td>10,5s</td>
+<td><span style="color: red">  +442%  </span></td>
+</tr>
+<tr>
+<td>JAR-Größe</td>
+<td>15,2 MiB</td>
+<td>11,3 MiB</td>
+<td><span style="color: green">-25,6% </span></td>
+</tr>
+<tr>
+<td>Startzeit ohne JVM</td>
+<td>3,72s</td>
+<td>1,39s</td>
+<td><span style="color: green">-62,6% </span></td>
+</tr>
+<tr>
+<td>Startzeit mit JVM</td>
+<td>~5s</td>
+<td>~3s</td>
+<td><span style="color: green">-40,0% </span></td>
+</tr>
+<tr>
+<td>RAM-Verbrauch</td>
+<td>289,9 MiB</td>
+<td>194,4 MiB</td>
+<td><span style="color: green">-32,9% </span></td>
+</tr>
+</table>
+<p>Der Vergleich mit Spring zeigt die Verbesserungen von Micronaut gegenüber Spring.
+Während zwar die Compile-Zeit nun signifikant länger ist, kann das Framework bei anderen Metriken mächtig punkten.
+Dabei ist zu beachten, dass die Startzeit je nach Größe der Anwendung bei Spring immer länger werden wird, während die Startzeit der Micronaut-Anwendung relativ konstant bleibt.</p>
+
+<h4 id="bonus-graalvm-native-image">BONUS: GraalVM Native Image</h4>
+<p>Als wir die Micronaut-Anwendung über das Kommandozeilen-Tool erstellt haben, haben wir dabei das Feature <code>graal-native-image</code> angegeben.
+Bei <a href="https://www.graalvm.org/">GraalVM</a> handelt es sich um eine virtuelle Maschine mit Unterstützung für verschiedene Sprachen, die von Oracle entwickelt wird.
+Dadurch erhalten wir die Möglichkeit, Code aus verschiedenen Sprachen innerhalb der gleichen Runtime laufen zu lassen.
+Aber das ist nur der Anfang: GraalVM bietet die Möglichkeit, Java-Anwendungen in native Binaries kompilieren zu lassen.
+Diese können dann ohne JVM oder GraalVM ausgeführt werden.
+Dieser Schritt wird nur möglich, wenn die Anwendung wenig bis gar kein reflexives Nachladen benutzt (siehe <a href="https://github.com/oracle/graal/blob/master/substratevm/REFLECTION.md">hier</a> für eine detailierte Erklärung).
+Daher eignet sich eine Micronaut-Anwendung ausgesprochen gut für den Einsatz mit GraalVM.</p>
+
+<p>Nachdem man GraalVM <a href="https://www.graalvm.org/docs/getting-started/">installiert</a> hat, erhält man einen “JDK-Ersatz”.
+Alle Programme wie <code>java</code> und <code>javac</code> sind enthalten und verhalten sich genau wie ihr ursprüngliches Gegenstück.
+Der Unterschied liegt darin, dass die Java-Programme nun in der GraalVM, nicht in der JVM ausgeführt werden.
+Jedoch liefert GraalVM zusätzlich zu den normalen JDK-Programmen ein Tool, welches die Kompilierung zu einer nativen Binary vornehmen kann.</p>
+
+<h5 id="micronaut-anwendung-binär-kompilieren">Micronaut-Anwendung binär kompilieren</h5>
+<p>Wir wollen dieses Tool bei unserer kleinen Micronaut-Anwendung einmal ausprobieren.
+Dazu installieren wir also GraalVM nach der offiziellen <a href="https://www.graalvm.org/docs/getting-started/">Dokumentation</a>.
+Wenn alles glatt lief, sollte die Version der GraalVM nun neben der Java-Version angezeigt werden:</p>
+<pre><code class="language-sh">$ java -version
+openjdk version "1.8.0_192"
+OpenJDK Runtime Environment (build 1.8.0_192-20181024121959.buildslave.jdk8u-src-tar--b12)
+GraalVM 1.0.0-rc11 (build 25.192-b12-jvmci-0.53, mixed mode)
+</code></pre>
+
+<p>Jetzt sollte auch das Programm <code>native-image</code> über die Kommandozeile verfügbar sein.
+Die Micronaut-CLI hat uns bereits das Bash-Script <code>build-native-image.sh</code> in unserem Projektverzeichnis generiert.
+Es enthält im Wesentlichen einen Gradle-Aufruf zur Generierung der JAR und den Aufruf von <code>native-image</code> mit einigen Flags, die für die Generierung der nativen Binary nötig sind.
+Der Nachteil an diesem Verfahren: Es benötigt eine Menge(!) RAM.
+Wer nicht genug RAM bereitstellt, für den wird der Prozess mit dem ominösen Fehler 137 enden.
+16GB RAM sollten mindestens vorhanden sein.</p>
+
+<p>Wem es gelungen ist, der wird belohnt: Die erzeugte Binary lässt sich bequem ohne eine JVM starten:</p>
+<pre><code class="language-bash">$ ./shopping-cart-micronaut
+14:53:31.707 [main] INFO  io.micronaut.runtime.Micronaut - Startup completed in 16ms. Server Running: http://localhost:8080
+</code></pre>
+
+<p>16ms!
+Eine gigantische Reduzierung der Startzeit!
+Schauen wir uns die restlichen Metriken in der Tabelle an:</p>
+<table>
+<tr>
+<td></td>
+<td>Micronaut (JVM)</td>
+<td>Graal Native Image</td>
+<td>Unterschied</td>
+</tr>
+<tr>
+<td>Compile-Zeit</td>
+<td>10,5s</td>
+<td>2,5min = 150s</td>
+<td><span style="color: red">+1428,6%</span></td>
+</tr>
+<tr>
+<td>Executable-Größe</td>
+<td>11,3 MiB</td>
+<td>41,2 MiB</td>
+<td><span style="color: red"> +364,6%</span></td>
+</tr>
+<tr>
+<td>Startzeit ohne JVM</td>
+<td>1,39s</td>
+<td>16ms</td>
+<td><span style="color: green">-98,8%</span></td>
+</tr>
+<tr>
+<td>Startzeit mit JVM</td>
+<td>~3s</td>
+<td>16ms</td>
+<td><span style="color: green">-99,4%</span></td>
+</tr>
+<tr>
+<td>RAM-Verbrauch</td>
+<td>194,4 MiB</td>
+<td>23,5 MiB</td>
+<td><span style="color: green">-87,9%</span></td>
+</tr>
+</table>
+
+<p>Die Compile-Zeit ist verständlicherweise miserabel.
+Nicht nur, dass Micronaut die Beans zur Compile-Zeit auflöst.
+Darüber hinaus wird der resultierende Java-Bytecode in nativen Code übersetzt.
+Vorteil für Entwickler: Der Schritt muss lokal eigentlich nie ausgeführt werden.
+Während man lokal auch die Java-Version zum Testen nutzen kann, führt lediglich der Build-Server den zeitfressenden Kompilierungsschritt aus.</p>
+
+<p>Auch der Größenunterschied ist nicht wirklich problematisch.
+Die JAR an sich ist zwar nur 11,3 MiB groß, jedoch benötigt man hierfür noch eine JRE, die noch einmal Platz verbraucht.
+Die Binary kommt auch ohne eine JRE aus und kann so ausgeliefert werden.</p>
+
+<p>Besonders der geringe RAM-Verbrauch zeigt, wie wertvoll der Ansatz für die Serverless-Welt sein kann, in der jedes Megabyte RAM bares Geld kostet.</p>
+
+<h5 id="als-docker-image">Als Docker-Image</h5>
+<p>Wer Docker installiert hat, kann sich ein Image mit dem beiliegenden Dockerfile bauen:</p>
+<pre><code class="language-bash">$ docker build -t shopping-cart:graal .
+</code></pre>
+<p>Das Docker-Image ist mit 52,3 MiB marginal größer als die Binary, während das kleinste Docker-Image mit einer JRE (<code>openjdk:8-jre-alpine</code>) bereits 83,1 MiB groß ist.
+Wer also ein Docker-Image als Deployable Artifact ausliefert, spart über 40 MiB ein.</p>
+
+<h4 id="fazit">Fazit</h4>
+<p>Das noch junge Framework Micronaut bietet Java-Entwicklern die Möglichkeit, schlanke und schnelle Anwendungen für die Cloud zu schreiben, ohne dabei auf das vertraute Programmiermodell von Spring zu verzichten oder gar auf eine andere Programmiersprache wie Go umsatteln zu müssen.</p>
+
+<p>Sollten wir also alle Micronaut verwenden und Spring abschreiben?
+Meiner Meinung nach ist es noch nicht so weit.
+Bei der Entscheidung, welches Framework man für eine größere Anwendung verwenden will, kommt es nicht nur auf die Performance an.
+Auch die Community und Lehrmaterialien müssen stimmig sein und da hängt Micronaut (noch) hinterher.
+Bei den meisten Projekten auf GitHub handelt es sich um kleinere Beispielanwendungen wie die, die wir in diesem Artikel geschrieben haben.
+Wie sich das Framework bei einer realen Anwendung verhält, ist also noch ungewiss.</p>
+
+<p>Dennoch ist Micronaut einen Blick wert für kleine Anwendungen, gerade im schon so oft erwähnten Serverless-Umfeld.
+Und nicht zuletzt ist Wettbewerb gut für den Markt.
+Vielleicht halten ja einige Ideen der Micronaut-Entwickler Einzug ins Spring Framework.</p>
+
+</div>
+</div>
+</div>
+</div>]]></field>
+    </document>
+</documents>
