@@ -21,7 +21,7 @@ Da sich Typescript in diesem Bereich stark weiterentwickelt hat, haben wir als L
 
 Als Beispiel für die Integration dient die von Angular verwendete finale Version der reactive Form Demo. Hier handelt es sich um ein keines Beispiel, in dem man zu einem Helden den Namen, Adressen und seine Superpower pflegen kann. Dabei wurde die `HeroDetailComponent` auf typisierte Formulare mit `ngx-strongly-typed-forms` umgestellt.
 
-Das Repository mit dem vollständigen Code befindet sich auf [Github](https://github.com/no0x9d/typed-reactive-forms-example). Bei [stackblitz.com]([https://stackblitz.com/github/no0x9d/typed-reactive-forms-example](https://stackblitz.com/github/no0x9d/typed-reactive-forms-example)) kann man direkt im Browser eine lauffähige Version betrachten und ausprobieren.
+Das Repository mit dem vollständigen Code befindet sich auf [Github](https://github.com/no0x9d/typed-reactive-forms-example). Bei [stackblitz.com](https://stackblitz.com/github/no0x9d/typed-reactive-forms-example) kann man direkt im Browser eine lauffähige Version betrachten und ausprobieren.
 
 Schauen wir uns einmal die anfangs erwähnten Nachteile am Beispiel an:
 
