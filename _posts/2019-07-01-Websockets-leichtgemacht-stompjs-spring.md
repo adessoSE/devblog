@@ -165,17 +165,17 @@ Die `@CrossOrigin` Annotationen ermöglicht unserer WebSocket Klasse die Kommuni
 @EnableWebSocketMessageBroker
 public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
 
-    // Endpoint for client registry
-    @Override
-    public void registerStompEndpoints(StompEndpointRegistry registry) {
-        registry.addEndpoint("/socket-registry").setAllowedOrigins("*");
-    }
+  // Endpoint for client registry
+  @Override
+  public void registerStompEndpoints(StompEndpointRegistry registry) {
+    registry.addEndpoint("/socket-registry").setAllowedOrigins("*");
+  }
 
-    // Endpoint for client topic subscription
-    @Override
-    public void configureMessageBroker(MessageBrokerRegistry registry) {
-        registry.enableSimpleBroker("/item-updates");
-    }
+  // Endpoint for client topic subscription
+  @Override
+  public void configureMessageBroker(MessageBrokerRegistry registry) {
+    registry.enableSimpleBroker("/item-updates");
+  }
 }
 ```
 
@@ -206,4 +206,6 @@ public void configureMessageBroker(MessageBrokerRegistry registry) {
 ```
 
 # Fazit
-Mit Hilfe 
+Mit Hilfe von STOMP.js und der nativen WebSocket Implementierung konnten wir clientseitig eine flexible und leichtgewichtige Nutzerapplikation bauen. Trotz der Vorzüge in Angular und somit TypeScript zu entwickeln, ist das Prinzip auf jedes beliebige Framework und reines JavaScript übertragbar.
+
+Mit [starter-websocket](https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-websocket) ermöglichte Spring Boot uns eine leicht zu implementierende und effektive Schnittstelle auf Serverseite.
