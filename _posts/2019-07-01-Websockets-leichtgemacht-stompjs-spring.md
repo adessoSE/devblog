@@ -1,6 +1,6 @@
 ---
 layout: [post, post-xml]              
-title:  "WebSockets leichtgemacht mit Angular, STOMP.js und Spring Boot"        
+title:  "WebSockets leichtgemacht mit STOMP.js und Spring Boot"        
 date:   2019-07-01 10:00                                
 author: s-gbz
 categories: [Softwareentwicklung]                    
@@ -19,7 +19,7 @@ So können Clients beispielsweise vom Server bereitgestellte Informationskanäle
 
 ### Der Anwendungsfall
 Weil das Internet genug Beispiele für Chatanwendungen aufweist, entwickeln wir im Rahmen des Tutorials eine originelle Auktionsplattform.
-Die Umsetzung erfolgt mit den uns bekannten Frameworks wie [Angular](https://angular.io) im Frontend und Java [Spring Boot](https://spring.io) im Backend.
+Die Umsetzung erfolgt mit den uns bekannten Frameworks wie [Angular](https://angular.io) im Frontend und Java [Spring Boot](https://spring.io) im Backend. [BETONEN DAS ANGULAR BSP. IST UND KEINE BESONDERHEIT VERFÜGT. In reinem JS und jedem anderem Framework möglich]
 
 Auf weitergehende Erläuterung der frameworkspezifischen Implementierungsdetails wird verzichtet. Somit ist tieferes Verständnis der verwendeten Technologienfür die eigentliche Umsetzung der Socketverbindung nicht erforderlich. Der vollständige Quellcode ist im folgenden Repository zu finden:
 
@@ -31,7 +31,7 @@ Auf weitergehende Erläuterung der frameworkspezifischen Implementierungsdetails
 Nach Anlegen eines neuen Angular Projekts und der Erstellung einer simplen Oberfläche, folgt die Implementierung des WebSockets.
 
 ### Vorbereitung
-Da WebSockets zum HTML Standard gehören, ist das Interface in der DOM Bibliothek bereits gegeben, womit mögliche Installationsschritte entfallen. 
+Da WebSockets zum HTML Standard gehören, ist das Interface in der DOM Bibliothek bereits gegeben womit mögliche Installationsschritte entfallen. 
 Um auf die Annemlichkeiten von [STOMP.js](https://www.npmjs.com/package/@stomp/stompjs) zugreifen zu können, installieren wir das npm Paket inkl. der TypeScript Typisierung `@types/stompf` und der Abhängigkeit `net` für asynchrone Netzwerkaufrufe.
 
 ```bash
@@ -44,7 +44,7 @@ Um STOMP in unserem Angularkontext verfügbar zu machen, importieren wir anschli
 import * as Stomp from 'stompjs';
 ```
 
-Da wir danke TypeScript objektorientiert arbeiten können, legen wir Instanzvariablen für `WebSocket` und `Stomp.Client` an, die wir im Verlauf des Programms instanziieren werden.
+Da wir dank TypeScript objektorientiert arbeiten können, legen wir Instanzvariablen für `WebSocket` und `Stomp.Client` an, die wir im Verlauf des Programms instanziieren werden.
 
 ```typescript
   auctionItems: AuctionItem[] = [];
@@ -64,7 +64,7 @@ ngOnInit() {
 ### Öffnen der Verbindung 
 Zunächst wird eine Singletoninstanz des WebSockets vom `httpService` bereitgestellt, um Mehrfachverbindungen des Clients zu vermeiden.
 Die STOMP Instanz `this.client` ist anschließend für den Verbindungsaufbau zum Server zuständig, indem sie auf den Socket aufsetzt und `connect` aufruft.
-Sobald die Verbindung initiert ist, abonniert der Client den Kanal `"/update-items"`, um hinsichtlich Veränderungen der Auktionsgegenstände benachrichtigt zu werden und die lokale Liste der Gegenstände anzupassen.
+Sobald die Verbindung initiert ist, abonniert der Client den Kanal `"/item-updates"`, um hinsichtlich Veränderungen der Auktionsgegenstände benachrichtigt zu werden und die lokale Liste der Gegenstände anzupassen.
 
 ```typescript
 openWebSocketConnection() {
@@ -73,7 +73,7 @@ openWebSocketConnection() {
   this.client = Stomp.over(this.webSocket);
 
   this.client.connect({}, () => {
-    this.client.subscribe("/update-items", (item) => {
+    this.client.subscribe("/item-updates", (item) => {
       this.insertOrUpdateItem(JSON.parse(item.body));
     });
   });
@@ -93,8 +93,8 @@ Abhängig von der gegebenen Umgebung (Entwicklung, Produktion, ...) wird die jew
 ```typescript
 export const environment = {
   production: false,
-  serverUrl: "http://10.212.13.98:8080",
-  webSocketUrl: "ws://10.212.13.98:8080/socket-registry"
+  serverUrl: "http://localhost:8080",
+  webSocketUrl: "ws://localhost:8080/socket-registry"
 };
 ```
 
@@ -109,13 +109,13 @@ ngOnDestroy() {
 closeWebSocketConnection() {
   if (this.client) {
     this.webSocket.close();
-    this.client.unsubscribe("/update-items");
+    this.client.unsubscribe("/item-updates");
   }
 }
 ```
 
 ### Versenden von Nachrichten
-Sobald ein Nutzer an einer Auktion teilnimmt indem er ein Gebot abgibt, gilt es die Information in der Datenbank einzupflegen und den Preis bei allen aktiven Clients zu aktualisieren. Während der `httpService` für ersteres zuständig ist, benachrichtigt `client.send` alle Beobachter der Auktion. `"/update-items"` ist hierbei der Kanal auf dem Nachrichten bzgl. den Auktionsgegenständen gesendet werden.
+Sobald ein Nutzer an einer Auktion teilnimmt indem er ein Gebot abgibt, gilt es die Information in der Datenbank einzupflegen und den Preis bei allen aktiven Clients zu aktualisieren. Während der `httpService` für ersteres zuständig ist, benachrichtigt `client.send` alle Beobachter der Auktion. `"/item-updates"` ist hierbei der Kanal auf dem Nachrichten bzgl. den Auktionsgegenständen gesendet werden.
 
 `JSON.stringify(item)` konvertiert das binäre Objekt in das portable Textformat [JSON](https://www.json.org/).   
 
@@ -125,30 +125,85 @@ updateItemAndSendBid(item: AuctionItem) {
     console.log(`Update for ${item} was ${success}`);
   });
 
-  this.client.send("/update-items", {}, JSON.stringify(item));
+  this.client.send("/item-updates", {}, JSON.stringify(item));
 }
 ```
 
 # Implementierung des Servers/ Backend
-- Es gilt ein POJO für die zu ersteigernden Gegenstände anzulegen. 
+Nach Fertigstellung des Spring Boot Boilerplate Codes (Objekte, Repositories und Controller), foglt die eigentliche Implementierung der WebSocket Schnittstelle.
+
+### Vorbereitung
+Die benötigten  umfassen 
+Abgesehen von den datenbankbezogenen Abhängigkeiten wie `data-jpa` und `h2 `, benötigen wir insbesondere `web` und `websocket`.  
+
+```gradle
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-websocket'
+	runtimeOnly('com.h2database:h2')
+	testCompile group: 'com.h2database', name: 'h2', version: '1.4.199'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+```
+
+Um initiale Auktionsgegenstände in unserer Datenbank aufzuweisen, fügt ein SQL Skript diese beim Start der Anwendung ein.
+
+```sql
+INSERT INTO AUCTION_ITEM (id, current_bid, top_bid, new_bid, time_left, name, description) VALUES
+  (1, 0, 20, 20, 10, 'Osterhase', 'Der Plüschklassiker zu Ostern!'),
+  (2, 0, 10, 10, 300, 'Rostiges Messer', 'Ein Messer das dem Zahn der Zeit nicht trotzen konnte.'),
+  ...
+```
+
+### Konfiguration des WebSockets
+Die `@CrossOrigin` Annotationen ermöglicht unserer WebSocket Klasse die Kommunikation mit Clients indem sie [Cross Origin Anfragen](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) akzeptiert (HIER NÖTIG?). `@Configuration` und `@EnableWebSocketMessageBroker` markieren die Klasse als zu verwendende Konfiguration für den WebSocket des Servers.
 
 ```java
-@Entity
-public class AuctionItem {
+@CrossOrigin
+@Configuration
+@EnableWebSocketMessageBroker
+public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
 
-  @Id
-  @GeneratedValue
-  private long id;
-  private int currentBid;
-  private int topBid;
-  private int newBid;
-  private long timeLeft;
-  private String name;
-  private String description;
+    // Endpoint for client registry
+    @Override
+    public void registerStompEndpoints(StompEndpointRegistry registry) {
+        registry.addEndpoint("/socket-registry").setAllowedOrigins("*");
+    }
 
-  // .. Getter & Setter
+    // Endpoint for client topic subscription
+    @Override
+    public void configureMessageBroker(MessageBrokerRegistry registry) {
+        registry.enableSimpleBroker("/item-updates");
+    }
+}
+```
+
+### Endpunkt für Clientregistierung
+Clients die den Endpunkt `"/socket-registry"` aufrufen, initieren eine bidirektionale Verbindung mit dem Server.
+`setAllowedOrigins("*")`
+
+```java
+@Override
+public void registerStompEndpoints(StompEndpointRegistry registry) {
+  registry.addEndpoint("/socket-registry").setAllowedOrigins("*");
+}
+```
+
+### Endpunkt für Benachrichtigungen
+Die Methode `configureMessageBroker` folgt ihrer Namensgebung und bietet Möglichkeit mittels der `MessageBrokerRegistry` "MessageBroker" dt. "Nachrichtenvermittler" zu etablieren.
+Diese "Nachrichtenkanäle" beziehen sich auf jeweils eine Fachlichkeit und können von Clients nach Bedarf abonniert werden.
+So folgen alle Clients unseres Auktionshauses `"/item-updates"`, um über Änderungen hinsichtlich der Auktionsgegenstände benachrichtigt zu werden.
+
+Es steht offen mehrere MessageBroker bzw. Kanäle zu registrieren.
+
+```java
+@Override
+public void configureMessageBroker(MessageBrokerRegistry registry) {
+  registry.enableSimpleBroker("/item-updates");
+  // registry.enableSimpleBroker("/another-channel"); CHECKEN OB ES WIRKLICH SO FUNKIONIERT
 }
 ```
 
 # Fazit
-Gute diese.
+Mit Hilfe 
