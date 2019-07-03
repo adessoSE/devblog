@@ -14,37 +14,38 @@ Da REST Verben nur temporäre Verbindungen initieren, sind sie der Anforderung e
 ### Die Lösung
 Die Lösung der Anforderung gelingt durch Einsatz des 2011 entwickelten [WebSocket](https://tools.ietf.org/html/rfc6455) Protokolls, 
 das gewöhnliche HTTP Verbindungen mittels des [Protocol Upgrade Mechanism](https://developer.mozilla.org/en-US/docs/Web/HTTP/Protocol_upgrade_mechanism) zu bidirektionalen Kommunikationswegen etabliert.
-[STOMP](https://stomp.github.io/) (Simple Text Oriented Messaging Protocol) dient als Erweiterungsprotokol, das WebSockets um Funktionalitäten erweitert die unter anderem analog zum [Beobachter-Muster](https://docs.microsoft.com/en-us/azure/architecture/patterns/publisher-subscriber) sind.
+[STOMP](https://stomp.github.io/) (Simple Text Oriented Messaging Protocol) dient als Erweiterungsprotokol, das WebSockets um Funktionalitäten ergänzt die analog zum [Beobachter-Muster](https://docs.microsoft.com/en-us/azure/architecture/patterns/publisher-subscriber) sind.
 So können Clients beispielsweise vom Server bereitgestellte Informationskanäle abonnieren und Benachrichtigungen erhalten sobald Aktualisierungen bereitstehen.
 
 ### Der Anwendungsfall
 Weil das Internet genug Beispiele für Chatanwendungen aufweist, entwickeln wir im Rahmen des Tutorials eine originelle Auktionsplattform.
-Die Umsetzung erfolgt mit den uns bekannten Frameworks wie [Angular](https://angular.io) im Frontend und Java [Spring Boot](https://spring.io) im Backend. [BETONEN DAS ANGULAR BSP. IST UND KEINE BESONDERHEIT VERFÜGT. In reinem JS und jedem anderem Framework möglich]
+Die Umsetzung erfolgt mit [Angular](https://angular.io) in der Clientapplikation und Java [Spring Boot](https://spring.io) in der Serveranwendung.
 
-Auf weitergehende Erläuterung der frameworkspezifischen Implementierungsdetails wird verzichtet. Somit ist tieferes Verständnis der verwendeten Technologienfür die eigentliche Umsetzung der Socketverbindung nicht erforderlich. Der vollständige Quellcode ist im folgenden Repository zu finden:
+Die Umsetzung des Socketclients ist nicht an Angular gebunden und kann mit reinem JavaScript bzw. jedem beliebigen Framework reproduziert werden. 
 
 <p align="center">
-  <b><a href="https://github.com/s-gbz/WebSocketAuctionExample">https://github.com/s-gbz/WebsocketAuctionExample</a></b>
+  <b>Der vollständige <a href="https://github.com/s-gbz/WebSocketAuctionExample">Quellcode ist auf GitHub</a> zu finden.</b>
 </p>
 
-# Implementierung des Clients/ Frontend
-Nach Anlegen eines neuen Angular Projekts und der Erstellung einer simplen Oberfläche, folgt die Implementierung des WebSockets.
+# Implementierung des Clients
+Nach Anlegen eines neuen Angular Projekts und der Erstellung einer simplen Oberfläche, folgt die Einbindung des WebSockets.
 
 ### Vorbereitung
-Da WebSockets zum HTML Standard gehören, ist das Interface in der DOM Bibliothek bereits gegeben womit mögliche Installationsschritte entfallen. 
+Da WebSockets zum [HTML Standard](https://html.spec.whatwg.org/multipage/web-sockets.html) gehören, ist das Interface den meisten Browsern bekannt womit externe Installationsschritte entfallen. Zu beachten ist, dass das Feature zwar verbreitet, aber trotzdem nicht auf allen Plattformen verfügbar ist. Prüft daher Browserkompatibilität in der offiziellen [Mozilla Dokumentation](https://developer.mozilla.org/en-US/docs/Web/API/WebSocket).
+
 Um auf die Annemlichkeiten von [STOMP.js](https://www.npmjs.com/package/@stomp/stompjs) zugreifen zu können, installieren wir das npm Paket inkl. der TypeScript Typisierung `@types/stompf` und der Abhängigkeit `net` für asynchrone Netzwerkaufrufe.
 
 ```bash
 $ npm install stompjs @types/stompf net --save
 ```
 
-Um STOMP in unserem Angularkontext verfügbar zu machen, importieren wir anschließend die Typdefinitionen.
+Um STOMP in unserem Angularkontext verfügbar zu machen, fügen wir die Bibliothek unseren Imports hinzu.
 
 ```typescript
 import * as Stomp from 'stompjs';
 ```
 
-Da wir dank TypeScript objektorientiert arbeiten können, legen wir Instanzvariablen für `WebSocket` und `Stomp.Client` an, die wir im Verlauf des Programms instanziieren werden.
+Da wir dank TypeScript objektorientiert arbeiten können, legen wir Instanzvariablen für `WebSocket` und `Stomp.Client` an, die wir im Verlauf des Programms instanziieren werden. `auctionItems` ist hierbei unsere lokale Liste zu erwerbender Auktionsgegenstände die wir mit dem Server sowie unseren Mitbietern synchron halten möchten.
 
 ```typescript
   auctionItems: AuctionItem[] = [];
@@ -52,7 +53,7 @@ Da wir dank TypeScript objektorientiert arbeiten können, legen wir Instanzvaria
   client: Stomp.Client;
 ```
 
-Bei Start der Anwendung und Initialisierung der Angular Komponente, eröffnen wir dann eine WebSocket Verbindung mit dem Server. Im Anschluss werden verfügbare Auktionsartikel abgefragt.
+Bei Start der Anwendung und Initialisierung der Angular Komponente, eröffnen wir eine WebSocket Verbindung mit dem Server. Im Anschluss werden verfügbare Auktionsartikel abgefragt.
 
 ```typescript
 ngOnInit() {
@@ -88,7 +89,7 @@ getWebsocket(): WebSocket {
 }
 ```
    
-Abhängig von der gegebenen Umgebung (Entwicklung, Produktion, ...) wird die jeweilige `webSocketUrl` des Servers im `environment.ts` ausgelesen. [Erklären wie die IPs zustandekommen?]
+Abhängig von der gegebenen Umgebung (Entwicklung, Test, Produktion, ...) wird die jeweilige `webSocketUrl` des Servers im `environment.ts` ausgelesen. Aufmerksame Leser werden feststellen, dass diese mit `ws://` bzw `wss://` (äquivalent zu `https`) beginnen muss.
 
 ```typescript
 export const environment = {
@@ -99,7 +100,7 @@ export const environment = {
 ```
 
 ### Schließen der Verbindung 
-Nicht zu vergessen, ist das Schließen der Verbindung sobald die Komponente aus dem DOM entfernt wird.
+Sobald die Angular Komponente aus dem DOM entfernt wird, muss die Socketverbindung geschlossen und beobachtete Kanäle deabonniert werden.
 
 ```typescript
 ngOnDestroy() {
@@ -115,7 +116,7 @@ closeWebSocketConnection() {
 ```
 
 ### Versenden von Nachrichten
-Sobald ein Nutzer an einer Auktion teilnimmt indem er ein Gebot abgibt, gilt es die Information in der Datenbank einzupflegen und den Preis bei allen aktiven Clients zu aktualisieren. Während der `httpService` für ersteres zuständig ist, benachrichtigt `client.send` alle Beobachter der Auktion. `"/item-updates"` ist hierbei der Kanal auf dem Nachrichten bzgl. den Auktionsgegenständen gesendet werden.
+Sobald ein Nutzer ein Gebot abgibt und somit an einer Auktion teilnimmt, gilt es die Information in der Datenbank einzupflegen und den Preis bei allen aktiven Clients zu aktualisieren. Während der `httpService` für ersteres zuständig ist, benachrichtigt `client.send` alle Beobachter der Auktion. `"/item-updates"` ist hierbei der Kanal auf dem Nachrichten bzgl. den Auktionsgegenständen gesendet werden.
 
 `JSON.stringify(item)` konvertiert das binäre Objekt in das portable Textformat [JSON](https://www.json.org/).   
 
@@ -129,12 +130,11 @@ updateItemAndSendBid(item: AuctionItem) {
 }
 ```
 
-# Implementierung des Servers/ Backend
-Nach Fertigstellung des Spring Boot Boilerplate Codes (Objekte, Repositories und Controller), foglt die eigentliche Implementierung der WebSocket Schnittstelle.
+# Implementierung des Servers
+Nach Fertigstellung des Spring Boot Boilerplatecodes (Objekte, Repositories und Controller), folgt die eigentliche Implementierung der WebSocket Schnittstelle.
 
 ### Vorbereitung
-Die benötigten  umfassen 
-Abgesehen von den datenbankbezogenen Abhängigkeiten wie `data-jpa` und `h2 `, benötigen wir insbesondere `web` und `websocket`.  
+Abhängigkeiten im Gradlefile umfassen, abgesehen von den datenbankbezogenen Abhängigkeiten wie `data-jpa` und `h2 `, `web` und `websocket`.  
 
 ```gradle
 dependencies {
@@ -157,10 +157,9 @@ INSERT INTO AUCTION_ITEM (id, current_bid, top_bid, new_bid, time_left, name, de
 ```
 
 ### Konfiguration des WebSockets
-Die `@CrossOrigin` Annotationen ermöglicht unserer WebSocket Klasse die Kommunikation mit Clients indem sie [Cross Origin Anfragen](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) akzeptiert (HIER NÖTIG?). `@Configuration` und `@EnableWebSocketMessageBroker` markieren die Klasse als zu verwendende Konfiguration für den WebSocket des Servers.
+`@Configuration` und `@EnableWebSocketMessageBroker` markieren die Klasse als zu verwendende Konfiguration für den WebSocket des Servers.
 
 ```java
-@CrossOrigin
 @Configuration
 @EnableWebSocketMessageBroker
 public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
@@ -181,7 +180,7 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
 
 ### Endpunkt für Clientregistierung
 Clients die den Endpunkt `"/socket-registry"` aufrufen, initieren eine bidirektionale Verbindung mit dem Server.
-`setAllowedOrigins("*")`
+`setAllowedOrigins("*")` ermöglicht unserer WebSocket Klasse die Kommunikation mit Clients indem sie alle [Cross Origin Anfragen](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) akzeptiert.
 
 ```java
 @Override
@@ -191,21 +190,29 @@ public void registerStompEndpoints(StompEndpointRegistry registry) {
 ```
 
 ### Endpunkt für Benachrichtigungen
-Die Methode `configureMessageBroker` folgt ihrer Namensgebung und bietet Möglichkeit mittels der `MessageBrokerRegistry` "MessageBroker" dt. "Nachrichtenvermittler" zu etablieren.
-Diese "Nachrichtenkanäle" beziehen sich auf jeweils eine Fachlichkeit und können von Clients nach Bedarf abonniert werden.
+Die Methode `configureMessageBroker` folgt ihrer Namensgebung und ermöglicht mittels der `MessageBrokerRegistry` sogenannte MessageBroker bzw. Nachrichtenvermittler zu definieren.
+Diese Nachrichtenkanäle beziehen sich auf jeweils eine Fachlichkeit und können von Clients nach Bedarf abonniert werden.
 So folgen alle Clients unseres Auktionshauses `"/item-updates"`, um über Änderungen hinsichtlich der Auktionsgegenstände benachrichtigt zu werden.
-
-Es steht offen mehrere MessageBroker bzw. Kanäle zu registrieren.
 
 ```java
 @Override
 public void configureMessageBroker(MessageBrokerRegistry registry) {
-  registry.enableSimpleBroker("/item-updates");
-  // registry.enableSimpleBroker("/another-channel"); CHECKEN OB ES WIRKLICH SO FUNKIONIERT
+  // One channel:
+  registry.enableSimpleBroker("/item-updates"); 
+}
+```
+
+Es ist möglich mehrere MessageBroker bzw. Kanäle zu registrieren.
+
+```java
+@Override
+public void configureMessageBroker(MessageBrokerRegistry registry) {
+  // Multiple channels:
+  registry.enableSimpleBroker("/update-items", "/another-channel", "...");
 }
 ```
 
 # Fazit
 Mit Hilfe von STOMP.js und der nativen WebSocket Implementierung konnten wir clientseitig eine flexible und leichtgewichtige Nutzerapplikation bauen. Trotz der Vorzüge in Angular und somit TypeScript zu entwickeln, ist das Prinzip auf jedes beliebige Framework und reines JavaScript übertragbar.
 
-Mit [starter-websocket](https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-websocket) ermöglichte Spring Boot uns eine leicht zu implementierende und effektive Schnittstelle auf Serverseite.
+Mit Spring Boot und [starter-websocket](https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-websocket) konnten wir eine leicht zu implementierende und effektive Schnittstelle auf Serverseite realisieren.
