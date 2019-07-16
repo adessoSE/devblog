@@ -110,7 +110,7 @@ Genauso wie React wurde Vue.js mittels JavaScript umgesetzt, allerdings bietet e
 Vue.js bietet dem Nutzer passend zum Anwendungszweck Skalierungsmöglichkeiten an. Es kann zwischen einer leichtgewichtigen Bibliothek oder einem gesamten Framework ausgewählt werden.
 Die Bibliothek bietet ähnlich wie React nur Funktionalität für die Ansichtsebene und kann daher zur Integration in bestehende Projekte genutzt werden.
 
-# Was wurde bei den Frameworks verglichen?
+# Vergleichskriterien
 
 Der Vergleich wurde zunächst mit einer Evaluation von groben Themengebieten begonnen.
 Diese wurde basierend auf literarischen Quellen durchgeführt und brachte folgende Themengebiete als Ergebnis hervor:
@@ -122,7 +122,7 @@ Diese wurde basierend auf literarischen Quellen durchgeführt und brachte folgen
 </tr>
 <tr>
 <td><b>Sicherheit</b></td>
-<td><i>Durch den Anstieg der Funktionalitäten werden vertrauliche Informationen durch Webanwendungen gespeichert. Hierdurch steigt die Anzahl der Angriffe auf solche Systeme enorm an. Ebenfalls wird die Top 10 der Sicherheitsrisiken von der Organisation Open Web Application Secruity Project berücksichtigt.</i></td>
+<td><i>Durch den Anstieg der Funktionalitäten werden vertrauliche Informationen durch Webanwendungen gespeichert. Hierdurch steigt die Anzahl der Angriffe auf solche Systeme enorm an. Ebenfalls wird die Top 10 der Sicherheitsrisiken des Open Web Application Security Project (OWASP) berücksichtigt.</i></td>
 </tr>
 <tr>
 <td><b>Modularität</b></td>
@@ -130,11 +130,11 @@ Diese wurde basierend auf literarischen Quellen durchgeführt und brachte folgen
 </tr>
 <tr>
 <td><b>Performance</b></td>
-<td><i>Die User Experience kann gravierend durch die Performance beeinträchtigt werden. In diesem Bereich können darüber Sekunden entscheiden. Des Weiteren können notwendige Datentransfers reduziert werden.</i></td>
+<td><i>Die User Experience kann gravierend durch die Performance beeinträchtigt werden. Des Weiteren sollten unnötige Datentransfers reduziert werden.</i></td>
 </tr>
 <tr>
 <td><b>Testbarkeit</b></td>
-<td><i>Testbasierte Entwicklung ist heutzutage in aller Munde. Eine Anwendung muss ausreichend auf ihre Richtigkeit durchgetestet worden sein.</i></td>
+<td><i>Testbasierte Entwicklung ist heutzutage ein verbreitetes Vorgehen. Eine Anwendung muss durch automatische Tests ausreichend auf ihre Richtigkeit durchgetestet werden.</i></td>
 </tr>
 <tr>
 <td><b>Wartbarkeit und Zukunftssicherheit</b></td>
@@ -162,9 +162,9 @@ Passend zu diesen einzelnen Themengebieten wurden Leitfragen formuliert, welche 
 Dadurch wurden die Frameworks in diesem Vergleich mit 62 verschiedenen Kriterien untersucht.
 Hierdurch sollte eine Abdeckung aller relevanten Merkmale der Frameworks gegeben sein.
 
-# Komfortabler Zugang zu den Ergebnissen mittels FrameworkBuddy
+# Vergleich von SPA-Frameworks mittels FrameworkBuddy
 
-Die gewonnen Ergebnisse über die Frameworks wurden in einer Anwendung namens *FrameworkBuddy* visuell zugänglich gemacht. 
+Die gewonnenen Ergebnisse über die Frameworks wurden in einer Anwendung namens *FrameworkBuddy* visuell zugänglich gemacht. 
 Veröffentlicht wurde diese Anwendung als Open-Source-Software [auf GitHub](https://github.com/FrederikSchlemmer/FrameworkBuddy).
 
 In dieser Anwendung kann der Nutzer die Leitfragen aus dem Vergleich passend zu seinem Projekt gewichten.
