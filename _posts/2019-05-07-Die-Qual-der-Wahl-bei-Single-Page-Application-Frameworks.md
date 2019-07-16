@@ -8,10 +8,10 @@ categories: [Softwareentwicklung] # Pflichtfeld. Maximal eine der angegebenen Ka
 tags: [Angular, React, Vue.js, SPA]         # Optional.
 ---
 
-Wie wird heutzutage die Fragestellung beantwortet mit welcher Technologie eine Internetanwendung umgesetzt werden soll? Angular, React oder Vue.js!
-Die Entwicklung von Internetanwendung in Form von Multi Page Applications (MPAs) mittels der Beschreibungssprachen HTML, CSS und JavaScript wird zunehmend durch die steigende Anzahl von Single Page Application (SPA) Frameworks verdrängt.
+Wie wird heutzutage die Fragestellung beantwortet mit welcher Technologie eine Webanwendung umgesetzt werden soll? Angular, React oder Vue.js?
+Die Entwicklung von Webanwendungen in Form von Multi Page Applications (MPAs) mittels der Beschreibungssprachen HTML, CSS und JavaScript wird zunehmend durch die steigende Anzahl von Single Page Application (SPA) Frameworks verdrängt.
 Dieser Trend hält nun bereits seit 10 Jahren an, wodurch eine Vielzahl von verschiedenen Frameworks mit unterschiedlichen Ansätzen entstanden ist.
-So unterschiedlich die Ansätze der Frameworks untereinander sind, so identisch ist das gemeinsame Ziel: *Performante Internetanwendungen mit einer guten User Experience.*
+So unterschiedlich die Ansätze der Frameworks untereinander sind, ist das gemeinsame Ziel doch das selbe: *Performante Webanwendungen mit einer guten User Experience.*
 
 # Was ist eine Single Page Application überhaupt?
 
@@ -24,8 +24,9 @@ Zum allgemeinen Verständnis des Begriffes Single Page Application bietet Dr. Si
 *... eine webbasierte Anwendung oder Website, die statt wie üblich auf mehrere Seiten verteilt, komplett auf einer Seite realisiert ist, um den Nutzern den Eindruck und das Gefühl einer Desktop-Anwendung zu vermitteln. Die Inhalte der Anwendung werden entweder zu Beginn einmalig geladen, oder dynamisch während der Laufzeit, sobald Nutzer eine Aktion ausführen möchten.*
 
 Aus dieser Definition werden die Schlüsselelemente einer SPA deutlich. 
-Die Weboberfläche bietet einen ähnlichen Funktions- und Komplexitätsumfang wie eine Desktop-Anwendung, wodurch dem Nutzer vermittelt wird eine vollwertige Desktop-Anwendung anstelle einer einfachen Internetanwendung zu benutzen.
-Durch den Anstieg der Komplexität ist eine Modularität von SPA unausweichlich. 
+Die Weboberfläche bietet einen ähnlichen Funktions- und Komplexitätsumfang wie eine Desktop-Anwendung, wodurch dem Nutzer vermittelt wird, eine vollwertige Desktop-Anwendung anstelle einer einfachen Webanwendung zu benutzen.
+
+Durch den Anstieg der Komplexität müssen SPA unausweichlich eine Form der Modularisierung unterstützen. 
 Die komplette Anwendung kann mithilfe von individuellen Komponenten realisiert werden, wodurch eine erhöhte Wartbarkeit und Wiederverwendbarkeit der Funktionalitäten erreicht werden.
 
 Diese individuellen Komponenten ermöglichen ein dynamisches Nachladen der Inhalte während der Laufzeit.
@@ -38,7 +39,7 @@ Aus der Beschreibung werden schon einige Vorteile gegenüber MPAs deutlich, was 
 
 **1. Wartbarkeit des Codes**
    
-Durch die ansteigende Komplexität der Internetanwendungen ist die Wartbarkeit des Codes ein wichtiges Kriterium.
+Durch die ansteigende Komplexität der Webanwendungen ist die Wartbarkeit des Codes ein wichtiges Kriterium.
 Die Frameworks versuchen dieses Problem mithilfe von verschiedenen Entwurfsmustern zu beheben.
 Beispielsweise benutzt das Framework Vue.js eine MVVM-Architektur. Diese Abkürzung steht für Model, View und View-Model.
 Das Model beinhaltet die Logik sowie die Daten der Anwendung.
@@ -50,7 +51,7 @@ Das Resultat dieser Entwurfsmuster ist ein strukturierter und wartbarer Programm
 
 **2. Modularität**
    
-Eine Internetanwendung besteht grundlegend aus einem Client und einem Server.
+Eine Webanwendung besteht grundlegend aus einem Client und einem Server.
 Das grundlegende Prinzip beruht darauf, dass der Client verschiedene Anfragen an den Server stellt und darauf eine Antwort erhält.
 Allerdings beinhaltet bei einer SPA die Antwort des Servers nicht eine HTML-Datei, sondern strukturiert die Daten mit einem Format wie JSON.
 Dadurch findet eine Entkopplung der serverseitigen Implementierung bzw. Anwendungslogik und der Anzeige beim Client statt.
@@ -59,41 +60,40 @@ Hierdurch wird es ermöglicht eine SPA im Webbrowser und eine mobile Anwendung v
 
 **3. Verbesserte User Experience**
 
-Eine SPA bietet einen enorm verbesserte User Experience im Vergleich zu MPA.
-Dieses beruht auf dem flüssigen und reaktionsschnellen Verhalten der Anwendungen.
+Eine SPA bietet eine enorm verbesserte User Experience im Vergleich zu MPA.
+Dies beruht auf dem flüssigen und reaktionsschnellen Verhalten einer SPA.
 Das Nutzererlebnis wird nicht mehr durch das typische Neuladen und Rendering der Anwendung gestört.
 Darüber hinaus kann die Anwendung während einer Abfrage mit erhöhter Bearbeitungsdauer dem Nutzer signifikante Informationen über den Status vermitteln.
 
-# Welche Frameworks werden in diesem Blogpost thematisiert?
+# Die Populärsten SPA-Frameworks
 
-Die Auswahl der Frameworks, welche in diesem Blogpost thematisiert werden, wurde anhand der Popularität der Frameworks getätigt. Mittels Google Trens wurde die Anzahl der Websuchen im Zeitraum der letzten 12 Monate für die Frameworks Angular, React, Vue.js und Ember.js in Deutschland analysiert. Das Ergebnis von Google Trends ist in der nachfolgenden Abbildung dargestellt:
+Die Auswahl der Frameworks, welche in diesem Blogpost thematisiert werden, wurde anhand der Popularität der Frameworks getätigt. Mittels Google Trends wurde die Anzahl der Websuchen im Zeitraum der letzten 12 Monate für die Frameworks Angular, React, Vue.js und Ember.js in Deutschland analysiert. Das Ergebnis von Google Trends ist in der nachfolgenden Abbildung dargestellt:
 
 ![Statistik zu Websuchen mittels Google](/assets/images/posts/Die-Qual-der-Wahl-bei-Single-Page-Application-Frameworks/trends.png)
 
 In diesem Graphen ist die Anzahl der Websuchen der einzelnen Frameworks vom 27.05.2018 bis zum 25.05.2019 visuell dargestellt.
-Deutlich erkennbar ist, dass Angular und React sich von Vue.js und Ember.js im deutschen Bereich absetzten können.
-Diese Annahme wird anhand des Durchschnitts der Websuche erneut bestätigt, denn nach Angular wird 83x, nach React 73x, nach Vue.js 36x und nach Ember.js 10x täglich gesucht.
+Angular und React setzen sich von Vue.js und Ember.js deutlich ab.
 
 Anhand dieser Trends wird erkennbar, dass zum aktuellen Zeitpunkt die Frameworks Angular, React und Vue.js zu den führenden Frameworks zählen.
 
 ## Angular
 
 Angular stellt aktuell eines der populärsten SPA-Frameworks dar. 
-Es hat zum Zeitpunkt der Ausarbeitung auf GitHub eine Gesamtanzahl von 43.000 Favorisierungen.
+Es hat zum Zeitpunkt der Ausarbeitung auf GitHub eine Gesamtanzahl von 43.000 Sternen.
 Angular ist die Neufassung des vorherigen Frameworks AngularJS und wird durch Google entwickelt und ist als Open-Source-Software unter der MIT-Lizenz verfügbar.
 
-Angular bezeichnet sich selber nicht als Framework, sondern als Plattform zur Erstellung von Internetanwendungen.
+Angular bezeichnet sich selbst nicht als Framework, sondern als Plattform zur Erstellung von Webanwendungen.
 Entwickelt wurde es basierend auf TypeScript, wodurch eine standardmäßige Entwicklung ebenfalls in dieser Sprache stattfindet.
-Die Bezeichnung als Plattform entstammt dem Grundgedanken, dass Angular durch einen Programmcode Anwendungen für verschiedene Plattformen wie Smartphone, Desktop oder Fernseher bereitstellen kann.
+Die Bezeichnung als Plattform entstammt dem Grundgedanken, dass Angular-Anwendungen verschiedene Plattformen wie Smartphone, Desktop oder Fernseher bedienen können.
 
 ## React
 
 Auf die gleiche Stufe wie Angular stellt sich React.
-Aktuell schafft es React auf GitHub auf eine Gesamtanzahl von 116.000 Favorisierungen.
+Aktuell schafft es React auf GitHub auf eine Gesamtanzahl von 116.000 Sternen.
 Veröffentlicht wurde React im Jahr 2013 und wird entwickelt durch Facebook.
 Es ist ebenfalls als Open-Source-Software unter der MIT-Lizenz veröffentlicht.
 
-Die Bezeichnung eines Frameworks ist ebenfalls bei React nicht korrekt. 
+Die Bezeichnung als "Framework" ist bei React ebenfalls nicht korrekt. 
 React versteht sich als View-Bibliothek, da es in Bezug auf das Model-View-Controller Prinzip nur die View widerspiegelt. 
 Zur Entwicklung wurde JavaScript verwendet, allerdings ist die Nutzung von der JavaScript-Erweiterung JSX (JavaScript XML) empfohlen seitens React.
 Durch die Verwendung von JSX wird eine Kombination von JavaScript und HTML produziert.
@@ -102,7 +102,7 @@ Hierdurch entstehen Komponenten, welche sowohl Markup als auch die Logik beinhal
 ## Vue.js
 
 Aktuell kann Vue.js noch nicht mit der Popularität von Angular oder React mithalten, allerdings erfährt dieses Framework aktuell einen verstärkten Zuspruch seitens der Community.
-Deutlich wird dieser Zuspruch bei den 120.000 Favorisierungen auf GitHub.
+Deutlich wird dieser Zuspruch bei den 120.000 Sternen auf GitHub.
 Im Vergleich zu Angular spiegelt das die dreifache Menge wider. React kann sich ebenfalls in diesem Zahlenbereich halten.
 Im Jahr 2014 wurde das Framework durch den ehemaligen Google-Mitarbeiter Evan You als Open-Source-Software unter der MIT-Lizenz veröffentlicht. 
 Genauso wie React wurde Vue.js mittels JavaScript umgesetzt, allerdings bietet es auch eine Unterstützung für TypeScript an.
@@ -122,11 +122,11 @@ Diese wurde basierend auf literarischen Quellen durchgeführt und brachte folgen
 </tr>
 <tr>
 <td><b>Sicherheit</b></td>
-<td><i>Durch den Anstieg der Funktionalitäten werden vertrauliche Informationen durch Internetanwendungen gespeichert. Hierdurch steigt die Anzahl der Angriffe auf solche Systeme enorm an. Ebenfalls wird die Top 10 der Sicherheitsrisiken von der Organisation Open Web Application Secruity Project berücksichtigt.</i></td>
+<td><i>Durch den Anstieg der Funktionalitäten werden vertrauliche Informationen durch Webanwendungen gespeichert. Hierdurch steigt die Anzahl der Angriffe auf solche Systeme enorm an. Ebenfalls wird die Top 10 der Sicherheitsrisiken von der Organisation Open Web Application Secruity Project berücksichtigt.</i></td>
 </tr>
 <tr>
 <td><b>Modularität</b></td>
-<td><i>Ein erhöhter Funktionsumfang resultiert in einer komplexeren Anwendung, wodurch die Modularität einen wichtigen Aspekt für moderne Internetanwendungen widerspiegelt. Es sollte eine Unterteilung in kleinere isolierte Komponenten ermöglicht werden, damit diese in späteren Anwendungen wiederverwendet werden können.</i></td>
+<td><i>Ein erhöhter Funktionsumfang resultiert in einer komplexeren Anwendung, wodurch die Modularität einen wichtigen Aspekt für moderne Webanwendungen widerspiegelt. Es sollte eine Unterteilung in kleinere isolierte Komponenten ermöglicht werden, damit diese in späteren Anwendungen wiederverwendet werden können.</i></td>
 </tr>
 <tr>
 <td><b>Performance</b></td>
