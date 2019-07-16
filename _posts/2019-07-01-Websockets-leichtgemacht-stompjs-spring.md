@@ -25,7 +25,7 @@ Mittels des [Protocol Upgrade Mechanism](https://developer.mozilla.org/en-US/doc
 Als Erweiterungsprotokol liefert [STOMP](https://stomp.github.io/) (Simple Text Oriented Messaging Protocol) uns Funktionalitäten die analog zum [Beobachter-Muster](https://docs.microsoft.com/en-us/azure/architecture/patterns/publisher-subscriber) sind.
 
 ### Das Beobachter-Muster
-Das Prinzip dieses Software-Patterns ermöglicht Informationsempfängern gegebene Nachrichtenkanäle zu abonnieren und Meldungen **dann** zu erhalten, **wenn** sie bereitstehen.
+Das Prinzip dieses Entwurfsmusters ermöglicht Informationsempfängern gegebene Nachrichtenkanäle zu abonnieren und Meldungen **dann** zu erhalten, **wenn** sie bereitstehen.
 
 ![Observable Pattern](assets/images/posts/../../../../assets/images/posts/websockets-leichtgemacht-stompjs-spring/observer-pattern.png)
 
@@ -43,7 +43,7 @@ Nach kurzer Erläuterung der verwendeten Technologien betrachten wir die Anwendu
 
 ### Angular
 Angular ist ein führendes, von Google geführtes, Open Source Framework zur Entwicklung von Webanwendungen.
-Es überzeugt durch ein vollständig abgedeckte [Feature-Landschaft](https://angular.io/features) und Unterstützung von [TypeScript](https://www.typescriptlang.org/).
+Es überzeugt durch eine vollständig abgedeckte [Feature-Landschaft](https://angular.io/features) und Unterstützung von [TypeScript](https://www.typescriptlang.org/).
 
 *Die Umsetzung des Socketclients ist nicht an Angular gebunden und kann mit reinem JavaScript beliebig reproduziert werden.* 
 
@@ -52,14 +52,17 @@ Spring Boot ist ein Java Framework, das durch schnelle und entwicklerfreundliche
 
 # Implementierung des Clients
 Die Oberfläche der Auktionsplattform bietet Nutzern folgende Anwendungsfälle, die mit WebSockets behandelt werden:
+
 - Darstellung von Auktionsartikeln
+
 ![AuctionViewComponent](assets/images/posts/../../../../assets/images/posts/websockets-leichtgemacht-stompjs-spring/auction-view-comp.png)
-- Gebotserstellung und Kauf von Auktionsartikeln 
+
+- Gebotserstellung und Kauf von Auktionsartikeln
+
 ![AuctionViewComponent - Successfuly bought item](assets/images/posts/../../../../assets/images/posts/websockets-leichtgemacht-stompjs-spring/auction-view-comp-bought.png)
 
-**Die Implementierung der Anwendungsfälle erfolgt in `src/app/auction-view/auction-view.component.ts`.**
-
-## Vorbereitung auf Clientseite 
+## Vorbereitung auf Clientseite
+**Die Implementierung der Anwendungsfälle erfolgt in** `src/app/auction-view/auction-view.component.ts`.
 Um WebSockets in unser präpariertes Angular Projekt einzubinden, müssen wir zuvor die anfallenden Abhängigkeiten installieren.
 
 ### Installation des WebSockets
@@ -88,8 +91,8 @@ export class AuctionViewComponent implements OnInit, OnDestroy {
 
 Vor der Klassendefinition importieren wir in `AuctionViewComponent` den gesamten Inhalt von `stompjs` mit dem Prefix `Stomp`.
 
-### Anlegen von Instanzvariablen
-Anschließend legen wir Instanzvariablen für `WebSocket` und `Stomp.Client` an, die wir im Verlauf des Programms instanziieren werden.
+### Anlegen von Klassenvariablen
+Anschließend legen wir Klassenvariablen für `WebSocket` und `Stomp.Client` an, die wir im Verlauf des Programms instanziieren werden.
 
 ```typescript
 export class AuctionViewComponent implements OnInit, OnDestroy {
@@ -106,7 +109,6 @@ Wir möchten diese Liste mit dem Server sowie unseren Mitbietern synchron halten
 
 ### Aufruf im Konstruktor
 Wenn ein Nutzer die Anwendung startet, wird unsere Angularkomponente initialisiert. 
-Beim Start der Anwendung und Initialisierung der Angularkomponente, eröffnen wir eine WebSocket Verbindung mit dem Server.
 
 ```typescript
 ...
@@ -118,13 +120,11 @@ ngOnInit() {
 }
 ```
 
-Sobald die Komponente verfügbar ist, rufen wir die Methode zum Öffnen des WebSockets auf.  
+Sobald die Komponente verfügbar ist, rufen wir die Methode zum Öffnen der WebSocket Verbindung auf.  
 Im Anschluss fragen wir verfügbare Auktionsartikel vom Server ab, um `auctionItems` zu initialisieren.
 
 ## Öffnen der Verbindung 
-Um den WebSocket samt STOMP zu öffnen, betrachten wir folgende Methode der Klasse `AuctionViewComponent`.
-
-### WebSocket Verbindung öffnen
+Um den WebSocket samt STOMP zu starten, betrachten wir folgende Methode der Klasse `AuctionViewComponent`.
 
 ```typescript
 ngOnInit() { ... }
@@ -142,10 +142,12 @@ openWebSocketConnection() {
 }
 ```
 
+### WebSocket Verbindung öffnen
 Zunächst wird eine WebSocket Instanz vom `httpService` bereitgestellt.
 
 ```typescript
 this.webSocket = this.httpService.getWebSocket();
+...
 ```
 
 Das geschieht indem innerhalb von `src/app/http.service.ts` eine [Singletoninstanz](https://angular.io/guide/singleton-services) angelegt wird. 
@@ -164,17 +166,20 @@ Zu beachten ist, dass die URL des WebSockets grundsätzlich mit `ws://` oder im 
 Zurück in `openWebSocketConnection()` rufen wir STOMP auf, indem wir die Instanz des WebSockets im Konstruktor übergeben.
 
 ```typescript
+...
 this.client = Stomp.over(this.webSocket);
+...
 ```
 
 Die STOMP Instanz `this.client` verbindet sich mittels der `connect` Methode anschließend mit dem Server.
 
 ```typescript
+...
 this.client.connect({}, () => {
   ...
 ```
 
-Wenn der Verbindungsaufbau erfolgreich war, folgt der [Callback]([https://some-url](https://developer.mozilla.org/en-US/docs/Glossary/Callback_function)) der `connect` Methode.
+Wenn der Verbindungsaufbau erfolgreich war, folgt der [Callback]([https://some-url](https://developer.mozilla.org/en-US/docs/Glossary/Callback_function)) der `this.client.connect` Methode.
 
 ### Callbacks
 Da Kommunikation im Internet mit Latenzen (Wartezeiten) verbunden ist, kann kein zeitlich synchroner Programmablauf garantiert werden.
@@ -193,6 +198,7 @@ this.asynchroneMethode({}, () => {
 Im Callback von `this.client.connect`, abonniert der Client den Kanal `"/item-updates"`.
 
 ```typescript
+...
 this.client.subscribe("/item-updates", (item) => {
   this.insertOrUpdateItem(JSON.parse(item.body));
   ...
