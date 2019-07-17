@@ -53,16 +53,21 @@ Spring Boot ist ein Java Framework, das durch schnelle und entwicklerfreundliche
 # Implementierung des Clients
 Die Oberfläche der Auktionsplattform bietet Nutzern folgende Anwendungsfälle, die mit WebSockets behandelt werden:
 
-- Darstellung von Auktionsartikeln
+- A. Darstellung von Auktionsartikeln
 
 ![AuctionViewComponent](assets/images/posts/../../../../assets/images/posts/websockets-leichtgemacht-stompjs-spring/auction-view-comp.png)
 
-- Gebotserstellung und Kauf von Auktionsartikeln
+- B. Gebotserstellung Auktionsartikeln
 
-![AuctionViewComponent - Successfuly bought item](assets/images/posts/../../../../assets/images/posts/websockets-leichtgemacht-stompjs-spring/auction-view-comp-bought.png)
+![AuctionViewComponent - Successfuly bought item](assets/images/posts/../../../../assets/images/posts/websockets-leichtgemacht-stompjs-spring/auction-view-comp-bid.png)
+
+- C. Kauf von Auktionsartikeln
+
+![AuctionViewComponent](assets/images/posts/../../../../assets/images/posts/websockets-leichtgemacht-stompjs-spring/auction-view-comp-bought.png)
+
+Die Implementierung der Anwendungsfälle erfolgt in `src/app/auction-view/auction-view.component.ts`.
 
 ## Vorbereitung auf Clientseite
-**Die Implementierung der Anwendungsfälle erfolgt in** `src/app/auction-view/auction-view.component.ts`.
 Um WebSockets in unser präpariertes Angular Projekt einzubinden, müssen wir zuvor die anfallenden Abhängigkeiten installieren.
 
 ### Installation des WebSockets
@@ -122,6 +127,7 @@ ngOnInit() {
 
 Sobald die Komponente verfügbar ist, rufen wir die Methode zum Öffnen der WebSocket Verbindung auf.  
 Im Anschluss fragen wir verfügbare Auktionsartikel vom Server ab, um `auctionItems` zu initialisieren.
+Dieser Teil des Codes deckt Use Case A.
 
 ## Öffnen der Verbindung 
 Um den WebSocket samt STOMP zu starten, betrachten wir folgende Methode der Klasse `AuctionViewComponent`.
@@ -209,8 +215,8 @@ Im Callback von `this.client.subscribe` erhalten wir mittels `item` aktuelle Neu
 `this.insertOrUpdateItem` passt die lokale Liste der Gegenstände hinsichtlich der Änderungen an.
 Mögliche Änderungen umfassen das Hinzufügen, Entfernen oder die Preisanpassung eines Artikels.
 
-## Schließen der Verbindung 
-Sobald die Angular Komponente aus dem DOM entfernt wird, muss die Socketverbindung geschlossen und beobachtete Kanäle deabonniert werden.
+## Schließen der Verbindung
+Um unnötige Verbindungen zu meiden, lassen wir sie schließen sobald der Nutzer die Anwendung verlässt.
 
 ```typescript
 ngOnDestroy() {
@@ -225,10 +231,14 @@ closeWebSocketConnection() {
 }
 ```
 
-## Versenden von Nachrichten
-Sobald ein Nutzer ein Gebot abgibt und somit an einer Auktion teilnimmt, gilt es die Information in der Datenbank einzupflegen und den Preis bei allen aktiven Clients zu aktualisieren. Während der `httpService` für ersteres zuständig ist, benachrichtigt `client.send` alle Beobachter der Auktion. `"/item-updates"` ist hierbei der Kanal auf dem Nachrichten bzgl. den Auktionsgegenständen gesendet werden.
+Um Fehler zu vermeiden, prüfen wir mit `if (this.client)` ob eine STOMP Verbindung besteht.
+Falls ja, impliziert dies eine aktive WebSocket Verbindung die wir mittels `this.webSocket.close();` beenden.
+`this.client.unsubscribe("/item-updates")` kündigt letztlich das Abonnement des Nachrichtenkanals. 
 
-`JSON.stringify(item)` konvertiert das binäre Objekt in das portable Textformat [JSON](https://www.json.org/).   
+## Versenden von Nachrichten
+Nachdem wir Use Case A. abgedeckt haben und unsere Anwendung nun Auktionsgegenstände anzeigen kann, gilt es mit den Fällen B. und C. fortzufahren.
+Diese umfassen die Abgabe eines Bietgebots und das Ersteigern von Gegenständen.
+Die hierfür notwendige Funktionalität ist das Benachrichtigen der Teilnehmer, dass der Preis eines Artikels gestiegen ist. 
 
 ```typescript
 updateItemAndSendBid(item: AuctionItem) {
@@ -239,6 +249,16 @@ updateItemAndSendBid(item: AuctionItem) {
   this.client.send("/item-updates", {}, JSON.stringify(item));
 }
 ```
+
+Zunächst aktualisieren wir die Datenbank des Servers indem unser `httpService` die `updateItem(item)` Methode aufruft und eine [POST Anfrage](https://www.w3schools.com/tags/ref_httpmethods.asp) mit dem neuen Preis des Artikels versendet.
+Der anschließende Callback von `subscribe` teilt uns zu Demonstrationszwecken den Erfolg der Operation in der Konsole mit.
+
+`this.client.send` benachrichtigt alle Beobachter der Auktion, dass eine Änderung bereitsteht.
+`"/item-updates"` ist hierbei der Kanal auf dem Nachrichten bzgl. den Auktionsgegenständen gesendet werden.
+Wir verwenden `JSON.stringify(item)` um unser binäres Objekt in das portable Textformat [JSON](https://www.json.org/) zu konvertieren.
+
+Anwendungsfall C. bzw. das finale Ersteigern eines Gegenstandes erfolgt automatisch bei Ablauf der Auktionszeit.
+Die Implementierung basiert auf gewöhnlicher Logik und ist nur hinsichtlich der Vollständigkeit enthalten, weshalb wir keine Details dessen hier beleuchten. 
 
 # Implementierung des Servers
 Nach Fertigstellung des Spring Boot Boilerplatecodes (Objekte, Repositories und Controller), folgt die eigentliche Implementierung der WebSocket Schnittstelle.
