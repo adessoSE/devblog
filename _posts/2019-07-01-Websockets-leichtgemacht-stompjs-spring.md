@@ -57,7 +57,7 @@ Die Oberfläche der Auktionsplattform bietet Nutzern folgende Anwendungsfälle, 
 
 ![AuctionViewComponent](assets/images/posts/../../../../assets/images/posts/websockets-leichtgemacht-stompjs-spring/auction-view-comp.png)
 
-- B. Gebotserstellung Auktionsartikeln
+- B. Bieten auf Auktionsartikeln
 
 ![AuctionViewComponent - Successfuly bought item](assets/images/posts/../../../../assets/images/posts/websockets-leichtgemacht-stompjs-spring/auction-view-comp-bid.png)
 
@@ -125,8 +125,8 @@ ngOnInit() {
 }
 ```
 
-Sobald die Komponente verfügbar ist, rufen wir die Methode zum Öffnen der WebSocket Verbindung auf.  
-Im Anschluss fragen wir verfügbare Auktionsartikel vom Server ab, um `auctionItems` zu initialisieren.
+Sobald die Komponente verfügbar ist, rufen wir in `ngOnInit()` die Methode `openWebSocketConnection()` zum Öffnen der WebSocket Verbindung auf.  
+Im Anschluss fragen wir mit `initializeAuctionItems()` verfügbare Auktionsartikel vom Server ab, um `auctionItems` zu initialisieren.
 Dieser Teil des Codes deckt Use Case A.
 
 ## Öffnen der Verbindung 
@@ -185,7 +185,7 @@ this.client.connect({}, () => {
   ...
 ```
 
-Wenn der Verbindungsaufbau erfolgreich war, folgt der [Callback]([https://some-url](https://developer.mozilla.org/en-US/docs/Glossary/Callback_function)) der `this.client.connect` Methode.
+Wenn der Verbindungsaufbau erfolgreich war, folgt der [Callback](https://developer.mozilla.org/en-US/docs/Glossary/Callback_function) der `this.client.connect` Methode.
 
 ### Callbacks
 Da Kommunikation im Internet mit Latenzen (Wartezeiten) verbunden ist, kann kein zeitlich synchroner Programmablauf garantiert werden.
@@ -232,12 +232,12 @@ closeWebSocketConnection() {
 ```
 
 Um Fehler zu vermeiden, prüfen wir mit `if (this.client)` ob eine STOMP Verbindung besteht.
-Falls ja, impliziert dies eine aktive WebSocket Verbindung die wir mittels `this.webSocket.close();` beenden.
+Falls ja, impliziert dies eine aktive WebSocket Verbindung die wir mittels `this.webSocket.close()` beenden.
 `this.client.unsubscribe("/item-updates")` kündigt letztlich das Abonnement des Nachrichtenkanals. 
 
 ## Versenden von Nachrichten
 Nachdem wir Use Case A. abgedeckt haben und unsere Anwendung nun Auktionsgegenstände anzeigen kann, gilt es mit den Fällen B. und C. fortzufahren.
-Diese umfassen die Abgabe eines Bietgebots und das Ersteigern von Gegenständen.
+Diese umfassen die Abgabe eines Bietgebotes und das Ersteigern von Gegenständen.
 Die hierfür notwendige Funktionalität ist das Benachrichtigen der Teilnehmer, dass der Preis eines Artikels gestiegen ist. 
 
 ```typescript
@@ -257,15 +257,15 @@ Der anschließende Callback von `subscribe` teilt uns zu Demonstrationszwecken d
 `"/item-updates"` ist hierbei der Kanal auf dem Nachrichten bzgl. den Auktionsgegenständen gesendet werden.
 Wir verwenden `JSON.stringify(item)` um unser binäres Objekt in das portable Textformat [JSON](https://www.json.org/) zu konvertieren.
 
-Anwendungsfall C. bzw. das finale Ersteigern eines Gegenstandes erfolgt automatisch bei Ablauf der Auktionszeit.
-Die Implementierung basiert auf gewöhnlicher Logik und ist nur hinsichtlich der Vollständigkeit enthalten, weshalb wir keine Details dessen hier beleuchten. 
+Anwendungsfall C. bzw. das finale Ersteigern eines Gegenstandes erfolgt bei Ablauf der Auktionszeit, wenn der Nutzer über das höchste Gebot verfügt.
+Die Implementierung basiert auf gewöhnlicher Vergleichslogik und ist nur hinsichtlich der Vollständigkeit enthalten, weshalb wir keine Details dessen hier beleuchten.
 
 # Implementierung des Servers
 Nachdem unser Client bereit ist, folgen die Vorbereitungen auf Serverseite.
 Wir beschäftigen uns im folgenden mit der eigentlichen Implementierung der WebSocket Schnittstelle und verzichten auf anderweitig anfallenden Servercode.
 
 ## Vorbereitung
-Vergleichbar zum Node Paketmanager im Client, verwenden wir [Gradle](https://docs.gradle.org/current/userguide/what_is_gradle.html), um unsere Abhängigkeiten bereitzustellen. Die Datei `build.gradle` umfasst dabei die Auflistung der benötigten Bibliotheken.
+Vergleichbar zum Node Paketmanager im Client, verwenden wir serverseitig [Gradle](https://docs.gradle.org/current/userguide/what_is_gradle.html), um unsere Abhängigkeiten bereitzustellen. Die Datei `build.gradle` umfasst dabei die Auflistung der benötigten Bibliotheken.
 
 ```gradle
 dependencies {
@@ -275,7 +275,7 @@ dependencies {
 ```
 
 Abgesehen von den üblichen Abhängigkeiten die für Persistierung, Internetkommunikation, etc. nötig sind, ist `spring-boot-starter-websocket` essenziell um mit WebSockets arbeiten zu können.
-Die vollständige `build.gradle` Datei ist auf [GitHub](https://github.com/s-gbz/WebSocketAuctionExample) einsehbar.
+Die vollständige `build.gradle` Datei ist auf [GitHub](https://github.com/s-gbz/WebSocketAuctionExample) verfügbar.
 
 ## Konfiguration des WebSockets
 Dank `spring-boot-starter-websocket` haben wir eine fertige WebSocket Bibliothek, die nur noch konfiguriert werden muss.
@@ -315,7 +315,7 @@ Sollten wir die Erreichbarkeit unserer Applikation auf ein bestimmtes Netzwerk l
 Die Bezeichnung dieser Thematik ist CORS bzw. [Cross Origin Anfragen](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS).
 
 ## Endpunkt für Benachrichtigungen
-Zum Schluss folgt die Etablierung eines Nachrichtenkanals auf dem Änderungen hinsichtlich der Auktionsgegenstände gemeldet werden.
+Zum Schluss folgt die Etablierung eines Nachrichtenkanals auf dem Änderungen hinsichtlich der Auktionsgegenstände gemeldet werden können.
 
 ```java
 @Override
@@ -325,7 +325,7 @@ public void configureMessageBroker(MessageBrokerRegistry registry) {
 }
 ```
 
-Wir rufen ins Gedächtnis, dass die `MessageBrokerRegistry` unter `/item-updates` von Clients abonniert wird.
+Wir rufen ins Gedächtnis, dass die `MessageBrokerRegistry` unter `"/item-updates"` von Clients abonniert wird.
 
 ```typescript
 ...
