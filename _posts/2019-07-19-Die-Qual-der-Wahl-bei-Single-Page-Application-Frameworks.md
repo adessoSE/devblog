@@ -1,7 +1,7 @@
 ---
 layout: [post, post-xml]              # Pflichtfeld. Nicht ändern!
 title:  "Angular, React, Vue.js - Die Qual der Wahl bei Single Page Application Frameworks"     # Pflichtfeld. Bitte einen Titel für den Blog Post angeben.
-date:   2019-05-07 15:00              # Pflichtfeld. Format "YYYY-MM-DD HH:MM". Muss für Veröffentlichung in der Vergangenheit liegen. (Für Preview egal)
+date:   2019-07-19 15:00              # Pflichtfeld. Format "YYYY-MM-DD HH:MM". Muss für Veröffentlichung in der Vergangenheit liegen. (Für Preview egal)
 modified_date: 2019-01-30             # Optional. Muss angegeben werden, wenn eine bestehende Datei geändert wird.
 author: frederikschlemmer                    # Pflichtfeld. Es muss in der "authors.yml" einen Eintrag mit diesem Namen geben.
 categories: [Softwareentwicklung] # Pflichtfeld. Maximal eine der angegebenen Kategorien verwenden.
@@ -35,7 +35,9 @@ Diese Aktualisierungsmöglichkeiten benötigen keine neue Initialisierung der Se
 
 Des Weiteren kann mit der Anwendung uneingeschränkt interagiert werden und Aktionen ausgelöst werden.
 Die Aktionen werden wie bei einer Desktop-Anwendung in Echtzeit verarbeitet und die Oberfläche reagiert dynamisch auf das Ereignis.
+
 Aus der Beschreibung werden schon einige Vorteile gegenüber MPAs deutlich, was aber bedeutet das nun konkret?
+
 Zum besseren Verständnis sollen im Folgenden ein paar Vorteile genauer erläutert werden:
 
 **1. Wartbarkeit des Codes**
@@ -102,12 +104,13 @@ Hierdurch entstehen Komponenten, welche sowohl Markup als auch die Logik beinhal
 
 ## Vue.js
 
-Aktuell kann Vue.js noch nicht mit der Popularität von Angular oder React im deutschsprachigen Raum mithalten, allerdings erfährt dieses Framework aktuell einen verstärkten Zuspruch seitens der Community.
-Deutlich wird dieser Zuspruch bei den 120.000 Sternen auf GitHub.
-Im Vergleich zu Angular spiegelt das die dreifache Menge wider. React kann sich ebenfalls in diesem Zahlenbereich halten.
-Die fehlende Popularität wird in dem Google Trends Graphen für Deutschland deutlich.
-Mit einem Blick auf den asiatischen Raum hingegen stellt Vue.js aktuell das gefragteste Framework dar, woraus die höhste Anzahl an Favorisierungen resultiert.
-Veröffentlicht wurde es im Jahr 2014 durch den ehemaligen Google-Mitarbeiter Evan You als Open-Source-Software unter der MIT-Lizenz. 
+Aktuell kann Vue.js im deutschen Bereich noch nicht mit der Popularität von Angular oder React im deutschsprachigen Raum mithalten, allerdings erfährt dieses Framework aktuell einen verstärkten Zuspruch seitens der Community.
+Deutlich wird dieser Zuspruch durch die 120.000 Sternen auf GitHub. Im Vergleich zu Angular spiegelt das die dreifache Menge wider. React kann sich ebenfalls in diesem Zahlenbereich halten.
+
+Laut Google Trends (siehe Graph oben) ist Vue.js im deutschen Bereich dennoch nicht so populär wie Angular oder React.
+Mit einem Blick auf den asiatischen Raum hingegen stellt Vue.js aktuell das gefragteste Framework dar, woraus die hohe Anzahl an Sternen auf Github resultiert.
+
+Veröffentlicht wurde das Framework im Jahr 2014 durch den ehemaligen Google-Mitarbeiter Evan You als Open-Source-Software unter der MIT-Lizenz. 
 Genauso wie React wurde Vue.js mittels JavaScript umgesetzt, allerdings bietet es auch eine Unterstützung für TypeScript an.
 
 Vue.js bietet dem Nutzer passend zum Anwendungszweck Skalierungsmöglichkeiten an. Es kann zwischen einer leichtgewichtigen Bibliothek oder einem gesamten Framework ausgewählt werden.
