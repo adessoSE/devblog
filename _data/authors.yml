@@ -186,6 +186,15 @@ ccaylak:
   bio: "Cem Caylak ist ein dualer Student bei adesso und studiert am ITC."
   avatar_url: /assets/images/avatars/ccaylak.png
   github: https://github.com/ccaylak
+  
+frederikschlemmer:
+  first_name: Frederik
+  last_name: Schlemmer
+  github_username: FrederikSchlemmer
+  email: frederik.schlemmer@adesso.de
+  bio: "Frederik Schlemmer ist als Werkstudent im Open-Source-Team bei adesso in Dortmund tätig."
+  avatar_url: /assets/images/avatars/fschlemmer.jpg
+  github: https://github.com/FrederikSchlemmer
 
 vincentmathis:
   first_name: Vincent
