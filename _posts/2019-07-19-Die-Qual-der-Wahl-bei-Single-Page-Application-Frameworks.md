@@ -1,6 +1,6 @@
 ---
 layout: [post, post-xml]              # Pflichtfeld. Nicht ändern!
-title:  "Angular, React, Vue.js - Wie wähle ich das passende Frontend-Framework aus?"     # Pflichtfeld. Bitte einen Titel für den Blog Post angeben.
+title:  "Angular, React oder Vue.js? Eine Entscheidungshilfe"     # Pflichtfeld. Bitte einen Titel für den Blog Post angeben.
 date:   2019-07-19 15:00              # Pflichtfeld. Format "YYYY-MM-DD HH:MM". Muss für Veröffentlichung in der Vergangenheit liegen. (Für Preview egal)
 modified_date: 2019-01-30             # Optional. Muss angegeben werden, wenn eine bestehende Datei geändert wird.
 author: frederikschlemmer                    # Pflichtfeld. Es muss in der "authors.yml" einen Eintrag mit diesem Namen geben.
