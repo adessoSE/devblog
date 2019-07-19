@@ -104,10 +104,10 @@ Hierdurch entstehen Komponenten, welche sowohl Markup als auch die Logik beinhal
 
 ## Vue.js
 
-Aktuell kann Vue.js im deutschen Bereich noch nicht mit der Popularität von Angular oder React im deutschsprachigen Raum mithalten, allerdings erfährt dieses Framework aktuell einen verstärkten Zuspruch seitens der Community.
+Aktuell kann Vue.js im deutschsprachigen Raum noch nicht mit der Popularität von Angular oder React mithalten, allerdings erfährt dieses Framework aktuell einen verstärkten Zuspruch seitens der Community.
 Deutlich wird dieser Zuspruch durch die 120.000 Sternen auf GitHub. Im Vergleich zu Angular spiegelt das die dreifache Menge wider. React kann sich ebenfalls in diesem Zahlenbereich halten.
 
-Laut Google Trends (siehe Graph oben) ist Vue.js im deutschen Bereich dennoch nicht so populär wie Angular oder React.
+Laut Google Trends (siehe Graph oben) ist Vue.js im deutschsprachigen Raum dennoch nicht so populär wie Angular oder React.
 Mit einem Blick auf den asiatischen Raum hingegen stellt Vue.js aktuell das gefragteste Framework dar, woraus die hohe Anzahl an Sternen auf Github resultiert.
 
 Veröffentlicht wurde das Framework im Jahr 2014 durch den ehemaligen Google-Mitarbeiter Evan You als Open-Source-Software unter der MIT-Lizenz. 
