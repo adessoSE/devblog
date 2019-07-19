@@ -36,6 +36,7 @@ Diese Aktualisierungsmöglichkeiten benötigen keine neue Initialisierung der Se
 Des Weiteren kann mit der Anwendung uneingeschränkt interagiert werden und Aktionen ausgelöst werden.
 Die Aktionen werden wie bei einer Desktop-Anwendung in Echtzeit verarbeitet und die Oberfläche reagiert dynamisch auf das Ereignis.
 Aus der Beschreibung werden schon einige Vorteile gegenüber MPAs deutlich, was aber bedeutet das nun konkret?
+Zum besseren Verständnis sollen im Folgenden ein paar Vorteile genauer erläutert werden:
 
 **1. Wartbarkeit des Codes**
    
@@ -101,10 +102,12 @@ Hierdurch entstehen Komponenten, welche sowohl Markup als auch die Logik beinhal
 
 ## Vue.js
 
-Aktuell kann Vue.js noch nicht mit der Popularität von Angular oder React mithalten, allerdings erfährt dieses Framework aktuell einen verstärkten Zuspruch seitens der Community.
+Aktuell kann Vue.js noch nicht mit der Popularität von Angular oder React im deutschsprachigen Raum mithalten, allerdings erfährt dieses Framework aktuell einen verstärkten Zuspruch seitens der Community.
 Deutlich wird dieser Zuspruch bei den 120.000 Sternen auf GitHub.
 Im Vergleich zu Angular spiegelt das die dreifache Menge wider. React kann sich ebenfalls in diesem Zahlenbereich halten.
-Im Jahr 2014 wurde das Framework durch den ehemaligen Google-Mitarbeiter Evan You als Open-Source-Software unter der MIT-Lizenz veröffentlicht. 
+Die fehlende Popularität wird in dem Google Trends Graphen für Deutschland deutlich.
+Mit einem Blick auf den asiatischen Raum hingegen stellt Vue.js aktuell das gefragteste Framework dar, woraus die höhste Anzahl an Favorisierungen resultiert.
+Veröffentlicht wurde es im Jahr 2014 durch den ehemaligen Google-Mitarbeiter Evan You als Open-Source-Software unter der MIT-Lizenz. 
 Genauso wie React wurde Vue.js mittels JavaScript umgesetzt, allerdings bietet es auch eine Unterstützung für TypeScript an.
 
 Vue.js bietet dem Nutzer passend zum Anwendungszweck Skalierungsmöglichkeiten an. Es kann zwischen einer leichtgewichtigen Bibliothek oder einem gesamten Framework ausgewählt werden.
