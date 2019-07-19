@@ -121,48 +121,16 @@ Die Bibliothek bietet ähnlich wie React nur Funktionalität für die Ansichtseb
 Der Vergleich wurde zunächst mit einer Evaluation von groben Themengebieten begonnen.
 Diese wurde basierend auf literarischen Quellen durchgeführt und brachte folgende Themengebiete als Ergebnis hervor:
 
-<table style="width:100%">
-<tr>
-<td width="35%" style="color:rgb(239, 130, 0); font-size:18px"><b>Themengebiet</b></td>
-<td width="65%" style="color:rgb(239, 130, 0); font-size:18px"><b>Beschreibung</b></td>
-</tr>
-<tr>
-<td><b>Sicherheit</b></td>
-<td><i>Durch den Anstieg der Funktionalitäten werden vertrauliche Informationen durch Webanwendungen gespeichert. Hierdurch steigt die Anzahl der Angriffe auf solche Systeme enorm an. Ebenfalls wird die Top 10 der Sicherheitsrisiken des Open Web Application Security Project (OWASP) berücksichtigt.</i></td>
-</tr>
-<tr>
-<td><b>Modularität</b></td>
-<td><i>Ein erhöhter Funktionsumfang resultiert in einer komplexeren Anwendung, wodurch die Modularität einen wichtigen Aspekt für moderne Webanwendungen widerspiegelt. Es sollte eine Unterteilung in kleinere isolierte Komponenten ermöglicht werden, damit diese in späteren Anwendungen wiederverwendet werden können.</i></td>
-</tr>
-<tr>
-<td><b>Performance</b></td>
-<td><i>Die User Experience kann gravierend durch die Performance beeinträchtigt werden. Des Weiteren sollten unnötige Datentransfers reduziert werden.</i></td>
-</tr>
-<tr>
-<td><b>Testbarkeit</b></td>
-<td><i>Testbasierte Entwicklung ist heutzutage ein verbreitetes Vorgehen. Eine Anwendung muss durch automatische Tests ausreichend auf ihre Richtigkeit durchgetestet werden.</i></td>
-</tr>
-<tr>
-<td><b>Wartbarkeit und Zukunftssicherheit</b></td>
-<td><i>Eine hohe Wartbarkeit eines Projektes ist für die Zukunft entscheidend. Außerdem sollte das verwendete Framework stetig weiterentwickelt werden.</i></td>
-</tr>
-<tr>
-<td><b>Plattformunabhängigkeit und Kompatibilität</b></td>
-<td><i>Anwendungen müssen heutzutage auf mobilen Geräten sowie in Browsern mit identischem Funktionsumfang funktionieren.</i></td>
-</tr>
-<tr>
-<td><b>Popularität und verfügbares Know-How</b></td>
-<td><i>Eine erhöhte Popularität bietet eine größere Community. Dadurch ist ein breites verfügbares Know-How durch Foren oder Blogs verfügbar.</i></td>
-</tr>
-<tr>
-<td><b>Einfachheit und Benutzerfreundlichkeit</b></td>
-<td><i>Das Framework sollte den Entwickler in dem Entstehungsprozess der Anwendung unterstützen. Außerdem sollten standardisierte Abläufe vorhanden sein.</i></td>
-</tr>
-<tr>
-<td><b>Eignung zur Umsetzung von Lean- und Fat-SPAs</b></td>
-<td><i>Eine flexible Anpassung zur Umsetzung von Lean oder Fat-SPAs sollte ermöglicht werden. Hierdurch werden kleinere Anwendungen nicht durch ein schwergewichtiges Framework unnötig überladen.</i></td>
-</tr>
-</table>
+
+* **Sicherheit:** Durch den Anstieg der Funktionalitäten werden vertrauliche Informationen durch Webanwendungen gespeichert. Hierdurch steigt die Anzahl der Angriffe auf solche Systeme enorm an. Ebenfalls wird die Top 10 der Sicherheitsrisiken des Open Web Application Security Project (OWASP) berücksichtigt.
+* **Modularität:** Ein erhöhter Funktionsumfang resultiert in einer komplexeren Anwendung, wodurch die Modularität einen wichtigen Aspekt für moderne Webanwendungen widerspiegelt. Es sollte eine Unterteilung in kleinere isolierte Komponenten ermöglicht werden, damit diese in späteren Anwendungen wiederverwendet werden können.
+* **Performance:** Die User Experience kann gravierend durch die Performance beeinträchtigt werden. Des Weiteren sollten unnötige Datentransfers reduziert werden.
+* **Testbarkeit:** Testbasierte Entwicklung ist heutzutage ein verbreitetes Vorgehen. Eine Anwendung muss durch automatische Tests ausreichend auf ihre Richtigkeit durchgetestet werden.
+* **Wartbarkeit und Zukunftssicherheit:** Eine hohe Wartbarkeit eines Projektes ist für die Zukunft entscheidend. Außerdem sollte das verwendete Framework stetig weiterentwickelt werden.
+* **Plattformunabhängigkeit und Kompatibilität:** Anwendungen müssen heutzutage auf mobilen Geräten sowie in Browsern mit identischem Funktionsumfang funktionieren.
+* **Popularität und verfügbares Know-How:** Eine erhöhte Popularität bietet eine größere Community. Dadurch ist ein breites verfügbares Know-How durch Foren oder Blogs verfügbar.
+* **Einfachheit und Benutzerfreundlichkeit:** Das Framework sollte den Entwickler in dem Entstehungsprozess der Anwendung unterstützen. Außerdem sollten standardisierte Abläufe vorhanden sein.
+* **Eignung zur Umsetzung von Lean- und Fat-SPAs:** Eine flexible Anpassung zur Umsetzung von Lean oder Fat-SPAs sollte ermöglicht werden. Hierdurch werden kleinere Anwendungen nicht durch ein schwergewichtiges Framework unnötig überladen.
 
 Passend zu diesen einzelnen Themengebieten wurden Leitfragen formuliert, welche auf spezifische Aspekte des Themas eingehen. 
 Dadurch wurden die Frameworks in diesem Vergleich mit 62 verschiedenen Kriterien untersucht.
