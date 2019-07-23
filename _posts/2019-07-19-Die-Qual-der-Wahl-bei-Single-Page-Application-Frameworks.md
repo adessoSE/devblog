@@ -72,7 +72,7 @@ Darüber hinaus kann die Anwendung während einer Abfrage mit erhöhter Bearbeit
 
 Die Auswahl der Frameworks, welche in diesem Blogpost thematisiert werden, wurde anhand der Popularität der Frameworks getätigt. Mittels Google Trends wurde die Anzahl der Websuchen im Zeitraum der letzten 12 Monate für die Frameworks Angular, React, Vue.js und Ember.js in Deutschland analysiert. Das Ergebnis von Google Trends ist in der nachfolgenden Abbildung dargestellt:
 
-![Statistik zu Websuchen mittels Google](/assets/images/posts/Die-Qual-der-Wahl-bei-Single-Page-Application-Frameworks/trends.png)
+![Statistik zu Websuchen mittels Google](/assets/images/posts/Die-Qual-der-Wahl-bei-Single-Page-Application-Frameworks/trends.PNG)
 
 In diesem Graphen ist die Anzahl der Websuchen der einzelnen Frameworks vom 27.05.2018 bis zum 25.05.2019 visuell dargestellt.
 Angular und React setzen sich von Vue.js und Ember.js deutlich ab.
@@ -145,7 +145,7 @@ In dieser Anwendung kann der Nutzer die Leitfragen aus dem Vergleich passend zu 
 Hierdurch wird das Kriterium in dem Vergleich einbezogen oder vernachlässigt.
 Der Fragebogen ist beispielhaft in der Abbildung anhand von einer Leitfrage dargestellt.
 
-![Darstellung einer Leitfrage in der Anwendung](/assets/images/posts/Die-Qual-der-Wahl-bei-Single-Page-Application-Frameworks/fragebogen.png)
+![Darstellung einer Leitfrage in der Anwendung](/assets/images/posts/Die-Qual-der-Wahl-bei-Single-Page-Application-Frameworks/fragebogen.PNG)
 
 Ergänzend zu der theoretischen Sichtweise auf die Kriterien wurde intern bei adesso eine Umfrage mit erfahrenen Entwicklern durchgeführt, welche bereits Erfahrung mit den Frameworks Angular, React oder Vue.js besitzen.
 Hieraus ergab sich eine Gewichtung der jeweiligen Leitfragen im Praxiskontext.
