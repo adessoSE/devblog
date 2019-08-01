@@ -55,15 +55,15 @@ Die Oberfläche der Auktionsplattform bietet Nutzern folgende Anwendungsfälle, 
 
 - A. Darstellung von Auktionsartikeln
 
-![AuctionViewComponent](assets/images/posts/../../../../assets/images/posts/websockets-leichtgemacht-stompjs-spring/auction-view-comp.png)
+![AuctionViewComponent](/assets/images/posts/websockets-leichtgemacht-stompjs-spring/auction-view-comp.png)
 
 - B. Bieten auf Auktionsartikeln
 
-![AuctionViewComponent - Successfuly bought item](assets/images/posts/../../../../assets/images/posts/websockets-leichtgemacht-stompjs-spring/auction-view-comp-bid.png)
+![AuctionViewComponent - Successfuly bought item](/assets/images/posts/websockets-leichtgemacht-stompjs-spring/auction-view-comp-bid.png)
 
 - C. Kauf von Auktionsartikeln
 
-![AuctionViewComponent](assets/images/posts/../../../../assets/images/posts/websockets-leichtgemacht-stompjs-spring/auction-view-comp-bought.png)
+![AuctionViewComponent](/assets/images/posts/websockets-leichtgemacht-stompjs-spring/auction-view-comp-bought.png)
 
 Die Implementierung der Anwendungsfälle erfolgt in `src/app/auction-view/auction-view.component.ts`.
 
