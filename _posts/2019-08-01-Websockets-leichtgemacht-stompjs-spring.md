@@ -1,7 +1,7 @@
 ---
 layout: [post, post-xml]              
 title:  "WebSockets leichtgemacht mit STOMP.js und Spring Boot"        
-date:   2019-07-01 10:00                                
+date:   2019-08-01 10:00                                
 author: s-gbz
 categories: [Softwareentwicklung]                    
 tags: [WebSockets, Angular, JavaScript, Nodejs, TypeScript, Java, Spring Boot]
