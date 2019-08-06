@@ -55,7 +55,7 @@ Es ist erlaubt, Gebühren für Garantien und Servicedienstleistungen zu erheben.
 
 Ist es durch Höhere Gewalt, beispielsweise Gerichturteile oder lokal geltende Gesetze, nicht möglich, Teile der Bedingungen der MPL zu erfüllen, müssen die gegebenen Einschränkungen und der Code, den sie betreffen, kenntlich gemacht werden.
 
-Die unter dieser Lizenz gewährten Rechte erlischen automatisch, wenn man den Bedingungen der MPL nicht nachkommt. Sie können aber erneut temporär gewährt werden, wenn man die Bedinungen nachträglich erfüllt. Diese Rechte werden permanent gültig, wenn der Geschädigte dies erlaubt oder er die Rechte nicht innerhalb von 60 Tagen entzieht.
+Die unter dieser Lizenz gewährten Rechte erlöschen automatisch, wenn man den Bedingungen der MPL nicht nachkommt. Sie können aber erneut temporär gewährt werden, wenn man die Bedingungen nachträglich erfüllt. Diese Rechte werden permanent gültig, wenn der Geschädigte dies erlaubt oder er die Rechte nicht innerhalb von 60 Tagen entzieht.
 
 ## Apache License
 Die Apache License wird beispielsweise von Android, Spring und Docker verwendet und gewährt ebenfalls keine Garantieansprüche.
