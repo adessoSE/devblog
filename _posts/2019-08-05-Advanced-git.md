@@ -22,28 +22,6 @@ dir lokal vorhanden ist. Außerdem kann es Sinn ergeben, die Historie zu
 verändern, wenn die Arbeit an einem Branch abgeschlossen ist und er für einen
 Pull Request aufgeräumt werden soll.
 
-# Interaktiver Rebase
-Für einige der folgenden Operationen wird der interaktive Rebase benötigt.
-Dieser erlaubt es dir beim Aufspielen vergangener Commits auf eine neue Basis
-unterschiedliche Operationen auszuführen. Diese erlauben einem unter anderem,
-einen Commit zu bearbeiten, zu entfernen und mit einem anderen zu vereinen.
-
-Um einen interaktiven Rebase zu starten wird ein Commit benötigt, auf den die
-Änderungen aufgespielt werden sollen. Den kannst du bestimmen, indem du abzählst
-der wievielte Commit der letzte Commit ist den du bearbeiten möchtest. Wenn du
-den vorletzten Bearbeiten möchtest wäre das der zweite Commit. Damit kannst du
-den Rebase über `git rebase -i HEAD~n` starten, wobei `n` beschreibt der
-wievielte Commit es ist. In Wahrheit ist es jedoch nicht der Commit den du
-bearbeiten möchtest, sondern der Eltern-Commit, da Git bei null anfängt. Daher
-ist es nötig, dass du den Commit-Hash des Eltern-Commit nimmst, wenn du nicht
-zählen kannst und den Hash direkt angeben möchtest.
-
-Wenn du den Rebase nun startest öffnet sich die TODO-Liste in steht welche
-Commits neu aufgespielt werden. Der oberste Commit ist der älteste und der
-unterste der neuste. Vor den einzelnen Commits wird üblicherweise `pick` stehen.
-Dies wirst nachher ändern, um andere Kommandos auszuführen. Wenn du die
-TODO-Liste speicherst und schließt führt Git den Rebase aus.
-
 # Eine Commit-Beschreibung bearbeiten
 Wenn es sich um den letzten Commit handelt kannst du einfach `git commit --amend
 -o` verwenden. Das `--amend` erlaubt es uns, den neuesten Commit zu bearbeiten
@@ -59,9 +37,24 @@ erzeugt wird.
 
 ## Vorgehen bei älteren Commits
 Wenn du die Commit-Beschreibung eines älteren Commits bearbeiten möchtest dann
-muss dafür ein interaktiver Rebase genutzt werden. Du startest ihn mit `git rebase -i <Commit>`.
-In der TODO-Liste ersetzt du, vor den Commits die du
-ändern willst, `pick` durch `reword`.  Wenn du den Editor nun schließt geht Git
+muss dafür ein interaktiver Rebase genutzt werden.
+
+Der interaktive Rebase erlaubt es dir beim Aufspielen vergangener Commits auf
+eine neue Basis unterschiedliche Operationen auszuführen. Diese erlauben einem
+unter anderem, einen Commit zu bearbeiten, zu entfernen, mit einem anderen zu
+vereinen und die Commit-Beschreibung zu ändern.
+
+Um einen interaktiven Rebase durchzuführen, wird ein Commit benötigt, auf dem
+die Änderungen aufsetzen sollen. Damit du nicht immer nach den Commit-Hashes
+suchen musst, kannst du beispielsweise Kurzformen wie `HEAD~1` verwenden.
+Führst du nun `git rebase -i HEAD~1` aus, wird nur der neuste Commit angepasst
+und auf seinen Eltern-Commit neu aufgesetzt. Bevor die Commits neu aufgespielt
+werden, wird eine TODO-Liste geöffnet. In dieser sind die Commits vom ältesten
+zum neuesten aufgelistet und du kannst die Operationen, die ausgeführt werden
+sollen, bestimmen.
+
+Um die Commit-Beschreibung zu ändern musst du nun vor dem passenden Commit
+`pick` durch `reword` ersetzen.  Wenn du den Editor nun schließt geht Git
 sequenziell von oben nach unten die Commits durch und spielt diese auf die neue
 Basis auf. Sobald es auf einen deiner Commits mit `reword` trifft, stoppt der
 Rebase dort und es wird ein Editor mit der Commit-Beschreibung des Commit bei
