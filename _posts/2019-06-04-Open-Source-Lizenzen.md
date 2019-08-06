@@ -84,6 +84,6 @@ Die EUPL erlaubt die Nutzung, Vervielfältigung, Veränderung, Verteilung, Vermi
 
 Bei Veränderungen in einem Werk unter der EUPL dürfen Informationen zu Urheberschaft, Patenten oder Garantien nicht entfernt werden. Die Weiterveröffentlichung kann auch unter einer späteren Version der EUPL geschehen, wenn das Werk nicht explizit unter einer Version veröffentlicht wurde, selbiges gilt auch für eine Veröffentlichung unter anderen Lizenzen.
 
-Eine Besonderheit ist, dass jede Rechtsstreitigkeit, an der eine Partei aus einem EU-Mitgliedsland beteiligt ist, der Zustädnigkeit der Europäischen Gerichtshofs unterliegt. Alle anderen Rechtsstreitigkeiten unterliegen der Zuständigkeit der Gerichte des Landes, in dem der Lizenzgeber wohnt oder er sein Hauptgeschäft betreibt.
+Eine Besonderheit besteht darin, dass jede Rechtsstreitigkeit, an der eine Partei aus einem EU-Mitgliedsland beteiligt ist, der Zuständigkeit der Europäischen Gerichtshofs unterliegt. Alle anderen Rechtsstreitigkeiten unterliegen der Zuständigkeit der Gerichte des Landes, in dem der Lizenzgeber wohnt oder sein Hauptgeschäft betreibt.
 
 Auch diese Lizenz gewährt keine Garantieansprüche.
