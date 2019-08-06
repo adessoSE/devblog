@@ -27,14 +27,129 @@ On the other hand this requires many different Application Contexts that take a 
 
 The following list represents an incomplete list of some examples for situations which lead to the creation of a new Application Context during the execution of your Unit Tests.
 
-## `@DirtiesContext` annotation
+## Explicit invalidation of a context
 
-## Nested test classes
+First of all, you can of course explicitly invalidate an Application Context so a new one has to be created for the following test cases.
+This makes sense when you change the Application Context within a test method which could influence the outcome of other test cases.
+This would mean that the unit tests are not independent anymore which is a dangerous anti pattern.
 
-## Custom properties for Spring Boot Test
+In the following example, the test methods modify the state of a singleton bean so the annotation `@DirtiesContext` is needed to force the test runner to create a new Application Context afterwards.
 
-## Different profiles
+```java
+@SpringBootTest
+@ExtendWith(SpringExtension.class)
+class FruitManagerTest {
 
-## Web MVC Test for one Controller
+    @Autowired
+    FruitManager fruitManager;
+
+    @Test
+    @DirtiesContext
+    void changeDefaultToBananaTest() {
+        Assertions.assertEquals("Apple",fruitManager.getCurrentSeasonalFruit());
+        fruitManager.setCurrentSeasonalFruit("Banana");
+        Assertions.assertEquals("Banana", fruitManager.getCurrentSeasonalFruit());
+    }
+
+    @Test
+    @DirtiesContext
+    void changeDefaultToMelonTest() {
+        Assertions.assertEquals("Apple", fruitManager.getCurrentSeasonalFruit());
+        fruitManager.setCurrentSeasonalFruit("Melon");
+        Assertions.assertEquals("Melon", fruitManager.getCurrentSeasonalFruit());
+    }
+}
+```
+
+## Individual test profiles
+
+You can define different profiles for the execution of your Spring Boot application.
+For example these profiles can define which implementation of a Bean is used in different contexts.
+In our example, you can define a different instance of the `FruitManager` Bean for the `dev` environment by labeling the Bean class with the `@Profile("dev")` annotation and the test class with the `@ActiveProfiles("dev")` annotation.
+
+```java
+@Component
+@Profile("dev")
+public class FruitManagerDev implements FruitManager {
+
+    private String currentSeasonalFruit = "Melon";
+
+    public String getCurrentSeasonalFruit() {
+        return currentSeasonalFruit;
+    }
+
+    public void setCurrentSeasonalFruit(String currentSeasonalFruit) {
+        this.currentSeasonalFruit = currentSeasonalFruit;
+    }
+
+}
+```
+
+```java
+@SpringBootTest
+@ExtendWith(SpringExtension.class)
+@ActiveProfiles("dev")
+class FruitManagerDevTest {
+
+    @Autowired
+    FruitManager fruitManager;
+
+    @Test
+    void checkDefaultValueTest() {
+        Assertions.assertEquals("Melon", fruitManager.getCurrentSeasonalFruit());
+    }
+}
+```
+
+## Custom properties
+
+When testing your application, sometimes it makes sense to overwrite properties previously defined in the `application.properties` file.
+The configured properties are part of the Application Context which means that changing these requires a refresh.
+You can overwrite properties inside the parameters of the `@SpringBootTest` annotation as demonstrated in this example.
+
+```java
+@SpringBootTest(properties = {"fruit.name=Melon"})
+@ExtendWith(SpringExtension.class)
+class FruitManagerMelonTest {
+
+    @Autowired
+    FruitManager fruitManager;
+
+    @Test
+    void checkDefaultValueTest() {
+        Assertions.assertEquals("Melon", fruitManager.getCurrentSeasonalFruit());
+    }
+}
+```
+
+## Web MVC Test for single Controller
+
+To guarantee that your unit tests are as independent from each other as possible, you should construct your web endpoint tests in a way that isolates functional groups.
+In our example this means that the test class for validating the `VegetableController` class should have nothing to do with other controllers like the `FruitController`.
+To achieve this we have to specify the tested controller as a parameter of the `@WebMVCTest` annotation.
+If we had not done this in this example, Spring would complain about a missing instance of the `FruitManager` Bean.
+Although this Bean is not even used in this test class, the test runner tries to create the complete Application Context which fails because it can't find any real or mock instance of the `FruitManager` Bean.
+
+```java
+@WebMvcTest(VegetableController.class)
+@ExtendWith(SpringExtension.class)
+class VegetableControllerTest {
+
+    @Autowired
+    MockMvc mockMvc;
+
+    @Test
+    void getSeasonalVegetableTest() throws Exception {
+
+        String result = mockMvc.perform(get("/vegetable/seasonal"))
+                .andExpect(status().isOk())
+                .andReturn()
+                .getResponse()
+                .getContentAsString();
+
+        Assertions.assertEquals("Potato", result);
+    }
+}
+```
 
 # How to recognize these situations
