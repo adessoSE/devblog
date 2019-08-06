@@ -16,7 +16,7 @@ Open-Source-Software ist nicht gleich Open-Source-Software. Das merkt man schon,
 ## GNU General Public License version 2 (GPLv2) 
 Die GPL ist die am häufigsten verwendete Lizenz und wird beispielsweise von Linux verwendet. Sie erlaubt sowohl private als auch kommerzielle Nutzung. Auch Verarbeitung und Veränderung des ursprünglichen Werks ist erlaubt. Allerdings gibt es hier einige Einschränkungen.
 
-Der Source-Code muss zusammen mit der Lizenztext, bzw. einem Verweis darauf und dem Urheberschutzvermerk weitergegeben werden. Wenn an dem Source-Code Änderungen vorgenommen werden, muss eindeutig kenntlich gemacht werden, wann welche Änderungen vorgenommen wurden.
+Der Source-Code muss zusammen mit dem Lizenztext oder einem Verweis darauf und dem Urheberschutzvermerk weitergegeben werden. Wenn an dem Source-Code Änderungen vorgenommen werden, muss eindeutig kenntlich gemacht werden, wann welche Änderungen vorgenommen wurden.
  
 Ein Projekt, das Code verwendet, der unter der GPL steht, oder von solchem Code abgeleitet ist, muss ebenfalls unter der GPL veröffentlicht werden. Eine Ausnahme hierfür bilden Teile des Codes, die eindeutig unabhängig vom Code unter der GPL sind. Werden sie einzeln, und nicht als ganze Arbeit veröffentlicht, gilt die GPL nicht für das ganze Projekt. Durch die Zusammenfassung von Code unter der GPL und Code nicht unter der GPL auf eienm Verteilungsmedium ist die Unabhängigkeit des Codes, der nicht unter der GPL ist, weiterhin gewährleistet. Eine kommerzielle Nutzung des Werkes ist möglich, allerdings müssen dabei die Bedingungen der GPL eingehalten werden.
 
