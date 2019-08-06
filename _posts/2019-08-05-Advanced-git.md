@@ -85,7 +85,7 @@ git rebase -i <Commit>
 # Änderungen zu einem Commit hinzufügen/entfernen
 ## Hinzufügen von Änderungen
 Wenn du zum letzten Commit weitere Änderungen hinzufügen möchtest, musst du
-diese zunächst durchführen und per `git add` zum Index hinzufügen. Wenn du damit
+diese zunächst durchführen und per `git add` zur Staging-Area hinzufügen. Wenn du damit
 fertig bist, kannst du die Änderungen mittels `git commit --amend` zum letzten
 Commit hinzufügen. Dies öffnet einen Editor mit der Commit-Beschreibung des
 vorherigen Commit welche du frei bearbeiten kannst.  Nachdem du den Editor
@@ -99,7 +99,7 @@ und sie über `git commit --amend` "hinzufügen".
 Wenn du sie behalten möchtest dann kannst du dies erreichen im dem du die
 Änderungen die du nicht im Commit haben möchtest mit `git reset HEAD^ <Änderungen>`
 zurücksetzt. Damit wird der Stand von `<Änderungen>` vor dem
-jetzigen Commit (`HEAD^`) in den Index geholt und die Änderungen, die du im
+jetzigen Commit (`HEAD^`) in die Staging-Area geholt und die Änderungen, die du im
 letzten Commit gemacht hast, befinden sich im Arbeitsverzeichnis. Jetzt kannst du
 wieder über `git commit --amend` einen Commit erstellen, der deine Änderungen
 nicht mehr enthält.  Wenn du mit der oberen Methode alle Änderungen entfernen
@@ -125,12 +125,12 @@ kannst du mit `git stash` die Änderungen sicher zur Seite legen.
 ``` git
 # Zum letzten Commit hinzufügen
 
-# Änderungen machen und zum Index hinzufügen
+# Änderungen machen und zur Staging-Area hinzufügen
 git commit --amend
 
 # Änderungen zum letzten Commit entfernen, ohne beibehalten
 
-# Änderungen entfernen und zum Index hinzufügen
+# Änderungen entfernen und zur Staging-Area hinzufügen
 git commit --amend
 
 # Änderungen beibehalten
@@ -161,7 +161,7 @@ Commits, die du vereinen möchtest, ausgewählt hast wird der Rebase durchgefüh
 ## Automatisch
 Wenn du bereits im voraus weißt, dass du einen Commit mit einem anderen vereinen
 willst, kann Git dir das Leben etwas einfacher machen. Nachdem du deine
-Änderungen gemacht und zum Index hinzugefügt hast, kannst du mit
+Änderungen gemacht und zur Staging-Area hinzugefügt hast, kannst du mit
 `git commit --fixup=<Commit>` oder `git commit --squash=<Commit>` den Commit zum
 automatischen Vereinen markieren. Dies erstellt einen Commit der mit `squash!`
 bzw. `fixup!` beginnt, gefolgt vom Header der Commit-Beschreibung von
@@ -191,7 +191,7 @@ Wenn der Commit den du aufteilen möchtest der letzte Commit ist kannst du über
 `git reset HEAD^` deine Änderungen zurücksetzen, ohne sie zu löschen. Der Reset
 setzt den momentanen `HEAD` auf den angegeben Stand zurück. Wenn keine weiteren
 Optionen gegeben werden setzt Git mit der Option `--mixed` zurück. Dadurch wird
-der Index zurückgesetzt, aber die Änderungen befinden sich noch im
+die Staging-Area zurückgesetzt, aber die Änderungen befinden sich noch im
 Arbeitsverzeichnis. Hier kannst du nun die Änderungen auf mehrere Commits
 aufteilen.
 
