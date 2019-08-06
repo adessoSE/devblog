@@ -32,7 +32,7 @@ Die Lizenz bietet keine Garantien. Sollte bei der Verwendung eines Programms unt
 - Eine Kombination mit anderen Lizenzen, zum Beispiel der Apache License, ist möglich.
 
 ## GNU Lesser General Public License version 2.1 (LGPLv2.1)
-Die LGPL ist der GPL sehr ähnlich. Sie unterscheiden sich allerdings in einem Aspekt. Die LGPL konzentriert sich auf Programmbibliotheken. Sie besagt, dass Code, welcher mit einer Programmbibliothek unter der LGPL arbeitet, nicht unter der LGPL veröffentlicht werden muss. Werden allerdings Code und Bibliothek zu einer ausführbaren Datei zusammengefasst, enthält diese ausführbare Datei die Bibliothek oder einen Teil davon und muss unter der LGPL veröffentlicht werden.
+Die LGPL ist der GPL sehr ähnlich. Sie unterscheidet sich allerdings in einem Aspekt. Die LGPL konzentriert sich auf Programmbibliotheken. Sie besagt, dass Code, welcher mit einer Programmbibliothek unter der LGPL arbeitet, nicht unter der LGPL veröffentlicht werden muss. Werden allerdings Code und Bibliothek zu einer ausführbaren Datei zusammengefasst, enthält diese ausführbare Datei die Bibliothek oder einen Teil davon und muss unter der LGPL veröffentlicht werden.
 
 Eine Ausnahme hierzu besteht, wenn offensichtlich darauf hingewiesen wird, dass die Bibliothek unter der LGPL verwendet wurde. Dann muss der Code nicht unter der LGPL veröffentlicht werden, sondern es reicht, wenn Modifizierungen und Reverse-Engineering erlaubt sind und der Source-Code hierfür bereitgestellt wird.
 
