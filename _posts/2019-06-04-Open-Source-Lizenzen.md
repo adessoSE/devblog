@@ -8,7 +8,7 @@ categories:     [Softwareentwicklung]
 tags:           [Open Source, Lizenzen]
 ---
 
-Auf GitHub, GitLab und ähnlichen Plattformen zur Veröffentlichung von Source-Code wird in nahezu jedem Repository auf eine Lizenz hingewiesen. Aber um Open-Source-Code zu verwenden brauche ich doch keine Lizenzgebühren zahlen und darf den Code verwenden wie ich möchte, oder? Leider nein. Zwischen den einzelnen Lizenzen gibt es einige Unterschiede. Dieser Blogpost soll dabei helfen, die richtige Lizenz für das eigene Projekt zu finden und Projekte von Anderen richtig zu verwenden.
+Auf GitHub, GitLab und ähnlichen Plattformen zur Veröffentlichung von Source-Code wird in nahezu jedem Repository auf eine Lizenz hingewiesen. Aber um Open-Source-Code zu verwenden muss ich doch keine Lizenzgebühren zahlen und darf den Code verwenden wie ich möchte, oder? Leider nein! Zwischen den einzelnen Lizenzen gibt es einige Unterschiede. Dieser Blogpost soll dabei helfen, die richtige Lizenz für das eigene Projekt zu finden und Projekte von Anderen richtig zu verwenden.
 
 # Lizenzmodelle
 Open-Source-Software ist nicht gleich Open-Source-Software. Das merkt man schon, wenn man sich die [Liste der von der Open-Source-Initiative anerkannten Lizenzen](https://opensource.org/licenses/alphabetical) anschaut. Nach momentanem Stand sind dort 82 Lizenzen aufgeführt. Im Folgenden wird ein kurzer Überblick über die gebräuchlichsten Lizenzen gegeben. Disclaimer: Dieser Blogeintrag soll lediglich eine Übersicht über die gebräuchlichsten Lizenzmodelle geben und ist nicht als Rechtsberatung anzusehen. Die hier aufgeführten Informationen stammen von der [Open Source Initiative](https://opensource.org/).
