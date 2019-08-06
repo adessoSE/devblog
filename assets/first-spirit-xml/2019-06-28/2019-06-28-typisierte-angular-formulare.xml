@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<documents>
+    <document uid="0a38cf161a8e8d220d35255dcdb2c4e4">
+        <field name="title"><![CDATA[Typisierte Forms in Angular]]></field>
+        <field name="subline"><![CDATA[]]></field>
+        <field name="teaser"><![CDATA[<p>In fast jeder Angular Applikation wird man früher oder später Eingaben von Nutzern annehmen und verarbeiten wollen. Reactive Forms haben den Vorteil, dass die Strukturen und alle Validierungen an einem Platz definiert werden und feldübergreifende Validierungen so sehr einfach umsetzbar sind. Für den Nachteil, dass sämtliche Typinformationen über die Formulardaten verloren gehen, soll hier eine Alternative aufgezeigt werden.</p>
+
+]]></field>
+        <field name="language_multi_keyword"><![CDATA[de]]></field>
+        <field name="content_type_multi_keyword"><![CDATA[blog]]></field>
+        <field name="mime_type_multi_keyword"><![CDATA[text/html]]></field>
+        <field name="category_multi_keyword"><![CDATA[Softwareentwicklung]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Angular]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Typescript]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Angular forms]]></field>
+        <field name="date_date"><![CDATA[2019-06-28T10:25:00+02:00]]></field>
+        <field name="date_l"><![CDATA[1561710300000]]></field>
+        <field name="change_date"><![CDATA[1561710300000]]></field>
+        <!--Picture-->
+        <!-- Not in use at the moment-->
+        <!--Author Information-->
+        <field name="author_first_name"><![CDATA[Christoph]]></field>
+        <field name="author_last_name"><![CDATA[Hoffmann]]></field>
+        <field name="author_id"><![CDATA[no0x9d]]></field>
+        <field name="author_picture_stored_only"><![CDATA[http://localhost:4000/assets/images/avatars/christophhoffmann.jpg]]></field>
+        <!--Postcontent-->
+        <field name="headlines"><![CDATA[Typisierte Forms in Angular]]></field>
+        <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
+            <p>In fast jeder Angular Applikation wird man früher oder später Eingaben von Nutzern annehmen und verarbeiten wollen. Reactive Forms haben den Vorteil, dass die Strukturen und alle Validierungen an einem Platz definiert werden und feldübergreifende Validierungen so sehr einfach umsetzbar sind. Für den Nachteil, dass sämtliche Typinformationen über die Formulardaten verloren gehen, soll hier eine Alternative aufgezeigt werden.</p>
+
+</div>]]></field>
+        <field name="content"><![CDATA[<div class="adesso-text-formate">
+<div class="row p-t-2">
+<div class="adesso-container">
+<div class="col-xl-8 adesso-center p-b-1 p-l-0 p-r-0">
+    <p>In fast jeder Angular Applikation wird man früher oder später Eingaben von Nutzern annehmen und verarbeiten wollen. Reactive Forms haben den Vorteil, dass die Strukturen und alle Validierungen an einem Platz definiert werden und feldübergreifende Validierungen so sehr einfach umsetzbar sind. Für den Nachteil, dass sämtliche Typinformationen über die Formulardaten verloren gehen, soll hier eine Alternative aufgezeigt werden.</p>
+
+<h4 id="typisierte-forms-in-angular">Typisierte Forms in Angular</h4>
+
+<p>In der aktuellen Implementierung der Reactive Forms sind keine Typinformationen über die Struktur der Daten in einer <code>FormGroup</code> mehr vorhanden. Dies kann gerade bei größeren Formularen problematisch sein.</p>
+
+<p>Die Übersicht leidet und da der Zugriff auf die einzelnen Felder lediglich über Strings erfolgt, sind Änderungen der Struktur nicht refactoring-sicher. Fehler findet man dann erst durch die Ausführung von Unit-Tests oder zur Laufzeit. Die IDE kann auch keine Unterstützung wie Code-Completion anbieten.</p>
+
+<p>Da sich Typescript in diesem Bereich stark weiterentwickelt hat, haben wir als Lösung in einem aktuellen Projekt eine Typisierung auf die Form-Klassen des Angular Projekt aufgesetzt und als Open Source Paket <code>ngx-strongly-typed-forms</code> über <a href="https://www.npmjs.com/package/ngx-strongly-typed-forms">npm</a> veröffentlicht.</p>
+
+<h4 id="besipiel-anwendung">Besipiel-Anwendung</h4>
+
+<p>Als Beispiel für die Integration dient die von Angular verwendete finale Version der reactive Form Demo. Hier handelt es sich um ein keines Beispiel, in dem man zu einem Helden den Namen, Adressen und seine Superpower pflegen kann. Dabei wurde die <code>HeroDetailComponent</code> auf typisierte Formulare mit <code>ngx-strongly-typed-forms</code> umgestellt.</p>
+
+<p>Das Repository mit dem vollständigen Code befindet sich auf <a href="https://github.com/no0x9d/typed-reactive-forms-example">Github</a>. Bei <a href="https://stackblitz.com/github/no0x9d/typed-reactive-forms-example">stackblitz.com</a> kann man direkt im Browser eine lauffähige Version betrachten und ausprobieren.</p>
+
+<p>Schauen wir uns einmal die anfangs erwähnten Nachteile am Beispiel an:</p>
+
+<pre><code class="language-typescript">export class HeroDetailComponent implements OnChanges {
+  heroForm: FormGroup;
+  /* ... */
+  createForm() {
+    this.heroForm = this.fb.group({
+      name: '',
+      secretLairs: this.fb.array([]),
+      power: '',
+      sidekick: ''
+    });
+  }
+  get secretLairs(): FormArray {
+    return this.heroForm.get('secretLairs') as FormArray;
+  };
+}
+</code></pre>
+
+<p>Möchte man nun auf die Adressen im Feld <em>secretLairs</em> zugreifen, verwendet man z.B. den Aufruf <code>this.heroForm.get('secretLairs').value</code>. Dies hat zwei große Nachteile.</p>
+
+<p>Zum einen wird für den Zugriff ein Magic String für den Feldnamen verwendet, der womöglich noch an mehreren Stellen in der Applikation auftritt. Will man nun ein Feld umbenennen und übersieht ein Vorkommen des Feldnamens, dann tritt erst zur Laufzeit ein Fehler auf.</p>
+
+<p>Weiterhin ist der Rückgabewert des oberen Ausdrucks <code>any</code> und muss erst zu <code>Address[]</code> gecastet werden. Ändert sich nun die Struktur, in dem man z.B. ein eigenes Interface <code>SecretLair</code> definiert, muss auch der Cast angepasst werden. Dies wird nicht vom Typescript Compiler abgesichert.</p>
+
+<p>Will man ansonsten wissen, welche Felder im <code>heroForm</code> existieren, so muss man die hier gezeigte Definition im Code finden und analysieren. Dabei kann das Form gegebenenfalls an anderen Stellen dynamisch um weitere Felder erweitert worden sein.
+Alle diese Nachteile wollen wir durch die typisierten Formulare umgehen.</p>
+
+<h4 id="typisierte-forms-einbauen">Typisierte Forms einbauen</h4>
+
+<p>Die Integration in ein vorhandenes Projekt ist denkbar einfach. Das Paket selber ist über die Paketverwaltung npm verfügbar und wird mit folgendem Befehl installiert:</p>
+
+<pre><code class="language-sh">npm install ngx-strongly-typed-forms
+</code></pre>
+
+<p>Soll zusätzlich der typisierte <code>FormBuilder</code> genutzt werden, so muss noch das Modul <code>NgxStronglyTypedFormsModule</code> im <code>AppModule</code> importiert werden:</p>
+
+<pre><code class="language-typescript">import { NgxStronglyTypedFormsModule } from 'ngx-strongly-typed-forms';
+
+@NgModule({
+  /* ... */
+  imports: [ /* ..., */ NgxStronglyTypedFormsModule ], // &lt;-- provides FormBuilder
+})
+export class AppModule { }
+</code></pre>
+
+<p>Um das Formular nun typisieren zu können muss ein Interface für das Modell der verwalteten Daten erzeugt werden:</p>
+
+<pre><code class="language-typescript">interface HeroFormModel {
+  name: string;
+  secretLairs: Address[];
+  power: string;
+  sidekick: string;
+}
+</code></pre>
+<p>Für die finale Umstellung  muss der Import der Klassen <code>FormGroup</code>, <code>FormControl</code> und <code>FormArray</code> von <code>@angular/forms</code> auf <code>ngx-strongly-typed-forms</code> geändert werden. Diese sind API-kompatibel zu den Klassen aus dem Angular Projekt. Nach Einfügen der Typen des neu erstellten <code>HeroFormModel</code> erfolgt jeglicher Zugriff nun typisiert:</p>
+
+<pre><code class="language-typescript">// import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
+import { FormArray, FormBuilder, FormGroup } from 'ngx-strongly-typed-forms';
+
+export class HeroDetailComponent implements OnChanges {
+  heroForm: FormGroup&lt;HeroFormModel&gt;;
+  /* ... */
+  createForm() {
+    this.heroForm = this.fb.group&lt;HeroFormModel&gt;({
+      name: '',
+      secretLairs: this.fb.array&lt;Address&gt;([]),
+      power: '',
+      sidekick: ''
+    });
+  }
+  get secretLairs(): FormArray&lt;Address&gt; {
+    return this.heroForm.get('secretLairs') as FormArray&lt;Address&gt;;
+  }
+}
+</code></pre>
+
+<p>Wie man sieht ist die Umstellung ohne großen Aufwand machbar. Auch der Zugriff auf den Wert von <code>secretLairs</code> erfolgt noch genau so wie vorher. Der Unterschied ist hier allerdings eine Prüfung durch den Typescript Compiler und auch weitere Unterstützung beim Entwickeln wie z.B. Code Completion.</p>
+
+<pre><code class="language-typescript">    this.heroForm.get('secretLairs') as FormArray&lt;Address&gt;;
+    // OK
+
+    this.heroForm.get('secret-lairs') as FormArray&lt;Address&gt;; // nicht existentes Feld
+    // Compile Error TS2345: Argument of type '"secret-lairs"' is not assignable to parameter of type '["name" | "secretLairs" | "power" | "sidekick", "toString" | "concat" | "indexOf" | "lastIndexOf"...'.
+
+    this.heroForm.get('secretLairs') as FormArray&lt;string&gt;; // Falscher Datentyp
+    // Compile Error TS2322: Type 'FormArray&lt;string&gt;' is not assignable to type 'FormArray&lt;Address&gt;'.
+</code></pre>
+<p><img src="/assets/images/posts/typisierte-angular-formulare/code-completion.png" alt="Code Completion" /></p>
+
+<h4 id="eigene-validator-funktionen">Eigene Validator-Funktionen</h4>
+
+<p>Die Umsetzung von eigenen Validator-Funktionen ist ebenfalls typisiert möglich.  Diese können über den <code>FormBuilder</code> oder direkt mit den Unterklassen von <code>AbstractControl</code> benutzt werden. Sollte nun ein Validator verwendet werden, dessen Modell nicht mit <code>Validator</code> kompatibel ist, so wird dieses direkt vom Typescript-Compiler mit einer passenden Fehlermeldung abgefangen:</p>
+
+<pre><code class="language-typescript">function nameIncludesPowerValidator(control: AbstractControl&lt;HeroFormModel&gt;) {
+  const {name, power} = control.value;
+  if (name &amp;&amp; power &amp;&amp; !name.match(new RegExp(power, "i")) {
+    return {nameValidation: "Name does not contain Power"};
+  }
+  return null;
+}
+
+/* ... Und eingebunden in das heroForm */
+createForm() {
+  this.heroForm = this.fb.group&lt;HeroFormModel&gt;({
+    name: '',
+    secretLairs: this.fb.array&lt;Address&gt;([]),
+    power: '',
+    sidekick: ''
+  }, {validator: nameIncludesPowerValidator });
+}
+</code></pre>
+<h5 id="fazit">Fazit</h5>
+<p>Wir verwenden typisierte Forms im aktuellen Projekt schon seit mehreren Monaten und es hat sich als Erleichterung im Entwickleralltag herausgestellt, die auch keinen großer Mehraufwand bedeutet. Das Typensystem von Typescript ist mittlerweile mächtig genug, um die Entwickler zu unterstützen und mit dem Compiler eine zusätzliche Schicht Sicherheit einzuziehen.
+Angular selbst bietet einem leider nicht von Hause aus diese Möglichkeiten an und eine Umsetzung ist aktuell auch noch nicht in Sicht (s. <a href="https://github.com/angular/angular/issues/13721">Issue #13721</a> und <a href="https://github.com/angular/angular/pull/20040">Pull Request #20040</a>). Bis dies irgendwann unterstützt wird kann auf <a href="https://www.npmjs.com/package/ngx-strongly-typed-forms"><code>ngx-strongly-typed-forms</code></a> zurückgegriffen werden.</p>
+
+</div>
+</div>
+</div>
+</div>]]></field>
+    </document>
+</documents>

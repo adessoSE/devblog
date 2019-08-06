@@ -114,7 +114,7 @@ t-buss:
   bio: "Thomas ist Werkstudent in Dortmund und interessiert sich für Open Source und Cloud-Technologien."
   avatar_url: /assets/images/avatars/tbuss.jpg
   github: https://github.com/t-buss
-  
+
 florianluediger:
   first_name: Florian
   last_name: Lüdiger
@@ -169,6 +169,15 @@ dariobraun:
   avatar_url: /assets/images/avatars/dariobraun.jpg
   github: https://github.com/dariobraun
 
+no0x9d:
+  first_name: Christoph
+  last_name: Hoffmann
+  github_username: no0x9d
+  email: christoph.hoffmann@adesso.de
+  bio: "Christoph Hoffmann ist als Senior Software Engineer bei adesso in Dortmund tätig und tummelt sich im Bereich Angular-Entwicklung. In seiner Freizeit versucht er mit selbst geschriebenen Tools den Entwickleralltag zu vereinfachen."
+  avatar_url: /assets/images/avatars/christophhoffmann.jpg
+  github: https://github.com/no0x9d
+
 ccaylak:
   first_name: Cem
   last_name: Caylak
@@ -186,3 +195,22 @@ jo2:
   bio: "Johannes Teklote ist Werkstudent bei adesso in Dortmund und entwickelt Software im Open Source Bereich."
   avatar_url: /assets/images/avatars/johannesteklote.png
   github: https://github.com/jo2
+  
+frederikschlemmer:
+  first_name: Frederik
+  last_name: Schlemmer
+  github_username: FrederikSchlemmer
+  email: frederik.schlemmer@adesso.de
+  bio: "Frederik Schlemmer ist als Werkstudent im Open-Source-Team bei adesso in Dortmund tätig."
+  avatar_url: /assets/images/avatars/fschlemmer.jpg
+  github: https://github.com/FrederikSchlemmer
+
+vincentmathis:
+  first_name: Vincent
+  last_name: Mathis
+  github_username: vincentmathis
+  email: vincent.mathis@adesso.de
+  bio: "Vincent Mathis ist Praktikant in der Software-Entwicklung. Er arbeitet in Frankfurt im Insurance Bereich."
+  avatar_url: /assets/images/avatars/vincentmathis.jpg
+  github: https://github.com/vincentmathis
+

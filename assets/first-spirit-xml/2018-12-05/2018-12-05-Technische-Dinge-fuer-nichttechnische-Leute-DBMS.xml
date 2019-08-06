@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<documents>
+    <document uid="422c6ab24e6d2765c9ee00c2e18aa6af">
+        <field name="title"><![CDATA[Technische Dinge für nichttechnische Leute (Teil 4)]]></field>
+        <field name="subline"><![CDATA[]]></field>
+        <field name="teaser"><![CDATA[<p>Nachdem Annegret in den ersten drei Teilen der Serie schon einiges über die Welt der IT berichtet hat, möchte ich in diesem Artikel auf das Thema Datenhaltung eingehen.
+Dazu kläre ich auf, wie Datenbankmanagementsysteme dazu verwendet werden können, Anwendungsdaten effizient zu verwalten und welche Alternativen es zu den klassischen, relationalen Systemen gibt.</p>
+
+]]></field>
+        <field name="language_multi_keyword"><![CDATA[de]]></field>
+        <field name="content_type_multi_keyword"><![CDATA[blog]]></field>
+        <field name="mime_type_multi_keyword"><![CDATA[text/html]]></field>
+        <field name="category_multi_keyword"><![CDATA[Softwareentwicklung]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Datenbanken]]></field>
+        <field name="date_date"><![CDATA[2018-12-05T12:00:00+01:00]]></field>
+        <field name="date_l"><![CDATA[1544007600000]]></field>
+        <field name="change_date"><![CDATA[1544832000000]]></field>
+        <!--Picture-->
+        <!-- Not in use at the moment-->
+        <!--Author Information-->
+        <field name="author_first_name"><![CDATA[Florian]]></field>
+        <field name="author_last_name"><![CDATA[Lüdiger]]></field>
+        <field name="author_id"><![CDATA[florianluediger]]></field>
+        <field name="author_picture_stored_only"><![CDATA[http://localhost:4000/assets/images/avatars/florianluediger.jpg]]></field>
+        <!--Postcontent-->
+        <field name="headlines"><![CDATA[Technische Dinge für nichttechnische Leute (Teil 4)]]></field>
+        <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
+            <p>Nachdem Annegret in den ersten drei Teilen der Serie schon einiges über die Welt der IT berichtet hat, möchte ich in diesem Artikel auf das Thema Datenhaltung eingehen.
+Dazu kläre ich auf, wie Datenbankmanagementsysteme dazu verwendet werden können, Anwendungsdaten effizient zu verwalten und welche Alternativen es zu den klassischen, relationalen Systemen gibt.</p>
+
+</div>]]></field>
+        <field name="content"><![CDATA[<div class="adesso-text-formate">
+<div class="row p-t-2">
+<div class="adesso-container">
+<div class="col-xl-8 adesso-center p-b-1 p-l-0 p-r-0">
+    <p>Nachdem Annegret in den ersten drei Teilen der Serie schon einiges über die Welt der IT berichtet hat, möchte ich in diesem Artikel auf das Thema Datenhaltung eingehen.
+Dazu kläre ich auf, wie Datenbankmanagementsysteme dazu verwendet werden können, Anwendungsdaten effizient zu verwalten und welche Alternativen es zu den klassischen, relationalen Systemen gibt.</p>
+
+<h4 id="wozu-werden-datenbankmanagementsysteme-überhaupt-benötigt">Wozu werden Datenbankmanagementsysteme überhaupt benötigt?</h4>
+<p>Stellt euch vor, wir verwalten ein System mit Wissenschaftlern und deren Errungenschaften und möchten deren Daten effizient speichern, lesen, durchsuchen und verändern können.
+Zu jedem Wissenschaftler speichern wir <em>Id, Name, Vorname, Telefonnummer</em> und <em>Auszeichnungen</em>.
+Ein naiver Ansatz für die Speicherung dieser Daten könnte darin bestehen, sämtliche Wissenschaftler in einer Textdatei untereinander zu schreiben und diese auf der Festplatte abzulegen.
+Dieser Ansatz hat allerdings einige offensichtliche Schwachstellen.</p>
+
+<p><strong>(A)</strong> Schon bei einer moderaten Anzahl von Wissenschaftlern wird das Durchsuchen schwierig. 
+Das Programm müsste immer die gesamte Liste von oben bis unten durchlaufen, bis es den gesuchten Wissenschaftler findet. 
+Dies könnte leicht optimiert werden, indem die Liste zum Beispiel nach Nachnamen alphabetisch sortiert wird. 
+Somit kann wie bei einem Telefonbuch leichter gesucht werden. 
+Möchten wir dann allerdings zum Beispiel herausfinden, welcher Wissenschaftler zu einer bestimmten Telefonnummer gehört, bringt uns diese Sortierung überhaupt nichts und es müsste wieder die gesamte Liste durchlaufen werden.</p>
+
+<p><strong>(B)</strong> Falls wir uns dazu entschieden haben, die Wissenschaftler nach Nachnamen zu sortieren, gibt es das nächste Problem, wenn es um das Hinzufügen neuer Einträge geht. 
+Hat eure Software dazu die Stelle gefunden, an der der neue Wissenschaftler eingefügt werden muss, müssen sämtliche darunterliegende Einträge um eine Position weiter versetzt werden, damit Platz für den neuen Eintrag geschaffen wird.
+Möchten wir also einen neuen Wissenschaftler ganz an den Anfang unserer Liste setzen, müssen sämtliche Daten neu geschrieben werden, was einen enormen Schreibaufwand bedeuten würde.</p>
+
+<p><strong>(C)</strong> Bei besonders erfolgreichen Wissenschaftlern kann es vorkommen, dass sie mehrere Auszeichnungen erhalten haben, die in unserem Beispiel für jeden Wissenschaftler hintereinander aufgelistet wären.
+Möchten wir jetzt aber alle Wissenschaftler aufgelistet bekommen, die einen Nobelpreis bekommen haben, müssen wir wieder erheblichen Aufwand leisten.
+Es muss jeder Eintrag der Liste untersucht werden und innerhalb jedes Eintrages die Liste von Preisen vollständig durchlaufen werden, um zu prüfen, ob der Nobelpreis vergeben wurde.</p>
+
+<p><strong>(D)</strong> Meistens will auf die Daten auch nicht nur eine Person zugreifen, sondern oftmals gleichzeitig hunderte Instanzen.
+Dabei kann es schnell vorkommen, dass Inkonsistenzen entstehen, wenn ein Eintrag gleichzeitig von unterschiedlichen Leuten geändert wird.</p>
+
+<p>Es gibt noch einige weitere Nachteile dieses naiven Ansatzes, wodurch er für wirklich große Datenmengen völlig unpraktikabel ist.
+Um diese ganzen Probleme zu lösen, wurden <strong>Datenbankmanagementsysteme (DBMS)</strong> entwickelt, die mit intelligenten Algorithmen und Datenstrukturen das Erstellen, Lesen, Anpassen und Löschen von Datenmengen verwalten.
+Die wohl verbreitetste Kategorie von DBMS sind die <strong>relationalen</strong> Systeme (RDBMS), für die ich klären möchte, wie sie die Probleme <strong>A-D</strong> zu lösen versuchen.</p>
+
+<h4 id="grundaufbau-und-lösungsansätze-einer-relationalen-datenbank">Grundaufbau und Lösungsansätze einer relationalen Datenbank</h4>
+<p>Daten in einer relationalen Datenbank werden in einer Sammlung von Tabellen, sogenannten <strong>Relationen</strong>, abgelegt.
+Die Spalten der Tabellen, in unserem Beispiel <em>Id, Name, Vorname, Telefonnummer</em> und <em>Auszeichnungen</em>, werden <strong>Attribute</strong> genannt.
+Einzelne Tabelleneinträge, sogenannte <strong>Tupel</strong>, können somit strukturiert abgelegt werden.
+Durch diese Strukturierung und mithilfe einiger intelligenter Kniffe lassen sich die oben genannten Probleme in den Griff bekommen.
+Unser sogenanntes <strong>Datenbankschema</strong>, welches hier nur aus einer Relation besteht, würde somit folgendermaßen aussehen.</p>
+
+<p><img src="/assets/images/posts/Technische-Dinge-fuer-nichttechnische-Leute-DBMS/wissenschaftler.png" alt="Schema der Beispieldatenbank" /></p>
+
+<h5 id="beschleunigung-der-suche-durch-indizes">Beschleunigung der Suche durch Indizes</h5>
+<p>Für das in <strong>(A)</strong> beschriebene Durchsuchen der Wissenschaftler nach Nachnamen würde in einem RDBMS ein Index angelegt, mit dem in kürzester Zeit die Stelle gefunden werden kann, an der sich ein Eintrag auf der Festplatte befindet.
+Diesen Index könnt ihr euch vorstellen wie ein Stichwortverzeichnis am Ende eines Buches, in dem die Begriffe alphabetisch aufgelistet sind und zu jedem Begriff vermerkt ist, auf welcher Seite dieser erklärt wird.
+Die tatsächliche Reihenfolge, in der sich die Einträge auf der Festplatte befinden, spielt dadurch keinerlei Rolle mehr.
+Möchten wir zusätzlich jetzt nach einer Telefonnummer in unserem Datensatz suchen, können wir einen zweiten Index anlegen.
+Wir können unsere Daten also quasi nach mehreren Attributen gleichzeitig sortieren.</p>
+
+<p>Da, wie gerade beschrieben, die physikalische Reihenfolge der Daten keine Rolle mehr spielt, löst sich das in <strong>(B)</strong> beschriebene Problem schon fast von alleine.
+Neu eingefügte Daten können einfach hintereinander in beliebiger Reihenfolge in den Speicher geschrieben werden, dabei muss nur darauf geachtet werden, dass die angelegten Indizes entsprechend aktualisiert werden, damit die neuen Einträge auch damit gefunden werden können.</p>
+
+<h5 id="normalisierung">Normalisierung</h5>
+<p>Für das in <strong>(C)</strong> dargestellte Problem bringt uns die neue Strukturierung der Daten leider noch nichts, da sich schlecht ein Index für das <em>Auszeichnungen</em>-Attribut erstellen lässt, da hier mehrere Einträge enthalten sein könnten.
+Da außerdem ein Preis an mehrere Wissenschaftler verliehen werden kann, wird hier von einer <strong>many-to-many-Beziehung</strong> gesprochen.
+Daher müssen wir das Datenbankschema etwas anpassen:</p>
+
+<p><img src="/assets/images/posts/Technische-Dinge-fuer-nichttechnische-Leute-DBMS/normalisiert.png" alt="Schema einer normalisierten Datenbank" /></p>
+
+<p>Im Vergleich zum vorherigen Schema müssen hier nicht sämtliche Details der Auszeichnungen in der <em>Wissenschaftler</em>-Relation gespeichert werden.
+In unserem einfachen Beispiel betrifft das zwar nur den Namen, wir könnten aber in Zukunft weitere Informationen, wie <em>Institut, Preisgeld, Kategorie, Verleihungsjahr, Thema, …</em> hinzufügen wollen, wodurch die Liste im <em>Auszeichnungen</em>-Attribut sehr lang werden würde und jegliche Struktur verloren ging.
+Die Tabelle <em>Verleihungen</em> wird dazu benötigt, zu vermerken, welcher Preis an welchen Wissenschaftler verliehen wurde.
+Da Albert Einstein beispielsweise den Jules-Janssen-Preis bekommen hat, steht das Tupel (1, 2) in dieser Tabelle.
+Das Aufteilen von Relationen in kleinere Relationen wird <strong>Normalisierung</strong> genannt.</p>
+
+<p>Die Normalisierung hat außerdem den Vorteil, dass wir endlich effizient nachschauen können, welche Wissenschaftler den Nobelpreis erhalten haben.
+Dazu schauen wir in der <em>Auszeichnungen</em>-Tabelle, welche Id der Nobelpreis hat, in unserem Falle wäre das 1.
+In der <em>Verleihungen</em>-Tabelle können dann die Einträge herausgefiltert werden, welche die Id 1 besitzen, wodurch wir alle Wissenschaftler-Ids erhalten, die einen Nobelpreis erhalten haben.
+Wenn uns das noch nicht reicht, können wir mit den Ids in der <em>Wissenschaftler</em>-Tabelle die anderen Informationen nachschlagen.
+Dieses Vorgehen scheint vielleicht auf den ersten Blick umständlich, allerdings können all diese Operationen mithilfe von Indizes erfolgen und somit hocheffizient durchgeführt werden.</p>
+
+<h5 id="atomicity-consistency-isolation-durability-acid">Atomicity, Consistency, Isolation, Durability (ACID)</h5>
+<p>Anfragen, auch <strong>Queries</strong> genannt, können in einem RDBMS Tupel erstellen, lesen, verändern oder löschen.
+Mehrere Anfragen können dabei in <strong>Transaktionen</strong> zusammengefasst werden, mit denen eine gewisse Konsistenz für mehrere gleichzeitige Operationen gewährleistet werden kann.
+Beispielsweise würden wir beim Erstellen eines völlig neuen Eintrages die drei Anfragen zum Einfügen der Einträge in die drei Tabellen in einer Transaktion zusammenfassen.</p>
+
+<p>Das in <strong>(D)</strong> beschriebene Problem fällt in die Kategorie <strong>Concurrency-Control</strong>, also Kontrolle von nebenläufigen Datenbankzugriffen, welche ein Hauptgebiet der Datenbankforschung darstellt.
+Für RDBMS wurden daher die sogenannten ACID-Eigenschaften definiert, welche einige Anforderungen an das DBMS stellen, sodass verschiedenste Anomalien verhindert werden.
+Auf diese Anomalien kann ich hier leider nicht weiter eingehen, die ACID-Eigenschaften dürften aber dennoch interessant sein.</p>
+
+<ol>
+  <li><strong>Atomicity</strong>: Entweder <strong>alle</strong> oder <strong>gar keine</strong> der Änderungen innerhalb einer Transaktion werden übernommen.
+Für unser Beispiel würde das bedeuten, dass der Eintrag in der <em>Verleihungen</em>-Tabelle nicht ohne die entsprechenden Einträge in den anderen Tabellen erstellt werden dürfte.</li>
+  <li><strong>Consistency</strong>: Jede Transaktion überführt die Datenbank von einem <strong>konsistenten</strong> Zustand in einen anderen.
+Beispielsweise dürfte bei einer Banküberweisung nicht Geld von einem Konto abgebucht werden, ohne auf das andere Konto eingegangen zu sein.</li>
+  <li><strong>Isolation</strong>: Eine Transaktion darf keine der Änderungen von parallel laufenden Transaktionen <strong>sehen</strong>.
+Unser in <strong>(D)</strong> beschriebenes Problem würde hierdurch verhindert werden.</li>
+  <li><strong>Durability</strong>: Die Änderungen einer <strong>erfolgreichen</strong> Transaktion müssen in jedem Fall erhalten bleiben, auch beispielsweise nach einem Systemabsturz.</li>
+</ol>
+
+<h4 id="die-sql-anfragesprache">Die SQL-Anfragesprache</h4>
+<p>Die oben beschriebenen Anfragen sind in relationalen Datenbanken stark optimiert und integriert worden.
+Diese werden in der Sprache SQL formuliert, welche speziell dafür entwickelt wurde, dass auch weniger technisch ausgebildete Leute einfache Anfragen stellen können.
+Eine entsprechende Anfrage könnte innerhalb unseres Beispiels etwa so aussehen:</p>
+
+<pre><code class="language-sql">SELECT Vorname, Telefonnummer FROM Wissenschaftler WHERE Name = 'Einstein'
+</code></pre>
+
+<p>Hier schränken drei Teile die Ergebnismenge ein:</p>
+
+<ol>
+  <li>Mit dem <strong>SELECT</strong>-Schlüsselwort werden die <strong>Attribute</strong> ausgewählt, die ihr von den Ergebnissen erfahren wollt. In unserem Falle interessieren uns nur <em>Vorname</em> und <em>Telefonnummer</em>.</li>
+  <li>Das <strong>FROM</strong>-Schlüsselwort definiert die <strong>Relation</strong>, aus der die Ergebnisse abgerufen werden sollen. Wir möchten hier noch nichts über Auszeichnungen erfahren, daher reicht uns die <em>Wissenschaftler</em>-Relation.</li>
+  <li>Mit der <strong>WHERE</strong>-Operation legen wir schließlich noch fest, welche <strong>Tupel</strong> wir aus der Relation bekommen wollen. Hier sind dies alle Wissenschaftler, die den Nachnamen <em>Einstein</em> tragen.</li>
+</ol>
+
+<p><img src="/assets/images/posts/Technische-Dinge-fuer-nichttechnische-Leute-DBMS/ergebnis.png" alt="Ergebnis der Anfrage" /></p>
+
+<p>In unserem minimalen Beispiel besteht das Ergebnis nur aus einem einzigen Tupel, es kann aber auch vorkommen, dass mehrere Tupel oder sogar die gesamte Relation im Ergebnis zurückgeliefert werden.
+Mit der SQL-Sprache lassen sich durch weitere Operationen noch sehr viel komplexere Anfragen stellen, sodass diese ein mächtiges Werkzeug zur Datenabfrage darstellt.</p>
+
+<h4 id="fazit">Fazit</h4>
+<p>Leider konnte ich in diesem Artikel die Welt der Datenbankmanagementsysteme nur ganz kurz anreißen, ich hoffe trotzdem, dass ihr eine Vorstellung davon bekommen habt, warum diese Systeme gebraucht werden, um große Datenmengen zu verwalten.
+Neben relationalen Datenbanksystemen gibt es zum Beispiel auch noch sogenannte NoSQL-Datenbanken, die beispielsweise durch Lockern einiger der ACID-Eigenschaften eine höhere Performanz erreichen.
+Sogar innerhalb der relationalen Systeme gibt es erhebliche Unterschiede zwischen den einzelnen Produkten, wodurch die Auswahl der am besten geeigneten Software zur Herausforderung wird.</p>
+
+<p>Falls ihr Interesse an weiteren, einfach erklärten, technischen Themen habt, dann schaut doch mal in die ersten drei Teile der Blog-Serie: <a href="https://www.adesso.de/de/news/blog/technische-dinge-fuer-nichttechnische-leute-teil-1.jsp">Teil 1 - Datenformate</a>, <a href="https://www.adesso.de/de/news/blog/technische-dinge-fuer-nicht-technische-leute-teil-2.jsp">Teil 2 - Microservices</a>, <a href="https://www.adesso.de/de/news/blog/technische-dinge-fuer-nicht-technische-leute-teil-3.jsp">Teil 3 - Deployments</a>.</p>
+
+</div>
+</div>
+</div>
+</div>]]></field>
+    </document>
+</documents>
