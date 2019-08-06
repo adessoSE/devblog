@@ -51,7 +51,7 @@ Die MPL wird beispielsweise von Mozilla für den Firefox und zugehörige Plugins
 
 Auch dies ist an einige Bedingungen geknüpft. Code unter dieser Lizenz muss unter dieser Lizenz weitergegeben werden. Eine Einschränkung der durch die MPL gewährten Rechte ist nicht erlaubt. Dabei muss auch auf den Lizenztext hingewiesen werden. Wird Code unter der MPL in einer ausführbaren Version weitergegeben, muss der Source Code und die ausführbare Datei unter der MPL oder einer Sublizenz veröffentlicht werden. Projekte, die Code unter der MPL verwenden, dürfen unter einer beliebigen Lizenz veröffentlicht werden, solange die Bedingungen für den unter der MPL stehenden Teil erfüllt sind.
 
-Es ist erlaubt, Gebühren für Garantieen und Servicedienstleistungen zu erheben. Dies darf aber nur für eigene Bestandteile des Codes gemacht werden. Es muss klar sein, dass Bestandteile von anderen Mitwirkenden nicht darunter fallen. Darüber hinaus muss jedem Mitwirkenden ein durch diese angebotenen Garantieen oder Servicedienstleistungen entstandener Schaden erstattet werden.
+Es ist erlaubt, Gebühren für Garantien und Servicedienstleistungen zu erheben. Dies darf aber nur für eigene Bestandteile des Codes gemacht werden. Es muss klar sein, dass Bestandteile von anderen Mitwirkenden nicht darunter fallen. Darüber hinaus muss jedem Mitwirkenden ein durch diese angebotenen Garantien oder Servicedienstleistungen entstandener Schaden erstattet werden.
 
 Ist es durch Höhere Gewalt, beispielsweise Gerichturteile oder lokal geltende Gesetze, nicht möglich, Teile der Bedingungen der MPL zu erfüllen, müssen die gegebenen Einschränkungen und der Code, den sie betreffen, kenntlich gemacht werden.
 
