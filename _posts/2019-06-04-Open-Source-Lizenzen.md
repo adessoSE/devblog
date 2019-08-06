@@ -43,8 +43,8 @@ Sollte bei der Verwendung eines Programms unter dieser Lizenz ein Schaden entste
 Es dürfen nur Gebühren erhoben werden, wenn der Code zusammen mit Dienstleistungen angeboten wird oder zur Kostendeckung für die Herstellung von physikalischen Kopien.
 
 ## Unterschiede in der GPLv3
-- Anti-Circumvation-Laws: Kein von der GPLv3 abgedecktes Werk soll dazu führen, dass Rechtsansprüche wie in [Artikel 11 der WIPO copyright treaty](https://www.wipo.int/treaties/en/text.jsp?file_id=295166#P87_12240) oder ähnlichen Gesetzen fällig wird.
-- Es wurden Regelungen zum Digital Rights Management eingefügt, die verhindern sollen, dass GPL-Software nicht mehr beliebig verändert werden kann um technische Schutzmaßnahmen wie einen kopierschutz zu umgehen.
+- Anti-Circumvation-Laws: Durch das Wahrnehmen der Rechte, die einem die GPLv3 gewährt, sollen dem Nutzer gegenüber keine Rechtsansprüche bezüglich Verletzungen des Urheberschutz geltend gemacht werden können.
+Wenn Software unter der GPLv3 technische Maßnahmen zur Kontrolle der Nutzung und Verbreitung enthält, können diese entfernt werden, ohne dass man dafür belangt werden kann.
 - Es ist nicht notwendig, die GPLv3 für das alleinige Besitzen einer Kopie, beispielsweise das Herunterladen, des unter der GPLv3 stehenden Werkes zu akzeptieren.
 Das Bearbeiten oder weitere Verteilen erfordert aber das Akzeptieren der Lizenz.
 - Es ist möglich, auf eigene Beiträge in einem Werk unter der GPLv3 Patentansprüche geltend zu machen.
@@ -73,8 +73,6 @@ Diese stammt, wie der Name schon sagt, vom Massachusetts Institute of Technology
 Sie ist sehr kurz gehalten und gestattet alle das Werk betreffende Aktionen.
 Jedoch muss bei der Verwendung oder der Verteilung dieses Werks sowohl der Lizenztext als auch der Urheberrechtsvermerk mit verteilt werden.
 Ebenfalls schließt sie den Anspruch auf Garantie und Haftung aus.
-
-Der Lizenztext kann [hier](https://opensource.org/licenses/MIT) eingesehen werden.
 
 # Mozilla Public License (MPL)
 Die MPL wird beispielsweise von Mozilla für den Firefox und zugehörige Plugins verwendet.
