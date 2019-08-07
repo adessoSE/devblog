@@ -13,11 +13,11 @@ unsauberen Commit-Historien, welche es schwierig machen, herauszufinden wann
 welche Änderungen gemacht wurden. Daher werden in diesem Artikel einige
 Operationen vorgestellt mit denen du deine Historie aufräumen kannst.
 
-Wenn du die Beispiele selber ausprobieren möchtest kannst du
-[hier](https://github.com/czarnecki/git_blog_post_example) das Beispiel Repo
-finden. Auf dem Branch "after" kannst du sehen wie es nachher aussehen sollte.
-Mit `git log` und `git status` kannst du den Status des Branch nach jeder
-Operation prüfen.
+Wenn du die Beispiele selber ausprobieren möchtest kannst du das Beispiel Repo
+auf [Github](https://github.com/czarnecki/git_blog_post_example) Repo
+finden. Auf dem "after" Branch siehst du wie es nachher aussehen sollte.  Mit
+`git log` und `git status` kannst du den Status des Branch nach jeder Operation
+prüfen.
 
 # Historie verändern
 Alle Operationen, die hier vorgestellt werden, verändern die Historie. Daher
@@ -72,7 +72,7 @@ Rebase wird fortgeführt.
 
 ``` git
 # Letzter Commit
-git commit --amend -o -m "Garnish plate with lemon juice and parsley"
+git commit --amend -o -m "Garnish plate with lemon_juice and parsley"
 
 # Beliebigen Commit bearbeiten
 git rebase -i HEAD~9
@@ -83,10 +83,10 @@ git rebase -i HEAD~9
 # Änderungen zu einem Commit hinzufügen/entfernen
 ## Hinzufügen von Änderungen
 Wenn du zum letzten Commit weitere Änderungen hinzufügen möchtest, musst du
-diese zunächst durchführen und per `git add` zur Staging-Area hinzufügen. Wenn du damit
-fertig bist, kannst du die Änderungen mittels `git commit --amend` zum letzten
-Commit hinzufügen. Dies öffnet einen Editor mit der Commit-Beschreibung des
-vorherigen Commit welche du frei bearbeiten kannst.  Nachdem du den Editor
+diese zunächst durchführen und per `git add` zur Staging-Area hinzufügen. Wenn
+du dies getan hast, kannst du die Änderungen mittels `git commit --amend` zum
+letzten Commit hinzufügen. Dies öffnet einen Editor mit der Commit-Beschreibung
+des vorherigen Commit welche du frei bearbeiten kannst. Nachdem du den Editor
 verlassen hast wird ein neuer Commit erstellt welcher aus dem alten Commit und
 den neuen Änderungen besteht.
 
@@ -95,15 +95,15 @@ Wenn du die Änderungen nicht behalten willst kannst du sie wie gerade beschrieb
 und sie über `git commit --amend` "hinzufügen".
 
 Wenn du sie behalten möchtest dann kannst du dies erreichen im dem du die
-Änderungen die du nicht im Commit haben möchtest mit `git reset HEAD^ <Änderungen>`
-zurücksetzt. Damit wird der Stand von `<Änderungen>` vor dem
-jetzigen Commit (`HEAD^`) in die Staging-Area geholt und die Änderungen, die du im
-letzten Commit gemacht hast, befinden sich im Arbeitsverzeichnis. Jetzt kannst du
-wieder über `git commit --amend` einen Commit erstellen, der deine Änderungen
-nicht mehr enthält.  Wenn du mit der oberen Methode alle Änderungen entfernen
-willst wird Git dich warnen, dass du damit einen leeren Commit erzeugen würdest
-und stattdessen `git reset HEAD^` verwenden sollst. Dies setzt `HEAD` wieder auf
-den Eltern-Commit des momentan `HEAD`.
+Änderungen die du nicht im Commit haben möchtest mit `git reset HEAD^ <Datei>`
+zurücksetzt. Damit wird der Stand von `<Datei>` vor dem jetzigen Commit
+(`HEAD^`) in die Staging-Area geholt und die Änderungen, die du im letzten
+Commit gemacht hast, befinden sich im Arbeitsverzeichnis. Jetzt kannst du wieder
+über `git commit --amend` einen Commit erstellen, der deine Änderungen nicht
+mehr enthält.  Wenn du mit der oberen Methode alle Änderungen entfernen willst
+wird Git dich warnen, dass du damit einen leeren Commit erzeugen würdest und
+stattdessen `git reset HEAD^` verwenden sollst. Dies setzt `HEAD` wieder auf den
+Eltern-Commit des momentan `HEAD`.
 
 ## Vorgehen bei älteren Commits
 Für einen älteren Commit darfst du wieder einen interaktiven Rebase
@@ -247,5 +247,5 @@ Die Git-Historie ist ein praktisches Tool zur Dokumentation der Entwicklung
 eines Projektes. Je nachdem wie sie gepflegt wird erlaubt sie einem schnell
 herrauszufinden wann etwas gemacht wurde oder auch wie jemand bei der
 Entwicklung vorgegangen ist und was tatsächlich getan wurde. Git bietet
-jedenfalls einige Operationen um es einem möglich zu machen, eine aufgeräumte Historie
-zu haben.
+jedenfalls einige Operationen um es einem möglich zu machen, eine aufgeräumte
+Historie zu haben.
