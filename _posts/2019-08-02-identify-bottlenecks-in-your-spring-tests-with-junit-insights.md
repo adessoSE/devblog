@@ -4,24 +4,24 @@ title:  "Identify bottlenecks in your Spring Tests with JUnit Insights"         
 date:   2019-08-02 10:25              # Pflichtfeld. Format "YYYY-MM-DD HH:MM". Muss für Veröffentlichung in der Vergangenheit liegen. (Für Preview egal)
 author: florianluediger               # Pflichtfeld. Es muss in der "authors.yml" einen Eintrag mit diesem Namen geben.
 categories: [Java]                    # Pflichtfeld. Maximal eine der angegebenen Kategorien verwenden.
-tags: [Spring, JUnit]                 # Bitte auf Großschreibung achten.
+tags: [Spring, JUnit, Testing]        # Bitte auf Großschreibung achten.
 ---
 
 When developing a large software project, a low execution time of Unit Tests is crucial to guarantee a fast and efficient progression of the project.
-This is especially true when utilizing continuous integration to automatically check code quality and correctness.
-JUnit Insights helps you to identify the reasons behind long execution times of some of your software tests so you can optimize them easily.
+This is especially true when utilizing continuous integration to automatically check your code quality and correctness.
+[JUnit Insights](https://github.com/adessoag/junit-insights) helps you to identify the reasons behind long execution times of some of your software tests so you can optimize them easily.
 
 # Why do my Spring tests take so long?
 
-Whenever you are writing Unit Tests that require features provided by the annotations `@SpringBootTest`, `@DataJPATest`, `@WebMVCTest` or similar, a Spring Application Context will be created to provide the environment these tests need to run.
+Whenever you are writing Unit Tests that require features provided by the annotations [`@SpringBootTest`](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/test/context/SpringBootTest.html), [`@DataJPATest`](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/test/autoconfigure/orm/jpa/DataJpaTest.html), [`@WebMVCTest`](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/test/autoconfigure/web/servlet/WebMvcTest.html) or similar, a [Spring Application Context](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/ApplicationContext.html) will be created to provide the environment these tests need to run.
 
-This Application Context bundles the complete Bean Configuration of the application which forms the foundation for the Dependency Injection mechanism.
-The Bean Configuration contains the information about dependencies between all components of the application.
+This Application Context bundles the complete Bean Configuration of the application, which forms the foundation for the Dependency Injection mechanism.
+The Bean Configuration contains all information about dependencies between all components of your application.
 Usually this configuration is defined when starting the application and it remains unchanged throughout the runtime.
 
-However, when writing autonomous Unit Tests for your application there are situations where you want to create multiple independent Application Contexts for different test cases.
-On one hand this can lead to very simple and autonomous test cases that are robust against side effects caused by other test cases altering the Application Context.
-On the other hand this requires many different Application Contexts that take a long time to start up which slows down your test execution significantly.
+However, when writing autonomous Unit Tests for your application, there are situations where you want to create multiple independent Application Contexts for different test cases.
+On one hand, this can lead to very simple and autonomous test cases that are robust against side effects caused by other test cases altering the Application Context.
+On the other hand, this requires many different Application Contexts that take a long time to start up which slows down your test execution significantly.
 
 # Situations that require a fresh Application Context
 
@@ -32,10 +32,10 @@ A complete project containing all these scenarios with the necessary surrounding
 ## Explicit invalidation of a context
 
 First of all, you can of course explicitly invalidate an Application Context so a new one has to be created for the following test cases.
-This makes sense when you change the Application Context within a test method which could influence the outcome of other test cases.
-This would mean that the unit tests are not independent anymore which is a dangerous anti pattern.
+This makes sense when you change the Application Context within a test method, which could influence the outcome of other test cases.
+This would mean that the unit tests are not independent anymore, which is a dangerous anti pattern.
 
-In the following example, the test methods modify the state of a singleton bean so the annotation `@DirtiesContext` is needed to force the test runner to create a new Application Context afterwards.
+In the following example, the test methods modify the state of a singleton Bean so the annotation [`@DirtiesContext`](https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/test/annotation/DirtiesContext.html) is needed to force the test runner to create a new Application Context afterwards.
 
 ```java
 @SpringBootTest
@@ -68,8 +68,8 @@ class FruitManagerTest {
 ## Individual test profiles
 
 You can define different profiles for the execution of your Spring Boot application.
-For example these profiles can define which implementation of a Bean is used in different contexts.
-In our example, you can define a different instance of the `FruitManager` Bean for the `dev` environment by labeling the Bean class with the `@Profile("dev")` annotation and the test class with the `@ActiveProfiles("dev")` annotation.
+For example, these profiles can define which implementation of a Bean is used in different contexts.
+In our example, you can define a different instance of the `FruitManager` Bean for the `dev` environment by labeling the Bean class with the [`@Profile("dev")`](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/annotation/Profile.html) annotation and the test class with the [`@ActiveProfiles("dev")`](https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/test/context/ActiveProfiles.html) annotation.
 
 ```java
 @Component
@@ -111,7 +111,7 @@ class FruitManagerDevTest {
 
 When testing your application, sometimes it makes sense to overwrite properties previously defined in the `application.properties` file.
 The configured properties are part of the Application Context which means that changing these requires a refresh.
-You can overwrite properties inside the parameters of the `@SpringBootTest` annotation as demonstrated in this example.
+You can overwrite properties inside the parameters of the [`@SpringBootTest`](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/test/context/SpringBootTest.html) annotation as demonstrated in this example.
 
 ```java
 @SpringBootTest(properties = {"fruit.name=Melon"})
@@ -134,9 +134,9 @@ class FruitManagerMelonTest {
 
 To guarantee that your unit tests are as independent from each other as possible, you should construct your web endpoint tests in a way that isolates functional groups.
 In our example this means that the test class for validating the `VegetableController` class should have nothing to do with other controllers like the `FruitController`.
-To achieve this we have to specify the tested controller as a parameter of the `@WebMVCTest` annotation.
+To achieve this, we have to specify the tested controller as a parameter of the [`@WebMVCTest`](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/test/autoconfigure/web/servlet/WebMvcTest.html) annotation.
 If we had not done this in this example, Spring would complain about a missing instance of the `FruitManager` Bean.
-Although this Bean is not even used in this test class, the test runner tries to create the complete Application Context which fails because it can't find any real or mock instance of the `FruitManager` Bean.
+Although this Bean is not even used in this test class, the test runner tries to create the whole Application Context which fails because it can't find any actual or mocked instance of the `FruitManager` Bean.
 
 ```java
 @WebMvcTest(VegetableController.class)
@@ -167,7 +167,7 @@ class VegetableControllerTest {
 Even if you are aware of the fact that situations like these require a refresh of the Application Context, finding them in a large collection of software tests can be very hard.
 The reason for this is that the text runner typically does not give you much information about when or where a new Application Context is started.
 The only metric that you can often see is the time that each test class took to finish.
-This alone often times just leads to confusion about why some test classes take more time to finish than others.
+This alone oftentimes just leads to confusion about why some test classes take more time to finish than others.
 
 To solve this problem you can use the JUnit 5 extension [JUnit Insights](https://github.com/adessoag/junit-insights).
 This plugin measures the time for setup, execution and teardown for each test method in each test class.
