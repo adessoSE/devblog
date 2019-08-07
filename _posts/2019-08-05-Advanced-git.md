@@ -1,6 +1,6 @@
 ---
 layout: [post, post-xml]
-title:  "Eine gute Geschichte mit Git"
+title:  "Alte Geschichte neu schreiben"
 date:   2019-07-31 00:00
 author: czarnecki
 categories: [Softwareentwicklung]
