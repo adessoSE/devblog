@@ -13,6 +13,12 @@ unsauberen Commit-Historien, welche es schwierig machen, herauszufinden wann
 welche Änderungen gemacht wurden. Daher werden in diesem Artikel einige
 Operationen vorgestellt mit denen du deine Historie aufräumen kannst.
 
+Wenn du die Beispiele selber ausprobieren möchtest kannst du
+[hier](https://github.com/czarnecki/git_blog_post_example) das Beispiel Repo
+finden. Auf dem Branch "after" kannst du sehen wie es nachher aussehen sollte.
+Mit `git log` und `git status` kannst du den Status des Branch nach jeder
+Operation prüfen.
+
 # Historie verändern
 Alle Operationen, die hier vorgestellt werden, verändern die Historie. Daher
 sind sie mit Vorsicht zu verwenden, wenn du Commits bearbeitest welche bereits
@@ -23,8 +29,8 @@ verändern, wenn die Arbeit an einem Branch abgeschlossen ist und er für einen
 Pull Request aufgeräumt werden soll.
 
 # Eine Commit-Beschreibung bearbeiten
-Wenn es sich um den letzten Commit handelt kannst du einfach `git commit --amend
--o` verwenden. Das `--amend` erlaubt es uns, den neuesten Commit zu bearbeiten
+Wenn es sich um den letzten Commit handelt kannst du einfach `git commit --amend -o`
+verwenden. Das `--amend` erlaubt es uns, den neuesten Commit zu bearbeiten
 und Änderungen zu diesem Änderungen hinzufügen.  Durch `-o` (`--only`
 ausgeschrieben) wird dafür gesorgt, dass nur die Code-Änderungen genutzt werden,
 die in dem Kommando angegeben werden. Da hier keine angegeben werden, werden
@@ -62,17 +68,16 @@ dem gestoppt wurde geöffnet. Diese kannst du wie jede andere Commit-Beschreibun
 bearbeiten. Wenn du fertig bist wie üblich speichern und schließen und der
 Rebase wird fortgeführt.
 
-## Übersicht
+## Beispiel
 
 ``` git
-# Letzten Commit bearbeiten
-git commit --amend -o
-# Beschreibung im Editor bearbeiten
+# Letzter Commit
+git commit --amend -o -m "Garnish plate with lemon juice and parsley"
 
 # Beliebigen Commit bearbeiten
-git rebase -i <Commit>
-# reword vor Commits schreiben
-# Beschreibung im Editor bearbeiten
+git rebase -i HEAD~9
+# Vor "add water" pick zu reword ändern (erste Zeile)
+# Beschreibung im Editor zu "Add 1l_water" bearbeiten
 ```
 
 # Änderungen zu einem Commit hinzufügen/entfernen
@@ -103,36 +108,48 @@ den Eltern-Commit des momentan `HEAD`.
 ## Vorgehen bei älteren Commits
 Für einen älteren Commit darfst du wieder einen interaktiven Rebase
 starten. Dieses Mal jedoch ersetzt du `pick` durch `edit`. Wenn Git während des
-Aufspielens auf einen deiner Commits mit `edit` stößt, landest du in einem normal
-nutzbaren Terminal. `HEAD` zeigt nun auf den Commit, den du bearbeiten
+Aufspielens auf einen deiner Commits mit `edit` stößt, landest du in einem
+normal nutzbaren Terminal. `HEAD` zeigt nun auf den Commit, den du bearbeiten
 möchtest. Das heißt du kannst alle zuvor beschriebenen Operationen durchführen,
-da sich das System jetzt so verhält, als wäre der zu bearbeitende Commit der neueste. Wenn du mit deinen Änderungen
-zufrieden bist kannst du `git rebase --continue` ausführen und der Rebase wird
-fortgeführt. Wenn du Änderungen aus einem älteren Commit entfernst und die
-Änderung beibehältst, kann der Rebase zunächst nicht fortgeführt werden, da du
-noch Änderungen in deinem Arbeitsverzeichnis hast. Um das Problem zu umgehen
-kannst du mit `git stash` die Änderungen sicher zur Seite legen.
+da sich das System jetzt so verhält, als wäre der zu bearbeitende Commit der
+neueste. Wenn du mit deinen Änderungen zufrieden bist kannst du `git rebase --continue`
+ausführen und der Rebase wird fortgeführt. Wenn du Änderungen aus
+einem älteren Commit entfernst und die Änderung beibehältst, kann der Rebase
+zunächst nicht fortgeführt werden, da du noch Änderungen in deinem
+Arbeitsverzeichnis hast. Um das Problem zu umgehen kannst du mit `git stash` die
+Änderungen sicher zur Seite legen.
 
-## Übersicht
+## Beispiele
 
 ``` git
 # Zum letzten Commit hinzufügen
 
-# Änderungen machen und zur Staging-Area hinzufügen
-git commit --amend
+echo "sliced" > plate/chilli_pepper
+git add plate/chilli_pepper
+git commit --amend -m "Garnish plate with lemon juice, parsley, and chilli pepper"
 
 # Änderungen zum letzten Commit entfernen, ohne beibehalten
 
 # Änderungen entfernen und zur Staging-Area hinzufügen
-git commit --amend
-
-# Änderungen beibehalten
-git reset HEAD^ <Änderungen>
-git commit --amend
+rm plate/parsley
+git add plate/parsley
+git commit --amend -m "Garnish plate with lemon juice, and chilli pepper"
 
 # Älteren Commit bearbeiten
-git rebase -i <Commit>
-# Vorgehen als wäre es der letzte Commit
+# In älterem Commit ändern
+git rebase -i HEAD~6
+# Vor "Add garlic to pan" picl zu edit ändern
+echo "sliced" > pan/garlic
+git add pan/garlic
+git commit --amend
+git rebase --continue
+
+# Aus älterem Commit entfernen und beibehalten
+git rebase -i HEAD~7
+# Vor "Add 3g_olive_oil to..." pick zu edit ändern (erste Zeile)
+git reset HEAD^ pan/5g_butter
+git commit --amend
+git rebase --continue
 ```
 
 # Mehrere Commits vereinen
@@ -169,14 +186,19 @@ und `fixup`.
 
 ``` git
 # Manuell squash/fixup
-git rebase -i <Commit>
-# In TODO-Liste Commits mit `squahs/fixup` markieren
-# Wenn nötig Commit-Beschreibungen bearbeiten
+git rebase -i HEAD~5
+# Vor "Add pinch_pepper" pick zu squash ändern
+# Erste Beschreibung zu "Add pinch_salt and pinch_pepper to pan" ändern
+# Zweite Beschreibung entfernen
 
 # Automatisch squash/fixup
-git commit (--fixup | --squash) <Commit>
+git add pan/5g_butter
+git commit --squash=HEAD~5
 
-git rebase [-i] <Commit>
+git rebase -i --autosquash HEAD~7
+# Editor schließen
+# Erste Beschreibung zu "Add 3g_olive_oil and 5g_butter to medium-low head pan"
+# Zweite Beschreibung entfernen
 ```
 
 # Commit aufteilen
@@ -198,11 +220,26 @@ Commit zeigt.
 ``` git
 # Letzten Commit aufteilen
 git reset HEAD^
-# Teil-Änderungen hinzufügen und Commit erstellen
+
+git add plate/chilli_pepper
+git commit -m "Garnish plate with chilli_pepper"
+
+git add plate/lemon_juice
+git commit -m "Garnish plate with lemon_juice"
 
 # Alten Commit aufteilen
-git rebase -i <Commit>
-# vorgehen als wäre es der letzte Commit
+git rebase -i HEAD~8
+# Vor "Add 10g_salt and 250g_spaghetti" pick zu edit ändern
+
+git reset HEAD^
+
+git add pot/10g_salt
+git commit -m "Add 10g_salt to pot"
+
+git add pot/250g_spaghetti
+git commit -m "Add 250g_spaghetti to pot"
+
+git rebase --continue
 ```
 
 # Die Historie und du
