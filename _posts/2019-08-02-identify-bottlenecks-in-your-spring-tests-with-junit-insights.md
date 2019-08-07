@@ -27,6 +27,8 @@ On the other hand this requires many different Application Contexts that take a 
 
 The following list represents an incomplete list of some examples for situations which lead to the creation of a new Application Context during the execution of your Unit Tests.
 
+A complete project containing all these scenarios with the necessary surrounding code [can be found on GitHub](https://github.com/florianluediger/ContextRefreshesInSpringTest).
+
 ## Explicit invalidation of a context
 
 First of all, you can of course explicitly invalidate an Application Context so a new one has to be created for the following test cases.
@@ -60,6 +62,8 @@ class FruitManagerTest {
     }
 }
 ```
+
+[Link to JUnit Insights Report](https://florianluediger.github.io/ContextRefreshesInSpringTest/JUnit%20Insights%20reports/JUnit%20Insights%20Report%20-%20Explicit%20invalidation%20of%20a%20context.html)
 
 ## Individual test profiles
 
@@ -101,6 +105,8 @@ class FruitManagerDevTest {
 }
 ```
 
+[Link to JUnit Insights Report](https://florianluediger.github.io/ContextRefreshesInSpringTest/JUnit%20Insights%20reports/JUnit%20Insights%20Report%20-%20Individual%20test%20profiles.html)
+
 ## Custom properties
 
 When testing your application, sometimes it makes sense to overwrite properties previously defined in the `application.properties` file.
@@ -121,6 +127,8 @@ class FruitManagerMelonTest {
     }
 }
 ```
+
+[Link to JUnit Insights Report](https://florianluediger.github.io/ContextRefreshesInSpringTest/JUnit%20Insights%20reports/JUnit%20Insights%20Report%20-%20Custom%20properties.html)
 
 ## Web MVC Test for single Controller
 
@@ -152,4 +160,26 @@ class VegetableControllerTest {
 }
 ```
 
+[Link to JUnit Insights Report](https://florianluediger.github.io/ContextRefreshesInSpringTest/JUnit%20Insights%20reports/JUnit%20Insights%20Report%20-%20Web%20MVC%20Test%20for%20single%20Controller.html)
+
 # How to recognize these situations
+
+Even if you are aware of the fact that situations like these require a refresh of the Application Context, finding them in a large collection of software tests can be very hard.
+The reason for this is that the text runner typically does not give you much information about when or where a new Application Context is started.
+The only metric that you can often see is the time that each test class took to finish.
+This alone often times just leads to confusion about why some test classes take more time to finish than others.
+
+To solve this problem you can use the JUnit 5 extension [JUnit Insights](https://github.com/adessoag/junit-insights).
+This plugin measures the time for setup, execution and teardown for each test method in each test class.
+It also counts how often Spring Contexts were created throughout the test execution and how long this takes each time.
+With this data, it creates a nice looking report that visualizes the information.
+You can see a snippet of a finished report in the screenshot below.
+
+![JUnit Insights report example](https://github.com/adessoAG/junit-insights/raw/master/images/screen1.png)
+
+In this report, you can clearly see where Spring Contexts are created and how long that takes.
+Based on this information, you can dive into your code, identify the reasons for the Context refreshes and possibly optimize your test execution by eliminating them.
+This way your test execution time decreases, your continuous integration pipelines will give you faster feedback about software errors and your developers will get happier.
+
+To make using this extension as easy as possible, it is available via a [JCenter repository](https://bintray.com/adesso/junit-insights/junit-insights) and it can be configured inside your Gradle or Maven configuration files.
+For more information on how to use the plugin and how the inner workings function, check out the [GitHub repository](https://github.com/adessoag/junit-insights).
