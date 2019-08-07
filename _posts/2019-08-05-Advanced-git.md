@@ -13,11 +13,10 @@ unsauberen Commit-Historien, welche es schwierig machen, herauszufinden wann
 welche Änderungen gemacht wurden. Daher werden in diesem Artikel einige
 Operationen vorgestellt mit denen du deine Historie aufräumen kannst.
 
-Wenn du die Beispiele selber ausprobieren möchtest kannst du das Beispiel Repo
-auf [Github](https://github.com/czarnecki/git_blog_post_example) Repo
-finden. Auf dem "after" Branch siehst du wie es nachher aussehen sollte.  Mit
-`git log` und `git status` kannst du den Status des Branch nach jeder Operation
-prüfen.
+Wenn du die Beispiele selber ausprobieren möchtest kannst du das Beispielrepo
+auf [GitHub](https://github.com/czarnecki/git_blog_post_example) finden. Auf dem
+"after" Branch siehst du wie es nachher aussehen sollte.  Mit `git log` und `git
+status` kannst du den Status des Branch nach jeder Operation prüfen.
 
 # Historie verändern
 Alle Operationen, die hier vorgestellt werden, verändern die Historie. Daher
@@ -126,19 +125,19 @@ Arbeitsverzeichnis hast. Um das Problem zu umgehen kannst du mit `git stash` die
 
 echo "sliced" > plate/chilli_pepper
 git add plate/chilli_pepper
-git commit --amend -m "Garnish plate with lemon juice, parsley, and chilli pepper"
+git commit --amend -m "Garnish plate with lemon juice, parsley and chilli pepper"
 
 # Änderungen zum letzten Commit entfernen, ohne beibehalten
 
 # Änderungen entfernen und zur Staging-Area hinzufügen
 rm plate/parsley
 git add plate/parsley
-git commit --amend -m "Garnish plate with lemon juice, and chilli pepper"
+git commit --amend -m "Garnish plate with lemon juice and chilli pepper"
 
 # Älteren Commit bearbeiten
 # In älterem Commit ändern
 git rebase -i HEAD~6
-# Vor "Add garlic to pan" picl zu edit ändern
+# Vor "Add garlic to pan" pick zu edit ändern
 echo "sliced" > pan/garlic
 git add pan/garlic
 git commit --amend
@@ -146,7 +145,7 @@ git rebase --continue
 
 # Aus älterem Commit entfernen und beibehalten
 git rebase -i HEAD~7
-# Vor "Add 3g_olive_oil to..." pick zu edit ändern (erste Zeile)
+# Vor "Add 3g_olive_oil to medium-low heat pan" pick zu edit ändern (erste Zeile)
 git reset HEAD^ pan/5g_butter
 git commit --amend
 git rebase --continue
@@ -187,7 +186,7 @@ und `fixup`.
 ``` git
 # Manuell squash/fixup
 git rebase -i HEAD~5
-# Vor "Add pinch_pepper" pick zu squash ändern
+# Vor "Add pinch_pepper to pan" pick zu squash ändern
 # Erste Beschreibung zu "Add pinch_salt and pinch_pepper to pan" ändern
 # Zweite Beschreibung entfernen
 
