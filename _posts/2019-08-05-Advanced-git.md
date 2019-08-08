@@ -1,7 +1,8 @@
 ---
 layout: [post, post-xml]
 title:  "Alte Geschichte neu schreiben"
-date:   2019-07-31 00:00
+data: 2019-08-98
+modified_data: 2019-08-98
 author: czarnecki
 categories: [Softwareentwicklung]
 tags: [Git]
@@ -30,7 +31,7 @@ Pull Request aufgeräumt werden soll.
 # Eine Commit-Beschreibung bearbeiten
 Wenn es sich um den letzten Commit handelt kannst du einfach `git commit --amend -o`
 verwenden. Das `--amend` erlaubt es uns, den neuesten Commit zu bearbeiten
-und Änderungen zu diesem Änderungen hinzufügen.  Mit `-o` (ausgeschrieben `--only`) 
+und Änderungen zu diesem Änderungen hinzufügen.  Mit `-o` (ausgeschrieben `--only`)
 sorgen wir dafür, dass nur die Code-Änderungen genutzt werden,
 die in dem Kommando angegeben werden. Das `-o` kann auch weggelassen
 werden wenn zuvor keine Änderungen mittels `git add` vorgemerkt wurden. Wenn das
@@ -243,7 +244,7 @@ git rebase --continue
 # Die Historie und du
 Die Git-Historie ist ein praktisches Tool zur Dokumentation der Entwicklung
 eines Projektes. Je nachdem wie sie gepflegt wird erlaubt sie einem schnell
-herrauszufinden wann etwas gemacht wurde oder auch wie jemand bei der
+herauszufinden wann etwas gemacht wurde oder auch wie jemand bei der
 Entwicklung vorgegangen ist und was tatsächlich getan wurde. Git bietet
 jedenfalls einige Operationen um es einem möglich zu machen, eine aufgeräumte
 Historie zu haben.
