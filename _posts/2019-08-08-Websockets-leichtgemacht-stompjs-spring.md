@@ -1,7 +1,7 @@
 ---
 layout: [post, post-xml]              
 title:  "WebSockets leichtgemacht mit STOMP.js und Spring Boot"        
-date:   2019-08-01 10:00                                
+date:   2019-08-08 10:00                                
 author: s-gbz
 categories: [Softwareentwicklung]                    
 tags: [WebSockets, Angular, JavaScript, Nodejs, TypeScript, Java, Spring Boot]
@@ -135,7 +135,7 @@ openWebSocketConnection() {
 Über die WebSocket-Verbindung legen wir mit `Stomp.over()` eine STOMP-Verbindung an, um die Vorteile des Beobachter-Musters 
 nutzen zu können.
 
-Wir abonnieren den Endpunkt `/update-items`, über den der Server uns hinsichtlich neuen Gebote informiert.
+Wir abonnieren den Endpunkt `/update-items`, der uns über neue Gebote informiert.
 Bei neuen Geboten aktualisiert die Methode `insertOrUpdateItem()` unsere lokale Liste von Auktionsgegenständen.
 
 Damit die Verbindung direkt beim Start der Anwendung hergestellt wird, initiieren wir sie in
@@ -181,7 +181,7 @@ Falls ja, schließen wir sie mittels `this.webSocket.close()` und kündigen mit 
 ## Nachrichten versenden
 
 Nachdem wir Use Case A abgedeckt haben und unsere Anwendung nun Auktionsgegenstände anzeigen kann, gilt es mit den Fällen B und C fortzufahren.
-Diese umfassen die Abgabe eines Bietgebotes und das Ersteigern von Gegenständen.
+Diese umfassen die Abgabe eines Gebot und das Ersteigern von Gegenständen.
 Die hierbei grundlegende Funktion ist das Benachrichtigen der Abonnenten, dass der Preis eines Artikels gestiegen ist.
 
 ```typescript
@@ -201,8 +201,8 @@ Zunächst aktualisieren wir die Datenbank des Servers indem unser `httpService` 
 Der anschließende Callback von `subscribe` teilt uns zu Demonstrationszwecken den Erfolg der Operation in der Konsole mit.
 
 `this.client.send` benachrichtigt alle Beobachter der Auktion, dass eine Änderung bereitsteht.
-`"/update-items"` ist hierbei der Kanal auf dem Nachrichten über die Auktionsgegenstände ausgetauscht werden.
-Wir verwenden `JSON.stringify(item)` um unser binäres Objekt in das portable Textformat [JSON](https://www.json.org/) zu konvertieren.
+`/update-items` ist hierbei der Kanal auf dem Nachrichten über die Auktionsgegenstände ausgetauscht werden.
+Wir verwenden `JSON.stringify(item)` um unser Objekt in das portable Textformat [JSON](https://www.json.org/) zu konvertieren.
 
 Jeder Artikel verfügt über eine individuell festgelegte Auktionszeit, die bei jedem Gebot kurzzeitig verlängert wird.
 Nach Ablauf dieser Zeitperiode wird der Höchstbietende hinsichtlich seiner Ersteigerung informiert (Anwendungsfall C).
