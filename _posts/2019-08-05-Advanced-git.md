@@ -16,8 +16,8 @@ Operationen vorgestellt mit denen du deine Historie aufräumen kannst.
 
 Wenn du die Beispiele selber ausprobieren möchtest kannst du das Beispielrepo
 auf [GitHub](https://github.com/czarnecki/git_blog_post_example) finden. Auf dem
-"after" Branch siehst du wie es nachher aussehen sollte.  Mit `git log` und `git
-status` kannst du den Status des Branch nach jeder Operation prüfen.
+"after" Branch siehst du wie es nachher aussehen sollte.  Mit `git log` und `git status`
+kannst du den Status des Branch nach jeder Operation prüfen.
 
 # Historie verändern
 Alle Operationen, die hier vorgestellt werden, verändern die Historie. Daher
@@ -36,7 +36,7 @@ sorgst du dafür, dass nur die Code-Änderungen genutzt werden,
 die in dem Kommando angegeben werden. Das `-o` kann auch weggelassen
 werden wenn zuvor keine Änderungen mittels `git add` vorgemerkt wurden. Wenn das
 Kommando so genutzt wird öffnet Git einen Editor mit der Commit-Beschreibung des
-letzten Commits. Dieser kann frei bearbeitet werden, sodass beim Schließen des
+letzten Commit. Dieser kann frei bearbeitet werden, sodass beim Schließen des
 Editors ein Commit mit der neuen Beschreibung und den ursprünglichen Änderungen
 erzeugt wird.
 
@@ -102,7 +102,7 @@ Commit gemacht hast, befinden sich im Arbeitsverzeichnis. Jetzt kannst du wieder
 mehr enthält.  Wenn du mit der oberen Methode alle Änderungen entfernen willst
 wird Git dich warnen, dass du damit einen leeren Commit erzeugen würdest und
 stattdessen `git reset HEAD^` verwenden sollst. Dies setzt `HEAD` wieder auf den
-Eltern-Commit des momentan `HEAD`.
+Eltern-Commit des momentanen `HEAD`.
 
 ## Vorgehen bei älteren Commits
 Für einen älteren Commit darfst du wieder einen interaktiven Rebase
