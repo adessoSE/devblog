@@ -241,7 +241,7 @@ git commit -m "Add 250g_spaghetti to pot"
 git rebase --continue
 ```
 
-# Die Historie und du
+# Die Historie ist ein Tool
 Die Git-Historie ist ein praktisches Tool zur Dokumentation der Entwicklung
 eines Projektes. Je nachdem wie sie gepflegt wird erlaubt sie einem schnell
 herauszufinden wann etwas gemacht wurde oder auch wie jemand bei der
