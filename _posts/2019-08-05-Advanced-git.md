@@ -6,11 +6,11 @@ author: czarnecki
 categories: [Softwareentwicklung]
 tags: [Git]
 ---
-Systeme zur Versionskontrolle stellen wichtige Tools zur Verwaltung von
-Softwareversionen dar, aber auch zur Dokumentation der Entwicklung. Häufig wird
-dabei der letzte Aspekt häufig etwas übersehen und so kommt es schnell zu
-unsauberen Commit-Historien, welche es schwierig machen, herauszufinden wann
-welche Änderungen gemacht wurden. Daher werden in diesem Artikel einige
+Systeme zur Versionskontrolle sind nicht nur wichtig für die Verwaltung von
+Softwareversionen, sondern auch zur Dokumentation der Entwicklung. Häufig wird
+dabei der Dokumentations-Aspekt übersehen und so kommt es schnell zu
+einer unsauberen Commit-Historie, die es schwierig macht, herauszufinden wann
+welche Änderungen vorgenommen wurden. In diesem Artikel werden einige
 Operationen vorgestellt mit denen du deine Historie aufräumen kannst.
 
 Wenn du die Beispiele selber ausprobieren möchtest kannst du das Beispielrepo
@@ -20,9 +20,9 @@ status` kannst du den Status des Branch nach jeder Operation prüfen.
 
 # Historie verändern
 Alle Operationen, die hier vorgestellt werden, verändern die Historie. Daher
-sind sie mit Vorsicht zu verwenden, wenn du Commits bearbeitest welche bereits
-veröffentlicht wurden und besonders wenn Andere ihre Arbeit darauf basiert
-haben. Am sichersten ist es die Historie zu verändern, wenn sie bisher nur bei
+sind sie mit Vorsicht zu verwenden, wenn du Commits bearbeitest die bereits
+veröffentlicht wurden, insbesondere wenn die Arbeit anderer Entwickler darauf basiert.
+Am sichersten ist es die Historie zu verändern, wenn sie bisher nur bei
 dir lokal vorhanden ist. Außerdem kann es Sinn ergeben, die Historie zu
 verändern, wenn die Arbeit an einem Branch abgeschlossen ist und er für einen
 Pull Request aufgeräumt werden soll.
@@ -30,26 +30,25 @@ Pull Request aufgeräumt werden soll.
 # Eine Commit-Beschreibung bearbeiten
 Wenn es sich um den letzten Commit handelt kannst du einfach `git commit --amend -o`
 verwenden. Das `--amend` erlaubt es uns, den neuesten Commit zu bearbeiten
-und Änderungen zu diesem Änderungen hinzufügen.  Durch `-o` (`--only`
-ausgeschrieben) wird dafür gesorgt, dass nur die Code-Änderungen genutzt werden,
-die in dem Kommando angegeben werden. Da hier keine angegeben werden, werden
-keine neuen Änderungen zum Commit hinzugefügt, das `-o` kann auch weggelassen
+und Änderungen zu diesem Änderungen hinzufügen.  Mit `-o` (ausgeschrieben `--only`) 
+sorgen wir dafür, dass nur die Code-Änderungen genutzt werden,
+die in dem Kommando angegeben werden. Das `-o` kann auch weggelassen
 werden wenn zuvor keine Änderungen mittels `git add` vorgemerkt wurden. Wenn das
 Kommando so genutzt wird öffnet Git einen Editor mit der Commit-Beschreibung des
-letzten Commits. Dieser kann frei bearbeitet werden, sodass beim schließen des
+letzten Commits. Dieser kann frei bearbeitet werden, sodass beim Schließen des
 Editors ein Commit mit der neuen Beschreibung und den ursprünglichen Änderungen
 erzeugt wird.
 
 ## Vorgehen bei älteren Commits
 Wenn du die Commit-Beschreibung eines älteren Commits bearbeiten möchtest dann
-muss dafür ein interaktiver Rebase genutzt werden.
+ist ein interaktiver Rebase notwendig.
 
 Der interaktive Rebase erlaubt es dir beim Aufspielen vergangener Commits auf
 eine neue Basis unterschiedliche Operationen auszuführen. Diese erlauben einem
 unter anderem, einen Commit zu bearbeiten, zu entfernen, mit einem anderen zu
 vereinen und die Commit-Beschreibung zu ändern.
 
-Um einen interaktiven Rebase durchzuführen, wird ein Commit benötigt, auf dem
+Um einen interaktiven Rebase durchzuführen, benötigen wir einen Commit, auf dem
 die Änderungen aufsetzen sollen. Damit du nicht immer nach den Commit-Hashes
 suchen musst, kannst du beispielsweise Kurzformen wie `HEAD~1` verwenden.
 Führst du nun `git rebase -i HEAD~1` aus, wird nur der neuste Commit angepasst
@@ -64,7 +63,7 @@ sequenziell von oben nach unten die Commits durch und spielt diese auf die neue
 Basis auf. Sobald es auf einen deiner Commits mit `reword` trifft, stoppt der
 Rebase dort und es wird ein Editor mit der Commit-Beschreibung des Commit bei
 dem gestoppt wurde geöffnet. Diese kannst du wie jede andere Commit-Beschreibung
-bearbeiten. Wenn du fertig bist wie üblich speichern und schließen und der
+bearbeiten. Wenn du fertig bist, kannst du wie üblich Speichern und Schließen und der
 Rebase wird fortgeführt.
 
 ## Beispiel
@@ -168,7 +167,7 @@ mit `git rebase --abort` abzubrechen und ihn neu durchzuführen. Nachdem du die
 Commits, die du vereinen möchtest, ausgewählt hast wird der Rebase durchgeführt.
 
 ## Automatisch
-Wenn du bereits im voraus weißt, dass du einen Commit mit einem anderen vereinen
+Wenn du bereits im Voraus weißt, dass du einen Commit mit einem anderen vereinen
 willst, kann Git dir das Leben etwas einfacher machen. Nachdem du deine
 Änderungen gemacht und zur Staging-Area hinzugefügt hast, kannst du mit
 `git commit --fixup=<Commit>` oder `git commit --squash=<Commit>` den Commit zum
