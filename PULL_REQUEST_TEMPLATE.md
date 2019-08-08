@@ -24,5 +24,9 @@ Wenn du einen Pull-Request stellst, teile uns bitte deine Änderungen mit, indem
   - [ ] Date-Angaben 
     - [ ] stimmen im Header und im Dateinamen überein
     - [ ] stehen auf dem heutigen Tag (aber in der Vergangenheit)
-
+- **Execute jekyll2cms: Produce XML for the CMS at blog.adesso.de** <br>
+    Important: This needs to be done AFTER MERGING your blogpost into the MASTER-branch of this project.
+  - [ ] Head over to the [Jekyll2cms instructions](https://github.com/adessoAG/jekyll2cms/blob/master/README.md#1-only-using-jekyll2cms-for-blogpost-conversion), execute the insctructions and check if xml was successfully generated.
+  - Extra tip for docker-pros, just execute ```docker run -d --name jekyll2cms smahler/jekyll2cms:1.0.5``` for a few minutes, stop it and you're done.
+  -  Congrats - you've just converted Markdown to XML - just wait for the CMS to pick it up. (Takes about 1 hour minimum). If you need to make further changes, just change your Markdown-Postfile and execute jekyll2cms again  
 
