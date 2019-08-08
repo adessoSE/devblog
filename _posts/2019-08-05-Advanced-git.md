@@ -30,9 +30,9 @@ Pull Request aufgeräumt werden soll.
 
 # Eine Commit-Beschreibung bearbeiten
 Wenn es sich um den letzten Commit handelt kannst du einfach `git commit --amend -o`
-verwenden. Das `--amend` erlaubt es uns, den neuesten Commit zu bearbeiten
-und Änderungen zu diesem Änderungen hinzufügen.  Mit `-o` (ausgeschrieben `--only`)
-sorgen wir dafür, dass nur die Code-Änderungen genutzt werden,
+verwenden. Das `--amend` erlaubt es dir, den neuesten Commit zu bearbeiten
+und Änderungen zu diesem hinzuzufügen.  Mit `-o` (ausgeschrieben `--only`)
+sorgst du dafür, dass nur die Code-Änderungen genutzt werden,
 die in dem Kommando angegeben werden. Das `-o` kann auch weggelassen
 werden wenn zuvor keine Änderungen mittels `git add` vorgemerkt wurden. Wenn das
 Kommando so genutzt wird öffnet Git einen Editor mit der Commit-Beschreibung des
@@ -49,7 +49,7 @@ eine neue Basis unterschiedliche Operationen auszuführen. Diese erlauben einem
 unter anderem, einen Commit zu bearbeiten, zu entfernen, mit einem anderen zu
 vereinen und die Commit-Beschreibung zu ändern.
 
-Um einen interaktiven Rebase durchzuführen, benötigen wir einen Commit, auf dem
+Um einen interaktiven Rebase durchzuführen, benötigst du einen Commit, auf dem
 die Änderungen aufsetzen sollen. Damit du nicht immer nach den Commit-Hashes
 suchen musst, kannst du beispielsweise Kurzformen wie `HEAD~1` verwenden.
 Führst du nun `git rebase -i HEAD~1` aus, wird nur der neuste Commit angepasst
@@ -118,7 +118,7 @@ zunächst nicht fortgeführt werden, da du noch Änderungen in deinem
 Arbeitsverzeichnis hast. Um das Problem zu umgehen kannst du mit `git stash` die
 Änderungen sicher zur Seite legen.
 
-## Beispiele
+## Beispiel
 
 ``` git
 # Zum letzten Commit hinzufügen
@@ -181,7 +181,7 @@ die passenden Commits vereinen, bzw.  beim interaktiven Rebase ordnet es die
 Commits in der nötigen Reihenfolge an und markiert sie automatisch mit `squash`
 und `fixup`.
 
-## Übersicht
+## Beispiel
 
 ``` git
 # Manuell squash/fixup
