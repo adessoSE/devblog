@@ -1,8 +1,8 @@
 ---
 layout: [post, post-xml]
 title:  "Alte Geschichte neu schreiben"
-data: 2019-08-98
-modified_data: 2019-08-98
+data: 2019-08-12
+modified_data: 2019-08-12
 author: czarnecki
 categories: [Softwareentwicklung]
 tags: [Git]
