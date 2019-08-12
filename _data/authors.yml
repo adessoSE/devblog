@@ -213,3 +213,12 @@ s-gbz:
   bio: "Als Werkstudent ist Sergej bei adesso in Open Source, Full-Stack Entwicklung und Maschinellem Lernen involviert. In seiner Freizeit dreht er Filme und spielt Theater."
   avatar_url: /assets/images/avatars/s-gbz.jpg
   github: https://github.coms-gbz
+
+czarnecki:
+  first_name: Florian
+  last_name: Czarnecki
+  github_username: czarnecki
+  email: florian.czarnecki@adesso.de
+  bio: "Florian Czarnecki ist als Werkstudent im Open-Source-Team bei adesso in Dortmund tätig"
+  avatar_url: /assets/images/avatars/czarnecki.jpg
+  github: https://github.com/czarnecki
