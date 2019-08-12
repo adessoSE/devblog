@@ -1,6 +1,6 @@
 ---
 layout: [post, post-xml]
-title:  "Alte Geschichte neu schreiben"
+title:  "Alte Geschichte Neu Schreiben mit Git"
 data: 2019-08-12
 modified_data: 2019-08-12
 author: czarnecki
