@@ -1,7 +1,7 @@
 ---
 layout: [post, post-xml]              # Pflichtfeld. Nicht ändern!
-title:  "Identify bottlenecks in your Spring Tests with JUnit Insights"         # Pflichtfeld. Bitte einen Titel für den Blog Post angeben.
-date:   2019-08-02 10:25              # Pflichtfeld. Format "YYYY-MM-DD HH:MM". Muss für Veröffentlichung in der Vergangenheit liegen. (Für Preview egal)
+title:  "Identify Bottlenecks in your Spring Tests with JUnit Insights"         # Pflichtfeld. Bitte einen Titel für den Blog Post angeben.
+date:   2019-08-20 09:00             # Pflichtfeld. Format "YYYY-MM-DD HH:MM". Muss für Veröffentlichung in der Vergangenheit liegen. (Für Preview egal)
 author: florianluediger               # Pflichtfeld. Es muss in der "authors.yml" einen Eintrag mit diesem Namen geben.
 categories: [Java]                    # Pflichtfeld. Maximal eine der angegebenen Kategorien verwenden.
 tags: [Spring, JUnit, Testing]        # Bitte auf Großschreibung achten.
