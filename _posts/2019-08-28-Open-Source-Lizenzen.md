@@ -1,8 +1,8 @@
 ---
 layout:         [post, post-xml]              
 title:          "Open-Source-Lizenzen und was ich damit machen darf"
-date:           2019-06-04 09:30
-modified_date:  2019-06-04 09:30
+date:           2019-08-28 09:30
+modified_date:  2019-08-28 09:30
 author:         jo2
 categories:     [Softwareentwicklung]
 tags:           [Open Source, Lizenzen]
@@ -31,10 +31,10 @@ Wenn an dem Source-Code Änderungen vorgenommen werden, muss eindeutig kenntlich
 Ein Projekt, das Code verwendet, der unter der GPL steht, oder von solchem Code abgeleitet ist, muss ebenfalls unter der GPL veröffentlicht werden.
 Eine Ausnahme hierfür bilden Teile des Codes, die eindeutig unabhängig vom Code unter der GPL sind.
 Werden sie einzeln, und nicht als ganze Arbeit veröffentlicht, gilt die GPL nicht für das ganze Projekt.
-Durch die Zusammenfassung von Code unter der GPL und Code nicht unter der GPL auf eienm Verteilungsmedium ist die Unabhängigkeit des Codes, der nicht unter der GPL ist, weiterhin gewährleistet.
+Durch die Zusammenfassung von Code unter der GPL und Code nicht unter der GPL auf einem Verteilungsmedium ist die Unabhängigkeit des Codes, der nicht unter der GPL ist, weiterhin gewährleistet.
 Eine kommerzielle Nutzung des Werkes ist möglich, allerdings müssen dabei die Bedingungen der GPL eingehalten werden.
 
-Mit der Veränderung oder Verteilung des Codes unter der GPL erfolgt eine automatische Zustimmung zu den Bedingunge dieser Lizenz.
+Mit der Veränderung oder Verteilung des Codes unter der GPL erfolgt eine automatische Zustimmung zu den Bedingungen dieser Lizenz.
 Auch das Herunterladen von Code zählt bereits als Vervielfältigung, da eine Kopie erstellt wird, die auf dem lokalen Gerät gespeichert wird.
 Bei Verstößen gegen diese Lizenz erlischen alle Rechte, die diese Lizenz im Bezug auf den betreffenden Code gewährt.
 
@@ -43,7 +43,7 @@ Sollte bei der Verwendung eines Programms unter dieser Lizenz ein Schaden entste
 Es dürfen nur Gebühren erhoben werden, wenn der Code zusammen mit Dienstleistungen angeboten wird oder zur Kostendeckung für die Herstellung von physikalischen Kopien.
 
 ## Unterschiede in der GPLv3
-- Anti-Circumvation-Laws: Durch das Wahrnehmen der Rechte, die einem die GPLv3 gewährt, sollen dem Nutzer gegenüber keine Rechtsansprüche bezüglich Verletzungen des Urheberschutz geltend gemacht werden können.
+- Anti-Circumvention-Laws: Durch das Wahrnehmen der Rechte, die einem die GPLv3 gewährt, sollen dem Nutzer gegenüber keine Rechtsansprüche bezüglich Verletzungen des Urheberschutz geltend gemacht werden können.
 Wenn Software unter der GPLv3 technische Maßnahmen zur Kontrolle der Nutzung und Verbreitung enthält, können diese entfernt werden, ohne dass man dafür belangt werden kann.
 - Es ist nicht notwendig, die GPLv3 für das alleinige Besitzen einer Kopie, beispielsweise das Herunterladen, des unter der GPLv3 stehenden Werkes zu akzeptieren.
 Das Bearbeiten oder weitere Verteilen erfordert aber das Akzeptieren der Lizenz.
@@ -92,7 +92,7 @@ Dies darf aber nur für eigene Bestandteile des Codes gemacht werden.
 Es muss klar sein, dass Bestandteile von anderen Mitwirkenden nicht darunter fallen.
 Darüber hinaus muss jedem Mitwirkenden ein durch diese angebotenen Garantien oder Servicedienstleistungen entstandener Schaden erstattet werden.
 
-Ist es durch Höhere Gewalt, beispielsweise Gerichturteile oder lokal geltende Gesetze, nicht möglich, Teile der Bedingungen der MPL zu erfüllen, müssen die gegebenen Einschränkungen und der Code, den sie betreffen, kenntlich gemacht werden.
+Ist es durch Höhere Gewalt, beispielsweise Gerichtsurteile oder lokal geltende Gesetze, nicht möglich, Teile der Bedingungen der MPL zu erfüllen, müssen die gegebenen Einschränkungen und der Code, den sie betreffen, kenntlich gemacht werden.
 
 Die unter dieser Lizenz gewährten Rechte erlöschen automatisch, wenn man den Bedingungen der MPL nicht nachkommt.
 Sie können aber erneut temporär gewährt werden, wenn man die Bedingungen nachträglich erfüllt.
