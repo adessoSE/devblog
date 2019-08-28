@@ -186,6 +186,15 @@ ccaylak:
   bio: "Cem Caylak ist ein dualer Student bei adesso und studiert am ITC."
   avatar_url: /assets/images/avatars/ccaylak.png
   github: https://github.com/ccaylak
+
+jo2:
+  first_name: Johannes
+  last_name: Teklote
+  github_username: jo2
+  email: johannes.teklote@adesso.de
+  bio: "Johannes Teklote ist Werkstudent bei adesso in Dortmund und entwickelt Software im Open Source Bereich."
+  avatar_url: /assets/images/avatars/johannesteklote.jpg
+  github: https://github.com/jo2
   
 frederikschlemmer:
   first_name: Frederik
