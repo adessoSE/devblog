@@ -6,8 +6,18 @@ author: s-gbz
 categories: [Softwareentwicklung]                    
 tags: [Keras, TensorFlow, Flask, Docker, Deep Learning, Künstliche Intelligenz]
 ---
-Moving your Deep Learning models from the developers playground to serious production stage can be a hard feat to accomplish.
+Moving your Deep Learning models from the developers playground to a serious production stage can be a hard feat to accomplish.
 After endless research I'm most glad to proudly serve you an easy to execute guide for deploying Keras models to production level.
+
+# The problem
+Explain why deploying isn't as easy as expected.
+Mention alternatives e.g. TensorFlow Serving
+
+## Naive solution
+Why Flask is not enough
+
+## What you should 
+Instead use ..
 
 # Tools for success: Flask, WSGI, Docker, Nginx
 This tutorial makes use of a Server running CentOs 7.5 but you can use any UNIX distribution you prefer.
@@ -77,7 +87,7 @@ networks:
 ```     
 
 # Preparing nginx
-"NGINX is open source software for web serving, reverse proxying, caching, load balancing, media streaming, and more." - From the official nginx glossar. 
+"NGINX is open source software for web serving, reverse proxying, caching, load balancing, media streaming, and more." -The official nginx glossar. 
 
 Follow [this instructions ](https://linuxize.com/post/how-to-install-nginx-on-centos-7/) to install nginx.
 Use `sudo` and your favorite editor to open `/etc/nginx/nginx.conf`.
@@ -132,6 +142,5 @@ Since we value the privacy of our users we want them to access our model with a 
 For this we need to redirect unencrypted traffic to our secure line.
 The second `server` block serves this purpose by listening to unencrypted requests on port 80 and responding with a 301 "permanently moved".
 This status code guides incoming traffic to keep the requested address, but access it on `https` instead of plain `http`.
-
 
 # Conclusion
