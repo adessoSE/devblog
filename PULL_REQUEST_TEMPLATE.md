@@ -13,6 +13,7 @@ Wenn du einen Pull-Request stellst, teile uns bitte deine Änderungen mit, indem
 - **Text** (abzuhaken durch den Autor)
   - [ ] [Teaser entspricht den Vorgaben](https://github.com/adessoAG/devblog/blob/master/examples/2017-08-10-blog-post-guide.md#einleitung--teaser)
   - [ ] Rechtschreibung korrigiert
+  - [ ] [Ein Satz pro Zeile](https://github.com/adessoAG/devblog/blob/master/examples/2017-08-10-blog-post-guide.md#ein-satz-pro-zeile)
   - [ ] [Bilder sind korrekt in den Artikel eingebunden](https://github.com/adessoAG/devblog/blob/master/examples/2017-08-10-blog-post-guide.md#bilder)
   - [ ] [Überschriften entsprechen den Vorgaben](https://github.com/adessoAG/devblog/blob/master/examples/2017-08-10-blog-post-guide.md#%C3%9Cberschriften)
   - [ ] Code-Snippets wurden mit [Syntax Highlighting](https://github.com/adessoAG/devblog/blob/master/examples/2017-08-10-blog-post-guide.md#syntax-highlighting) versehen
