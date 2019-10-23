@@ -65,6 +65,12 @@ sind. Dieser Abschnitt ist mit `---` vom eigentlichen Inhalt getrennt und ist al
 Hier sind einige Pflichtfelder auszufüllen. 
 Schau dir einfach den [Header dieser Datei](https://github.com/adessoAG/devblog/edit/master/examples/2017-08-10-blog-post-guide.md) als Beispiel an.
 
+### Ein Satz pro Zeile
+Damit die Reviewer ihre Kommentare und Verbesserungsvorschläge an konkreter Stelle hinterlassen können, sollte **jeder Satz** auf je **eine Zeile** verteilt sein.
+Da Absätze in Markdown erst bei zwei Zeilenumbrüchen entstehen, werden **einzeilige Umbrüche zusammengefügt**.
+
+Bitte achtet beim Schreiben drauf, da der Reviewprozess somit beidseitig erleichtert wird.
+
 ## Einleitung / Teaser
 
 Der erste Absatz (also alles bis zur ersten Leerzeile in der Markdown-Datei) wird als Einleitung / Teaser übernommen. Der erste Absatz
@@ -173,6 +179,7 @@ Diese ist auch in die Pull-Request-Template eingebunden, sodass Du dort deine Ä
 		* "tags [Spring, Microservices]" gesetzt
 	* [Einleitung/Teaser geschrieben](https://github.com/adessoAG/devblog/blob/master/examples/2017-08-10-blog-post-guide.md#einleitung--teaser)
 	* Rechtschreibung korrigiert
+	* Ein Satz pro Zeile
 	* [Bilder korrekt in den Artikel eingebunden](https://github.com/adessoAG/devblog/blob/master/examples/2017-08-10-blog-post-guide.md#bilder)
 	* Reviewer angegeben (Liste mit Reviewern?)
   * Online-Preview angesehen
