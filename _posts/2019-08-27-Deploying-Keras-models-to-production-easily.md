@@ -7,32 +7,43 @@ categories: [Softwareentwicklung]
 tags: [Keras, TensorFlow, Flask, Docker, Deep Learning, Künstliche Intelligenz]
 ---
 Moving your Deep Learning models from the developers playground to a serious production stage can be a hard feat to accomplish.
-After endless research I'm most glad to proudly serve you an easy to execute guide for deploying Keras models to production level.
+After endless research I'm most glad to serve you an easy to execute guide for deploying Keras models to production level.
 
-# The problem
-Explain why deploying isn't as easy as expected.
-Mention alternatives e.g. TensorFlow Serving
 
-## Naive solution
-Why Flask is not enough
+# Deployment: The struggle of the right tool
+This article is written from personal experience.
+Some of you might relate to it:
+I had a hard time finding the right tool and proper guide how to deploy my Deep Learning model.
 
-## What you should 
-Instead use ..
+## TensorFlow Serving
+As a beginner in the field of DataScience, TensorFlow Serving seemed like the obvious choice.
+The concept seemed robust, clean and most importantly, developed by Google. 
+The only downside: I was using Keras on top of TensorFlow. 
+Available guides for porting those models were limited. 
+I had no idea how to apply the concept to _my_ needs, so I moved on.
 
-# Tools for success: Flask, WSGI, Docker, Nginx
+## DeepLearning4J
+Most developers know their way around Java: It's easy to learn, versatile and get's the job done.
+The user application I wrote to support the Deep Learning was based on it.
+So I tried porting the model from Keras to DeepLearning4J, a Java based Deep Learning framework.
+After much trial and error it just didn't work for me. 
+
+## Flask: A single thread solution
+Flask is a [Web Server Gateway Interface](https://www.fullstackpython.com/wsgi-servers.html) or more simply: a lightweight web framework. 
+The single biggest advantage of it: It's well documented, easy to set up and easy use.
+The single biggest disadvantage of it: **Flask does not scale with rising request loads and hence is not production ready by default.**
+
+### Making our model accessible to requests
+We define RESTful verbs to make our application accessible.
+
+## Gevent: Make it concurrent/ scaleable
+To solve this problem we make us of [Gevent](http://www.gevent.org/index.html) - a coroutine-based concurrency library for Python.
+
+
+# Get ready for shipping: Docker-/Compose
 This tutorial makes use of a Server running CentOs 7.5 but you can use any UNIX distribution you prefer.
 
-## Making our model accessible to requests
-
-### Flask
-Flask is a lightweight web framework.
-**Flask does not scale with rising request loads and hence is not production ready by default.**
-
-## Making our server scaleable 
-To solve this problem we make us of gevent - a coroutine-based concurrency library for Python.
-[WSGI](https://www.fullstackpython.com/wsgi-servers.html)
-
-# Dockerize the application
+## Dockerize the application
 We use Docker to guarantee equal execution conditions on all systems.  
 
 ```Dockerfile
@@ -63,6 +74,8 @@ Imagine every command as a seperate layer.
 Consequent builds can be significantly fastened up if unchanged layers are reused from previous builds, while modified files are pushed on top.
 
 ## Docker-compose
+"Compose is a tool for defining and running multi-container Docker applications. With Compose, you use a YAML file to configure your application’s services. Then, with a single command, you create and start all the services from your configuration." - [docker docks](https://docs.docker.com/compose/)
+
 Docker-compose allows us to have a static IP when we serve our image.
 We use the specified address to enable a proxy pass via nginx. 
 
@@ -87,9 +100,9 @@ networks:
 ```     
 
 # Preparing nginx
-"NGINX is open source software for web serving, reverse proxying, caching, load balancing, media streaming, and more." -The official nginx glossar. 
+"NGINX is open source software for web serving, reverse proxying, caching, load balancing, media streaming, and more." - [nginx glossar](https://www.nginx.com/resources/glossary/nginx/)
 
-Follow [this instructions ](https://linuxize.com/post/how-to-install-nginx-on-centos-7/) to install nginx.
+Follow [this instructions](https://linuxize.com/post/how-to-install-nginx-on-centos-7/) to install nginx.
 Use `sudo` and your favorite editor to open `/etc/nginx/nginx.conf`.
 Copy and adapt the configuration file as following:
 
