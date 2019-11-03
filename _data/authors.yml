@@ -231,3 +231,12 @@ czarnecki:
   bio: "Florian Czarnecki ist als Werkstudent im Open-Source-Team bei adesso in Dortmund tätig"
   avatar_url: /assets/images/avatars/czarnecki.jpg
   github: https://github.com/czarnecki
+  
+frenzel:
+  first_name: Daniel
+  last_name: Frenzel
+  github_username: fwshgtn
+  email: daniel.frenzel@adesso.de
+  bio: "Daniel Frenzel ist Software Engineer bei der adesso AG in Dortmund mit mehreren Jahren Berufserfahrung in der Entwicklung von Java- und Webanwendungen."
+  avatar_url: /assets/images/avatars/fwshngtn.jpg
+  github: https://github.com/fwshngtn
