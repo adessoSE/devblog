@@ -31,8 +31,10 @@ After much trial and error it too didn't work for me.
 ## Flask: A single thread solution
 After some more research, Flask was the final choice:
 Flask is a [Web Server Gateway Interface](https://www.fullstackpython.com/wsgi-servers.html) or more simply: a lightweight web framework. 
-The single biggest advantage of it: It's well documented, easy to set up and easy to use.
-The single biggest disadvantage of it: **Flask is single threaded -> Flask does not scale with rising request loads and hence is not production ready by default.**
+The single biggest advantage of it:
+It's well documented, easy to set up and easy to use.
+The single biggest disadvantage of it:
+**Flask is single threaded -> Flask does not scale with rising request loads and hence is not production ready by default.**
 Allthough my project was not expected to generate millions (or even thousands) of users at the time, I wanted to do things "properly".
 
 ## Gevent: Make it concurrent
@@ -82,10 +84,10 @@ Using multiple models requires handling and calling it's corresponding Sessions 
 We define arrays to track them:
 
 ```python
-model_types = ["A", "B", "C"]
-models = []
-graphs = []
-sessions = []
+MODEL_NAME = ["A", "B", "C"]
+MODELS = []
+GRAPHS = []
+SESSIONS = []
 ```
 
 We also specify model names to prepare directory paths and load them one by one.
@@ -126,7 +128,82 @@ You might encounter the following warning:
 This is just a [bug]() - Don't worry about that.
 
 `model._make_predict_function()` is optional but [highly recommended]() since it accelerates the model respond time.
-Finally we store our newly created items in the respective arrays. 
+Finally we store our newly created items in the respective arrays.
+
+### Making the app accessible to requests / Setting request URLs
+Flask annotations allow us to define RequestMappings easily.
+
+```python
+@app.route('/', methods=['GET'])
+def index():
+    return render_template('index.html')
+```
+
+In order to create a new Mapping we define
+- a route (`'/'` = base route),
+- accepted methods `'GET'`,
+- and a corresponding function.
+
+Assuming our application is running localy on port 5000 we get `index.html` by navigating to `http://localhost:5000`.
+
+### Requesting the predict function
+The same applies to calls to the predict function.
+
+```python
+@app.route('/predict', methods=['POST'])
+def upload():
+    if request.method == 'POST':
+        # Get the file from the POST request
+        file_to_predict = request.files['file']
+
+        # Save the file to ./uploads
+        basepath = os.path.dirname(__file__)
+        local_file_path = os.path.join(
+            basepath, 'uploads', secure_filename(file_to_predict.filename))
+        file_to_predict.save(local_file_path)
+
+        preds = models_predict(local_file_path)
+        os.remove(local_file_path)
+
+        return jsonify(preds)   
+```
+
+We define `/predict` as our path to predictions.
+Since most models require user input to return results, we only accept `POST` requests.
+`file_to_predict = request.files['file']` - to process the request, we extract the attached file by using the `file` key.
+After saving the file we pass its newly constructed path to our models for prediction `preds = models_predict(local_file_path)`.  
+The results are then parsed into JSON and returned as a request response.
+
+We avoid discussing the predict function to prevent this blog post from growing longer than it already is :-)
+
+### Serving our Flask app with Gevent
+Now that our app is ready all that's left to do is serve it in production mode.
+As mentioned above, Gevent helps us with that.
+
+```python
+if __name__ == '__main__':
+    load_models()
+    http_server = WSGIServer(('0.0.0.0', 5000), app)
+    http_server.serve_forever()
+```
+
+Besides loading our models we need to define our Gevent instance.
+Since Flask is a **W**eb**S**erver**G**ate**I**nterface we assign it Gevents `WSGIServer` and pass following arguments:
+- `'0.0.0.0'` sets the host parameter.
+(Though it's optional, some users might experience issues on Firefox if it's unset.)
+- `5000` exports port 5000.
+(You can pass and use any free port.) 
+- `app` is our Flask application.
+- `serve_forever()` - the application continues running until shutdown.
+
+### Test run!
+To run and test our application, open a shell inside the application directory.
+- First use **pip** to install the requirements via `pip install requirements.txt`.
+- Copy your models and frontend files into the respective folders.
+- Run `python app.py` and open `http://localhost:5000` in your favourite browser.
+
+Enjoy the result, but don't get too comfortable.
+It's time for shipping out!
 
 # Get ready for shipping: Docker-/Compose
 Now that we've covered 
