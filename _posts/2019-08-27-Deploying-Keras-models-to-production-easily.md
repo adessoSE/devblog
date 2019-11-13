@@ -24,23 +24,112 @@ I had no idea how to apply the concept to _my_ needs, so I moved on.
 
 ## DeepLearning4J
 Most developers know their way around Java: It's easy to learn, versatile and get's the job done.
-The user application I wrote to support the Deep Learning was based on it.
-So I tried porting the model from Keras to DeepLearning4J, a Java based Deep Learning framework.
-After much trial and error it just didn't work for me. 
+The user application I wrote to collect data for the Deep Learning was based on it.
+So I tried porting the model from Keras to DeepLearning4J (a Java based Deep Learning framework).
+After much trial and error it too didn't work for me. 
 
 ## Flask: A single thread solution
+After some more research, Flask was the final choice:
 Flask is a [Web Server Gateway Interface](https://www.fullstackpython.com/wsgi-servers.html) or more simply: a lightweight web framework. 
-The single biggest advantage of it: It's well documented, easy to set up and easy use.
-The single biggest disadvantage of it: **Flask does not scale with rising request loads and hence is not production ready by default.**
+The single biggest advantage of it: It's well documented, easy to set up and easy to use.
+The single biggest disadvantage of it: **Flask is single threaded -> Flask does not scale with rising request loads and hence is not production ready by default.**
+Allthough my project was not expected to generate millions (or even thousands) of users at the time, I wanted to do things "properly".
 
-### Making our model accessible to requests
-We define RESTful verbs to make our application accessible.
+## Gevent: Make it concurrent
+Luckily I discovered [Gevent](http://www.gevent.org/index.html) - a coroutine-based concurrency library for Python.
+Gevent contains structures that are implemented in C and is thus able to create separate handlers for incoming requests.   
+It's purpose is similiar to [Gunicorn](https://gunicorn.org).
+Though I saw tutorials making use of Gunicorn, Gevent just worked better for me (Pro / Contra ?).
+However this is just personal experience, one might consider using Gunicorn just as well.
 
-## Gevent: Make it concurrent/ scaleable
-To solve this problem we make us of [Gevent](http://www.gevent.org/index.html) - a coroutine-based concurrency library for Python.
+# Accessing the model via Flask
+Feel free to checkout the code at [GitHub](https://github.com/mtobeiyf/keras-flask-deploy-webapp).
 
+## App and folder structure
+First order of business is defining our folder and hence app structure.
+![App-folder-structure](../assets/posts/../images/posts/deploying-keras-models-to-production-easily/deployment-ordner-struktur.PNG)
+Let's run over the contents quickly
+- `models` is where you store your models.
+Make sure to export them in `.h5` format
+- `frontend` lives up to its name and contains your frontend files.
+"Usual" implementations prefer to call the folder `static` and/ or `templates`. 
+- `uploads` is the place to store uploaded files of your userbase.
+You might consider deleting the files after having assessed them with your model.
+
+### Defining the Flask app
+We define our app by creating a Flask instance and setting rules to handle CORS.
+
+```python
+app = Flask(__name__, template_folder='facenality-frontend', static_folder='facenality-frontend', static_url_path='')
+CORS(app)
+```
+
+We need to specify the `template_folder` and `static_folder` since we combined the directories into a single `frontend` folder.
+We define no limitations for cross origin requests - `CORS(app)`.
+Make sure to know to evaluate this issue once your application is running.
+Read the official [Flask CORS documentation](https://flask-cors.readthedocs.io/en/latest) how to setup specific rules.
+
+### Loading a single model
+To load a model we make use of `keras.models`.
+
+```python
+model = load_model(MODEL_PATH)
+```
+
+### Loading multiple model
+Every TensorFlow model is accompanied by a [Session]() and a [Graph]().
+Using multiple models requires handling and calling it's corresponding Sessions and Graphs.
+We define arrays to track them:
+
+```python
+model_types = ["A", "B", "C"]
+models = []
+graphs = []
+sessions = []
+```
+
+We also specify model names to prepare directory paths and load them one by one.
+(Don't just name your models "1, 2, 3". Stick to [Clean Code](https://dzone.com/articles/naming-conventions-from-uncle-bobs-clean-code-phil)!)
+
+```python
+def load_models():
+    for i in range(NUMBER_OF_LAYERS):
+        load_single_model("models/classification/" + "facenality-" + TRAITS[i] + "-final.h5")
+        print("Model " + str(i) + " loaded.")
+    print('Ready to go! Visit -> http://127.0.0.1:5000/')
+```
+
+Remember the talk about Sessions and Graphs?
+Let's dive into `load_single_model()` to see how it's done.
+
+```python
+def load_single_model(path):
+    graph = Graph()
+    with graph.as_default():
+        session = Session()
+        with session.as_default():
+            model = load_model(path)
+            model._make_predict_function() 
+            
+            models.append(model)
+            graphs.append(graph)
+            sessions.append(session)
+```
+
+`graph = Graph()` - we create a new Graph first.
+`with graph.as_default():` - if that works we create a new Session and repeat the step respectively.
+We use `with` since this operation might fail.
+(For those familiar with Java: `with` is Pythons `try/ catch` mechanism.)
+
+You might encounter the following warning: 
+`Context manager 'generator' doesn't implement __enter__ and __exit__`
+This is just a [bug]() - Don't worry about that.
+
+`model._make_predict_function()` is optional but [highly recommended]() since it accelerates the model respond time.
+Finally we store our newly created items in the respective arrays. 
 
 # Get ready for shipping: Docker-/Compose
+Now that we've covered 
 This tutorial makes use of a Server running CentOs 7.5 but you can use any UNIX distribution you prefer.
 
 ## Dockerize the application
