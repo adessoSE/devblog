@@ -25,11 +25,8 @@ Aus Annas Erfahrung lassen sich deutlich die folgenden Nachteile von REST entn
 * **Mehrere Endpunkte erforderlich:**  
 
     Da REST nur feste Datenstrukturen zurückliefert, müssen mehrere Endpunkte angelegt werden, um die verschiedenen Daten aus dem Server beziehen zu können. Beispielsweise konnte Anna ihre Wünsche nicht zur selben Zeit nennen, da REST diese Wünsche aus mehreren “Endpunkten” nacheinander holen musste und eine parallele Abfrage nicht möglich ist. Die Endpunkte sehen wie folgt aus:
-
     * **URL/api/restaurant**   
     * **URL/api/supermarkt** 
-
-    ![GraphQL und RESTful APIs](/assets/images/posts/GraphQL-ist-flexibler,-das-Ende-von-RESTful-APIs/APIs.PNG)
 
 * **Overfetching:**   
 
@@ -54,6 +51,8 @@ Diese Anpassungen ermöglichen ein API-Design, welches den Herausforderungen von
 * **Single Endpoint:**
 
     GraphQL besitzt nur einen Endpunkt. Die Abfragen werden durch Queries beschrieben, sodass nur eine Query an den Endpunkt geschickt werden muss. Diese Query wird in einer speziellen Query-Sprache beschrieben, ähnlich zu SQL. Diese wird anschließend vom Server interpretiert. Zum Besipiel URL/graphql?query=annaswuensche. In „annaswuensche“ kann der Client alle Daten beschreiben, die er benötigt. Es ist auch möglich alle Daten aus dem Server durch eine Abfrage zu beziehen. 
+
+    ![GraphQL und RESTful APIs](/assets/images/posts/GraphQL-ist-flexibler,-das-Ende-von-RESTful-APIs/APIs.PNG)
 
 * **Kein Overfetching und Underfetching:**
 
