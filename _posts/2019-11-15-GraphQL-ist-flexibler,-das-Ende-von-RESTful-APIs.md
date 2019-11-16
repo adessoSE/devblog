@@ -24,9 +24,9 @@ Aus Annas Erfahrung lassen sich deutlich die folgenden Nachteile von REST entn
 
 * **Mehrere Endpunkte erforderlich:**  
 
-    Da REST nur feste Datenstrukturen zurückliefert, müssen mehrere Endpunkte angelegt werden, um die verschiedenen Daten aus dem Server beziehen zu können. Beispielsweise konnte Anna ihre Wünsche nicht zur selben Zeit nennen, da REST diese Wünsche aus mehreren “Endpunkten” nacheinander holen musste und eine parallele Abfrage nicht möglich ist. Die Endpunkte sehen wie folgt aus:    
-      * **URL/api/restaurant**   
-      * **URL/api/supermarkt** 
+    Da REST nur feste Datenstrukturen zurückliefert, müssen mehrere Endpunkte angelegt werden, um die verschiedenen Daten aus dem Server beziehen zu können. Beispielsweise konnte Anna ihre Wünsche nicht zur selben Zeit nennen, da REST diese Wünsche aus mehreren “Endpunkten” nacheinander holen musste und eine parallele Abfrage nicht möglich ist. Die Endpunkte sehen wie folgt aus:
+    * **URL/api/restaurant**   
+    * **URL/api/supermarkt** 
 
     ![GraphQL und RESTful APIs](/assets/images/posts/GraphQL-ist-flexibler,-das-Ende-von-RESTful-APIs/APIs.PNG)
 
@@ -89,6 +89,7 @@ GraphQL kam zwar mit vielen guten Lösungsansätzen für bekannte Probleme von R
     Ein sehr wichtiges Feature, welches sowohl dem Client als auch dem Server große Flexibilität bietet, ist das HTTP-Caching. Ermittelte Ergebnisse auf Anfragen des Clients können temporär gehalten werden, um schnellere Responses zu ermöglichen. GraphQL kann von den Möglichkeiten des HTTP-Cachings allerdings nicht profitieren, da alle Anfragen über nur einen Endpunkt bedient werden. Der Vorteil von GraphQL (Single Endpoint) wird hier zum Nachteil, da die in der URL enthaltenen Query-Anfragen nicht eindeutig sind. Der Server weiß daher nicht, welche Daten der Client zuvor angefordert hat. Demzufolge ist ein Caching in GraphQL nur schwierig zu implementieren. Lösungen bieten Tools wie DataLoader, um das Caching in GraphQL zu vereinfachen.  
 
 * **Anfragen können ertrinken:**  
+
     In der Graphentheorie ist ein Baum ein spezieller Typ eines Graphen. Ebenso kann eine Query als Baum dargestellt werden. GraphQL beschränkt die Tiefe eines Baumes nicht, womit der Client Freiheiten gewinnt. Daraus ergibt sich aber auf der anderen Seite auch, dass über eine Abfrage riesige Mengen von Daten eines Zweiges geladen werden können, bis ein Blatt erreicht wird. Demzufolge wird der Server mit vielen Daten belastet und die Verarbeitung einer Anfrage verlängert sich. Diese Anfragen könnten auch zu einem Serverausfall führen. Verschiedene Endpunkte in RESTful-APIs haben also nicht nur Nachteile, sondern auch viele Vorteile. Eine komplizierte Anfrage kann mit den RESTful-Endpunkten problemlos und einfach implementiert werden, denn ein Endpunkt liefert feste Datenstrukturen zurück, sodass ein Entwickler die Menge der Daten beschränken und den Server schützen kann.   
 
 * **Workaround, um eine Datei hochzuladen:**
@@ -107,4 +108,4 @@ Da die meisten modernen Applikationen bereits mit REST entwickelt wurden, kann e
 
 ![GraphQL als Gateway](/assets/images/posts/GraphQL-ist-flexibler,-das-Ende-von-RESTful-APIs/Gateway.PNG)
 
-Wir haben gesehen, dass GraphQL Daten aus verschiedenen Ressourcen abrufen kann. Dies können wir uns zu Nutze machen, indem wir GraphQL als Wrapper verwenden, um bereits vorhandene REST-Endpunkte aufzurufen und Informationen anzufordern. Der Client kann damit von der Flexibilität von GraphQL profitieren, ohne REST in GraphQL umsetzen zu müssen. 
+Wir haben gesehen, dass GraphQL Daten aus verschiedenen Ressourcen abrufen kann. Dies können wir uns zu Nutze machen, indem wir GraphQL als Gateway verwenden, um bereits vorhandene REST-Endpunkte aufzurufen und Informationen anzufordern. Der Client kann damit von der Flexibilität von GraphQL profitieren, ohne REST in GraphQL umsetzen zu müssen. 
