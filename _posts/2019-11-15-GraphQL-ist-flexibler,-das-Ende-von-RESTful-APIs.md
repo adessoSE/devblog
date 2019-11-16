@@ -28,7 +28,7 @@ Aus Annas Erfahrung lassen sich deutlich die folgenden Nachteile von REST entn
       * **URL/api/restaurant**   
       * **URL/api/supermarkt** 
 
-      ![GraphQL als Gateway](/assets/images/posts/GraphQL-ist-flexibler,-das-Ende-von-RESTful-APIs/GraphQL-RESTful-APIs.PNG)
+      ![GraphQL- vs. RESTful-APIs](/assets/images/posts/GraphQL-ist-flexibler,-das-Ende-von-RESTful-APIs/GraphQL-RESTful-APIs.PNG)
 
 * **Overfetching:**   
 
