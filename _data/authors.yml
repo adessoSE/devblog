@@ -231,3 +231,12 @@ czarnecki:
   bio: "Florian Czarnecki ist als Werkstudent im Open-Source-Team bei adesso in Dortmund tätig"
   avatar_url: /assets/images/avatars/czarnecki.jpg
   github: https://github.com/czarnecki
+
+muhannaddarraj:
+  first_name: Muhannad
+  last_name: Darraj
+  github_username: muhannaddarraj
+  email: muhannad.darraj@adesso.de
+  bio: ""
+  avatar_url: /assets/images/avatars/dar.jpg
+  github: https://github.com/muhannaddarraj
