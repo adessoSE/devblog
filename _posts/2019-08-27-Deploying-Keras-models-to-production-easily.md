@@ -237,9 +237,9 @@ WORKDIR /usr/src/app/models
 
 COPY models .
 
-WORKDIR /usr/src/app/facenality-frontend
+WORKDIR /usr/src/app/frontend
 
-COPY facenality-frontend .
+COPY frontend .
 
 WORKDIR /usr/src/app
 
@@ -314,36 +314,39 @@ Type `docker kill _name_of_active_container_` to stop such one.
 Then, with a single command, you create and start all the services from your configuration." - [docker docks](https://docs.docker.com/compose/)
 
 Docker-compose allows us to have a static IP when we serve our image.
-We use the specified address to enable a proxy pass via nginx. 
+We use this IP to enable a proxy pass via nginx later on. 
 
 ```yml
 version: '3.3'
 services:
- facenality:
-   container_name: facenality
-   image: facenality
+ deploy-keras-easily:
+   container_name: deploy-keras-easily
+   image: deploy-keras-easily
    restart: always
    networks:
-     facenality-net:
+     deploy-keras-easily-net:
        ipv4_address: 172.16.239.10
 
 networks:
- facenality-net:
+ deploy-keras-easily-net:
    driver: bridge
    ipam:
      driver: default
      config:
        - subnet: 172.16.239.0/24
-```     
+```
+
+
 
 # Preparing nginx
-"NGINX is open source software for web serving, reverse proxying, caching, load balancing, media streaming, and more." - [nginx glossar](https://www.nginx.com/resources/glossary/nginx/)
+"NGINX ['Engine X'] is open source software for web serving, reverse proxying, caching, load balancing, media streaming, and more." - [nginx glossar](https://www.nginx.com/resources/glossary/nginx/).
+We will use nginx to **force https and hide our ports**.
 
-Follow [this instructions](https://linuxize.com/post/how-to-install-nginx-on-centos-7/) to install nginx.
+Assuming you're on CentOS 7 as well, follow [this instructions](https://linuxize.com/post/how-to-install-nginx-on-centos-7/) to install nginx.
 Use `sudo` and your favorite editor to open `/etc/nginx/nginx.conf`.
 Copy and adapt the configuration file as following:
 
-```bash
+```nginx
 events { }
 
 http {
@@ -373,8 +376,20 @@ Instead we'll focus on the `http` block containing our `server` rules.
 
 ## nginx - Establishing a secure connection
 Enabling a secure connection between server and client requires encryption from the server side.
-`ssl_certificate` and `ssl_certificate_key` provide such service -
-specify the paths to your cert and key files in this parameter.
+
+```nginx
+	    ssl_certificate /path/to/your/cert.pem;        
+        ssl_certificate_key /path/to/your/private/key.pem;
+```
+
+`ssl_certificate` and `ssl_certificate_key` provide such service.
+_Specify the paths to your cert and key files in this parameter._
+
+```nginx
+        listen 443 ssl;
+        client_max_body_size 15M;
+```
+
 `listen 443 ssl` orders the server to use port 443 for our newly established secure connection.
 Lastly we specify the `client_max_body_size` parameter and allow attached files to be up to 15 megabytes big.
 
@@ -383,12 +398,30 @@ To avoid port exposure we use the nginx reverse proxy capabilities.
 Our application is running on port 5000.
 HTTPS is set to port 443 by default.
 The command block `location /` sets up a proxy that redirects such traffic to our dockerized application via `proxy_pass`.
+
+```nginx
+	    location / { 
+            proxy_pass                          http://172.16.239.10:5000;
+            proxy_set_header Host               $host;
+            proxy_set_header X-Real-IP          $remote_addr;  
+            proxy_set_header X-Forwarded-For    $proxy_add_x_forwarded_for;
+        }
+```
+
 Note that we use the static IP `http://172.16.239.10:5000` defined in the previous docker-compose file.
 We need to specify `proxy_set_header Host`, because we're switching ports here.
 Read [this guide](https://www.digitalocean.com/community/tutorials/understanding-nginx-http-proxying-load-balancing-buffering-and-caching) for further information on this topic.  
 
 ### Redirecting http to https
-Since we value the privacy of our users we want them to access our model with a secure connection only.
+Since we value the privacy of our users we want them to access our model with a secure connection only:
+
+```nginx
+    server {
+        listen 80 default_server;
+        return 301 https://$host$request_uri;
+    }
+```
+
 For this we need to redirect unencrypted traffic to our secure line.
 The second `server` block serves this purpose by listening to unencrypted requests on port 80 and responding with a 301 "permanently moved".
 This status code guides incoming traffic to keep the requested address, but access it on `https` instead of plain `http`.
