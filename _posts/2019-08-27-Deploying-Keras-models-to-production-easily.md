@@ -336,7 +336,57 @@ networks:
        - subnet: 172.16.239.0/24
 ```
 
+Consider the two important points in this file:
+We define a service and a network.
 
+```yml
+services:
+ deploy-keras-easily: <- Our (first) service
+    ...
+
+ # more-services-can-be-defined:
+    ...
+ 
+networks:
+    ...
+```
+
+There's no need to define [volumes](https://docs.docker.com/storage/), since we don't persist user data.
+Read this instruction how to [expand the compose](https://docs.docker.com/compose/compose-file/#volumes) file in case you do.
+
+Allthough most parameters in the file are self explanatory, some deserve further attention.
+We can instruct our service to restart on unexpected shutdown.
+
+```yml
+deploy-keras-easily:
+   ...
+   restart: always
+```
+
+Last but not least we define a static IP for our service:
+```yml
+   networks:
+     deploy-keras-easily-net:
+       ipv4_address: 172.16.239.10
+```
+
+The IP can be set freely usualy.
+Check the servers IP configuration when in doubt.      
+
+### Starting/ Composing the Docker-Compose
+Starting our app should only be performed by the following way from now on:
+
+```shell
+docker-compose up
+```
+
+Docker-Compose offers advantage compared to the usual `docker run ...`:
+- Defined network instructions
+- Safe shutdown
+
+The application should be available at http://172.16.239.10:5000 now - give your self some credit!
+But what's with the exposed port and the unencrypted traffic?
+Time to fix that in our **last step**!
 
 # Preparing nginx
 "NGINX ['Engine X'] is open source software for web serving, reverse proxying, caching, load balancing, media streaming, and more." - [nginx glossar](https://www.nginx.com/resources/glossary/nginx/).
