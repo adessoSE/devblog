@@ -30,17 +30,19 @@ After much trial and error it too didn't work for me.
 
 ## Flask: A single thread solution
 After some more research, Flask was the final choice:
-Flask is a [Web Server Gateway Interface](https://www.fullstackpython.com/wsgi-servers.html) or more simply: a lightweight web framework. 
-The single biggest advantage of it:
+Flask is a [Web Server Gateway Interface](https://www.fullstackpython.com/wsgi-servers.html) or more simply: a lightweight web framework.
+- The single biggest advantage of it:
 It's well documented, easy to set up and easy to use.
-The single biggest disadvantage of it:
+- The single biggest disadvantage of it:
 **Flask is single threaded -> Flask does not scale with rising request loads and hence is not production ready by default.**
-Allthough my project was not expected to generate millions (or even thousands) of users at the time, I wanted to do things "properly".
+
+Allthough my project was not expected to generate millions, thousands (or even hundreds) of users at the time, I wanted to do things "properly".
 
 ## Gevent: Make it concurrent
 Luckily I discovered [Gevent](http://www.gevent.org/index.html) - a coroutine-based concurrency library for Python.
-Gevent contains structures that are implemented in C and is thus able to create separate handlers for incoming requests.   
-It's purpose is similiar to [Gunicorn](https://gunicorn.org).
+Gevent contains structures that are implemented in C and is thus able to create separate handlers for incoming requests.
+
+It's functionality is similiar to [Gunicorn](https://gunicorn.org).
 Though I saw tutorials making use of Gunicorn, Gevent just worked better for me (Pro / Contra ?).
 However this is just personal experience, one might consider using Gunicorn just as well.
 
@@ -48,31 +50,35 @@ However this is just personal experience, one might consider using Gunicorn just
 Feel free to checkout the code at [GitHub](https://github.com/mtobeiyf/keras-flask-deploy-webapp).
 
 ## App and folder structure
-First order of business is defining our folder and hence app structure.
+First order of business is defining our app structure.
+
 ![App-folder-structure](../assets/posts/../images/posts/deploying-keras-models-to-production-easily/deployment-ordner-struktur.PNG)
+
 Let's run over the contents quickly
 - `models` is where you store your models.
 Make sure to export them in `.h5` format
 - `frontend` lives up to its name and contains your frontend files.
-"Usual" implementations prefer to call the folder `static` and/ or `templates`. 
-- `uploads` is the place to store uploaded files of your userbase.
-You might consider deleting the files after having assessed them with your model.
+Default implementations usually split this folder into `static` and `templates`. 
+- `uploads` is the place to store your users uploaded files.
+You might consider deleting them as soon as your model is done predicting them.
 
 ### Defining the Flask app
 We define our app by creating a Flask instance and setting rules to handle CORS.
 
 ```python
-app = Flask(__name__, template_folder='facenality-frontend', static_folder='facenality-frontend', static_url_path='')
+app = Flask(__name__, template_folder='frontend', static_folder='frontend', static_url_path='')
 CORS(app)
 ```
 
-We need to specify the `template_folder` and `static_folder` since we combined the directories into a single `frontend` folder.
-We define no limitations for cross origin requests - `CORS(app)`.
-Make sure to know to evaluate this issue once your application is running.
-Read the official [Flask CORS documentation](https://flask-cors.readthedocs.io/en/latest) how to setup specific rules.
+We need to specify the `template_folder` and `static_folder` since we combined them into a single `frontend` directory.
+We specify no rules and thus set a wildcard for cross origin requests - `CORS(app)`.
+
+CORS can be a security threat.
+Make sure to evaluate this issue again once your application is running.
+Read the official [Flask CORS documentation](https://flask-cors.readthedocs.io/en/latest) how to setup further rules.
 
 ### Loading a single model
-To load a model we make use of `keras.models`.
+To load a model we make use of the`keras.models` library.
 
 ```python
 model = load_model(MODEL_PATH)
@@ -118,16 +124,16 @@ def load_single_model(path):
             sessions.append(session)
 ```
 
-`graph = Graph()` - we create a new Graph first.
-`with graph.as_default():` - if that works we create a new Session and repeat the step respectively.
+- `graph = Graph()` - we create a new Graph first.
+- `with graph.as_default():` - if that works we create a new Session and repeat the step respectively.
 We use `with` since this operation might fail.
 (For those familiar with Java: `with` is Pythons `try/ catch` mechanism.)
 
 You might encounter the following warning: 
 `Context manager 'generator' doesn't implement __enter__ and __exit__`
-This is just a [bug]() - Don't worry about that.
+This is just a [bug](https://github.com/google/tensorflow/issue/30232) - don't worry about that.
 
-`model._make_predict_function()` is optional but [highly recommended]() since it accelerates the model respond time.
+`model._make_predict_function()` is optional but [highly recommended]() since it accelerates the models respond time.
 Finally we store our newly created items in the respective arrays.
 
 ### Making the app accessible to requests / Setting request URLs
@@ -188,7 +194,7 @@ if __name__ == '__main__':
 ```
 
 Besides loading our models we need to define our Gevent instance.
-Since Flask is a **W**eb**S**erver**G**ate**I**nterface we assign it Gevents `WSGIServer` and pass following arguments:
+Since Flask is a **W**eb**S**erver**G**ate**I**nterface we assign it to Gevents static `WSGIServer` instance and pass following arguments:
 - `'0.0.0.0'` sets the host parameter.
 (Though it's optional, some users might experience issues on Firefox if it's unset.)
 - `5000` exports port 5000.
@@ -198,19 +204,25 @@ Since Flask is a **W**eb**S**erver**G**ate**I**nterface we assign it Gevents `WS
 
 ### Test run!
 To run and test our application, open a shell inside the application directory.
-- First use **pip** to install the requirements via `pip install requirements.txt`.
+- Use **pip** to install the requirements via `pip install requirements.txt`.
 - Copy your models and frontend files into the respective folders.
 - Run `python app.py` and open `http://localhost:5000` in your favourite browser.
 
 Enjoy the result, but don't get too comfortable.
-It's time for shipping out!
+It's time for shipping!
 
 # Get ready for shipping: Docker-/Compose
-Now that we've covered 
-This tutorial makes use of a Server running CentOs 7.5 but you can use any UNIX distribution you prefer.
+Now that our application is prepared to handle waves of requests it's time to move it to a server. 
+The example server is running [CentOs 7.5](https://centos.org) but you can use any UNIX distribution you prefer.
 
 ## Dockerize the application
-We use Docker to guarantee equal execution conditions on all systems.  
+We use [Docker](https://docker.com) to make transport and deployment of the application easier:
+By defining a set of rules we create an image of a virtual machine that contains our data and runs in it's own capsuled environment.
+"Dockerizing" applications allows us to focus on building ideal execution environments.
+Thereby we need not prepare seperate deployment scripts for Windows, MacOS or the countless UNIX versions out there.
+
+Let's look at the set of rules to create our Docker image.
+This is called a Dockerfile:
 
 ```Dockerfile
 FROM python:3
@@ -236,11 +248,70 @@ COPY app.py .
 CMD [ "python" , "app.py"]
 ```
 
-Imagine every command as a seperate layer.
-Consequent builds can be significantly fastened up if unchanged layers are reused from previous builds, while modified files are pushed on top.
+This Dockerfile might seem long for our rather simple application, but that's another great advantage of Docker:
+Every command creates and serves as a seperate layer in the final build.
+Consecutive builds evaluate if layers have been modified and push changes to the top.
+Unchanged layers are reused and thus greatly speed up the build time
+**-> Layers that are modified more frequently are added last.**
+
+### Examining the Dockerfile
+Let's examine the commands.
+We first select a base image that will serve as a foundation:
+
+```Dockerfile
+FROM python:3
+```
+
+To copy our data we need to make sure the directories exist, `WORKDIR` will help us with that.
+
+```Dockerfile
+WORKDIR /usr/src/app/uploads
+```
+If a given directory exists, `WORKDIR` navigates into it or otherwise creates it first.
+We repeat this step for every folder to avoid errors - 
+altough `COPY` is supposed to behave equally, some users experienced trouble with directories that weren't created.
+
+`RUN` executes passed commands in a shell.
+We make use of it to install our Python dependencies.
+
+```Dockerfile
+RUN pip install Werkzeug Flask flask-cors numpy Keras gevent pillow h5py tensorflow
+```
+
+Take note that `CMD` is no layer of the image build, but serves as a default command on container startup.
+There can be only _one_ `CMD` command per Dockerfile.
+
+```Dockerfile
+CMD [ "python" , "app.py"]
+```
+
+### Build a Docker image
+We build the image by executing:
+
+```shell
+docker image build --tag deploy-keras-easily .
+```
+
+`docker image build` is the base command.
+We add a `--tag` flag to name our image.
+The final `.` parameter instructs Docker to use the Dockerfile in the current directory -
+use the `--file` flag to point at a Dockerfile in case you named it differently.
+[Read the docs](https://docs.docker.com/engine/reference/commandline/image_build/) for more information on building images.
+
+### Run a Docker image
+To create a new instance of our built image we open a terminal and execute:
+
+```shell
+docker run ... deploy-keras-easily
+```
+
+The container will be running until shutdown.
+Type `docker container ls` to list active containers.
+Type `docker kill _name_of_active_container_` to stop such one.
 
 ## Docker-compose
-"Compose is a tool for defining and running multi-container Docker applications. With Compose, you use a YAML file to configure your application’s services. Then, with a single command, you create and start all the services from your configuration." - [docker docks](https://docs.docker.com/compose/)
+"Compose is a tool for defining and running multi-container Docker applications. With Compose, you use a YAML file to configure your application’s services.
+Then, with a single command, you create and start all the services from your configuration." - [docker docks](https://docs.docker.com/compose/)
 
 Docker-compose allows us to have a static IP when we serve our image.
 We use the specified address to enable a proxy pass via nginx. 
