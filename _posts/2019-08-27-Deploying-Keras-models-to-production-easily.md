@@ -354,6 +354,7 @@ networks:
 There's no need to define [volumes](https://docs.docker.com/storage/), since we don't persist user data.
 Read this instruction how to [expand the compose](https://docs.docker.com/compose/compose-file/#volumes) file in case you do.
 
+### Examining the Docker-Compose configuration
 Allthough most parameters in the file are self explanatory, some deserve further attention.
 We can instruct our service to restart on unexpected shutdown.
 
@@ -378,11 +379,12 @@ Starting our app should only be performed by the following way from now on:
 
 ```shell
 docker-compose up
+# Add -d to run the containers detached in background
 ```
 
-Docker-Compose offers advantage compared to the usual `docker run ...`:
-- Defined network instructions
-- Safe shutdown
+Needless to mention that Docker-Compose offers great comfort in comparison to `docker run`:
+- Multiple containers including their seperate configurations can be run in a single command
+- Containers are monitored, shutdown and removed properly if needed
 
 The application should be available at http://172.16.239.10:5000 now - give your self some credit!
 But what's with the exposed port and the unencrypted traffic?
@@ -477,3 +479,14 @@ The second `server` block serves this purpose by listening to unencrypted reques
 This status code guides incoming traffic to keep the requested address, but access it on `https` instead of plain `http`.
 
 # Conclusion
+Deploying Deep Learning Models doesn't have to be as complicated as it seems.
+Let's rewind our steps:
+- First we've setup a simpel app structure, defined RequestMappings and wrapped our **Flask** application in **Gevent**.
+- Next we've **dockerized** our data and service.
+We also defined a network to have a static IP for the container. 
+- As a final touch we used **nginx** to hide the ports and force secure connections.
+
+You can find the code at [GitHub](https://github.com/mtobeiyf/keras-flask-deploy-webapp).
+I highly encourage you to fork the repository and try to include your own models.
+
+Best of luck and until next time!
