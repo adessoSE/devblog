@@ -231,3 +231,12 @@ czarnecki:
   bio: "Florian Czarnecki ist als Werkstudent im Open-Source-Team bei adesso in Dortmund tätig"
   avatar_url: /assets/images/avatars/czarnecki.jpg
   github: https://github.com/czarnecki
+
+smsnheck:
+  first_name: Sebastian
+  last_name: Heckmann
+  github_username: smsnheck
+  email: sebastian.heckmann@adesso.de
+  bio: "Sebastian ist Senior-Software Entwickler bei adesso und beschäftigt sich gerne mit Themen aus dem Umfeld der agilen Softwareentwicklung."
+  avatar_url: /assets/images/avatars/smsnheck.jpg
+  github: https://github.com/smsnheck
