@@ -408,13 +408,14 @@ Use `docker container ls` to list and find active containers in case you forgot 
 "Compose is a tool for defining and running multi-container Docker applications. With Compose, you use a YAML file to configure your application’s services.
 Then, with a single command, you create and start all the services from your configuration." - [docker docks](https://docs.docker.com/compose/)
 
-Docker-compose allows us to have a static IP when we serve our image.
-We use this IP to enable a proxy pass via nginx later on. 
+Another benefit:
+Docker-compose allows us to have a **static IP** when we serve our image.
+We'll use this IP to enable a proxy pass via nginx later on.
 
 ```yml
 version: '3.3'
 services:
- deploy-keras-easily:
+ deploy-keras-easily-service:
    container_name: deploy-keras-easily
    image: deploy-keras-easily
    restart: always
@@ -431,57 +432,66 @@ networks:
        - subnet: 172.16.239.0/24
 ```
 
-Consider the two important points in this file:
-We define a service and a network.
+We first define a **service** for our Docker image.
+One service is enough since our application is bundled into one image.
+More complex applications could profit from expanding the number of services though.
 
 ```yml
 services:
- deploy-keras-easily: <- Our (first) service
-    ...
-
- # more-services-can-be-defined:
-    ...
- 
-networks:
-    ...
-```
-
-There's no need to define [volumes](https://docs.docker.com/storage/), since we don't persist user data.
-Read this instruction how to [expand the compose](https://docs.docker.com/compose/compose-file/#volumes) file in case you do.
-
-### Examining the Docker-Compose configuration
-Allthough most parameters in the file are self explanatory, some deserve further attention.
-We can instruct our service to restart on unexpected shutdown.
-
-```yml
-deploy-keras-easily:
-   ...
-   restart: always
-```
-
-Last but not least we define a static IP for our service:
-```yml
-   networks:
+    deploy-keras-easily-service:
+    container_name: deploy-keras-easily
+    image: deploy-keras-easily
+    restart: always
+    networks:
      deploy-keras-easily-net:
        ipv4_address: 172.16.239.10
 ```
 
-The IP can be set freely usualy.
-Check the servers IP configuration when in doubt.      
+Let's highlight the service features.
+Our first feature is automatic container restart.
+We can instruct our service to reboot on unexpected shutdown.
 
-### Starting/ Composing the Docker-Compose
-Starting our app should only be performed by the following way from now on:
+```yml
+   restart: always
+```
+
+Second and most important feature is that we can set a static IP for our service.
+This static IP should be your server address.
+
+```yml
+       ipv4_address: 172.16.239.10
+```
+
+Let's finish the network configuration by defining a subnet lastly.
+Refer to your servers network setting and copy the subnet.
+
+```yml
+networks:
+ deploy-keras-easily-net:
+   driver: bridge
+   ipam:
+     driver: default
+     config:
+       - subnet: 172.16.239.0/24
+```
+
+### Adding volumes
+Containers are volatile and destroyed on shutdown.
+Applications that need to persist data make use of [volumes](https://docs.docker.com/storage/).
+We avoid data storage and hence avoid volumes.
+
+Read this instruction how to [expand the compose file](https://docs.docker.com/compose/compose-file/#volumes) in case you do need volumes.
+
+## Starting Docker-Compose
+Our app should only be started by `docker-compose` from now on.
+Add a `-d` flag to run the containers detached in the background.
 
 ```shell
 docker-compose up
-# Add -d to run the containers detached in background
 ```
 
-Needless to mention that Docker-Compose offers great comfort in comparison to `docker run`:
-- Multiple containers including their seperate configurations can be run in a single command
-- Containers are monitored, shutdown and removed properly if needed
-
-The application should be available at http://172.16.239.10:5000 now - give your self some credit!
+Congratulation!
+The application is now available at http://172.16.239.10:5000 (or the IP you set in the compose settings).
 But what's with the exposed port and the unencrypted traffic?
 Time to fix that in our **last step**!
 
