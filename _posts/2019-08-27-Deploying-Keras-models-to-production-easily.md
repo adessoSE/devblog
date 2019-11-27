@@ -176,7 +176,7 @@ model._make_predict_function()
 The steps repeat for every model we load.
 We store our newly created items in the arrays we prepared.
 
-### Making the app accessible to requests / Setting request URLs
+## Defining request URLs
 Flask annotations allow us to define RequestMappings easily.
 
 ```python
@@ -185,15 +185,12 @@ def index():
     return render_template('index.html')
 ```
 
-In order to create a new Mapping we define
-- a route (`'/'` = base route),
-- accepted methods `'GET'`,
-- and a corresponding function.
-
-Assuming our application is running localy on port 5000 we get `index.html` by navigating to `http://localhost:5000`.
+In order to create a new mapping we define a route (`'/'`) and accepted operations (`'GET'`) - the single slash path `'/'` signifies the base route.
+Navigating to `http://localhost:5000` triggers `index()` to serve `index.html` since
+Flask applications run on port 5000 by default.
 
 ### Requesting the predict function
-The same applies to calls to the predict function.
+The same principles applies for calls to the predict function.
 
 ```python
 @app.route('/predict', methods=['POST'])
@@ -214,15 +211,35 @@ def upload():
         return jsonify(preds)   
 ```
 
-We define `/predict` as our path to predictions.
+We define `/predict` as our request path.
 Since most models require user input to return results, we only accept `POST` requests.
-`file_to_predict = request.files['file']` - to process the request, we extract the attached file by using the `file` key.
-After saving the file we pass its newly constructed path to our models for prediction `preds = models_predict(local_file_path)`.  
-The results are then parsed into JSON and returned as a request response.
 
+```python
+@app.route('/predict', methods=['POST'])
+```
+
+To process the request, we extract the attached file by using the `file` key.
+
+```python
+        file_to_predict = request.files['file']
+```
+
+After saving the file we pass its newly constructed path to our models for prediction.
+
+```python
+        preds = models_predict(local_file_path)
+```
+
+Respecting the privacy of our users we delete the file as prediction is done.
+
+```python
+        os.remove(local_file_path)
+```
+
+The results are then parsed into JSON and returned as a request response.
 We avoid discussing the predict function to prevent this blog post from growing longer than it already is :-)
 
-### Serving our Flask app with Gevent
+## Serving our Flask app with Gevent
 Now that our app is ready all that's left to do is serve it in production mode.
 As mentioned above, Gevent helps us with that.
 
