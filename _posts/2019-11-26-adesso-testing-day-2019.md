@@ -1,4 +1,4 @@
----
+---
 layout: [post, post-xml]              # Pflichtfeld. Nicht ändern!
 title:  "adesso testing day 2019"     # Pflichtfeld. Bitte einen Titel für den Blog Post angeben.
 date:   2019-11-26 10:25              # Pflichtfeld. Format "YYYY-MM-DD HH:MM". Muss für Veröffentlichung in der Vergangenheit liegen. (Für Preview egal)
