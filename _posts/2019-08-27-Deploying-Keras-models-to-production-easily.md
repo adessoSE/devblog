@@ -9,7 +9,6 @@ tags: [Keras, TensorFlow, Flask, Docker, Deep Learning, Künstliche Intelligenz]
 Moving your Deep Learning models from the developers playground to a serious production stage can be a hard feat to accomplish.
 After endless research I'm most glad to serve you an easy to execute guide for deploying Keras models to production level.
 
-
 # Deployment: The struggle of the right tool
 This article is written from personal experience.
 Some of you might relate to it:
@@ -43,16 +42,19 @@ Luckily I discovered [Gevent](http://www.gevent.org/index.html) - a coroutine-ba
 Gevent contains structures that are implemented in C and is thus able to create separate handlers for incoming requests.
 
 It's functionality is similiar to [Gunicorn](https://gunicorn.org).
-Though I saw tutorials making use of Gunicorn, Gevent just worked better for me (Pro / Contra ?).
-However this is just personal experience, one might consider using Gunicorn just as well.
+One might as well consider using it instead.
+To me Gevent just seemed easier to handle.
 
-# Accessing the model via Flask
-Feel free to checkout the code at [GitHub](https://github.com/mtobeiyf/keras-flask-deploy-webapp).
+# Creating our Flask app
+We'll now proceed to building the app.
+The code samples will cover all major functions. 
+
+Feel free to checkout the full project at [GitHub](https://github.com/s-gbz/keras-flask-deploy-webapp).
 
 ## App and folder structure
-First order of business is defining our app structure.
+A scaleable structure is the first step in building a scaleable and robust application.
 
-![App-folder-structure](../assets/posts/../images/posts/deploying-keras-models-to-production-easily/deployment-ordner-struktur.PNG)
+![App-folder-structure](../assets/images/posts/deploying-keras-models-to-production-easily/deployment-ordner-struktur.PNG)
 
 Let's run over the contents quickly
 - `models` is where you store your models.
@@ -60,55 +62,74 @@ Make sure to export them in `.h5` format
 - `frontend` lives up to its name and contains your frontend files.
 Default implementations usually split this folder into `static` and `templates`. 
 - `uploads` is the place to store your users uploaded files.
-You might consider deleting them as soon as your model is done predicting them.
+You might consider deleting them as soon as your model is done predicting.
 
 ### Defining the Flask app
-We define our app by creating a Flask instance and setting rules to handle CORS.
+We define our app by creating a Flask instance.
 
 ```python
 app = Flask(__name__, template_folder='frontend', static_folder='frontend', static_url_path='')
+```
+
+Usual Flask applications contain a `template` and `static` folder.
+Frontend developers using Frameworks like Angular or React have their build artifacts usually served in a single directory.
+We copy the ease of having a single directory and thus point the folder paths to `frontend`.
+
+### Enabling CORS
+Web applications usually consist of multiple instances that need to communicate.
+Those instances usually run on different ports and don't know each other.
+We thus need to explicitly allow communication between them.
+This is done by setting rules for Cross-Origin Resource Sharing ([CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS)).
+
+
+```python
 CORS(app)
 ```
 
-We need to specify the `template_folder` and `static_folder` since we combined them into a single `frontend` directory.
-We specify no rules and thus set a wildcard for cross origin requests - `CORS(app)`.
+This `CORS` statement serves as a wildcard and specifies no rules.
+Keep in mind that it could be a security threat.
+Make sure to evaluate necessary limitations once your application is running.
 
-CORS can be a security threat.
-Make sure to evaluate this issue again once your application is running.
-Read the official [Flask CORS documentation](https://flask-cors.readthedocs.io/en/latest) how to setup further rules.
+Read the official [Flask CORS documentation](https://flask-cors.readthedocs.io/en/latest) how to define further rules.
 
-### Loading a single model
-To load a model we make use of the`keras.models` library.
+## Loading a single model
+To load a model we make use of the `keras.models` library.
 
 ```python
 model = load_model(MODEL_PATH)
 ```
 
 ### Loading multiple model
+This paragraph is only relevant if you intend using multiple models.
+Feel free to skip it if you don't.
+
+---
 Every TensorFlow model is accompanied by a [Session]() and a [Graph]().
 Using multiple models requires handling and calling it's corresponding Sessions and Graphs.
-We define arrays to track them:
+We define arrays to track them.
 
 ```python
-MODEL_NAME = ["A", "B", "C"]
 MODELS = []
 GRAPHS = []
 SESSIONS = []
 ```
 
-We also specify model names to prepare directory paths and load them one by one.
-(Don't just name your models "1, 2, 3". Stick to [Clean Code](https://dzone.com/articles/naming-conventions-from-uncle-bobs-clean-code-phil)!)
+We also specify model names to prepare directory paths and call `load_models()` to load them one by one.
+Also don't just name your models "1, 2, 3". Stick to [Clean Code](https://dzone.com/articles/naming-conventions-from-uncle-bobs-clean-code-phil)!
 
 ```python
+MODEL_NAMES = ["classify_cats", "classify_dogs", "classify_faces"]
+
 def load_models():
-    for i in range(NUMBER_OF_LAYERS):
-        load_single_model("models/classification/" + "facenality-" + TRAITS[i] + "-final.h5")
-        print("Model " + str(i) + " loaded.")
+    for i in range(AMOUNT_OF_MODELS):
+        load_single_model("models/" + MODEL_NAMES[i] + ".h5")
+        print("Model " + str(i) + " of "+ AMOUNT_OF_MODELS + " loaded.")
     print('Ready to go! Visit -> http://127.0.0.1:5000/')
 ```
 
-Remember the talk about Sessions and Graphs?
+Remember that we need to manage Sessions and Graphs?
 Let's dive into `load_single_model()` to see how it's done.
+(Thanks to all participants who contributed to this solution on [GitHub](https://github.com/keras-team/keras/issues/8538)!)
 
 ```python
 def load_single_model(path):
@@ -124,17 +145,36 @@ def load_single_model(path):
             sessions.append(session)
 ```
 
-- `graph = Graph()` - we create a new Graph first.
-- `with graph.as_default():` - if that works we create a new Session and repeat the step respectively.
-We use `with` since this operation might fail.
-(For those familiar with Java: `with` is Pythons `try/ catch` mechanism.)
+First we'll create a new Graph.
 
-You might encounter the following warning: 
-`Context manager 'generator' doesn't implement __enter__ and __exit__`
-This is just a [bug](https://github.com/google/tensorflow/issue/30232) - don't worry about that.
+```python
+graph = Graph()
+with graph.as_default():
+```
 
-`model._make_predict_function()` is optional but [highly recommended]() since it accelerates the models respond time.
-Finally we store our newly created items in the respective arrays.
+If that works we create a new Session as well.
+We use `with` in both cases since the operations might fail.
+For those familiar with Java: [`with`](https://www.geeksforgeeks.org/with-statement-in-python/) is Pythons [`try/ catch`](https://www.w3schools.com/java/java_try_catch.asp) mechanism.
+
+
+```python
+        session = Session()
+        with session.as_default():
+```
+
+
+You might encounter the following warning now: `Context manager 'generator' doesn't implement __enter__ and __exit__.`
+We can stay calm since this is just a [bug](https://github.com/PyCQA/pylint/issues/1542).
+
+Keras lets us build predict functions beforehand.
+This is optional but advisable since it [accelerates](https://github.com/keras-team/keras/issues/6124#issuecomment-292752653) the models first response time.
+
+```python
+model._make_predict_function()
+```
+
+The steps repeat for every model we load.
+We store our newly created items in the arrays we prepared.
 
 ### Making the app accessible to requests / Setting request URLs
 Flask annotations allow us to define RequestMappings easily.
