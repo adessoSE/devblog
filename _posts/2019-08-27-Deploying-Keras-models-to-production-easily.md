@@ -205,10 +205,10 @@ def upload():
             basepath, 'uploads', secure_filename(file_to_predict.filename))
         file_to_predict.save(local_file_path)
 
-        preds = models_predict(local_file_path)
+        predictions = models_predict(local_file_path)
         os.remove(local_file_path)
 
-        return jsonify(preds)   
+        return jsonify(predictions)
 ```
 
 We define `/predict` as our request path.
@@ -240,46 +240,57 @@ The results are then parsed into JSON and returned as a request response.
 We avoid discussing the predict function to prevent this blog post from growing longer than it already is :-)
 
 ## Serving our Flask app with Gevent
-Now that our app is ready all that's left to do is serve it in production mode.
+It's time to serve our app in production mode.
 As mentioned above, Gevent helps us with that.
 
 ```python
 if __name__ == '__main__':
     load_models()
-    http_server = WSGIServer(('0.0.0.0', 5000), app)
-    http_server.serve_forever()
+    wsgi_server = WSGIServer(('0.0.0.0', 5000), app)
+    wsgi_server.serve_forever()
 ```
 
-Besides loading our models we need to define our Gevent instance.
-Since Flask is a **W**eb**S**erver**G**ate**I**nterface we assign it to Gevents static `WSGIServer` instance and pass following arguments:
-- `'0.0.0.0'` sets the host parameter.
-(Though it's optional, some users might experience issues on Firefox if it's unset.)
-- `5000` exports port 5000.
-(You can pass and use any free port.) 
-- `app` is our Flask application.
-- `serve_forever()` - the application continues running until shutdown.
+After loading our models we need to define and start a Gevent instance.
+We use Gevents static `WSGIServer` since Flask is a **W**eb **S**erver **G**ateway **I**nterface.
+
+```python
+    wsgi_server = WSGIServer(('0.0.0.0', 5000), app)
+```
+
+The arguments we pass include `'0.0.0.0'` to set the host.
+Though it's optional, some users might experience issues on Firefox if it's unset.
+`app` is our Flask application and `5000` the port we expose.
+You may use any free port.
+
+The application now runs until shutdown.
+
+```python
+    wsgi_server.serve_forever()
+```
 
 ### Test run!
-To run and test our application, open a shell inside the application directory.
+To serve the application, open a shell inside the application directory.
 - Use **pip** to install the requirements via `pip install requirements.txt`.
+  You might as well use **anaconda**!
 - Copy your models and frontend files into the respective folders.
 - Run `python app.py` and open `http://localhost:5000` in your favourite browser.
 
 Enjoy the result, but don't get too comfortable.
 It's time for shipping!
 
-# Get ready for shipping: Docker-/Compose
+# Moving to a server with Docker-/Compose
 Now that our application is prepared to handle waves of requests it's time to move it to a server. 
-The example server is running [CentOs 7.5](https://centos.org) but you can use any UNIX distribution you prefer.
+This example server is running [CentOs 7.5](https://centos.org) but you can use any UNIX distribution you prefer.
 
-## Dockerize the application
 We use [Docker](https://docker.com) to make transport and deployment of the application easier:
 By defining a set of rules we create an image of a virtual machine that contains our data and runs in it's own capsuled environment.
-"Dockerizing" applications allows us to focus on building ideal execution environments.
-Thereby we need not prepare seperate deployment scripts for Windows, MacOS or the countless UNIX versions out there.
 
-Let's look at the set of rules to create our Docker image.
-This is called a Dockerfile:
+**Dockerizing** applications saves us the trouble of preparing seperate deployment schemes for different operating systems.
+Instead we can focus on building ideal execution environments.
+
+## Dockerize the application
+Let's look at our set of rules to create a Docker image.
+This set of rules is called a **Dockerfile**.
 
 ```Dockerfile
 FROM python:3
@@ -306,65 +317,92 @@ CMD [ "python" , "app.py"]
 ```
 
 This Dockerfile might seem long for our rather simple application, but that's another great advantage of Docker:
-Every command creates and serves as a seperate layer in the final build.
+**Every command** creates and serves as a **seperate layer** in the build.
 Consecutive builds evaluate if layers have been modified and push changes to the top.
-Unchanged layers are reused and thus greatly speed up the build time
-**-> Layers that are modified more frequently are added last.**
+**Unchanged layers are reused** and thus greatly speed up the build time.
+
+Mind to move layers that are modified frequently to the bottom of the Dockerfile.
 
 ### Examining the Dockerfile
 Let's examine the commands.
-We first select a base image that will serve as a foundation:
+We first select a base image that will serve as a foundation.
+You can browse [DockerHub](https://hub.docker.com/) for a collection of available images.
 
 ```Dockerfile
 FROM python:3
 ```
 
-To copy our data we need to make sure the directories exist, `WORKDIR` will help us with that.
+Before copying our data to the image we need to make sure the respective directories exist.
+`WORKDIR` will help us with that.
 
 ```Dockerfile
-WORKDIR /usr/src/app/uploads
+WORKDIR /usr/src/app/models
+WORKDIR ...
 ```
-If a given directory exists, `WORKDIR` navigates into it or otherwise creates it first.
-We repeat this step for every folder to avoid errors - 
-altough `COPY` is supposed to behave equally, some users experienced trouble with directories that weren't created.
-
-`RUN` executes passed commands in a shell.
-We make use of it to install our Python dependencies.
+If the specified directory exists, `WORKDIR` navigates into it or otherwise creates it first.
+We repeat this step for every directory before using `COPY` to move our data.
 
 ```Dockerfile
-RUN pip install Werkzeug Flask flask-cors numpy Keras gevent pillow h5py tensorflow
+COPY models .
+COPY ...
 ```
 
-Take note that `CMD` is no layer of the image build, but serves as a default command on container startup.
+`COPY` is supposed to check and create directories before copying files.
+We rely on `WORKDIR` though, because some users experienced trouble with directories that weren't created.
+
+`RUN` executes commands in a shell.
+We use it to install our dependencies.
+
+```Dockerfile
+RUN pip install tensorflow Flask ... 
+```
+
+Note that we established a base structure and installed dependencies before moving any files.
+This order sequence will greatly decrease consequtive build time, because we avoid reinstalling dependencies when something in our app changes.
+
+Take note that `CMD` **is no layer** of the image build, but serves as the default command on container startup.
 There can be only _one_ `CMD` command per Dockerfile.
 
 ```Dockerfile
 CMD [ "python" , "app.py"]
 ```
 
-### Build a Docker image
-We build the image by executing:
+### Building a Docker image
+Let's build our image!
 
 ```shell
 docker image build --tag deploy-keras-easily .
 ```
 
-`docker image build` is the base command.
-We add a `--tag` flag to name our image.
+We add a `--tag` flag to name the image.
 The final `.` parameter instructs Docker to use the Dockerfile in the current directory -
-use the `--file` flag to point at a Dockerfile in case you named it differently.
+use the `--file` flag to specify Dockerfiles you named differently.
+
 [Read the docs](https://docs.docker.com/engine/reference/commandline/image_build/) for more information on building images.
 
-### Run a Docker image
-To create a new instance of our built image we open a terminal and execute:
+### Running a Docker image
+Images are run in Docker **containers**.
+There's a [number of arguments](https://docs.docker.com/engine/reference/commandline/run/) that can be used with `docker run`.
 
 ```shell
-docker run ... deploy-keras-easily
+docker run -p 5000:5000 deploy-keras-easily
 ```
 
-The container will be running until shutdown.
-Type `docker container ls` to list active containers.
-Type `docker kill _name_of_active_container_` to stop such one.
+We select our image by the name tag `deploy-keras-easily`.
+Advanced users may use the first two characters of the image hash as well.
+We use the `-p` flag to bridge our local port 5000 to the port on the container.
+
+Note that the container will be running in the shell until it is closed.
+Add `-d` to detach the container from the shell and have it run in the background.
+
+### Stopping a Docker container
+We can stop a running container with `docker kill` and its name tag or hash.
+
+```shell
+docker kill deploy-keras-easily
+```
+
+Use `docker container ls` to list and find active containers in case you forgot the name or hash.
 
 ## Docker-compose
 "Compose is a tool for defining and running multi-container Docker applications. With Compose, you use a YAML file to configure your application’s services.
