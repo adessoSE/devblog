@@ -497,11 +497,11 @@ Time to fix that in our **last step**!
 
 # Preparing nginx
 "NGINX ['Engine X'] is open source software for web serving, reverse proxying, caching, load balancing, media streaming, and more." - [nginx glossar](https://www.nginx.com/resources/glossary/nginx/).
-We will use nginx to **force https and hide our ports**.
 
+We will use nginx to **force https and hide our ports**.
 Assuming you're on CentOS 7 as well, follow [this instructions](https://linuxize.com/post/how-to-install-nginx-on-centos-7/) to install nginx.
 Use `sudo` and your favorite editor to open `/etc/nginx/nginx.conf`.
-Copy and adapt the configuration file as following:
+Copy and adapt the configuration file as following.
 
 ```nginx
 events { }
@@ -533,28 +533,57 @@ Instead we'll focus on the `http` block containing our `server` rules.
 
 ## nginx - Establishing a secure connection
 Enabling a secure connection between server and client requires encryption from the server side.
+`ssl_certificate` and `ssl_certificate_key` provide such service.
+_Specify the paths to your cert and key files in this parameter._
 
 ```nginx
 	    ssl_certificate /path/to/your/cert.pem;        
         ssl_certificate_key /path/to/your/private/key.pem;
 ```
 
-`ssl_certificate` and `ssl_certificate_key` provide such service.
-_Specify the paths to your cert and key files in this parameter._
+Basic, unencrypted HTTP connections use port 80 to communicate.
+Using a secure, encrypted channel requires communication on port 443.
 
 ```nginx
         listen 443 ssl;
-        client_max_body_size 15M;
+        client_max_body_size 10M;
 ```
 
-`listen 443 ssl` orders the server to use port 443 for our newly established secure connection.
-Lastly we specify the `client_max_body_size` parameter and allow attached files to be up to 15 megabytes big.
+`listen 443 ssl` orders the server to expect incomming traffic on our secure line.
+We also order the server to reject files that excede 10 megabytes.
+Define this parameter as you need.
+
+```nginx
+        client_max_body_size 10M;
+```
+### Forcing HTTPS
+Setting up HTTPS is not enough, because plain HTTP is allowed by default.
+We need to make sure that users access the application on a secure connection only.
+To do that we add a redirection rule.
+
+```nginx
+    server {
+        listen 80 default_server;
+        return 301 https://$host$request_uri;
+    }
+```
+
+This `server` block now listens to unencrypted requests on port 80 and responds with the [status code 301](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/301) "permanently moved".
+Incoming traffic is thereby guided to keep the requested address, but access it on `https` instead of plain `http`.
 
 ## nginx - Hiding the port
-To avoid port exposure we use the nginx reverse proxy capabilities.
 Our application is running on port 5000.
-HTTPS is set to port 443 by default.
-The command block `location /` sets up a proxy that redirects such traffic to our dockerized application via `proxy_pass`.
+It's a mandatory part of our current URL.
+Exposed ports don't look nice though and bother users to memorize them.
+They can reveal the applications technology and be a security threat.
+We avoid port exposure by using a **Reverse Proxy**.
+
+### Enabling a Reverse Proxy
+[Reverse Proxies](https://www.nginx.com/resources/glossary/reverse-proxy-server/) offer a wide array of features.
+We'll use it to hide our application by denying access to port 5000.
+Client requests will have to address the plain server IP.
+The proxy will then redirect the traffic to our application.
+The command block `location` sets up such a proxy.
 
 ```nginx
 	    location / { 
@@ -565,33 +594,20 @@ The command block `location /` sets up a proxy that redirects such traffic to ou
         }
 ```
 
-Note that we use the static IP `http://172.16.239.10:5000` defined in the previous docker-compose file.
-We need to specify `proxy_set_header Host`, because we're switching ports here.
-Read [this guide](https://www.digitalocean.com/community/tutorials/understanding-nginx-http-proxying-load-balancing-buffering-and-caching) for further information on this topic.  
+The `/` behind `location` redirects traffic aimed at the base path of our application.
+`proxy_pass` defines the URL to hide.
+Note that we use the static IP defined in the previous docker-compose file.
 
-### Redirecting http to https
-Since we value the privacy of our users we want them to access our model with a secure connection only:
-
-```nginx
-    server {
-        listen 80 default_server;
-        return 301 https://$host$request_uri;
-    }
-```
-
-For this we need to redirect unencrypted traffic to our secure line.
-The second `server` block serves this purpose by listening to unencrypted requests on port 80 and responding with a 301 "permanently moved".
-This status code guides incoming traffic to keep the requested address, but access it on `https` instead of plain `http`.
+Remember that we force clients to use HTTPS?
+We need to set `proxy_set_header`, because we route to an internal application and switch from port 443 to 5000.
 
 # Conclusion
-Deploying Deep Learning Models doesn't have to be as complicated as it seems.
+Deploying Deep Learning models doesn't have to be as complicated as it seems.
 Let's rewind our steps:
 - First we've setup a simpel app structure, defined RequestMappings and wrapped our **Flask** application in **Gevent**.
 - Next we've **dockerized** our data and service.
-We also defined a network to have a static IP for the container. 
+We also defined a network to have a **static IP** for the container. 
 - As a final touch we used **nginx** to hide the ports and force secure connections.
 
-You can find the code at [GitHub](https://github.com/mtobeiyf/keras-flask-deploy-webapp).
-I highly encourage you to fork the repository and try to include your own models.
-
-Best of luck and until next time!
+Include your own models and fork the code at [GitHub](https://github.com/mtobeiyf/keras-flask-deploy-webapp).
+Happy deploying! :-)
