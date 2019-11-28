@@ -4,46 +4,38 @@ title:  "Deploy Keras models to production level easily"
 date:   2019-08-27 10:00                                
 author: s-gbz
 categories: [Softwareentwicklung]                    
-tags: [Keras, TensorFlow, Flask, Docker, Deep Learning, Künstliche Intelligenz]
+tags: [Deep Learning, Künstliche Intelligenz, Keras, TensorFlow, Flask, Docker]
 ---
 Moving your Deep Learning models from the developers playground to a serious production stage can be a hard feat to accomplish.
 After endless research I'm most glad to serve you an easy to execute guide for deploying Keras models to production level.
 
-# Deployment: The struggle of the right tool
-This article is written from personal experience.
-Some of you might relate to it:
-I had a hard time finding the right tool and proper guide how to deploy my Deep Learning model.
+# Plan of attack
+This article assumes you want to deploy your **Keras** model.
+Adapting it to other frameworks can be tiresome.
+We will avoid that and expand it otherwise.
+Here is what we're going to do:
 
-## TensorFlow Serving
-As a beginner in the field of DataScience, TensorFlow Serving seemed like the obvious choice.
-The concept seemed robust, clean and most importantly, developed by Google. 
-The only downside: I was using Keras on top of TensorFlow. 
-Available guides for porting those models were limited. 
-I had no idea how to apply the concept to _my_ needs, so I moved on.
+1. Prepare a **Flask** application in combination with **Gevent**.
+2. **Dockerize** it.
+3. Use **nginx** to setup a reverse proxy.
 
-## DeepLearning4J
-Most developers know their way around Java: It's easy to learn, versatile and get's the job done.
-The user application I wrote to collect data for the Deep Learning was based on it.
-So I tried porting the model from Keras to DeepLearning4J (a Java based Deep Learning framework).
-After much trial and error it too didn't work for me. 
+I will proceed to shortly explain _how_ and why we will use Flask.
+Feel free to skip ahead if you're more interested to get started.
 
-## Flask: A single thread solution
-After some more research, Flask was the final choice:
-Flask is a [Web Server Gateway Interface](https://www.fullstackpython.com/wsgi-servers.html) or more simply: a lightweight web framework.
-- The single biggest advantage of it:
-It's well documented, easy to set up and easy to use.
-- The single biggest disadvantage of it:
-**Flask is single threaded -> Flask does not scale with rising request loads and hence is not production ready by default.**
+## Using Flask properly
+Flask is a [Web Server Gateway Interface](https://www.fullstackpython.com/wsgi-servers.html) or more simply:
+A lightweight web framework.
+It's well documented and easy to use, **but Flask is single threaded**.
+It can handle only one request at a time.
+This creates a bottleneck in our application.
 
-Allthough my project was not expected to generate millions, thousands (or even hundreds) of users at the time, I wanted to do things "properly".
+### Making Flask scaleable
+To resolve this bottleneck we use [Gevent](http://www.gevent.org/index.html) - a concurrency library that enables our application to handle parallel requests.
+(Because parts of Gevent are written in C).
 
-## Gevent: Make it concurrent
-Luckily I discovered [Gevent](http://www.gevent.org/index.html) - a coroutine-based concurrency library for Python.
-Gevent contains structures that are implemented in C and is thus able to create separate handlers for incoming requests.
-
-It's functionality is similiar to [Gunicorn](https://gunicorn.org).
-One might as well consider using it instead.
-To me Gevent just seemed easier to handle.
+PS: It's functionality is similiar to [Gunicorn](https://gunicorn.org).
+You might use Gunicorn as well if you prefer.
+This tutorial sticks to Gevent, because it's easier in my opinion.
 
 # Creating our Flask app
 We'll now proceed to building the app.
@@ -604,10 +596,16 @@ We need to set `proxy_set_header`, because we route to an internal application a
 # Conclusion
 Deploying Deep Learning models doesn't have to be as complicated as it seems.
 Let's rewind our steps:
-- First we've setup a simpel app structure, defined RequestMappings and wrapped our **Flask** application in **Gevent**.
+- First we've setup a simple app structure, defined RequestMappings and wrapped our **Flask** application in **Gevent**.
 - Next we've **dockerized** our data and service.
 We also defined a network to have a **static IP** for the container. 
 - As a final touch we used **nginx** to hide the ports and force secure connections.
 
-Include your own models and fork the code at [GitHub](https://github.com/mtobeiyf/keras-flask-deploy-webapp).
+Try your own models and fork the code at [GitHub](https://github.com/mtobeiyf/keras-flask-deploy-webapp).
 Happy deploying! :-)
+
+PS: You should be properly served by this guide.
+Here are some alternatives in case you don't.
+Keep in mind that you need to adapt them to Keras though! 
+- [TensorFlow Serving](https://www.tensorflow.org/tfx/guide/serving)
+- [Deep Learning for Java](http://deeplearning4j.org/) + [Spring Boot](https://spring.io/projects/spring-boot)
