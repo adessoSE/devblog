@@ -33,7 +33,7 @@ This creates a bottleneck in our application.
 To resolve this bottleneck we use [Gevent](http://www.gevent.org/index.html) - a concurrency library that enables our application to handle parallel requests.
 (Because parts of Gevent are written in C).
 
-PS: It's functionality is similiar to [Gunicorn](https://gunicorn.org).
+PS: It's functionality is similar to [Gunicorn](https://gunicorn.org).
 You might use Gunicorn as well if you prefer.
 This tutorial sticks to Gevent, because it's easier in my opinion.
 
@@ -46,7 +46,7 @@ Feel free to checkout the full project at [GitHub](https://github.com/s-gbz/kera
 ## App and folder structure
 A scaleable structure is the first step in building a scaleable and robust application.
 
-![App-folder-structure](../assets/images/posts/deploying-keras-models-to-production-easily/deployment-ordner-struktur.PNG)
+![App-folder-structure](/assets/images/posts/deploying-keras-models-to-production-easily/deployment-ordner-struktur.PNG)
 
 Let's run over the contents quickly
 - `models` is where you store your models.
@@ -277,7 +277,7 @@ This example server is running [CentOs 7.5](https://centos.org) but you can use 
 We use [Docker](https://docker.com) to make transport and deployment of the application easier:
 By defining a set of rules we create an image of a virtual machine that contains our data and runs in it's own capsuled environment.
 
-**Dockerizing** applications saves us the trouble of preparing seperate deployment schemes for different operating systems.
+**Dockerizing** applications saves us the trouble of preparing separate deployment schemes for different operating systems.
 Instead we can focus on building ideal execution environments.
 
 ## Dockerize the application
@@ -309,7 +309,7 @@ CMD [ "python" , "app.py"]
 ```
 
 This Dockerfile might seem long for our rather simple application, but that's another great advantage of Docker:
-**Every command** creates and serves as a **seperate layer** in the build.
+**Every command** creates and serves as a **separate layer** in the build.
 Consecutive builds evaluate if layers have been modified and push changes to the top.
 **Unchanged layers are reused** and thus greatly speed up the build time.
 
