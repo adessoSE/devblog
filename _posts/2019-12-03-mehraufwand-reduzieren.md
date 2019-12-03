@@ -2,7 +2,8 @@
 layout: [post, post-xml]              					# Pflichtfeld. Nicht ändern!
 title:  "Mehraufwand reduzieren"    					# Pflichtfeld. Bitte einen Titel für den Blog Post angeben.
 date:   2019-12-03 14:39             					# Pflichtfeld. Format "YYYY-MM-DD HH:MM". Muss für Veröffentlichung in der Vergangenheit liegen. (Für Preview egal)
-author: stefanMueller                 					# Pflichtfeld. Es muss in der "authors.yml" einen Eintrag mit diesem Namen geben.
+modified_date: 2019-12-03 15:24                         # Optional. Muss angegeben werden, wenn eine bestehende Datei geändert wird.
+author: stefanmueller                 					# Pflichtfeld. Es muss in der "authors.yml" einen Eintrag mit diesem Namen geben.
 categories: [Java, Pattern]                    					# Pflichtfeld. Maximal eine der angegebenen Kategorien verwenden.
 tags: [Mehraufwand reduzieren, Schnittstellen, Tolerant Reader Pattern]         # Bitte auf Großschreibung achten.
 ---
