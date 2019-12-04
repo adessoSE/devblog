@@ -57,7 +57,7 @@ Eine Alternative zum oben erläuterten gängigen Verfahren bietet hier das Patte
 Der Einsatz des Tolerant Reader Pattern ist hilfreich bei der Reduzierung des Mehraufwands, indem so tolerant wie möglich von der Schnittstelle gelesen wird: nämlich ausschließlich die Informationen, die auch tatsächlich benötigt werden. 
 Alle weiteren Informationen werden schlicht ignoriert. Ist die Information irrelevant, ist auch keine Anpassung erforderlich. 
 
-####Folgendes Beispiel soll die Vorteile des Tolerant Reader Patterns verdeutlichen: 
+### Folgendes Beispiel soll die Vorteile des Tolerant Reader Patterns verdeutlichen: 
 In einem Softwareprojekt gibt es eine Schnittstelle mit 100 Feldern, aber lediglich 5 dieser Felder werden tatsächlich benötigt. 
 Bei Einsatz des Tolerant Reader Pattern muss der Reader folglich nur 
 5 Felder einlesen, die anderen 95 werden ignoriert und nicht implementiert. 
