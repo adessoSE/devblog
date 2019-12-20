@@ -231,3 +231,13 @@ czarnecki:
   bio: "Florian Czarnecki ist als Werkstudent im Open-Source-Team bei adesso in Dortmund tätig"
   avatar_url: /assets/images/avatars/czarnecki.jpg
   github: https://github.com/czarnecki
+
+kiliankrause:
+  first_name: Kilian
+  last_name: Krause
+  github_username: KilianKrause
+  email: Kilian.Krause@adesso.de
+  bio: "Kilian Krause ist als Werkstudent im Open-Source-Team bei adesso in Dortmund tätig."
+  avatar_url: /assets/images/avatars/kiliankrause.jpg
+  github: https://github.com/KilianKrause
+  
