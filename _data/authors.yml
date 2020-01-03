@@ -231,3 +231,12 @@ czarnecki:
   bio: "Florian Czarnecki ist als Werkstudent im Open-Source-Team bei adesso in Dortmund tätig"
   avatar_url: /assets/images/avatars/czarnecki.jpg
   github: https://github.com/czarnecki
+
+lubbyhst:
+  first_name: Falk
+  last_name: Lubiniecki
+  github_username: lubbyhst
+  email: falk.lubinieckik@adesso.de
+  bio: "Falk Lubiniecki ist als Softwareengineer bei adesso in Stralsund tätig"
+  avatar_url: /assets/images/avatars/lubiniecki.jpg
+  github: https://github.com/lubbyhst
