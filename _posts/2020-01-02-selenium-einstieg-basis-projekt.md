@@ -110,8 +110,44 @@ Hier liegt es aber am Entwickler und dem Projekt ob dieses Verhalten gewünscht 
 Bei einem wechsel auf eine neue Seite sollte die entsprechende Methode allerdings immer das passende PageObject liefern.
 
 ### TestBase im Detail
-![TestBase](/assets/images/posts/selenium-einstieg-basis-projekt/test-base.png)
+```java
+public abstract class TestBase {
 
+    private static final String SELENIUM_HUB_URL = "http://localhost:4444/wd/hub";
+
+    protected WebDriver driver;
+
+    @BeforeEach
+    public void before() throws MalformedURLException {
+        driver = initializeDriver();
+    }
+
+    @AfterEach
+    public void after() {
+        if (driver != null) {
+            driver.close();
+            driver = null;
+        }
+    }
+
+    private WebDriver initializeDriver() throws MalformedURLException {
+        DesiredCapabilities desiredCapabilities = DesiredCapabilities.chrome();
+        desiredCapabilities.setCapability(CapabilityType.LOGGING_PREFS, getLoggingPreferences());
+        return new RemoteWebDriver(new URL(SELENIUM_HUB_URL), desiredCapabilities);
+    }
+
+    private LoggingPreferences getLoggingPreferences() {
+        final LoggingPreferences logPrefs = new LoggingPreferences();
+        logPrefs.enable(LogType.BROWSER, Level.INFO);
+        logPrefs.enable(LogType.SERVER, Level.INFO);
+        logPrefs.enable(LogType.DRIVER, Level.INFO);
+        logPrefs.enable(LogType.PROFILER, Level.INFO);
+        logPrefs.enable(LogType.CLIENT, Level.INFO);
+        return logPrefs;
+    }
+
+}
+```
 Die Testbase enthält eine before Methode die vor jedem Test ausgeführt wird.
 In der after Methode wird sicher gestellt, dass die driver Variable vor jedem Test geleert wird.
 Wichtig ist darauf zu achten, dass die driver Variable nicht statisch ist. 
@@ -131,8 +167,40 @@ Vorteil dieser Lösung ist, dass das Projekt schnell auf ein Selenium Grid mit v
 Dazu muss lediglich die URL angepasst werden.
 
 ### BasePage im Detail
-![BasePage](/assets/images/posts/selenium-einstieg-basis-projekt/base-page.png)
+```java
+abstract class BasePage {
 
+    protected final static String webAppBaseUrl = "http://demo:8080/";
+    private final static int explicitTimeout = 30;
+
+    protected final WebDriver driver;
+
+    protected BasePage(WebDriver driver) {
+        this.driver = driver;
+        PageFactory.initElements(driver, this);
+    }
+
+    protected void input(final WebElement element, final String value) {
+        waitForElementClickable(element);
+        element.clear();
+        element.sendKeys(value);
+    }
+
+    protected WebElement waitForElementClickable(final WebElement element) {
+        return new WebDriverWait(this.driver, explicitTimeout).until(ExpectedConditions.elementToBeClickable(element));
+    }
+
+    protected WebElement findElement(final By by) {
+        final WebDriverWait wait = new WebDriverWait(this.driver, explicitTimeout);
+        return wait.until(ExpectedConditions.presenceOfElementLocated(by));
+    }
+
+    protected List<WebElement> findElements(final By by) {
+        final WebDriverWait wait = new WebDriverWait(this.driver, explicitTimeout);
+        return wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(by));
+    }
+}
+```
 Die BasePage ist die Hauptklasse für jedes PageObject das erzeugt wird. 
 Hier werden Basisfunktionalitäten angeboten die in jedem PageObject meist verwendet werden.
 Dazu zählen z.B. Texteingabe oder das explizite Warten auf Elemente.
@@ -142,7 +210,52 @@ Es kann vorkommen das WebElemente expilizt gesucht werden müssen oder durch Jav
 Dann können diese Methoden mit explizitem Warten genutzt werden um Elemente auf einer Seite zu finden.
 
 ### PageObject im Detail
-![PageObject](/assets/images/posts/selenium-einstieg-basis-projekt/page-object.png)
+```java
+public class DemoTestPage extends BasePage {
+
+    @FindBy(id = "testLabel")
+    private WebElement testLabel;
+
+    @FindBy(id = "testButton")
+    private WebElement testButton;
+
+    @FindBy(tagName = "input")
+    private WebElement testInput;
+
+    @FindBy(xpath = "//h1")
+    private WebElement title;
+
+    public DemoTestPage(WebDriver driver) {
+        super(driver);
+    }
+
+    public static DemoTestPage openDemoTestPage(WebDriver driver) {
+        driver.get(webAppBaseUrl);
+        return new DemoTestPage(driver);
+    }
+
+    public void writeIntoTestInput(String value) {
+        input(testInput, value);
+    }
+
+    public SuccessPage clickButton() {
+        testButton.click();
+        return new SuccessPage(this.driver);
+    }
+
+    public String getTextFromLabel() {
+        return testLabel.getText();
+    }
+
+    public String getTitle() {
+        return title.getText();
+    }
+
+    public String getValueFromInput() {
+        return testInput.getAttribute("value");
+    }
+}
+```
 
 In diesem Beispiel enthält die Webanwendung zwei PageObject. 
 In der Grafik ist das passende PageObject zu der index.html zu sehen.
@@ -158,8 +271,19 @@ In der Testklasse ist dies dann eindeutig zu erkennen.
 In einem PageObject werden somit sämtliche Zugriffe auf eine Webseite gekapselt und den Tests bereitgestelt. 
 Außerdem dürfen in den PageObjects keine Asserts vorgenommen werden um die Wiederverwendbarkeit durch andere Tests nicht einzuschränken.
 
-### ExampleTest im Detail
-![ExampleTest](/assets/images/posts/selenium-einstieg-basis-projekt/example-test.png)
+### ExampleTest im Detail`
+```java
+public class ExampleTest extends TestBase {
+
+    @Test
+    public void testInputClearAfterSubmit() {
+        DemoTestPage demoTestPage = DemoTestPage.openDemoTestPage(driver);
+        demoTestPage.writeIntoTestInput("test");
+        SuccessPage successPage = demoTestPage.clickButton();
+        Assertions.assertEquals("Ok!", successPage.getResult());
+    }
+}
+```
 
 Die Testklasse enthält sehr wenig code.
 Sie ist eher übersichtlich gestalltet und sollte mit aussagekräftigen Methoden versehen werden.
@@ -196,20 +320,26 @@ Damit es zu keinen Problemen mit den Bereichtigungen kommt sollten noch die Post
 
 Der Code kann wie folgt augescheckt werden.
 
-``git clone https://github.com/lubbyhst/selenium-example.git``
+```bash 
+git clone https://github.com/lubbyhst/selenium-example.git
+```
 
 Nach dem Ausschecken in das Projektverzeichniss wechseln.
 
-``cd selenium-example``
+```bash 
+cd selenium-example
+```
 
 ## Testausführung
 
 Durch folgenden Befehl wird das Projekt erstellt und anschließenden die Selenium Tests ausgeführt.
 (Die erste Ausführung kann länger dauern da sämtliche Abhängigkeiten heruntergeladen werden müssen.)
 
-``mvn clean install``
+```bash
+mvn clean install
+```
 
-Wenn alles korrekt eingerichtet war, sollte das Ergebnis wie folgt aussehen.
+Wenn alles korrekt eingerichtet wurde, sollte das Ergebnis wie folgt aussehen.
 
 ![BuildSuccess](/assets/images/posts/selenium-einstieg-basis-projekt/build-success.png)
 
