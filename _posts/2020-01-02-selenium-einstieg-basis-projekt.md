@@ -86,14 +86,14 @@ Dieses beinhaltet bereits alle Komponenten (Browser, Browser Driver, usw.) in de
 ### Modul systemtests
 Das Modul "systemtests" beinhaltet den Testcode inkl. aller Resourcen.
 ### Modul webapp-demo
-Dieses Modul stellt eine kleine Spring Boot Web Anwendung bereit gegen die Systemtests ausgeführt werden sollen.
+Dieses Modul stellt eine kleine Spring Boot Web Anwendung bereit, gegen die Systemtests ausgeführt werden sollen.
 
 ## Struktur systemtests
 
 ![Basis Struktur_systemtests](/assets/images/posts/selenium-einstieg-basis-projekt/struktur-systemtests.png)
 
-Die Struktur des Moduls "systemtests" kann im Prinzip in drei Teile untergliedert werden. 
-Je nach komplexität des Frameworks kann dieses natürlich indiviuell erweitert werden.
+Die Struktur des Moduls "systemtests" kann in drei Teile untergliedert werden. 
+Je nach komplexität des Frameworks darf dieses natürlich indiviuell erweitert werden.
 Es bietet sich z.B. an wiederholende Schritte in "Steps" zu bündeln. 
 Diese Steps können dann durch die Tests verwendet werden.
 Die Übersichtlichkeit der einzelnen Tests kann davon stark profitieren.
