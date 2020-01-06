@@ -4,8 +4,8 @@ title:  "Selenium Basics - Basis Projekt"     # Pflichtfeld. Bitte einen Titel f
 date:   2020-01-02 09:00              # Pflichtfeld. Format "YYYY-MM-DD HH:MM". Muss für Veröffentlichung in der Vergangenheit liegen. (Für Preview egal)
 modified_date: 2020-01-02 09:00
 author: lubbyhst                      # Pflichtfeld. Es muss in der "authors.yml" einen Eintrag mit diesem Namen geben.
-categories: [Branchen & People]       # Pflichtfeld. Maximal eine der angegebenen Kategorien verwenden.
-tags: [Testing]                       # Optional.
+categories: [Java]       # Pflichtfeld. Maximal eine der angegebenen Kategorien verwenden.
+tags: [Testing, Docker, Selenium, Java]                       # Optional.
 ---
 
 
@@ -187,7 +187,8 @@ abstract class BasePage {
     }
 
     protected WebElement waitForElementClickable(final WebElement element) {
-        return new WebDriverWait(this.driver, explicitTimeout).until(ExpectedConditions.elementToBeClickable(element));
+        return new WebDriverWait(this.driver, explicitTimeout)
+                    .until(ExpectedConditions.elementToBeClickable(element));
     }
 
     protected WebElement findElement(final By by) {
