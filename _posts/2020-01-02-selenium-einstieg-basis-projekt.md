@@ -11,11 +11,11 @@ tags: [Testing]                       # Optional.
 
 In dieser Blogreihe möchte ich einen Einstieg für das Automatisierungstool Selenium vorstellen.
 Der erste Artikel gibt einen Überblick zu Selenium und dessen Verwendung. 
-Darüber hinaus möchte ich auf Basis eines Java Projektes und dem Maven Buildtool ein einfaches Beispielprojekt vorstellen.
-Vorkenntinsse im Bereich Java, Spring, JUnit, Docker und Maven sind empfohlen. 
-Der Fokus dieses Blogs liegt mehr auf der Verknüpfung der Technologien.
-Dies soll keine Step by Step Anleitung für Neueinsteiger darstellen.
-
+Außerdem möchte ich ein Beispielprojekt für Selenium vorstellen.
+Vorkenntinsse im Bereich Java, Spring, JUnit, Docker und Maven sind empfehlenswert. 
+Wer bereits mehr Vorwissen hat und auch schon einiges an Erfahrung mit Selenium.
+Dem empfehle ich auf den zweiten Teil zu warten. 
+Darin werde ich näher auf die Verbindung mit Docker eingehen.
 
 # Vorstellung Selenium
 
@@ -58,17 +58,17 @@ Dieser stellt hierzu die Methoden findElement(By locator) oder findElements(By l
 
 Für das suchen von Elementen auf einer Website werden verschiedene Locator angeboten:
 
-- ID
+- Id
 - Name
 - Link Text
 - CSS Selector
 - XPath
 
-Für das genaue finden eines Elements auf einer Website wird empfohlen möglichst immer der ID Locator zu verwenden.
-Leider ist es üblich das Frontend Frameworks dynamisch ID's vergeben oder es gar nicht einfach möglich ist selbst ID's zu vergeben.
-Oder es müssen Dynamische Inhalte gesucht werden wie das auftauchen eines bestimmten Textes in der ersten Zeile einer Tabelle.
-Dann werden die anderen Locatoren benötigt um Elemente flexibler und dynamischer suchen zu können. 
-Darüber hinaus ist das suchen nach Elementen mittels ID die schnellste Art diese zu finden.
+Für das genaue finden eines Elements auf einer Website wird empfohlen möglichst immer den Id Locator zu verwenden.
+Leider ist es üblich das Frontendframeworks dynamisch Id's vergeben oder es gar nicht möglich ist selbst Id's zu vergeben.
+Dynamische Inhalte wie das auftauchen eines bestimmten Textes in der ersten Zeile einer Tabelle können auch nicht über einen Id Locator gelöst werden.
+Dann werden die anderen Locatoren benötigt, um Elemente flexibler suchen zu können. 
+Darüber hinaus ist das suchen nach Elementen mittels Id die schnellste Art.
 Die Praxis hat jedoch gezeigt, dass auch die Verwendung der anderen Locatoren möglich ist ohne die Geschwindigkeit drasitsch zu verringern.
 
 ## Basis Projekt
