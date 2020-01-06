@@ -160,7 +160,7 @@ Welcher Browser verwendet werden soll legen die "Capabilities" fest.
 In diesem Fall soll der Google Chrome verwendet werden. 
 Es gibt für alle gängingen Browser Capabilities als statischen Aufruf an der Klasse DesiredCapapbilities.
 Neben den Capabilities benötigt der RemoteWebDriver noch die URL zu dem Selenium Hub der verwendet werden soll.
-In diesem Fall ist dies ein Docker Container welcher über den Standartport 4444 erreichbar ist.
+In diesem Fall ist dies ein Docker Container welcher über den standard Port 4444 erreichbar ist.
 Wichtig zu beachten!
 Der Selenium Hub muss den angefragten Browser unterstützten damit dieser auch verwendet werden kann.
 Vorteil dieser Lösung ist, dass das Projekt schnell auf ein Selenium Grid mit vielen verschiedenen Browsern wechseln kann.
