@@ -301,13 +301,14 @@ Die Tests können wie übliche Unit Tests aus der IDE heraus gestartet werden od
 # Vorbereitung und Testausführung
 
 Um das Beispiel Projekt bauen und ausführen zu können sind einige Vorbereitungen notwendig. 
-Die Virtualisierungslösung Docker muss installiert und eingerichtet werden.
-Java und Maven sollten auf dem Hostsystem vorhanden sein. 
-Dabei sollte darauf geachtet werden, dass JAVA_HOME sowie MAVEN_HOME korrekt gesetzt ist.
+Die Virtualisierungslösung Docker ([Install Docker](https://docs.docker.com/install/)) muss installiert und eingerichtet werden.
+Java ([Install Java on Ubuntu](https://dzone.com/articles/installing-openjdk-11-on-ubuntu-1804-for-real)) und Maven ([Install Maven on Linux](https://www.javahelps.com/2017/10/install-apache-maven-on-linux.html)) müssen auf dem Hostsystem vorhanden sein. 
+Bitte darauf achten, dass JAVA_HOME sowie MAVEN_HOME korrekt gesetzt ist.
 
 Unter Windows kann dieses Projekt nicht ohne weitere Modifikationen ausgeführt werden.
 Ich empfehle hierfür die Verwendung einer virtuellen Maschine mit Linux Betriebssystem.
-Auf MacOs mit installiertem Docker dürfte es keine Probleme geben.
+Alternativ kann unter Windows auch auf [Docker Machine](https://github.com/docker/machine) zurückgegriffen werden.
+Auf MacOs mit installiertem [Docker](https://docs.docker.com/docker-for-mac/install/) dürfte es keine Probleme geben.
 
 ## Docker installation
 
@@ -356,3 +357,8 @@ Das Passwort für den Zugriff lautet "secret".
 
 In weiteren Blogs möchte ich den Docker Part des Projektes näher beleuchten und wie genau man weitere Tests erstellen kann.
 Außerdem möchte ich gerne bekannte Pitfalls sowie Do's and Dont's ansprechen die mir bereits oft über den Weg gelaufen sind.
+
+
+### Quellcode auf Github
+
+[Quellcode](https://github.com/lubbyhst/selenium-example)
