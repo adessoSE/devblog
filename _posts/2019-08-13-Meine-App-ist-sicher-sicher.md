@@ -52,11 +52,7 @@ String sql = "SELECT * FROM USER WHERE username = '" + username
                         + "' AND password = '" + password + "'";
 ```
 
-Angenommen ein Nutzer wählt beide Eingaben so:
-
-```a' OR 'b'='b```
-
-Die Resultierende SQL Abfrage würde also lauten:
+Angenommen ein Nutzer trägt `a' OR 'b'='b` in beide Eingabefelder ein, sieht die Resultierende SQL Abfrage wie folgt aus.
 
 ```sql
 SELECT *
@@ -66,7 +62,7 @@ AND password = 'a' OR 'b'='b'
 ```
 
 In diesem Fall würden die Eingaben das SQL Statement so abändern, dass eigener SQL Code ausgeführt wird.
-Da `b` gleich `b` ist, wäre die Bedingung somit immer erfüllt.
+Da `'b' = 'b'` wahr ist, wäre die Bedingung somit immer erfüllt.
 Die Autorisierung wird somit umgangen, da die Menge aller legitimer Nutzer zurückgereicht wird.
 
 Um zu verhindern, dass solche Eingaben Teil des funktionalen SQL Codes werden, müssen [PreparedStatements](https://docs.oracle.com/javase/7/docs/api/java/sql/PreparedStatement.html) verwendet werden.
