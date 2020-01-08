@@ -9,7 +9,7 @@ tags: [git, worktree]                 # Bitte auf Großschreibung achten.
 
 # git worktree - Effizientes Arbeiten mit mehreren Arbeitskopien
 
-In diesem Blog-Beitrag betrachten wir einmal den wahrscheinlich bei vielen unbekannten git-Befehl `git worktree` und schauen uns anhand einiger Beispiele an, wie man in der Entwicklung mit diesem git-Befehl Zeit (und vermutlich auch Nerven) einsparen kann. 
+In diesem Blog-Beitrag betrachten wir den nicht weit verbreiteten git-Befehl `git worktree` und schauen uns anhand einiger Beispiele an, wie man in der Entwicklung mit diesem git-Befehl Zeit (und vermutlich auch Nerven) einsparen kann. 
 
 In der heutigen Entwicklung geht kaum noch ein Weg an git vorbei. 
 Einer der vielen Vorteile von git ist, dass man stets auf dem lokalen Repository arbeitet und so schnell und ohne größere Mühen einen Branch anlegen oder wechseln kann. 
@@ -19,9 +19,8 @@ Möchte man auf einen vorhandenen Branch wechseln ist allerdings in der Regel ei
 Dies bedeutet in der Regel keine Änderungen an den bereits versionierten Dateien. 
 
 Nehmen wir jetzt aber mal die folgende Situation an: man entwickelt auf dem Branch `feature/ADESSO-73`. 
-Der Test für das Feature ist fertig, aber schlägt noch fehl. 
-Und die Businesslogik ist noch mit einem Haufen `// TODO`-Kommentaren versehen. 
-Dann kommt ein dringendes Ticket rein, welches ein Bug an einem vorher entwickelten Feature beschreibt und die gesamte Produktion lahmlegt. 
+Der Test für das Feature ist fertig, aber schlägt noch fehl, und die Businesslogik ist noch mit vielen `// TODO`-Kommentaren versehen. 
+Dann stellt jemand ein dringendes Ticket ein, welches ein Bug an einem vorher entwickelten Feature beschreibt und die gesamte Produktion lahmlegt. 
 Ein Fix muss daher so schnell wie möglich her. 
 
 
@@ -45,7 +44,7 @@ Somit ist es auch möglich alle Commits und Branches mittels `git rebase`, `git 
 
 Betrachten wir nun den Befehl zum Anlegen einer neuen Arbeitskope: 
 `git worktree add -b hotfix/ADESSO-4711 ../adesso-blog-4711 master` erzeugt eine neue Arbeitskopie des lokalen Repositories. 
-Schauen wir uns den Befehl und Parameter einmal genauer an : 
+Schauen wir uns den Befehl und Parameter einmal genauer an: 
 
 * der Befehl `worktree add` leitet die Anlage einer neuen Arbeitskopie ein. 
 * durch den Parameter `-b hotfix/ADESSO-4711` wird der Branch `hotfix/ADESSO-4711` in der neuen Arbeitskope angelegt. 
@@ -55,15 +54,17 @@ Schauen wir uns den Befehl und Parameter einmal genauer an :
 
 Um die Anlage der Arbeitskopie zu verifizieren kann der Befehl `git worktree list` ausgeführt werden. 
 Dieser zeigt alle vorhandenen Arbeitskopien an: 
-```
+
+```bash
 $ git worktree list
 C:/Privat/adesso-blog                         79a5b86223 [feature/ADESSO-73]
 C:/Privat/adesso-blog-4711                    e7708ab6aa [hotfix/ADESSO-4711]
 C:/Privat/adesso-blog-master                  f875acdb99 [master]
+```
 
-```
 Im lokalen Repository (`C/Privat/adesso-blog`) wird im `.git` Verzeichnis das Unterverzeichnis `worktrees` angelegt, welches die Referenzen auf alle vorhandenen Worktrees beinhaltet:
-```
+
+```bash
 /c/Privat/adesso-blog/.git/worktrees/adesso-4711
 $ ls -al
 total 7492
