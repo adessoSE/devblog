@@ -9,10 +9,9 @@ tags: [git, Versionsverwaltung]                 # Bitte auf Großschreibung acht
 
 # git worktree - Effizientes Arbeiten mit mehreren Arbeitskopien
 
-In diesem Blog-Beitrag betrachten wir den nicht weit verbreiteten git-Befehl `git worktree` und schauen uns anhand einiger Beispiele an, wie man in der Entwicklung mit diesem git-Befehl Zeit (und vermutlich auch Nerven) einsparen kann. 
-
 In der heutigen Entwicklung geht kaum noch ein Weg an git vorbei. 
 Einer der vielen Vorteile von git ist, dass man stets auf dem lokalen Repository arbeitet und so schnell und ohne größere Mühen einen Branch anlegen oder wechseln kann. 
+In diesem Blog-Beitrag betrachten wir den nicht weit verbreiteten git-Befehl git worktree und schauen uns anhand einiger Beispiele an, wie man in der Entwicklung mit diesem git-Befehl Zeit (und vermutlich auch Nerven) einsparen kann. 
 
 
 Möchte man auf einen vorhandenen Branch wechseln ist allerdings in der Regel ein sauberer Stand des Repositories vonnöten. 
