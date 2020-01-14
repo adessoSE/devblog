@@ -2,12 +2,11 @@
 layout: [post, post-xml]              # Pflichtfeld. Nicht ändern!
 title:  "git worktree - Effizientes Arbeiten mit mehreren Arbeitskopien"         # Pflichtfeld. Bitte einen Titel für den Blog Post angeben.
 date:   2020-01-14 09:00              # Pflichtfeld. Format "YYYY-MM-DD HH:MM". Muss für Veröffentlichung in der Vergangenheit liegen. (Für Preview egal)
+modified_date: 2020-01-14 12:00
 author: smsnheck                      # Pflichtfeld. Es muss in der "authors.yml" einen Eintrag mit diesem Namen geben.
 categories: [Softwareentwicklung]                    # Pflichtfeld. Maximal eine der angegebenen Kategorien verwenden.
 tags: [git, Versionsverwaltung]                 # Bitte auf Großschreibung achten.
 ---
-
-# git worktree - Effizientes Arbeiten mit mehreren Arbeitskopien
 
 In der heutigen Entwicklung geht kaum noch ein Weg an git vorbei. 
 Einer der vielen Vorteile von git ist, dass man stets auf dem lokalen Repository arbeitet und so schnell und ohne größere Mühen einen Branch anlegen oder wechseln kann. 
