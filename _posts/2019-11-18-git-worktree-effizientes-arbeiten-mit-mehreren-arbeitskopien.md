@@ -3,7 +3,7 @@ layout: [post, post-xml]              # Pflichtfeld. Nicht ändern!
 title:  "git worktree - Effizientes Arbeiten mit mehreren Arbeitskopien"         # Pflichtfeld. Bitte einen Titel für den Blog Post angeben.
 date:   2019-11-18 10:25              # Pflichtfeld. Format "YYYY-MM-DD HH:MM". Muss für Veröffentlichung in der Vergangenheit liegen. (Für Preview egal)
 author: smsnheck                      # Pflichtfeld. Es muss in der "authors.yml" einen Eintrag mit diesem Namen geben.
-categories: [Java]                    # Pflichtfeld. Maximal eine der angegebenen Kategorien verwenden.
+categories: [Softwareentwicklung]                    # Pflichtfeld. Maximal eine der angegebenen Kategorien verwenden.
 tags: [git, Versionsverwaltung]                 # Bitte auf Großschreibung achten.
 ---
 
