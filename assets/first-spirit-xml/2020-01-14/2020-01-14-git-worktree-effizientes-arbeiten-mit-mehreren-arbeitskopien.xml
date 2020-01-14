@@ -3,7 +3,9 @@
     <document uid="6235faafec47599f9d48fe8452e0723e">
         <field name="title"><![CDATA[git worktree - Effizientes Arbeiten mit mehreren Arbeitskopien]]></field>
         <field name="subline"><![CDATA[]]></field>
-        <field name="teaser"><![CDATA[<h4 id="git-worktree---effizientes-arbeiten-mit-mehreren-arbeitskopien">git worktree - Effizientes Arbeiten mit mehreren Arbeitskopien</h4>
+        <field name="teaser"><![CDATA[<p>In der heutigen Entwicklung geht kaum noch ein Weg an git vorbei. 
+Einer der vielen Vorteile von git ist, dass man stets auf dem lokalen Repository arbeitet und so schnell und ohne größere Mühen einen Branch anlegen oder wechseln kann. 
+In diesem Blog-Beitrag betrachten wir den nicht weit verbreiteten git-Befehl git worktree und schauen uns anhand einiger Beispiele an, wie man in der Entwicklung mit diesem git-Befehl Zeit (und vermutlich auch Nerven) einsparen kann.</p>
 
 ]]></field>
         <field name="language_multi_keyword"><![CDATA[de]]></field>
@@ -14,7 +16,7 @@
         <field name="tag_multi_keyword"><![CDATA[Versionsverwaltung]]></field>
         <field name="date_date"><![CDATA[2020-01-14T09:00:00+01:00]]></field>
         <field name="date_l"><![CDATA[1578988800000]]></field>
-        <field name="change_date"><![CDATA[1578988800000]]></field>
+        <field name="change_date"><![CDATA[1578999600000]]></field>
         <!--Picture-->
         <!-- Not in use at the moment-->
         <!--Author Information-->
@@ -25,16 +27,16 @@
         <!--Postcontent-->
         <field name="headlines"><![CDATA[git worktree - Effizientes Arbeiten mit mehreren Arbeitskopien]]></field>
         <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
-            <h4 id="git-worktree---effizientes-arbeiten-mit-mehreren-arbeitskopien">git worktree - Effizientes Arbeiten mit mehreren Arbeitskopien</h4>
+            <p>In der heutigen Entwicklung geht kaum noch ein Weg an git vorbei. 
+Einer der vielen Vorteile von git ist, dass man stets auf dem lokalen Repository arbeitet und so schnell und ohne größere Mühen einen Branch anlegen oder wechseln kann. 
+In diesem Blog-Beitrag betrachten wir den nicht weit verbreiteten git-Befehl git worktree und schauen uns anhand einiger Beispiele an, wie man in der Entwicklung mit diesem git-Befehl Zeit (und vermutlich auch Nerven) einsparen kann.</p>
 
 </div>]]></field>
         <field name="content"><![CDATA[<div class="adesso-text-formate">
 <div class="row p-t-2">
 <div class="adesso-container">
 <div class="col-xl-8 adesso-center p-b-1 p-l-0 p-r-0">
-    <h4 id="git-worktree---effizientes-arbeiten-mit-mehreren-arbeitskopien">git worktree - Effizientes Arbeiten mit mehreren Arbeitskopien</h4>
-
-<p>In der heutigen Entwicklung geht kaum noch ein Weg an git vorbei. 
+    <p>In der heutigen Entwicklung geht kaum noch ein Weg an git vorbei. 
 Einer der vielen Vorteile von git ist, dass man stets auf dem lokalen Repository arbeitet und so schnell und ohne größere Mühen einen Branch anlegen oder wechseln kann. 
 In diesem Blog-Beitrag betrachten wir den nicht weit verbreiteten git-Befehl git worktree und schauen uns anhand einiger Beispiele an, wie man in der Entwicklung mit diesem git-Befehl Zeit (und vermutlich auch Nerven) einsparen kann.</p>
 
