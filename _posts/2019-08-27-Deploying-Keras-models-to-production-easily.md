@@ -615,7 +615,7 @@ Let's rewind our steps:
 We also defined a network to have a static IP for the container. 
 - As a final touch we used nginx to hide the ports and force secure connections.
 
-Try your own models and fork the code at [GitHub](https://github.com/mtobeiyf/keras-flask-deploy-webapp).
+Try your own models and fork the code at [GitHub](https://github.com/s-gbz/keras-flask-deploy-webapp).
 Happy deploying! :-)
 
 PS: You should be properly served by this guide.
