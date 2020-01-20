@@ -22,6 +22,20 @@ Here is what we're going to do:
 I will proceed to shortly explain _how_ and why we will use Flask.
 Feel free to skip ahead if you're more interested to get started.
 
+## Understanding Keras models
+In case you're unsure what models we're talking about:
+Deep Learning models are a synonym for [Artificial Neural Networks](https://pathmind.com/wiki/neural-network).
+These networks are inspired by the design of our brains.  
+They work by processing huge amounts of data and drawing conclusions from it.
+
+We use such networks or rather *models* to 
+- predict traffic
+- predict prices
+- classify images
+- or even draw paintings.
+
+[Keras](https://keras.io) is a high level framework that allows for rapid construction of such models.
+
 ## Using Flask properly
 Flask is a [Web Server Gateway Interface](https://www.fullstackpython.com/wsgi-servers.html) or more simply:
 A lightweight web framework.
