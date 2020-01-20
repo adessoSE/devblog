@@ -8,15 +8,14 @@ categories: [Softwareentwicklung] # Pflichtfeld. Maximal eine der angegebenen Ka
 tags: [Java,Dependency Injection,Google Guice]         # Optional.
 ---
 Um Abhängigkeiten zwischen Objekten in der Softwareentwicklung aufzulösen, kann Dependency Injection eingesetzt werden –
-eine Methode, bei der ein zentrales Objekt die Abhängigkeiten anderer Objekte untereinander verwaltet.
+eine Methode, die das Prinzip Inversion of Control umsetzt. Hierdurch erzeugt ein Objekt die eigenen Abhängigkeiten nicht mehr selbst, sondern lässt sich diese durch eine andere Komponente bereitstellen.
 Dependency Injection gehört zu den Kernfeatures des Spring Frameworks, welches mit seinem mächtigen Ecosystem aktuell zu den wohl beliebtesten Frameworks für Java Entwickler zählt.  
-Doch bietet der Markt hierfür Alternativen?
-Eine mögliche Antwort könnte Guice lauten.
-Eine von Google entwickelte Java Bibliothek, die sich voll und ganz auf Dependency Injection fokussiert.
+Nicht immer passt allerdings der Einsatz von Spring. Gibt es Alternativen? Ja!
+Wir schauen uns Guice an, ein von Google entwickeltes Framework, welches sich voll und ganz auf Dependency Injection fokussiert.
 
 # Einleitung
 
-Den meisten Java Entwicklern ist das Spring Framework ein Begriff.
+Den meisten Java Entwicklern ist das Spring Framework bekannt.
 Cloud-Anwendungen, REST Schnittstellen sind nur zwei der vielen Anwendungsmöglichkeiten.
 Ein im Kern des Frameworks verankertes Feature ist die sogenannte Dependency Injection.
 Es unterstützt bei der Entwicklung, indem es das Auflösen und Bereitstellen von Abhängigkeiten in Softwarekomponenten übernimmt.
