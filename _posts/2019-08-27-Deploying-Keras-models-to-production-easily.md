@@ -10,14 +10,14 @@ Moving your Deep Learning models from the developers playground to a serious pro
 After endless research I'm most glad to serve you an easy to execute guide for deploying Keras models to production level.
 
 # Plan of attack
-This article assumes you want to deploy your **Keras** model.
+This article assumes you want to deploy your Keras model.
 Adapting it to other frameworks can be tiresome.
 We will avoid that and expand it otherwise.
 Here is what we're going to do:
 
-1. Prepare a **Flask** application in combination with **Gevent**.
-2. **Dockerize** it.
-3. Use **nginx** to setup a reverse proxy.
+1. Prepare a Flask application in combination with Gevent.
+2. Dockerize it.
+3. Use nginx to setup a reverse proxy.
 
 I will proceed to shortly explain _how_ and why we will use Flask.
 Feel free to skip ahead if you're more interested to get started.
@@ -25,7 +25,7 @@ Feel free to skip ahead if you're more interested to get started.
 ## Using Flask properly
 Flask is a [Web Server Gateway Interface](https://www.fullstackpython.com/wsgi-servers.html) or more simply:
 A lightweight web framework.
-It's well documented and easy to use, **but Flask is single threaded**.
+It's well documented and easy to use, but Flask is single threaded.
 It can handle only one request at a time.
 This creates a bottleneck in our application.
 
@@ -262,8 +262,8 @@ The application now runs until shutdown.
 
 ### Test run!
 To serve the application, open a shell inside the application directory.
-- Use **pip** to install the requirements via `pip install requirements.txt`.
-  You might as well use **anaconda**!
+- Use pip to install the requirements via `pip install requirements.txt`.
+  You might as well use anaconda!
 - Copy your models and frontend files into the respective folders.
 - Run `python app.py` and open `http://localhost:5000` in your favourite browser.
 
@@ -277,12 +277,12 @@ This example server is running [CentOs 7.5](https://centos.org) but you can use 
 We use [Docker](https://docker.com) to make transport and deployment of the application easier:
 By defining a set of rules we create an image of a virtual machine that contains our data and runs in it's own capsuled environment.
 
-**Dockerizing** applications saves us the trouble of preparing separate deployment schemes for different operating systems.
+Dockerizing applications saves us the trouble of preparing separate deployment schemes for different operating systems.
 Instead we can focus on building ideal execution environments.
 
 ## Dockerize the application
 Let's look at our set of rules to create a Docker image.
-This set of rules is called a **Dockerfile**.
+This set of rules is called a Dockerfile.
 
 ```Dockerfile
 FROM python:3
@@ -309,9 +309,9 @@ CMD [ "python" , "app.py"]
 ```
 
 This Dockerfile might seem long for our rather simple application, but that's another great advantage of Docker:
-**Every command** creates and serves as a **separate layer** in the build.
+Every command creates and serves as a separate layer in the build.
 Consecutive builds evaluate if layers have been modified and push changes to the top.
-**Unchanged layers are reused** and thus greatly speed up the build time.
+Unchanged layers are reused and thus greatly speed up the build time.
 
 Mind to move layers that are modified frequently to the bottom of the Dockerfile.
 
@@ -352,7 +352,7 @@ RUN pip install tensorflow Flask ...
 Note that we established a base structure and installed dependencies before moving any files.
 This order sequence will greatly decrease consequtive build time, because we avoid reinstalling dependencies when something in our app changes.
 
-Take note that `CMD` **is no layer** of the image build, but serves as the default command on container startup.
+Take note that `CMD` is no layer of the image build, but serves as the default command on container startup.
 There can be only _one_ `CMD` command per Dockerfile.
 
 ```Dockerfile
@@ -373,7 +373,7 @@ use the `--file` flag to specify Dockerfiles you named differently.
 [Read the docs](https://docs.docker.com/engine/reference/commandline/image_build/) for more information on building images.
 
 ### Running a Docker image
-Images are run in Docker **containers**.
+Images are run in Docker containers.
 There's a [number of arguments](https://docs.docker.com/engine/reference/commandline/run/) that can be used with `docker run`.
 
 ```shell
@@ -401,7 +401,7 @@ Use `docker container ls` to list and find active containers in case you forgot 
 Then, with a single command, you create and start all the services from your configuration." - [docker docks](https://docs.docker.com/compose/)
 
 Another benefit:
-Docker-compose allows us to have a **static IP** when we serve our image.
+Docker-compose allows us to have a static IP when we serve our image.
 We'll use this IP to enable a proxy pass via nginx later on.
 
 ```yml
@@ -424,7 +424,7 @@ networks:
        - subnet: 172.16.239.0/24
 ```
 
-We first define a **service** for our Docker image.
+We first define a service for our Docker image.
 One service is enough since our application is bundled into one image.
 More complex applications could profit from expanding the number of services though.
 
@@ -485,12 +485,12 @@ docker-compose up
 Congratulation!
 The application is now available at http://172.16.239.10:5000 (or the IP you set in the compose settings).
 But what's with the exposed port and the unencrypted traffic?
-Time to fix that in our **last step**!
+Time to fix that in our last step!
 
 # Preparing nginx
 "NGINX ['Engine X'] is open source software for web serving, reverse proxying, caching, load balancing, media streaming, and more." - [nginx glossar](https://www.nginx.com/resources/glossary/nginx/).
 
-We will use nginx to **force https and hide our ports**.
+We will use nginx to force https and hide our ports.
 Assuming you're on CentOS 7 as well, follow [this instructions](https://linuxize.com/post/how-to-install-nginx-on-centos-7/) to install nginx.
 Use `sudo` and your favorite editor to open `/etc/nginx/nginx.conf`.
 Copy and adapt the configuration file as following.
@@ -568,7 +568,7 @@ Our application is running on port 5000.
 It's a mandatory part of our current URL.
 Exposed ports don't look nice though and bother users to memorize them.
 They can reveal the applications technology and be a security threat.
-We avoid port exposure by using a **Reverse Proxy**.
+We avoid port exposure by using a Reverse Proxy.
 
 ### Enabling a Reverse Proxy
 [Reverse Proxies](https://www.nginx.com/resources/glossary/reverse-proxy-server/) offer a wide array of features.
@@ -596,10 +596,10 @@ We need to set `proxy_set_header`, because we route to an internal application a
 # Conclusion
 Deploying Deep Learning models doesn't have to be as complicated as it seems.
 Let's rewind our steps:
-- First we've setup a simple app structure, defined RequestMappings and wrapped our **Flask** application in **Gevent**.
-- Next we've **dockerized** our data and service.
-We also defined a network to have a **static IP** for the container. 
-- As a final touch we used **nginx** to hide the ports and force secure connections.
+- First we've setup a simple app structure, defined RequestMappings and wrapped our Flask application in Gevent.
+- Next we've dockerized our data and service.
+We also defined a network to have a static IP for the container. 
+- As a final touch we used nginx to hide the ports and force secure connections.
 
 Try your own models and fork the code at [GitHub](https://github.com/mtobeiyf/keras-flask-deploy-webapp).
 Happy deploying! :-)
