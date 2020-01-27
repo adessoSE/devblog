@@ -240,3 +240,12 @@ lubbyhst:
   bio: "Falk Lubiniecki ist als Softwareengineer bei adesso in Stralsund tätig"
   avatar_url: /assets/images/avatars/lubiniecki.jpg
   github: https://github.com/lubbyhst
+ 
+ smsnheck:
+  first_name: Sebastian
+  last_name: Heckmann
+  github_username: smsnheck
+  email: sebastian.heckmann@adesso.de
+  bio: "Sebastian ist Teamleiter bei adesso und beschäftigt sich gerne mit Themen aus dem Umfeld der agilen Softwareentwicklung."
+  avatar_url: /assets/images/avatars/smsnheck.jpg
+  github: https://github.com/smsnheck

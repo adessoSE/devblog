@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<documents>
+    <document uid="7b6e4337fff264ad100f837d6506e8bd">
+        <field name="title"><![CDATA[adesso testing day 2019]]></field>
+        <field name="subline"><![CDATA[]]></field>
+        <field name="teaser"><![CDATA[<p>Auch im Jahr 2019 gab es wieder einen adesso testing day, der inzwischen aus der Agenda der jährlichen Veranstaltungen nicht mehr wegzudenken ist. 
+Beim adesso testing day handelt es sich um eine adesso-interne Konferenz zum Austausch zwischen allen am Thema Testing interessierten adessi – Bereichs- und Geschäftsstellenübergreifend.</p>
+
+]]></field>
+        <field name="language_multi_keyword"><![CDATA[de]]></field>
+        <field name="content_type_multi_keyword"><![CDATA[blog]]></field>
+        <field name="mime_type_multi_keyword"><![CDATA[text/html]]></field>
+        <field name="category_multi_keyword"><![CDATA[Branchen & People]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Testing]]></field>
+        <field name="date_date"><![CDATA[2020-01-07T09:00:00+01:00]]></field>
+        <field name="date_l"><![CDATA[1578384000000]]></field>
+        <field name="change_date"><![CDATA[1578384000000]]></field>
+        <!--Picture-->
+        <!-- Not in use at the moment-->
+        <!--Author Information-->
+        <field name="author_first_name"><![CDATA[Stephan]]></field>
+        <field name="author_last_name"><![CDATA[Wacker]]></field>
+        <field name="author_id"><![CDATA[stwacker]]></field>
+        <field name="author_picture_stored_only"><![CDATA[http://localhost:4000/assets/images/avatars/stwacker.png]]></field>
+        <!--Postcontent-->
+        <field name="headlines"><![CDATA[adesso testing day 2019]]></field>
+        <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
+            <p>Auch im Jahr 2019 gab es wieder einen adesso testing day, der inzwischen aus der Agenda der jährlichen Veranstaltungen nicht mehr wegzudenken ist. 
+Beim adesso testing day handelt es sich um eine adesso-interne Konferenz zum Austausch zwischen allen am Thema Testing interessierten adessi – Bereichs- und Geschäftsstellenübergreifend.</p>
+
+</div>]]></field>
+        <field name="content"><![CDATA[<div class="adesso-text-formate">
+<div class="row p-t-2">
+<div class="adesso-container">
+<div class="col-xl-8 adesso-center p-b-1 p-l-0 p-r-0">
+    <p>Auch im Jahr 2019 gab es wieder einen adesso testing day, der inzwischen aus der Agenda der jährlichen Veranstaltungen nicht mehr wegzudenken ist. 
+Beim adesso testing day handelt es sich um eine adesso-interne Konferenz zum Austausch zwischen allen am Thema Testing interessierten adessi – Bereichs- und Geschäftsstellenübergreifend.</p>
+
+<h4 id="großes-interesse-am-thema-testing">Großes Interesse am Thema Testing</h4>
+
+<p>Auch dieses Jahr stieß der adesso testing day wieder auf reges Interesse. 
+Neben Teilnehmern der adesso AG waren Vertreter der Tochtergesellschaften adesso mobile solutions, adesso insurance solutions und Arithnea anwesend. Sehr gefreut haben wir uns auch über die Teilnahme der Landesgesellschaften adesso Türkei und adesso Bulgarien.
+Daher wird der testing day traditionell auch für die Pflege des persönlichen Netzwerks und dem gegenseitigen Austausch genutzt.</p>
+
+<p><img src="/assets/images/posts/adesso-testing-day-2019/CM-TestingDay_2019-5.jpg" alt="Begrüßung durch Oral Avci und Stephan Wacker" /></p>
+
+<h4 id="fachvorträge-zu-testmanagement-und-testautomatisierung">Fachvorträge zu Testmanagement und Testautomatisierung</h4>
+
+<p>Es gab Fachvorträge zu Testwerkzeugen ebenso wie zum Testmanagement. 
+Den Start machte Nikita Illarionov mit seinem Bericht über Schwierigkeiten und Erfolge bei der Umsetzung des agilen Testens bei seinem Kunden. 
+Nizakaren Paramalingam demonstrierte den Einsatz des Testautomatisierungswerkzeuges <a href="https://www.xceptance.com/de/xlt/">XLT</a> in seinem Projekt. 
+In seinem unterhaltsamen Vortrag “Richtig Reisen - sitzungsbasiertes, exploratives Testen mit Test-Touren” nahm uns Markus Höber mit auf eine Reise durch das Thema erfahrungsbasiertes Testen. 
+Einen Ausblick in die Zukunft des Testens und des Testers gab uns Oral Avci. 
+Unter dem Titel “wie verändert sich das Berufsbild des Testers in den nächsten Jahren?” zeigte er was sich bereits heute aus Umfragen und Statistiken aus diesem Bereich ableiten lassen kann und was das für die Qualifizierung für uns als Tester bedeutet. 
+Für die meisten neu dürften die beiden Themengebiete MbT (Model based Testing) und Data Quality gewesen sein. 
+Mathias Helminger präsentierte die Theorie hinter dem Schlagwort Model based Testing und gab Hinweise auf die praktische Nutzbarkeit. 
+Christian Stensel beschäftigt sich schon seit längerem mit dem Thema Daten und Datenqualität und führte mit “Data Quality Management in a nutshell” in den Themenkomplex ein.</p>
+
+<p><img src="/assets/images/posts/adesso-testing-day-2019/CM-TestingDay_2019-53.jpg" alt="Vortrag von Mathias Helminger zum Thema Model Based Testing" /></p>
+
+<h4 id="testing-community-themen">Testing Community Themen</h4>
+
+<p>Neben den Fachvorträgen wurden wie auch die letzten Jahre Themen aus der Testing Community diskutiert und gemeinsam erarbeitet. 
+Christoph Ostertag diskutierte mit mehreren Teilnehmern unter dem Stichwort “PITQM - ein pragmatischer Weg zu Quality Management in IT-Projekten” wie ein Prozess zur kontinuierlichen Prozessverbesserung im Bereich Qualitätsmanagement implementiert werden kann. 
+Der Titel PITQM spielte dabei auf das von adesso in vielen Projekten genutzte Pendant <a href="https://pitpm.net/">PITPM</a> im Bereich Projektmanagement an.
+Wie können User Stories testbar formuliert werden? Minh-Chau Tran kümmerte sich mit dieser Fragestellung um die Testbasis in vielen agilen Projekten und versuchte mit ihrer Gruppe Antworten aus der Praxis zu finden.
+Auch Julian Loschelders versuchte Tipps und Tricks rund um das Thema Testautomatisierung aus der Praxis zu sammeln und seine Erfahrung in diesem Bereich weiterzugeben.
+Grundlegender ging im Thema “Testen von KI-Anwendungen” zu. 
+Passend zur <a href="https://ki.adesso.de/de/">KI-Kampagne von adesso</a> diskutierte Tim Abrams mit Mitstreitern die Problematik dass der klassische Ansatz aus einer Testbasis (z.B. einer Spezifikation) Testfälle abzuleiten und durch die Durchführung dann eventuelle Abweichungen des Systems under Test von seiner Spezifikation aufzudecken bei KI-Systemen nicht mehr funktioniert, da diese das Input-Output-Verhalten durch Lernfähigkeit kontinuierlich anpassen können.</p>
+
+<p><img src="/assets/images/posts/adesso-testing-day-2019/CM-TestingDay_2019-83.jpg" alt="Diskussion auf dem Testing Day" /></p>
+
+<p>Auch die Pausen wurden intensiv für den persönlichen Austausch genutzt.</p>
+
+<h4 id="fazit-eine-gute-mischung-aus-methoden-und-technik-klassischem-testing-und-innovation">Fazit: eine gute Mischung aus Methoden und Technik, klassischem Testing und Innovation</h4>
+
+<p>Wie immer gab es eine rundum gelungene Mischung aus klassischem Testing und neuen Themen wie dem Einfluss von KI auf den Test.
+See you on testing day 2020!</p>
+
+</div>
+</div>
+</div>
+</div>]]></field>
+    </document>
+</documents>
