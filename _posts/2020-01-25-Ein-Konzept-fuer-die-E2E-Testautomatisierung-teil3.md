@@ -21,7 +21,7 @@ passwordTextField=//*[@id="passwordTextField"]
 loginButton=//*[@id="loginButton"]
 ```
 2. Und folgende Apache Veocity-Engine Template für das Erzeugen einer Page-Object-Klasse:
-```java
+```
 // Generated from Code Generator
 import { AbstractPage } from "../UI/AbstractPage";
 export class $classModel.className.concat("Page") extends AbstractPage {

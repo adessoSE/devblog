@@ -8,13 +8,17 @@ categories: [Branchen & People]       # Pflichtfeld. Maximal eine der angegebene
 tags: [Testing, Softwarequalitätssicherung, Oberflächentests]                       # Optional.
 ---
 
-Nach den allgemeinen Prinzipien des Softwaretestens sollten die Tests die Anwesenheit von Fehlern anzeigen. Keine Fehler zu finden bedeutet, dass ein brauchbares System vorliegt<sup>1</sup>, das die Akzeptanzkriterien erfüllt und das System zur Abnahme bereit ist.
+Nach den allgemeinen Prinzipien des Softwaretestens sollten die Tests die Anwesenheit von Fehlern anzeigen.
+Keine Fehler zu finden bedeutet, dass ein brauchbares System vorliegt<sup>1</sup>, das die Akzeptanzkriterien erfüllt und das System zur Abnahme bereit ist.
 Die Erfüllung dieser Akzeptanzkriterien sollen über den gesamten Entwicklungszeitraum wiederholt getestet.
 
 Hierbei gibt es verschiedene eingesetzte Prüftechniken und Testverfahren wie z.B. das manuelle Testen oder auch das sogenannte End to End Testing (E2E), die die Anwesenheit von Fehlern anzeigen und die angemessene Erfüllung der Anforderungen aus einer funktionalen Sicht der Anwender sicherstellen.
 Das E2E Testing bietet die Möglichkeit, dass das gesamte Softwareprodukt anhand produktionsähnliche Szenarien vom Anfang bis zum Ende automatisiert getestet wird, um sicherzustellen, dass sich der Anwendungsfluss wie erwartet verhält.
 Somit ist das E2E Testautomatisierung ein benutzernahes Testvorgehen und eine sehr gute Alternative zum manuellen testen, wenn das E2E Testing adäquat umgesetzt ist.
 Im Vergleich zum manuellen Testen können automatisierten E2E Tests automatisiert und wiederholt ausgeführt werden, erfordern keine geschulten Testern oder menschliches Eingreifen und lassen sich im gesamten Entwicklungsprozess des Softwareprodukts besser integrieren.
+
+Es gibt jedoch viele die meinen, dass eine gute End to End Testabdeckung in der Praxis kaum möglich sei und die Automatisierung der Testfälle viel Zeit in Anspruch nehme.
+Solche Aussagen können mit einem gut erarbeiteten Konzept relativiert werden.
 
 Im Folgenden werden Aspekte dargestellt, die im Rahmen der Realisierung eines umfangreichen Software-Projekts ausgearbeitet wurden.
 Wir werden uns mit praxisnahen technischen und organisatorische Guidelines vertraut machen und bewahrten Werkzeugen und Vorgehensweisen kennenlernen bzw. ans Rampenlicht bringen, die die Entwicklung und die Pflege von automatisierten E2E Tests erleichtert und vereinfacht.
@@ -32,7 +36,7 @@ Beispielhaft wird im Folgenden eine einfache Login Seite mit zwei Textfeldern f�
 ![Vorgeschlagene Struktur](/assets/images/posts/konzept-fuer-die-e2e-testautomatisierung/struktur.png)      
 Die Struktur besteht im Einzelnen aus: 	
 * __UI__: Die UI Darstellung wird mit Hilfe einer Abstrakten Klasse (AbstractPage) als Oberklasse realisiert, von der alle Anwendungsseiten erben.
-Eine Klasse (Die Klasse für den Test der Login Seite in unserem Beispiel) besteht aus : UI Elementen (wie die Eingabefelder für den Benutzername und Password, Bestätigungstaste Login) und möglichen Interaktionen mit den Elementen (z.B. Bestätigungstaste anklicken).
+Eine Klasse (Die Klasse für den Test der Login Seite in unserem Beispiel) besteht aus: UI Elementen (wie die Eingabefelder für den Benutzername und Password, Bestätigungstaste Login) und möglichen Interaktionen mit den Elementen (z.B. Bestätigungstaste anklicken).
 Diese Interaktionen werden durch Methoden für andere Klassen ( Testschritte ) zur Verfügung gestellt. 
 * __Testschritte__: Die einzelnen Testschritte werden in Klassen gegliedert.
 Die Klassen interagieren mit der UI und stellen Methoden zur Verfügung, die komplette Prozesse oder Teilprozesse wie z.B. das Befüllen eines Formulars für die Eingabe von Login Daten anbieten.
@@ -42,7 +46,7 @@ Die zur Verfügung gestellten Methoden können dann in den Testfällen benutzt u
 Pro Testfall sollte eine Klasse mit Testdaten vorhanden sein.
 Testdaten können voneinander erben.
 Das ist sinvoll, wenn verschiedene Dialoge im Software-Produkt den gleichen Teil für die Eingabe von Adressen haben.
-Hier wird eine Klasse (AbstractAddressData) mit initialen Daten erstellt, von der andere Klassen erben.
+Hier wird eine Klasse (AbstractAddressData) mit initialen Daten (Straße, Ort...) erstellt, von der andere Klassen erben.
 Wenn spezifische Testdaten für die Adresse gewünscht sind, dann kann die TestData-Klasse für den bestimmten Testfall die Daten überschreiben.
 * __Testfälle__: Das Zusammenspiel zwischen Testdaten und Testschritten, dem Input und der Validierung des Outputs, findet in einem Testfall statt.
 In diesem Ordner befinden sich die Testfälle so sortiert, wie die Anwendung die Prozesse in Einstiegspunkte (bspw. Menüs) aufteilt.
@@ -50,14 +54,14 @@ So können Testfälle für einzelne Bereiche (bspw. Stammdaten) eine Testsuite (
 * __Utils__ : Hier sind Hilfsklassen zu finden, die z.B. die Anwendung starten und schließen.
 
 
-#Teststruktur an die Object Orientierte Programmierung anlehnen
+#Object Orientierte Programmierung im Hinterkopf behalten
 Die Einführung von OOP Konzepten, insbesondere Klassen, Vererbung und Polymorphie, erhöht nicht nur die Wiederverwendbarkeit, sondern auch die Wartbarkeit und die Lesbarkeit des Testfall-Codes.
 Durch die Umsetzung dieser Denkweise kann der Entwickler im Allgemeinen die Testfälle effizienter automatisieren und der Testmanager die Aufgaben auf die Entwickler besser parallelisieren. 
 
 Die Umsetzung von  Page-Object Pattern (Ein Page-Objekt Klasse umschließt eine HTML-Seite mit einer anwendungsspezifischen API, sodass es mit den UI-Elementen interagiert werden kann, ohne direkt den HTML-Code zu benutzen) ist empfehlenswert.
 Diese Page-Object Klasse enthält:
 •	Eine passende Benennung für das UI-Element.
-•	Dessen Pfaden (Die Positionierung eines UI Elements im Verhältnis zu anderen DOM Elementen).
+•	Dessen Pfaden (Die Positionierung eines UI Elements im Verhältnis zu anderen DOM Elementen),
 •	oder Selektoren (jedes UI Elements hat eigene Merkmale, die es von anderen UI Elementen hervorhebt. In diesem Artikel sind Abfrage gemeint, die das Element auswählen lässt).
 
 Wir werden im Teil (#Gut benannte Ids sind für das Testing) uns mehr damit beschäftigen.
@@ -87,3 +91,5 @@ Ich hoffe, dass das Thema E2E Testautomatisierung angereizt wurde.
 Im folgenden Blog-Beitrag werden wir uns mit der Testausführung beschäftigen und paar Probleme ansprechen und eine Lösung vorstellen.
 Im zweiten Teil geht es um das Thema Testausführung weiter.
    
+#Quellen
+1. Basiswissen Softwaretest, Spillner und Linz.
