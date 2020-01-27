@@ -8,7 +8,8 @@ categories: [Branchen & People]       # Pflichtfeld. Maximal eine der angegebene
 tags: [Testing, Softwarequalitätssicherung, Oberflächentests]                       # Optional.
 ---
 
-#Ausgangszustand der Testinfrastruktur wiederherstellen
+# Ausgangszustand der Testinfrastruktur wiederherstellen
+
 Im Idealfall wird für die Ausführung der E2E Tests eine neu erstellte Testinfrastruktur (Eine Infrastruktur, die der Endnutzer als Softwarelösung benutzen wird; hier sind sowohl die Bedienoberfläche als auch die Backend-Systeme gemeint) aufgesetzt und die Tests laufen gegen eine möglichst eine unangetastete Umgebung (Backendsysteme).
 Da das Vorgehen meistens aufgrund des Bauens der Umgebung viel Zeit in Anspruch nimmt, wird in der Praxis der Einsatz einer bereits gebauten Umgebung favorisiert, auf der eventuell mehrere Teammitglieder testen und Änderungen vornehmen können.
 Dieses Vorgehen ist nicht zu empfehlen und führt meistens zu inkonsistenten Testergebnissen.
@@ -19,7 +20,8 @@ Die Pipeline von E2E Tests oder anderer Routine kann somit auf Basis der bereitg
 Mit Hilfe von Docker könnte solche Testinfrastruktur für die Durchführung hochgefahren und nach Abschluss der Testaktivitäten heruntergefahren werden.
 So wird der Ausgangzustand der Testinfrastruktur wiederholt auf identische Weise hergestellt und die gelieferten Ergebnisse gewinnen an Aussagekraft.
 
-#Testausführung
+# Testausführung
+
 Je nachdem, in welcher Phase sich die Produktentwicklung befindet, kann die Aussagekraft und Relevanz der gelieferten Ergebnisse der Testfälle variieren.
 Nehmen wir an, dass die zu testende Anwendung (hier ist die Oberfläche einer Softwarelösung gemeint; fortan die Anwendung) und die E2E Tests in separaten Repositories gepflegt sind.
 Hierfür gibt es verschiedene Überlegungen:
@@ -46,6 +48,7 @@ Das Ausführen von Testsuites soll benutzerfreundlich sein und kein technisches 
 Am benutzerfreundlichsten ist es, wenn sich in der Pipeline einzelne Testsuites zum Ausführen auswählen lassen.
 
 #Gut benannte Ids sind für das Testing 
+
 Wie wir im Page Object Pattern gesehen haben, könnten wir mit den Selektoren UI Elemente auswählen und mit denen interagieren.
 Es gibt verschiedene Selektortypen. Lasst uns folgende Codeabschnitt anschauen:
 ```html
@@ -95,7 +98,8 @@ Es ist z.B. in Angular-Welt geläufig, dass man *data-id* Attibut setzt. Die XPa
 Ein Bewusstsein für die Wichtigkeit des Setzens der IDs und deren richtiger Benennung sollte im Entwicklungsteam aufgebaut werden.
 Eine einheitliche Notation kann nicht nur die Codelesbarkeit und die Logiklesbarkeit erhöhen, sondern auch die Wartbarkeit und die Fehlerbehebung in E2E Tests verbessern, da die zu testenden Elemente über ihre eindeutigen Ids durch den Test besser zugreifbar sind. 
 
-#Ausblick
+# Ausblick
+
 Wir haben gesehen, dass der Ausgangzustand der Testlandschaft eine wichtige Voraussetzung für die Testausfhrung.
 Wir haben auch gesehen, dass wir mittels XPath-Abfrage UI-Elemente adressieren und auswerten können.
 Doch wie können wir aus Ids brauchbare Codeabschnitte erzeugen, um Zeit zu sparren und uns auf spannendere Aufgaben zu fokussieren.

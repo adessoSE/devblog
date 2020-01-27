@@ -28,7 +28,8 @@ Somit können sie sowohl am Projektanfang als auch in einem laufenden Projekt um
 Wir werden uns mit einer Softwarelösung beschäftigen, die aus einer Bedienoberfläche (fortan die Anwendung) und den Backendsysteme (fortan Umgebung) besteht.
 Die Anwendungsentwicklung und die Umgebungsentwicklung sind wahrscheinlich voneinander losgelöst. 
 
-#Testaufbau
+# Testaufbau
+
 Eine gut durchgedachte Struktur ist für die Entwicklung eines Tests notwendig.
 Eine Struktur, die die grafische Benutzeroberfläche (UI) Darstellung, UI Logik und Testdaten voneinander trennt, erleichtert die parallele Entwicklung und macht einen Code wesentlich wartbarer, als einen Boiler Plate-Code (Die Codeabschnitte, die an vielen Stellen in mehr oder weniger unveränderter Forum benötigt werden).
 Denn ein Boiler Plate-Code könnte auf Anhieb durch das Kopieren und Hinzufügen von Codeabschnitten schnelle Ergebnisse liefern, würde aber auf Dauer kostspieliger in der Wartung sein. 
@@ -54,7 +55,8 @@ So können Testfälle für einzelne Bereiche (bspw. Stammdaten) eine Testsuite (
 * __Utils__ : Hier sind Hilfsklassen zu finden, die z.B. die Anwendung starten und schließen.
 
 
-#Object Orientierte Programmierung im Hinterkopf behalten
+# Object Orientierte Programmierung im Hinterkopf behalten
+
 Die Einführung von OOP Konzepten, insbesondere Klassen, Vererbung und Polymorphie, erhöht nicht nur die Wiederverwendbarkeit, sondern auch die Wartbarkeit und die Lesbarkeit des Testfall-Codes.
 Durch die Umsetzung dieser Denkweise kann der Entwickler im Allgemeinen die Testfälle effizienter automatisieren und der Testmanager die Aufgaben auf die Entwickler besser parallelisieren. 
 
@@ -64,20 +66,21 @@ Diese Page-Object Klasse enthält:
 •	Dessen Pfaden (Die Positionierung eines UI Elements im Verhältnis zu anderen DOM Elementen),
 •	oder Selektoren (jedes UI Elements hat eigene Merkmale, die es von anderen UI Elementen hervorhebt. In diesem Artikel sind Abfrage gemeint, die das Element auswählen lässt).
 
-Wir werden im Teil (#Gut benannte Ids sind für das Testing) uns mehr damit beschäftigen.
+Wir werden uns im zweiten Teil unter (Gut benannte Ids sind für das Testing) mehr damit beschäftigen.
 
-Die investierte Zeit der Modulierung und Benutzung von Page-Object Pattern lohnt sich spätestens dann, wenn eine UI Änderung stattfindet oder bestimmte zentrale Datensätze angepasst werden sollen.
+Die investierte Zeit der Modulierung und Benutzung von *Page-Object Pattern* lohnt sich spätestens dann, wenn eine UI Änderung stattfindet oder bestimmte zentrale Datensätze angepasst werden sollen.
 Anstatt auf verschiedenen Stellen eine Anpassung vorzunehmen, genügt meistens die Änderung an einer Stelle.
 Die Anwendung nützlicher Werkzeuge wie Entwurfsmusters bietet erprobte Lösungen für wiederkehrende Probleme.
 Beispielsweise durch das Benutzen von Fluent Interface können die Testdaten als Objekte einer geeigneten Methode als ein Parameter anstatt viele Parameter übergeben werden.
 Das erhöht die Codelesbarkeit.
 
-Andere Dateien wie TestData.ts und TestFall.ts können auch über ein geeignetes Template erzeugt werden.
+Andere Dateien wie *TestData.ts* und *TestFall.ts* können auch über ein geeignetes Template erzeugt werden.
 Der Vorteil eines Generators nebst Zeitersparnis ist, dass die generierte Klassen (TestData, TestFall, Page-Object Klasse…) einheitlich aufgebaut sind und sich ähneln.
 Die Einarbeitung neuer KollegInnen wird dadurch erleichtert.
 Der Entwickler kann sich auf das Wesentliche konzentrieren und die hierdurch gesparte Zeit kann in die Implementierung weiterer Funktionalitäten oder die Ausarbeitung weiterer Testfälle investiert werden. 
 
-#Testautomatisierung: wer sind die Akteure und was ist zu Automatisieren?
+# Testautomatisierung: wer sind die Akteure und was ist zu Automatisieren?
+
 Sowohl der Hauptstrang eines Prozesses einer umgesetzten Anforderung, als auch die Abweichungen, sollten getestet werden. 
 Durch den Austausch zwischen dem Product Owner, dem Testmanager und dem Entwicklungsteam wird entschieden, was für ein Testtyp sich am besten für die Umsetzungsüberprüfung einer Anforderung eignet. 
 Ein Happy Path Testfall (Das einfachste Szenario, in welcher ein Codeabschnitt funktionieren soll, ohne dass Ausnahmen oder Fehlerzustände eintreten.
@@ -86,10 +89,12 @@ Durch die Abnahme der Story werden wahrscheinlich Verhaltensabweichungen gefunde
 Wenn sich solche als Fehler erweisen und diese behoben worden sind, kann die Beseitigung des Fehlers durch einen E2E Testfall geprüft werden. 
 
 
-#Ausblick
+# Ausblick
+
 Ich hoffe, dass das Thema E2E Testautomatisierung angereizt wurde.
 Im folgenden Blog-Beitrag werden wir uns mit der Testausführung beschäftigen und paar Probleme ansprechen und eine Lösung vorstellen.
 Im zweiten Teil geht es um das Thema Testausführung weiter.
    
-#Quellen
+# Quellen
+
 1. Basiswissen Softwaretest, Spillner und Linz.

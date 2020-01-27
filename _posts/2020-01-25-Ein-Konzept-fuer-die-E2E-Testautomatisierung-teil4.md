@@ -8,6 +8,7 @@ categories: [Branchen & People]       # Pflichtfeld. Maximal eine der angegebene
 tags: [Testing, Softwarequalitätssicherung, Oberflächentests]                       # Optional.
 ---
 #Sich auf das Wesentliche konzentrieren 
+
 Nehmen wir folgendes Beispiel an: Ein Benutzer A mit Berechtigung BE01 ruft ein geschütztes Formular auf, das ohne die Berechtigung BE01 nicht abrufbar ist, und befüllt es mit  einem Datensatz.
 Ein Benutzer B entzieht währenddessen dem Benutzer A die Berechtigung BE01.
 Benutzer A bestätigt derweil seine Angaben und speichert die Änderungen.
@@ -22,6 +23,7 @@ Es sollte aber klar sein, dass das manuelle und automatisierte Testen nicht eine
      
 
 #Weitere Ergänzungsmittel für die Fehleranalyse
+
 Die Logausgaben liefern viele Informationen und Möglichkeit zum Nachstellen, jedoch können gegebenenfalls nicht alle notwendigen Informationen über die Logausgaben bereitgestellt werden.
 Bei UI-Tests kann es auch mal notwendig sein zu sehen, welches Textfeld gerade im Fokus ist.
 Hierzu können mit einem Screenshot im Fehlerfall weitere hilfreiche Informationen festgehalten werden. 
@@ -34,6 +36,7 @@ Je nach Technologie können Heapdumps beim Fehlerfall erzeugt und dem Entwickler
 Der Einsatz von den verschiedenen benannten Ergänzungsmitteln soll abgewägt werden.
 
 #Benachrichtigung über die Ergebnisse des Testdurchlaufs
+
 Eine Mitteilung über den Testdurchlauf und das Importieren von Ergebnissen in einem Archivierungssystem bzw. Ticketing System bietet den Teammitgliedern einen guten Überblick und kann wertvolle Zeit ersparen.
 Anstatt gezielt nach solchen Informationen an verschiedenen Orten zu suchen, kann eine Mitteilung bspw. eine Statistik über durchgelaufene Testfälle mit dem Ausführungsergebnis darstellen.
 Diese sollte eine Verknüpfung mit dem Testplan, der ausgeführten Pipeline und Informationen zur Testdurchführung enthalten.
@@ -47,6 +50,7 @@ Diese Schnelllebigkeit erfordert eine ständige Wartung und Anpassung der Testf�
 Jeder Entwickler, der den Logik oder die UI angepasst hat, soll die dazugehörigen Testfälle anpassen oder neue Testfälle automatisieren.
 
 #Testdaten zentral ablegen
+
 Wo die Testdaten gepflegt werden, wie realitätsnah und praxisbezogen sie sind, spiegelt sich in der Qualität und der Aussagekraft der Testautomatisierung wieder.
 In der Praxis ist die kontinuierliche Pflege der Testdaten meistens eine besondere Herausforderung, denn dabei werden die Testdaten wenigstens mittels einer Wikiseite und im Code instandgehalten.
 Somit kann es schnell vorkommen, dass die Testdatendokumentation und die Testdaten voneinander abweichen. 
@@ -57,18 +61,10 @@ Bevorzugt wird jedoch, wenn ein Testdatenspeicherort eine Hoheit hat und eine Ro
 Es werden beispielsweise die Testdaten im E2E Repository und die Wiki-Seite mit der initialen Testdaten im Backend-Repository synchronisiert. 
 
 #Fazit und Rückblick
+
 Ein durchdachtes Konzept für die Testautomatisierung ist ein wichtiger Bestandteil für eine flüssige Entwicklung, es ermöglicht ein schnelles Einarbeiten neuer Kolleg*Innen und kann wichtige Messwerte und Informationen über die Qualität der Software und das Erfüllen der Akzeptanzkriterien liefern.
 Durch die Ausführung der Testfälle zu einem bestimmten Zeitpunkt z.B. vor Arbeitsbeginn oder vor dem Mergen auf Master kann die Software stets auf Funktionalität geprüft werden. 
 Die Kosten für die Entwicklung und Wartung von E2E Test wird sich im Laufe des Projekts relativieren.
 Denn der Aufwand für das manuelle Testen steigt immer linear, anderes als E2E Testing.
 Die Entwicklung von E2E Tests ist am Anfang zeitaufwendiger, jedoch im Laufe des Projekts wird die Entwicklung, die Wartung und die Testpflege leichter auffallen.
 Gerade in Regressionstests und testgetriebene Entwicklung ist die Automatisierung häufig wiederholte Tests zu empfehlen.
-
-Referenzen und Literatur
-1, 5	Basiswissen Softwaretest , Spillner und LinZ
-2	https://velocity.apache.org/
-3	https://git-scm.com/
-4	Siehe Kontinuierliche Integration
-7	https://www.inflectra.com/SpiraTest/
-8	https://www.atlassian.com/de/software/jira
-

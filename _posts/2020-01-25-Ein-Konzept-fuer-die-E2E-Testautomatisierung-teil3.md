@@ -8,6 +8,7 @@ categories: [Branchen & People]       # Pflichtfeld. Maximal eine der angegebene
 tags: [Testing, Softwarequalitätssicherung, Oberflächentests]                       # Optional.
 ---
 #Code Generator
+
 Wie wir gesehen haben, entstehen Komplexere UIs meistens aus weniger komplexen UI Komponenten wie z.B. Bestätigungstasten oder Eingabefeldern.
 In der Praxis hat sich die Entwicklung eines Code Generators in Bezug auf die Erhöhung der Entwicklungsgeschwindigkeit bewährt.
 Solch ein Code Generator lässt sich hierfür mit wenigen Handgriffen konfigurieren. 
@@ -21,7 +22,7 @@ passwordTextField=//*[@id="passwordTextField"]
 loginButton=//*[@id="loginButton"]
 ```
 2. Und folgende Apache Veocity-Engine Template für das Erzeugen einer Page-Object-Klasse:
-```
+```bash
 // Generated from Code Generator
 import { AbstractPage } from "../UI/AbstractPage";
 export class $classModel.className.concat("Page") extends AbstractPage {
@@ -87,6 +88,7 @@ import { AbstractPage } from "../UI/AbstractPage";
 Weitere Klassen wie *TestData.ts* und *TestFall.ts* können auch ähnlich erzeugt werden.
    
 #Aussagekräftige Logausgabe
+
 Mit Hilfe von Logs lässt sich genau nachvollziehen,  mit welchen Elementen während der Ausführung interagiert und mit welchen Testdaten ein Prozess ausgeführt wurde.
 Ein gutes Log könnte so aussehen. 
 ```bash
@@ -107,6 +109,7 @@ Wenn dieser Abschnitt anderen Teammitgliedern weitergeben wird, dann sollten die
 Ein weiterer Vorteil einer aussagekräftigen Logausgabe ist, dass bei Auffälligkeiten die Logausgabe für die Nachstellung direkt mit dem Befund in einem Ticketsystem aufgenommen werden kann.
 
 #Testdokumentation und Aufgabenverwaltung
+
 Der Testdurchlauf und die Testergebnisse stellen wichtige Informationen über die Qualität der Software zur Verfügung und sollten daher in einem Test Management Tool bspw. Spira7 oder Jira8  archiviert werden.
 Ein zu einem bestimmten Zeitpunkt wiederholter automatisierter Durchlauf lässt die Qualität der Entwicklung anhand der Akzeptanzkriterien sicherstellen  und durch die Testergebnisse die Stabilität einzelner Komponenten in der Software und ggfs. die Fragilität der Automatisierung auch im Zeitverlauf überprüfen. 
 
@@ -127,6 +130,7 @@ Dadurch kann das Reporting und Exportieren von Statistiken vereinfacht werden.
 Dashboards und Statistiken können ebenfalls exportiert bzw. konfiguriert werden. 
 
 #Gute Arbeit ist eine gut dokumentierte Arbeit 
+
 Die Dokumentation ist ein wesentlicher Bestandteil der Entwicklung und ein Instrument des Wissenstransfers.
 Die Dokumentation sollte in einer Wiki-Software (bspw. Confluence) gepflegt werden und immer aktualisiert werden.
 Dort sollte ein Entwicklerleitfaden ausgearbeitet und die Infrastruktur beschrieben werden.
@@ -137,6 +141,7 @@ Ein weiterer Abschnitt soll für den Testmanager bzw. manuelle Tester dediziert 
 Dort wird in einer eher nicht technischen Sprache beschrieben wie z.B. Smoketests ausgeführt werden und wie die Tests mit einem bestimmten Release der Software ausgeführt werden können. 
 
 #Zurück zum Ursprung: Von der Feinspezifikation kann viel abstrahiert werden 
+
 Nach der Ausarbeitung der Feinspezifikation (im Vertragsrecht die genaue Bestimmung der Anforderungen des Auftraggebers an die Eigenschaften eines Systems) könnte ein Tool entwickelt und angewendet werden, die daraus Storys, Akzeptanzkriterien und Akzeptanzkriterien bezogene Template-Testfälle herleitet und benötigte Tickets erstellt, die verfeinert werden können. 
 Das Tool kann so aufgebaut sein, dass sie immer den aktuellen Stand aus den Testergebnissen, mit den Testfällen und den Akzeptanzkriterien in den Stories abgleicht.
 Dieser Abgleichung könnte kann einen Messwert über den umgesetzten Anforderungen anhand der Akzeptanzkriterien bereitstellen.
@@ -147,6 +152,7 @@ So ein maßgeschneidertes Tool hat den Nachteil, dass es erstmal entwickelt werd
  
  
 #Ausblick
+
 Wir haben gesehen, welche Vorteile einen Code Generator mit sich bringt und wie wir die Testergebnisse archivieren können.
 Die Integration zwischen Testergebnissen und eines Archivierungssystem können auch bei Unit-Tests.
 Die Logausgaben sind ein wichtiges Mittel für die Fehleranalyse.
