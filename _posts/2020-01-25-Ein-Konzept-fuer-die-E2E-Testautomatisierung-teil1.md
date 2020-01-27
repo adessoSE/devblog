@@ -1,8 +1,8 @@
 ---
 layout: [post, post-xml]                                    # Pflichtfeld. Nicht ändern!
 title:  "Ein Konzept für die E2E Testautomatisierung (Teil 1)"       # Pflichtfeld. Bitte einen Titel für den Blog Post angeben.
-date:   2020-01-07 09:00              # Pflichtfeld. Format "YYYY-MM-DD HH:MM". Muss für Veröffentlichung in der Vergangenheit liegen. (Für Preview egal)
-modified_date: 2020-01-07 09:00
+date:   2020-01-25 09:00              # Pflichtfeld. Format "YYYY-MM-DD HH:MM". Muss für Veröffentlichung in der Vergangenheit liegen. (Für Preview egal)
+modified_date: 2020-01-25 09:00
 author: andernach                      # Pflichtfeld. Es muss in der "authors.yml" einen Eintrag mit diesem Namen geben.
 categories: [Branchen & People]       # Pflichtfeld. Maximal eine der angegebenen Kategorien verwenden.
 tags: [Testing, Softwarequalitätssicherung, Oberflächentests]                       # Optional.
@@ -22,6 +22,7 @@ Solche Aussagen können mit einem gut erarbeiteten Konzept relativiert werden.
 
 Im Folgenden werden Aspekte dargestellt, die im Rahmen der Realisierung eines umfangreichen Software-Projekts ausgearbeitet wurden.
 Wir werden uns mit praxisnahen technischen und organisatorische Guidelines vertraut machen und bewahrten Werkzeugen und Vorgehensweisen kennenlernen bzw. ans Rampenlicht bringen, die die Entwicklung und die Pflege von automatisierten E2E Tests erleichtert und vereinfacht.
+
 Die Guidelines sind möglichst von einander getrennt und bieten in Gesamtheit eine gute Basis für das automatisierte Testen.
 Somit können sie sowohl am Projektanfang als auch in einem laufenden Projekt umgesetzt werden.
 
@@ -32,6 +33,7 @@ Die Anwendungsentwicklung und die Umgebungsentwicklung sind wahrscheinlich vonei
 
 Eine gut durchgedachte Struktur ist für die Entwicklung eines Tests notwendig.
 Eine Struktur, die die grafische Benutzeroberfläche (UI) Darstellung, UI Logik und Testdaten voneinander trennt, erleichtert die parallele Entwicklung und macht einen Code wesentlich wartbarer, als einen Boiler Plate-Code (Die Codeabschnitte, die an vielen Stellen in mehr oder weniger unveränderter Forum benötigt werden).
+
 Denn ein Boiler Plate-Code könnte auf Anhieb durch das Kopieren und Hinzufügen von Codeabschnitten schnelle Ergebnisse liefern, würde aber auf Dauer kostspieliger in der Wartung sein. 
 Beispielhaft wird im Folgenden eine einfache Login Seite mit zwei Textfeldern für Nutzername und Passwort sowie einem Button für den Login und ein Button für die Registrierung getestet.
 ![Vorgeschlagene Struktur](/assets/images/posts/konzept-fuer-die-e2e-testautomatisierung/struktur.png)      

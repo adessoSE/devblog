@@ -1,13 +1,13 @@
 ---
 layout: [post, post-xml]                                    # Pflichtfeld. Nicht ändern!
 title:  "Ein Konzept für die E2E Testautomatisierung (Teil 3)"       # Pflichtfeld. Bitte einen Titel für den Blog Post angeben.
-date:   2020-01-07 09:00              # Pflichtfeld. Format "YYYY-MM-DD HH:MM". Muss für Veröffentlichung in der Vergangenheit liegen. (Für Preview egal)
-modified_date: 2020-01-07 09:00
+date:   2020-01-25 09:00              # Pflichtfeld. Format "YYYY-MM-DD HH:MM". Muss für Veröffentlichung in der Vergangenheit liegen. (Für Preview egal)
+modified_date: 2020-01-25 09:00
 author: andernach                      # Pflichtfeld. Es muss in der "authors.yml" einen Eintrag mit diesem Namen geben.
 categories: [Branchen & People]       # Pflichtfeld. Maximal eine der angegebenen Kategorien verwenden.
 tags: [Testing, Softwarequalitätssicherung, Oberflächentests]                       # Optional.
 ---
-#Code Generator
+# Code Generator
 
 Wie wir gesehen haben, entstehen Komplexere UIs meistens aus weniger komplexen UI Komponenten wie z.B. Bestätigungstasten oder Eingabefeldern.
 In der Praxis hat sich die Entwicklung eines Code Generators in Bezug auf die Erhöhung der Entwicklungsgeschwindigkeit bewährt.
@@ -22,7 +22,8 @@ passwordTextField=//*[@id="passwordTextField"]
 loginButton=//*[@id="loginButton"]
 ```
 2. Und folgende Apache Veocity-Engine Template für das Erzeugen einer Page-Object-Klasse:
-```bash
+
+```
 // Generated from Code Generator
 import { AbstractPage } from "../UI/AbstractPage";
 export class $classModel.className.concat("Page") extends AbstractPage {
@@ -52,6 +53,7 @@ public async getValueOf$prefix (){
 ```
 
 3. können wir die LoginPage Klasse erzeugen:
+
 ```typescript
 import { AbstractPage } from "../UI/AbstractPage";
  export class LoginPage extends AbstractPage {
@@ -87,7 +89,7 @@ import { AbstractPage } from "../UI/AbstractPage";
 ```
 Weitere Klassen wie *TestData.ts* und *TestFall.ts* können auch ähnlich erzeugt werden.
    
-#Aussagekräftige Logausgabe
+# Aussagekräftige Logausgabe
 
 Mit Hilfe von Logs lässt sich genau nachvollziehen,  mit welchen Elementen während der Ausführung interagiert und mit welchen Testdaten ein Prozess ausgeführt wurde.
 Ein gutes Log könnte so aussehen. 
@@ -104,11 +106,10 @@ Client wird gestartet fuer max_mustermann
    Call method:  click("//*[@id=\"login-button\"]")
 ```
 
-Abbildung 7 So kann eine gute Logausgabe aussehen
 Wenn dieser Abschnitt anderen Teammitgliedern weitergeben wird, dann sollten die in der Lage sein, den Abschnitt auszuführen und nachzustellen.
 Ein weiterer Vorteil einer aussagekräftigen Logausgabe ist, dass bei Auffälligkeiten die Logausgabe für die Nachstellung direkt mit dem Befund in einem Ticketsystem aufgenommen werden kann.
 
-#Testdokumentation und Aufgabenverwaltung
+# Testdokumentation und Aufgabenverwaltung
 
 Der Testdurchlauf und die Testergebnisse stellen wichtige Informationen über die Qualität der Software zur Verfügung und sollten daher in einem Test Management Tool bspw. Spira7 oder Jira8  archiviert werden.
 Ein zu einem bestimmten Zeitpunkt wiederholter automatisierter Durchlauf lässt die Qualität der Entwicklung anhand der Akzeptanzkriterien sicherstellen  und durch die Testergebnisse die Stabilität einzelner Komponenten in der Software und ggfs. die Fragilität der Automatisierung auch im Zeitverlauf überprüfen. 
@@ -125,22 +126,26 @@ public void stammdatenSolltenFuerEinenBerichtigenNutzerAngezeigtWerden() {
 } 
 ```
 Mit [Xray Test Management for Jira](https://marketplace.atlassian.com/apps/1211769/xray-test-management-for-jira?hosting=cloud&tab=overview) können die Testergebnisse auch direkt in Jira importiert werden.
+
+
 Ein weiterer Vorteil der Ergebnisarchivierung über genannte Tools ist, dass sie ein zentrales System für die Dokumentation von manuell und automatisiert ausgeführten Testfällen anbieten.
 Dadurch kann das Reporting und Exportieren von Statistiken vereinfacht werden.
 Dashboards und Statistiken können ebenfalls exportiert bzw. konfiguriert werden. 
 
-#Gute Arbeit ist eine gut dokumentierte Arbeit 
+# Gute Arbeit ist eine gut dokumentierte Arbeit 
 
 Die Dokumentation ist ein wesentlicher Bestandteil der Entwicklung und ein Instrument des Wissenstransfers.
 Die Dokumentation sollte in einer Wiki-Software (bspw. Confluence) gepflegt werden und immer aktualisiert werden.
 Dort sollte ein Entwicklerleitfaden ausgearbeitet und die Infrastruktur beschrieben werden.
 Alle relevanten Links zu Repositories, Pipeline und eventuell Team-Board sollten dort einfach zu finden sein.
 Am besten wird die Dokumentation in zwei Abschnitte aufgeteilt.
+
+
 Ein technischer Abschnitt für das Entwicklungsteam, wo unter anderem beschrieben wird, wie die Tests aufgebaut sind, wie einen Test geschrieben wird und was während der Entwicklung zu beachten ist. 
 Ein weiterer Abschnitt soll für den Testmanager bzw. manuelle Tester dediziert werden.
 Dort wird in einer eher nicht technischen Sprache beschrieben wie z.B. Smoketests ausgeführt werden und wie die Tests mit einem bestimmten Release der Software ausgeführt werden können. 
 
-#Zurück zum Ursprung: Von der Feinspezifikation kann viel abstrahiert werden 
+# Zurück zum Ursprung: Von der Feinspezifikation kann viel abstrahiert werden 
 
 Nach der Ausarbeitung der Feinspezifikation (im Vertragsrecht die genaue Bestimmung der Anforderungen des Auftraggebers an die Eigenschaften eines Systems) könnte ein Tool entwickelt und angewendet werden, die daraus Storys, Akzeptanzkriterien und Akzeptanzkriterien bezogene Template-Testfälle herleitet und benötigte Tickets erstellt, die verfeinert werden können. 
 Das Tool kann so aufgebaut sein, dass sie immer den aktuellen Stand aus den Testergebnissen, mit den Testfällen und den Akzeptanzkriterien in den Stories abgleicht.
@@ -151,7 +156,7 @@ Infolgedessen können erste Release Notes für das jeweilige Release automatisch
 So ein maßgeschneidertes Tool hat den Nachteil, dass es erstmal entwickelt werden soll.
  
  
-#Ausblick
+# Ausblick
 
 Wir haben gesehen, welche Vorteile einen Code Generator mit sich bringt und wie wir die Testergebnisse archivieren können.
 Die Integration zwischen Testergebnissen und eines Archivierungssystem können auch bei Unit-Tests.
