@@ -75,7 +75,7 @@ Beispielsweise durch das Benutzen von Fluent Interface können die Testdaten als
 Das erhöht die Codelesbarkeit.
 
 Andere Dateien wie *TestData.ts* und *TestFall.ts* können auch über ein geeignetes Template erzeugt werden.
-Der Vorteil eines Generators nebst Zeitersparnis ist, dass die generierte Klassen (TestData, TestFall, Page-Object Klasse…) einheitlich aufgebaut sind und sich ähneln.
+Der Vorteil eines Code Generators (mehr dazu im dritten Teil) nebst Zeitersparnis ist, dass die generierte Klassen (TestData, TestFall, Page-Object Klasse…) einheitlich aufgebaut sind und sich ähneln.
 Die Einarbeitung neuer KollegInnen wird dadurch erleichtert.
 Der Entwickler kann sich auf das Wesentliche konzentrieren und die hierdurch gesparte Zeit kann in die Implementierung weiterer Funktionalitäten oder die Ausarbeitung weiterer Testfälle investiert werden. 
 
