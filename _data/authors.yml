@@ -240,3 +240,11 @@ smsnheck:
   bio: "Sebastian ist Teamleiter bei adesso und beschäftigt sich gerne mit Themen aus dem Umfeld der agilen Softwareentwicklung."
   avatar_url: /assets/images/avatars/smsnheck.jpg
   github: https://github.com/smsnheck
+
+andernach:
+  first_name: Fouad
+  last_name: Andernach
+  github_username: andernach
+  email: fouad.andernach@adesso.de
+  bio: "Fouad ist Software Engineer bei adesso und Er arbeitet in verschiedenen Projekten im Java Umfeld."
+  github: https://github.com/andernach
