@@ -1,16 +1,16 @@
 ---
-layout: [post, post-xml]                                    # Pflichtfeld. Nicht ändern!
-title:  "Ein Konzept für die E2E Testautomatisierung (Teil 2)"       # Pflichtfeld. Bitte einen Titel für den Blog Post angeben.
-date:   2020-01-25 09:00              # Pflichtfeld. Format "YYYY-MM-DD HH:MM". Muss für Veröffentlichung in der Vergangenheit liegen. (Für Preview egal)
+layout: [post, post-xml]                                                # Pflichtfeld. Nicht ändern!
+title:  "Ein Konzept für die E2E Testautomatisierung (Teil 2)"          # Pflichtfeld. Bitte einen Titel für den Blog Post angeben.
+date:   2020-01-25 09:00                                                # Pflichtfeld. Format "YYYY-MM-DD HH:MM". Muss für Veröffentlichung in der Vergangenheit liegen. (Für Preview egal)
 modified_date: 2020-01-25 09:00
-author: andernach                      # Pflichtfeld. Es muss in der "authors.yml" einen Eintrag mit diesem Namen geben.
-categories: [Branchen & People]       # Pflichtfeld. Maximal eine der angegebenen Kategorien verwenden.
-tags: [Testing, Softwarequalitätssicherung, Oberflächentests]                       # Optional.
+author: andernach                                                       # Pflichtfeld. Es muss in der "authors.yml" einen Eintrag mit diesem Namen geben.
+categories: [Branchen & People]                                         # Pflichtfeld. Maximal eine der angegebenen Kategorien verwenden.
+tags: [Testing, Softwarequalitätssicherung, Oberflächentests]           # Optional.
 ---
-
 # Ausgangszustand der Testinfrastruktur wiederherstellen
 
 Im Idealfall wird für die Ausführung der E2E Tests eine neu erstellte Testinfrastruktur (Eine Infrastruktur, die der Endnutzer als Softwarelösung benutzen wird; hier sind sowohl die Bedienoberfläche als auch die Backend-Systeme gemeint) aufgesetzt und die Tests laufen gegen eine möglichst eine unangetastete Umgebung (Backendsysteme).
+
 Da das Vorgehen meistens aufgrund des Bauens der Umgebung viel Zeit in Anspruch nimmt, wird in der Praxis der Einsatz einer bereits gebauten Umgebung favorisiert, auf der eventuell mehrere Teammitglieder testen und Änderungen vornehmen können.
 
 
@@ -48,7 +48,7 @@ Es sollte zudem möglich sein, dass die E2E-Testfälle nur bei Änderungen in UI
 ![Pipeline Stages](/assets/images/posts/konzept-fuer-die-e2e-testautomatisierung/pipeline.png)      
 
 
-Die Ausführung der Testfälle gegen ein bestimmtes Release3, das letzte Release, den letzten Entwicklungsstand (Masterstand) oder auch gegen einen Commit kann von Vorteil sein.
+Die Ausführung der Testfälle gegen ein bestimmtes Release, das letzte Release, den letzten Entwicklungsstand (Masterstand) oder auch gegen einen Commit kann von Vorteil sein.
 Bei Letzterem könnten die vorgenommenen Änderungen zu Regressionsfehler führen, die dadurch bereits vor dem Mergen erkannt werden können.
 
 

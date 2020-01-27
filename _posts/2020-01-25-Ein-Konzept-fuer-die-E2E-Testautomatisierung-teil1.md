@@ -1,11 +1,11 @@
 ---
-layout: [post, post-xml]                                    # Pflichtfeld. Nicht ändern!
-title:  "Ein Konzept für die E2E Testautomatisierung (Teil 1)"       # Pflichtfeld. Bitte einen Titel für den Blog Post angeben.
-date:   2020-01-25 09:00              # Pflichtfeld. Format "YYYY-MM-DD HH:MM". Muss für Veröffentlichung in der Vergangenheit liegen. (Für Preview egal)
+layout: [post, post-xml]                                                # Pflichtfeld. Nicht ändern!
+title:  "Ein Konzept für die E2E Testautomatisierung (Teil 1)"          # Pflichtfeld. Bitte einen Titel für den Blog Post angeben.
+date:   2020-01-25 09:00                                                # Pflichtfeld. Format "YYYY-MM-DD HH:MM". Muss für Veröffentlichung in der Vergangenheit liegen. (Für Preview egal)
 modified_date: 2020-01-25 09:00
-author: andernach                      # Pflichtfeld. Es muss in der "authors.yml" einen Eintrag mit diesem Namen geben.
-categories: [Branchen & People]       # Pflichtfeld. Maximal eine der angegebenen Kategorien verwenden.
-tags: [Testing, Softwarequalitätssicherung, Oberflächentests]                       # Optional.
+author: andernach                                                       # Pflichtfeld. Es muss in der "authors.yml" einen Eintrag mit diesem Namen geben.
+categories: [Branchen & People]                                         # Pflichtfeld. Maximal eine der angegebenen Kategorien verwenden.
+tags: [Testing, Softwarequalitätssicherung, Oberflächentests]           # Optional.
 ---
 
 Nach den allgemeinen Prinzipien des Softwaretestens sollten die Tests die Anwesenheit von Fehlern anzeigen.
@@ -13,8 +13,11 @@ Keine Fehler zu finden bedeutet, dass ein brauchbares System vorliegt<sup>1</sup
 Die Erfüllung dieser Akzeptanzkriterien sollen über den gesamten Entwicklungszeitraum wiederholt getestet.
 
 Hierbei gibt es verschiedene eingesetzte Prüftechniken und Testverfahren wie z.B. das manuelle Testen oder auch das sogenannte End to End Testing (E2E), die die Anwesenheit von Fehlern anzeigen und die angemessene Erfüllung der Anforderungen aus einer funktionalen Sicht der Anwender sicherstellen.
+
 Das E2E Testing bietet die Möglichkeit, dass das gesamte Softwareprodukt anhand produktionsähnliche Szenarien vom Anfang bis zum Ende automatisiert getestet wird, um sicherzustellen, dass sich der Anwendungsfluss wie erwartet verhält.
+
 Somit ist das E2E Testautomatisierung ein benutzernahes Testvorgehen und eine sehr gute Alternative zum manuellen testen, wenn das E2E Testing adäquat umgesetzt ist.
+
 Im Vergleich zum manuellen Testen können automatisierten E2E Tests automatisiert und wiederholt ausgeführt werden, erfordern keine geschulten Testern oder menschliches Eingreifen und lassen sich im gesamten Entwicklungsprozess des Softwareprodukts besser integrieren.
 
 Es gibt jedoch viele die meinen, dass eine gute End to End Testabdeckung in der Praxis kaum möglich sei und die Automatisierung der Testfälle viel Zeit in Anspruch nehme.
@@ -28,6 +31,7 @@ Somit können sie sowohl am Projektanfang als auch in einem laufenden Projekt um
 
 Wir werden uns mit einer Softwarelösung beschäftigen, die aus einer Bedienoberfläche (fortan die Anwendung) und den Backendsysteme (fortan Umgebung) besteht.
 Die Anwendungsentwicklung und die Umgebungsentwicklung sind wahrscheinlich voneinander losgelöst. 
+
 
 # Testaufbau
 
@@ -64,6 +68,7 @@ Durch die Umsetzung dieser Denkweise kann der Entwickler im Allgemeinen die Test
 
 Die Umsetzung von  Page-Object Pattern (Ein Page-Objekt Klasse umschließt eine HTML-Seite mit einer anwendungsspezifischen API, sodass es mit den UI-Elementen interagiert werden kann, ohne direkt den HTML-Code zu benutzen) ist empfehlenswert.
 Diese Page-Object Klasse enthält:
+
 •	Eine passende Benennung für das UI-Element.
 •	Dessen Pfaden (Die Positionierung eines UI Elements im Verhältnis zu anderen DOM Elementen),
 •	oder Selektoren (jedes UI Elements hat eigene Merkmale, die es von anderen UI Elementen hervorhebt. In diesem Artikel sind Abfrage gemeint, die das Element auswählen lässt).
@@ -72,19 +77,23 @@ Wir werden uns im zweiten Teil unter (Gut benannte Ids sind für das Testing) me
 
 Die investierte Zeit der Modulierung und Benutzung von *Page-Object Pattern* lohnt sich spätestens dann, wenn eine UI Änderung stattfindet oder bestimmte zentrale Datensätze angepasst werden sollen.
 Anstatt auf verschiedenen Stellen eine Anpassung vorzunehmen, genügt meistens die Änderung an einer Stelle.
+
 Die Anwendung nützlicher Werkzeuge wie Entwurfsmusters bietet erprobte Lösungen für wiederkehrende Probleme.
 Beispielsweise durch das Benutzen von Fluent Interface können die Testdaten als Objekte einer geeigneten Methode als ein Parameter anstatt viele Parameter übergeben werden.
 Das erhöht die Codelesbarkeit.
 
 Andere Dateien wie *TestData.ts* und *TestFall.ts* können auch über ein geeignetes Template erzeugt werden.
 Der Vorteil eines Code Generators (mehr dazu im dritten Teil) nebst Zeitersparnis ist, dass die generierte Klassen (TestData, TestFall, Page-Object Klasse…) einheitlich aufgebaut sind und sich ähneln.
+
 Die Einarbeitung neuer KollegInnen wird dadurch erleichtert.
 Der Entwickler kann sich auf das Wesentliche konzentrieren und die hierdurch gesparte Zeit kann in die Implementierung weiterer Funktionalitäten oder die Ausarbeitung weiterer Testfälle investiert werden. 
+
 
 # Testautomatisierung: wer sind die Akteure und was ist zu Automatisieren?
 
 Sowohl der Hauptstrang eines Prozesses einer umgesetzten Anforderung, als auch die Abweichungen, sollten getestet werden. 
 Durch den Austausch zwischen dem Product Owner, dem Testmanager und dem Entwicklungsteam wird entschieden, was für ein Testtyp sich am besten für die Umsetzungsüberprüfung einer Anforderung eignet. 
+
 Ein Happy Path Testfall (Das einfachste Szenario, in welcher ein Codeabschnitt funktionieren soll, ohne dass Ausnahmen oder Fehlerzustände eintreten.
 siehe [Testpfad](https://de.wikipedia.org/wiki/Testpfad)) sollte jedoch auch als ein E2E Test automatisiert werden.
 Durch die Abnahme der Story werden wahrscheinlich Verhaltensabweichungen gefunden.
@@ -96,6 +105,7 @@ Wenn sich solche als Fehler erweisen und diese behoben worden sind, kann die Bes
 Ich hoffe, dass das Thema E2E Testautomatisierung angereizt wurde.
 Im folgenden Blog-Beitrag werden wir uns mit der Testausführung beschäftigen und paar Probleme ansprechen und eine Lösung vorstellen.
 Im zweiten Teil geht es um das Thema Testausführung weiter.
+   
    
 # Quellen
 
