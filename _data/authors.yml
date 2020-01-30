@@ -240,3 +240,13 @@ smsnheck:
   bio: "Sebastian ist Teamleiter bei adesso und beschäftigt sich gerne mit Themen aus dem Umfeld der agilen Softwareentwicklung."
   avatar_url: /assets/images/avatars/smsnheck.jpg
   github: https://github.com/smsnheck
+
+janschneider1:
+  first_name: Jan
+  last_name: Schneider
+  github_username: JanSchneider1
+  email: jan.schneider@adesso.de
+  bio: "Jan Schneider ist angehender Softwareentwickler bei adesso und im Open-Source-Team als dualer Student tätig."
+  avatar_url: /assets/images/avatars/jschneider.jpg
+  github: https://github.com/JanSchneider1
+
