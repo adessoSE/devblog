@@ -1,6 +1,6 @@
 ---
 layout: [post, post-xml]                                                # Pflichtfeld. Nicht ändern!
-title:  "Ein Konzept für die E2E Testautomatisierung (Teil 1)"          # Pflichtfeld. Bitte einen Titel für den Blog Post angeben.
+title:  "Die End to End Testautomatisierung: wie geht das denn? (Teil 1)"          # Pflichtfeld. Bitte einen Titel für den Blog Post angeben.
 date:   2020-01-25 09:00                                                # Pflichtfeld. Format "YYYY-MM-DD HH:MM". Muss für Veröffentlichung in der Vergangenheit liegen. (Für Preview egal)
 modified_date: 2020-01-25 09:00
 author: andernach                                                       # Pflichtfeld. Es muss in der "authors.yml" einen Eintrag mit diesem Namen geben.
@@ -66,19 +66,21 @@ So können Testfälle für einzelne Bereiche (bspw. Stammdaten) eine Testsuite (
 Die Einführung von OOP Konzepten, insbesondere Klassen, Vererbung und Polymorphie, erhöht nicht nur die Wiederverwendbarkeit, sondern auch die Wartbarkeit und die Lesbarkeit des Testfall-Codes.
 Durch die Umsetzung dieser Denkweise kann der Entwickler im Allgemeinen die Testfälle effizienter automatisieren und der Testmanager die Aufgaben auf die Entwickler besser parallelisieren. 
 
-Die Umsetzung von  Page-Object Pattern (Ein Page-Objekt Klasse umschließt eine HTML-Seite mit einer anwendungsspezifischen API, sodass es mit den UI-Elementen interagiert werden kann, ohne direkt den HTML-Code zu benutzen) ist empfehlenswert.
+Die Umsetzung von Page-Object Pattern  ist empfehlenswert.
+Eine Page-Objekt Klasse umschließt eine HTML-Seite mit einer anwendungsspezifischen API, sodass es mit den UI-Elementen interagieren kann, ohne direkt den HTML-Code zu benutzen.
 Diese Page-Object Klasse enthält:
 
-•	Eine passende Benennung für das UI-Element.
-•	Dessen Pfaden (Die Positionierung eines UI Elements im Verhältnis zu anderen DOM Elementen),
-•	oder Selektoren (jedes UI Elements hat eigene Merkmale, die es von anderen UI Elementen hervorhebt. In diesem Artikel sind Abfrage gemeint, die das Element auswählen lässt).
+•	Eine passende Benennung für das UI-Element ```loginButton= ```.
+•	Und einen Zugreifer (oder Selektor): Jedes UI Elements hat eigene Merkmale, die es von anderen UI Elementen hervorhebt.
+Die Merkmalen können beispielsweise die Attribute (Id oder data-id), die Elementpositionierung im DOM Baum einer HTML-Seite, bestimmte angewendete CSS-Klassen oder auch ein Text sein. 
+In diesem Artikel die Abfrage gemeint, die das Element auswählen lässt. 
 
-Wir werden uns im zweiten Teil unter (Gut benannte Ids sind für das Testing) mehr damit beschäftigen.
+Weitere Informationen weden im zweiten Blog-Eintrag dieser Serie dargestellt.
 
 Die investierte Zeit der Modulierung und Benutzung von *Page-Object Pattern* lohnt sich spätestens dann, wenn eine UI Änderung stattfindet oder bestimmte zentrale Datensätze angepasst werden sollen.
 Anstatt auf verschiedenen Stellen eine Anpassung vorzunehmen, genügt meistens die Änderung an einer Stelle.
 
-Die Anwendung nützlicher Werkzeuge wie Entwurfsmusters bietet erprobte Lösungen für wiederkehrende Probleme.
+Die Anwendung nützlicher Werkzeuge wie Entwurfsmustern bieten erprobte Lösungen für wiederkehrende Probleme.
 Beispielsweise durch das Benutzen von Fluent Interface können die Testdaten als Objekte einer geeigneten Methode als ein Parameter anstatt viele Parameter übergeben werden.
 Das erhöht die Codelesbarkeit.
 
@@ -89,7 +91,7 @@ Die Einarbeitung neuer KollegInnen wird dadurch erleichtert.
 Der Entwickler kann sich auf das Wesentliche konzentrieren und die hierdurch gesparte Zeit kann in die Implementierung weiterer Funktionalitäten oder die Ausarbeitung weiterer Testfälle investiert werden. 
 
 
-# Testautomatisierung: wer sind die Akteure und was ist zu Automatisieren?
+# Testautomatisierung: wer sind die Akteure und was ist zu automatisieren?
 
 Sowohl der Hauptstrang eines Prozesses einer umgesetzten Anforderung, als auch die Abweichungen, sollten getestet werden. 
 Durch den Austausch zwischen dem Product Owner, dem Testmanager und dem Entwicklungsteam wird entschieden, was für ein Testtyp sich am besten für die Umsetzungsüberprüfung einer Anforderung eignet. 
@@ -102,9 +104,8 @@ Wenn sich solche als Fehler erweisen und diese behoben worden sind, kann die Bes
 
 # Ausblick
 
-Ich hoffe, dass das Thema E2E Testautomatisierung angereizt wurde.
-Im folgenden Blog-Beitrag werden wir uns mit der Testausführung beschäftigen und paar Probleme ansprechen und eine Lösung vorstellen.
-Im zweiten Teil geht es um das Thema Testausführung weiter.
+Der hier dargelegte Bolg-Beitrag soll als Einstieg in das Thema E2E Testautomatisierung dienen.
+In den folgenden Bolg-Beiträgen wird die Testausführung beschrieben und es werden Herausforderungen mit zugehörigen Lösungsansätzen vorgestellt.
    
    
 # Quellen
