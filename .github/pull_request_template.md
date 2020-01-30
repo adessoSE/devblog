@@ -13,6 +13,7 @@ Wenn du einen Pull-Request stellst, teile uns bitte deine Änderungen mit, indem
 - **Text** (abzuhaken durch den Autor)
   - [ ] [Teaser entspricht den Vorgaben](https://github.com/adessoAG/devblog/blob/master/examples/2017-08-10-blog-post-guide.md#einleitung--teaser)
   - [ ] Rechtschreibung korrigiert
+  - [ ] [Ein Satz pro Zeile](https://github.com/adessoAG/devblog/blob/master/examples/2017-08-10-blog-post-guide.md#ein-satz-pro-zeile)
   - [ ] [Bilder sind korrekt in den Artikel eingebunden](https://github.com/adessoAG/devblog/blob/master/examples/2017-08-10-blog-post-guide.md#bilder)
   - [ ] [Überschriften entsprechen den Vorgaben](https://github.com/adessoAG/devblog/blob/master/examples/2017-08-10-blog-post-guide.md#%C3%9Cberschriften)
   - [ ] Code-Snippets wurden mit [Syntax Highlighting](https://github.com/adessoAG/devblog/blob/master/examples/2017-08-10-blog-post-guide.md#syntax-highlighting) versehen
@@ -20,6 +21,7 @@ Wenn du einen Pull-Request stellst, teile uns bitte deine Änderungen mit, indem
 - **Review** (abzuhaken durch den Reviewer)
   - [ ] Rechtschreibung korrigiert
   - [ ] Der Artikel wurde in der [Vorschau](https://github.com/adessoAG/devblog/blob/master/examples/2017-08-10-blog-post-guide.md#online-preview) geprüft 
+  - [ ] Der Autor ist bei CCO hinterlegt
   - [ ] CCO wurde über neuen Artikel informiert
   - [ ] Date-Angaben 
     - [ ] stimmen im Header und im Dateinamen überein
