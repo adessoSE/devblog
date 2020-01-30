@@ -1,43 +1,24 @@
 ---
 layout: [post, post-xml]              # Pflichtfeld. Nicht ändern!
 title:  "Griff in die Werkzeugkiste: Eine Toolchain für React"         # Pflichtfeld. Bitte einen Titel für den Blog Post angeben.
-date:   2019-08-29 12:30              # Pflichtfeld. Format "YYYY-MM-DD HH:MM". Muss für Veröffentlichung in der Vergangenheit liegen. (Für Preview egal)
-modified_date: 2019-08-29 12:30             # Optional. Muss angegeben werden, wenn eine bestehende Datei geändert wird.
+date:   2020-01-30 10:30              # Pflichtfeld. Format "YYYY-MM-DD HH:MM". Muss für Veröffentlichung in der Vergangenheit liegen. (Für Preview egal)
+modified_date: 2020-01-30 10:30             # Optional. Muss angegeben werden, wenn eine bestehende Datei geändert wird.
 author: janschneider1                     # Pflichtfeld. Es muss in der "authors.yml" einen Eintrag mit diesem Namen geben.
 categories: [Softwareentwicklung]                    # Pflichtfeld. Maximal eine der angegebenen Kategorien verwenden.
-tags: [React, Toolchain, Node]         # Bitte auf Großschreibung achten.
+tags: [Toolchain, React, JavaScript, Node]         # Bitte auf Großschreibung achten.
 ---
 
-React ist eine der beliebtesten Frontend-Technologien - In diesem Blog-Post erfährst du, was React ist und wie du direkt mit der React-Entwicklung anfangen kannst.
-Dabei bauen wir eine kleine Toolchain für React mit verschiedenen NPM Modulen und befassen uns mit der Übersetzung, Zusammenfassung, und Verkleinerung von JavaScript-Dateien.
+Eine Toolchain bringt Flexibilität und macht uns das Leben als Entwickler einfacher - In diesem Blog-Post bauen wir zusammen eine Toolchain für die beliebte Frontend-Technologie React. 
+Dabei schauen wir uns an was eine Toolchain ist und wie wir sie nutzen können, um unseren Workflow mit React zu optimieren.
 
-# Was ist React überhaupt?
+# Was ist React?
 
-React ist eine JS-Bibliothek, welche es dir ermöglich interaktive Userinterfaces für Webanwendungen zu schreiben.
-Dabei lassen sich unteranderem eigene Komponenten leicht, mit Hilfe von JSX (JavaScriptXML), in einer "HTML-artigen" Syntax beschreiben.
-Wenn du direkt mehr über weitere Konzepte und Funktionen von React lernen möchtest, empfehle ich dir die [React Dokumentation](https://reactjs.org/docs/hello-world.html) anzuschauen.
+React ist eine JavaScript-Bibliothek, die es uns ermöglich interaktive Userinterfaces für Webanwendungen zu entwickeln.
+Wir können mit React eigene UI-Komponenten mit JSX (JavaScriptXML), in einer HTML-artigen Syntax, schreiben.
 
-```jsx
-class HelloWorld extends React.Component{
-    render(){
-        return (
-            // JSX
-            <div>
-              <p>Hello World!</p>
-            </div>
-        );
-    }
-}
-
-// 'HelloWorld'-Komponente wird an das HTML-Element mit ID 'app' gebunden
-reactDOM.render(<HelloWorld/>, document.getElementByID('app'));
-```
-
-# Ich will React direkt ausprobieren!
-
-Wenn du React einfach mal ausprobieren willst, kannst du React und JSX einfach über CDN's ("Content-Delivery-Network") einbinden.
-Dabei bindest du einmal die React Bibliothek, als auch den ReactDOM ein. Babel ist dabei ein JavaScript-Transpiler, der uns ermöglicht JSX zu benutzen.
-Ein Transpiler übersetzt dabei eine Sprache bzw. eine bestimmte Syntax in unserem Fall JSX in eine andere Programmiersprache hier JavaScript.
+Um React zu nutzen, können wir die benötigten Script-Dateien über CDN's ("Content-Delivery-Network"), welche die Dateien zur Verfügung stellen, einbinden.
+Wir müssen dazu die React Bibliothek, als auch den virtuellen ReactDOM einbinden. Ebenso müssen wir Babel, einen JavaScript-Transpiler, einbinden.
+Ein Transpiler übersetzt eine Sprache in eine andere Programmiersprache, dadurch können wir JSX nutzen.
 
 ```html
 <!-- React und ReactDOM -->
@@ -48,83 +29,90 @@ Ein Transpiler übersetzt dabei eine Sprache bzw. eine bestimmte Syntax in unser
 <script src="https://unpkg.com/babel-standalone@6/babel.min.js"/>
 ```
 
-Auch kann du dir eine vollständige Anwendung auf Basis von React und Node.js direkt mit einem Commandozeilenbefehl erstellen lassen, schaue dir dafür das Project [create-react-app](https://github.com/facebook/create-react-app) an.
+Mehr über die Funktionen und Konzepte von React kannst du in dir in der [React Dokumentation](https://reactjs.org/docs/hello-world.html) ansehen
+oder dir mit dem Projekt [create-react-app](https://github.com/facebook/create-react-app) direkt eine vollständige Anwendung generieren lassen.
 
 # Was ist eine Toolchain und wieso könnten wir eine brauchen?
 
 Durch eine Toolchain (engl. "Werkzeugkette") ist es möglich mehrere Tools und Technologien miteinander zu verknüpfen.
 Eine Toolchain **strukturiert und vereinfacht Entwicklungs- und Buildprozesse** und bietet **Flexibilität**, da sich verschiedene Prozesse und Technologien einfach "anketten" lassen.
 
-Im Vergleich zu den oben gennante Implementierungsmethoden für React würde uns eine Toolchain folgendes ermöglichen:
+React sowie wie oben über CDN's zu nutzen ist einfach, aber die Implementierung einer Toolchain verschafft uns folgende Vorteile:
 - **Freie Wahl an Tools und Technologien**, sowie die Anknüpfung weiterer z.B. JavaScript-Minifizierer
 - **Verkürzte Ladezeiten**, da der Client weniger Scripte anfordern muss (Verzicht auf CDN's)
-- **Performancegewinn**, da Babel nicht mehr clientseitig, sondern einmalig pro Buildprozess auf dem Server durchgeführt wird
+- **Performancegewinn**, da Babel nicht mehr clientseitig, sondern einmalig pro Buildprozess auf dem Server durchgeführt werden kann
 
 # Komm wir bauen eine Toolchain für React!
 
-Im Folgenden wollen wir dabei eine Toolchain unter Verwendung von Node.js implementieren, welche folgende Aufgaben erledigt:
+Im Folgenden wollen wir dabei eine Toolchain unter Verwendung von Node.js implementieren, Im Folgenden bauen wir allerdings eine Toolchain, 
+die du in meinem [Showcase-Projekt](https://github.com/JanSchneider1/PipePuzzle_React) in Action sehen kannst. Dabei soll die zu entwickelne Toolchain folgende Aufgaben erledigen:
 
-- **JavaScript Transpilierung** (JSX zu JavaScript)
+- **JSX Transpilierung** (JSX zu nativen JavaScript)
 - **JavaScript Bundeling** (Zusammenführen mehrerer JavaScript-Dateien)
-- **JavaScript Minifizierung** (im Rahmen eines Buildprozesses)
+- **JavaScript Minifizierung** (Reduzierung der Dateigröße im Rahmen eines Buildprozesses)
 
-Dabei wollen wir die Toolchain mit einem Befehl anstoßen können und mit einem weiteren einen produktionsfähigen Build erstellen.
+Dabei wollen wir die Toolchain über die Commandozeile bedienen können und mit einem Befehl einen produktionsfähigen Build erstellen können.
 
-Nachdem wir [Node.js](https://nodejs.org/en/) installiert haben und ein Projekt mit `npm init` initiert haben, kann es auch schon losgehen.
-NPM ist der "Node-Package-Manager", welcher unsere Pakete verwaltet und in unserem Projektordner aufgerufen werden muss).
+Nachdem wir [Node.js](https://nodejs.org/en/) installiert haben und ein Projekt in einem Ordner mit dem Befehl `npm init` initiert haben, kann es auch schon losgehen.
+NPM ist der "Node-Package-Manager", welcher unsere Abhängigkeiten zu anderen Technologien verwaltet, über dem wir im Folgendem unsere Pakete installieren werden.
 
 ## Translation mit Babel
 
 Babel ist ein JavaScript-Transpiler, welcher verschiedene JavaScript-erweiterende Syntax in abwärdskompatibeles JavaScript übersetzen kann.
-So benötigen wird dies auch für JSX und den von React empfohlenen ES6 Syntax, auch bekannt als "EcmaScript 2015", welcher "Klassen-Funktionen" und "Arrow Functions" einführte.
+Da wir JSX nutzen wollen müssen wir die Dateien in natives JavaScript übersetzen, da JSX nicht nativ von Browsern verstanden wird. 
+Auch empfielt React den ES6 ("EcmaScript 2015") Syntax zu verwenden, welcher JavaScript um praktische Funktionen wie "Klassen-Funktionen" oder "Arrow Functions" erweitert.
+Da auch ES6 (noch) [nicht von allen Browser-Versionen nativ unterstützt](https://www.w3schools.com/js/js_es6.asp) wird, wollen wir auch das zu nativen JavaScript übersetzen.
 
-JSX wird dabei nicht nativ von Browsern verstanden, [auch ES6 wird nicht von älteren Browserversionen unterstützt, bei unserem alten Sorgenkind Internet Explorer fehlt Support gänzlich](https://www.w3schools.com/js/js_es6.asp).
-
-OK, nun zum Eingemachtem, zunächst müssen wir das Babel-Modul mit den Presets für React über NPM installieren:
+Um Babel nutzen zu können müssen wir das Babel-Modul mit den Presets für React über NPM installieren:
 
 ```bash
 npm install babel-cli@6 babel-preset-react-app@3
 ```
 
 Nun können wir mit Hilfe der `--watch` Option einen Watcher erzeugen, welcher über einen Teil unseres Projektes "schaut" und bei erkannten Änderungen die Dateien transpiliert und im angegebenen Ordner abspeichert.
- **\<ZuBewachenerOrdner>** und **\<SpeicherOrt>** sind dabei relative Pfade, welche z.B. auf das `./src` und `./build` Verzeichnis verweisen können.
+ **\<ZuBewachenderOrdner>** und **\<SpeicherOrt>** sind dabei relative Pfade, welche auf z.B. `./src` und `./build` Verzeichnis verweisen können. Mithilfe der `--presets` Option
+ müssen wir nur das installierte Preset angeben und Babel nicht weiter konfigurieren.
 
 ```bash
-npx babel --watch <ZuBewachenerOrdner> --out-dir <SpeicherOrt> --presets react-app/prod
+npx babel --watch <ZuBewachenderOrdner> --out-dir <SpeicherOrt> --presets react-app/prod
 ```
 
 ## Bundeling mit Browserify
 
 Wäre es nicht toll, wenn wir jede React-Komponente in eine einzelne JavaScript-Datei schreiben könnten und verhindern würden einen tausendzeiligen Spaghettiecode zu erzeugen?
 
-Browserify schafft hierbei Abhilfe und ist ein JavaScript-Bundler, welcher es ermöglicht mehrere JavaScript-Dateien mithilfe des ["require-Syntax"](http://browserify.org/) zu einer Datei zusammenzuführen.
+Browserify schafft hierbei Abhilfe und ist ein JavaScript-Bundler, der es ermöglicht mehrere JavaScript-Dateien mithilfe des ["require-Syntax"](http://browserify.org/) zu einer Datei zusammenzuführen.
 
-Dafür installieren wir zunächst das Paket **Watchify**, eine Implementation von Browserify, welche einen Watcher erstellen kann, so wie wir es schon für Babel getan haben.
+Dafür installieren wir zunächst das Paket **Watchify**, eine Erweiterung von Browserify, die einen Watcher erstellen kann, so wie wir es schon für Babel getan haben.
 
 ```bash
 npm install watchify
 ```
 
-Nun können wir auch hier einen Watcher erstellen, dabei sollten wir uns bei den  **\<ZuBewacheneDateien>** auf die Dateien beziehen, welche uns Babel generiert hat.
+Nun können wir auch hier einen Watcher erstellen, dabei sollten wir uns bei den  **\<ZuBewachendeDateien>** auf die Dateien beziehen, die uns Babel generiert hat.
 
 ```bash
-watchify <ZuBewacheneDateien> -v --dg -o <SpeicherOrt>
+watchify <ZuBewachendeDateien> -v --dg -o <SpeicherOrt>
 ```
 
 ## Minifikation mit Terser
 
-Wenn du dir nun die aus den beiden vorangegangenen Schritten erstellte JS-Datei anschaust, wird dir auffallen, dass sie zumindest prozentual in ihrer Dateigröße stark gewachsen ist.
-Wir wollen daher diese Datei verkleinern, indem wir unnötige Zeilenumbrüche und Leerzeichen entfernen, sowie Variablennamen verkürzen.
-Dein Code wird daher für Menschen schwer leserlich, ist für Computer allerdings weiterhin komplett verständlich und zudem nun kürzer.
+Wenn wir die oben definierten Befehle ausgeführt haben und uns die von Browserify generierte JavaScript-Datei anschauen, fällt uns auf, dass sie in ihrere Dateigröße
+zumindest prozentual stark gewachsen ist, was zum einen daraus resultiert, dass wir nun nur eine große Datei haben, allerdings auch an den ganzen Polyfills (abwärdskompatibler Code)
+liegt.
+
+Von daher wollen wir diese Datei nun durch einen Minifizierer verkleinern, indem wir unnötige Zeilenumbrüche und Leerzeichen entfernen, sowie Variablennamen verkürzen.
+Unser Code wird dadurch für Menschen schwerer leserlich, allerdings bleibt er für den Computer weiterhin verständlich und ist weitaus kürzer.
 Dies sollten wir vorallem bei der Auslieferung bei der Produktion behandeln, da große Dateien lange Ladezeiten hervorrufen, aber auch das Datenvolumen mobiler Nutzer belasten können.
 
-Also installieren wir das **Terser** Paket über NPM:
+Also installieren wir den JavaScript-Minifizierer [**Terser**](https://github.com/terser/terser) über NPM:
 
 ```bash
 npm install terser
 ```
 
-Mit welchem wir unsere von Browserify zusammengefasste  **\<Zieldatei>** an einen  **\<SpeicherOrt>** ablegen können, der Speicherort kann dabei z.B. das Unterverzeichnis `./build/minified` des Projekts sein.
+Mit Terser können wir unsere von Browserify zusammengefasste  **\<Zieldatei>** an einen  **\<SpeicherOrt>** ablegen, 
+der Speicherort kann dabei z.B. das Unterverzeichnis `./build/minified` des Projekts sein.
 
 ```bash
 terser <Zieldatei> --output <Speicherort>
@@ -132,35 +120,39 @@ terser <Zieldatei> --output <Speicherort>
 
 # Verkettung der einzelnen Tools (Automatisierung)
 
-Nun automatisieren wir die obrigen drei Schritte mithilfe des Taskrunners von NPM (auch kann man Taskrunner wie Gulp oder Grunt benutzen).
-Dafür benötigen wir allerdings noch das Paket **Concurrently**, welches ermöglicht mehrerer "NPM-Scripts" parallel auszuführen.
+Nun automatisieren wir die obrigen drei Schritte mithilfe des Package-Runner NPX, welcher in der Lage ist die Befehle auszuführen und glücklicherweise schon mit NPM installiert wurde.
+Allerdings benötigen wir noch das Paket [**Concurrently**](https://www.npmjs.com/package/concurrently), welches ermöglicht mehrerer "NPM-Scripts" parallel auszuführen, das Paket können wir gewohnt wieder über NPM installieren.
 
 ```bash
 npm install concurrently
 ```
 
 Um unsere geplannten Kommandos `npm run watch` und `npm run deploy` zu schreiben, editieren wir die Datei `package.json` unseres Projekts.
-Ergänze dabei  **\<Transpile>**,  **\<Bundle>** und **\<Minify>** mit den Kommandos, welche wir in den einzelnen Kapiteln geschrieben haben.
+Wir müssen jetzt nur noch  **\<Transpile>**,  **\<Bundle>** und **\<Minify>** mit den Kommandos, die wir in den einzelnen Kapiteln geschrieben haben, austauschen.
+Nun müssen wir nur noch einmalig den Befehl `npm run watch` und `npm run deploy` ausführen um unser Projekt automatisch aktualisieren zu lassen oder uns einen Build erzeugen zu lassen.
 
 ```json
 package.json
 ...
 
 "scripts": {
-  	"watch": "concurrently \"<Transpile>\" \"<Bundle>\"",
-        "deploy": "<Minify>",
+  "watch": "concurrently \"<Transpile>\" \"<Bundle>\"",
+  "deploy": "<Minify>",
 },
 
 ...
 ```
 
-Für eine konkrete Implementierung kannst du dir mein [Showcase-Projekt](https://github.com/JanSchneider1/PipePuzzle_React) ansehen, dort findest du zudem eine [erweiterende Implementierung der Toolchain mit Gulp](https://github.com/JanSchneider1/PipePuzzle_React/blob/integrate-gulp/gulpfile.js).
+Wir haben in unserem Beispiel den Package-Runner NPX benutzt, da er mit NPM "mitgeliefert" wird. Alternativ können
+wir auch Task-Runner wie [Gulp](https://gulpjs.com) oder [Grunt](https://gruntjs.com) nutzen, die etwas mehr Konfigurationsaufwand benötigen allerdings auch weit mehr Funktionalität bieten.
 
 # Fazit
 
-In diesem Blog-Post haben wir eine kleine Toolchain für die React-Entwicklung erstellt.
-Die Implementierung ist dabei aber nur eine von vielen und eine "gute" Toolchain ist vorallem vom eigenen Workflow abhängig.
-Von daher solltest du nun motiviert sein deine eigene Toolchain zu implementieren oder z.B einzelne Elemente auszutauschen. Zum Beispiel könntest du **Webpack**
-statt Browserify als Bundler oder einen anderen Minifizierer nutzten.
-Auch könntest du unseren relativ minimalistischen Buildprozess, um einen CSS-Minifier wie **CSSClean** zu erweitern, oder vor dem Buildprozess noch einmal deine Tests durchlaufen lassen.
+In diesem Blog-Post haben wir eine kleine Toolchain entwickelt, die JSX und ES6 zu nativen JavaScript transpiliert,
+einzelne JavaScript-Dateien zusammenfügt und diese durch einen zusätzlichen Befehl verkleinert.
+
+Die Implementierung ist dabei aber nur eine von vielen und eine "gute" Toolchain ist immer vom eigenen Workflow abhängig.
+Wenn du nun motiviert bist deine eigene Toolchain zu entwickeln kannst du leicht einzelne Elemente austauschen oder Neue hinzufügen.
+Zum Beispiel können wir [**Webpack**](https://webpack.js.org) statt Browserify als Bundler nutzen 
+oder wir erweitern unseren relativ minimalistischen Buildprozess, um einen CSS-Minifier wie [**clean-css**](https://github.com/jakubpawlowicz/clean-css) und lassen vor unseren Buildprozess noch einmal alle Tests durchlaufen!
 Egal für welche Tools du dich entscheidest, deine Toolchain ist nur **einen Griff in die Werkzeugkiste** entfernt!
