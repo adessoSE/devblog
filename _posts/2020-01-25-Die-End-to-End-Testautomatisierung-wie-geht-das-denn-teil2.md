@@ -101,8 +101,8 @@ In diesem Codeabschnitt können wir drei Arten von Abfragen benutzt werden, um U
 Der absolute Pfad enthält den kompleten Pfad für die Positionierung eines Elementes im DOM Baum einer HTML-Seite.
 
 
-•	**Relativer Pfad**: mit der Abfrage **`//*[@id="login-Dialog"]/form/div[2]/button`** können wir die *Eingabetaste Login* auswählen.
-Relative Pfade beginnen mit *//**.
+•	**Relativer Pfad**: mit der Abfrage **`//*[@id="login-Dialog"]/form/div[2]/button`** können wir die **Eingabetaste Login** auswählen.
+Relative Pfade beginnen mit **`//`**.
 Im gegensatz zu absoluten Pfaden fangen die relativen Pfaden mitten im DOM Baum an.
 
 
@@ -116,7 +116,7 @@ Denn je kürzer ein Pfad eines Elements ist, desto zugreifbarer sind die Element
 
 Die XPath-Abfrage ist kürzer als die absoluten und relativen Pfaden und dadurch weniger fragil. 
 Es gibt noch weitere Möglichkeiten, um Elemente im HTML zu adressieren.
-Es ist z.B. in Angular-Welt geläufig, dass man ein *data-id* Attibut setzt.
+Es ist z.B. in Angular-Welt geläufig, dass man ein **data-id** Attibut setzt.
 Die XPath-Abfrage kann dann etwas so aussehen **`//*[@data-id="..."]`**. 
 
  

@@ -65,7 +65,7 @@ public async getValueOf$prefix (){
 
 3. können wir die LoginPage Klasse erzeugen:
 
- ```typescript
+ ```ts
 import { AbstractPage } from "../UI/AbstractPage";
  export class LoginPage extends AbstractPage {
  // Generated from Code Generator
@@ -98,7 +98,7 @@ import { AbstractPage } from "../UI/AbstractPage";
    }
  }
 ```
-Weitere Klassen wie *TestData.ts* und *TestFall.ts* können auch ähnlich erzeugt werden.
+Weitere Klassen wie **TestData.ts** und **TestFall.ts** können auch ähnlich erzeugt werden.
    
 # Sind die Logausgaben aussagekräftig? wenn nicht, dann sollen sie es sein
 
