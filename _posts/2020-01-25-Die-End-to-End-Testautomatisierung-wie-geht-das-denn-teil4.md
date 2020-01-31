@@ -4,7 +4,7 @@ title:  "Die End to End Testautomatisierung: wie geht das denn? (Teil 4)"       
 date:   2020-01-25 09:00                                                # Pflichtfeld. Format "YYYY-MM-DD HH:MM". Muss für Veröffentlichung in der Vergangenheit liegen. (Für Preview egal)
 modified_date: 2020-01-25 09:00
 author: andernach                                                       # Pflichtfeld. Es muss in der "authors.yml" einen Eintrag mit diesem Namen geben.
-categories: [Branchen & People]                                         # Pflichtfeld. Maximal eine der angegebenen Kategorien verwenden.
+categories: [Softwareentwicklung]                                         # Pflichtfeld. Maximal eine der angegebenen Kategorien verwenden.
 tags: [Testing, Softwarequalitätssicherung, Oberflächentests]           # Optional.
 ---
 # Wir konzentrieren und auf das Wesentliche  
