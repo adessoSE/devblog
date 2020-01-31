@@ -29,7 +29,7 @@ Je nachdem, wie die Berechtigungen aufgebaut sind, und wie oft dieser Fall eintr
 Es sollte aber klar sein, dass das manuelle und automatisierte Testen nicht eine hundertprozentige Sicherheit gibt, dass eine Softwarelösung fehlerfrei ist. 
      
 
-# Weitere Ergänzungsmittel für die Fehleranalyse
+# Weitere Ergänzungsmittel für die Fehleranalyse können zum Einsatz kommen
 
 
 Die Logausgaben liefern viele Informationen und Möglichkeit zum Nachstellen, jedoch können gegebenenfalls nicht alle notwendigen Informationen über die Logausgaben bereitgestellt werden.

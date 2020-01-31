@@ -7,7 +7,7 @@ author: andernach                                                       # Pflich
 categories: [Softwareentwicklung]                                         # Pflichtfeld. Maximal eine der angegebenen Kategorien verwenden.
 tags: [Testing, Softwarequalitätssicherung, Oberflächentests]           # Optional.
 ---
-# Code Generator
+# Code schreiben um den Code zu generieren
 
 Wie wir gesehen haben, entstehen komplexere UIs meistens aus weniger komplexen UI Komponenten wie z.B. Bestätigungstasten oder Eingabefeldern.
 In der Praxis hat sich die Entwicklung eines Code Generators in Bezug auf die Erhöhung der Entwicklungsgeschwindigkeit bewährt.
@@ -100,7 +100,7 @@ import { AbstractPage } from "../UI/AbstractPage";
 ```
 Weitere Klassen wie *TestData.ts* und *TestFall.ts* können auch ähnlich erzeugt werden.
    
-# Aussagekräftige Logausgabe
+# Sind die Logausgaben aussagekräftig? wenn nicht, dann sollen sie es sein
 
 
 Mit Hilfe von Logs lässt sich genau nachvollziehen,  mit welchen Elementen während der Ausführung interagiert und mit welchen Testdaten ein Prozess ausgeführt wurde.
@@ -122,7 +122,7 @@ Client wird gestartet fuer max_mustermann
 Wenn dieser Abschnitt anderen Teammitgliedern weitergeben wird, dann sollten die in der Lage sein, den Abschnitt auszuführen und nachzustellen.
 Ein weiterer Vorteil einer aussagekräftigen Logausgabe ist, dass bei Auffälligkeiten die Logausgabe für die Nachstellung direkt mit dem Befund in einem Ticketsystem aufgenommen werden kann.
 
-# Testdokumentation und Aufgabenverwaltung
+# Die Testdokumentation ist genauso wichtig wie das Testen
 
 
 Der Testdurchlauf und die Testergebnisse stellen wichtige Informationen über die Qualität der Software zur Verfügung und sollten daher in einem Test Management Tool bspw. [Spira](https://www.inflectra.com/SpiraTest/) oder [Jira](https://www.atlassian.com/de/software/jira)  archiviert werden.

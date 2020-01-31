@@ -27,7 +27,7 @@ Die Pipeline von E2E Tests oder anderer Routinen kann somit auf Basis der bereit
 Mit Hilfe von [Docker](https://www.docker.com/) könnte solche eine Testinfrastruktur für die Durchführung hochgefahren und nach Abschluss der Testaktivitäten heruntergefahren werden.
 So wird der Ausgangzustand der Testinfrastruktur wiederholt auf identische Weise hergestellt und die gelieferten Ergebnisse gewinnen an Aussagekraft.
 
-# Testausführung
+# Tests sollen in einer Pipeline ausgeführt werden
 
 
 Je nachdem, in welcher Phase sich die Produktentwicklung befindet, kann die Aussagekraft und Relevanz der gelieferten Ergebnisse der Testfälle variieren.

@@ -35,7 +35,7 @@ Wir werden uns mit einer Softwarelösung beschäftigen, die aus einer Bedienober
 Die Anwendungsentwicklung und die Umgebungsentwicklung sind wahrscheinlich voneinander losgelöst. 
 
 
-# Testaufbau
+# Zusammenbringen was zusammengehört oder der Testaufbau.
 
 
 Eine gut durchgedachte Struktur ist für die Entwicklung eines Tests notwendig.
