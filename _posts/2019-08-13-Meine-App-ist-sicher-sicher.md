@@ -4,8 +4,8 @@ title:  "\"Meine Webanwendung ist sicher!\" - sicher?"
 date:   2019-08-13 12:00
 modified_date: 2019-08-13
 author: Flo4l
-categories: [Methodik]
-tags: [OWASP]
+categories: [Softwareentwicklung, Java]
+tags: [Security, OWASP]
 ---
 Bei einem solch wichtigem Thema wie der Sicherheit von Webanwendungen, Daten und Unternehmen sollte man meinen, dass jenes Thema eine besondere Aufmerksamkeit erfährt.
 Schließlich kann eine Panne in der Sicherheit von IT-Systemen sehr schnell sehr großen Schaden mit sich ziehen und daher auch sehr teuer werden.
@@ -153,6 +153,11 @@ Besispielsweise testet [Arachni](https://www.arachni-scanner.com/) Anwendungen i
 
 Der [SonarQube](https://www.sonarqube.org/) führt statische Code Analysen durch und zeigt neben Hinweisen zur Verbesserung der allgemeinen Code Qualität zudem mögliche Schwachstellen im Code auf.
 Auch wenn diese Tools keine menschlichen Experten ersetzen, bieten sie eine tolle Hilfestellung zur Vermeidung von bekannten Lücken.
+
+Neben diesen beiden Tools besteht die Möglichkeit in einem professionellen Rahmen properitäre Software zur Schwachstellenanalyse zu verwenden.
+So verwenden wir bei adesso beispielsweise den [Xanitizer](https://www.rigs-it.com/xanitizer/).
+Dieser testet sowohl den Quellcode einer Java Webanwendung als auch eine aktive Instanz dieser Anwendung.
+Im Gegensatz zu den meisten anderen Tools auf diesem Gebiet ist der Xanitizer genauer, da er eine erheblich geringere Menge an False Positives auführt.
 
 # Fazit
 Obwohl bekannt ist welch große Rolle die Sicherheit von Anwendungen in einer Welt spielt, die dabei ist sich in den unterschiedlichsten Bereichen immer weiter zu digitalisieren, sind jedoch im Durchschnitt erschreckend viele Sicherheitslücken in ihnen aufzufinden.
