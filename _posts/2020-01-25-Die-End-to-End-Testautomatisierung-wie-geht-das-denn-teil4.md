@@ -7,7 +7,8 @@ author: andernach                                                       # Pflich
 categories: [Branchen & People]                                         # Pflichtfeld. Maximal eine der angegebenen Kategorien verwenden.
 tags: [Testing, Softwarequalitätssicherung, Oberflächentests]           # Optional.
 ---
-# Sich auf das Wesentliche konzentrieren 
+# Wir konzentrieren und auf das Wesentliche  
+
 
 Nehmen wir folgendes Beispiel an: Ein Benutzer A mit Berechtigung BE01 ruft ein geschütztes Formular auf, das ohne die Berechtigung BE01 nicht abrufbar ist, und befüllt es mit  einem Datensatz.
 Ein Benutzer B entzieht währenddessen dem Benutzer A die Berechtigung BE01.
@@ -30,6 +31,7 @@ Es sollte aber klar sein, dass das manuelle und automatisierte Testen nicht eine
 
 # Weitere Ergänzungsmittel für die Fehleranalyse
 
+
 Die Logausgaben liefern viele Informationen und Möglichkeit zum Nachstellen, jedoch können gegebenenfalls nicht alle notwendigen Informationen über die Logausgaben bereitgestellt werden.
 Bei UI-Tests kann es auch mal notwendig sein zu sehen, welches Textfeld gerade im Fokus ist.
 
@@ -45,6 +47,7 @@ Der Einsatz von den verschiedenen benannten Ergänzungsmitteln sollte abgewogen 
 
 
 # Benachrichtigung über die Ergebnisse des Testdurchlaufs
+
 
 Eine Mitteilung über den Testdurchlauf und das Importieren von Ergebnissen in einem Archivierungssystem bzw. Ticketing System bietet den Teammitgliedern einen guten Überblick und kann wertvolle Zeit ersparen.
 Anstatt gezielt nach solchen Informationen an verschiedenen Orten zu suchen, kann eine Mitteilung bspw. eine Statistik über durchgelaufene Testfälle mit dem Ausführungsergebnis dargestellt werden.
@@ -64,6 +67,7 @@ Jeder Entwickler, der die Logik oder die UI angepasst hat, sollte die dazugehör
 
 # Testdaten zentral ablegen
 
+
 Wo die Testdaten gepflegt werden, wie realitätsnah und praxisbezogen sie sind, spiegelt sich in der Qualität und der Aussagekraft der Testautomatisierung wieder.
 In der Praxis ist die kontinuierliche Pflege der Testdaten meistens eine besondere Herausforderung, denn dabei werden die Testdaten wenigstens mittels einer Wikiseite und im Code instandgehalten.
 Somit kann es schnell vorkommen, dass die Testdatendokumentation und die Testdaten voneinander abweichen.
@@ -77,6 +81,7 @@ Es werden beispielsweise die Testdaten im E2E Repository und die Wiki-Seite mit 
 
 
 # Fazit und Rückblick
+
 
 Ein durchdachtes Konzept für die Testautomatisierung ist ein wichtiger Bestandteil für eine flüssige Entwicklung, es ermöglicht ein schnelles Einarbeiten neuer Kolleg*Innen und kann wichtige Messwerte und Informationen über die Qualität der Software und das Erfüllen der Akzeptanzkriterien liefern.
 

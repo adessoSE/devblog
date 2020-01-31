@@ -9,6 +9,7 @@ tags: [Testing, Softwarequalitätssicherung, Oberflächentests]           # Opti
 ---
 # Ausgangszustand der Testinfrastruktur wiederherstellen
 
+
 Im Idealfall wird für die Ausführung der E2E Tests eine neu erstellte Testinfrastruktur<sup>1</sup> aufgesetzt und die Tests laufen gegen eine möglichst eine unangetastete Umgebung (Backendsysteme).
 
 Da das Vorgehen meistens aufgrund des Bauens der Umgebung viel Zeit in Anspruch nimmt, wird in der Praxis der Einsatz einer bereits gebauten Umgebung favorisiert, auf der eventuell mehrere Teammitglieder testen und Änderungen vornehmen können.
@@ -27,6 +28,7 @@ Mit Hilfe von [Docker](https://www.docker.com/) könnte solche eine Testinfrastr
 So wird der Ausgangzustand der Testinfrastruktur wiederholt auf identische Weise hergestellt und die gelieferten Ergebnisse gewinnen an Aussagekraft.
 
 # Testausführung
+
 
 Je nachdem, in welcher Phase sich die Produktentwicklung befindet, kann die Aussagekraft und Relevanz der gelieferten Ergebnisse der Testfälle variieren.
 Nehmen wir an, dass die zu testende Anwendung (hier ist die Oberfläche einer Softwarelösung gemeint; fortan die Anwendung) und die E2E Tests in separaten Repositories gepflegt sind.
@@ -59,6 +61,7 @@ Das Ausführen von Testsuites soll benutzerfreundlich sein und kein technisches 
 Am benutzerfreundlichsten ist es, wenn sich in der Pipeline einzelne Testsuites zum Ausführen auswählen lassen.
 
 # Gut benannte Ids sind für das Testing unerlässlich
+
 
 Wie wir im Page Object Pattern gesehen haben, könnten wir UI-Elemente anhand ihren Selektoren auswählen und mit ihnen interagieren.
 Es gibt verschiedene Selektortypen.
@@ -122,6 +125,7 @@ Eine einheitliche Notation kann nicht nur die Codelesbarkeit und die Logiklesbar
 
 # Ausblick
 
+
 Bisher wurde erläutert, dass der Ausgangzustand der Testlandschaft eine wichtige Voraussetzung für die Testausführung ist.
 Darüber hinaus wurde erklärt, dass mittels der XPath-Abfrage UI-Elemente adressiert und ausgewertet werden können.
 
@@ -131,6 +135,7 @@ In dritten Teil dieser Blogserie soll es unter anderem um den Code Generator geh
 Informationen zum Thema Testaufbau finden sich im  ersten Blog-Beitrag dieser Serie.
 
 # Glossar
+
 
 1. Die Testinfrastruktur: Eine Infrastruktur, die der Endnutzer als Softwarelösung benutzen wird.
 Hier sind sowohl die Bedienoberfläche als auch die Backend-Systeme gemeint.

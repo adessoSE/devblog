@@ -16,6 +16,7 @@ Solch ein Code Generator lässt sich hierfür mit wenigen Handgriffen konfigurie
 Eine geläufige Templating Engine wie [Apache Velocity](https://velocity.apache.org/) kann hier zum Einsatz kommen.
 
 Zur Verdeutlichung lasst und folgendes beispiel anschauen:
+
 1. Aus einem einfachen textuellen Input, der aus einem UI-Selektorname und UI-Selektorwert besteht:
  ```bash
 usernameTextField=//*[@id="usernameTextField"]
@@ -33,7 +34,7 @@ public class PageModel {
 ```
 
 2. Und folgende Apache Veocity-Engine Template für das Erzeugen einer Page-Object-Klasse:
-```
+```typescript
 // Generated from Code Generator
 import { AbstractPage } from "../UI/AbstractPage";
 export class $pageModel.pageName.concat("Page") extends AbstractPage {
@@ -101,6 +102,7 @@ Weitere Klassen wie *TestData.ts* und *TestFall.ts* können auch ähnlich erzeug
    
 # Aussagekräftige Logausgabe
 
+
 Mit Hilfe von Logs lässt sich genau nachvollziehen,  mit welchen Elementen während der Ausführung interagiert und mit welchen Testdaten ein Prozess ausgeführt wurde.
 Ein gutes Log könnte so aussehen. 
 
@@ -121,6 +123,7 @@ Wenn dieser Abschnitt anderen Teammitgliedern weitergeben wird, dann sollten die
 Ein weiterer Vorteil einer aussagekräftigen Logausgabe ist, dass bei Auffälligkeiten die Logausgabe für die Nachstellung direkt mit dem Befund in einem Ticketsystem aufgenommen werden kann.
 
 # Testdokumentation und Aufgabenverwaltung
+
 
 Der Testdurchlauf und die Testergebnisse stellen wichtige Informationen über die Qualität der Software zur Verfügung und sollten daher in einem Test Management Tool bspw. [Spira](https://www.inflectra.com/SpiraTest/) oder [Jira](https://www.atlassian.com/de/software/jira)  archiviert werden.
 Ein zu einem bestimmten Zeitpunkt wiederholter automatisierter Durchlauf lässt die Qualität der Entwicklung anhand der Akzeptanzkriterien sicherstellen und durch die Testergebnisse die Stabilität einzelner Komponenten in der Software und ggfs. die Fragilität der Automatisierung auch im Zeitverlauf überprüfen. 
@@ -145,6 +148,7 @@ Dashboards und Statistiken können ebenfalls exportiert bzw. konfiguriert werden
 
 # Gute Arbeit ist eine gut dokumentierte Arbeit 
 
+
 Die Dokumentation ist ein wesentlicher Bestandteil der Entwicklung und ein Instrument des Wissenstransfers.
 Die Dokumentation sollte in einer Wiki-Software (bspw. Confluence) gepflegt werden und immer aktualisiert werden.
 Dort sollte ein Entwicklerleitfaden ausgearbeitet und die Infrastruktur beschrieben werden.
@@ -158,6 +162,7 @@ Dort wird in einer eher nicht technischen Sprache beschrieben wie z.B. Smoketest
 
 # Zurück zum Ursprung: Von der Feinspezifikation kann viel abstrahiert werden 
 
+
 Nach der Ausarbeitung der Feinspezifikation<sup>1</sup> könnte ein Tool entwickelt und angewendet werden, das daraus Storys, Akzeptanzkriterien und Akzeptanzkriterien bezogene Template-Testfälle herleitet und benötigte Tickets erstellt, die verfeinert werden können. 
 Das Tool kann so aufgebaut sein, dass es immer den aktuellen Stand aus den Testergebnissen, mit den Testfällen und den Akzeptanzkriterien in den Stories abgleicht.
 Dieser Abgleichung könnte einen Messwert über den umgesetzten Anforderungen anhand der Akzeptanzkriterien bereitstellen.
@@ -168,6 +173,7 @@ So ein maßgeschneidertes Tool hat den Nachteil, dass es erstmal entwickelt werd
  
  
 # Ausblick
+
 
 Wir haben gesehen, welche Vorteile ein Code Generator mit sich bringt und wie wir die Testergebnisse archivieren können.
 Die Integration zwischen Testergebnissen und eines Archivierungssystem könnte auch bei Unit-Tests realisiert werden.
