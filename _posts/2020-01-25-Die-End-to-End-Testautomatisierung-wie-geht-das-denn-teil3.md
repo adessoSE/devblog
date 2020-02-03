@@ -29,11 +29,12 @@ loginButton=//*[@id="loginButton"]
 public class PageModel {
   public String pageName;
   public LinkedList<Element> elements;
-  // getters und setters
+  // getters und setters  
 }
 ```
 
 2. Und folgende Apache Veocity-Engine Template für das Erzeugen einer Page-Object-Klasse:
+
 ```typescript
 // Generated from Code Generator
 import { AbstractPage } from "../UI/AbstractPage";
@@ -141,7 +142,7 @@ public void stammdatenSolltenFuerEinenBerichtigenNutzerAngezeigtWerden() {
 ```
 Mit [Xray Test Management for Jira](https://marketplace.atlassian.com/apps/1211769/xray-test-management-for-jira?hosting=cloud&tab=overview) können die Testergebnisse auch direkt in Jira importiert werden.
 
-![XRay Testausführungsansicht](/assets/images/posts/konzept-fuer-die-e2e-testautomatisierung/Xray.JPG)      
+![XRay Testausführungsansicht](/assets/images/posts/Die-End-to-End-Testautomatisierung-wie-geht-das-denn/Xray.JPG)      
 
 Ein weiterer Vorteil der Ergebnisarchivierung über die genannten Tools ist, dass sie ein zentrales System für die Dokumentation von manuell und automatisiert ausgeführten Testfällen anbieten.
 Dadurch kann das Reporting und Exportieren von Statistiken vereinfacht werden.

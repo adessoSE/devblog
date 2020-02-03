@@ -57,7 +57,7 @@ Diese sollte eine Verknüpfung mit dem Testplan, der ausgeführten Pipeline und 
 
 Es ist beispielsweise möglich in diversen Kommunikations-Systemen wie Slack oder  Microsoft Teams Benachrichtigungen über die Testdurchführung zu verschicken, die der untenstehenden Abbildung ähneln.
 
-![Auf einen Blick können wichtige Informationen entnommen werden](/assets/images/posts/konzept-fuer-die-e2e-testautomatisierung/notification.png) 
+![Auf einen Blick können wichtige Informationen entnommen werden](/assets/images/posts/Die-End-to-End-Testautomatisierung-wie-geht-das-denn/notification.png) 
 
 So kann eine Benachrichtigung aussehen.
 Microsoft Teams bietet mittels Webhooks die Möglichkeit, solche Benachrichtigungen mit einem Curl-Befehl zu verschicken.

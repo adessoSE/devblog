@@ -48,7 +48,7 @@ Das ist besonders hilfreich, wenn ein Hotfix (wie z.B. die Änderungen an einem 
 
 Es sollte zudem möglich sein, dass die E2E-Testfälle nur bei Änderungen in UI Modulen angestoßen oder allgemein mitausgeführt werden können.
 
-![Pipeline Stages](/assets/images/posts/konzept-fuer-die-e2e-testautomatisierung/pipeline.png)      
+![Pipeline Stages](/assets/images/posts/Die-End-to-End-Testautomatisierung-wie-geht-das-denn/pipeline.png)      
 
 
 Die Ausführung der Testfälle gegen ein bestimmtes Release, das letzte Release, den letzten Entwicklungsstand (Masterstand) oder auch gegen einen Commit kann von Vorteil sein.
