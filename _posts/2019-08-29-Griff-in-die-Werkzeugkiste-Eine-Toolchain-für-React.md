@@ -51,7 +51,7 @@ die du in meinem [Showcase-Projekt](https://github.com/JanSchneider1/PipePuzzle_
 - **JavaScript Bundeling** (Zusammenführung mehrerer JavaScript-Dateien)
 - **JavaScript Minifizierung** (Reduzierung der Dateigröße im Rahmen eines Buildprozesses)
 
-Dabei wollen wir die Toolchain über die Commandozeile bedienen können und mit einem Befehl einen produktionsfähigen Build erstellen können.
+Dabei wollen wir die Toolchain über die Kommandozeile bedienen und mit einem Befehl einen produktionsfähigen Build erstellen können.
 
 Nachdem wir [Node.js](https://nodejs.org/en/) installiert haben und ein Projekt in einem Ordner mit dem Befehl `npm init` initiert haben, kann es auch schon losgehen.
 NPM ist der "Node-Package-Manager", welcher unsere Abhängigkeiten zu anderen Technologien verwaltet, über dem wir im Folgendem unsere Pakete installieren werden.
