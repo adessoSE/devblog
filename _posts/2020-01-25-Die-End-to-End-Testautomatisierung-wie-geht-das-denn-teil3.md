@@ -141,6 +141,9 @@ public void stammdatenSolltenFuerEinenBerichtigenNutzerAngezeigtWerden() {
 } 
 ```
 Mit [Xray Test Management for Jira](https://marketplace.atlassian.com/apps/1211769/xray-test-management-for-jira?hosting=cloud&tab=overview) können die Testergebnisse auch direkt in Jira importiert werden.
+Die Testergebnisse können als Testausführung in XRay importiert werden und zu einem Testplan zugeordnet werden.
+So können Reports über einen bestimmten Zeitraum generiert und angezeigt werden.
+
 
 ![XRay Testausführungsansicht](/assets/images/posts/Die-End-to-End-Testautomatisierung-wie-geht-das-denn/Xray.JPG)      
 
