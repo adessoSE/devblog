@@ -35,7 +35,7 @@ oder dir mit dem Projekt [create-react-app](https://github.com/facebook/create-r
 # Was ist eine Toolchain und wieso könnten wir eine brauchen?
 
 Durch eine Toolchain (engl. "Werkzeugkette") ist es möglich mehrere Tools und Technologien miteinander zu verknüpfen.
-Eine Toolchain **strukturiert und vereinfacht Entwicklungs- und Buildprozesse** und bietet **Flexibilität**, da sich verschiedene Prozesse und Technologien einfach "anketten" lassen.
+Eine Toolchain **strukturiert und vereinfacht Entwicklungs- und Buildprozesse**. Sie bietet **Flexibilität** da sich die verschiedenen Prozesse und Technologien beliebig verketten lassen.
 
 React sowie wie oben über CDN's zu nutzen ist einfach, aber die Implementierung einer Toolchain verschafft uns folgende Vorteile:
 - **Freie Wahl an Tools und Technologien**, sowie die Anknüpfung weiterer z.B. JavaScript-Minifizierer
