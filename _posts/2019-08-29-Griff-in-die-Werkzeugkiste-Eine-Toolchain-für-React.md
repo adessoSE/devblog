@@ -44,7 +44,7 @@ React sowie wie oben über CDN's zu nutzen ist einfach, aber die Implementierung
 
 # Komm wir bauen eine Toolchain für React!
 
-Im Folgenden wollen wir dabei eine Toolchain unter Verwendung von Node.js implementieren, Im Folgenden bauen wir allerdings eine Toolchain, 
+Im Folgenden bauen wir eine Toolchain, 
 die du in meinem [Showcase-Projekt](https://github.com/JanSchneider1/PipePuzzle_React) in Action sehen kannst. Dabei soll die zu entwickelne Toolchain folgende Aufgaben erledigen:
 
 - **JSX Transpilierung** (JSX zu nativen JavaScript)
