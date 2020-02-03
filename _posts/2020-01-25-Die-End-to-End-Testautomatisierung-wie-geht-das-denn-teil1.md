@@ -28,7 +28,7 @@ Solche Aussagen können mit einem gut erarbeiteten Konzept relativiert werden.
 Im Folgenden werden Aspekte dargestellt, die im Rahmen der Realisierung eines umfangreichen Software-Projekts ausgearbeitet wurden.
 Wir werden uns mit praxisnahen technischen und organisatorische Guidelines vertraut machen und bewahrten Werkzeugen und Vorgehensweisen kennenlernen bzw. ans Rampenlicht bringen, die die Entwicklung und die Pflege von automatisierten E2E Tests erleichtert und vereinfacht.
 
-Die Guidelines sind möglichst von einander getrennt und bieten in Gesamtheit eine gute Basis für das automatisierte Testen.
+Die Guidelines sind möglichst voneinander getrennt und bieten in Gesamtheit eine gute Basis für das automatisierte Testen.
 Somit können sie sowohl am Projektanfang als auch in einem laufenden Projekt umgesetzt werden.
 
 Wir werden uns mit einer Softwarelösung beschäftigen, die aus einer Bedienoberfläche (fortan die Anwendung) und den Backendsysteme (fortan Umgebung) besteht.
@@ -50,16 +50,18 @@ Eine Klasse (Die Klasse für den Test der Login Seite in unserem Beispiel) beste
 Diese Interaktionen werden durch Methoden für andere Klassen ( Testschritte ) zur Verfügung gestellt. 
 * **Testschritte**: Die einzelnen Testschritte werden in Klassen gegliedert.
 Die Klassen interagieren mit der UI und stellen Methoden zur Verfügung, die komplette Prozesse oder Teilprozesse wie z.B. das Befüllen eines Formulars für die Eingabe von Login Daten anbieten.
-Eine Testschritte-Klasse kann in unserem Beispiel die Methode (Anmelden als) anbieten.
+Eine Testschritte-Klasse kann in unserem Beispiel die Methode ```anmelden_als(nutzer: string)``` anbieten.
 Die zur Verfügung gestellten Methoden können dann in den Testfällen benutzt und mit Testdaten befüllt werden.
 * **Testdata**: Einzelne Testdaten für die Testfälle können in gesonderten Klassen gepflegt werden.
 Pro Testfall sollte eine Klasse mit Testdaten vorhanden sein.
 Testdaten können voneinander erben.
+
 Das ist sinvoll, wenn verschiedene Dialoge im Software-Produkt den gleichen Teil für die Eingabe von Adressen haben.
 Hier wird eine Klasse (AbstractAddressData) mit initialen Daten (Straße, Ort...) erstellt, von der andere Klassen erben.
 Wenn spezifische Testdaten für die Adresse gewünscht sind, dann kann die TestData-Klasse für den bestimmten Testfall die Daten überschreiben.
 * **Testfälle** : Das Zusammenspiel zwischen Testdaten und Testschritten, dem Input und der Validierung des Outputs, findet in einem Testfall statt.
 In diesem Ordner befinden sich die Testfälle so sortiert, wie die Anwendung die Prozesse in Einstiegspunkte (bspw. Menüs) aufteilt.
+
 So können Testfälle für einzelne Bereiche (bspw. Stammdaten) eine Testsuite (Eine Sammlung von Testfällen die z.B. eine fachliche oder technische Gemeinsamkeit haben) bilden.
 * **Utils** : Hier sind Hilfsklassen zu finden, die z.B. die Anwendung starten und schließen.
 
@@ -76,7 +78,7 @@ Diese Page-Object Klasse enthält:
 
 * Eine passende Benennung für das UI-Element ```loginButton ```.
 * Und einen Zugreifer (oder Selektor): Jedes UI Elements hat eigene Merkmale, die es von anderen UI Elementen hervorhebt.
-Die Merkmalen können beispielsweise die Attribute (Id oder data-id), die Elementpositionierung im DOM Baum einer HTML-Seite, bestimmte angewendete CSS-Klassen oder auch ein Text sein. 
+Die Merkmalen können beispielsweise die Attribute ```Id``` oder ```data-id```, die Elementpositionierung im DOM Baum einer HTML-Seite, bestimmte angewendete CSS-Klassen oder auch ein Text sein. 
 In diesem Artikel die Abfrage gemeint, die das Element auswählen lässt. 
 
 Weitere Informationen weden im zweiten Blog-Eintrag dieser Serie dargestellt.

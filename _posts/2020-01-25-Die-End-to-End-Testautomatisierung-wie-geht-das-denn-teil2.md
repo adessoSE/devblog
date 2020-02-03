@@ -116,12 +116,12 @@ Denn je kürzer ein Pfad eines Elements ist, desto zugreifbarer sind die Element
 
 Die XPath-Abfrage ist kürzer als die absoluten und relativen Pfaden und dadurch weniger fragil. 
 Es gibt noch weitere Möglichkeiten, um Elemente im HTML zu adressieren.
-Es ist z.B. in Angular-Welt geläufig, dass man ein **data-id** Attibut setzt.
+Es ist z.B. in Angular-Welt geläufig, dass man ein ```data-id``` Attibut setzt.
 Die XPath-Abfrage kann dann etwas so aussehen **`//*[@data-id="..."]`**. 
 
  
 Ein Bewusstsein für die Wichtigkeit des Setzens der IDs und deren richtiger Benennung sollte im Entwicklungsteam aufgebaut werden.
-Eine einheitliche Notation kann nicht nur die Codelesbarkeit und die Logiklesbarkeit erhöhen, sondern auch die Wartbarkeit und die Fehlerbehebung in E2E Tests verbessern, da auf die zu testenden Elemente über ihre eindeutigen Ids durch den Test besser zugegriefen werden kann. 
+Eine einheitliche Notation kann nicht nur die Codelesbarkeit und die Logiklesbarkeit erhöhen, sondern auch die Wartbarkeit und die Fehlerbehebung in E2E Tests verbessern, da auf die zu testenden Elemente über ihre eindeutigen Ids durch den Test besser zugegriffen werden kann. 
 
 # Ausblick
 
