@@ -171,6 +171,7 @@ Dort wird in einer eher nicht technischen Sprache beschrieben wie z.B. Smoketest
 Nach der Ausarbeitung der Feinspezifikation<sup>1</sup> könnte ein Tool entwickelt und angewendet werden, das daraus Storys, Akzeptanzkriterien und Akzeptanzkriterien bezogene Template-Testfälle herleitet und benötigte Tickets erstellt, die verfeinert werden können. 
 Das Tool kann so aufgebaut sein, dass es immer den aktuellen Stand aus den Testergebnissen, mit den Testfällen und den Akzeptanzkriterien in den Stories abgleicht.
 Dieser Abgleichung könnte einen Messwert über den umgesetzten Anforderungen anhand der Akzeptanzkriterien bereitstellen.
+
 Zusammen mit weiteren Kennzahlen und Messwerten und unter  Einbeziehung und Gewichtung der einzelnen Bestandteile kann ein guter Überblick über den Fortschritt der Entwicklung  geschaffen werden.
 Weitere gelieferte Messwerte können Hinweise auf die Fragilität einzelner Komponenten geben.
 Infolgedessen können erste Release Notes für das jeweilige Release automatisch erstellt werden. 
