@@ -48,7 +48,7 @@ Im Folgenden bauen wir eine Toolchain,
 die du in meinem [Showcase-Projekt](https://github.com/JanSchneider1/PipePuzzle_React) in Action sehen kannst. Dabei soll die zu entwickelne Toolchain folgende Aufgaben erledigen:
 
 - **JSX Transpilierung** (JSX zu nativen JavaScript)
-- **JavaScript Bundeling** (Zusammenführen mehrerer JavaScript-Dateien)
+- **JavaScript Bundeling** (Zusammenführung mehrerer JavaScript-Dateien)
 - **JavaScript Minifizierung** (Reduzierung der Dateigröße im Rahmen eines Buildprozesses)
 
 Dabei wollen wir die Toolchain über die Commandozeile bedienen können und mit einem Befehl einen produktionsfähigen Build erstellen können.
