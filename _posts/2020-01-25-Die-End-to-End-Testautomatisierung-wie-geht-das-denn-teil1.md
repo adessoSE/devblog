@@ -43,7 +43,9 @@ Eine Struktur, die die grafische Benutzeroberfläche (UI) Darstellung, UI Logik 
 
 Denn ein Boiler Plate-Code könnte auf Anhieb durch das Kopieren und Hinzufügen von Codeabschnitten schnelle Ergebnisse liefern, würde aber auf Dauer kostspieliger in der Wartung sein. 
 Beispielhaft wird im Folgenden eine einfache Login Seite mit zwei Textfeldern für Nutzername und Passwort sowie einem Button für den Login und ein Button für die Registrierung getestet.
-![Vorgeschlagene Struktur](/assets/images/posts/Die-End-to-End-Testautomatisierung-wie-geht-das-denn/struktur.png)      
+
+![Vorgeschlagene Struktur](/assets/images/posts/Die-End-to-End-Testautomatisierung-wie-geht-das-denn/struktur.png)
+      
 Die Struktur besteht im Einzelnen aus: 	
 •	**UI**: Die UI Darstellung wird mit Hilfe einer Abstrakten Klasse (AbstractPage) als Oberklasse realisiert, von der alle Anwendungsseiten erben.
 Eine Klasse (Die Klasse für den Test der Login Seite in unserem Beispiel) besteht aus: UI Elementen (wie die Eingabefelder für den Benutzername und Password, Bestätigungstaste Login) und möglichen Interaktionen mit den Elementen (z.B. Bestätigungstaste anklicken).
