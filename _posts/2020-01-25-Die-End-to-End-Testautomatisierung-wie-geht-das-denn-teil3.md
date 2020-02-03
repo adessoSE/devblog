@@ -33,7 +33,7 @@ public class PageModel {
 }
 ```
 
-2. Und folgende Apache Veocity-Engine Template für das Erzeugen einer Page-Object-Klasse:
+3. Und folgende Apache Veocity-Engine Template für das Erzeugen einer Page-Object-Klasse:
 
 ```typescript
 // Generated from Code Generator
@@ -43,9 +43,10 @@ export class $pageModel.pageName.concat("Page") extends AbstractPage {
   private $element.elementName.toString().concat("Selector") = '$element.elementSelector';
 #end
 #foreach ($element in $pageModel.elements)
-  #set ($prefix = $element.elementName.toString().substring(0,1).toUpperCase().concat($element.elementName.toString().substring(1)))
-  #set ($selector=$element.elementName.toString().concat("Selector"))
-  #set ($UiElement=$element.elementName.toString())
+  #set ($prefix = $element.elementName.toString().substring(0,1).toUpperCase()
+       .concat($element.elementName.toString().substring(1)))
+  #set ($selector = $element.elementName.toString().concat("Selector"))
+  #set ($UiElement = $element.elementName.toString())
 
   #if ($UiElement.endsWith("Button"))
 public async click$prefix (){
@@ -64,7 +65,7 @@ public async getValueOf$prefix (){
 }
 ```
 
-3. können wir die LoginPage Klasse erzeugen:
+4. können wir die LoginPage Klasse erzeugen:
 
 ```typescript
 import { AbstractPage } from "../UI/AbstractPage";

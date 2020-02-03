@@ -14,17 +14,17 @@ Nehmen wir folgendes Beispiel an: Ein Benutzer A mit Berechtigung BE01 ruft ein 
 Ein Benutzer B entzieht währenddessen dem Benutzer A die Berechtigung BE01.
 Benutzer A bestätigt derweil seine Angaben und speichert die Änderungen.
 
-_*Ist dieser Testfall zu automatisieren?*_
+**Ist dieser Testfall zu automatisieren?**
 
 
 Es gibt hierfür zwei unterschiedliche Meinungen:
 
-* Die Einen meinen: So ein Testfall sei außergewöhnlich und tritt nicht so häufig auf, deswegen solle besser auf diejenigen Funktionalitäten wie die Datenvalidierung im Formular fokussiert werden, die häufiger benutzt werden.
+•	Die Einen meinen: So ein Testfall sei außergewöhnlich und tritt nicht so häufig auf, deswegen solle besser auf diejenigen Funktionalitäten wie die Datenvalidierung im Formular fokussiert werden, die häufiger benutzt werden.
 
-* Die Anderen meinen hingegen, dass so ein Testfall sei schwer manuell nachstellbar.
+•	Die Anderen meinen hingegen, dass so ein Testfall sei schwer manuell nachstellbar.
  Dieser Fall könne in der Praxis auftreten, weshalb dieser Testfall automatisiert werden sollte.
-
 Die Testautomatisierung solle unter anderem Fälle testen, die manuell nicht getestet werden können.
+
 Schlussendlich hängt die Automatisierung von so einem Testfall stark von der Erwartung des Auftraggebers ab.
 Je nachdem, wie die Berechtigungen aufgebaut sind, und wie oft dieser Fall eintritt, kann das von Relevanz sein.
 
