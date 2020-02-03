@@ -17,14 +17,14 @@ Eine geläufige Templating Engine wie [Apache Velocity](https://velocity.apache.
 
 Zur Verdeutlichung lasst und folgendes beispiel anschauen:
 
-1. Aus einem einfachen textuellen Input, der aus einem UI-Selektorname und UI-Selektorwert besteht:
+•	Aus einem einfachen textuellen Input, der aus einem UI-Selektorname und UI-Selektorwert besteht:
  ```bash
 usernameTextField=//*[@id="usernameTextField"]
 passwordTextField=//*[@id="passwordTextField"]
 loginButton=//*[@id="loginButton"]
 ```
 
-2. Und eine passende Mapping zu einem Java-Object wie PageModel
+•	Und eine passende Mapping zu einem Java-Object wie PageModel
 ```java
 public class PageModel {
   public String pageName;
@@ -33,7 +33,7 @@ public class PageModel {
 }
 ```
 
-3. Und folgende Apache Veocity-Engine Template für das Erzeugen einer Page-Object-Klasse:
+•	Und folgende Apache Veocity-Engine Template für das Erzeugen einer Page-Object-Klasse:
 
 ```typescript
 // Generated from Code Generator
@@ -65,7 +65,7 @@ public async getValueOf$prefix (){
 }
 ```
 
-4. können wir die LoginPage Klasse erzeugen:
+•	können wir die LoginPage Klasse erzeugen:
 
 ```typescript
 import { AbstractPage } from "../UI/AbstractPage";
@@ -141,9 +141,8 @@ In dem folgenden Codeabschnitt wird gezeigt, wie man einen automatisierten [Sele
 public void stammdatenSolltenFuerEinenBerichtigenNutzerAngezeigtWerden() {
 } 
 ```
-Mit [Xray Test Management for Jira](https://marketplace.atlassian.com/apps/1211769/xray-test-management-for-jira?hosting=cloud&tab=overview) können die Testergebnisse auch direkt in Jira importiert werden.
-Die Testergebnisse können als Testausführung in XRay importiert werden und zu einem Testplan zugeordnet werden.
-So können Reports über einen bestimmten Zeitraum generiert und angezeigt werden.
+Mit [Xray Test Management for Jira](https://marketplace.atlassian.com/apps/1211769/xray-test-management-for-jira?hosting=cloud&tab=overview) können die Testergebnisse auch direkt in Jira als Testausführung importiert werden.
+Die Testausführung kann dann zu einem Testplan zugeordnet werden.
 
 
 ![XRay Testausführungsansicht](/assets/images/posts/Die-End-to-End-Testautomatisierung-wie-geht-das-denn/Xray.JPG)      
