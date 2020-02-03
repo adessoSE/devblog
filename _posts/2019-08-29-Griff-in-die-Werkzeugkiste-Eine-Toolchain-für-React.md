@@ -54,7 +54,7 @@ die du in meinem [Showcase-Projekt](https://github.com/JanSchneider1/PipePuzzle_
 Dabei wollen wir die Toolchain über die Kommandozeile bedienen und mit einem Befehl einen produktionsfähigen Build erstellen können.
 
 Nachdem wir [Node.js](https://nodejs.org/en/) installiert haben und ein Projekt in einem Ordner mit dem Befehl `npm init` initiert haben, kann es auch schon losgehen.
-NPM ist der "Node-Package-Manager", welcher unsere Abhängigkeiten zu anderen Technologien verwaltet, über dem wir im Folgendem unsere Pakete installieren werden.
+NPM ist der "Node-Package-Manager" der unsere Abhängigkeiten zu anderen Technologien verwaltet. Wir nutzen ihn um neue Bibliotheken zu installieren.
 
 ## Translation mit Babel
 
