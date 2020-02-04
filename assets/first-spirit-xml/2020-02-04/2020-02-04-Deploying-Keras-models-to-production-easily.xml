@@ -1,0 +1,632 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<documents>
+    <document uid="041a861b693a0df5fa5fc9962d67b194">
+        <field name="title"><![CDATA[Deploy Keras models to production level easily]]></field>
+        <field name="subline"><![CDATA[]]></field>
+        <field name="teaser"><![CDATA[<p>Moving your Deep Learning models from the developers playground to a serious production stage can be a hard feat to accomplish.
+After endless research I’m most glad to serve you an easy to execute guide for deploying Keras models to production level.</p>
+
+]]></field>
+        <field name="language_multi_keyword"><![CDATA[de]]></field>
+        <field name="content_type_multi_keyword"><![CDATA[blog]]></field>
+        <field name="mime_type_multi_keyword"><![CDATA[text/html]]></field>
+        <field name="category_multi_keyword"><![CDATA[Softwareentwicklung]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Deep Learning]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Künstliche Intelligenz]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Keras]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Flask]]></field>
+        <field name="date_date"><![CDATA[2020-02-04T09:00:00+01:00]]></field>
+        <field name="date_l"><![CDATA[1580803200000]]></field>
+        <field name="change_date"><![CDATA[1580803200000]]></field>
+        <!--Picture-->
+        <!-- Not in use at the moment-->
+        <!--Author Information-->
+        <field name="author_first_name"><![CDATA[Sergej]]></field>
+        <field name="author_last_name"><![CDATA[Grilborzer]]></field>
+        <field name="author_id"><![CDATA[s-gbz]]></field>
+        <field name="author_picture_stored_only"><![CDATA[http://localhost:4000/assets/images/avatars/s-gbz.jpg]]></field>
+        <!--Postcontent-->
+        <field name="headlines"><![CDATA[Deploy Keras models to production level easily]]></field>
+        <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
+            <p>Moving your Deep Learning models from the developers playground to a serious production stage can be a hard feat to accomplish.
+After endless research I’m most glad to serve you an easy to execute guide for deploying Keras models to production level.</p>
+
+</div>]]></field>
+        <field name="content"><![CDATA[<div class="adesso-text-formate">
+<div class="row p-t-2">
+<div class="adesso-container">
+<div class="col-xl-8 adesso-center p-b-1 p-l-0 p-r-0">
+    <p>Moving your Deep Learning models from the developers playground to a serious production stage can be a hard feat to accomplish.
+After endless research I’m most glad to serve you an easy to execute guide for deploying Keras models to production level.</p>
+
+<h4 id="plan-of-attack">Plan of attack</h4>
+<p>This article assumes you want to deploy your Keras model.
+Adapting it to other frameworks can be tiresome.
+We will avoid that and expand it otherwise.
+Here is what we’re going to do:</p>
+
+<ol>
+  <li>Prepare a Flask application in combination with Gevent.</li>
+  <li>Dockerize it.</li>
+  <li>Use nginx to setup a reverse proxy.</li>
+</ol>
+
+<p>I will proceed to shortly explain <em>how</em> and why we will use Flask.
+Feel free to skip ahead if you’re more interested to get started.</p>
+
+<h5 id="understanding-keras-models">Understanding Keras models</h5>
+<p>In case you’re unsure what models we’re talking about:
+Deep Learning models are a synonym for <a href="https://pathmind.com/wiki/neural-network">Artificial Neural Networks</a>.
+These networks are inspired by the design of our brains.<br />
+They work by processing huge amounts of data and drawing conclusions from it.</p>
+
+<p>We use such networks or rather <em>models</em> to</p>
+<ul>
+  <li>predict traffic</li>
+  <li>predict prices</li>
+  <li>classify images</li>
+  <li>or even draw paintings.</li>
+</ul>
+
+<p><a href="https://keras.io">Keras</a> is a high level framework that allows for rapid construction of such models.</p>
+
+<h5 id="using-flask-properly">Using Flask properly</h5>
+<p>Flask is a <a href="https://www.fullstackpython.com/wsgi-servers.html">Web Server Gateway Interface</a> or more simply:
+A lightweight web framework.
+It’s well documented and easy to use, but Flask is single threaded.
+It can handle only one request at a time.
+This creates a bottleneck in our application.</p>
+
+<h6 id="making-flask-scaleable">Making Flask scaleable</h6>
+<p>To resolve this bottleneck we use <a href="http://www.gevent.org/index.html">Gevent</a> - a concurrency library that enables our application to handle parallel requests.
+(Because parts of Gevent are written in C).</p>
+
+<p>PS: It’s functionality is similar to <a href="https://gunicorn.org">Gunicorn</a>.
+You might use Gunicorn as well if you prefer.
+This tutorial sticks to Gevent, because it’s easier in my opinion.</p>
+
+<h4 id="creating-our-flask-app">Creating our Flask app</h4>
+<p>We’ll now proceed to building the app.
+The code samples will cover all major functions.</p>
+
+<p>Feel free to checkout the full project at <a href="https://github.com/s-gbz/keras-flask-deploy-webapp">GitHub</a>.</p>
+
+<h5 id="app-and-folder-structure">App and folder structure</h5>
+<p>A scaleable structure is the first step in building a scaleable and robust application.</p>
+
+<p><img src="/assets/images/posts/deploying-keras-models-to-production-easily/deployment-ordner-struktur.PNG" alt="App-folder-structure" /></p>
+
+<p>Let’s run over the contents quickly</p>
+<ul>
+  <li><code>models</code> is where you store your models.
+Make sure to export them in <code>.h5</code> format</li>
+  <li><code>frontend</code> lives up to its name and contains your frontend files.
+Default implementations usually split this folder into <code>static</code> and <code>templates</code>.</li>
+  <li><code>uploads</code> is the place to store your users uploaded files.
+You might consider deleting them as soon as your model is done predicting.</li>
+</ul>
+
+<h6 id="defining-the-flask-app">Defining the Flask app</h6>
+<p>We define our app by creating a Flask instance.</p>
+
+<pre><code class="language-python">app = Flask(__name__, template_folder='frontend', static_folder='frontend', static_url_path='')
+</code></pre>
+
+<p>Usual Flask applications contain a <code>template</code> and <code>static</code> folder.
+Frontend developers using Frameworks like Angular or React have their build artifacts usually served in a single directory.
+We copy the ease of having a single directory and thus point the folder paths to <code>frontend</code>.</p>
+
+<h6 id="enabling-cors">Enabling CORS</h6>
+<p>Web applications usually consist of multiple instances that need to communicate.
+Those instances usually run on different ports and don’t know each other.
+We thus need to explicitly allow communication between them.
+This is done by setting rules for Cross-Origin Resource Sharing (<a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS">CORS</a>).</p>
+
+<pre><code class="language-python">CORS(app)
+</code></pre>
+
+<p>This <code>CORS</code> statement serves as a wildcard and specifies no rules.
+Keep in mind that it could be a security threat.
+Make sure to evaluate necessary limitations once your application is running.</p>
+
+<p>Read the official <a href="https://flask-cors.readthedocs.io/en/latest">Flask CORS documentation</a> how to define further rules.</p>
+
+<h5 id="loading-a-single-model">Loading a single model</h5>
+<p>To load a model we make use of the <code>keras.models</code> library.</p>
+
+<pre><code class="language-python">model = load_model(MODEL_PATH)
+</code></pre>
+
+<h6 id="loading-multiple-model">Loading multiple model</h6>
+<p>This paragraph is only relevant if you intend using multiple models.
+Feel free to skip it if you don’t.</p>
+
+<hr />
+<p>Every TensorFlow model is accompanied by a <a href="">Session</a> and a <a href="">Graph</a>.
+Using multiple models requires handling and calling it’s corresponding Sessions and Graphs.
+We define arrays to track them.</p>
+
+<pre><code class="language-python">MODELS = []
+GRAPHS = []
+SESSIONS = []
+</code></pre>
+
+<p>We also specify model names to prepare directory paths and call <code>load_models()</code> to load them one by one.
+Also don’t just name your models “1, 2, 3”. Stick to <a href="https://dzone.com/articles/naming-conventions-from-uncle-bobs-clean-code-phil">Clean Code</a>!</p>
+
+<pre><code class="language-python">MODEL_NAMES = ["classify_cats", "classify_dogs", "classify_faces"]
+
+def load_models():
+    for i in range(AMOUNT_OF_MODELS):
+        load_single_model("models/" + MODEL_NAMES[i] + ".h5")
+        print("Model " + str(i) + " of "+ AMOUNT_OF_MODELS + " loaded.")
+    print('Ready to go! Visit -&gt; http://127.0.0.1:5000/')
+</code></pre>
+
+<p>Remember that we need to manage Sessions and Graphs?
+Let’s dive into <code>load_single_model()</code> to see how it’s done.
+(Thanks to all participants who contributed to this solution on <a href="https://github.com/keras-team/keras/issues/8538">GitHub</a>!)</p>
+
+<pre><code class="language-python">def load_single_model(path):
+    graph = Graph()
+    with graph.as_default():
+        session = Session()
+        with session.as_default():
+            model = load_model(path)
+            model._make_predict_function() 
+            
+            models.append(model)
+            graphs.append(graph)
+            sessions.append(session)
+</code></pre>
+
+<p>First we’ll create a new Graph.</p>
+
+<pre><code class="language-python">graph = Graph()
+with graph.as_default():
+</code></pre>
+
+<p>If that works we create a new Session as well.
+We use <code>with</code> in both cases since the operations might fail.
+For those familiar with Java: <a href="https://www.geeksforgeeks.org/with-statement-in-python/"><code>with</code></a> is Pythons <a href="https://www.w3schools.com/java/java_try_catch.asp"><code>try/ catch</code></a> mechanism.</p>
+
+<pre><code class="language-python">        session = Session()
+        with session.as_default():
+</code></pre>
+
+<p>You might encounter the following warning now: <code>Context manager 'generator' doesn't implement __enter__ and __exit__.</code>
+We can stay calm since this is just a <a href="https://github.com/PyCQA/pylint/issues/1542">bug</a>.</p>
+
+<p>Keras lets us build predict functions beforehand.
+This is optional but advisable since it <a href="https://github.com/keras-team/keras/issues/6124#issuecomment-292752653">accelerates</a> the models first response time.</p>
+
+<pre><code class="language-python">model._make_predict_function()
+</code></pre>
+
+<p>The steps repeat for every model we load.
+We store our newly created items in the arrays we prepared.</p>
+
+<h5 id="defining-request-urls">Defining request URLs</h5>
+<p>Flask annotations allow us to define RequestMappings easily.</p>
+
+<pre><code class="language-python">@app.route('/', methods=['GET'])
+def index():
+    return render_template('index.html')
+</code></pre>
+
+<p>In order to create a new mapping we define a route (<code>'/'</code>) and accepted operations (<code>'GET'</code>) - the single slash path <code>'/'</code> signifies the base route.
+Navigating to <code>http://localhost:5000</code> triggers <code>index()</code> to serve <code>index.html</code> since
+Flask applications run on port 5000 by default.</p>
+
+<h6 id="requesting-the-predict-function">Requesting the predict function</h6>
+<p>The same principles applies for calls to the predict function.</p>
+
+<pre><code class="language-python">@app.route('/predict', methods=['POST'])
+def upload():
+    if request.method == 'POST':
+        # Get the file from the POST request
+        file_to_predict = request.files['file']
+
+        # Save the file to ./uploads
+        basepath = os.path.dirname(__file__)
+        local_file_path = os.path.join(
+            basepath, 'uploads', secure_filename(file_to_predict.filename))
+        file_to_predict.save(local_file_path)
+
+        predictions = models_predict(local_file_path)
+        os.remove(local_file_path)
+
+        return jsonify(predictions)
+</code></pre>
+
+<p>We define <code>/predict</code> as our request path.
+Since most models require user input to return results, we only accept <code>POST</code> requests.</p>
+
+<pre><code class="language-python">@app.route('/predict', methods=['POST'])
+</code></pre>
+
+<p>To process the request, we extract the attached file by using the <code>file</code> key.</p>
+
+<pre><code class="language-python">        file_to_predict = request.files['file']
+</code></pre>
+
+<p>After saving the file we pass its newly constructed path to our models for prediction.</p>
+
+<pre><code class="language-python">        preds = models_predict(local_file_path)
+</code></pre>
+
+<p>Respecting the privacy of our users we delete the file as prediction is done.</p>
+
+<pre><code class="language-python">        os.remove(local_file_path)
+</code></pre>
+
+<p>The results are then parsed into JSON and returned as a request response.
+We avoid discussing the predict function to prevent this blog post from growing longer than it already is :-)</p>
+
+<h5 id="serving-our-flask-app-with-gevent">Serving our Flask app with Gevent</h5>
+<p>It’s time to serve our app in production mode.
+As mentioned above, Gevent helps us with that.</p>
+
+<pre><code class="language-python">if __name__ == '__main__':
+    load_models()
+    wsgi_server = WSGIServer(('0.0.0.0', 5000), app)
+    wsgi_server.serve_forever()
+</code></pre>
+
+<p>After loading our models we need to define and start a Gevent instance.
+We use Gevents static <code>WSGIServer</code> since Flask is a <strong>W</strong>eb <strong>S</strong>erver <strong>G</strong>ateway <strong>I</strong>nterface.</p>
+
+<pre><code class="language-python">    wsgi_server = WSGIServer(('0.0.0.0', 5000), app)
+</code></pre>
+
+<p>The arguments we pass include <code>'0.0.0.0'</code> to set the host.
+Though it’s optional, some users might experience issues on Firefox if it’s unset.
+<code>app</code> is our Flask application and <code>5000</code> the port we expose.
+You may use any free port.</p>
+
+<p>The application now runs until shutdown.</p>
+
+<pre><code class="language-python">    wsgi_server.serve_forever()
+</code></pre>
+
+<h6 id="test-run">Test run!</h6>
+<p>To serve the application, open a shell inside the application directory.</p>
+<ul>
+  <li>Use pip to install the requirements via <code>pip install requirements.txt</code>.
+You might as well use anaconda!</li>
+  <li>Copy your models and frontend files into the respective folders.</li>
+  <li>Run <code>python app.py</code> and open <code>http://localhost:5000</code> in your favourite browser.</li>
+</ul>
+
+<p>Enjoy the result, but don’t get too comfortable.
+It’s time for shipping!</p>
+
+<h4 id="moving-to-a-server-with-docker-compose">Moving to a server with Docker-/Compose</h4>
+<p>Now that our application is prepared to handle waves of requests it’s time to move it to a server. 
+This example server is running <a href="https://centos.org">CentOs 7.5</a> but you can use any UNIX distribution you prefer.</p>
+
+<p>We use <a href="https://docker.com">Docker</a> to make transport and deployment of the application easier:
+By defining a set of rules we create an image of a virtual machine that contains our data and runs in it’s own capsuled environment.</p>
+
+<p>Dockerizing applications saves us the trouble of preparing separate deployment schemes for different operating systems.
+Instead we can focus on building ideal execution environments.</p>
+
+<h5 id="dockerize-the-application">Dockerize the application</h5>
+<p>Let’s look at our set of rules to create a Docker image.
+This set of rules is called a Dockerfile.</p>
+
+<pre><code class="language-Dockerfile">FROM python:3
+
+WORKDIR /usr/src/app/uploads
+
+WORKDIR /usr/src/app
+
+RUN pip install Werkzeug Flask flask-cors numpy Keras gevent pillow h5py tensorflow
+
+WORKDIR /usr/src/app/models
+
+COPY models .
+
+WORKDIR /usr/src/app/frontend
+
+COPY frontend .
+
+WORKDIR /usr/src/app
+
+COPY app.py .
+
+CMD [ "python" , "app.py"]
+</code></pre>
+
+<p>This Dockerfile might seem long for our rather simple application, but that’s another great advantage of Docker:
+Every command creates and serves as a separate layer in the build.
+Consecutive builds evaluate if layers have been modified and push changes to the top.
+Unchanged layers are reused and thus greatly speed up the build time.</p>
+
+<p>Mind to move layers that are modified frequently to the bottom of the Dockerfile.</p>
+
+<h6 id="examining-the-dockerfile">Examining the Dockerfile</h6>
+<p>Let’s examine the commands.
+We first select a base image that will serve as a foundation.
+You can browse <a href="https://hub.docker.com/">DockerHub</a> for a collection of available images.</p>
+
+<pre><code class="language-Dockerfile">FROM python:3
+</code></pre>
+
+<p>Before copying our data to the image we need to make sure the respective directories exist.
+<code>WORKDIR</code> will help us with that.</p>
+
+<pre><code class="language-Dockerfile">WORKDIR /usr/src/app/models
+WORKDIR ...
+</code></pre>
+<p>If the specified directory exists, <code>WORKDIR</code> navigates into it or otherwise creates it first.
+We repeat this step for every directory before using <code>COPY</code> to move our data.</p>
+
+<pre><code class="language-Dockerfile">COPY models .
+COPY ...
+</code></pre>
+
+<p><code>COPY</code> is supposed to check and create directories before copying files.
+We rely on <code>WORKDIR</code> though, because some users experienced trouble with directories that weren’t created.</p>
+
+<p><code>RUN</code> executes commands in a shell.
+We use it to install our dependencies.</p>
+
+<pre><code class="language-Dockerfile">RUN pip install tensorflow Flask ... 
+</code></pre>
+
+<p>Note that we established a base structure and installed dependencies before moving any files.
+This order sequence will greatly decrease consequtive build time, because we avoid reinstalling dependencies when something in our app changes.</p>
+
+<p>Take note that <code>CMD</code> is no layer of the image build, but serves as the default command on container startup.
+There can be only <em>one</em> <code>CMD</code> command per Dockerfile.</p>
+
+<pre><code class="language-Dockerfile">CMD [ "python" , "app.py"]
+</code></pre>
+
+<h6 id="building-a-docker-image">Building a Docker image</h6>
+<p>Let’s build our image!</p>
+
+<pre><code class="language-shell">docker image build --tag deploy-keras-easily .
+</code></pre>
+
+<p>We add a <code>--tag</code> flag to name the image.
+The final <code>.</code> parameter instructs Docker to use the Dockerfile in the current directory -
+use the <code>--file</code> flag to specify Dockerfiles you named differently.</p>
+
+<p><a href="https://docs.docker.com/engine/reference/commandline/image_build/">Read the docs</a> for more information on building images.</p>
+
+<h6 id="running-a-docker-image">Running a Docker image</h6>
+<p>Images are run in Docker containers.
+There’s a <a href="https://docs.docker.com/engine/reference/commandline/run/">number of arguments</a> that can be used with <code>docker run</code>.</p>
+
+<pre><code class="language-shell">docker run -p 5000:5000 deploy-keras-easily
+</code></pre>
+
+<p>We select our image by the name tag <code>deploy-keras-easily</code>.
+Advanced users may use the first two characters of the image hash as well.
+We use the <code>-p</code> flag to bridge our local port 5000 to the port on the container.</p>
+
+<p>Note that the container will be running in the shell until it is closed.
+Add <code>-d</code> to detach the container from the shell and have it run in the background.</p>
+
+<h6 id="stopping-a-docker-container">Stopping a Docker container</h6>
+<p>We can stop a running container with <code>docker kill</code> and its name tag or hash.</p>
+
+<pre><code class="language-shell">docker kill deploy-keras-easily
+</code></pre>
+
+<p>Use <code>docker container ls</code> to list and find active containers in case you forgot the name or hash.</p>
+
+<h5 id="docker-compose">Docker-compose</h5>
+<p>“Compose is a tool for defining and running multi-container Docker applications. With Compose, you use a YAML file to configure your application’s services.
+Then, with a single command, you create and start all the services from your configuration.” - <a href="https://docs.docker.com/compose/">docker docks</a></p>
+
+<p>Another benefit:
+Docker-compose allows us to have a static IP when we serve our image.
+We’ll use this IP to enable a proxy pass via nginx later on.</p>
+
+<pre><code class="language-yml">version: '3.3'
+services:
+ deploy-keras-easily-service:
+   container_name: deploy-keras-easily
+   image: deploy-keras-easily
+   restart: always
+   networks:
+     deploy-keras-easily-net:
+       ipv4_address: 172.16.239.10
+
+networks:
+ deploy-keras-easily-net:
+   driver: bridge
+   ipam:
+     driver: default
+     config:
+       - subnet: 172.16.239.0/24
+</code></pre>
+
+<p>We first define a service for our Docker image.
+One service is enough since our application is bundled into one image.
+More complex applications could profit from expanding the number of services though.</p>
+
+<pre><code class="language-yml">services:
+    deploy-keras-easily-service:
+    container_name: deploy-keras-easily
+    image: deploy-keras-easily
+    restart: always
+    networks:
+     deploy-keras-easily-net:
+       ipv4_address: 172.16.239.10
+</code></pre>
+
+<p>Let’s highlight the service features.
+Our first feature is automatic container restart.
+We can instruct our service to reboot on unexpected shutdown.</p>
+
+<pre><code class="language-yml">   restart: always
+</code></pre>
+
+<p>Second and most important feature is that we can set a static IP for our service.
+This static IP should be your server address.</p>
+
+<pre><code class="language-yml">       ipv4_address: 172.16.239.10
+</code></pre>
+
+<p>Let’s finish the network configuration by defining a subnet lastly.
+Refer to your servers network setting and copy the subnet.</p>
+
+<pre><code class="language-yml">networks:
+ deploy-keras-easily-net:
+   driver: bridge
+   ipam:
+     driver: default
+     config:
+       - subnet: 172.16.239.0/24
+</code></pre>
+
+<h6 id="adding-volumes">Adding volumes</h6>
+<p>Containers are volatile and destroyed on shutdown.
+Applications that need to persist data make use of <a href="https://docs.docker.com/storage/">volumes</a>.
+We avoid data storage and hence avoid volumes.</p>
+
+<p>Read this instruction how to <a href="https://docs.docker.com/compose/compose-file/#volumes">expand the compose file</a> in case you do need volumes.</p>
+
+<h5 id="starting-docker-compose">Starting Docker-Compose</h5>
+<p>Our app should only be started by <code>docker-compose</code> from now on.
+Add a <code>-d</code> flag to run the containers detached in the background.</p>
+
+<pre><code class="language-shell">docker-compose up
+</code></pre>
+
+<p>Congratulation!
+The application is now available at http://172.16.239.10:5000 (or the IP you set in the compose settings).
+But what’s with the exposed port and the unencrypted traffic?
+Time to fix that in our last step!</p>
+
+<h4 id="preparing-nginx">Preparing nginx</h4>
+<p>“NGINX [‘Engine X’] is open source software for web serving, reverse proxying, caching, load balancing, media streaming, and more.” - <a href="https://www.nginx.com/resources/glossary/nginx/">nginx glossar</a>.</p>
+
+<p>We will use nginx to force https and hide our ports.
+Assuming you’re on CentOS 7 as well, follow <a href="https://linuxize.com/post/how-to-install-nginx-on-centos-7/">this instructions</a> to install nginx.
+Use <code>sudo</code> and your favorite editor to open <code>/etc/nginx/nginx.conf</code>.
+Copy and adapt the configuration file as following.</p>
+
+<pre><code class="language-nginx">events { }
+
+http {
+    server {
+	    ssl_certificate /path/to/your/cert.pem;        
+        ssl_certificate_key /path/to/your/private/key.pem;
+        listen 443 ssl;
+        client_max_body_size 15M;
+
+	    location / { 
+            proxy_pass                          http://172.16.239.10:5000;
+            proxy_set_header Host               $host;
+            proxy_set_header X-Real-IP          $remote_addr;  
+            proxy_set_header X-Forwarded-For    $proxy_add_x_forwarded_for;
+        }
+    }
+
+    server {
+        listen 80 default_server;
+        return 301 https://$host$request_uri;
+    }
+}
+</code></pre>
+
+<p><code>events { }</code> is a mandatory part of the configuration that we’ll leave blank since we have no use for it.
+Instead we’ll focus on the <code>http</code> block containing our <code>server</code> rules.</p>
+
+<h5 id="nginx---establishing-a-secure-connection">nginx - Establishing a secure connection</h5>
+<p>Enabling a secure connection between server and client requires encryption from the server side.
+<code>ssl_certificate</code> and <code>ssl_certificate_key</code> provide such service.
+<em>Specify the paths to your cert and key files in this parameter.</em></p>
+
+<pre><code class="language-nginx">	    ssl_certificate /path/to/your/cert.pem;        
+        ssl_certificate_key /path/to/your/private/key.pem;
+</code></pre>
+
+<p>Basic, unencrypted HTTP connections use port 80 to communicate.
+Using a secure, encrypted channel requires communication on port 443.</p>
+
+<pre><code class="language-nginx">        listen 443 ssl;
+        client_max_body_size 10M;
+</code></pre>
+
+<p><code>listen 443 ssl</code> orders the server to expect incomming traffic on our secure line.
+We also order the server to reject files that excede 10 megabytes.
+Define this parameter as you need.</p>
+
+<pre><code class="language-nginx">        client_max_body_size 10M;
+</code></pre>
+<h6 id="forcing-https">Forcing HTTPS</h6>
+<p>Setting up HTTPS is not enough, because plain HTTP is allowed by default.
+We need to make sure that users access the application on a secure connection only.
+To do that we add a redirection rule.</p>
+
+<pre><code class="language-nginx">    server {
+        listen 80 default_server;
+        return 301 https://$host$request_uri;
+    }
+</code></pre>
+
+<p>This <code>server</code> block now listens to unencrypted requests on port 80 and responds with the <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/301">status code 301</a> “permanently moved”.
+Incoming traffic is thereby guided to keep the requested address, but access it on <code>https</code> instead of plain <code>http</code>.</p>
+
+<h5 id="nginx---hiding-the-port">nginx - Hiding the port</h5>
+<p>Our application is running on port 5000.
+It’s a mandatory part of our current URL.
+Exposed ports don’t look nice though and bother users to memorize them.
+They can reveal the applications technology and be a security threat.
+We avoid port exposure by using a Reverse Proxy.</p>
+
+<h6 id="enabling-a-reverse-proxy">Enabling a Reverse Proxy</h6>
+<p><a href="https://www.nginx.com/resources/glossary/reverse-proxy-server/">Reverse Proxies</a> offer a wide array of features.
+We’ll use it to hide our application by denying access to port 5000.
+Client requests will have to address the plain server IP.
+The proxy will then redirect the traffic to our application.
+The command block <code>location</code> sets up such a proxy.</p>
+
+<pre><code class="language-nginx">	    location / { 
+            proxy_pass                          http://172.16.239.10:5000;
+            proxy_set_header Host               $host;
+            proxy_set_header X-Real-IP          $remote_addr;  
+            proxy_set_header X-Forwarded-For    $proxy_add_x_forwarded_for;
+        }
+</code></pre>
+
+<p>The <code>/</code> behind <code>location</code> redirects traffic aimed at the base path of our application.
+<code>proxy_pass</code> defines the URL to hide.
+Note that we use the static IP defined in the previous docker-compose file.</p>
+
+<p>Remember that we force clients to use HTTPS?
+We need to set <code>proxy_set_header</code>, because we route to an internal application and switch from port 443 to 5000.</p>
+
+<h4 id="conclusion">Conclusion</h4>
+<p>Deploying Deep Learning models doesn’t have to be as complicated as it seems.
+Let’s rewind our steps:</p>
+<ul>
+  <li>First we’ve setup a simple app structure, defined RequestMappings and wrapped our Flask application in Gevent.</li>
+  <li>Next we’ve dockerized our data and service.
+We also defined a network to have a static IP for the container.</li>
+  <li>As a final touch we used nginx to hide the ports and force secure connections.</li>
+</ul>
+
+<p>Try your own models and fork the code at <a href="https://github.com/s-gbz/keras-flask-deploy-webapp">GitHub</a>.
+Happy deploying! :-)</p>
+
+<p>PS: You should be properly served by this guide.
+Here are some alternatives in case you don’t.
+Keep in mind that you need to adapt them to Keras though!</p>
+<ul>
+  <li><a href="https://www.tensorflow.org/tfx/guide/serving">TensorFlow Serving</a></li>
+  <li><a href="http://deeplearning4j.org/">Deep Learning for Java</a> + <a href="https://spring.io/projects/spring-boot">Spring Boot</a></li>
+</ul>
+
+</div>
+</div>
+</div>
+</div>]]></field>
+    </document>
+</documents>
