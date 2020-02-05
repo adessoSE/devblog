@@ -100,7 +100,12 @@ import { AbstractPage } from "../UI/AbstractPage";
    }
  }
 ```
-Weitere Klassen wie **TestData.ts** und **TestFall.ts** können auch ähnlich erzeugt werden.
+
+Weitere Klassen wie **TestData.ts** und **TestFall.ts** können auch über ein geeignetes Template erzeugt werden.
+Der Vorteil eines Code Generators nebst Zeitersparnis ist, dass die generierte Klassen (TestData, TestFall, Page-Object Klasse…) einheitlich aufgebaut sind und sich ähneln.
+
+Die Einarbeitung neuer KollegInnen wird dadurch erleichtert.
+Der Entwickler kann sich auf das Wesentliche konzentrieren und die hierdurch gesparte Zeit kann in die Implementierung weiterer Funktionalitäten oder die Ausarbeitung weiterer Testfälle investiert werden. 
    
 # Sind die Logausgaben aussagekräftig? wenn nicht, dann sollen sie es sein
 

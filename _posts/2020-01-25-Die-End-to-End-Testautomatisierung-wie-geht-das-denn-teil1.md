@@ -48,11 +48,13 @@ Beispielhaft wird im Folgenden eine einfache Login Seite mit zwei Textfeldern f�
       
 Die Struktur besteht im Einzelnen aus: 	
 * **UI**: Die UI Darstellung wird mit Hilfe einer Abstrakten Klasse (AbstractPage) als Oberklasse realisiert, von der alle Anwendungsseiten erben.
-Eine Klasse (Die Klasse für den Test der Login Seite in unserem Beispiel) besteht aus: UI Elementen (wie die Eingabefelder für den Benutzername und Password, Bestätigungstaste Login) und möglichen Interaktionen mit den Elementen (z.B. Bestätigungstaste anklicken).
+Eine Klasse (Die Klasse für den Test der Login Seite in unserem Beispiel) besteht aus: **UI Elementen** (wie die Eingabefelder für den Benutzername und Password, Bestätigungstaste Login) und möglichen **Interaktionen** mit den Elementen (z.B. Bestätigungstaste anklicken).
+
 Diese Interaktionen werden durch Methoden für andere Klassen ( Testschritte ) zur Verfügung gestellt. 
 * **Testschritte**: Die einzelnen Testschritte werden in Klassen gegliedert.
 Die Klassen interagieren mit der UI und stellen Methoden zur Verfügung, die komplette Prozesse oder Teilprozesse wie z.B. das Befüllen eines Formulars für die Eingabe von Login Daten anbieten.
 Eine Testschritte-Klasse kann in unserem Beispiel die Methode ```anmelden_als(nutzer: string)``` anbieten.
+
 Die zur Verfügung gestellten Methoden können dann in den Testfällen benutzt und mit Testdaten befüllt werden.
 * **Testdata**: Einzelne Testdaten für die Testfälle können in gesonderten Klassen gepflegt werden.
 Pro Testfall sollte eine Klasse mit Testdaten vorhanden sein.
@@ -74,7 +76,7 @@ So können Testfälle für einzelne Bereiche (bspw. Stammdaten) eine Testsuite (
 Die Einführung von OOP Konzepten, insbesondere Klassen, Vererbung und Polymorphie, erhöht nicht nur die Wiederverwendbarkeit, sondern auch die Wartbarkeit und die Lesbarkeit des Testfall-Codes.
 Durch die Umsetzung dieser Denkweise kann der Entwickler im Allgemeinen die Testfälle effizienter automatisieren und der Testmanager die Aufgaben auf die Entwickler besser parallelisieren. 
 
-Die Umsetzung von Page-Object Pattern  ist empfehlenswert.
+Die Umsetzung von **Page-Object Pattern** ist empfehlenswert.
 Eine Page-Objekt Klasse umschließt eine HTML-Seite mit einer anwendungsspezifischen API, sodass es mit den UI-Elementen interagieren kann, ohne direkt den HTML-Code zu benutzen.
 Diese Page-Object Klasse enthält:
 
@@ -91,13 +93,6 @@ Anstatt auf verschiedenen Stellen eine Anpassung vorzunehmen, genügt meistens d
 Die Anwendung nützlicher Werkzeuge wie Entwurfsmustern bieten erprobte Lösungen für wiederkehrende Probleme.
 Beispielsweise durch das Benutzen von Fluent Interface können die Testdaten als Objekte einer geeigneten Methode als ein Parameter anstatt viele Parameter übergeben werden.
 Das erhöht die Codelesbarkeit.
-
-Andere Dateien wie **TestData.ts** und **TestFall.ts** können auch über ein geeignetes Template erzeugt werden.
-Der Vorteil eines Code Generators (mehr dazu im dritten Teil) nebst Zeitersparnis ist, dass die generierte Klassen (TestData, TestFall, Page-Object Klasse…) einheitlich aufgebaut sind und sich ähneln.
-
-Die Einarbeitung neuer KollegInnen wird dadurch erleichtert.
-Der Entwickler kann sich auf das Wesentliche konzentrieren und die hierdurch gesparte Zeit kann in die Implementierung weiterer Funktionalitäten oder die Ausarbeitung weiterer Testfälle investiert werden. 
-
 
 # Testautomatisierung: wer sind die Akteure und was ist zu automatisieren?
 
