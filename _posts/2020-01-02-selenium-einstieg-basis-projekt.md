@@ -8,7 +8,7 @@ categories: [Java]       # Pflichtfeld. Maximal eine der angegebenen Kategorien 
 tags: [Testing, Docker, Selenium, Java]                       # Optional.
 ---
 
-
+ 
 In dieser Blogreihe möchte ich einen Einstieg für das Automatisierungstool Selenium vorstellen.
 Der erste Artikel gibt einen Überblick zu Selenium und dessen Verwendung. 
 Außerdem möchte ich ein Beispielprojekt für Selenium vorstellen.
