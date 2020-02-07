@@ -47,10 +47,10 @@ Beispielhaft wird im Folgenden eine einfache Login Seite mit zwei Textfeldern f�
 ![Vorgeschlagene Struktur](/assets/images/posts/Die-End-to-End-Testautomatisierung-wie-geht-das-denn/struktur.png)
       
 Die Struktur besteht im Einzelnen aus: 	
-* **UI**: Die UI Darstellung wird mit Hilfe einer Abstrakten Klasse (AbstractPage) als Oberklasse realisiert, von der alle Anwendungsseiten erben.
+* **UI**: Die UI Darstellung wird mit Hilfe einer abstrakten Klasse (AbstractPage) als Oberklasse realisiert, von der alle Anwendungsseiten erben.
 Eine Klasse (Die Klasse für den Test der Login Seite in unserem Beispiel) besteht aus: **UI Elementen** (wie die Eingabefelder für den Benutzername und Password, Bestätigungstaste Login) und möglichen **Interaktionen** mit den Elementen (z.B. Bestätigungstaste anklicken).
 
-Diese Interaktionen werden durch Methoden für andere Klassen ( Testschritte ) zur Verfügung gestellt. 
+Diese Interaktionen werden durch Methoden für andere Klassen (Testschritte ) zur Verfügung gestellt. 
 * **Testschritte**: Die einzelnen Testschritte werden in Klassen gegliedert.
 Die Klassen interagieren mit der UI und stellen Methoden zur Verfügung, die komplette Prozesse oder Teilprozesse wie z.B. das Befüllen eines Formulars für die Eingabe von Login Daten anbieten.
 Eine Testschritte-Klasse kann in unserem Beispiel die Methode ```anmelden_als(nutzer: string)``` anbieten.
@@ -60,7 +60,7 @@ Die zur Verfügung gestellten Methoden können dann in den Testfällen benutzt u
 Pro Testfall sollte eine Klasse mit Testdaten vorhanden sein.
 Testdaten können voneinander erben.
 
-Das ist sinvoll, wenn verschiedene Dialoge im Software-Produkt den gleichen Teil für die Eingabe von Adressen haben.
+Das ist sinvoll, wenn verschiedene Dialoge im Softwareprodukt den gleichen Teil für die Eingabe von Adressen haben.
 Hier wird eine Klasse (AbstractAddressData) mit initialen Daten (Straße, Ort...) erstellt, von der andere Klassen erben.
 Wenn spezifische Testdaten für die Adresse gewünscht sind, dann kann die TestData-Klasse für den bestimmten Testfall die Daten überschreiben.
 * **Testfälle** : Das Zusammenspiel zwischen Testdaten und Testschritten, dem Input und der Validierung des Outputs, findet in einem Testfall statt.

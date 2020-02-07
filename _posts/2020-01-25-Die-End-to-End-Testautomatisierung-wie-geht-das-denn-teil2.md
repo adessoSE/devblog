@@ -25,7 +25,7 @@ Die Pipeline von E2E Tests oder anderer Routinen kann somit auf Basis der bereit
 
 
 Mit Hilfe von [Docker](https://www.docker.com/) könnte solche eine Testinfrastruktur für die Durchführung hochgefahren und nach Abschluss der Testaktivitäten heruntergefahren werden.
-So wird der Ausgangzustand der Testinfrastruktur wiederholt auf identische Weise hergestellt und die gelieferten Ergebnisse gewinnen an Aussagekraft.
+So wird der Ausgangszustand der Testinfrastruktur wiederholt auf identische Weise hergestellt und die gelieferten Ergebnisse gewinnen an Aussagekraft.
 
 # Tests sollen in einer Pipeline ausgeführt werden
 
@@ -98,7 +98,7 @@ In diesem Codeabschnitt können wir drei Arten von Abfragen benutzt werden, um U
 
 
 •	**Absoluter Pfad**: Wir können das *Inputfield Username* mit dem absoluten Pfad **`/html/body/div/form/div[2]/input[2]`** auszuwählen. 
-Der absolute Pfad enthält den kompleten Pfad für die Positionierung eines Elementes im DOM Baum einer HTML-Seite.
+Der absolute Pfad enthält den kompletten Pfad für die Positionierung eines Elementes im DOM Baum einer HTML-Seite.
 
 
 •	**Relativer Pfad**: mit der Abfrage **`//*[@id="login-Dialog"]/form/div[2]/button`** können wir die **Eingabetaste Login** auswählen.
@@ -116,7 +116,7 @@ Denn je kürzer ein Pfad eines Elements ist, desto zugreifbarer sind die Element
 
 Die XPath-Abfrage ist kürzer als die absoluten und relativen Pfaden und dadurch weniger fragil. 
 Es gibt noch weitere Möglichkeiten, um Elemente im HTML zu adressieren.
-Es ist z.B. in Angular-Welt geläufig, dass man ein ```data-id``` Attibut setzt.
+Es ist z.B. in Angular-Welt geläufig, dass man ein ```data-id``` Attribut setzt.
 Die XPath-Abfrage kann dann etwas so aussehen **`//*[@data-id="..."]`**. 
 
  
@@ -126,7 +126,7 @@ Eine einheitliche Notation kann nicht nur die Codelesbarkeit und die Logiklesbar
 # Ausblick
 
 
-Bisher wurde erläutert, dass der Ausgangzustand der Testlandschaft eine wichtige Voraussetzung für die Testausführung ist.
+Bisher wurde erläutert, dass der Ausgangszustand der Testlandschaft eine wichtige Voraussetzung für die Testausführung ist.
 Darüber hinaus wurde erklärt, dass mittels der XPath-Abfrage UI-Elemente adressiert und ausgewertet werden können.
 
 Bleibt die Frage zu klären: Wie können aus Ids brauchbare Codeabschnitte erzeugt werden?

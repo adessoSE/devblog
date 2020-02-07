@@ -7,7 +7,7 @@ author: andernach                                                       # Pflich
 categories: [Softwareentwicklung]                                         # Pflichtfeld. Maximal eine der angegebenen Kategorien verwenden.
 tags: [Testing, Softwarequalitätssicherung, Oberflächentests]           # Optional.
 ---
-# Code schreiben um den Code zu generieren
+# Code schreiben, um den Code zu generieren
 
 Wie wir gesehen haben, entstehen komplexere UIs meistens aus weniger komplexen UI Komponenten wie z.B. Bestätigungstasten oder Eingabefeldern.
 In der Praxis hat sich die Entwicklung eines Code Generators in Bezug auf die Erhöhung der Entwicklungsgeschwindigkeit bewährt.
@@ -15,7 +15,7 @@ Solch ein Code Generator lässt sich hierfür mit wenigen Handgriffen konfigurie
 
 Eine geläufige Templating Engine wie [Apache Velocity](https://velocity.apache.org/) kann hier zum Einsatz kommen.
 
-Zur Verdeutlichung lasst und folgendes beispiel anschauen:
+Zur Verdeutlichung lasst und folgendes Beispiel anschauen:
 
 •	Aus einem einfachen textuellen Input, der aus einem UI-Selektorname und UI-Selektorwert besteht:
  ```bash
