@@ -37,7 +37,7 @@ Die Funktion benötigt als Parameter den Fully Qualified Name des Projekt-Packag
 ```bash
 http://localhost:8040/analyse/${PACKAGE_FQN}
 ```
-Die analysierten Java-Artefakte werden und wie im folgenden Beispiel als JSON zurückgegeben.
+Die analysierten Java-Artefakte werden wie im folgenden Beispiel als JSON zurückgegeben.
 Das Beispiel zeigt, dass die Klasse `Pet` anhand ihrer Eigenschaften als Entity klassifiziert wurde.
 ```json
 {
@@ -65,6 +65,7 @@ Die Architekturbewertung können wir uns mit der nachfolgenden URL erzeugt lasse
 ```bash
 http://localhost:8040/metric
 ```
+In den nächsten Abschnitten gehen wir näher auf die einzelnen Metriken ein.
 
 ### Object-Oriented Design Metrik
 Die Object-Oriented Design Metrik beschreibt die Abstraktheit sowie die Instabilität von Modulen.
