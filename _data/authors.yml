@@ -240,3 +240,12 @@ smsnheck:
   bio: "Sebastian ist Teamleiter bei adesso und beschäftigt sich gerne mit Themen aus dem Umfeld der agilen Softwareentwicklung."
   avatar_url: /assets/images/avatars/smsnheck.jpg
   github: https://github.com/smsnheck
+
+DanielKraft:
+  first_name: Daniel
+  last_name: Kraft
+  github_username: DanielKraft
+  email: daniel.kraft@adesso.de
+  bio: "Daniel ist als Werkstudent im Versicherungsbereich bei adesso in Frankfurt am Main tätig."
+  avatar_url: /assets/images/avatars/DanielKraft.jpg
+  github: https://github.com/DanielKraft
