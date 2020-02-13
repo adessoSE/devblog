@@ -12,12 +12,12 @@ Zurzeit wird das Domain-Driven Design gerne in der Softwareentwicklung
 verwendet.
 Allerdings werden meistens nicht alle Standards des Domain-Driven Design eingehalten, obwohl das Domain-Driven Design dabei helfen kann die Qualität unseres Quellcodes zu verbessern.
 In diesem Blog-Artikel stelle ich euch ein Werkzeug vor welches Java-Systeme, basierend auf dem Domain-Driven Design analysieren, bewerten und verbessern kann.
-Dieses Werkzeug ist in Verbindung mit meiner Bachelorarbeit an der [Hochschule Darmstadt](https://fbi.h-da.de/) entstanden.
-Der Quellcode des Werkzeugs ist auf [GitHub](https://github.com/DanielKraft/illumi-code-ddd) zu finden.
+Dieses Werkzeug ist in Verbindung mit meiner Bachelorarbeit an der Hochschule Darmstadt entstanden.
 
 # Aufbau und Funktionsweise des Werkzeugs
 Das Werkzeug wurde von mir in dem [Micronaut-Framework](https://micronaut.io/) entwickelt.
 Diese Framework wurde bereits in dem früheren Blog-Artikel [Micronaut - Eine Alternative zu Spring](https://www.adesso.de/de/news/blog/micronaut-eine-alternative-zu-spring-4.jsp) vorgestellt.
+Der Quellcode des Werkzeugs ist auf [GitHub](https://github.com/DanielKraft/illumi-code-ddd) zu finden.
 Für die Verwendung des Werkzeugs benötigen wir das Analysewerkzeug [jQAssistant](https://jqassistant.org/).
 jQAssistant ermöglicht es uns Java-Artefakte zu analysieren und in einer [Neo4j](https://neo4j.com/) Graphendatenbank darzustellen.
 
