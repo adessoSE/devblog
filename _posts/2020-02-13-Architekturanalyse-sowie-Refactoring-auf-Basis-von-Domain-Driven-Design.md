@@ -45,16 +45,13 @@ Das Beispiel zeigt, dass die Klasse `Pet` anhand ihrer Eigenschaften als Entity 
     "DDD": "ENTITY",
     "name": "Pet",
     "fields": [
-        "- birthDate: java.time.LocalDate",
-        ...
+        "- birthDate: java.time.LocalDate"
     ],
     "methods": [
         "+ <init>(): void",
         "+ setBirthDate(java.time.LocalDate): void",
-        "+ getBirthDate(): java.time.LocalDate",
-        ...
-    ],
-    ...
+        "+ getBirthDate(): java.time.LocalDate"
+    ]
 }
 ```
 
@@ -80,8 +77,7 @@ Die Abstraktheit und Instabilität eines Moduls sollte ausgewogen sein.
         "median": 0.2,
         "max": 1,
         "standard deviation": 0.41
-    },
-    ...
+    }
 }
 ```
 Das Werkzeug liefert uns die durchschnittliche Distanz der Module zum optimalsten Zustand.
@@ -104,8 +100,7 @@ Die Gesamtbewertung des Java-Systems spiegelt als die prozentuale Einhaltung der
             "max": 80,
             "standard deviation": 27.22
         }
-    },
-    ...
+    }
 }
 ```
 Als Ergebnis dieser Metrik bekommen wir die Gesamtbewertung des Java-Systems sowie die Anzahl der nicht eingehaltenen Kriterien.
