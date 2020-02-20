@@ -9,7 +9,7 @@ tags: [Architektur, Serverless, FaaS, AWS, Cloud Computing]
 Mit Serverless Architekturen können kleinere Anwendungen schnell und kosteneffektiv umgesetzt werden. 
 Die Anwendungen können kontinuierlich um weitere Services ergänzt werden und bleiben dabei jederzeit hoch skalierbar und 
 kosten-effektiv. 
-In diesem Beitrag zeige ich die Vor- und Nachteile von Serverless auf und zeige anhand von drei Beispielen wie Serverless 
+In diesem Beitrag zeige ich die Vor- und Nachteile von Serverless auf und demonstriere anhand von drei Beispielen wie Serverless 
 Services geschickt zu Anwendungen zusammengesetzt werden können.
 
 Serverless ist die nächste Stufe in der Entwicklung und Bereitstellung von Software nach Containern. 
@@ -22,14 +22,14 @@ ist an den Cloud Provider ausgelagert.
 ![Fokus auf Business Logik](/assets/images/posts/serverless-architekturen-mit-aws/focus_vs_costs.png)
 	 
 
-Obige Grafik veranschaulicht die Verringerung des eigenen Verwantwortungsbereichs für die Infrastruktur bei dem Einsatz von 
+Die Grafik veranschaulicht die Verringerung des eigenen Verwantwortungsbereichs für die Infrastruktur bei dem Einsatz von 
 Serverless Services gegenüber Containern. 
 Damit einher geht der steigende Fokus auf die Business Logik, wodurch eine schnellere Time-to-Market erzielt 
 werden kann. 
 Außerdem bringen Serverless Services Hochverfügbarkeit und nahezu endlose Skalierung mit, ohne Anpassungen an der 
 Architektur vornehmen zu müssen.
 
-Es gibt auch Serverless Lösungen für den Betrieb von Containern (Bspw. AWS Fargate). 
+Es gibt auch Serverless Lösungen für den Betrieb von Containern, beispielsweise AWS Fargate. 
 Bei diesen Lösungen ist man zwar nicht für den Betrieb des Servers zuständig, aber weiterhin für das Management des 
 Betriebssystems und der Laufzeitumgebung, wodurch der Vorteil nicht so hoch ausfällt wie bei Serverless Services, die 
 ohne Container auskommen.
@@ -44,19 +44,17 @@ Die Cloud Provider bieten eine große und stetig wachsende Vielfalt an Serverles
 Services oder Authentisierungs-Lösungen. 
 Softwareprojekte lassen sich damit vor allem schnell und kostengünstig realisieren. 
 
-Die Vorteile von Serverless im Vergleich zu Containern:
+Es gibt mehrere Vorteile von Serverless im Vergleich zu Containern, welche ich im folgenden zeigen möchte.
 
 **Kosten**
-* Durch das Pay-per-Use Modell entstehen keine Kosten für Leerlauf (Je nach Service wird eine Grundgebühr erhoben)
-* Niedrigere Wartungskosten, da keine Server oder Betriebssyteme gewartet werden müssen
-* Die Anwendung ist in noch kleinere Bausteine zerlegt als bspw. bei Microservices, dadurch kann noch effizienter 
-skaliert werden
-
+* Durch das Pay-per-Use Modell entstehen keine Kosten für Leerlauf, je nach Service kann eine Grundgebühr erhoben werden.
+* Die Wartungskosten sind niedrig, da keine Server oder Betriebssyteme gewartet werden müssen.
+* Die Anwendung ist in noch kleinere Bausteine zerlegt als bei Microservices und kann dadurch noch effizienter 
+skaliert werden.
 
 **Einfachheit & Schnelligkeit**
-
--	Fokus auf Businesslogik statt auf Infrastruktur oder Frameworks
--	Ideal für Proof-of-Concept und Rapid-Prototyping
+* Fokus auf Businesslogik statt auf Infrastruktur oder Frameworks
+* für Proof-of-Concept und Rapid-Prototyping
 
 **Skalierbarkeit**
 * Als Grundfunktion automatisch gegeben und Aufgabe des Cloud Providers
@@ -68,8 +66,8 @@ skaliert werden
 gehalten
 
 **Hochverfügbarkeit**
--	Als Grundfunktion automatisch gegeben
--	Cloud-Provider definieren SLAs mit hoher Verfügbarkeit, bspw. AWS Lambda 99,95%
+* Als Grundfunktion automatisch gegeben
+* Cloud-Provider definieren SLAs mit hoher Verfügbarkeit, bspw. AWS Lambda 99,95%
 
 **Effizienz**
 * Die Belegung von Ressourcen bei Leerlauf wird vermieden dadurch ist global gesehen eine insgesamt bessere 
