@@ -18,14 +18,14 @@ Serverless kommt aus dem Cloud Computing und folgt dem Trend, den Konfigurations
 sich stattdessen mehr auf die Business Logik fokussieren zu können. 
 	 
 	 
-![Grafik 1: Verantwortungsbereiche bei der Infrastruktur](/assets/images/posts/serverless-architekturen-mit-aws/verantwortung.png)  ![Grafik 2: Weniger Konfigurationsaufwand führt zu höherem Fokus auf Business Logik](/assets/images/posts/serverless-architekturen-mit-aws/focus_vs_costs.png)
+![Grafik 1: Weniger Konfigurationsaufwand führt zu höherem Fokus auf Business Logik](/assets/images/posts/serverless-architekturen-mit-aws/focus_vs_costs.png)
 	 
 
 Bei Serverless gibt es zwar immer noch Server, aber der Betrieb und die Wartung inkl. das Patchen des Betriebssystems 
 ist an den Cloud Provider ausgelagert. 
 Grafik 1 veranschaulicht die Verringerung des eigenen Verwantwortungsbereichs für die Infrastruktur bei dem Einsatz von 
 Serverless Services gegenüber Containern. 
-Damit einher geht der steigende Fokus auf die Business Logik (Grafik 2), wodurch eine schnellere Time-to-Market erzielt 
+Damit einher geht der steigende Fokus auf die Business Logik, wodurch eine schnellere Time-to-Market erzielt 
 werden kann. 
 Außerdem bringen Serverless Services Hochverfügbarkeit und nahezu endlose Skalierung mit, ohne Anpassungen an der 
 Architektur vornehmen zu müssen.
@@ -111,11 +111,11 @@ Im Folgenden Abschnitt möchte ich nun drei Anwendungsfälle für Serverless Arc
 
 ## Beispiel 1: Serverless Webanwendung
 
-![Grafik 3: Serverless Architektur für eine Single-Page-Applikation mit Datenbankzugriff](/assets/images/posts/serverless-architekturen-mit-aws/spa.png | width=500) 
+![Grafik 2: Serverless Architektur für eine Single-Page-Applikation mit Datenbankzugriff](/assets/images/posts/serverless-architekturen-mit-aws/spa.png) 
 
 
 
-Grafik 3 zeigt eine Serverless Architektur für eine einfache Single-Page-Applikation mit Backend und Datenbankzugriff.
+Grafik 2 zeigt eine Serverless Architektur für eine einfache Single-Page-Applikation mit Backend und Datenbankzugriff.
 
 Statische Webseiten und Single-Page-Applikationen mit Angular oder React können sehr kostengünstig auf S3 gehostet 
 werden. 
@@ -134,11 +134,10 @@ Kosten für den kontinuierlichen Betrieb eines Servers entstehen.
 
 ## Beispiel 2: Serverless E-Mail Server 
 
-![Grafik 4: Serverless E-Mail Server](/assets/images/posts/serverless-architekturen-mit-aws/mailserver.png | width=500)  
+![Grafik 3: Serverless E-Mail Server](/assets/images/posts/serverless-architekturen-mit-aws/mailserver.png)  
 
 
-
-Grafik 4 zeigt eine Serverless Architektur für einen Serverless E-Mail Server. 
+Grafik 3 zeigt eine Serverless Architektur für einen Serverless E-Mail Server. 
 Kern der Funktionalität ist der Simple E-Mail Service (SES), der sowohl E-Mails senden als auch empfangen kann. 
 Eine eingehende E-Mail wird von SES empfangen und dieser leitet die Daten an eine Lambda-Funktion weiter. 
 Die Lambda-Funktion ordnet der E-Mail das Postfach anhand des Empfängers zu welches in einer DynamoDB Datenbank 
@@ -152,10 +151,10 @@ Außerdem bietet sie die Möglichkeit für E-Mail gesteuerte Workflows, was sons
 
 ## Beispiel 3: Datenverarbeitung von Dokumenten und Bildern
 
-![Grafik 5: Serverless Architektur für die Datenverarbeitung von Dokumenten und Bildern](/assets/images/posts/serverless-architekturen-mit-aws/textract.png | width=500)  
+![Grafik 4: Serverless Architektur für die Datenverarbeitung von Dokumenten und Bildern](/assets/images/posts/serverless-architekturen-mit-aws/textract.png)  
 
 
-Grafik 5 zeigt eine Serverless Architektur für die Datenverarbeitung von Dokumenten und Bildern. 
+Grafik 4 zeigt eine Serverless Architektur für die Datenverarbeitung von Dokumenten und Bildern. 
 Die Bilder und Dokumente werden auf den Objektspeicher S3 per HTTPs hochgeladen.
 Das Speichern löst ein Event aus, das eine Lambda Funktion startet. 
 Diese Funktion leitet die Dokumente an den Service Textract weiter, der per OCR-Erkennung den Text extrahiert. 
