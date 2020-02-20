@@ -1,8 +1,7 @@
 ---
 layout: [post, post-xml]                          
 title:  "Serverless Architekturen mit AWS"         
-date:   2020-02-20 10:25                           
-modified_date: 2020-02-20 10:25                   
+date:   2020-02-20 10:25                   
 author: cbachmann                                  
 categories: [Architekturen]                        
 tags: [Architektur, Serverless, FaaS, AWS, Cloud Computing]       
@@ -16,13 +15,13 @@ Services geschickt zu Anwendungen zusammengesetzt werden können.
 Serverless ist die nächste Stufe in der Entwicklung und Bereitstellung von Software nach Containern. 
 Serverless kommt aus dem Cloud Computing und folgt dem Trend, den Konfigurations- und Betriebsaufwand zu reduzieren, um 
 sich stattdessen mehr auf die Business Logik fokussieren zu können. 
+Bei Serverless gibt es zwar immer noch Server, aber der Betrieb und die Wartung inkl. das Patchen des Betriebssystems 
+ist an den Cloud Provider ausgelagert. 
 	 
 	 
 ![Fokus auf Business Logik](/assets/images/posts/serverless-architekturen-mit-aws/focus_vs_costs.png)
 	 
 
-Bei Serverless gibt es zwar immer noch Server, aber der Betrieb und die Wartung inkl. das Patchen des Betriebssystems 
-ist an den Cloud Provider ausgelagert. 
 Obige Grafik veranschaulicht die Verringerung des eigenen Verwantwortungsbereichs für die Infrastruktur bei dem Einsatz von 
 Serverless Services gegenüber Containern. 
 Damit einher geht der steigende Fokus auf die Business Logik, wodurch eine schnellere Time-to-Market erzielt 
@@ -48,9 +47,9 @@ Softwareprojekte lassen sich damit vor allem schnell und kostengünstig realisie
 Die Vorteile von Serverless im Vergleich zu Containern:
 
 **Kosten**
--	Durch das Pay-per-Use Modell entstehen keine Kosten für Leerlauf (Je nach Service wird eine Grundgebühr erhoben)
--	Niedrigere Wartungskosten, da keine Server oder Betriebssyteme gewartet werden müssen
--	Die Anwendung ist in noch kleinere Bausteine zerlegt als bspw. bei Microservices, dadurch kann noch effizienter 
+* Durch das Pay-per-Use Modell entstehen keine Kosten für Leerlauf (Je nach Service wird eine Grundgebühr erhoben)
+* Niedrigere Wartungskosten, da keine Server oder Betriebssyteme gewartet werden müssen
+* Die Anwendung ist in noch kleinere Bausteine zerlegt als bspw. bei Microservices, dadurch kann noch effizienter 
 skaliert werden
 
 
@@ -60,12 +59,12 @@ skaliert werden
 -	Ideal für Proof-of-Concept und Rapid-Prototyping
 
 **Skalierbarkeit**
--	Als Grundfunktion automatisch gegeben und Aufgabe des Cloud Providers
--	Die Architektur kann beibehalten werden, auch wenn die Last kontinuierlich steigt
--	Es besteht kein Risiko für Über- oder Unter-Provisionierung von Ressourcen
+* Als Grundfunktion automatisch gegeben und Aufgabe des Cloud Providers
+* Die Architektur kann beibehalten werden, auch wenn die Last kontinuierlich steigt
+* Es besteht kein Risiko für Über- oder Unter-Provisionierung von Ressourcen
 
 **Sicherheit**
--	Security Updates des darunterliegenden Betriebssystems und der Ausführungsumgebung werden vom Cloud Provider aktuell 
+* Security Updates des darunterliegenden Betriebssystems und der Ausführungsumgebung werden vom Cloud Provider aktuell 
 gehalten
 
 **Hochverfügbarkeit**
@@ -73,7 +72,7 @@ gehalten
 -	Cloud-Provider definieren SLAs mit hoher Verfügbarkeit, bspw. AWS Lambda 99,95%
 
 **Effizienz**
--	Die Belegung von Ressourcen bei Leerlauf wird vermieden dadurch ist global gesehen eine insgesamt bessere 
+* Die Belegung von Ressourcen bei Leerlauf wird vermieden dadurch ist global gesehen eine insgesamt bessere 
 Auslastung möglich
 
 
@@ -99,11 +98,11 @@ Im Mittelpunkt einer Serverless Anwendung steht fast immer eine oder mehrere Ser
 Serverless Funktionen sind Event-getrieben. Über Events lassen sich Serverless Services und Funktionen geschickt 
 miteinander kombinieren. 
 Ein kleiner Auszug aus den möglichen Auslösern für Lambda Funktionen:
--	Ablage oder Änderung einer Datei im Objektspeicher (S3)
--	Änderungen für einzelne Records in einer Datenbank (DynamoDB)
--	Auslesen einer Queue (SQS)
--	Eingang einer E-Mail (SES)
--	Eingang einer Nachricht auf einem Topic (SNS)
+* Ablage oder Änderung einer Datei im Objektspeicher (S3)
+* Änderungen für einzelne Records in einer Datenbank (DynamoDB)
+* Auslesen einer Queue (SQS)
+* Eingang einer E-Mail (SES)
+* Eingang einer Nachricht auf einem Topic (SNS)
 
 # Beispiele für Serverless Architekturen
 
