@@ -240,3 +240,12 @@ smsnheck:
   bio: "Sebastian ist Teamleiter bei adesso und beschäftigt sich gerne mit Themen aus dem Umfeld der agilen Softwareentwicklung."
   avatar_url: /assets/images/avatars/smsnheck.jpg
   github: https://github.com/smsnheck
+
+cbachmann:
+  first_name: Christian
+  last_name: Bachmann
+  github_username: c-bachmann
+  email: bachmann@adesso-mobile.de
+  bio: "Christian Bachmann ist Softwarearchitekt bei adesso mobile solutions in Dortmund. Er interessiert sich für effiziente Architekturen und Cloud-native Anwendungen."
+  avatar_url: /assets/images/avatars/cbachmann.jpg
+  github: https://github.com/c-bachmann
