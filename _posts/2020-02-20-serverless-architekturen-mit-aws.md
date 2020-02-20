@@ -18,12 +18,12 @@ Serverless kommt aus dem Cloud Computing und folgt dem Trend, den Konfigurations
 sich stattdessen mehr auf die Business Logik fokussieren zu können. 
 	 
 	 
-![Grafik 1: Weniger Konfigurationsaufwand führt zu höherem Fokus auf Business Logik](/assets/images/posts/serverless-architekturen-mit-aws/focus_vs_costs.png)
+![Fokus auf Business Logik](/assets/images/posts/serverless-architekturen-mit-aws/focus_vs_costs.png)
 	 
 
 Bei Serverless gibt es zwar immer noch Server, aber der Betrieb und die Wartung inkl. das Patchen des Betriebssystems 
 ist an den Cloud Provider ausgelagert. 
-Grafik 1 veranschaulicht die Verringerung des eigenen Verwantwortungsbereichs für die Infrastruktur bei dem Einsatz von 
+Obige Grafik veranschaulicht die Verringerung des eigenen Verwantwortungsbereichs für die Infrastruktur bei dem Einsatz von 
 Serverless Services gegenüber Containern. 
 Damit einher geht der steigende Fokus auf die Business Logik, wodurch eine schnellere Time-to-Market erzielt 
 werden kann. 
@@ -48,7 +48,7 @@ Softwareprojekte lassen sich damit vor allem schnell und kostengünstig realisie
 Die Vorteile von Serverless im Vergleich zu Containern:
 
 **Kosten**
--	Pay-per-Use Modell. Es entstehen keine Kosten für Leerlauf (Je nach Service wird eine Grundgebühr erhoben)
+-	Durch das Pay-per-Use Modell entstehen keine Kosten für Leerlauf (Je nach Service wird eine Grundgebühr erhoben)
 -	Niedrigere Wartungskosten, da keine Server oder Betriebssyteme gewartet werden müssen
 -	Die Anwendung ist in noch kleinere Bausteine zerlegt als bspw. bei Microservices, dadurch kann noch effizienter 
 skaliert werden
@@ -111,11 +111,9 @@ Im Folgenden Abschnitt möchte ich nun drei Anwendungsfälle für Serverless Arc
 
 ## Beispiel 1: Serverless Webanwendung
 
-![Grafik 2: Serverless Architektur für eine Single-Page-Applikation mit Datenbankzugriff](/assets/images/posts/serverless-architekturen-mit-aws/spa.png) 
+![Serverless Webanwendung](/assets/images/posts/serverless-architekturen-mit-aws/spa.png) 
 
-
-
-Grafik 2 zeigt eine Serverless Architektur für eine einfache Single-Page-Applikation mit Backend und Datenbankzugriff.
+Die Grafik zeigt eine Serverless Architektur für eine einfache Single-Page-Applikation mit Backend und Datenbankzugriff.
 
 Statische Webseiten und Single-Page-Applikationen mit Angular oder React können sehr kostengünstig auf S3 gehostet 
 werden. 
@@ -134,10 +132,11 @@ Kosten für den kontinuierlichen Betrieb eines Servers entstehen.
 
 ## Beispiel 2: Serverless E-Mail Server 
 
-![Grafik 3: Serverless E-Mail Server](/assets/images/posts/serverless-architekturen-mit-aws/mailserver.png)  
+Folgende Grafik zeigt eine Serverless Architektur für einen Serverless E-Mail Server. 
+
+![Serverless E-Mail Server](/assets/images/posts/serverless-architekturen-mit-aws/mailserver.png)  
 
 
-Grafik 3 zeigt eine Serverless Architektur für einen Serverless E-Mail Server. 
 Kern der Funktionalität ist der Simple E-Mail Service (SES), der sowohl E-Mails senden als auch empfangen kann. 
 Eine eingehende E-Mail wird von SES empfangen und dieser leitet die Daten an eine Lambda-Funktion weiter. 
 Die Lambda-Funktion ordnet der E-Mail das Postfach anhand des Empfängers zu welches in einer DynamoDB Datenbank 
@@ -151,10 +150,9 @@ Außerdem bietet sie die Möglichkeit für E-Mail gesteuerte Workflows, was sons
 
 ## Beispiel 3: Datenverarbeitung von Dokumenten und Bildern
 
-![Grafik 4: Serverless Architektur für die Datenverarbeitung von Dokumenten und Bildern](/assets/images/posts/serverless-architekturen-mit-aws/textract.png)  
+![Serverless Datenverarbeitung](/assets/images/posts/serverless-architekturen-mit-aws/textract.png)  
 
-
-Grafik 4 zeigt eine Serverless Architektur für die Datenverarbeitung von Dokumenten und Bildern. 
+Die oben stehende Grafik zeigt eine Serverless Architektur für die Datenverarbeitung von Dokumenten und Bildern. 
 Die Bilder und Dokumente werden auf den Objektspeicher S3 per HTTPs hochgeladen.
 Das Speichern löst ein Event aus, das eine Lambda Funktion startet. 
 Diese Funktion leitet die Dokumente an den Service Textract weiter, der per OCR-Erkennung den Text extrahiert. 
@@ -167,7 +165,7 @@ Die Vorteile dieser Lösung sind die hohe Skalierbarkeit und Ressourcen-Effizien
 
 # Fazit und Ausblick
 
-Serverless ist eine neue Philosophie für die Entwicklung und Bereitstellung von Software. 
+Serverless ist eine neue Art für die Entwicklung und Bereitstellung von Software. 
 Es ermöglicht eine schnellere Entwicklung durch mehr Fokus auf die Business Logik und verspricht niedrigere 
 Wartungskosten wovon sowohl Auftraggeber als auch Entwickler profitieren. 
 Es gibt bereits eine große Vielfalt an Serverless Services die geschickt miteinander kombiniert werden können und die 
