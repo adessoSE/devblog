@@ -30,8 +30,8 @@ werden kann.
 Außerdem bringen Serverless Services Hochverfügbarkeit und nahezu endlose Skalierung mit, ohne Anpassungen an der 
 Architektur vornehmen zu müssen.
 
-Es gibt auch Serverless Lösungen für den Betrieb von Containern (Bspw. AWS Fargate). B
-ei diesen Lösungen ist man zwar nicht für den Betrieb des Servers zuständig, aber weiterhin für das Management des 
+Es gibt auch Serverless Lösungen für den Betrieb von Containern (Bspw. AWS Fargate). 
+Bei diesen Lösungen ist man zwar nicht für den Betrieb des Servers zuständig, aber weiterhin für das Management des 
 Betriebssystems und der Laufzeitumgebung, wodurch der Vorteil nicht so hoch ausfällt wie bei Serverless Services, die 
 ohne Container auskommen.
 
@@ -111,7 +111,7 @@ Im Folgenden Abschnitt möchte ich nun drei Anwendungsfälle für Serverless Arc
 
 ## Beispiel 1: Serverless Webanwendung
 
-![Grafik 3: Serverless Architektur für eine Single-Page-Applikation mit Datenbankzugriff](/assets/images/posts/serverless-architekturen-mit-aws/spa.png) 
+![Grafik 3: Serverless Architektur für eine Single-Page-Applikation mit Datenbankzugriff](/assets/images/posts/serverless-architekturen-mit-aws/spa.png | width=500) 
 
 
 
@@ -134,7 +134,7 @@ Kosten für den kontinuierlichen Betrieb eines Servers entstehen.
 
 ## Beispiel 2: Serverless E-Mail Server 
 
-![Grafik 4: Serverless E-Mail Server](/assets/images/posts/serverless-architekturen-mit-aws/mailserver.png)  
+![Grafik 4: Serverless E-Mail Server](/assets/images/posts/serverless-architekturen-mit-aws/mailserver.png | width=500)  
 
 
 
@@ -152,7 +152,7 @@ Außerdem bietet sie die Möglichkeit für E-Mail gesteuerte Workflows, was sons
 
 ## Beispiel 3: Datenverarbeitung von Dokumenten und Bildern
 
-![Grafik 5: Serverless Architektur für die Datenverarbeitung von Dokumenten und Bildern](/assets/images/posts/serverless-architekturen-mit-aws/textract.png)  
+![Grafik 5: Serverless Architektur für die Datenverarbeitung von Dokumenten und Bildern](/assets/images/posts/serverless-architekturen-mit-aws/textract.png | width=500)  
 
 
 Grafik 5 zeigt eine Serverless Architektur für die Datenverarbeitung von Dokumenten und Bildern. 
@@ -179,4 +179,5 @@ Die Serverless Bewegung nimmt gerade erst Fahrt auf und es wird spannend zu beob
 # Weiterführende Links
 
 [https://aws.amazon.com/de/serverless/](https://aws.amazon.com/de/serverless/)
+
 [https://martinfowler.com/articles/serverless.html](https://martinfowler.com/articles/serverless.html)
