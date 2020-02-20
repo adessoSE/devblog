@@ -95,6 +95,7 @@ Dieses Problem lässt sich jedoch mit der Wahl der richtigen Programmiersprache 
 Im Mittelpunkt einer Serverless Anwendung steht fast immer eine oder mehrere Serverless Funktionen. 
 Serverless Funktionen sind Event-getrieben. Über Events lassen sich Serverless Services und Funktionen geschickt 
 miteinander kombinieren. 
+
 Ein kleiner Auszug aus den möglichen Auslösern für Lambda Funktionen:
 * Ablage oder Änderung einer Datei im Objektspeicher (S3)
 * Änderungen für einzelne Records in einer Datenbank (DynamoDB)
@@ -104,7 +105,7 @@ Ein kleiner Auszug aus den möglichen Auslösern für Lambda Funktionen:
 
 # Beispiele für Serverless Architekturen
 
-Im Folgenden Abschnitt möchte ich nun drei Anwendungsfälle für Serverless Architekturen mit AWS vorstellen. 
+Im folgenden Abschnitt möchte ich nun drei Anwendungsfälle für Serverless Architekturen mit AWS vorstellen. 
 
 ## Beispiel 1: Serverless Webanwendung
 
@@ -150,12 +151,12 @@ Außerdem bietet sie die Möglichkeit für E-Mail gesteuerte Workflows, was sons
 ![Serverless Datenverarbeitung](/assets/images/posts/serverless-architekturen-mit-aws/textract.png)  
 
 Die oben stehende Grafik zeigt eine Serverless Architektur für die Datenverarbeitung von Dokumenten und Bildern. 
-Die Bilder und Dokumente werden auf den Objektspeicher S3 per HTTPs hochgeladen.
+Die Bilder und Dokumente werden auf den Objektspeicher S3 per HTTPS hochgeladen.
 Das Speichern löst ein Event aus, das eine Lambda Funktion startet. 
 Diese Funktion leitet die Dokumente an den Service Textract weiter, der per OCR-Erkennung den Text extrahiert. 
 Anschließend wird der Text in eine Elastic Search Datenbank gespeichert, die es ermöglicht die Texte zu durchsuchen.
 
-Datenverarbeitung von Dokumenten und Bildern ist in der Regel ressourcenintensiv. 
+Datenverarbeitung von Dokumenten und Bildern ist meist ressourcenintensiv. 
 Hier kommen in der Regel leistungsstarke und kostenintensive Systeme zum Einsatz. 
 Die Vorteile dieser Lösung sind die hohe Skalierbarkeit und Ressourcen-Effizienz.
 
