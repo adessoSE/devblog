@@ -53,25 +53,25 @@ Es gibt mehrere Vorteile von Serverless im Vergleich zu Containern, welche ich i
 skaliert werden.
 
 **Einfachheit & Schnelligkeit**
-* Bei der Entwicklung gibt es einen deutlich veringerten Overhead für den Aufbau der Infrastruktur oder den Einsatz von Frameworks 
-* Serverless ist ideal für Proof-of-Concept Projekte und Rapid-Prototyping
+* Bei der Entwicklung gibt es einen deutlich veringerten Overhead für den Aufbau der Infrastruktur oder den Einsatz von Frameworks .
+* Serverless ist ideal für Proof-of-Concept Projekte und Rapid-Prototyping.
 
 **Skalierbarkeit**
-* Skalierbarkeit ist als Grundfunktion automatisch gegeben und Aufgabe des Cloud Providers
-* Die Architektur kann beibehalten werden, auch wenn die Last kontinuierlich steigt
-* Es besteht kein Risiko für Über- oder Unter-Provisionierung von Ressourcen
+* Skalierbarkeit ist als Grundfunktion automatisch gegeben und Aufgabe des Cloud Providers.
+* Die Architektur kann beibehalten werden, auch wenn die Last kontinuierlich steigt.
+* Es besteht kein Risiko für Über- oder Unter-Provisionierung von Ressourcen.
 
 **Sicherheit**
 * Die Security Updates des darunterliegenden Betriebssystems und der Ausführungsumgebung werden vom Cloud Provider aktuell 
-gehalten
+gehalten.
 
 **Hochverfügbarkeit**
-* Hochverfügbarkeit ist als Grundfunktion automatisch gegeben
-* Die Cloud-Provider definieren SLAs mit hoher Verfügbarkeit, bspw. AWS Lambda 99,95%
+* Hochverfügbarkeit ist als Grundfunktion automatisch gegeben.
+* Die Cloud-Provider definieren SLAs mit hoher Verfügbarkeit, bspw. AWS Lambda 99,95%.
 
 **Effizienz**
 * Die Belegung von Ressourcen bei Leerlauf wird vermieden dadurch ist global gesehen eine insgesamt bessere 
-Auslastung möglich
+Auslastung möglich.
 
 
 Die folgenden Punkte veranschaulichen die Nachteile von Serverless gegenüber Containern.
@@ -183,7 +183,7 @@ Es ermöglicht eine schnellere Entwicklung durch mehr Fokus auf die Business Log
 Wartungskosten wovon sowohl Auftraggeber als auch Entwickler profitieren. 
 Es gibt bereits eine große Vielfalt an Serverless Services die geschickt miteinander kombiniert werden können und die 
 großen Cloud Anbieter stellen regelmäßig neue Services bereit. 
-Die Serverless Bewegung nimmt gerade erst Fahrt auf und ich finde es spannend zu beobachten, ob sie Container verdrängen wird.
+Die Serverless Bewegung nimmt gerade erst Fahrt auf und ich beobachte gespannt, ob sie Container verdrängen wird.
 
-* [https://aws.amazon.com/de/serverless/](https://aws.amazon.com/de/serverless/)
-* [https://martinfowler.com/articles/serverless.html](https://martinfowler.com/articles/serverless.html)
+Wer dies selbst ausprobieren möchte, kann sich einen [https://aws.amazon.com/de/serverless/](Einstieg zu Serverless bei AWS) anschauen.
+[https://martinfowler.com/articles/serverless.html](Der Beitrag zu Serverless Architekturen von Mike Roberts) bietet eine weitergehende Übersicht.
