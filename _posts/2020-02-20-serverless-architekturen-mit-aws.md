@@ -185,5 +185,5 @@ Es gibt bereits eine große Vielfalt an Serverless Services die geschickt mitein
 großen Cloud Anbieter stellen regelmäßig neue Services bereit. 
 Die Serverless Bewegung nimmt gerade erst Fahrt auf und ich beobachte gespannt, ob sie Container verdrängen wird.
 
-Wer dies selbst ausprobieren möchte, kann sich einen [https://aws.amazon.com/de/serverless/](Einstieg zu Serverless bei AWS) anschauen.
-[https://martinfowler.com/articles/serverless.html](Der Beitrag zu Serverless Architekturen von Mike Roberts) bietet eine weitergehende Übersicht.
+Wer dies selbst ausprobieren möchte, kann sich einen [Einstieg zu Serverless bei AWS](https://aws.amazon.com/de/serverless/) anschauen.
+[Der Beitrag zu Serverless Architekturen von Mike Roberts](https://martinfowler.com/articles/serverless.html) bietet eine weitergehende Übersicht.
