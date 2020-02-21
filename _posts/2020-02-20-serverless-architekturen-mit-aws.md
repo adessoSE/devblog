@@ -29,7 +29,7 @@ werden kann.
 Außerdem bringen Serverless Services Hochverfügbarkeit und nahezu endlose Skalierung mit, ohne Anpassungen an der 
 Architektur vornehmen zu müssen.
 
-Es gibt auch Serverless Lösungen für den Betrieb von Containern, beispielsweise AWS Fargate. 
+Es gibt auch Serverless Lösungen für den Betrieb von Containern, beispielsweise AWS [Fargate](https://aws.amazon.com/de/fargate/). 
 Bei diesen Lösungen ist man zwar nicht für den Betrieb des Servers zuständig, aber weiterhin für das Management des 
 Betriebssystems und der Laufzeitumgebung, wodurch der Vorteil nicht so hoch ausfällt wie bei Serverless Services, die 
 ohne Container auskommen.
@@ -99,6 +99,7 @@ Die folgende Tabelle gibt eine Kurzbeschreibung über die wichtigsten Serverless
 | ![Api-Gateway](/assets/images/posts/serverless-architekturen-mit-aws/api-gateway.png)  | API Gateway                 | Das [API-Gateway](https://aws.amazon.com/de/api-gateway/) dient als HTTPS-Endpunkt für den Aufruf von Lambda-Funktionen. |
 | ![Cognito](/assets/images/posts/serverless-architekturen-mit-aws/cognito.png)          |   Cognito                   | [Cognito](https://aws.amazon.com/de/cognito/) ist ein vollständig verwalteter Benutzer- und Authentisierungsservice. Er unterstützt gängige Mechanismen wie OAuth2. |
 | ![DynamoDB](/assets/images/posts/serverless-architekturen-mit-aws/dynamodb.png)        | DynamoDB                    | [DynamoDB](https://aws.amazon.com/de/dynamodb/) ist eine Dokumentenorientierte Datenbank.  |
+
 
 # Verkettung von Serverless Funktionen durch Events
 
