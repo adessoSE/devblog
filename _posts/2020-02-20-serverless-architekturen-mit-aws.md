@@ -3,9 +3,10 @@ layout: [post, post-xml]
 title:  "Serverless Architekturen mit AWS"         
 date:   2020-02-20 10:25                   
 author: c-bachmann                                  
-categories: [Architekturen]                        
+categories: [Architektur]                        
 tags: [Architektur, Serverless, FaaS, AWS, Cloud Computing]       
 ---
+
 Mit Serverless Architekturen können kleinere Anwendungen schnell und kosteneffektiv umgesetzt werden. 
 Die Anwendungen können kontinuierlich um weitere Services ergänzt werden und bleiben dabei jederzeit hoch skalierbar und 
 kosten-effektiv. 
