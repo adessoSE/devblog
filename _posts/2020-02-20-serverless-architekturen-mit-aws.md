@@ -91,15 +91,22 @@ Dieses Problem lässt sich jedoch mit der Wahl der richtigen Programmiersprache 
 
 # Die wichtigsten Serverless Services bei AWS
 
-Die folgende Tabelle gibt eine Kurzbeschreibung über die wichtigsten Serverless Services von AWS. 
+Die folgende Liste gibt eine Kurzbeschreibung über die wichtigsten Serverless Services von AWS. 
 
-| Logo        | Name           | Beschreibung  |
-| ------------- |:-------------:| -----|
-| ![S3](/assets/images/posts/serverless-architekturen-mit-aws/s3.png)                    | Simple Storage Service (S3) | [S3](https://aws.amazon.com/de/s3/) ist ein Objektspeicher der standardmäßig per HTTPS angesprochen wird. |
-| ![Lambda](/assets/images/posts/serverless-architekturen-mit-aws/lambda.png)            | Lambda                      | Mit [Lambda](https://aws.amazon.com/de/lambda/) lassen sich einzelne Funktionen in der Cloud ausführen, ausgelöst durch Events. Es werden viele Programmiersprachen unterstützt. |
-| ![Api-Gateway](/assets/images/posts/serverless-architekturen-mit-aws/api-gateway.png)  | API Gateway                 | Das [API-Gateway](https://aws.amazon.com/de/api-gateway/) dient als HTTPS-Endpunkt für den Aufruf von Lambda-Funktionen. |
-| ![Cognito](/assets/images/posts/serverless-architekturen-mit-aws/cognito.png)          |   Cognito                   | [Cognito](https://aws.amazon.com/de/cognito/) ist ein vollständig verwalteter Benutzer- und Authentisierungsservice. Er unterstützt gängige Mechanismen wie OAuth2. |
-| ![DynamoDB](/assets/images/posts/serverless-architekturen-mit-aws/dynamodb.png)        | DynamoDB                    | [DynamoDB](https://aws.amazon.com/de/dynamodb/) ist eine Dokumentenorientierte Datenbank.  |
+![S3](/assets/images/posts/serverless-architekturen-mit-aws/s3.png) **Simple Storage Service (S3)**
+* [S3](https://aws.amazon.com/de/s3/) ist ein Objektspeicher der standardmäßig per HTTPS angesprochen wird. 
+ 
+![Lambda](/assets/images/posts/serverless-architekturen-mit-aws/lambda.png)            **Lambda**                 
+* Mit [Lambda](https://aws.amazon.com/de/lambda/) lassen sich einzelne Funktionen in der Cloud ausführen, ausgelöst durch Events. Es werden viele Programmiersprachen unterstützt. 
+
+![Api-Gateway](/assets/images/posts/serverless-architekturen-mit-aws/api-gateway.png)  **API Gateway**                
+* Das [API-Gateway](https://aws.amazon.com/de/api-gateway/) dient als HTTPS-Endpunkt für den Aufruf von Lambda-Funktionen. 
+
+![Cognito](/assets/images/posts/serverless-architekturen-mit-aws/cognito.png)          **Cognito**              
+* [Cognito](https://aws.amazon.com/de/cognito/) ist ein vollständig verwalteter Benutzer- und Authentisierungsservice. Er unterstützt gängige Mechanismen wie OAuth2. 
+
+![DynamoDB](/assets/images/posts/serverless-architekturen-mit-aws/dynamodb.png)        **DynamoDB**                 
+* [DynamoDB](https://aws.amazon.com/de/dynamodb/) ist eine Dokumentenorientierte Datenbank.  |
 
 
 # Verkettung von Serverless Funktionen durch Events
