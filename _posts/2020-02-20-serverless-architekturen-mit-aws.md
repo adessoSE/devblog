@@ -53,42 +53,52 @@ Es gibt mehrere Vorteile von Serverless im Vergleich zu Containern, welche ich i
 skaliert werden.
 
 **Einfachheit & Schnelligkeit**
-* Fokus auf Businesslogik statt auf Infrastruktur oder Frameworks
-* für Proof-of-Concept und Rapid-Prototyping
+* Bei der Entwicklung gibt es einen deutlich veringerten Overhead für den Aufbau der Infrastruktur oder den Einsatz von Frameworks 
+* Serverless ist ideal für Proof-of-Concept Projekte und Rapid-Prototyping
 
 **Skalierbarkeit**
-* Als Grundfunktion automatisch gegeben und Aufgabe des Cloud Providers
+* Skalierbarkeit ist als Grundfunktion automatisch gegeben und Aufgabe des Cloud Providers
 * Die Architektur kann beibehalten werden, auch wenn die Last kontinuierlich steigt
 * Es besteht kein Risiko für Über- oder Unter-Provisionierung von Ressourcen
 
 **Sicherheit**
-* Security Updates des darunterliegenden Betriebssystems und der Ausführungsumgebung werden vom Cloud Provider aktuell 
+* Die Security Updates des darunterliegenden Betriebssystems und der Ausführungsumgebung werden vom Cloud Provider aktuell 
 gehalten
 
 **Hochverfügbarkeit**
-* Als Grundfunktion automatisch gegeben
-* Cloud-Provider definieren SLAs mit hoher Verfügbarkeit, bspw. AWS Lambda 99,95%
+* Hochverfügbarkeit ist als Grundfunktion automatisch gegeben
+* Die Cloud-Provider definieren SLAs mit hoher Verfügbarkeit, bspw. AWS Lambda 99,95%
 
 **Effizienz**
 * Die Belegung von Ressourcen bei Leerlauf wird vermieden dadurch ist global gesehen eine insgesamt bessere 
 Auslastung möglich
 
 
-# Nachteile gegenüber Containern
+Die folgenden Punkte veranschaulichen die Nachteile von Serverless gegenüber Containern.
 
 **Vendor-Lock-In**
 
-Einige Services lassen sich einfacher zu anderen Cloud Providern migrieren als andere, wodurch man sich vom Cloud 
+* Einige Services lassen sich einfacher zu anderen Cloud Providern migrieren als andere, wodurch man sich vom Cloud 
 Provider teilweise abhängig macht. 
 In gewisser Weise hat man dieses Problem jedoch mit jedem Framework und jeder Datenbank. 
 
 **Kaltstart**
 
-Das Kaltstart Problem bezieht sich auf Functions-as-a-Service und bezeichnet das Problem, dass Funktionen bei der 
+* Das Kaltstart Problem bezieht sich auf Functions-as-a-Service und bezeichnet das Problem, dass Funktionen bei der 
 ersten Ausführung relativ lange für den Start benötigen.
 Dieses Problem lässt sich jedoch mit der Wahl der richtigen Programmiersprache umgehen. 
 
+# Die wichtigsten Serverless Services bei AWS
 
+Die folgende Tabelle gibt eine Kurzbeschreibung über die wichtigsten Serverless Services von AWS. 
+
+| Logo        | Name           | Beschreibung  |
+| ------------- |:-------------:| -----|
+| ![S3](/assets/images/posts/serverless-architekturen-mit-aws/s3.png)                    | Simple Storage Service (S3) | [S3](https://aws.amazon.com/de/s3/) ist ein Objektspeicher der standardmäßig per HTTPS angesprochen wird. |
+| ![Lambda](/assets/images/posts/serverless-architekturen-mit-aws/lambda.png)            | Lambda                      | Mit [Lambda](https://aws.amazon.com/de/lambda/) lassen sich einzelne Funktionen in der Cloud ausführen, ausgelöst durch Events. Es werden viele Programmiersprachen unterstützt. |
+| ![Api-Gateway](/assets/images/posts/serverless-architekturen-mit-aws/api-gateway.png)  | API Gateway                 | Das [API-Gateway](https://aws.amazon.com/de/api-gateway/) dient als HTTPS-Endpunkt für den Aufruf von Lambda-Funktionen. |
+| ![Cognito](/assets/images/posts/serverless-architekturen-mit-aws/cognito.png)          |   Cognito                   | [Cognito](https://aws.amazon.com/de/cognito/) ist ein vollständig verwalteter Benutzer- und Authentisierungsservice. Er unterstützt gängige Mechanismen wie OAuth2. |
+| ![DynamoDB](/assets/images/posts/serverless-architekturen-mit-aws/dynamodb.png)        | DynamoDB                    | [DynamoDB](https://aws.amazon.com/de/dynamodb/) ist eine Dokumentenorientierte Datenbank.  |
 
 # Verkettung von Serverless Funktionen durch Events
 
@@ -96,12 +106,12 @@ Im Mittelpunkt einer Serverless Anwendung steht fast immer eine oder mehrere Ser
 Serverless Funktionen sind Event-getrieben. Über Events lassen sich Serverless Services und Funktionen geschickt 
 miteinander kombinieren. 
 
-Ein kleiner Auszug aus den möglichen Auslösern für Lambda Funktionen:
+Ein kleiner Auszug aus den [möglichen Auslösern](https://docs.aws.amazon.com/lambda/latest/dg/lambda-services.html#intro-core-components-event-sources) für Lambda Funktionen:
 * Ablage oder Änderung einer Datei im Objektspeicher (S3)
 * Änderungen für einzelne Records in einer Datenbank (DynamoDB)
-* Auslesen einer Queue (SQS)
-* Eingang einer E-Mail (SES)
-* Eingang einer Nachricht auf einem Topic (SNS)
+* Auslesen einer Queue ([SQS](https://aws.amazon.com/de/sqs/))
+* Eingang einer E-Mail ([SES](https://aws.amazon.com/de/ses/))
+* Eingang einer Nachricht auf einem Topic ([SNS](https://aws.amazon.com/de/sns/))
 
 # Beispiele für Serverless Architekturen
 
@@ -113,15 +123,15 @@ Im folgenden Abschnitt möchte ich nun drei Anwendungsfälle für Serverless Arc
 
 Die Grafik zeigt eine Serverless Architektur für eine einfache Single-Page-Applikation mit Backend und Datenbankzugriff.
 
-Statische Webseiten und Single-Page-Applikationen mit Angular oder React können sehr kostengünstig auf S3 gehostet 
-werden. 
-Diese Funktion kann man einfach per Konfiguration aktivieren.
+Statische Webseiten und Single-Page-Applikationen mit Angular oder React können sehr kostengünstig [auf S3 gehostet 
+werden](https://docs.aws.amazon.com/de_de/AmazonS3/latest/dev/WebsiteHosting.html). 
+Diese Funktion ist standardmäßig ausgeschaltet, sie kann aber im AWS Portal einfach per Konfiguration aktiviert werden.
 
 Um Zugriffe auf die Datenbank zu authentisieren empfiehlt sich der Benutzer- und Authentisierungsservice Cognito. 
 Dieser stellt auch die Login-Maske bereitstellt. Mit dem beim Login erhaltenen Token kann dann über das API Gateway, 
 das als HTTPs-Endpunkt dient,  auf die Lambda Funktion und die Datenbank zugegriffen werden.
 
-Möchte man seine eigene Domain auf die Webseite verweisen lassen, muss man zusätzlich den DNS Service Route53 dafür 
+Möchte man seine eigene Domain auf die Webseite verweisen lassen, muss man zusätzlich den DNS Service [Route53](https://aws.amazon.com/de/route53/) dafür 
 konfigurieren. 
 
 Diese Lösung eignet sich besonders für Anwendungsfälle, bei denen die Weboberfläche nur selten genutzt wird, da keine 
@@ -138,7 +148,11 @@ Folgende Grafik zeigt eine Serverless Architektur für einen Serverless E-Mail S
 Kern der Funktionalität ist der Simple E-Mail Service (SES), der sowohl E-Mails senden als auch empfangen kann. 
 Eine eingehende E-Mail wird von SES empfangen und dieser leitet die Daten an eine Lambda-Funktion weiter. 
 Die Lambda-Funktion ordnet der E-Mail das Postfach anhand des Empfängers zu welches in einer DynamoDB Datenbank 
-gespeichert ist.
+gespeichert ist. 
+
+Für den Zugriff auf das Postfach bieten sich wiederum unterschiedliche Möglichkeiten.
+Die Postfach-Datenbank kann von einer Anwendung direkt angesprochen werden oder 
+alternativ kann die Webanwendung aus Beispiel 1 verwendet werden. 
 
 Gerade Mail-Server haben in der Regel eine geringe Auslastung und müssen doch ständig erreichbar sein. 
 Daher ist diese Architektur sehr effizient im Ressourcenverbrauch. 
@@ -153,7 +167,7 @@ Außerdem bietet sie die Möglichkeit für E-Mail gesteuerte Workflows, was sons
 Die oben stehende Grafik zeigt eine Serverless Architektur für die Datenverarbeitung von Dokumenten und Bildern. 
 Die Bilder und Dokumente werden auf den Objektspeicher S3 per HTTPS hochgeladen.
 Das Speichern löst ein Event aus, das eine Lambda Funktion startet. 
-Diese Funktion leitet die Dokumente an den Service Textract weiter, der per OCR-Erkennung den Text extrahiert. 
+Diese Funktion leitet die Dokumente an den Service [Textract](https://aws.amazon.com/de/textract/) weiter, der per OCR-Erkennung den Text extrahiert. 
 Anschließend wird der Text in eine Elastic Search Datenbank gespeichert, die es ermöglicht die Texte zu durchsuchen.
 
 Datenverarbeitung von Dokumenten und Bildern ist meist ressourcenintensiv. 
@@ -168,11 +182,7 @@ Es ermöglicht eine schnellere Entwicklung durch mehr Fokus auf die Business Log
 Wartungskosten wovon sowohl Auftraggeber als auch Entwickler profitieren. 
 Es gibt bereits eine große Vielfalt an Serverless Services die geschickt miteinander kombiniert werden können und die 
 großen Cloud Anbieter stellen regelmäßig neue Services bereit. 
-Die Serverless Bewegung nimmt gerade erst Fahrt auf und es wird spannend zu beobachten, ob sie Container verdrängen wird.
+Die Serverless Bewegung nimmt gerade erst Fahrt auf und ich finde es spannend zu beobachten, ob sie Container verdrängen wird.
 
-
-# Weiterführende Links
-
-[https://aws.amazon.com/de/serverless/](https://aws.amazon.com/de/serverless/)
-
-[https://martinfowler.com/articles/serverless.html](https://martinfowler.com/articles/serverless.html)
+* [https://aws.amazon.com/de/serverless/](https://aws.amazon.com/de/serverless/)
+* [https://martinfowler.com/articles/serverless.html](https://martinfowler.com/articles/serverless.html)
