@@ -106,7 +106,7 @@ Die folgende Liste gibt eine Kurzbeschreibung über die wichtigsten Serverless S
 * [Cognito](https://aws.amazon.com/de/cognito/) ist ein vollständig verwalteter Benutzer- und Authentisierungsservice. Er unterstützt gängige Mechanismen wie OAuth2. 
 
 ![DynamoDB](/assets/images/posts/serverless-architekturen-mit-aws/dynamodb.png)        **DynamoDB**                 
-* [DynamoDB](https://aws.amazon.com/de/dynamodb/) ist eine Dokumentenorientierte Datenbank.  |
+* [DynamoDB](https://aws.amazon.com/de/dynamodb/) ist eine Dokumentenorientierte Datenbank.  
 
 
 # Verkettung von Serverless Funktionen durch Events
