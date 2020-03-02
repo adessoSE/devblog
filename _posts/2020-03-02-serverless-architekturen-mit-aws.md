@@ -1,7 +1,7 @@
 ---
 layout: [post, post-xml]                          
 title:  "Serverless Architekturen mit AWS"         
-date:   2020-02-20 10:25                   
+date:   2020-03-02 13:00                   
 author: c-bachmann                                  
 categories: [Architektur]                        
 tags: [Architektur, Serverless, FaaS, AWS, Cloud Computing]       
