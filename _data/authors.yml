@@ -249,3 +249,12 @@ andernach:
   bio: "Fouad ist Software Engineer bei adesso und arbeitete in verschiedenen Projekten im Java und .Net Umfeld. In seiner Freizeit fährt er gerne Liegerad."
   avatar_url: /assets/images/avatars/andernach.png
   github: https://github.com/andernach
+
+c-bachmann:
+  first_name: Christian
+  last_name: Bachmann
+  github_username: c-bachmann
+  email: bachmann@adesso-mobile.de
+  bio: "Christian Bachmann ist Softwarearchitekt bei adesso mobile solutions in Dortmund. Er interessiert sich für effiziente Architekturen und Cloud-native Anwendungen."
+  avatar_url: /assets/images/avatars/c-bachmann.jpg
+  github: https://github.com/c-bachmann
