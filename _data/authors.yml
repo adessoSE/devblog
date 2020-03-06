@@ -241,6 +241,15 @@ smsnheck:
   avatar_url: /assets/images/avatars/smsnheck.jpg
   github: https://github.com/smsnheck
 
+c-bachmann:
+  first_name: Christian
+  last_name: Bachmann
+  github_username: c-bachmann
+  email: bachmann@adesso-mobile.de
+  bio: "Christian Bachmann ist Softwarearchitekt bei adesso mobile solutions in Dortmund. Er interessiert sich für effiziente Architekturen und Cloud-native Anwendungen."
+  avatar_url: /assets/images/avatars/c-bachmann.jpg
+  github: https://github.com/c-bachmann
+  
 DanielKraft:
   first_name: Daniel
   last_name: Kraft
@@ -249,3 +258,4 @@ DanielKraft:
   bio: "Daniel ist als Werkstudent im Versicherungsbereich bei adesso in Frankfurt am Main tätig."
   avatar_url: /assets/images/avatars/DanielKraft.jpg
   github: https://github.com/DanielKraft
+  
