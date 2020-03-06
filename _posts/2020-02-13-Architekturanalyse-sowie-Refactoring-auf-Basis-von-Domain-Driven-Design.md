@@ -2,7 +2,7 @@
 layout: [post, post-xml]
 title:  "Architekturanalyse sowie Refactoring auf Basis von Domain-Driven Design"
 date:   2020-02-13 11:22
-modified_date: 2020-02-13
+modified_date: 2020-02-14
 author: DanielKraft
 categories: [Java]
 tags: [Domain-Driven Design, Refactoring, Micronaut,jQAssistant]
@@ -10,8 +10,8 @@ tags: [Domain-Driven Design, Refactoring, Micronaut,jQAssistant]
 
 Zurzeit wird das Domain-Driven Design gerne in der Softwareentwicklung
 verwendet.
-Allerdings werden meistens nicht alle Standards des Domain-Driven Design eingehalten, obwohl das Domain-Driven Design dabei helfen kann die Qualität unseres Quellcodes zu verbessern.
-In diesem Blog-Artikel stelle ich euch ein Werkzeug vor welches Java-Systeme, basierend auf dem Domain-Driven Design analysieren, bewerten und verbessern kann.
+Allerdings werden meistens nicht alle Standards des Tactical Domain-Driven Design eingehalten, obwohl das Tactical Domain-Driven Design dabei helfen kann die Qualität unseres Quellcodes zu verbessern.
+In diesem Blog-Artikel stelle ich euch ein Werkzeug vor welches Java-Systeme, basierend auf dem Tactical Domain-Driven Design analysieren, bewerten und verbessern kann.
 Dieses Werkzeug ist in Verbindung mit meiner Bachelorarbeit an der Hochschule Darmstadt entstanden.
 
 # Aufbau und Funktionsweise des Werkzeugs
@@ -31,7 +31,7 @@ In den folgenden Abschnitten werde ich die drei Funktionen des Werkzeugs näher 
 
 ## Architekturanalyse
 Währende der Architekturanalyse werden benötigte Daten aus der Neo4j-Datenbank ausgelesen.
-Anschließend werden die Java-Artefakte den verschiedenen Domain-Driven Design Bausteinen zugeordnet.
+Anschließend werden die Java-Artefakte den verschiedenen Tactical Domain-Driven Design Bausteinen zugeordnet.
 Um diese Funktion auszuführen, rufen wir folgende URL auf.
 Die Funktion benötigt als Parameter den Fully Qualified Name des Projekt-Packages.
 ```bash
@@ -114,8 +114,8 @@ Die Ergebnisse dieser Funktion werden im gleichen Format zurückgegeben wie bei 
 http://localhost:8040/refactor
 ```
 Bei der Verbesserung der Softwarearchitektur werden folgende Anpassungen vorgenommen.
-Die Java-Artefakte werden den richtigen Domain-Driven Design Modulen zugeordnet und außerdem werden ihnen fehlende Felder oder Methoden hinzugefügt.
-Dabei kann es auch vorkommen, dass ein Java-Artefakt einem anderen Domain-Driven Design Baustein zugeordnet wird oder sogar neue Java-Artefakte erzeugt werden.
+Die Java-Artefakte werden den richtigen Tactical Domain-Driven Design Modulen zugeordnet und außerdem werden ihnen fehlende Felder oder Methoden hinzugefügt.
+Dabei kann es auch vorkommen, dass ein Java-Artefakt einem anderen Tactical Domain-Driven Design Baustein zugeordnet wird oder sogar neue Java-Artefakte erzeugt werden.
 
 # Ergebnisse von verschiedenen Beispielsystemen
 In diesem Abschnitt gehe ich auf die Ergebnisse von drei verschiedenen Beispielsystemen ein.
@@ -126,10 +126,10 @@ Das linke Diagramm zeigt die prozentuale Erfüllung der Object-Oriented Design M
 Es ist zu erkennen, dass die Verbesserung der Softwarearchitektur nicht zu einer deutlichen Verschlechterung geführt hat.
 Im rechten Diagramm zeigt sich allerdings ein ganz anderes Bild.
 Dieses Diagramm visualisiert die Ergebnisse der Domain-Driven Design Metrik.
-Daran ist deutlich zu erkennen, dass durch den Umwandlungsalgorithmus das Domain-Driven Design des Java-Systems deutlich verbessert wurde.
+Daran ist deutlich zu erkennen, dass durch den Umwandlungsalgorithmus das Tactical Domain-Driven Design des Java-Systems deutlich verbessert wurde.
 
 # Fazit
-Dieses Werkzeug bietet uns die Möglichkeit, Java-System auf Basis vom Domain-Driven Design zu bewerten.
+Dieses Werkzeug bietet uns die Möglichkeit, Java-System auf Basis vom Tactical Domain-Driven Design zu bewerten.
 Die Bewertung kann uns das Aufspüren von möglichen Schwachstellen erleichtern.
-Außerdem gibt es die Möglichkeit sich ein Architekturvorschlag auf Basis vom Domain-Driven Design zu generieren.
+Außerdem gibt es die Möglichkeit sich ein Architekturvorschlag auf Basis vom Tactical Domain-Driven Design zu generieren.
 Dieser Architekturvorschlag kann anschließend als Inspiration für Architekturveränderungen genutzt werden.
