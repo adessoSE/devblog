@@ -1,6 +1,6 @@
 ---
 layout: [post, post-xml]
-title:  "Architekturanalyse sowie Refactoring auf Basis von Domain-Driven Design"
+title:  "Architekturanalyse sowie Refactoring auf Basis von Tactical Domain-Driven Design"
 date:   2020-02-13 11:22
 modified_date: 2020-02-14
 author: DanielKraft
