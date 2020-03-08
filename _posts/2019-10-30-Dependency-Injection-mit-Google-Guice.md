@@ -10,7 +10,7 @@ tags: [Java,Dependency Injection,Google Guice]         # Optional.
 
 # Einleitung
 
-Den meisten Java Entwicklern ist das Spring Framework ein Begriff.
+Den meisten Java Entwicklern ist das Spring Framework bekannt.
 Cloud-Anwendungen, REST Schnittstellen sind nur zwei der vielen Anwendungsmöglichkeiten.
 Ein im Kern des Frameworks verankertes Feature ist die sogenannte Dependency Injection.
 Es unterstützt bei der Entwicklung, indem es das Auflösen und Bereitstellen von Abhängigkeiten in Softwarekomponenten übernimmt.
@@ -201,29 +201,17 @@ Während Spring Core und Spring Context (Version 5.1.9) gemeinsam 2.3 MB schwer 
 Es kann im Projekt durchaus vorkommen, dass die Speichergröße sowie die Speichernutzung der Bibliothek Auswahlkriterien darstellen.
 So auch in dem Projekt, in dem ich zum ersten mal mit Guice entwickelte. 
 
-Anhand eines Proof of Concept (Kurz PoC) wurde sich seitens der Architektur für Google Guice anstatt Spring entschieden.
-Dabei ist das Know-how zu letzterem im Projektteam deutlich ausgeprägter gewesen.
-Als Teil von Fat-Clients war unsere Aufgabe, Formulare aus unterschiedlichsten Komponenten zu entwickeln.
-In den Clients wurde zu diesem Zeitpunkt auch kein Spring eingesetzt, weshalb diese Bibliothek ebenfalls als mögliche Option gehandelt wurde. 
-Es zeigte sich, dass der größere Funktionsumfang von Spring nicht benötigt wurde. 
-Das PoC stellte heraus, dass für unseren Einsatzzweck Guice die beste Lösung darstellte.
-Schnell und einfach konnten in der Entwicklung von wiederverwendbaren Formularkomponenten Erfolge erzielt werden. 
-Letztlich gab dann auch die Speichergröße und -nutzung der Bibliothek einen ausschlaggebenden Punkt. 
-Das Framework sollte in Fat-Clients zum Einsatz kommen, die bereits eine enorme Speichergröße erreicht hatten und nicht zu ressourcenintensiv werden durften. 
-Bei der Auswahl der Bibliothek waren diese Kriterien ein wichtiger Faktor.
-
-Über die Laufzeit des Projektes hat sich Guice zusätzlich auch in weiteren Teilprojekten bewährt.
-Neben dem ursprünglichem Einsatz wurde die Bibliothek auch in weiteren Anwendungen eingesetzt, um clientseitig schnell und einfach DI zu ermöglichen.
+Anhand eines Proof of Concept (Kurz PoC) haben wir uns im Projekt für Google Guice anstatt Spring entschieden, obwohl das Know-how zu letzterem im Projektteam deutlich ausgeprägter war.
+Als Teil von Fat-Clients war unsere Aufgabe, Formulare aus mehreren Komponenten zu entwickeln.
+In diesen Clients wurde zu diesem Zeitpunkt auch kein Spring eingesetzt, weshalb diese Bibliothek ebenfalls als mögliche Option gehandelt wurde. 
+Neben der einfachen Einführung von Guice in die bestehenden Clients war letztlich auch die Speichergröße und -nutzung der Bibliothek einer der ausschlaggebenden Punkte. 
+Im weiteren Projektverlauf hat sich unsere Entscheidung bewährt, sodass wir in den Fat-Clients nun Dependency Injection nutzen können.
 
 # Fazit
 Guice ist ein leichtgewichtiges Framework, um DI einzusetzen.
-Die beispielhafte Implementierung hat gezeigt, wie eine Konfiguration angelegt und anschließend genutzt werden kann.
-Die Bibliothek selbst bietet noch weitere Möglichkeiten zur Konfiguration an. 
-Mit diesem Beitrag konnte lediglich ein grober Einblick in die Bibliothek gegeben werden.
-Für weitere Informationen zum Thema Guice sowie eine Dokumentation, kann die [github Seite](https://github.com/google/guice) des Projektes besucht werden.
+Wir haben an dem Beispiel gesehen, wie eine Konfiguration angelegt und anschließend genutzt werden kann.
+Weitere Informationen und Dokumentationen zu Guice sind auf der [Github Projektseite](https://github.com/google/guice) verfügbar.
 
-Aus persönlicher Sicht hat sich der Einstieg in DI für mich mit Guice verständlicher angefühlt als in Spring.
-Da Guice ausschließlich DI bereitstellt, wurde diese Technik für mich nachvollziehbarer als in Spring.
-Bei letzterem war dieser Punkt für mich schwieriger abzugrenzen, aufgrund der zahlreichen Werkzeuge, die ebenfalls Bestandteil von Spring sind.  
-Die einfache Lernkurve und der unkomplizierte Einsatz von Guice haben sich für mich in der Praxis für DI bewährt.
-Sofern die Möglichkeit für DI in einem Projekt besteht und die technischen Rahmenbedingungen es ermöglichen, ist Guice für mich ein willkommenes Werkzeug.
+Mir persönlich hat der Einsatz von Guice ein besseres Verständnis von Dependency Injection vermittelt. 
+Da sich Guice nur darauf konzentriert, entfällt viel "Magie", wie man es aus dem Spring-Framework kennt.
+Durch die einfache Lernkurve und den unkomplizierten Einsatz stellt Guice für uns eine gute Alternative zu Spring dar, wenn man lediglich Dependency Injection benötigt.
