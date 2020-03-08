@@ -7,12 +7,6 @@ author: frenzel                    # Pflichtfeld. Es muss in der "authors.yml" e
 categories: [Softwareentwicklung] # Pflichtfeld. Maximal eine der angegebenen Kategorien verwenden.
 tags: [Java,Dependency Injection,Google Guice]         # Optional.
 ---
-Um Abhängigkeiten zwischen Objekten in der Softwareentwicklung aufzulösen, kann Dependency Injection eingesetzt werden –
-eine Methode, bei der ein zentrales Objekt die Abhängigkeiten anderer Objekte untereinander verwaltet.
-Dependency Injection gehört zu den Kernfeatures des Spring Frameworks, welches mit seinem mächtigen Ecosystem aktuell zu den wohl beliebtesten Frameworks für Java Entwickler zählt.  
-Doch bietet der Markt hierfür Alternativen?
-Eine mögliche Antwort könnte Guice lauten.
-Eine von Google entwickelte Java Bibliothek, die sich voll und ganz auf Dependency Injection fokussiert.
 
 # Einleitung
 
@@ -89,6 +83,10 @@ Guice implementiert jedoch auch die JSR-330 Spezifikation, die Annotationen für
 Eine tabellarische Übersicht der Guice Äquivalente zu den in JSR-330 Definierten, kann in der [Dokumentation](https://github.com/google/guice/wiki/JSR330) eingesehen werden.
 In der Dokumentation wird als Best Practice empfohlen, die in der Spezifikation definierten Annotation einzusetzen anstatt der in Guice definierten.
 
+Für den `ReservationService` wird daher die `@Inject` Annotation aus der JSR-330 Spezifikation genutzt.
+Es gilt jedoch darauf zu achten, dass einige zusätzliche Einschränkungen beim Injizieren mit dieser Annotation gelten (siehe [Dokumentation](https://github.com/google/guice/wiki/JSR330)).
+Diese treffen in unserem Beispiel jedoch nicht zu und können daher vernachlässigt werden.
+
 Mit dem `HotelModule` wurde eine Konfiguration definiert und mit dem `ReservationService` ein Service, dessen Bereitstellung Guice übernehmen soll.
 Damit das Erstellen des `ReservationService` durch die Bibliothek übernommen wird, ist ein `Injector` notwendig. 
 Dieser wird per Aufruf der statischen Methode `Guice.createInjector` erzeugt. 
@@ -149,7 +147,9 @@ public class HotelModule extends AbstractModule {
 ```
 Durch diese Anpassung am `HotelModule`, gibt der `Injector` beim Bereitstellen eines Objektes des Typs `BookingService` eine Instanz von `BookingServiceImpl` zurück.   
 Dabei ist zu beachten, dass immer eine neue Instanz des Services zur Verfügung gestellt wird.
-Um programmweit innerhalb von Guice immer die gleiche Instanz des `BookingServiceImpl` zu nutzen, reicht es, die Klassen mit `@Singleton` zu annotieren.
+Um programmweit innerhalb von Guice immer die gleiche Instanz des `BookingServiceImpl` zu nutzen, reicht es, die Klasse mit `@Singleton` zu annotieren.
+Damit geht einher, dass die Klasse threadsicher (engl. threadsafe) ist.
+Ein Hilfestellung bei der Wahl des richtigen Scopes, kann der Dokumentation unter [Scopes](https://github.com/google/guice/wiki/Scopes#choosing-a-scope) entnommen werden.
  ```java
 @Singleton
 public class BookingServiceImpl implements BookingService {
@@ -197,7 +197,7 @@ Der klare Fokus von Guice auf DI ist eine der Stärken der Bibliothek.
 
 Es beschränkt sich nur auf einen Aspekt, während Spring's Funktionsspektrum deutlich größer ausfällt. 
 Dieser Unterschied spiegelt sich in der Größe der beiden Bibliotheken wieder. 
-Während Spring Core und Spring Context (Version 5.1.9) gemeinsam 2.3MB schwer sind, so kommt Guice (Version 4.2.2) lediglich auf 826KB. 
+Während Spring Core und Spring Context (Version 5.1.9) gemeinsam 2.3 MB schwer sind, so kommt Guice (Version 4.2.2) lediglich auf 826 KB. 
 Es kann im Projekt durchaus vorkommen, dass die Speichergröße sowie die Speichernutzung der Bibliothek Auswahlkriterien darstellen.
 So auch in dem Projekt, in dem ich zum ersten mal mit Guice entwickelte. 
 
