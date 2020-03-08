@@ -148,7 +148,7 @@ public class HotelModule extends AbstractModule {
 Durch diese Anpassung am `HotelModule`, gibt der `Injector` beim Bereitstellen eines Objektes des Typs `BookingService` eine Instanz von `BookingServiceImpl` zurück.   
 Dabei ist zu beachten, dass immer eine neue Instanz des Services zur Verfügung gestellt wird.
 Um programmweit innerhalb von Guice immer die gleiche Instanz des `BookingServiceImpl` zu nutzen, reicht es, die Klasse mit `@Singleton` zu annotieren.
-Damit geht einher, dass die Klasse threadsicher (engl. threadsafe) ist.
+Damit geht allerdings einher, dass die Klasse threadsicher (engl. threadsafe) sein muss.
 Ein Hilfestellung bei der Wahl des richtigen Scopes, kann der Dokumentation unter [Scopes](https://github.com/google/guice/wiki/Scopes#choosing-a-scope) entnommen werden.
  ```java
 @Singleton
