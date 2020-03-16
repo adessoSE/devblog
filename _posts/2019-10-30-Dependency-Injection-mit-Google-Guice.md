@@ -8,17 +8,7 @@ categories: [Softwareentwicklung] # Pflichtfeld. Maximal eine der angegebenen Ka
 tags: [Java,Dependency Injection,Google Guice]         # Optional.
 ---
 
-# Einleitung
-
-Den meisten Java Entwicklern ist das Spring Framework bekannt.
-Cloud-Anwendungen, REST Schnittstellen sind nur zwei der vielen Anwendungsmöglichkeiten.
-Ein im Kern des Frameworks verankertes Feature ist die sogenannte Dependency Injection.
-Es unterstützt bei der Entwicklung, indem es das Auflösen und Bereitstellen von Abhängigkeiten in Softwarekomponenten übernimmt.
-Dieses Feature bietet jedoch nicht nur Spring.
-Ein Framework, das sich ausschließlich darauf fokussiert, ist Google Guice.
-Dabei handelt es sich um ein leichtgewichtiges Open-Source-Framework zur Nutzung von Dependency Injection in Java ab Version 6.
-In diesem Beitrag wird Guice vorgestellt und auf einige Unterschiede in der Nutzung zu Spring eingegangen.
-
+Den meisten Java Entwicklern ist das Spring Framework bekannt, welches neben vielen Bestandteilen im Kern auch Dependency Injection umsetzt. Ein Framework, das sich ausschließlich darauf fokussiert, ist Google Guice. In diesem Beitrag zeige ich, wie Guice als leichtgewichtige Alternative zu Spring eingesetzt werden kann.
 
 # Dependency Injection 
 Dependency Injection (Kurz DI) ist ein Entwurfsmuster (engl. Design Pattern), das bei der Lösung eines wiederkehrenden Problems in der Softwareentwicklung unterstützt.
