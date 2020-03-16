@@ -249,3 +249,11 @@ c-bachmann:
   bio: "Christian Bachmann ist Softwarearchitekt bei adesso mobile solutions in Dortmund. Er interessiert sich für effiziente Architekturen und Cloud-native Anwendungen."
   avatar_url: /assets/images/avatars/c-bachmann.jpg
   github: https://github.com/c-bachmann
+
+mschick:
+  first_name: Michael
+  last_name: Schick
+  github_username: mschick
+  email: michael.schick@adesso.de
+  avatar_url: /assets/images/avatars/mschick.jpg
+  github: https://github.com/mschick
