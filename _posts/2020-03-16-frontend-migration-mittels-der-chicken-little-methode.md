@@ -103,7 +103,7 @@ Weitere Details dazu finden man u.a. [hier](https://reactjs.org/docs/components-
 ### Vertragsliste
 
 Der folgende Quelltext zeigt den grundsätzlichen Aufbau der neuen Komponente `Vertragsliste`:
-```jsx harmony
+```jsx
 import React from "react";
 
 class Vertragsliste extends React.Component {
@@ -214,7 +214,7 @@ Entworfen wurde das ganze von Facebook als Erweiterung des **ES6-Standards**.  W
 Das folgende Quellcodebeispiel zeigt den Aufbau der Komponente `Vertrag`.
 Die Repräsentation des einzelnen Vertrags im Frontend erfolgt jeweils als Tabellenzeile in der Komponente `Vertragsliste`.  
 
-```jsx harmMony
+```jsx
 import React from "react";
 
 class Vertrag extends React.Component {
@@ -245,7 +245,6 @@ class Vertrag extends React.Component {
 }
 
 export default Vertrag;
-
 ```      
 
 Die Ausgabe der jeweiligen Tabellenzeile erfolgt in der `render()`-Methode.
