@@ -1,18 +1,18 @@
 ---
 layout: [post, post-xml]             
-title:  "Frontend Migration nach der Chicken-Little-Methode"
-date:   2020-02-10 01:23             
+title:  "Frontend Migration mittels der Chicken-Little-Methode"
+date:   2020-03-16 01:23             
 author: mschick                     
-categories: [Methodik, Softwareentwicklung]                   
+categories: [Methodik]                   
 tags: [Frontend, Migration, Softwaremigration, React, ReactJS, JSX, JSF, Facelets, REST]  
 ---
 
-In meinem [ersten Beitrag](/_posts/2020-02-10-frontend-migration-nach-der-chicken-little-methode.md) habe ich die **Chicken-Little-Methode**, eine Vorgehensweise für die schrittweise Migration von *Legacy-Systemen* vorgestellt.
+In meinem [ersten Beitrag](/_posts/2020-03-16-inkrementelle-softwaremigration-nach-der-chicken-little-methode.md) habe ich die **Chicken-Little-Methode**, eine Vorgehensweise für die schrittweise Migration von *Legacy-Systemen* vorgestellt.
 Darauf aufbauend soll in diesem Beitrag nun demonstriert werden, wie sich diese Methode auf eine *Frontend-Migration* im Kontext einer Webanwendung anwenden lässt.
-Dazu wird eine existierende Webanwendung betrachtet und gezeigt wie eine, auf den *Server-Side Rendering Technologien* **JSF** und **Facelets** basierende Komponente dieser Anwendung in eine andere Technologie transformiert und im Anschluss daran wieder zurück integriert wird.
+Dazu wird eine existierende Webanwendung betrachtet und gezeigt wie eine, auf den *Server-Side Rendering Technologien* **JSF** und **Facelets** basierende Komponente dieser Anwendung in eine andere Technologie transformieren lässt und im Anschluss daran wieder in das Altsystem integriert wird.
 Als Zieltechnologie für die Migration dient in diesem Beispiel das **Single-Page-Application**-Framework [**ReactJS**](https://reactjs.org/).
 
-Wichtig hierbei anzumerken ist, dass der Fokus hier ganz klar auf der Beschreibung des Vorgehens liegt. Die hierbei verwendete Technologie dient lediglich der Veranschaulichung.
+Wichtig hierbei anzumerken ist, dass der Fokus hier ganz klar auf der Beschreibung des Vorgehens liegt. Die hierbei verwendete Technologie dient lediglich der Veranschaulichung und kann beliebig ausgetauscht werden.
 Daher werden hier auch Quellcode-Beispiele nur in reduzierter Form und auch nur da eingesetzt, wo sie für das Verständnis dienlich sind.
 
 # Die Legacy Anwendung
@@ -30,22 +30,22 @@ Dieser Umstand führt unter anderem dazu, dass in der Weiterentwicklung des Proj
 Davon betroffen sind sowohl die eingesetzte Java-Version, damit einhergehend auch der Applikationsserver als auch schlussendlich die verwendeten *Libraries*.
 Damit qualifiziert sich dieses Projekt, um im Kontext der **Softwaremigration** näher betrachtet zu werden.
 
-Das in diesem Artikel betrachtete Beispiel entstammt übrigens einer Abschlussarbeit, die durch die *adesso SE* betreut wurde.  
+Das in diesem Artikel betrachtete Beispiel entstammt einer Abschlussarbeit, die durch die *adesso SE* betreut wurde.  
 Daher wurde auch die Entscheidung getroffen, eine *Frontend-Migration* durchzuführen, um die Komplexität überschaubar zu halten und gleichzeitig den Rahmen der erwähnten Arbeit nicht zu sprengen.
 Schlussendlich demonstriert dieses Beispiel aber auch das breite Einsatzgebiet dieser Methode, die sich flexibel für entweder nur eine Migrationsart (Programm-, Benutzerschnittstellen- und/oder Datenmigration), eine Kombination daraus oder aber auch für vollständige Systemmigrationen, die sämtliche Bereiche umfassen, einsetzen lässt.
 
 # Die Migration
 
 In diesem Abschnitt erfolgt die Migration der zuvor beschriebenen Anwendung.
-Da hier zunächst nur das Frontend migriert werden soll, entfallen von den ursprünglich elf Schritten der **Chicken-Little-Methode**, all jene Punkte, die sich auf die Bereiche **Programme und Anwendungen** sowie die **Datenhaltung** beziehen.
+Da hier zunächst nur das Frontend migriert werden soll, entfallen von den ursprünglich [elf Schritten](/_posts/2020-03-16-inkrementelle-softwaremigration-nach-der-chicken-little-methode.md#die-chicken-little-methode) der **Chicken-Little-Methode**, all jene Punkte, die sich auf die Bereiche **Programme und Anwendungen** sowie die **Datenhaltung** beziehen.
 
-Übrig bleiben also lediglich noch die **Analyse** _(Schritt 1)_ sowie die **Strukturierung** _(Schritt 2)_ des Altsystems, der **Entwurf** und die **Installation der Zielumgebung** _(Schritt 3 + 6)_ sowie die **Installation der benötigten Schnittstellen** _(Schritt 7)_ und die abschließende **Migration und Umstellung** der Migration, _(Schritt 10 + 11)_.
+Übrig bleiben also lediglich noch die **Analyse** _(Schritt 1)_ sowie die **Strukturierung** _(Schritt 2)_ des Altsystems, der **Entwurf** und die **Installation der Zielumgebung** _(Schritt 3 + 6)_ und die **Installation der benötigten Schnittstellen** _(Schritt 7)_ sowie die abschließende **Migration und Umstellung** auf die Neuentwicklung _(Schritt 10 + 11)_.
 
 ## Analyse und Strukturierung
 
-Im ersten Schritt gilt es eine geeignete Komponente für den ersten Durchlauf der Migration zu auszuwählen.
-Empfohlen ist es hierbei, möglichst kleinschrittig vorzugehen, also einen in puncto Komplexität überschaubaren Bestandteil zu wählen.
-Existieren starke Verwebungen zwischen den unterschiedlichen Schichten (wie z.B. Frontend und Programmlogik), so sind diese bereits vor der Migration aufzulösen.
+Im ersten Schritt gilt es eine geeignete Komponente für den ersten Durchlauf der Migration auszuwählen.
+Empfohlen ist es hierbei, möglichst kleinschrittig vorzugehen, also einen in puncto Komplexität überschaubaren Bestandteil der Anwendung zu wählen.
+Existieren starke Verwebungen zwischen den unterschiedlichen Schichten (wie z.B. Frontend und Programmlogik), so sind diese bereits im Vorfeld der Migration aufzulösen.
 
 ### Die Vertragsliste der Makler-Anwendung
 Für den ersten Migrationsschritt des Versicherungsmakler-Portals wurde die *Vertragsliste* ausgewählt, mit Hilfe welcher sich ein Makler sämtliche (Vor-)Verträge seines jeweils ausgewählten Mandanten anzeigen lassen kann.
@@ -87,7 +87,7 @@ Der unten stehende, stark vereinfachte Quellcode-Auszug zeigt das grundsätzlich
 ```
 
 #### Involvierte Java-Klassen
-Aus dem oben stehenden *JSF-Template* lassen sich die beteiligten *Java-Klassen* ablesen.
+Aus dem oben stehenden *JSF-Template* lassen sich bereits die beteiligten *Java-Klassen* ablesen.
 Die zentralen Elemente sind hierbei der Controller `VertragslisteController`, der das Datenhandling übernimmt, sowie die Entität `Vertrag`, die den jeweiligen Versicherungsvertrag repräsentiert und dessen Details bereitstellt.
 
 ## Entwurf und Entwicklung der neuen Benutzeroberfläche
@@ -95,14 +95,14 @@ Die zentralen Elemente sind hierbei der Controller `VertragslisteController`, de
 Die Darstellung der *Vertragsliste* innerhalb der *React App* soll auch hier wieder in tabellarischer Form erfolgen.  
 
 Sowohl die *Vertragsliste* als auch der *Vertrag* werden dazu jeweils als eigenständige *React Komponente* innerhalb der *React App* implementiert.
-Bei einer *React Komponente* handelt es sich knapp zusammengefasst um wiederverwendbare Teile einer Benutzeroberfläche, die Funktionalität sowie die Eigenschaften der Komponente (`props`) innerhalb einer *React App* bündeln.
-In ihrem Aufbau ähnlen sie stark dem von *(Java-)Klassen*.  
+Bei einer *React Komponente* handelt es sich knapp zusammengefasst um einen wiederverwendbaren Teil einer Benutzeroberfläche, der die Funktionalität sowie die Eigenschaften der Komponente (`props`) innerhalb einer *React App* bündelt.
+In ihrem Aufbau ähnelt sie stark dem von *(Java-)Klassen*.  
 
 Weitere Details dazu finden man u.a. [hier](https://reactjs.org/docs/components-and-props.html).
 
 ### Vertragsliste
 
-Der folgende Quelltext zeigt den grundsätzlichen Aufbau der Komponente `Vertragsliste`:
+Der folgende Quelltext zeigt den grundsätzlichen Aufbau der neuen Komponente `Vertragsliste`:
 ```jsx harmony
 import React from "react";
 
@@ -142,19 +142,19 @@ class Vertragsliste extends React.Component {
 
 Im *Konstruktor* erfolgt zunächst die Initialisierung des *Zustands* ([`state`](https://reactjs.org/docs/state-and-lifecycle.html)) der Vertragslisten-Komponente.
 
-Wesentlich ist hier das zunächst leere Array `vertrage`, in welchem die über die Schnittstelle zum Altsystem abgefragten Versicherungsverträge für die jeweilige *View* gespeichert werden.
+Von wesentlicher Bedeutung ist hier das zunächst leere Array `vertrage`, in welchem die, über die Schnittstelle zum Altsystem abgefragten Versicherungsverträge für die jeweilige *View* gespeichert werden.
 Daneben gibt es noch zwei weitere Felder, die kennzeichnen ob eine Anfrage an die Schnittstelle noch läuft oder erfolgreich abgeschlossen wurde (`requestComplete`).
-Scheitert der *Request*, so wird der aufgetretene Fehler in `error` gespeichert.   
+Scheitert der *Request*, so wird der aufgetretene Fehler in `error` gespeichert um diesen im weiteren Verlauf behandeln zu können.   
 Des weiteren erfolgt hier das [*Binding*](https://reactjs.org/docs/faq-functions.html#why-is-binding-necessary-at-all) der Methoden an den Wert `this`.  
 
 Die initiale Abfrage der *Vertragsliste* im Altsystem erfolgt später über die noch zu implementierende Schnittstelle mittels der Methode [`componentDidMount()`](https://reactjs.org/docs/react-component.html#componentdidmount).
  Hierbei handelt es sich um eine sogenannte [*Lifecycle-Methode*](https://reactjs.org/docs/state-and-lifecycle.html#adding-lifecycle-methods-to-a-class) von *React*, die ausgeführt wird, sobald die Komponente der Benutzeroberfläche hinzugefügt wurde.
 
-Weitere Methoden sind hier `remove()`, für das Löschen von Verträgen, `calculate()` zum Anstoßen der Berechnung der aller Tarife.
+Weitere Methoden sind hier `remove()`, für das Löschen von Verträgen, sowie `calculate()` zum Anstoßen der Berechnung sämtlicher Tarife.
 
-Das *Rendering* der Liste im Frontend sowie der enthaltenen Verträge erfolgt in der Methode `render()` der Komponente.
+Das *Rendering* der Liste im Frontend sowie der darin enthaltenen Verträge erfolgt in der Methode `render()` der Komponente.
 Dazu wird mittels der Funktion `eachVertrag()` über die aktuelle Liste in `this.state.vertraege` iteriert.
- Dort folgt die Instantiierung der jeweiligen Vertrags-Komponenten und ihren `props`.
+ Dort folgt die Instantiierung der jeweiligen Vertrags-Komponenten und ihrer `props`.
 
 ```jsx
     eachVertrag(vertrag, i) {
@@ -248,18 +248,18 @@ export default Vertrag;
 
 ```      
 
-Die Ausgabe der Tabellenzeile erfolgt in der `render()`-Methode.
+Die Ausgabe der jeweiligen Tabellenzeile erfolgt in der `render()`-Methode.
 Die jeweiligen Vertragsdetails wurden bei der Initialisierung der Komponente `Vertrag` innerhalb der `Vertragsliste`, in Form von `JSX` übergeben.
-Der Zugriff darauf erfolgt über `this.props.children`.
-Daneben erfolgt hier noch die Definition der Buttons, die für das *Löschen* sowie das *Bearbeiten* des Vertrages verantwortlich sind.
+Auf diese kann nun über das Objekt `this.props.children` zugegriffen werden.
+Daneben erfolgt hier außerdem noch die Definition der Buttons, die für das *Löschen* sowie das *Bearbeiten* des jeweiligen Vertrages verantwortlich sind.
 
 Mit der Entwicklung der beiden Komponenten für die *Vertragsliste* und den *Vertrag* ist die neue Benutzeroberfläche fertiggestellt.
 
 Im nächsten Schritt müssen nun noch die **Schnittstellen** im Altsystem implementiert werden, damit die hier entwickelte *React App* und das Altsystem miteinander kommunizieren können.
 
 ## Entwicklung einer REST-API als Schnittstelle zwischen Alt und Neu
-Die Implementierung der Schnittstelle erfolgt in Form einer kleinen [**REST-API**](https://de.wikipedia.org/wiki/Representational_State_Transfer). 
-Die **API** soll hierbei als eine Art **Proxy** dienen, der die eingehenden **Requests** an die original Methode des **Vertragslisten Controller** delegiert und mögliche Rückgaben wieder an den Aufrufer weiterleitet.   
+Die Implementierung der Schnittstelle erfolgt in diesem Beispiel in Form einer kleinen [**REST-API**](https://de.wikipedia.org/wiki/Representational_State_Transfer). 
+Die **API** soll hierbei als **Reverse Gateway** dienen, der die eingehenden **Requests** an die original Methode des **Vertragslisten Controller** delegiert und mögliche Rückgaben wieder an den Aufrufer weiterleitet.   
 
 Folgende Funktionalität muss die **API** für das Beispiel der *Vertragsliste* bereitstellen: 
 - Gesamtliste aller Verträge des aktuell ausgewählten Mandanten abrufen
@@ -313,10 +313,11 @@ public class VertragslisteResource {
 
 Für die Umsetzung wird sich der Library **RESTEasy** bedient, die den **JAX-RS**-Standard implementiert und die Definition und Konfiguration von *REST-Ressourcen* über Annotationen der *Java-Klassen* erlaubt. 
 
-Über dem Klassennamen erfolgt zunächst die Definition der URI `/vertragsliste` per Annotation, über welche die Ressource adressiert werden soll. 
-Daneben wird außerdem festgelegt, dass die *Repräsentation* der Ressource in Form eines `JSON-Strings` erfolgen soll.  
+Über dem Klassennamen erfolgt zunächst die Definition der URI `/vertragsliste` per Annotation.
+Darüber lässt sich die Ressource in der **REST-API** adressieren.
+Daneben wird außerdem festgelegt, dass die Kommunikation via `JSON` erfolgen soll. 
 
-Die folgende Tabelle listet die beteiligten **Ressourcen**, die jeweilige **URI**, die verwendete **HTTP-Methode** sowie die jeweils korrespondierende **Java-Methode** auf.
+Die folgende Tabelle listet die beteiligten **Ressourcen**, die jeweilige **URI**, die dabei verwendete **HTTP-Methode** sowie die jeweils korrespondierende **Java-Methode** auf.
 
 | Aktion                 | HTTP-Methode       | URI                           | Java-Methode           |
 | ---------------------- | ------------------ | ----------------------------- | ---------------------- | 
@@ -324,13 +325,14 @@ Die folgende Tabelle listet die beteiligten **Ressourcen**, die jeweilige **URI*
 | **Verträge berechnen** | POST               | `/vertragsliste`              | `berechneAngebote()`   |
 | **Vertrag löschen**    | DELETE             | `/vertragsliste/{vertragsId}` | `removeVetrag()`       |
 
-Sowohl das **Abfragen** der Liste als auch die **Berechnung** der Verträge geschehen über die selbe **URI**. 
+
+Für sowohl das **Abfragen** der Liste als auch die **Berechnung** der Verträge zeichnet sich die Ressource `Vertragsliste` verantwortlich.  
 Welche Aktion ausgeführt werden soll, wird maßgeblich über die beim **Request** verwendete **HTTP-Methode** bestimmt.
-Die Abfrage erfolgt mittels eines **GET-**, die Berechnung der Verträge hingegen mittels eines **POST-Requests**. 
-Ein Vertrag kann mittels einem **DELETE-Request** gelöscht werden, in dem man der Basis-URI `/vertragsliste` noch die jeweilige **Vertrags-Id** als Parameter mitgibt.  
+Die Abfrage der List erfolgt dabei mittels eines **GET-**, die Berechnung der Verträge hingegen mittels eines **POST-Requests**. 
+Ein Vertrag kann mittels einem **DELETE-Request** gelöscht werden, in dem man der Basis-URI `/vertragsliste` noch die jeweilige **Vertrags-Id** als Parameter übergibt.  
 
 ### Anbindung der React App an die API
-Nachdem die API erfolgreich auf Funktionalität getestet wurde, muss die **React App** noch daran angebunden werden. 
+Nachdem die API erfolgreich auf Funktionalität getestet wurde, muss die **React App** noch an diese angebunden werden. 
 Dies geschieht mittels der *JavaScript-API* [`fetch`](https://developer.mozilla.org/de/docs/Web/API/Fetch_API).
 
 Für die Abfrage der Vertragsliste über die API in der Methode `componentDidMount()` sieht das folgendermaßen aus: 
@@ -357,7 +359,7 @@ componentDidMount() {
     }
 ``` 
 
-Zunächst werden alle möglichen Fehler, die möglicherweise bei einem vorangegangenen Request aufgetreten sind, wieder zurückgesetzt. 
+Zunächst werden alle Fehler, die möglicherweise bei einem vorangegangenen Request aufgetreten sind, wieder zurückgesetzt. 
 Anschließend wird die Vertragsliste über die **REST API** abgefragt und festgelegt, dass der **Response** als `JSON String` erwartet wird. 
 Konnte der **Request** erfolgreich durchgeführt werden, so werden die zurückgegebenen Verträge im `state` der Vertragsliste innerhalb der *React App* abgelegt. 
 Scheitert der **Request** hingegen, so wird dieser Fehler für die weitere Behandlung in `this.state.error` gespeichert. 
@@ -375,6 +377,9 @@ Das führt zu unschönen Effekten wie beispielsweise doppelten Scrollbars, einma
 
 Um diesem Problem zu begegnen und den Einsatz von Iframes für den Benutzer zu kaschieren, gibt es verschiedene *JavaScript Libraries* (wie bspw. [Seamless.js](https://github.com/travist/seamless.js) oder [IframeResizer](https://github.com/davidjbradshaw/iframe-resizer)), die diese Dynamik für Iframes nachrüsten.   
 
+In diesem Beispiel wurde die Librarie `IframeResizer` verwendet. 
+Das unten stehende Quellcode-Beispiel zeigt die Integration:
+
 ```xml
 <ui:define name="content">
     <iframe id="vertragsliste-react" src="https://makler.portal/api/vertragsliste"></iframe>
@@ -386,7 +391,7 @@ Um diesem Problem zu begegnen und den Einsatz von Iframes für den Benutzer zu k
 </ui:define>
 ```
 
-Mit diesem letzten Schritt ist die Migration der Vertragsliste abgeschlossen.
+Mit diesem letzten Schritt ist die Migration der Vertragsliste abgeschlossen und kann im Altsystem nun verwendet werden.
 
 # Zusammenfassung
 
