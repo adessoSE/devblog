@@ -323,7 +323,8 @@ Die folgende Tabelle listet die beteiligten **Ressourcen**, die jeweilige **URI*
 | **Liste abfragen**     | GET                | `/vertragsliste`              | `getVertragsliste()`   |
 | **Verträge berechnen** | POST               | `/vertragsliste`              | `berechneAngebote()`   |
 | **Vertrag löschen**    | DELETE             | `/vertragsliste/{vertragsId}` | `removeVetrag()`       |
----
+
+
 Für sowohl das **Abfragen** der Liste als auch die **Berechnung** der Verträge zeichnet sich die Ressource `Vertragsliste` verantwortlich.  
 Welche Aktion ausgeführt werden soll, wird maßgeblich über die beim **Request** verwendete **HTTP-Methode** bestimmt.
 Die Abfrage der List erfolgt dabei mittels eines **GET-**, die Berechnung der Verträge hingegen mittels eines **POST-Requests**. 
