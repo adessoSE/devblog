@@ -2,6 +2,7 @@
 layout: [post, post-xml]             
 title:  "Inkrementelle Softwaremigration nach der Chicken-Little-Methode"
 date:   2020-03-16 01:23             
+modified_date:  2020-03-16 16:00
 author: mschick                     
 categories: [Methodik]                   
 tags: [Migration, Softwaremigration, Legacy Software, Maintenance]  
@@ -152,7 +153,8 @@ Schritt                                   | Beschreibung
 | 8.  **Migration der Datenbank**         | Installation und anschließende Migration der Daten in die neue Zieldatenbank
 | 9.  **Migration der Anwendungen**       | Einzelne Programme und Anwendungen werden in der Zielumgebung implementiert
 | 10. **Migration der Benutzerobflächen** | Migration der Benutzeroberfläche
-| 11. **Umstellung auf Neusystem**        |  Umstellung auf die migrierten Bestandsteile
+| 11. **Umstellung auf Neusystem**        |  Umstellung auf die migrierten Bestandsteile  
+
    
 Ein Vorteil der sich aus der **Chicken-Little-Methode** ergibt ist, dass Fehler in der Migration, durch die direkte Verwendung im System, frühzeitiger erkannt und behoben werden können. 
 Schlägt die Migration in einem Teilschritt fehl, so ist lediglich dieser Teilschritt zu wiederholen, was, verglichen mit der Neuentwicklung, deutlich weniger Kosten und Zeitverlust nach sich zieht und auch die Gefahr von negativen Auswirkungen im Altsystem auf ein überschaubares Maß reduziert und dadurch insgesamt kontrollierbarer macht. 
