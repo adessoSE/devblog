@@ -231,12 +231,30 @@ czarnecki:
   bio: "Florian Czarnecki ist als Werkstudent im Open-Source-Team bei adesso in Dortmund tätig"
   avatar_url: /assets/images/avatars/czarnecki.jpg
   github: https://github.com/czarnecki
-  
+
+smsnheck:
+  first_name: Sebastian
+  last_name: Heckmann
+  github_username: smsnheck
+  email: sebastian.heckmann@adesso.de
+  bio: "Sebastian ist Teamleiter bei adesso und beschäftigt sich gerne mit Themen aus dem Umfeld der agilen Softwareentwicklung."
+  avatar_url: /assets/images/avatars/smsnheck.jpg
+  github: https://github.com/smsnheck
+
+c-bachmann:
+  first_name: Christian
+  last_name: Bachmann
+  github_username: c-bachmann
+  email: bachmann@adesso-mobile.de
+  bio: "Christian Bachmann ist Softwarearchitekt bei adesso mobile solutions in Dortmund. Er interessiert sich für effiziente Architekturen und Cloud-native Anwendungen."
+  avatar_url: /assets/images/avatars/c-bachmann.jpg
+  github: https://github.com/c-bachmann
+
 frenzel:
   first_name: Daniel
   last_name: Frenzel
   github_username: fwshgtn
   email: daniel.frenzel@adesso.de
-  bio: "Daniel Frenzel ist Software Engineer bei adesso in Dortmund und entwickelt seit mehreren Jahren Java- und Webanwendungen."
+  bio: "Daniel Frenzel ist Senior Software Engineer bei adesso in Dortmund und entwickelt seit mehreren Jahren Java- und Webanwendungen."
   avatar_url: /assets/images/avatars/fwshngtn.jpg
   github: https://github.com/fwshngtn
