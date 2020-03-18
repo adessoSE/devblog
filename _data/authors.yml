@@ -249,3 +249,12 @@ c-bachmann:
   bio: "Christian Bachmann ist Softwarearchitekt bei adesso mobile solutions in Dortmund. Er interessiert sich für effiziente Architekturen und Cloud-native Anwendungen."
   avatar_url: /assets/images/avatars/c-bachmann.jpg
   github: https://github.com/c-bachmann
+
+frenzel:
+  first_name: Daniel
+  last_name: Frenzel
+  github_username: fwshgtn
+  email: daniel.frenzel@adesso.de
+  bio: "Daniel Frenzel ist Senior Software Engineer bei adesso in Dortmund und entwickelt seit mehreren Jahren Java- und Webanwendungen."
+  avatar_url: /assets/images/avatars/fwshngtn.jpg
+  github: https://github.com/fwshngtn
