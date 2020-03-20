@@ -30,7 +30,7 @@ Da REST nur feste Datenstrukturen zurückliefert, müssen mehrere Endpunkte ange
 
 **Overfetching:**   
 
-    REST gibt dem Client durch eine Abfrage viele Daten zurück, sodass der Client selber suchen und auswählen muss, welche Daten er wirklich benötigt. Daraus entsteht Redundanz durch unerwünschte Daten, welche sich auf die Bandbreite niederschlägt und Speicherplatz sowie Zeit kostet.  
+REST gibt dem Client durch eine Abfrage viele Daten zurück, sodass der Client selber suchen und auswählen muss, welche Daten er wirklich benötigt. Daraus entsteht Redundanz durch unerwünschte Daten, welche sich auf die Bandbreite niederschlägt und Speicherplatz sowie Zeit kostet.  
 
 **Underfetching:**  
 
@@ -52,7 +52,7 @@ Diese Anpassungen ermöglichen ein API-Design, welches den Herausforderungen von
 
 GraphQL besitzt nur einen Endpunkt. Die Abfragen werden durch Queries beschrieben, sodass nur eine Query an den Endpunkt geschickt werden muss. Diese Query wird in einer speziellen Query-Sprache beschrieben, ähnlich zu SQL. Diese wird anschließend vom Server interpretiert. Zum Besipiel URL/graphql?query=annaswuensche. In „annaswuensche“ kann der Client alle Daten beschreiben, die er benötigt. Es ist auch möglich alle Daten aus dem Server durch eine Abfrage zu beziehen. 
 
-    ![GraphQL und RESTful APIs](/assets/images/posts/GraphQL-ist-flexibler,-das-Ende-von-RESTful-APIs/APIs.PNG)
+![GraphQL und RESTful APIs](/assets/images/posts/GraphQL-ist-flexibler,-das-Ende-von-RESTful-APIs/APIs.PNG)
 
 **Kein Overfetching und Underfetching:**
 
@@ -98,7 +98,7 @@ Eine Datei mittels GraphQL hochzuladen, ist nicht auf direktem Wege möglich, wi
 
 Wie bereits gesehen, gibt es mit GraphQL auch einige Herausforderungen, die Facebook allerdings mittlerweile mit neuen Lösungsansätzen zu beheben versucht. Diese erhöhen die Komplexität der Implementierung. Eine mächtige, fehlerfreie und saubere Graph-API zu erreichen erfordert Know-How und Aufwand.  
 
-# GraphQL ist keine Alternative zu RESTful-APIs 
+# GraphQL löst RESTful-APIs nicht ab
 
 Welche der beiden Technologien nun die Bessere ist, lässt sich nicht final besiegeln. Auf Grund der negativen und positiven Aspekte, welchen beiden anhaften, lässt sich die Entscheidung nur sehr individuell und auf Basis der Projektsituation treffen. GraphQL ist aufgrund der Flexibilität im Umgang mit großen Datenmengen deutlich besser geeignet als RESTful-APIs, wenn die Applikation mit Massendaten arbeitet und diese aus verschiedenen Ressourcen bezieht. Für kleine Applikationen wird GraphQL hingegen beinahe zum Overkill für die Applikation. In diesem Fall sollten RESTful-APIs eingesetzt werden, um unnötige Komplexität von GraphQL zu vermeiden.  
 
