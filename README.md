@@ -1,4 +1,4 @@
-# adesso AG devblog
+# adesso SE devblog
 
 Dieses Repository beinhaltet Blog Posts für den [adesso Blog](https://blog.adesso.de/).
 
