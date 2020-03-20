@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<documents>
+    <document uid="2bca1211f3426001bdaa64c2f1f2e8a6">
+        <field name="title"><![CDATA[Identify Bottlenecks in your Spring Tests with JUnit Insights]]></field>
+        <field name="subline"><![CDATA[]]></field>
+        <field name="teaser"><![CDATA[<p>When developing a large software project, a low execution time of unit tests is crucial to guarantee a fast and efficient progression of the project.
+This is especially true when using continuous integration to automatically check your code quality and correctness.
+<a href="https://github.com/adessoag/junit-insights">JUnit Insights</a> helps you to identify the reasons behind long execution times of some of your software tests so you can optimize them easily.</p>
+
+]]></field>
+        <field name="language_multi_keyword"><![CDATA[de]]></field>
+        <field name="content_type_multi_keyword"><![CDATA[blog]]></field>
+        <field name="mime_type_multi_keyword"><![CDATA[text/html]]></field>
+        <field name="category_multi_keyword"><![CDATA[Java]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Spring]]></field>
+        <field name="tag_multi_keyword"><![CDATA[JUnit]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Testing]]></field>
+        <field name="date_date"><![CDATA[2019-08-20T09:00:00+02:00]]></field>
+        <field name="date_l"><![CDATA[1566284400000]]></field>
+        <field name="change_date"><![CDATA[1566284400000]]></field>
+        <!--Picture-->
+        <!-- Not in use at the moment-->
+        <!--Author Information-->
+        <field name="author_first_name"><![CDATA[Florian]]></field>
+        <field name="author_last_name"><![CDATA[Lüdiger]]></field>
+        <field name="author_id"><![CDATA[florianluediger]]></field>
+        <field name="author_picture_stored_only"><![CDATA[http://localhost:4000/assets/images/avatars/florianluediger.jpg]]></field>
+        <!--Postcontent-->
+        <field name="headlines"><![CDATA[Identify Bottlenecks in your Spring Tests with JUnit Insights]]></field>
+        <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
+            <p>When developing a large software project, a low execution time of unit tests is crucial to guarantee a fast and efficient progression of the project.
+This is especially true when using continuous integration to automatically check your code quality and correctness.
+<a href="https://github.com/adessoag/junit-insights">JUnit Insights</a> helps you to identify the reasons behind long execution times of some of your software tests so you can optimize them easily.</p>
+
+</div>]]></field>
+        <field name="content"><![CDATA[<div class="adesso-text-formate">
+<div class="row p-t-2">
+<div class="adesso-container">
+<div class="col-xl-8 adesso-center p-b-1 p-l-0 p-r-0">
+    <p>When developing a large software project, a low execution time of unit tests is crucial to guarantee a fast and efficient progression of the project.
+This is especially true when using continuous integration to automatically check your code quality and correctness.
+<a href="https://github.com/adessoag/junit-insights">JUnit Insights</a> helps you to identify the reasons behind long execution times of some of your software tests so you can optimize them easily.</p>
+
+<h4 id="why-do-my-spring-tests-take-so-long">Why do my Spring tests take so long?</h4>
+
+<p>Whenever you are writing unit tests that require features provided by the annotations <a href="https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/test/context/SpringBootTest.html"><code>@SpringBootTest</code></a>, <a href="https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/test/autoconfigure/orm/jpa/DataJpaTest.html"><code>@DataJpaTest</code></a>, <a href="https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/test/autoconfigure/web/servlet/WebMvcTest.html"><code>@WebMvcTest</code></a> or similar, a <a href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/ApplicationContext.html">Spring ApplicationContext</a> will be created to provide the environment these tests need to run.</p>
+
+<p>This ApplicationContext bundles the complete bean configuration of the application, which forms the foundation for the dependency injection mechanism.
+The bean configuration contains all information about dependencies between all components of your application.
+Usually this configuration is defined when starting the application and it remains unchanged throughout the runtime.</p>
+
+<p>However, when writing isolated unit tests for your application, there are situations where you want to create multiple independent ApplicationContext for different test cases.
+On one hand, this can lead to very simple test cases that are invulnerable to side effects caused by other test cases altering the ApplicationContext.
+On the other hand, this requires many different ApplicationContext that take a long time to start up, slowing down your test execution significantly.</p>
+
+<h4 id="situations-that-require-a-fresh-applicationcontext">Situations that require a fresh ApplicationContext</h4>
+
+<p>The following is an incomplete list of situations which lead to the creation of a new ApplicationContext during the execution of your unit tests.</p>
+
+<p>You can find a complete project containing all these scenarios with the necessary surrounding code <a href="https://github.com/florianluediger/ContextRefreshesInSpringTest">on GitHub</a>.</p>
+
+<h5 id="explicit-invalidation-of-a-context">Explicit invalidation of a context</h5>
+
+<p>First of all, you can of course explicitly invalidate an ApplicationContext so a new one has to be created for the following test cases.
+This makes sense when you modify the ApplicationContext within a test method, which could influence the outcome of other test cases.
+This would mean that the unit tests are not independent anymore, which is a dangerous anti pattern.</p>
+
+<p>In the following example, the test methods modify the state of a singleton bean so the annotation <a href="https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/test/annotation/DirtiesContext.html"><code>@DirtiesContext</code></a> is needed to force the test runner to create a new ApplicationContext afterwards:</p>
+
+<pre><code class="language-java">@SpringBootTest
+class FruitManagerTest {
+
+    @Autowired
+    FruitManager fruitManager;
+
+    @Test
+    @DirtiesContext
+    void changeDefaultToBananaTest() {
+        Assertions.assertEquals("Apple",fruitManager.getCurrentSeasonalFruit());
+        fruitManager.setCurrentSeasonalFruit("Banana");
+        Assertions.assertEquals("Banana", fruitManager.getCurrentSeasonalFruit());
+    }
+
+    @Test
+    @DirtiesContext
+    void changeDefaultToMelonTest() {
+        Assertions.assertEquals("Apple", fruitManager.getCurrentSeasonalFruit());
+        fruitManager.setCurrentSeasonalFruit("Melon");
+        Assertions.assertEquals("Melon", fruitManager.getCurrentSeasonalFruit());
+    }
+}
+</code></pre>
+
+<p><a href="https://florianluediger.github.io/ContextRefreshesInSpringTest/JUnit%20Insights%20reports/JUnit%20Insights%20Report%20-%20Explicit%20invalidation%20of%20a%20context.html">Link to JUnit Insights Report</a></p>
+
+<h5 id="individual-test-profiles">Individual test profiles</h5>
+
+<p>You can define different profiles for the execution of your Spring Boot application.
+For example, these profiles can define which implementation of a Bean is used in different contexts.
+In our example, you can define a different instance of the <code>FruitManager</code> Bean for the <code>dev</code> environment by labeling the Bean class with the <a href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/annotation/Profile.html"><code>@Profile("dev")</code></a> annotation and the test class with the <a href="https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/test/context/ActiveProfiles.html"><code>@ActiveProfiles("dev")</code></a> annotation:</p>
+
+<pre><code class="language-java">@Component
+@Profile("dev")
+public class FruitManagerDev implements FruitManager {
+
+    private String currentSeasonalFruit = "Melon";
+
+    public String getCurrentSeasonalFruit() {
+        return currentSeasonalFruit;
+    }
+
+    public void setCurrentSeasonalFruit(String currentSeasonalFruit) {
+        this.currentSeasonalFruit = currentSeasonalFruit;
+    }
+
+}
+</code></pre>
+
+<pre><code class="language-java">@SpringBootTest
+@ActiveProfiles("dev")
+class FruitManagerDevTest {
+
+    @Autowired
+    FruitManager fruitManager;
+
+    @Test
+    void checkDefaultValueTest() {
+        Assertions.assertEquals("Melon", fruitManager.getCurrentSeasonalFruit());
+    }
+}
+</code></pre>
+
+<p><a href="https://florianluediger.github.io/ContextRefreshesInSpringTest/JUnit%20Insights%20reports/JUnit%20Insights%20Report%20-%20Individual%20test%20profiles.html">Link to JUnit Insights Report</a></p>
+
+<p>If this test is run together with the test from the last section, a new ApplicationContext will be created for both tests.</p>
+
+<h5 id="custom-properties">Custom properties</h5>
+
+<p>When testing your application, sometimes it makes sense to overwrite properties previously defined in the <code>application.properties</code> file.
+The configured properties are part of the ApplicationContext which means that changing them requires a refresh.
+You can overwrite properties inside the parameters of the <a href="https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/test/context/SpringBootTest.html"><code>@SpringBootTest</code></a> annotation as demonstrated in this example.</p>
+
+<pre><code class="language-java">@SpringBootTest(properties = {"fruit.name=Melon"})
+class FruitManagerMelonTest {
+
+    @Autowired
+    FruitManager fruitManager;
+
+    @Test
+    void checkDefaultValueTest() {
+        Assertions.assertEquals("Melon", fruitManager.getCurrentSeasonalFruit());
+    }
+}
+</code></pre>
+
+<p><a href="https://florianluediger.github.io/ContextRefreshesInSpringTest/JUnit%20Insights%20reports/JUnit%20Insights%20Report%20-%20Custom%20properties.html">Link to JUnit Insights Report</a></p>
+
+<h5 id="web-mvc-test-for-single-controller">Web MVC Test for single Controller</h5>
+
+<p>To guarantee that your unit tests are as independent from each other as possible, you should construct your web endpoint tests in a way that isolates functional groups.
+In our example this means that the test class for validating the <code>VegetableController</code> class should have nothing to do with other controllers like the <code>FruitController</code>.
+To achieve this, we have to specify the tested controller as a parameter of the <a href="https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/test/autoconfigure/web/servlet/WebMvcTest.html"><code>@WebMvcTest</code></a> annotation.
+If we had not done this in this example, Spring would complain about a missing instance of the <code>FruitManager</code> bean.
+Although this bean is not even used in this test class, the test runner tries to create the whole ApplicationContext which fails because it can’t find any actual or mocked instance of the <code>FruitManager</code> bean.</p>
+
+<pre><code class="language-java">@WebMvcTest(VegetableController.class)
+class VegetableControllerTest {
+
+    @Autowired
+    MockMvc mockMvc;
+
+    @Test
+    void getSeasonalVegetableTest() throws Exception {
+
+        String result = mockMvc.perform(get("/vegetable/seasonal"))
+                .andExpect(status().isOk())
+                .andReturn()
+                .getResponse()
+                .getContentAsString();
+
+        Assertions.assertEquals("Potato", result);
+    }
+}
+</code></pre>
+
+<p><a href="https://florianluediger.github.io/ContextRefreshesInSpringTest/JUnit%20Insights%20reports/JUnit%20Insights%20Report%20-%20Web%20MVC%20Test%20for%20single%20Controller.html">Link to JUnit Insights Report</a></p>
+
+<h4 id="how-to-recognize-these-situations">How to recognize these situations</h4>
+
+<p>Even if you are aware of the fact that situations like these require a refresh of the ApplicationContext, finding them in a large collection of software tests can be very hard.
+The reason for this is that the text runner typically does not give you much information about when or where a new ApplicationContext is started.
+The only metric that you can often see is the time that each test class took to finish.
+This alone often just leads to confusion about why some test classes take more time to finish than others.</p>
+
+<p>To solve this problem you can use the JUnit 5 extension <a href="https://github.com/adessoag/junit-insights">JUnit Insights</a>.
+This plugin measures the time for setup, execution and teardown for each test method in each test class.
+It also counts how often Spring Contexts were created throughout the test execution and how long this takes each time.
+With this data, it creates a nice looking report that visualizes the information.
+You can see a snippet of a finished report in the screenshot below.</p>
+
+<p><img src="https://github.com/adessoAG/junit-insights/raw/master/images/screen1.png" alt="JUnit Insights report example" /></p>
+
+<p>In this report, you can clearly see where Spring ApplicationContexts are created and how long that takes.
+Based on this information, you can dive into your code, identify the reasons for the Context refreshes and possibly optimize your test execution by eliminating them.
+This way your test execution time decreases, your continuous integration pipelines will give you faster feedback about software errors and your developers will get happier.</p>
+
+<p>To make using this extension as easy as possible, it is available via a <a href="https://bintray.com/adesso/junit-insights/junit-insights">JCenter repository</a> and it can be configured inside your Gradle or Maven configuration files.
+For more information on how to use the plugin and how the inner workings function, check out the <a href="https://github.com/adessoag/junit-insights">GitHub repository</a>.</p>
+
+</div>
+</div>
+</div>
+</div>]]></field>
+    </document>
+</documents>
