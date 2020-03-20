@@ -24,9 +24,9 @@ Aus Annas Erfahrung lassen sich deutlich die folgenden Nachteile von REST entn
 
 **Mehrere Endpunkte erforderlich:**  
 
-    Da REST nur feste Datenstrukturen zurückliefert, müssen mehrere Endpunkte angelegt werden, um die verschiedenen Daten aus dem Server beziehen zu können. Beispielsweise konnte Anna ihre Wünsche nicht zur selben Zeit nennen, da REST diese Wünsche aus mehreren “Endpunkten” nacheinander holen musste und eine parallele Abfrage nicht möglich ist. Die Endpunkte sehen wie folgt aus:
-    * URL/api/restaurant   
-    * URL/api/supermarkt
+Da REST nur feste Datenstrukturen zurückliefert, müssen mehrere Endpunkte angelegt werden, um die verschiedenen Daten aus dem Server beziehen zu können. Beispielsweise konnte Anna ihre Wünsche nicht zur selben Zeit nennen, da REST diese Wünsche aus mehreren “Endpunkten” nacheinander holen musste und eine parallele Abfrage nicht möglich ist. Die Endpunkte sehen wie folgt aus:
+* URL/api/restaurant   
+* URL/api/supermarkt
 
 **Overfetching:**   
 
@@ -34,7 +34,7 @@ Aus Annas Erfahrung lassen sich deutlich die folgenden Nachteile von REST entn
 
 **Underfetching:**  
 
-    REST kann bei einer Abfrage nicht alles erledigen, was der Client möchte. Die Informationen sind ggf. über verschiedene Endpunkte verteilt. Aus diesem Grund muss der Client manchmal mehrere Abfragen nacheinander tätigen, um alle Informationen zu erhalten. REST muss demzufolge zwei Routen durchlaufen, um Annas Wünsche zu erfüllen. Mit nur einer Abfrage,beispielsweise an den Endpunkt “/api/restaurant”,  würde Anna nur die Pizza bekommen.
+REST kann bei einer Abfrage nicht alles erledigen, was der Client möchte. Die Informationen sind ggf. über verschiedene Endpunkte verteilt. Aus diesem Grund muss der Client manchmal mehrere Abfragen nacheinander tätigen, um alle Informationen zu erhalten. REST muss demzufolge zwei Routen durchlaufen, um Annas Wünsche zu erfüllen. Mit nur einer Abfrage,beispielsweise an den Endpunkt “/api/restaurant”,  würde Anna nur die Pizza bekommen.
 
 # Die Lösung kommt mit GraphQL 
 
@@ -50,27 +50,27 @@ Diese Anpassungen ermöglichen ein API-Design, welches den Herausforderungen von
 
 **Single Endpoint:**
 
-    GraphQL besitzt nur einen Endpunkt. Die Abfragen werden durch Queries beschrieben, sodass nur eine Query an den Endpunkt geschickt werden muss. Diese Query wird in einer speziellen Query-Sprache beschrieben, ähnlich zu SQL. Diese wird anschließend vom Server interpretiert. Zum Besipiel URL/graphql?query=annaswuensche. In „annaswuensche“ kann der Client alle Daten beschreiben, die er benötigt. Es ist auch möglich alle Daten aus dem Server durch eine Abfrage zu beziehen. 
+GraphQL besitzt nur einen Endpunkt. Die Abfragen werden durch Queries beschrieben, sodass nur eine Query an den Endpunkt geschickt werden muss. Diese Query wird in einer speziellen Query-Sprache beschrieben, ähnlich zu SQL. Diese wird anschließend vom Server interpretiert. Zum Besipiel URL/graphql?query=annaswuensche. In „annaswuensche“ kann der Client alle Daten beschreiben, die er benötigt. Es ist auch möglich alle Daten aus dem Server durch eine Abfrage zu beziehen. 
 
     ![GraphQL und RESTful APIs](/assets/images/posts/GraphQL-ist-flexibler,-das-Ende-von-RESTful-APIs/APIs.PNG)
 
 **Kein Overfetching und Underfetching:**
 
-    Wie bereits beschrieben, legt der Client genau fest, welche Daten er anfordern möchte. Es werden anschließend nur genau jene Daten an ihn zurückgeliefert, nicht mehr und nicht weniger. Daher entsteht kein Over- oder Underfetching von unnötigen Informationen. 
+Wie bereits beschrieben, legt der Client genau fest, welche Daten er anfordern möchte. Es werden anschließend nur genau jene Daten an ihn zurückgeliefert, nicht mehr und nicht weniger. Daher entsteht kein Over- oder Underfetching von unnötigen Informationen. 
 
 **GraphQL als Wrapper:**
 
-    Ein weiteres wichtiges Feature von GraphQL ist, dass GraphQL als Wrapper von unterschiedlichen Ressourcen angelegt werden kann. Insbesondere, wenn Informationen auf verschiedenen Systemen liegen, beispielsweise in unterschiedlichen Datenbanksystemen.
+Ein weiteres wichtiges Feature von GraphQL ist, dass GraphQL als Wrapper von unterschiedlichen Ressourcen angelegt werden kann. Insbesondere, wenn Informationen auf verschiedenen Systemen liegen, beispielsweise in unterschiedlichen Datenbanksystemen.
 
-    ![GraphQL als Wrapper](/assets/images/posts/GraphQL-ist-flexibler,-das-Ende-von-RESTful-APIs/Wrapper.PNG)
+![GraphQL als Wrapper](/assets/images/posts/GraphQL-ist-flexibler,-das-Ende-von-RESTful-APIs/Wrapper.PNG)
 
 **Schnell:**
 
-    Da nicht die gesamten Daten aus dem Backend an den Client versendet werden müssen und keine Multiple-Anfragen bzw. Endpunkte bestehen, erhält der Client die Daten schneller als es bei REST-APIs der Fall ist.
+Da nicht die gesamten Daten aus dem Backend an den Client versendet werden müssen und keine Multiple-Anfragen bzw. Endpunkte bestehen, erhält der Client die Daten schneller als es bei REST-APIs der Fall ist.
 
 **Übersichtlich:**
 
-    Der Client muss in den zurückgelieferten Daten nicht nach seinen Anforderungen suchen, da er lediglich die von ihm verlangten Daten erhält. Mit RESTful-APIs musste Anna erst in dem Paket nach ihrem Wunsch suchen und dann alles andere wegwerfen.    
+Der Client muss in den zurückgelieferten Daten nicht nach seinen Anforderungen suchen, da er lediglich die von ihm verlangten Daten erhält. Mit RESTful-APIs musste Anna erst in dem Paket nach ihrem Wunsch suchen und dann alles andere wegwerfen.    
 
 ## Es ist nicht alles Gold was glänzt
 
@@ -82,19 +82,19 @@ GraphQL kam zwar mit vielen guten Lösungsansätzen für bekannte Probleme von R
 
 **Kompliziert:**
 
-    Der Client genießt die Freiheit, während der Server den gesamten Aufwand auf seinen Schultern zu tragen hat. Auf Grund der Flexibilität, die dem Client angeboten wird, steckt viel Aufwand in der Verarbeitung auf Seiten des Backends. Darüber hinaus ist es herausfordernd mit GraphQL anzufangen. Die Definition einer RESTful-API ist erheblich einfacher und den meisten Entwicklern bekannt, sodass viel Aufwand und Zeit gespart werden kann. 
+Der Client genießt die Freiheit, während der Server den gesamten Aufwand auf seinen Schultern zu tragen hat. Auf Grund der Flexibilität, die dem Client angeboten wird, steckt viel Aufwand in der Verarbeitung auf Seiten des Backends. Darüber hinaus ist es herausfordernd mit GraphQL anzufangen. Die Definition einer RESTful-API ist erheblich einfacher und den meisten Entwicklern bekannt, sodass viel Aufwand und Zeit gespart werden kann. 
 
 **Komplexität im Caching:**
 
-    Ein sehr wichtiges Feature, welches sowohl dem Client als auch dem Server große Flexibilität bietet, ist das HTTP-Caching. Ermittelte Ergebnisse auf Anfragen des Clients können temporär gehalten werden, um schnellere Responses zu ermöglichen. GraphQL kann von den Möglichkeiten des HTTP-Cachings allerdings nicht profitieren, da alle Anfragen über nur einen Endpunkt bedient werden. Der Vorteil von GraphQL (Single Endpoint) wird hier zum Nachteil, da die in der URL enthaltenen Query-Anfragen nicht eindeutig sind. Der Server weiß daher nicht, welche Daten der Client zuvor angefordert hat. Demzufolge ist ein Caching in GraphQL nur schwierig zu implementieren. Lösungen bieten Tools wie DataLoader, um das Caching in GraphQL zu vereinfachen.  
+Ein sehr wichtiges Feature, welches sowohl dem Client als auch dem Server große Flexibilität bietet, ist das HTTP-Caching. Ermittelte Ergebnisse auf Anfragen des Clients können temporär gehalten werden, um schnellere Responses zu ermöglichen. GraphQL kann von den Möglichkeiten des HTTP-Cachings allerdings nicht profitieren, da alle Anfragen über nur einen Endpunkt bedient werden. Der Vorteil von GraphQL (Single Endpoint) wird hier zum Nachteil, da die in der URL enthaltenen Query-Anfragen nicht eindeutig sind. Der Server weiß daher nicht, welche Daten der Client zuvor angefordert hat. Demzufolge ist ein Caching in GraphQL nur schwierig zu implementieren. Lösungen bieten Tools wie DataLoader, um das Caching in GraphQL zu vereinfachen.  
 
 **Anfragen können ertrinken:**  
 
-    In der Graphentheorie ist ein Baum ein spezieller Typ eines Graphen. Ebenso kann eine Query als Baum dargestellt werden. GraphQL beschränkt die Tiefe eines Baumes nicht, womit der Client Freiheiten gewinnt. Daraus ergibt sich aber auf der anderen Seite auch, dass über eine Abfrage riesige Mengen von Daten eines Zweiges geladen werden können, bis ein Blatt erreicht wird. Demzufolge wird der Server mit vielen Daten belastet und die Verarbeitung einer Anfrage verlängert sich. Diese Anfragen könnten auch zu einem Serverausfall führen. Verschiedene Endpunkte in RESTful-APIs haben also nicht nur Nachteile, sondern auch viele Vorteile. Eine komplizierte Anfrage kann mit den RESTful-Endpunkten problemlos und einfach implementiert werden, denn ein Endpunkt liefert feste Datenstrukturen zurück, sodass ein Entwickler die Menge der Daten beschränken und den Server schützen kann.   
+In der Graphentheorie ist ein Baum ein spezieller Typ eines Graphen. Ebenso kann eine Query als Baum dargestellt werden. GraphQL beschränkt die Tiefe eines Baumes nicht, womit der Client Freiheiten gewinnt. Daraus ergibt sich aber auf der anderen Seite auch, dass über eine Abfrage riesige Mengen von Daten eines Zweiges geladen werden können, bis ein Blatt erreicht wird. Demzufolge wird der Server mit vielen Daten belastet und die Verarbeitung einer Anfrage verlängert sich. Diese Anfragen könnten auch zu einem Serverausfall führen. Verschiedene Endpunkte in RESTful-APIs haben also nicht nur Nachteile, sondern auch viele Vorteile. Eine komplizierte Anfrage kann mit den RESTful-Endpunkten problemlos und einfach implementiert werden, denn ein Endpunkt liefert feste Datenstrukturen zurück, sodass ein Entwickler die Menge der Daten beschränken und den Server schützen kann.   
 
 **Workaround, um eine Datei hochzuladen:**
 
-    Eine Datei mittels GraphQL hochzuladen, ist nicht auf direktem Wege möglich, wie es beispielsweise bei RESTful-APIs der Fall ist. Die “Mutations” in GraphQL können Dateien nicht interpretieren, weshalb Entwickler die Datei zuerst in Base64 konvertieren und die Enkodierung der Mutation-Anfrage übergeben müssen. Alternativ kann die Datei mittels RESTful-API hochgeladen werden und GraphQL als Wrapper benutzen, um die URL der Mutation-Anfrage übergeben zu können. Es sind weitere Lösungsansätze bekannt, doch in den meisten Fällen ist dieser Prozess komplizierter und aufwändiger umsetzbar als über RESTful-APIs.  
+Eine Datei mittels GraphQL hochzuladen, ist nicht auf direktem Wege möglich, wie es beispielsweise bei RESTful-APIs der Fall ist. Die “Mutations” in GraphQL können Dateien nicht interpretieren, weshalb Entwickler die Datei zuerst in Base64 konvertieren und die Enkodierung der Mutation-Anfrage übergeben müssen. Alternativ kann die Datei mittels RESTful-API hochgeladen werden und GraphQL als Wrapper benutzen, um die URL der Mutation-Anfrage übergeben zu können. Es sind weitere Lösungsansätze bekannt, doch in den meisten Fällen ist dieser Prozess komplizierter und aufwändiger umsetzbar als über RESTful-APIs.  
 
 Wie bereits gesehen, gibt es mit GraphQL auch einige Herausforderungen, die Facebook allerdings mittlerweile mit neuen Lösungsansätzen zu beheben versucht. Diese erhöhen die Komplexität der Implementierung. Eine mächtige, fehlerfreie und saubere Graph-API zu erreichen erfordert Know-How und Aufwand.  
 
