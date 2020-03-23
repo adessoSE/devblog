@@ -12,7 +12,6 @@ Tatsächlich enthält die durchschnittliche Webanwendung jedoch stolze 33 Lücke
         <field name="content_type_multi_keyword"><![CDATA[blog]]></field>
         <field name="mime_type_multi_keyword"><![CDATA[text/html]]></field>
         <field name="category_multi_keyword"><![CDATA[Softwareentwicklung]]></field>
-        <field name="category_multi_keyword"><![CDATA[Java]]></field>
         <field name="tag_multi_keyword"><![CDATA[Security]]></field>
         <field name="tag_multi_keyword"><![CDATA[OWASP]]></field>
         <field name="date_date"><![CDATA[2020-03-23T09:00:00+01:00]]></field>
