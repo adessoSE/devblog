@@ -1,0 +1,26 @@
+#Run jekyll2cms in a Docker container to convert the new blogpost into XML 
+name: convert-blogpost-to-xml
+
+on:
+  push:
+    branches: 
+      - master
+
+jobs:
+  pull-jekyll2cms-docker-image:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@master
+        
+      - name: Pull Docker image
+        run: docker pull jekyll2cms/jekyll2cms:latest
+        
+  run-jekyll2cms-docker-image:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@master
+      
+      - name: Run Docker image
+        run: docker run jekyll2cms/jekyll2cms:latest --env JEKYLL_START_NOTIFICATION=yes --env REPOSITORY_REMOTE_URL=https://github.com/silasmahler/devblog --env REPOSITORY_LOCAL_USER_NAME=${{ secrets.REPOSITORY_LOCAL_USER_NAME }} --env REPOSITORY_LOCAL_USER_MAIL=${{ REPOSITORY_LOCAL_USER_MAIL }} --env REPOSITORY_LOCAL_USER_PASSWORD=${{ secrets.REPOSITORY_LOCAL_USER_PASSWORD }}
