@@ -258,3 +258,12 @@ frenzel:
   bio: "Daniel Frenzel ist Senior Software Engineer bei adesso in Dortmund und entwickelt seit mehreren Jahren Java- und Webanwendungen."
   avatar_url: /assets/images/avatars/fwshngtn.jpg
   github: https://github.com/fwshngtn
+
+Flo4l:
+  first_name: Florian
+  last_name: Albers
+  github_username: Flo4l
+  email: florian.albers@adesso.de
+  bio: "Florian Albers ist als dualer Student im Open-Source-Team bei adesso in Essen tätig"
+  avatar_url: /assets/images/avatars/falbers.jpg
+  github: https://github.com/Flo4l
