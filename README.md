@@ -1,4 +1,4 @@
-https://github.com/adessoAG/s-gbz/workflows/convert-blogpost-to-xml/badge.svg
+![convert-blogpost-to-xml](https://github.com/adessoAG/devblog/workflows/convert-blogpost-to-xml/badge.svg)
 
 # adesso SE devblog
 
