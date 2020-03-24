@@ -1,11 +1,11 @@
 ---
 layout: [post, post-xml]              # Pflichtfeld. Nicht ändern!
 title:  "Griff in die Werkzeugkiste: Eine Toolchain für React"         # Pflichtfeld. Bitte einen Titel für den Blog Post angeben.
-date:   2020-01-30 10:30              # Pflichtfeld. Format "YYYY-MM-DD HH:MM". Muss für Veröffentlichung in der Vergangenheit liegen. (Für Preview egal)
-modified_date: 2020-01-30 10:30             # Optional. Muss angegeben werden, wenn eine bestehende Datei geändert wird.
+date:   2020-03-25 09:00              # Pflichtfeld. Format "YYYY-MM-DD HH:MM". Muss für Veröffentlichung in der Vergangenheit liegen. (Für Preview egal)
+modified_date: 2020-03-25 09:00             # Optional. Muss angegeben werden, wenn eine bestehende Datei geändert wird.
 author: janschneider1                     # Pflichtfeld. Es muss in der "authors.yml" einen Eintrag mit diesem Namen geben.
 categories: [Softwareentwicklung]                    # Pflichtfeld. Maximal eine der angegebenen Kategorien verwenden.
-tags: [Toolchain, React, JavaScript, Node]         # Bitte auf Großschreibung achten.
+tags: [React, JavaScript, Node]         # Bitte auf Großschreibung achten.
 ---
 
 Toolchains fördern Flexibilität und vereinfachen den Entwicklungsprozess - In diesem Blog-Post bauen wir eine Toolchain für die beliebte Frontend-Technologie React. 
