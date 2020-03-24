@@ -60,7 +60,6 @@ Unsere Toolchain soll folgende Aufgaben erledigen:
 Dabei wollen wir die Toolchain über die Commandozeile bedienen können und mit einem Befehl einen produktionsfähigen Build erstellen.
 
 Nachdem wir [Node.js](https://nodejs.org/en/) installiert haben und ein Projekt in einem Ordner mit dem Befehl `npm init` initiert haben, kann es auch schon losgehen.
-
 NPM steht dabei für "Node-Package-Manager" und wir werden ihn benutzen um diverse Pakete zu installieren.
 
 ## JSX-Transpilierung mit Babel
@@ -97,7 +96,7 @@ Browserify ist ein JavaScript-Bundler, der es ermöglicht mehrere JavaScript-Dat
 npm install watchify
 ```
 
-Dafür installieren wir das Paket **Watchify**, eine Erweiterung von Browserify.
+Dafür installieren wir das Paket [Watchify](https://github.com/browserify/watchify), eine Erweiterung von Browserify.
 Watchify kann wie Babel einen Watcher erstellen, der auf Veränderungen in unserem Projekt reagiert.
 
 ```bash
@@ -119,7 +118,7 @@ Deshalb verkleinern wir die Datei mit einem JavaScript-Minifizierer indem wir un
 Unser Code bleibt daher für den Computer vollkommen verständlich, auch wenn er für uns Menschen nur schwer leserlich wird.
 Wir sollten daher diesen Schritt nur bei der Auslieferung der Software behandeln, da gerade große Dateien lange Ladezeiten hervorrufen, aber auch das Datenvolumen mobiler Nutzer belasten können.
 
-Wir installieren den JavaScript-Minifizierer [**Terser**](https://github.com/terser/terser) über NPM:
+Wir installieren den JavaScript-Minifizierer [Terser](https://github.com/terser/terser) über NPM:
 
 ```bash
 npm install terser
@@ -135,7 +134,7 @@ Der Speicherort kann dabei z.B. das Unterverzeichnis `./build/minified` des Proj
 # Verkettung der einzelnen Tools
 
 Nun automatisieren wir die obigen drei Schritte mithilfe des Package-Runners NPX, welcher in der Lage ist die Befehle auszuführen und bereits mit NPM installiert wurde.
-Allerdings benötigen wir noch das Paket [**Concurrently**](https://www.npmjs.com/package/concurrently), welches ermöglicht mehrerer "NPM-Scripts" parallel auszuführen.
+Allerdings benötigen wir noch das Paket [Concurrently](https://www.npmjs.com/package/concurrently), welches ermöglicht mehrerer "NPM-Scripts" parallel auszuführen.
 Das Paket können wir gewohnt wieder über NPM installieren.
 
 ```bash
@@ -173,8 +172,8 @@ Eine "gute" Toolchain ist letztlich vom eigenen Workflow abhängig.
 Mit der von uns entwickelten Toolchain ist es einfach einzelne Elemente auszutauschen oder sie um Andere zu erweitern.
 
 Zum Beispiel können wir:
-- [**Webpack**](https://webpack.js.org) statt Browserify als Bundler nutzen
-- Unseren Buildprozess um einen CSS-Minifier wie [**clean-css**](https://github.com/jakubpawlowicz/clean-css) erweitern
+- [Webpack](https://webpack.js.org) statt Browserify als Bundler nutzen
+- Unseren Buildprozess um einen CSS-Minifier wie [clean-css](https://github.com/jakubpawlowicz/clean-css) erweitern
 - Vor unseren Buildprozess noch einmal alle Tests ausführen
 
 Egal für welche Tools wir uns entscheiden, unsere Toolchain ist nur **einen Griff in die Werkzeugkiste** entfernt!
