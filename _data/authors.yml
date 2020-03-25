@@ -267,3 +267,12 @@ Flo4l:
   bio: "Florian Albers ist als dualer Student im Open-Source-Team bei adesso in Essen tätig"
   avatar_url: /assets/images/avatars/falbers.jpg
   github: https://github.com/Flo4l
+
+janschneider1:
+  first_name: Jan
+  last_name: Schneider
+  github_username: JanSchneider1
+  email: jan.schneider@adesso.de
+  bio: "Jan Schneider ist angehender Softwareentwickler bei adesso und im Open-Source-Team als dualer Student tätig."
+  avatar_url: /assets/images/avatars/jschneider.jpg
+  github: https://github.com/JanSchneider1
