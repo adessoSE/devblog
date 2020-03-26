@@ -38,6 +38,7 @@ Nichts destotrotz gibt es bereits eine Action, um ein Gradle Projekt bauen zu la
 Diese Action wird im späteren Verlauf dieses Blogposts als Grundlage für die anderen Tasks des Workflows wiederverwendet.
 ![Bild des Gradle-Build-Actions](../assets/images/posts/github-actions/gradle-build-action.JPG)
 Im Folgenden wird der Codeblock der Action genauer betrachtet und die einzelnen Werte werden genauer erklärt, wieso und wofür diese da sind und was sie bewirken.
+
 ```
 name: Spring Boot
 
@@ -92,6 +93,7 @@ Das Projekt muss ausgecheckt, mit Java 13 gebaut und mit Rechten versorgt werden
 Das einzige was sich vom voherigen Job unterscheidet ist der Gradle Befehl, denn dieses mal wird ```./gradlew test``` ausgeführt.
 Als Referenz dient das [Projekt](https://github.com/adessoAG/github-actions/) des Blogposts, welches unter dem GitHub Account von der adesso SE auffindbar ist. 
 Anschließend erweitert sich die Action um die folgenden Codezeilen.
+
 ```
 test:
     
@@ -121,6 +123,7 @@ Dort kann der Nutzer nach Actions suchen die er für nützlich empfindet und ein
 Nach einer kurzen Google-Recherche fand ich heraus, dass es für PMD schon eine [Community-Action](https://github.com/marketplace/actions/pmd-source-code-analyzer-action) gab und dieser sogar einige Sterne auf GitHub hatte.
 Das Beispiel funktioniert problemlos, jedoch fehlte der Checkout des Repositorys.
 Der Folgende Ausschnitt der YML zeigt was hinzugefügt wurde.
+
 ```
 pmd:
     
@@ -133,6 +136,7 @@ pmd:
       run: pmd -d ./src/main/java -f text -R category/java/bestpractices.xml/UnusedLocalVariable -language java -version 13
 
 ```
+
 Wir erstellen einen neuen Job namens ```pmd```. 
 Dieser hat wieder einen Runner, der essenziell ist, ohne diesen funktioniert ein Job nicht.
 Zuerst wird das Repository ausgecheckt und danach wird das Community-Action verwendet.
@@ -150,6 +154,7 @@ Es gibt bereits [Create A Release](https://github.com/actions/create-release), d
 Nach näherer Betrachtung des vorgegeben Beispiels kann es problemlos angewandt werden.
 Hierfür wird ein neuer Workflow erstellt der nur den Job der Release erstellung beinhaltet.
 Das wird erstellt da er neben dem Eventtypen auch auf den Tag des Push/Pullrequests achten soll.
+
 ```
 on:
   push:
