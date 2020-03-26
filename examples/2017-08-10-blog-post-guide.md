@@ -4,8 +4,8 @@ title:  "Blog Post Anleitung"         # Pflichtfeld. Bitte einen Titel für den 
 date:   2017-08-10 10:25              # Pflichtfeld. Format "YYYY-MM-DD HH:MM". Muss für Veröffentlichung in der Vergangenheit liegen. (Für Preview egal)
 modified_date: 2017-08-18             # Optional. Muss angegeben werden, wenn eine bestehende Datei geändert wird.
 author: johndoe                       # Pflichtfeld. Es muss in der "authors.yml" einen Eintrag mit diesem Namen geben.
-categories: [Java] # Pflichtfeld. Maximal eine der angegebenen Kategorien verwenden.
-tags: [Spring, Microservices]         # Optional.
+categories: [Java]                    # Pflichtfeld. Maximal eine der angegebenen Kategorien verwenden.
+tags: [Spring, Microservices]         # Bitte auf Großschreibung achten.
 ---
 
 Wenn du das hier liest, bist du vermutlich daran interessiert einen Blog Post für den
@@ -13,6 +13,10 @@ adesso Blog zu schreiben. Wir haben versucht, den Prozess der Veröffentlichung 
 möglichst Entwickler-freundlich zu gestalten, indem wir Blog Posts wie Source Code behandeln.
 Diese Anleitung beschreibt, was dafür zu tun ist. Es sollte aber nahe an dem sein, was du aus
 deiner Erfahrung als Softwareentwickler bereits kennst :).
+
+Schaue gerne vor dem Schreiben in die
+[Best Practices zum Schreiben von Blogbeiträgen](https://github.com/adessoAG/devblog/blob/master/examples/best-practices.md),
+wo einige Tipps für einen erfolgreichen Beitrag gesammelt wurden.
 
 Sollte es noch fragen geben, kannst du dich an den Verteiler [devblog@adesso.de](mailto:devblog@adesso.de)
 wenden.
@@ -61,6 +65,12 @@ sind. Dieser Abschnitt ist mit `---` vom eigentlichen Inhalt getrennt und ist al
 Hier sind einige Pflichtfelder auszufüllen. 
 Schau dir einfach den [Header dieser Datei](https://github.com/adessoAG/devblog/edit/master/examples/2017-08-10-blog-post-guide.md) als Beispiel an.
 
+### Ein Satz pro Zeile
+Damit die Reviewer ihre Kommentare und Verbesserungsvorschläge an konkreter Stelle hinterlassen können, sollte **jeder Satz** auf je **eine Zeile** verteilt sein.
+Da Absätze in Markdown erst bei zwei Zeilenumbrüchen entstehen, werden **einzeilige Umbrüche zusammengefügt**.
+
+Bitte achtet beim Schreiben drauf, da der Reviewprozess somit beidseitig erleichtert wird.
+
 ## Einleitung / Teaser
 
 Der erste Absatz (also alles bis zur ersten Leerzeile in der Markdown-Datei) wird als Einleitung / Teaser übernommen. Der erste Absatz
@@ -94,13 +104,13 @@ public class HelloWorld {
 
 ## Bilder
 
-Um ein Bild zu verwenden, lege die Bild-Datei im Ordner `assets/images/posts/titel-deines-blog-posts` ab und
+Um ein Bild zu verwenden, lege die Bild-Datei im Ordner `/assets/images/posts/titel-deines-blog-posts/` ab und
 verlinke sie dann in der Markdown-Datei wie in diesem Beispiel:
 
 ![Logo der adesso AG](https://github.com/adessoAG/devblog/raw/master/assets/images/blog-post-guide/logo.png)
 
 **Hinweis:** im Gegensatz zum Beispiel-Bild oben muss der Pfad zum Bild in einem Blog Post erst bei "assets" beginnen,
-müsste also so aussehen: "/assets/images/blog-post-guide/logo.png". Wichtig dabei ist, dass der Pfad mit einem **"/"** beginnt, ansonsten funktionieren die Bilder zwar in der Vorschau, allerdings nicht im eigentlichen Blog.
+müsste also so aussehen: "/assets/images/posts/titel-deines-blog-posts/bild.png". Wichtig dabei ist, dass der Pfad mit einem **"/"** beginnt, ansonsten funktionieren die Bilder zwar in der Vorschau, allerdings nicht im eigentlichen Blog.
 
 # GitHub Fork & Pull Workflow
 
@@ -169,14 +179,14 @@ Diese ist auch in die Pull-Request-Template eingebunden, sodass Du dort deine Ä
 		* "tags [Spring, Microservices]" gesetzt
 	* [Einleitung/Teaser geschrieben](https://github.com/adessoAG/devblog/blob/master/examples/2017-08-10-blog-post-guide.md#einleitung--teaser)
 	* Rechtschreibung korrigiert
+	* Ein Satz pro Zeile
 	* [Bilder korrekt in den Artikel eingebunden](https://github.com/adessoAG/devblog/blob/master/examples/2017-08-10-blog-post-guide.md#bilder)
 	* Reviewer angegeben (Liste mit Reviewern?)
   * Online-Preview angesehen
 
 # Nachträgliche Änderungen am Post
 Es können auch nach Veröffentlichung nachträglich Änderungen an einem Post durchgeführt werden, wenn beispielsweise Bilder nicht korrekt dargestellt werden oder sich ein Fehler im Text eingeschlichen hat, der vorher nicht aufgefallen ist.
-Damit die Änderungen auch im adesso Blog landen, muss dazu das `modified_date` im Kopf der Date hinzugefügt bzw. aktualisiert werden.
-Ist dieses angepasst, wird der Artikel wieder automatisch im Blog veröffentlicht.
+**Damit die Änderungen auch im adesso Blog landen, muss dazu das `modified_date` im Kopf der Datei hinzugefügt bzw. aktualisiert werden**. Ansonsten wird der Post nicht vom Freigabeprozess aufgegriffen.
 
 # Technischer Hintergrund
 

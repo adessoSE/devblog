@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<documents>
+    <document uid="cc8779ccc12f8bb1ce0ce82e3b8159b5">
+        <field name="title"><![CDATA[WebSockets leichtgemacht mit STOMP.js und Spring Boot]]></field>
+        <field name="subline"><![CDATA[]]></field>
+        <field name="teaser"><![CDATA[<p>Für Anwendungen wie Messenger, Wetterdienste oder Newsticker ist die sofortige Bereitstellung von neuen Informationen von großer Bedeutung. Request/Response-basierte Protokolle wie HTTP sind für diese Art der Informationsbereitstellung ungeeignet, da Clients immer wieder teure Anfragen stellen müssen, um festzustellen, ob neue Informationen vorhanden sind.</p>
+
+]]></field>
+        <field name="language_multi_keyword"><![CDATA[de]]></field>
+        <field name="content_type_multi_keyword"><![CDATA[blog]]></field>
+        <field name="mime_type_multi_keyword"><![CDATA[text/html]]></field>
+        <field name="category_multi_keyword"><![CDATA[Softwareentwicklung]]></field>
+        <field name="tag_multi_keyword"><![CDATA[WebSockets]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Angular]]></field>
+        <field name="tag_multi_keyword"><![CDATA[JavaScript]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Nodejs]]></field>
+        <field name="tag_multi_keyword"><![CDATA[TypeScript]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Java]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Spring Boot]]></field>
+        <field name="date_date"><![CDATA[2019-08-08T10:00:00+02:00]]></field>
+        <field name="date_l"><![CDATA[1565251200000]]></field>
+        <field name="change_date"><![CDATA[1565251200000]]></field>
+        <!--Picture-->
+        <!-- Not in use at the moment-->
+        <!--Author Information-->
+        <field name="author_first_name"><![CDATA[Sergej]]></field>
+        <field name="author_last_name"><![CDATA[Grilborzer]]></field>
+        <field name="author_id"><![CDATA[s-gbz]]></field>
+        <field name="author_picture_stored_only"><![CDATA[http://localhost:4000/assets/images/avatars/s-gbz.jpg]]></field>
+        <!--Postcontent-->
+        <field name="headlines"><![CDATA[WebSockets leichtgemacht mit STOMP.js und Spring Boot]]></field>
+        <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
+            <p>Für Anwendungen wie Messenger, Wetterdienste oder Newsticker ist die sofortige Bereitstellung von neuen Informationen von großer Bedeutung. Request/Response-basierte Protokolle wie HTTP sind für diese Art der Informationsbereitstellung ungeeignet, da Clients immer wieder teure Anfragen stellen müssen, um festzustellen, ob neue Informationen vorhanden sind.</p>
+
+</div>]]></field>
+        <field name="content"><![CDATA[<div class="adesso-text-formate">
+<div class="row p-t-2">
+<div class="adesso-container">
+<div class="col-xl-8 adesso-center p-b-1 p-l-0 p-r-0">
+    <p>Für Anwendungen wie Messenger, Wetterdienste oder Newsticker ist die sofortige Bereitstellung von neuen Informationen von großer Bedeutung. Request/Response-basierte Protokolle wie HTTP sind für diese Art der Informationsbereitstellung ungeeignet, da Clients immer wieder teure Anfragen stellen müssen, um festzustellen, ob neue Informationen vorhanden sind.</p>
+
+<p>Das bi-direktionale Websocket-Protokoll bietet eine Lösung für dieses Problem. Dieser Artikel gibt eine praktische Einführung in Websockets mit Hilfe der Javascript-Bibliothek STOMP.js und Spring Boot.</p>
+
+<h4 id="websocket">WebSocket</h4>
+<p>Die Lösung der Anforderung gelingt durch Einsatz der 2011 entwickelten <a href="https://tools.ietf.org/html/rfc6455">WebSocket</a> Technologie.</p>
+
+<p>Mittels des <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Protocol_upgrade_mechanism">Protocol Upgrade Mechanism</a> baut das  <a href="https://tools.ietf.org/html/rfc6455">WebSocket</a>-Protokoll gewöhnliche HTTP Verbindungen zu bidirektionalen Kommunikationswegen aus.</p>
+
+<h4 id="stomp">STOMP</h4>
+<p>Als Erweiterung zum WebSocket-Protokoll liefert <a href="https://stomp.github.io/">STOMP</a> (Simple Text Oriented Messaging Protocol) uns Funktionalitäten, die analog zum <a href="https://docs.microsoft.com/en-us/azure/architecture/patterns/publisher-subscriber">Beobachter-Muster</a> sind.</p>
+
+<p>Das Beobachter-Muster ermöglicht es Informationsempfängern bestimmte Nachrichtenkanäle zu abonnieren und Meldungen <strong>sofort zu erhalten, wenn sie bereitstehen</strong>. Sie müssen also nicht erst nach den Informationen fragen.</p>
+
+<p>Stellt man sich unsere Informationsempfänger als Zeitungsverläge vor, wäre es für sie unwirtschaftlich und mühsam ihre Journalisten ständig nach Neuigkeiten fragen zu müssen. Wenn die Journalisten sich hingegen selbst melden <strong>sobald sie etwas zu berichten haben</strong>, profitieren beide Parteien.</p>
+
+<h4 id="die-beispielanwendung">Die Beispielanwendung</h4>
+<p>Weil das Internet genug Beispiele für Chatprogramme gesehen hat, stellt unsere exemplarische Anwendung eine Auktionsplattform dar.
+Die zeitnahe Bereitstellung von Geboten ist hierbei essentiell.</p>
+
+<h5 id="anwendungsfälle">Anwendungsfälle</h5>
+<p>Die Oberfläche der Auktionsplattform bietet Nutzern die folgenden Anwendungsfälle, die mit WebSockets behandelt werden:</p>
+
+<ul>
+  <li>A) Auktionsartikel anzeigen</li>
+  <li>B) Auf Auktionsartikel bieten</li>
+  <li>C) Über Gewinner-Gebot benachrichtigen</li>
+</ul>
+
+<h5 id="technologien">Technologien</h5>
+<p>Die Clientoberfläche wird mit <a href="https://angular.io">Angular</a> entwickelt, während Java und <a href="https://spring.io">Spring Boot</a> die Serverlogik tragen.</p>
+
+<p>Angular ist ein populäres, von Google geführtes, Open Source Framework zur Entwicklung von Webanwendungen.
+Es überzeugt durch eine umfangreich abgedeckte <a href="https://angular.io/features">Feature-Landschaft</a> und Unterstützung von <a href="https://www.typescriptlang.org/">TypeScript</a>.
+Die Umsetzung eines WebSocket-Clients ist allerdings nicht an Angular gebunden und kann auch mit reinem JavaScript durchgeführt werden.</p>
+
+<p>Den Server implementieren wir mit Spring Boot, einem Java Framework, das eine schnelle und entwicklerfreundliche Umsetzung von Java-basierten Anwendungen ermöglicht.</p>
+
+<p>Der vollständige Quellcode der Beispielanwendung ist <a href="https://github.com/s-gbz/WebSocketAuctionExample">auf GitHub zu finden</a>.</p>
+
+<h4 id="implementierung-des-angular-clients">Implementierung des Angular-Clients</h4>
+
+<p>Wir nutzen <a href="https://cli.angular.io/">Angular CLI</a> um ein Grundgerüst für ein Angular-Projekt zu erhalten. Alternativ
+kann das <a href="https://github.com/s-gbz/WebSocketAuctionExample">Beispielprojekt</a> heruntergeladen werden.</p>
+
+<h5 id="stomp-einbinden">STOMP einbinden</h5>
+<p>Um STOMP verwenden zu können, binden wir <a href="https://www.npmjs.com/package/@stomp/stompjs">STOMP.js</a> in unser Angular-Projekt ein.
+Wir installieren die Bibliothek mit dem <a href="https://nodejs.org/de">Node Paketmanager</a>:</p>
+
+<pre><code class="language-bash">$ npm install stompjs @types/stompf net --save
+</code></pre>
+
+<p>Neben der Hauptbibliothek installieren wir dabei auch die TypeScript Typisierung <code>@types/stompf</code> und die Abhängigkeit <code>net</code> für asynchrone Netzwerkaufrufe.</p>
+
+<p>Nach der Installation importieren wir die Library in unsere Angular-Komponente:</p>
+
+<pre><code class="language-typescript">// src/app/auction-view/auction-view.component.ts
+import * as Stomp from 'stompjs';
+...
+
+export class AuctionViewComponent implements OnInit, OnDestroy {
+  ...
+}
+</code></pre>
+
+<p>Vor der Klassendefinition importieren wir in <code>AuctionViewComponent</code> den gesamten Inhalt von <code>stompjs</code> in den Namespace <code>Stomp</code>.</p>
+
+<p>Anschließend legen wir Klassenvariablen für <code>WebSocket</code> und <code>Stomp.Client</code> an, die wir später zur Verwaltung von WebSocket-Verbindungen benötigen:</p>
+
+<pre><code class="language-typescript">...
+// src/app/auction-view/auction-view.component.ts
+export class AuctionViewComponent implements OnInit, OnDestroy {
+
+  webSocket: WebSocket;
+  client: Stomp.Client;
+  auctionItems: AuctionItem[] = [];
+  ...
+}
+</code></pre>
+
+<p><code>auctionItems</code> ist hierbei die Liste der Auktionsgegenstände auf die wir bieten können.
+Wir möchten diese Liste mit dem Server sowie unseren Mitbietern synchron halten.</p>
+
+<h5 id="websocket-verbindung-öffnen">WebSocket-Verbindung öffnen</h5>
+
+<p>Im <code>HttpService</code> stellen wir eine <a href="https://angular.io/guide/singleton-services">Singletoninstanz</a> der <code>WebSocket</code>-Klasse
+zur Verfügung:</p>
+
+<pre><code class="language-typescript">// src/app/http.service.ts
+// imports ...
+
+export class HttpService {
+
+  getWebSocket(): WebSocket {
+    return new WebSocket("ws://localhost:8080/socket-registry");
+  }
+  ...
+}
+</code></pre>
+<p>In der gesamten Angular-Anwendung steht somit nur <em>ein</em> WebSocket zur Verfügung.
+Wir verwenden dieses gängige Entwurfsmuster, um Mehrfachverbindungen des Clients zu vermeiden.
+Die WebSocket-URL zeigt auf eine STOMP-Socket-Registry, die vom Server bereitgestellt wird, um eine Verbindung zu
+initiieren.</p>
+
+<p>Zum Öffnen der Verbindung stellen wir in unserer Komponente die Methode <code>openWebSocketConnection()</code> zur
+Verfügung:</p>
+
+<pre><code class="language-typescript">// src/app/auction-view/auction-view.component.ts
+...
+openWebSocketConnection() {
+  this.webSocket = this.httpService.getWebSocket();
+
+  this.client = Stomp.over(this.webSocket);
+
+  this.client.connect({}, () =&gt; {
+    this.client.subscribe("/update-items", (item) =&gt; {
+      this.insertOrUpdateItem(JSON.parse(item.body));
+    });
+  });
+}
+...
+</code></pre>
+
+<p>Über die WebSocket-Verbindung legen wir mit <code>Stomp.over()</code> eine STOMP-Verbindung an, um die Vorteile des Beobachter-Musters 
+nutzen zu können.</p>
+
+<p>Wir abonnieren den Endpunkt <code>/update-items</code>, der uns über neue Gebote informiert.
+Bei neuen Geboten aktualisiert die Methode <code>insertOrUpdateItem()</code> unsere lokale Liste von Auktionsgegenständen.</p>
+
+<p>Damit die Verbindung direkt beim Start der Anwendung hergestellt wird, initiieren wir sie in
+der <code>ngOnInit()</code> Methode der Angular-Komponente:</p>
+
+<pre><code class="language-typescript">// src/app/auction-view/auction-view.component.ts
+...
+ngOnInit() {
+  this.openWebSocketConnection();
+  this.initializeAuctionItems();
+}
+...
+</code></pre>
+
+<p>Mit <code>initializeAuctionItems()</code> fragen wir alle verfügbaren Auktionsartikel vom Server ab, womit wir die lokale Liste 
+<code>auctionItems</code> initialisieren.
+Dies ist nur einmal erforderlich, da uns weitere Änderungen über die WebSocket-Verbindung mitgeteilt werden.</p>
+
+<h5 id="websocket-verbindung-schließen">WebSocket-Verbindung schließen</h5>
+
+<p>Um unnötige Verbindungen zu vermeiden, schließen wir sie, sobald der Nutzer die Anwendung verlässt:</p>
+
+<pre><code class="language-typescript">// src/app/auction-view/auction-view.component.ts
+...
+ngOnDestroy() {
+  this.closeWebSocketConnection();
+}
+
+closeWebSocketConnection() {
+  if (this.client) {
+    this.webSocket.close();
+    this.client.unsubscribe("/update-items");
+  }
+}
+...
+</code></pre>
+
+<p>Um Fehler zu vermeiden, prüfen wir mit <code>if (this.client)</code>, ob bereits eine STOMP Verbindung besteht.
+Falls ja, schließen wir sie mittels <code>this.webSocket.close()</code> und kündigen mit <code>this.client.unsubscribe("/update-items")</code> das Abonnement.</p>
+
+<h5 id="nachrichten-versenden">Nachrichten versenden</h5>
+
+<p>Nachdem wir Use Case A abgedeckt haben und unsere Anwendung nun Auktionsgegenstände anzeigen kann, gilt es mit den Fällen B und C fortzufahren.
+Diese umfassen die Abgabe eines Gebot und das Ersteigern von Gegenständen.
+Die hierbei grundlegende Funktion ist das Benachrichtigen der Abonnenten, dass der Preis eines Artikels gestiegen ist.</p>
+
+<pre><code class="language-typescript">// src/app/auction-view/auction-view.component.ts
+...
+updateItemAndSendBid(item: AuctionItem) {
+  this.httpService.updateItem(item).subscribe((success: boolean) =&gt; {
+    console.log(`Update for ${item} was ${success}`);
+  });
+
+  this.client.send("/update-items", {}, JSON.stringify(item));
+}
+...
+</code></pre>
+
+<p>Zunächst aktualisieren wir die Datenbank des Servers indem unser <code>httpService</code> die <code>updateItem(item)</code> Methode aufruft und eine <a href="https://www.w3schools.com/tags/ref_httpmethods.asp">POST Anfrage</a> mit dem neuen Preis des Artikels versendet.
+Der anschließende Callback von <code>subscribe</code> teilt uns zu Demonstrationszwecken den Erfolg der Operation in der Konsole mit.</p>
+
+<p><code>this.client.send</code> benachrichtigt alle Beobachter der Auktion, dass eine Änderung bereitsteht.
+<code>/update-items</code> ist hierbei der Kanal auf dem Nachrichten über die Auktionsgegenstände ausgetauscht werden.
+Wir verwenden <code>JSON.stringify(item)</code> um unser Objekt in das portable Textformat <a href="https://www.json.org/">JSON</a> zu konvertieren.</p>
+
+<p>Jeder Artikel verfügt über eine individuell festgelegte Auktionszeit, die bei jedem Gebot kurzzeitig verlängert wird.
+Nach Ablauf dieser Zeitperiode wird der Höchstbietende hinsichtlich seiner Ersteigerung informiert (Anwendungsfall C).
+Die Umsetzung dessen basiert auf gewöhnlicher Vergleichslogik, weshalb wir sie nicht weiter betrachten.</p>
+
+<h4 id="implementierung-des-servers">Implementierung des Servers</h4>
+
+<p>Nachdem unser Client bereit ist, können wir nun die serverseitige WebSocket-Schnittstelle implementieren.</p>
+
+<h5 id="websocket-dependency-einbinden">WebSocket-Dependency einbinden</h5>
+<p>Wir nutzen <a href="https://docs.gradle.org/current/userguide/what_is_gradle.html">Gradle</a>, um unsere Abhängigkeiten aufzulösen. Die Datei <code>build.gradle</code> umfasst dabei die Auflistung dieser:</p>
+
+<pre><code class="language-groovy">// build.gradle
+...
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-websocket'
+  ...
+}
+</code></pre>
+
+<p>Für die Anbdinung der WebSockets ist <code>spring-boot-starter-websocket</code> hierbei besonders relevant.
+Die vollständige <code>build.gradle</code> Datei ist auf <a href="https://github.com/s-gbz/WebSocketAuctionExample">GitHub</a> verfügbar.</p>
+
+<h5 id="websocket-konfigurieren">WebSocket konfigurieren</h5>
+<p>Dank <code>spring-boot-starter-websocket</code> haben wir eine fertige WebSocket Bibliothek, die nur noch konfiguriert werden muss:</p>
+
+<pre><code class="language-java">@CrossOrigin
+@Configuration
+@EnableWebSocketMessageBroker
+public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
+
+    @Override
+    public void registerStompEndpoints(StompEndpointRegistry registry) {
+        registry.addEndpoint("/socket-registry").setAllowedOrigins("*");
+    }
+
+    @Override
+    public void configureMessageBroker(MessageBrokerRegistry registry) {
+        registry.enableSimpleBroker("/update-items");
+    }
+}
+</code></pre>
+
+<p>Mit der <code>@Configuration</code>-Annotation erzeugen wir eine neue Spring-Konfigurationsklasse.
+Durch die Annotation <code>@EnableWebSocketMessageBroker</code> aktivieren wir die WebSocket-Features.</p>
+
+<p>Zusätzlich implementieren wir die Methoden der Klasse <code>WebSocketMessageBrokerConfigurer</code>, um Endpunkte für die Clients zur Verfügung zu stellen.</p>
+
+<p><code>/socket-registry</code> dient Clients als Endpunkt zur Initiierung von WebSocket-Verbindungen (siehe oben). 
+<code>setAllowedOrigins("*")</code> ermöglicht dem Server die Kommunikation mit Clients beliebigen Ursprungs, da mittels <code>*</code> alle Anfragen akzeptiert werden.
+Im Produktionsbetrieb sollten wir <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS">Cross-Origin</a> Anfragen nicht erlauben und die Erreichbarkeit unserer Applikation auf einen Hostnamen begrenzen.</p>
+
+<p>Mit <code>item-updates</code> stellen wir einen Endpunkt, der mittels STOMP abonniert werden kann, um Informationen über die Auktionsgegenstände zu verteilen.</p>
+
+<h4 id="fazit">Fazit</h4>
+<p>Mit Hilfe von STOMP.js und der nativen WebSocket Implementierung konnten wir clientseitig eine flexible und leichtgewichtige Nutzerapplikation bauen.
+Trotz der Vorzüge in Angular und somit TypeScript zu entwickeln, ist das Prinzip auf jedes beliebige Framework und reines JavaScript übertragbar.</p>
+
+<p>Mit Spring Boot und dem <a href="https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-websocket">WebSocket Starter</a> konnten wir mit wenig Aufwand eine WebSocket-Schnittstelle auf Serverseite realisieren.</p>
+
+</div>
+</div>
+</div>
+</div>]]></field>
+    </document>
+</documents>
