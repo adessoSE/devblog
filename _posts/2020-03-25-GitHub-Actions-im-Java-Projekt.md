@@ -28,15 +28,15 @@ Somit hat dieses keine Logik und dient als leere Hülle auf dessen die o.g Schwe
 
 ### Gradle Projekt bauen
 Um Actions in der Oberfläche von GitHub aufzurufen gibt es im Repository den Reiter "Action".
-![Bild vom Actions Reiter](./assets/images/posts/github-actions/actions-tab.JPG)
+![Bild vom Actions Reiter](/assets/images/posts/github-actions/actions-tab.JPG)
 angekommen im Punkt Actions kriegen wir vom intuitiven System eine Menge Actions, die bereits "out of the box" kommen.
 Namhafte Sprachen und Frameworks werden direkt unterstützt.
 Zum Herumexperimentieren von Actions gibt GitHub dem Benutzer einen kleinen Appell zu einem Starter-Action.
-![Bild der Starter-Action](./assets/images/posts/github-actions/starter.JPG)
+![Bild der Starter-Action](/assets/images/posts/github-actions/starter.JPG)
 In diesem werden alle Punkte einer YML-Datei grob angeschnitten und erklärt, wofür diese benötigt werden.
 Nichts destotrotz gibt es bereits eine Action, um ein Gradle Projekt bauen zu lassen.
 Diese Action wird im späteren Verlauf dieses Blogposts als Grundlage für die anderen Tasks des Workflows wiederverwendet.
-![Bild des Gradle-Build-Actions](./assets/images/posts/github-actions/gradle-build-action.JPG)
+![Bild des Gradle-Build-Actions](/assets/images/posts/github-actions/gradle-build-action.JPG)
 Im Folgenden wird der Codeblock der Action genauer betrachtet und die einzelnen Werte werden genauer erklärt, wieso und wofür diese da sind und was sie bewirken.
 ```yaml
 name: Spring Boot
@@ -77,7 +77,7 @@ Nachdem das Repository ausgecheckt wurde, wird mit den nächsten drei Zeilen das
 Für dieses Projekt wurde Java 13 verwendet, weshalb die Zahl bei ```java-version``` von _1.8_ auf **13** geändert wurde.
 Der Job braucht wiederum Rechte, um den danach folgenden Befehl ausführen zu können, daher werden diese mit ```run: chmod +x gradlew``` eingeholt.
 Im letzten Schritt der Action wird das Gradle-Projekt mit ```./gradlew build``` gebaut.
-![Bild des Ergebnisses des Gradle Builds](./assets/images/posts/github-actions/gradle-build-result.JPG)
+![Bild des Ergebnisses des Gradle Builds](/assets/images/posts/github-actions/gradle-build-result.JPG)
 Oben links am Icon ist erkennbar, ob die Action erfolgreich durchlaufen ist.
 Daneben ist der Ziel-Branch, die Commitnummer und Commit-Message angegeben.
 Darunter wird der Name des Actions angegeben, also das was in der ersten Zeile des o.g steht.
@@ -140,7 +140,7 @@ Das Format des Ergebnisses wird  mit -f angegeben, da wird alles auf GitHub ben�
 Das RuleSet wird mit -R und allen Regeln definiert, diese können in der offiziellen [Dokumentation](https://pmd.github.io/latest/pmd_rules_java.html#best-practices) von PMD gefunden werden.
 Am Ende wird noch die Programmiersprache und dessen Version festgelegt.
 Als der Job positiv durchlief, habe ich zum Testen eine ungenutze lokale Variable angelegt und die erwartete Fehlermeldung kam auch.
-![Bild des Fehlgeschlagenen PMD-Checks](./assets/images/posts/github-actions/local-variable-fail.JPG)
+![Bild des Fehlgeschlagenen PMD-Checks](/assets/images/posts/github-actions/local-variable-fail.JPG)
 
 ### Release erzeugen
 Als Letztes werden wir automatisiert einen Release erzeugen lassen.
@@ -190,11 +190,11 @@ Im Body steht dann der textuelle Inhalt des Releases.
 Der Draft gibt an, ob der Release published _(true)_ oder unpublished _(false)_ sein soll.
 Der Wert des Prerelease Attributs legt fest, ob es sich um einen vollwertigen eigenständigen Release handelt oder einen Prerelease.
 Anschließend sieht der Release wie folgt aus.
-![Bild des Releases](./assets/images/posts/github-actions/release.JPG)
+![Bild des Releases](/assets/images/posts/github-actions/release.JPG)
 Die Workflows werden in der Oberfläche separiert aufgelistet.
-![Bild der Workflows](./assets/images/posts/github-actions/workflows.JPG)
+![Bild der Workflows](/assets/images/posts/github-actions/workflows.JPG)
 Und als Abschluss eine kleine visuelle Darstellung der drei Jobs in der Oberfläche des Workflows.
-![Bild aller Jobs](./assets/images/posts/github-actions/all-actions.JPG)
+![Bild aller Jobs](/assets/images/posts/github-actions/all-actions.JPG)
 
 ## Mein Fazit
 Zum Abschluss dieses Blogposts gibt es ein persönliches Fazit.
