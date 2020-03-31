@@ -7,9 +7,9 @@ categories: [Methodik]
 tags: [Frontend, Migration, Softwaremigration, React, ReactJS, JSX, JSF, Facelets, REST]  
 ---
 
-In meinem [ersten Beitrag](/_posts/2020-03-16-inkrementelle-softwaremigration-nach-der-chicken-little-methode.md) habe ich die **Chicken-Little-Methode**, eine Vorgehensweise für die schrittweise Migration von *Legacy-Systemen* vorgestellt.
+In meinem [ersten Beitrag](/_posts/2020-03-16-inkrementelle-softwaremigration-nach-der-chicken-little-methode.md) habe ich die **Chicken-Little-Methode**, eine Vorgehensweise für die schrittweise Migration von *Legacy-Systemen*, vorgestellt.
 Darauf aufbauend soll in diesem Beitrag nun demonstriert werden, wie sich diese Methode auf eine *Frontend-Migration* im Kontext einer Webanwendung anwenden lässt.
-Dazu wird eine existierende Webanwendung betrachtet und gezeigt wie eine, auf den *Server-Side Rendering Technologien* **JSF** und **Facelets** basierende Komponente dieser Anwendung in eine andere Technologie transformieren lässt und im Anschluss daran wieder in das Altsystem integriert wird.
+Dazu wird eine existierende Webanwendung betrachtet und gezeigt wie sich eine, auf den *Server-Side Rendering Technologien* **JSF** und **Facelets** basierende Komponente dieser Anwendung, in eine andere Technologie transformieren lässt und im Anschluss daran wieder in das Altsystem integriert wird.
 Als Zieltechnologie für die Migration dient in diesem Beispiel das **Single-Page-Application**-Framework [**ReactJS**](https://reactjs.org/).
 
 Wichtig hierbei anzumerken ist, dass der Fokus hier ganz klar auf der Beschreibung des Vorgehens liegt. Die hierbei verwendete Technologie dient lediglich der Veranschaulichung und kann beliebig ausgetauscht werden.
@@ -27,7 +27,7 @@ Bereit gestellt wird die Anwendung auf einem **JBoss Application Server** in der
 
 Die Entwicklung von *Seam* wurde bereits im Jahr 2012 vollständig eingestellt.
 Dieser Umstand führt unter anderem dazu, dass in der Weiterentwicklung des Projekts der Einsatz neuerer Technologien dadurch limitiert wird, dass die Kompatibilität zu *Seam* immer gewährleistet sein muss.
-Davon betroffen sind sowohl die eingesetzte Java-Version, damit einhergehend auch der Applikationsserver als auch schlussendlich die verwendeten *Libraries*.
+Davon betroffen sind sowohl die eingesetzte Java-Version, damit einhergehend auch der Applikationsserver, als auch schlussendlich die verwendeten *Libraries*.
 Damit qualifiziert sich dieses Projekt, um im Kontext der **Softwaremigration** näher betrachtet zu werden.
 
 Das in diesem Artikel betrachtete Beispiel entstammt einer Abschlussarbeit, die durch die *adesso SE* betreut wurde.  
@@ -49,9 +49,9 @@ Existieren starke Verwebungen zwischen den unterschiedlichen Schichten (wie z.B.
 
 ### Die Vertragsliste der Makler-Anwendung
 Für den ersten Migrationsschritt des Versicherungsmakler-Portals wurde die *Vertragsliste* ausgewählt, mit Hilfe welcher sich ein Makler sämtliche (Vor-)Verträge seines jeweils ausgewählten Mandanten anzeigen lassen kann.
-Die Ausgabe erfolgt dabei in tabellarischer Form und enthält pro Zeile die Details, wie bspw. die Versicherungsnummer, die Vertragsart oder den jeweiligen Versicherer.
+Die Ausgabe erfolgt dabei in tabellarischer Form und enthält pro Zeile die Details wie bspw. die Versicherungsnummer, die Vertragsart oder den jeweiligen Versicherer.
 Darüber hinaus besteht für jeden Vertrag die Möglichkeit mittels eines Buttons, diesen Vertrag zu *löschen* oder zu *bearbeiten*.
-Außerdem kann über einen weiteren Button, unterhalb der Tabelle eine Tarif-Berechnung für sämtliche Verträge in der Tabelle angestoßen werden.
+Außerdem kann über einen weiteren Button unterhalb der Tabelle eine Tarif-Berechnung für sämtliche Verträge in der Tabelle angestoßen werden.
 
 Der unten stehende, stark vereinfachte Quellcode-Auszug zeigt das grundsätzliche *JSF-Markup* der *Vertragsliste*:
 
@@ -98,7 +98,7 @@ Sowohl die *Vertragsliste* als auch der *Vertrag* werden dazu jeweils als eigens
 Bei einer *React Komponente* handelt es sich knapp zusammengefasst um einen wiederverwendbaren Teil einer Benutzeroberfläche, der die Funktionalität sowie die Eigenschaften der Komponente (`props`) innerhalb einer *React App* bündelt.
 In ihrem Aufbau ähnelt sie stark dem von *(Java-)Klassen*.  
 
-Weitere Details dazu finden man u.a. [hier](https://reactjs.org/docs/components-and-props.html).
+Weitere Details dazu findet man u.a. [hier](https://reactjs.org/docs/components-and-props.html).
 
 ### Vertragsliste
 
@@ -143,14 +143,14 @@ class Vertragsliste extends React.Component {
 Im *Konstruktor* erfolgt zunächst die Initialisierung des *Zustands* ([`state`](https://reactjs.org/docs/state-and-lifecycle.html)) der Vertragslisten-Komponente.
 
 Von wesentlicher Bedeutung ist hier das zunächst leere Array `vertrage`, in welchem die, über die Schnittstelle zum Altsystem abgefragten Versicherungsverträge für die jeweilige *View* gespeichert werden.
-Daneben gibt es noch zwei weitere Felder, die kennzeichnen ob eine Anfrage an die Schnittstelle noch läuft oder erfolgreich abgeschlossen wurde (`requestComplete`).
-Scheitert der *Request*, so wird der aufgetretene Fehler in `error` gespeichert um diesen im weiteren Verlauf behandeln zu können.   
-Des weiteren erfolgt hier das [*Binding*](https://reactjs.org/docs/faq-functions.html#why-is-binding-necessary-at-all) der Methoden an den Wert `this`.  
+Daneben gibt es noch zwei weitere Felder, die kennzeichnen, ob eine Anfrage an die Schnittstelle noch läuft oder erfolgreich abgeschlossen wurde (`requestComplete`).
+Scheitert der *Request*, so wird der aufgetretene Fehler in `error` gespeichert, um diesen im weiteren Verlauf behandeln zu können.   
+Des Weiteren erfolgt hier das [*Binding*](https://reactjs.org/docs/faq-functions.html#why-is-binding-necessary-at-all) der Methoden an den Wert `this`.  
 
 Die initiale Abfrage der *Vertragsliste* im Altsystem erfolgt später über die noch zu implementierende Schnittstelle mittels der Methode [`componentDidMount()`](https://reactjs.org/docs/react-component.html#componentdidmount).
  Hierbei handelt es sich um eine sogenannte [*Lifecycle-Methode*](https://reactjs.org/docs/state-and-lifecycle.html#adding-lifecycle-methods-to-a-class) von *React*, die ausgeführt wird, sobald die Komponente der Benutzeroberfläche hinzugefügt wurde.
 
-Weitere Methoden sind hier `remove()`, für das Löschen von Verträgen, sowie `calculate()` zum Anstoßen der Berechnung sämtlicher Tarife.
+Weitere Methoden sind hier `remove()` für das Löschen von Verträgen, sowie `calculate()` zum Anstoßen der Berechnung sämtlicher Tarife.
 
 Das *Rendering* der Liste im Frontend sowie der darin enthaltenen Verträge erfolgt in der Methode `render()` der Komponente.
 Dazu wird mittels der Funktion `eachVertrag()` über die aktuelle Liste in `this.state.vertraege` iteriert.
@@ -396,7 +396,7 @@ Mit diesem letzten Schritt ist die Migration der Vertragsliste abgeschlossen und
 
 Dieser Artikel hat gezeigt, wie sich die **Chicken-Little-Methode** für eine Frontend-Migration anwenden lässt. Dazu wurde das Beispiel der **Vertragsliste** für die erste Iteration dieses inkrementellen Verfahrens ausgewählt. 
 Im Anschluss an die [Analyse](#analyse-und-strukturierung) des Altsystems, wo die zu migrierenden Bestandteile und betroffenen *Java-Klassen* identifiziert wurden, erfolgte zunächst die [Entwicklung](#entwurf-und-entwicklung-der-neuen-benutzeroberflche) dieser Vertragsliste in Form einer **React App**. 
-Anschließend wurde eine [Schnittstelle in Form einer **REST API**](#entwicklung-einer-rest-api-als-schnittstelle-zwischen-alt-und-neu) entwickelt um die Kommunikation zwischen dem Altsystem und der migrierten Komponente herzustellen. 
+Anschließend wurde eine [Schnittstelle in Form einer **REST API**](#entwicklung-einer-rest-api-als-schnittstelle-zwischen-alt-und-neu) entwickelt, um die Kommunikation zwischen dem Altsystem und der migrierten Komponente herzustellen. 
 Mit der [Anbindung der **React App** an die Schnittstelle](#anbindung-der-react-app-an-die-api) und dem Austausch der alten Komponente durch die neue *React App* wurde der erste Migrationsschritt [erfolgreich abgeschlossen](#migration-und-umstellung-des-frontends) . 
 
 Das in diesem Artikel demonstrierte Prozedere ist für jede weitere Komponente des Frontends zu wiederholen, bis dass das Frontend mit der letzten Komponente vollständig migriert wurde. 
