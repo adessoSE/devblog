@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<documents>
+    <document uid="6235faafec47599f9d48fe8452e0723e">
+        <field name="title"><![CDATA[git worktree - Effizientes Arbeiten mit mehreren Arbeitskopien]]></field>
+        <field name="subline"><![CDATA[]]></field>
+        <field name="teaser"><![CDATA[<p>In der heutigen Entwicklung geht kaum noch ein Weg an git vorbei. 
+Einer der vielen Vorteile von git ist, dass man stets auf dem lokalen Repository arbeitet und so schnell und ohne größere Mühen einen Branch anlegen oder wechseln kann. 
+In diesem Blog-Beitrag betrachten wir den nicht weit verbreiteten git-Befehl git worktree und schauen uns anhand einiger Beispiele an, wie man in der Entwicklung mit diesem git-Befehl Zeit (und vermutlich auch Nerven) einsparen kann.</p>
+
+]]></field>
+        <field name="language_multi_keyword"><![CDATA[de]]></field>
+        <field name="content_type_multi_keyword"><![CDATA[blog]]></field>
+        <field name="mime_type_multi_keyword"><![CDATA[text/html]]></field>
+        <field name="category_multi_keyword"><![CDATA[Softwareentwicklung]]></field>
+        <field name="tag_multi_keyword"><![CDATA[git]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Versionsverwaltung]]></field>
+        <field name="date_date"><![CDATA[2020-01-14T09:00:00+01:00]]></field>
+        <field name="date_l"><![CDATA[1578988800000]]></field>
+        <field name="change_date"><![CDATA[1578999600000]]></field>
+        <!--Picture-->
+        <!-- Not in use at the moment-->
+        <!--Author Information-->
+        <field name="author_first_name"><![CDATA[Sebastian]]></field>
+        <field name="author_last_name"><![CDATA[Heckmann]]></field>
+        <field name="author_id"><![CDATA[smsnheck]]></field>
+        <field name="author_picture_stored_only"><![CDATA[http://localhost:4000/assets/images/avatars/smsnheck.jpg]]></field>
+        <!--Postcontent-->
+        <field name="headlines"><![CDATA[git worktree - Effizientes Arbeiten mit mehreren Arbeitskopien]]></field>
+        <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
+            <p>In der heutigen Entwicklung geht kaum noch ein Weg an git vorbei. 
+Einer der vielen Vorteile von git ist, dass man stets auf dem lokalen Repository arbeitet und so schnell und ohne größere Mühen einen Branch anlegen oder wechseln kann. 
+In diesem Blog-Beitrag betrachten wir den nicht weit verbreiteten git-Befehl git worktree und schauen uns anhand einiger Beispiele an, wie man in der Entwicklung mit diesem git-Befehl Zeit (und vermutlich auch Nerven) einsparen kann.</p>
+
+</div>]]></field>
+        <field name="content"><![CDATA[<div class="adesso-text-formate">
+<div class="row p-t-2">
+<div class="adesso-container">
+<div class="col-xl-8 adesso-center p-b-1 p-l-0 p-r-0">
+    <p>In der heutigen Entwicklung geht kaum noch ein Weg an git vorbei. 
+Einer der vielen Vorteile von git ist, dass man stets auf dem lokalen Repository arbeitet und so schnell und ohne größere Mühen einen Branch anlegen oder wechseln kann. 
+In diesem Blog-Beitrag betrachten wir den nicht weit verbreiteten git-Befehl git worktree und schauen uns anhand einiger Beispiele an, wie man in der Entwicklung mit diesem git-Befehl Zeit (und vermutlich auch Nerven) einsparen kann.</p>
+
+<p>Möchte man auf einen vorhandenen Branch wechseln ist allerdings in der Regel ein sauberer Stand des Repositories vonnöten. 
+Dies bedeutet in der Regel keine Änderungen an den bereits versionierten Dateien.</p>
+
+<p>Nehmen wir jetzt aber mal die folgende Situation an: man entwickelt auf dem Branch <code>feature/ADESSO-73</code>. 
+Der Test für das Feature ist fertig, aber schlägt noch fehl, und die Businesslogik ist noch mit vielen <code>// TODO</code>-Kommentaren versehen. 
+Dann stellt jemand ein dringendes Ticket ein, welches ein Bug an einem vorher entwickelten Feature beschreibt und die gesamte Produktion lahmlegt. 
+Ein Fix muss daher so schnell wie möglich her.</p>
+
+<p>Wahrscheinlich stand jeder schon einmal vor so einer oder so einer ähnlichen Situation und hat seine eigene Art und Weise gefunden, wie er damit umgeht. 
+Eine Möglichkeit ist mit dem Befehl <code>git stash</code> zu arbeiten um die lokalen Änderungen temporär zu sichern. 
+Dann ist das lokale Repository “sauber” und es kann der Branch gewechselt werden, um den Fehler zu beheben. 
+Nach erfolgter Fehlerbehebung kann man schlussendlich wieder auf den ursprünglichen Branch <code>feature/ADESSO-73</code> wechseln und die gesicherten Änderungen wieder mittels <code>git stash apply</code> einspielen und die ursprünglich unterbrochene Entwicklung fortführen.</p>
+
+<p>Steht man häufiger vor der Herausforderung zwischen unterschiedlichen Branches zu wechseln und Dinge parallel zu entwickeln, kann dieses Vorgehen schnell unübersichtlich oder unhandlich werden. 
+Außerdem können Änderungen in dem lokalen Repository mit diversen gelöschten, umbenannten und geänderten Dateien hinreichend komplex sein, so dass man lieber nichts riskieren und das lokale Repository so belassen möchte, wie sie ist. 
+Zudem kann auch eine temporär gesicherte Änderung über <code>git stash apply</code> schnell auf einem falschen Branch angewendet werden, was nicht immer sofort bemerkt wird.</p>
+
+<p>In diesen Fällen kann der git-Befehl <code>git worktree</code> abhilfe schaffen. 
+Mit diesem Befehl ist es möglich mehrere Arbeitskopien des lokalen Repositories zu erstellen und zu verwalten. 
+Die Arbeitskopie wird hierbei lokal erstellt und hat keine eigene Kopie des Repositories. 
+Bedeutet: Anstelle des sonst üblichen <code>.git</code>-Verzeichnises mit vielerlei Meta-Informationen und Branches findet man in der neu angelegten Arbeitskopie lediglich ein Verweis über eine <code>.git</code>-Datei. 
+Durch diese Verbindung stehen alle Commits, Branches, Tags und so weiter beiden Arbeitskopien zur Verfügung. 
+Somit ist es auch möglich alle Commits und Branches mittels <code>git rebase</code>, <code>git merge</code> oder <code>git cherry-pick</code> in die unterschiedlichen Arbeitskopien zu bringen.</p>
+
+<p>Betrachten wir nun den Befehl zum Anlegen einer neuen Arbeitskope: 
+<code>git worktree add -b hotfix/ADESSO-4711 ../adesso-blog-4711 master</code> erzeugt eine neue Arbeitskopie des lokalen Repositories. 
+Schauen wir uns den Befehl und Parameter einmal genauer an:</p>
+
+<ul>
+  <li>der Befehl <code>worktree add</code> leitet die Anlage einer neuen Arbeitskopie ein.</li>
+  <li>durch den Parameter <code>-b hotfix/ADESSO-4711</code> wird der Branch <code>hotfix/ADESSO-4711</code> in der neuen Arbeitskope angelegt.</li>
+  <li>das Ziel der neuen Arbeitskopie wird im darauffolgenden Parameter als relativer oder absoluter Pfad angegeben. In unserem Falle wird neben dem aktuellen Verzeichnis das Verzeichnis <code>adesso-blog-4711</code> für die Arbeitskopie angelegt.</li>
+  <li>zuletzt wird die Commit-ID beziehungsweise der Branch angegeben, von dem der neu anzulegende Branch und die zu erstellende Arbeitskopie abzweigen soll.</li>
+</ul>
+
+<p>Um die Anlage der Arbeitskopie zu verifizieren kann der Befehl <code>git worktree list</code> ausgeführt werden. 
+Dieser zeigt alle vorhandenen Arbeitskopien an:</p>
+
+<pre><code class="language-bash">$ git worktree list
+C:/Privat/adesso-blog                         79a5b86223 [feature/ADESSO-73]
+C:/Privat/adesso-blog-4711                    e7708ab6aa [hotfix/ADESSO-4711]
+C:/Privat/adesso-blog-master                  f875acdb99 [master]
+</code></pre>
+
+<p>Im lokalen Repository (<code>C/Privat/adesso-blog</code>) wird im <code>.git</code> Verzeichnis das Unterverzeichnis <code>worktrees</code> angelegt, welches die Referenzen auf alle vorhandenen Worktrees beinhaltet:</p>
+
+<pre><code class="language-bash">/c/Privat/adesso-blog/.git/worktrees/adesso-4711
+$ ls -al
+total 7492
+drwxr-xr-x 1 heckmann 1049089       0 Nov 26 09:21 ./
+drwxr-xr-x 1 heckmann 1049089       0 Nov 19 15:11 ../
+-rw-r--r-- 1 heckmann 1049089       6 Nov 19 15:11 commondir
+-rw-r--r-- 1 heckmann 1049089      36 Nov 19 15:11 gitdir
+-rw-r--r-- 1 heckmann 1049089      53 Nov 26 09:21 HEAD
+-rw-r--r-- 1 heckmann 1049089 7661823 Nov 26 09:21 index
+drwxr-xr-x 1 heckmann 1049089       0 Nov 19 15:12 logs/
+-rw-r--r-- 1 heckmann 1049089      41 Nov 19 15:12 ORIG_HEAD
+</code></pre>
+
+<p>Nach erfolger Anlage einer neuen Arbeitskopie kann man mittels <code>cd ../adesso-blog-4711</code> in die neue Arbeitskopie wechseln, dort die anstehende Arbeit erledigen und mit den bekannten Befehlen einchecken und pushen.</p>
+
+<p>Nach erledigter Arbeit kann die Arbeitskopie aus dem lokalen Repository über <code>git worktree remove adesso-blog-4711</code> (seit git Version 2.17) wieder entfernt werden. 
+Für git Versionen &lt; 2.17 muss die Arbeitskopie über das Betriebssystem gelöscht werden und anschließend müssen in dem lokalen Repository mittels <code>git worktree prune</code> Verweise auf die Arbeitskopien bereinigt werden.</p>
+
+<p>Alternativ ist es möglich die angelegte Arbeitskopie für diverse andere parallel anstehende Arbeiten zu verwenden. 
+In der Arbeitskopie kann man arbeiten wie in einem normalen, lokalen Repository, was auch bedeutet, dass man in der Arbeitskopie den ursprünglich ausgecheckten Branch wechseln kann und somit die Arbeitskopie für andere Entwicklungen oder Fehlerbehebungen weiterverwenden kann.</p>
+
+<h5 id="fazit">Fazit</h5>
+<p>Ich empfinde den <code>git worktree</code>-Befehl als Erleichterung bei der parallelen Arbeit mit unterschiedlichen Branches. 
+Auch wenn es nicht täglich vorkommt, dass auf unterschiedlichen Branches gleichzeitig etwas entwickeln werden muss, kann es bei diesen Anwendungsfällen eine Erleichterung sein. 
+Es entsteht weniger Mehraufwand beim Branchwechsel, da die bis dahin umgesetzte und gegebenenfalls noch nicht fertige Arbeit nicht gesichert und später wieder zurückgespielt werden muss.</p>
+
+<p>Dedizierte Arbeitskopien können sich auch in Codereivews als hilfreich herausstellen. 
+Wenn sich beispielsweise durch Wartezeit des lokalen Builds vom Feature-Branch Kapazitäten für ein Code-Review ergeben, kann man eine separate Arbetskopie verwenden um Code-Reviews durchzuführen. 
+So können kleinere Review-Änderungen direkt und parallel zu der eigentlichen Feature-Entwicklung durchgeführt werden.</p>
+
+</div>
+</div>
+</div>
+</div>]]></field>
+    </document>
+</documents>
