@@ -30,7 +30,7 @@ Aufgrund dieser Bewertung wird das Java-System nun verbessert und erneut bewerte
 In den folgenden Abschnitten werde ich die drei Funktionen des Werkzeugs näher erläutern.
 
 ## Architekturanalyse
-Währende der Architekturanalyse werden benötigte Daten aus der Neo4j-Datenbank ausgelesen.
+Während der Architekturanalyse werden benötigte Daten aus der Neo4j-Datenbank ausgelesen.
 Anschließend werden die Java-Artefakte den verschiedenen Tactical Domain-Driven Design Bausteinen zugeordnet.
 Um diese Funktion auszuführen, rufen wir folgende URL auf.
 Die Funktion benötigt als Parameter den Fully Qualified Name des Projekt-Packages.
