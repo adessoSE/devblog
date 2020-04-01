@@ -32,7 +32,7 @@ Damit qualifiziert sich dieses Projekt, um im Kontext der **Softwaremigration** 
 
 Das in diesem Artikel betrachtete Beispiel entstammt einer Abschlussarbeit, die durch die *adesso SE* betreut wurde.  
 Daher wurde auch die Entscheidung getroffen, eine *Frontend-Migration* durchzuführen, um die Komplexität überschaubar zu halten und gleichzeitig den Rahmen der erwähnten Arbeit nicht zu sprengen.
-Schlussendlich demonstriert dieses Beispiel aber auch das breite Einsatzgebiet dieser Methode, die sich flexibel für entweder nur eine Migrationsart (Programm-, Benutzerschnittstellen- und/oder Datenmigration), eine Kombination daraus oder aber auch für vollständige Systemmigrationen, die sämtliche Bereiche umfassen, einsetzen lässt.
+Schlussendlich demonstriert dieses Beispiel aber auch das breite Einsatzgebiet dieser Methode. Sie lässt sich flexibel für entweder nur eine Migrationsart (Programm-, Benutzerschnittstellen- und/oder Datenmigration) oder eine Kombination dieser einsetzen. Eine vollständige Systemmigration, die sämtliche Bereiche umfasst, ist aber auch möglich.
 
 # Die Migration
 
@@ -400,7 +400,6 @@ Anschließend wurde eine [Schnittstelle in Form einer **REST API**](#entwicklung
 Mit der [Anbindung der **React App** an die Schnittstelle](#anbindung-der-react-app-an-die-api) und dem Austausch der alten Komponente durch die neue *React App* wurde der erste Migrationsschritt [erfolgreich abgeschlossen](#migration-und-umstellung-des-frontends) . 
 
 Das in diesem Artikel demonstrierte Prozedere ist für jede weitere Komponente des Frontends zu wiederholen, bis dass das Frontend mit der letzten Komponente vollständig migriert wurde. 
-
 
 
 
