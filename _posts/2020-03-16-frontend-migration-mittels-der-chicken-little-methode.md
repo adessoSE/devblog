@@ -96,7 +96,7 @@ Die Darstellung der *Vertragsliste* innerhalb der *React App* soll auch hier wie
 
 Sowohl die *Vertragsliste* als auch der *Vertrag* werden dazu jeweils als eigenständige *React Komponente* innerhalb der *React App* implementiert.
 Bei einer *React Komponente* handelt es sich knapp zusammengefasst um einen wiederverwendbaren Teil einer Benutzeroberfläche, der die Funktionalität sowie die Eigenschaften der Komponente (`props`) innerhalb einer *React App* bündelt.
-In ihrem Aufbau ähnelt sie stark dem von *(Java-)Klassen*.  
+Ihr Aufbau ähnelt stark dem einer *(Java-)Klasse*.  
 
 Weitere Details dazu findet man u.a. [hier](https://reactjs.org/docs/components-and-props.html).
 
@@ -147,10 +147,10 @@ Daneben gibt es noch zwei weitere Felder, die kennzeichnen, ob eine Anfrage an d
 Scheitert der *Request*, so wird der aufgetretene Fehler in `error` gespeichert, um diesen im weiteren Verlauf behandeln zu können.   
 Des Weiteren erfolgt hier das [*Binding*](https://reactjs.org/docs/faq-functions.html#why-is-binding-necessary-at-all) der Methoden an den Wert `this`.  
 
-Die initiale Abfrage der *Vertragsliste* im Altsystem erfolgt später über die noch zu implementierende Schnittstelle mittels der Methode [`componentDidMount()`](https://reactjs.org/docs/react-component.html#componentdidmount).
+Die initiale Abfrage der *Vertragsliste* aus dem Altsystem erfolgt später über eine noch zu implementierende Schnittstelle mittels der Methode [`componentDidMount()`](https://reactjs.org/docs/react-component.html#componentdidmount).
  Hierbei handelt es sich um eine sogenannte [*Lifecycle-Methode*](https://reactjs.org/docs/state-and-lifecycle.html#adding-lifecycle-methods-to-a-class) von *React*, die ausgeführt wird, sobald die Komponente der Benutzeroberfläche hinzugefügt wurde.
 
-Weitere Methoden sind hier `remove()` für das Löschen von Verträgen, sowie `calculate()` zum Anstoßen der Berechnung sämtlicher Tarife.
+Weitere Methoden in dieser Komponente sind hier `remove()` für das Löschen von Verträgen, sowie `calculate()` zum Anstoßen der Berechnung sämtlicher Tarife.
 
 Das *Rendering* der Liste im Frontend sowie der darin enthaltenen Verträge erfolgt in der Methode `render()` der Komponente.
 Dazu wird mittels der Funktion `eachVertrag()` über die aktuelle Liste in `this.state.vertraege` iteriert.
@@ -258,7 +258,7 @@ Im nächsten Schritt müssen nun noch die **Schnittstellen** im Altsystem implem
 
 ## Entwicklung einer REST-API als Schnittstelle zwischen Alt und Neu
 Die Implementierung der Schnittstelle erfolgt in diesem Beispiel in Form einer kleinen [**REST-API**](https://de.wikipedia.org/wiki/Representational_State_Transfer). 
-Die **API** soll hierbei als **Reverse Gateway** dienen, der die eingehenden **Requests** an die original Methode des **Vertragslisten Controller** delegiert und mögliche Rückgaben wieder an den Aufrufer weiterleitet.   
+Die **API** soll hierbei als **Reverse Gateway** dienen, der die eingehenden **Requests** an die ursprüngliche Methode des **Vertragslisten Controller** delegiert und mögliche Rückgaben wieder an den Aufrufer weiterleitet.   
 
 Folgende Funktionalität muss die **API** für das Beispiel der *Vertragsliste* bereitstellen: 
 - Gesamtliste aller Verträge des aktuell ausgewählten Mandanten abrufen
@@ -325,7 +325,7 @@ Die folgende Tabelle listet die beteiligten **Ressourcen**, die jeweilige **URI*
 | **Vertrag löschen**    | DELETE             | `/vertragsliste/{vertragsId}` | `removeVetrag()`       |
 
 
-Für sowohl das **Abfragen** der Liste als auch die **Berechnung** der Verträge zeichnet sich die Ressource `Vertragsliste` verantwortlich.  
+Sowohl für das **Abfragen** der Liste als auch die **Berechnung** der Verträge zeichnet sich die Ressource `Vertragsliste` verantwortlich.  
 Welche Aktion ausgeführt werden soll, wird maßgeblich über die beim **Request** verwendete **HTTP-Methode** bestimmt.
 Die Abfrage der List erfolgt dabei mittels eines **GET-**, die Berechnung der Verträge hingegen mittels eines **POST-Requests**. 
 Ein Vertrag kann mittels einem **DELETE-Request** gelöscht werden, in dem man der Basis-URI `/vertragsliste` noch die jeweilige **Vertrags-Id** als Parameter übergibt.  
@@ -399,8 +399,7 @@ Im Anschluss an die [Analyse](#analyse-und-strukturierung) des Altsystems, wo di
 Anschließend wurde eine [Schnittstelle in Form einer **REST API**](#entwicklung-einer-rest-api-als-schnittstelle-zwischen-alt-und-neu) entwickelt, um die Kommunikation zwischen dem Altsystem und der migrierten Komponente herzustellen. 
 Mit der [Anbindung der **React App** an die Schnittstelle](#anbindung-der-react-app-an-die-api) und dem Austausch der alten Komponente durch die neue *React App* wurde der erste Migrationsschritt [erfolgreich abgeschlossen](#migration-und-umstellung-des-frontends) . 
 
-Das in diesem Artikel demonstrierte Prozedere ist für jede weitere Komponente des Frontends zu wiederholen, bis dass das Frontend mit der letzten Komponente vollständig migriert wurde. 
-
+Das in diesem Artikel demonstrierte Prozedere ist für jede weitere Komponente des Frontends zu wiederholen, bis das Frontend mit der letzten Komponente vollständig migriert wurde. 
 
 
 
