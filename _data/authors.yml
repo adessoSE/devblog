@@ -276,3 +276,12 @@ janschneider1:
   bio: "Jan Schneider ist angehender Softwareentwickler bei adesso und im Open-Source-Team als dualer Student tätig."
   avatar_url: /assets/images/avatars/jschneider.jpg
   github: https://github.com/JanSchneider1
+
+stefanmueller:
+  first_name: Stefan
+  last_name: Müller
+  github_username: stefanAdesso
+  email: stefan.mueller3@adesso.de
+  bio: "Stefan Müller arbeitet als Software Engineer bei der adesso AG. Sein Fokus liegt auf Java-Technologien. Daneben beschäftigt er sich mit Software-Patterns und Software-Architekturen."
+  avatar_url: /assets/images/avatars/mueller_stefan_foto.png
+  github: https://github.com/stefanAdesso
