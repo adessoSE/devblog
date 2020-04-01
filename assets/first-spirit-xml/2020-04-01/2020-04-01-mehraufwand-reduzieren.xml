@@ -13,7 +13,6 @@ Daneben gibt es das Tolerant Reader Pattern, dass den Mehraufwand, eine Schnitts
         <field name="content_type_multi_keyword"><![CDATA[blog]]></field>
         <field name="mime_type_multi_keyword"><![CDATA[text/html]]></field>
         <field name="category_multi_keyword"><![CDATA[Java]]></field>
-        <field name="category_multi_keyword"><![CDATA[Pattern]]></field>
         <field name="tag_multi_keyword"><![CDATA[Mehraufwand reduzieren]]></field>
         <field name="tag_multi_keyword"><![CDATA[Schnittstellen]]></field>
         <field name="tag_multi_keyword"><![CDATA[Tolerant Reader Pattern]]></field>
