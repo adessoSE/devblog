@@ -31,7 +31,7 @@ Um Actions in der Oberfläche von GitHub aufzurufen gibt es im Repository den Re
 ![Bild vom Actions Reiter](/assets/images/posts/github-actions/actions-tab.JPG)
 angekommen im Punkt Actions kriegen wir vom intuitiven System eine Menge Actions, die bereits "out of the box" kommen.
 Namhafte Sprachen und Frameworks werden direkt unterstützt.
-Zum Herumexperimentieren von Actions gibt GitHub dem Benutzer einen kleinen Appell zu einem Starter-Action.
+Zum Herumexperimentieren von Actions gibt GitHub dem Benutzer einen kleinen Appell zu einer Starter-Action.
 ![Bild der Starter-Action](/assets/images/posts/github-actions/starter.JPG)
 In diesem werden alle Punkte einer YML-Datei grob angeschnitten und erklärt, wofür diese benötigt werden.
 Nichts destotrotz gibt es bereits eine Action, um ein Gradle Projekt bauen zu lassen.
