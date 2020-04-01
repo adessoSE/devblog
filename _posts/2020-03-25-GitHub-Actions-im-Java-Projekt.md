@@ -2,41 +2,48 @@
 layout: [post, post-xml]              
 title:  "GitHub-Actions im Java Projekt"            
 date:   2020-03-25 09:38              
-modified_date:          
+modified_date:        
 author: ccaylak                       
-categories: [Java, Softwareentwicklung, Methodik]       
+categories: [Softwareentwicklung]
+tags: [GitHub, Java, Spring Boot, Gradle]     
 ---
-GitHub Actions ist das hauseigene Tool der Open-Source Plattform, um Prozesse in einem Softwareprojekte zu automatisieren.
-In diesem Blogpost wirst du methodisch lernen, wie ein Java-Projekt mit GitHub Actions ausgestattet wird.
-Die Schwerpunkte sind das Bauen des Projekts, Testsausführung, statische Codeanalyse und das Erzeugen eines Releases, alles völlig automatisch. 
+GitHub-Actions ist das hauseigene Tool der Open-Source Plattform, um Prozesse in einem Softwareprojekte zu automatisieren.
+In diesem Blogpost wirst du methodisch lernen, wie ein Java-Projekt mit GitHub-Actions ausgestattet wird.
+Die Schwerpunkte sind das Bauen des Projekts, Testsausführung, statische Codeanalyse und das Erzeugen eines Releases. 
 
-# Was ist GitHub Actions?
+# Was ist GitHub-Actions?
 Diese API wird für öffentliche GitHub-Projekte zur Verfügung gestellt.
-Dadurch können Workflowschritte definiert werden, die durch GitHub-Events wie einem pullrequest ausgelöst werden.
-Die Workflowschritte sind demnach vom Code losgelöst und sind ein Teil des Repositorys. 
+Dadurch können Workflowschritte definiert werden, die durch GitHub-Events wie einem Pullrequest ausgelöst werden.
+
+Die Workflowschritte sind demnach vom Code losgelöst und ein Teil des Repositorys. 
 Die eigenen Software Development Practices können erstellt, geteilt, wiederverwendet und geforked werden.
-Danach übernimmt Github die Ausführung, gibt ein umfangreiches Feedback und sichert.
+
+Danach übernimmt GitHub die Ausführung und gibt ein umfangreiches Feedback zurück.
 Außerdem wird eine plattformunabhängige Automatisierung der Build-, Test-, und Deploy-Schritte ermöglicht.
-Es kann zwischen den gängigen Betriebssystemen Windows, macOS und Windows gewählt werden.
+Die Ausführung kann unter den gängigen Betriebssystemen Windows, macOS und Windows durchgeführt werden.
 Zudem kannst du festlegen, ob die Workflows in einem Container oder in einer virtuellen Maschine ausgeführt werden sollen.
-Des Weiteren werden viele Programmiersprachen sowie Frameworks unterstützt.
 
 ## Erzeugung des Java Projekts
-Als Java Projekt dient eine Spring Boot Anwendung, die mit dem [Spring Boot Starter](https://start.spring.io/) erstellt wurde.
-Das Projekt ist mit Gradle und Version 13 von Java ausgestattet und zeigt exemplarisch wie Actions erstellt werden.
-Somit hat dieses keine Logik und dient als leere Hülle auf dessen die o.g Schwerpunkte gezeigt werden.
+Als beispielhaftes Java Projekt dient eine Spring Boot Anwendung, die mit dem [Spring Boot Starter](https://start.spring.io/) erstellt wurde.
+Das Projekt ist mit Gradle und Version 13 von Java ausgestattet.
 
 ### Gradle Projekt bauen
 Um Actions in der Oberfläche von GitHub aufzurufen gibt es im Repository den Reiter "Action".
+
 ![Bild vom Actions Reiter](/assets/images/posts/github-actions/actions-tab.JPG)
-angekommen im Punkt Actions kriegen wir vom intuitiven System eine Menge Actions, die bereits "out of the box" kommen.
+
+Angekommen in den Actions kriegen wir vom intuitiven System eine Menge bereits definierter Actions, die **out of the box** kommen.
 Namhafte Sprachen und Frameworks werden direkt unterstützt.
 Zum Herumexperimentieren von Actions gibt GitHub dem Benutzer einen kleinen Appell zu einer Starter-Action.
+
 ![Bild der Starter-Action](/assets/images/posts/github-actions/starter.JPG)
+
 In diesem werden alle Punkte einer YML-Datei grob angeschnitten und erklärt, wofür diese benötigt werden.
 Nichts destotrotz gibt es bereits eine Action, um ein Gradle Projekt bauen zu lassen.
 Diese Action wird im späteren Verlauf dieses Blogposts als Grundlage für die anderen Tasks des Workflows wiederverwendet.
+
 ![Bild des Gradle-Build-Actions](/assets/images/posts/github-actions/gradle-build-action.JPG)
+
 Im Folgenden wird der Codeblock der Action genauer betrachtet und die einzelnen Werte werden genauer erklärt, wieso und wofür diese da sind und was sie bewirken.
 ```yaml
 name: Spring Boot
@@ -66,20 +73,26 @@ jobs:
 Das Schlüsselwort ```name``` gibt an, wie das Action später in der Ausführung bzw. in der Oberfläche heißen soll.
 Danach folgt ```on```, was festlegt, auf welche GitHub-Events das Action reagieren soll.
 In den eckigen Klammern folgen die Repositorys, für die, diese Actions gelten sollen.
-Normalerweise wird in Softwareprojekten mit pull_requests gearbeitet, jedoch ist es für Testzwecke in Ordnung auf ```push``` sowie ```pull_request``` zu hören.
+
+Normalerweise wird in Softwareprojekten mit Pullrequest gearbeitet, jedoch ist es für Testzwecke in Ordnung auf ```push``` und ```pull_request``` zu hören.
 Welche weiteren Event-Typen es gibt, kann unter der dafür vorhandenen [Dokumentation](https://help.github.com/en/actions/reference/events-that-trigger-workflows) nachgesehen werden.
+
 Anschließend beginnt der Workflow, der auch aus ein oder mehreren Workflowschritten bestehen kann.
 Je nach Konfiguration werden diese sequenziell oder parallel abgearbeitet.
-Nun folgen die einzelnen Jobs, wobei ```build``` den Namen des einzigen Workflowschritt angibt, zudem wird mit ```runs-on``` angegeben, auf welchem Runner dieser ausgeführt werden soll.
+
+Nun folgen die einzelnen Jobs, wobei ```build``` den Namen des einzigen Workflowschritt angibt, zudem wird mit ```runs-on``` angegeben, auf welchem Betriebssystem dieser ausgeführt werden soll.
+
 Mit ```steps``` wird eine Folge von Schritten definiert, die für diesen Job benötigt werden.
 Als nächstes wird das Repository mit ```- uses: actions/checkout@v2``` ausgecheckt, damit es für den Job benutzt werden kann.
 Nachdem das Repository ausgecheckt wurde, wird mit den nächsten drei Zeilen das Java SDK gesetzt.
 Für dieses Projekt wurde Java 13 verwendet, weshalb die Zahl bei ```java-version``` von _1.8_ auf **13** geändert wurde.
 Der Job braucht wiederum Rechte, um den danach folgenden Befehl ausführen zu können, daher werden diese mit ```run: chmod +x gradlew``` eingeholt.
 Im letzten Schritt der Action wird das Gradle-Projekt mit ```./gradlew build``` gebaut.
+
 ![Bild des Ergebnisses des Gradle Builds](/assets/images/posts/github-actions/gradle-build-result.JPG)
+
 Oben links am Icon ist erkennbar, ob die Action erfolgreich durchlaufen ist.
-Daneben ist der Ziel-Branch, die Commitnummer und Commit-Message angegeben.
+Daneben ist der Ziel-Branch, die Commit-Nummer und Commit-Message angegeben.
 Darunter wird der Name des Actions angegeben, also das was in der ersten Zeile des o.g steht.
 Darunter werden die einzelnen Jobs aufgelistet und zu guter Letzt gibt es rechts einen genauen Ablauf der einzelnen Steps.
 Diese besitzen eine Zeitangabe und können bei Bedarf aufgeklappt und näher betrachtet werden.
@@ -115,7 +128,7 @@ Als Optionen standen CheckStyle, FindBugs und PMD zur Auswahl.
 Für unseren Anwendungsfall eignet sich PMD am besten, denn CheckStyle ist rein für die Formatierung zuständig.
 FindBugs hat zwar einen größeren Funktionsumfang und findet typische Muster, wie infinite Loops usw.
 Jedoch besitzt PMD den größten Funktionsumfang und eignet sich daher am besten zum Zeigen.
-GitHub Actions hat einen eigenen Marketplace, ähnlich wie eine Art iOS oder Google Play Store.
+GitHub-Actions hat einen eigenen Marketplace, ähnlich wie eine Art iOS oder Google Play Store.
 Dort kann der Nutzer nach Actions suchen die er für nützlich empfindet und einige davon haben einen Verifizierungshaken.
 Nach einer kurzen Google-Recherche fand ich heraus, dass es für PMD schon eine [Community-Action](https://github.com/marketplace/actions/pmd-source-code-analyzer-action) gab und dieser sogar einige Sterne auf GitHub hatte.
 Das Beispiel funktioniert problemlos, jedoch fehlte der Checkout des Repositorys.
@@ -197,8 +210,7 @@ Und als Abschluss eine kleine visuelle Darstellung der drei Jobs in der Oberflä
 ![Bild aller Jobs](/assets/images/posts/github-actions/all-actions.JPG)
 
 ## Mein Fazit
-Zum Abschluss dieses Blogposts gibt es ein persönliches Fazit.
-Ich finde GitHub Actions ist ein muss bei Anwendungen, die sowieso auf der Plattform GitHub verwaltet werden, insbesondere im Open Source Bereich.
+Ich finde GitHub-Actions ist ein muss bei Anwendungen, die sowieso auf der Plattform GitHub verwaltet werden, insbesondere im Open Source Bereich.
 Einige der größten Vorteile sind, dass es eine sehr detaillierte Dokumentation gibt, es einfach zu verstehen ist und einen Marketplace besitzt, wo die Community zu beitragen kann.
 Der Funktionsumfang ist gigantisch und jeder, dessen Interesse erweckt wurde, sollte sich die Dokumentation genauer anschauen.
 Denn dieser Blogpost dient lediglich als Guide um zu zeigen wie einfach CI/CD Prozesse mit Actions realisiert werden können. 
