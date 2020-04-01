@@ -13,16 +13,15 @@ In dieser Blogreihe möchte ich einen Einstieg für das Automatisierungstool Sel
 Der erste Artikel gibt einen Überblick zu Selenium und dessen Verwendung. 
 Außerdem möchte ich ein Beispielprojekt für Selenium vorstellen.
 Vorkenntinsse im Bereich Java, Spring, JUnit, Docker und Maven sind empfehlenswert. 
-Wer bereits mehr Vorwissen hat und auch schon einiges an Erfahrung mit Selenium.
-Dem empfehle ich auf den zweiten Teil zu warten. 
+Wer bereits mehr Vorwissen und auch schon einiges an Erfahrung mit Selenium hat, dem empfehle ich, auf den zweiten Teil zu warten. 
 Darin werde ich näher auf die Verbindung mit Docker eingehen.
 
 # Vorstellung Selenium
 
-Selenium ist ein Framework zum automatisieren von Browsern.
-Es stellt alle notwendigen Interfaces bereit um Eingaben auf einem Browser auszuführen oder Inhalte auszulesen.
-Der typisch Einsatzbereich des Frameworks liegt im testen von Webanwendungen jeder Art. 
-Es gibt diverse Frameworks die auf als Basis den Selenium Webdriver verwenden.
+Selenium ist ein Framework zum Automatisieren von Browsern.
+Es stellt alle notwendigen Interfaces bereit, um Eingaben auf einem Browser auszuführen oder Inhalte auszulesen.
+Der typisch Einsatzbereich des Frameworks liegt im Testen von Webanwendungen jeder Art. 
+Es gibt diverse Frameworks, die als Basis den Selenium Webdriver verwenden.
 Bekannte Testframeworks sind z.B. Appium, Fluentlenium oder Serenity.
 Der Selenium WebDriver wird auch als Selenium 2 bezeichnet. 
 Dieses Projekt ist aus einer Zusammenführung des Projektes „WebDriver“ von Google und Selenium 1 entstanden. 
@@ -49,8 +48,7 @@ Z.b. Fenstergröße anpassen, Tabs wechseln oder Cookies setzen.
 ### WebElement
 
 Das WebElement stellt ein Element aus dem DOM einer Website dar.
-So ist es Möglich mit einzelnen Elementen auf einer Website zu interagieren.
-Wie das Klicken eines Buttons oder das Auslesen eines Feldes.
+So ist es möglich mit einzelnen Elementen auf einer Website zu interagieren, beispielsweise das Klicken eines Buttons oder das Auslesen eines Feldes.
 Ein WebElement muss dazu immer zuerst durch den WebDriver gesucht werden. 
 Dieser stellt hierzu die Methoden findElement(By locator) oder findElements(By locator) zur verfügung.
 
@@ -65,10 +63,10 @@ Für das suchen von Elementen auf einer Website werden verschiedene Locator ange
 - XPath
 
 Für das genaue finden eines Elements auf einer Website wird empfohlen möglichst immer den Id Locator zu verwenden.
-Leider ist es üblich das Frontendframeworks dynamisch Id's vergeben oder es gar nicht möglich ist selbst Id's zu vergeben.
+Leider ist es üblich, dass Frontendframeworks dynamisch Id's vergeben oder es gar nicht möglich ist, selbst Id's zu vergeben.
 Dynamische Inhalte wie das auftauchen eines bestimmten Textes in der ersten Zeile einer Tabelle können auch nicht über einen Id Locator gelöst werden.
 Dann werden die anderen Locatoren benötigt, um Elemente flexibler suchen zu können. 
-Darüber hinaus ist das suchen nach Elementen mittels Id die schnellste Art.
+Darüber hinaus ist das Suchen nach Elementen mittels Id die schnellste Art.
 Die Praxis hat jedoch gezeigt, dass auch die Verwendung der anderen Locatoren möglich ist ohne die Geschwindigkeit drasitsch zu verringern.
 
 ## Basis Projekt
@@ -79,10 +77,10 @@ Bei dem Basis Projekt handelt es sich um ein Maven Projekt bestehend aus mehrere
 
 Das Hauptprojekt enthält drei Module.
 ### Modul Docker
-Das Erste Modul "Docker" enthält die Module zum erzeugen und ausführen der Docker Container.
+Das Erste Modul "Docker" enthält die Module zum Erzeugen und Ausführen der Docker Container.
 In diesem Projekt ist das die Webanwendung selbts und der Selenium Hub.
 Der Selenium Hub wird als fertiges Dockerimage zur Verfügung gestellt. 
-Dieses beinhaltet bereits alle Komponenten (Browser, Browser Driver, usw.) in der korrekten Version um diese mit dem WebDriver zu verwenden.
+Dieses beinhaltet bereits alle Komponenten (Browser, Browser Driver, usw.) in der korrekten Version, um diese mit dem WebDriver zu verwenden.
 ### Modul systemtests
 Das Modul "systemtests" beinhaltet den Testcode inkl. aller Resourcen.
 ### Modul webapp-demo
@@ -94,20 +92,20 @@ Dieses Modul stellt eine kleine Spring Boot Web Anwendung bereit, gegen die Syst
 
 Die Struktur des Moduls "systemtests" kann in drei Teile untergliedert werden. 
 Je nach komplexität des Frameworks darf dieses natürlich indiviuell erweitert werden.
-Es bietet sich z.B. an wiederholende Schritte in "Steps" zu bündeln. 
+Es bietet sich z.B. an, wiederholende Schritte in "Steps" zu bündeln. 
 Diese Steps können dann durch die Tests verwendet werden.
 Die Übersichtlichkeit der einzelnen Tests kann davon stark profitieren.
 Das Package "base" enthält in diesem Beispiel die Basis Testklasse.
-Diese ist abstract und wird von jeder Konkreten Testklasse erweitert. 
+Diese ist abstract und wird von jeder konkreten Testklasse erweitert. 
 Die Basisklasse stellt die Basisfunktionen wie das initialisieren des WebDriver bereit.
 In dem Package "tests" befinden sich ausschließlich die Testfälle für das Projekt.
 In "pages" werden die PageObjects der zu testenden Anwendung gepflegt.
 Page Objects repräsentieren die einzelnen Seiten einer Webanwendung.
-Dieses Pattern wird genutzt um die Tests überschtlicher zu gestallten und die Wiederverwendbarkeit zu steigern.
+Dieses Pattern wird genutzt um die Tests überschtlicher zu gestalten und die Wiederverwendbarkeit zu steigern.
 Ein Grundgedanke des PageObject Pattern ist zudem, dass auf jede Aktion an einem PageObject wieder das passende PageObject zurück geliefert wird.
-Damit wird das verketten von Aufrufen ermöglicht.
-Hier liegt es aber am Entwickler und dem Projekt ob dieses Verhalten gewünscht ist.
-Bei einem wechsel auf eine neue Seite sollte die entsprechende Methode allerdings immer das passende PageObject liefern.
+Damit wird das Verketten von Aufrufen ermöglicht.
+Hier liegt es aber am Entwickler und dem Projekt, ob dieses Verhalten gewünscht ist.
+Bei einem Wechsel auf eine neue Seite sollte die entsprechende Methode allerdings immer das passende PageObject liefern.
 
 ### TestBase im Detail
 ```java
@@ -148,21 +146,21 @@ public abstract class TestBase {
 
 }
 ```
-Die Testbase enthält eine before Methode die vor jedem Test ausgeführt wird.
-In der after Methode wird sicher gestellt, dass die driver Variable vor jedem Test geleert wird.
-Wichtig ist darauf zu achten, dass die driver Variable nicht statisch ist. 
+Die Testbase enthält eine before Methode, die vor jedem Test ausgeführt wird.
+In der after Methode wird sichergestellt, dass die driver Variable vor jedem Test geleert wird.
+Wichtig ist, darauf zu achten, dass die driver Variable nicht statisch ist. 
 So wäre es nicht möglich die Tests parallel auszuführen.
 
 In diesem Beispiel wird der RemoteWebDriver initialisiert.
-Dies ist ein Driver um mit dem Selenium Hub kommunizieren zu können. 
+Dies ist ein Driver, um mit dem Selenium Hub kommunizieren zu können. 
 Der Selenium Hub erhält über den RemoteWebDriver die Steuerbefehle und führt diese auf dem Browser aus.
 Welcher Browser verwendet werden soll legen die "Capabilities" fest. 
 In diesem Fall soll der Google Chrome verwendet werden. 
 Es gibt für alle gängingen Browser Capabilities als statischen Aufruf an der Klasse DesiredCapapbilities.
-Neben den Capabilities benötigt der RemoteWebDriver noch die URL zu dem Selenium Hub der verwendet werden soll.
-In diesem Fall ist dies ein Docker Container welcher über den standard Port 4444 erreichbar ist.
+Neben den Capabilities benötigt der RemoteWebDriver noch die URL zu dem Selenium Hub, der verwendet werden soll.
+In diesem Fall ist dies ein Docker Container, welcher über den Standardport 4444 erreichbar ist.
 Wichtig zu beachten!
-Der Selenium Hub muss den angefragten Browser unterstützten damit dieser auch verwendet werden kann.
+Der Selenium Hub muss den angefragten Browser unterstützten, damit dieser auch verwendet werden kann.
 Vorteil dieser Lösung ist, dass das Projekt schnell auf ein Selenium Grid mit vielen verschiedenen Browsern wechseln kann.
 Dazu muss lediglich die URL angepasst werden.
 
@@ -202,13 +200,13 @@ abstract class BasePage {
     }
 }
 ```
-Die BasePage ist die Hauptklasse für jedes PageObject das erzeugt wird. 
-Hier werden Basisfunktionalitäten angeboten die in jedem PageObject meist verwendet werden.
+Die BasePage ist die Hauptklasse für jedes PageObject, das erzeugt wird. 
+Hier werden Basisfunktionalitäten angeboten, die in jedem PageObject meist verwendet werden.
 Dazu zählen z.B. Texteingabe oder das explizite Warten auf Elemente.
-Neben dem Konstruktor sehen wir hier eine "input" Methode zur eingabe von Text an einem WebElement.
+Neben dem Konstruktor sehen wir hier eine "input" Methode zur Eingabe von Text an einem WebElement.
 Außerdem werden Methoden zum Finden von WebElementen angeboten. 
-Es kann vorkommen das WebElemente expilizt gesucht werden müssen oder durch JavaScript verändert werden. 
-Dann können diese Methoden mit explizitem Warten genutzt werden um Elemente auf einer Seite zu finden.
+Es kann vorkommen, dass WebElemente expilizt gesucht werden müssen oder durch JavaScript verändert werden. 
+Dann können diese Methoden mit explizitem Warten genutzt werden, um Elemente auf einer Seite zu finden.
 
 ### PageObject im Detail
 ```java
@@ -260,17 +258,17 @@ public class DemoTestPage extends BasePage {
 
 In diesem Beispiel enthält die Webanwendung zwei PageObject. 
 In der Grafik ist das passende PageObject zu der index.html zu sehen.
-Die annotierten Klassenvariablen werden automatisch befüllt sobald auf diese durch das PageObject zugegriffen wird.
+Die annotierten Klassenvariablen werden automatisch befüllt, sobald auf diese durch das PageObject zugegriffen wird.
 Der Annotation wird dafür jeweils ein Locator übergeben. 
 Für dieses PageObject ist dies meist die ID eines Elementes. 
 Aber auch der TagName oder ein xpath Außdruck ist möglich.
 Auf die WebElemente darf nicht direkt zugegriffen werden. 
 Für jeden aufruf muss der Entwickler eine Methode bereitstellen.
 Bei der Methode "clickButton" ist zu erkennen, dass diese ein anderes PageObject zurück liefert.
-Das hat den Hintergrund sofort zu erkennen, dass hier ein Seitenwechsel stattfindet. 
+Das hat den Hintergrund, sofort zu erkennen, dass hier ein Seitenwechsel stattfindet. 
 In der Testklasse ist dies dann eindeutig zu erkennen.
 In einem PageObject werden somit sämtliche Zugriffe auf eine Webseite gekapselt und den Tests bereitgestelt. 
-Außerdem dürfen in den PageObjects keine Asserts vorgenommen werden um die Wiederverwendbarkeit durch andere Tests nicht einzuschränken.
+Außerdem dürfen in den PageObjects keine Asserts vorgenommen werden, um die Wiederverwendbarkeit durch andere Tests nicht einzuschränken.
 
 ### ExampleTest im Detail`
 ```java
@@ -286,25 +284,25 @@ public class ExampleTest extends TestBase {
 }
 ```
 
-Die Testklasse enthält sehr wenig code.
+Die Testklasse enthält sehr wenig Code.
 Sie ist eher übersichtlich gestalltet und sollte mit aussagekräftigen Methoden versehen werden.
-Da die Testklasse bereits von der TestBase erbt müss sich nicht weiter um die Initialisierung des WebDriver gekümmert werden.
+Da die Testklasse bereits von der TestBase erbt, muss sich nicht weiter um die Initialisierung des WebDriver gekümmert werden.
 Durch den Aufruf einer statischen Methode an dem PageObject "DemoTestPage" wird die Webanwenung in dem Brower geöffnet.
-Da mehrere Eingaben auf dem PageObject erfolgen wird dieses als Methodenvariable abgelegt.
-Nach der eingabe eines Wertes wird der Button geklickt. 
+Da mehrere Eingaben auf dem PageObject erfolgen, wird dieses als Methodenvariable abgelegt.
+Nach der Eingabe eines Wertes wird der Button geklickt. 
 Dieser Aufruf liefert das passende PageObject zu der Result Seite zurück.
 Mit einem Assert wird nun noch geprüft der gewünschte Wert auf der Seite zu erkennen ist.
-Da das Aufräumen bereits in der TestBase erledigt wird ist der Test damit bereits beendet.
+Da das Aufräumen bereits in der TestBase erledigt wird, ist der Test damit bereits beendet.
 
 Die Tests können wie übliche Unit Tests aus der IDE heraus gestartet werden oder über das Failsafe Plugin.
 
 
 # Vorbereitung und Testausführung
 
-Um das Beispiel Projekt bauen und ausführen zu können sind einige Vorbereitungen notwendig. 
+Um das Beispiel Projekt bauen und ausführen zu können, sind einige Vorbereitungen notwendig. 
 Die Virtualisierungslösung Docker ([Install Docker](https://docs.docker.com/install/)) muss installiert und eingerichtet werden.
 Java ([Install Java on Ubuntu](https://dzone.com/articles/installing-openjdk-11-on-ubuntu-1804-for-real)) und Maven ([Install Maven on Linux](https://www.javahelps.com/2017/10/install-apache-maven-on-linux.html)) müssen auf dem Hostsystem vorhanden sein. 
-Bitte darauf achten, dass JAVA_HOME sowie MAVEN_HOME korrekt gesetzt ist.
+Bitte darauf achten, dass JAVA_HOME sowie MAVEN_HOME korrekt gesetzt sind.
 
 Unter Windows kann dieses Projekt nicht ohne weitere Modifikationen ausgeführt werden.
 Ich empfehle hierfür die Verwendung einer virtuellen Maschine mit Linux Betriebssystem.
@@ -315,7 +313,7 @@ Auf MacOs mit installiertem [Docker](https://docs.docker.com/docker-for-mac/inst
 
 Für die Installation und Einrichtung des Docker Deamons empfehle ich einen Blick in die sehr gute Dokumentaion von Docker.
 [docs.docker](https://docs.docker.com/install/linux/docker-ce/ubuntu/)
-Damit es zu keinen Problemen mit den Bereichtigungen kommt sollten noch die Post Installation Steps for Linux ausgeführt werden.
+Damit es zu keinen Problemen mit den Bereichtigungen kommt, sollten noch die Post Installation Steps for Linux ausgeführt werden.
 [Docker Post Intallation](https://docs.docker.com/install/linux/linux-postinstall/)
 
 ## Auschecken des Codes 
@@ -335,7 +333,7 @@ cd selenium-example
 ## Testausführung
 
 Durch folgenden Befehl wird das Projekt erstellt und anschließenden die Selenium Tests ausgeführt.
-(Die erste Ausführung kann länger dauern da sämtliche Abhängigkeiten heruntergeladen werden müssen.)
+(Die erste Ausführung kann länger dauern, da sämtliche Abhängigkeiten heruntergeladen werden müssen.)
 
 ```bash
 mvn clean install
@@ -348,8 +346,8 @@ Wenn alles korrekt eingerichtet wurde, sollte das Ergebnis wie folgt aussehen.
 ## Anmerkungen
 
 In diesem Beispiel wird der Entwickler keinerlei Bewegung auf dem Monitor erkennen. 
-Da der Remotedriver mit dem Selenium Hub im Dockercontainer interagiert ist von den Tests nichts zu bemerken.
-Es besteht jedoch die Möglchkeit eine VNC Verbindung zu dem Docker Container zu öffnen. 
+Da der Remotedriver mit dem Selenium Hub im Dockercontainer interagiert, ist von den Tests nichts zu bemerken.
+Es besteht jedoch die Möglchkeit, eine VNC Verbindung zu dem Docker Container zu öffnen. 
 So ist es möglich die Testausfühurng zu beobachten.
 Dafür kann nach dem Start der Docker Umgebung mittels VNC Client über localhost:5900 auf den Selenium Hub zugegriffen werden.
 Das Passwort für den Zugriff lautet "secret".
@@ -357,7 +355,7 @@ Das Passwort für den Zugriff lautet "secret".
 # Ausblick
 
 In weiteren Blogs möchte ich den Docker Part des Projektes näher beleuchten und wie genau man weitere Tests erstellen kann.
-Außerdem möchte ich gerne bekannte Pitfalls sowie Do's and Dont's ansprechen die mir bereits oft über den Weg gelaufen sind.
+Außerdem möchte ich gerne bekannte Pitfalls sowie Do's and Dont's ansprechen, die mir bereits oft über den Weg gelaufen sind.
 
 
 ### Quellcode auf Github
