@@ -1,6 +1,6 @@
 ---
 layout: [post, post-xml]              					# Pflichtfeld. Nicht ändern!
-title:  "Mehraufwand reduzieren durch Tolerant Reader Pattern"    					# Pflichtfeld. Bitte einen Titel für den Blog Post angeben.
+title:  "Mehraufwand reduzieren durch das Tolerant Reader Pattern"    					# Pflichtfeld. Bitte einen Titel für den Blog Post angeben.
 date:   2020-04-01 09:00             					# Pflichtfeld. Format "YYYY-MM-DD HH:MM". Muss für Veröffentlichung in der Vergangenheit liegen. (Für Preview egal)
 modified_date: 2020-04-01 09:00                         # Optional. Muss angegeben werden, wenn eine bestehende Datei geändert wird.
 author: stefanmueller                 					# Pflichtfeld. Es muss in der "authors.yml" einen Eintrag mit diesem Namen geben.
@@ -13,7 +13,6 @@ Dies erfolgt regelmäßig unter Zuhilfenahme von Schnittstellen, die in der Prax
 Ein gängiger Weg, eine Schnittstelle anzubinden, ist die Verwendung eines Frameworks zur Generierung von Klassen.
 Daneben gibt es das Tolerant Reader Pattern, dass den Mehraufwand, eine Schnittstelle anzubinden, reduzieren kann.
 
-# Mehraufwand reduzieren durch Tolerant Reader Pattern
 In fast jedem Softwareprojekt müssen Systeme mit anderen Systemen und deren Anwendungen kommunizieren. 
 Dies erfolgt regelmäßig unter Zuhilfenahme von Schnittstellen, die in der Praxis unterschiedlich komplex ausfallen. 
 Ein gängiger Weg, eine Schnittstelle anzubinden, ist die Verwendung eines Frameworks zur Generierung von Klassen aus einer XSD-Datei (XML-Schemadefinition). 
@@ -24,10 +23,11 @@ Dies wirkt sich besonders bei einem großen Schema aus, da der initiale Aufwand 
 Je größer das Schema ist, desto mehr Aufwand kann gespart werden. 
 Solange die Schnittstelle nicht verändert wird, funktioniert dieses Vorgehen hervorragend.
  
-> Leider kommt es in der Praxis aber häufig anders…
+Leider kommt es in der Praxis aber häufig anders…
  
 # Never Ending Changes 
-> “Die Schnittstelle ist final.“; „Das ist jetzt die letzte Änderung!“; „Es wird keine weitere Änderung geben.“…
+
+"Die Schnittstelle ist final." - "Das ist jetzt die letzte Änderung!" - "Es wird keine weitere Änderung geben."
 
 Diese bzw. sinngemäße Aussagen kennt sicher jeder, der schon einmal Schnittstellen angebunden hat. Doch regelmäßig kommt es anders. 
 Veränderungen an einer Schnittstelle müssen im Verlauf eines Softwareprojekts häufig vorgenommen werden. 
@@ -62,7 +62,7 @@ Eine Alternative zum oben erläuterten gängigen Verfahren bietet hier das Patte
 Der Einsatz des Tolerant Reader Pattern ist hilfreich bei der Reduzierung des Mehraufwands, indem so tolerant wie möglich von der Schnittstelle gelesen wird: nämlich ausschließlich die Informationen, die auch tatsächlich benötigt werden. 
 Alle weiteren Informationen werden schlicht ignoriert. Ist die Information irrelevant, ist auch keine Anpassung erforderlich. 
 
-### Folgendes Beispiel soll die Vorteile des Tolerant Reader Patterns verdeutlichen: 
+Folgendes Beispiel soll die Vorteile des Tolerant Reader Patterns verdeutlichen.
 In einem Softwareprojekt gibt es eine Schnittstelle mit 100 Feldern, aber lediglich 5 dieser Felder werden tatsächlich benötigt. 
 Bei Einsatz des Tolerant Reader Pattern muss der Reader folglich nur 
 5 Felder einlesen, die anderen 95 werden ignoriert und nicht implementiert. 
@@ -98,6 +98,7 @@ Handelt es sich um eine relevante Änderung, muss lediglich eine minimale Anpass
 Handelt es sich hingegen um eine irrelevante Änderung, ist keine Anpassung notwendig.
  
 # Fazit	
+
 In der Praxis bietet der Einsatz des Tolerant Reader Patterns und des geschilderten Vorgehens also viele Vorteile. 
 Lediglich durch das initiale Aufsetzen entsteht ein geringer Mehraufwand. 
 Die Verwendung ist also in Hinblick auf den erforderlichen Mehraufwand bei Schnittstellenänderungen in jedem Fall eine Überlegung wert. 
