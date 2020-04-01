@@ -8,7 +8,7 @@ categories: [Java, Softwareentwicklung, Methodik]
 ---
 GitHub Actions ist das hauseigene Tool der Open-Source Plattform, um Prozesse in einem Softwareprojekte zu automatisieren.
 In diesem Blogpost wirst du methodisch lernen, wie ein Java-Projekt mit GitHub Actions ausgestattet wird.
-Die Schwerpunkte sind das Projekt bauen lassen, Tests laufen lassen, Statische Codeanalyse und das Erzeugen eines Releases, alles völlig automatisch. 
+Die Schwerpunkte sind das Bauen des Projekts, Testsausführung, statische Codeanalyse und das Erzeugen eines Releases, alles völlig automatisch. 
 
 # Was ist GitHub Actions?
 Diese API wird für öffentliche GitHub-Projekte zur Verfügung gestellt.
