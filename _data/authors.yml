@@ -195,7 +195,7 @@ jo2:
   bio: "Johannes Teklote ist Werkstudent bei adesso in Dortmund und entwickelt Software im Open Source Bereich."
   avatar_url: /assets/images/avatars/johannesteklote.jpg
   github: https://github.com/jo2
-  
+
 frederikschlemmer:
   first_name: Frederik
   last_name: Schlemmer
@@ -285,3 +285,12 @@ stefanmueller:
   bio: "Stefan Müller arbeitet als Software Engineer bei der adesso AG. Sein Fokus liegt auf Java-Technologien. Daneben beschäftigt er sich mit Software-Patterns und Software-Architekturen."
   avatar_url: /assets/images/avatars/mueller_stefan_foto.png
   github: https://github.com/stefanAdesso
+
+dsorna:
+  first_name: Daniel
+  last_name: Sorna
+  github_username: dsorna
+  email: daniel.sorna@adesso.de
+  bio: "Daniel Sorna ist als Werkstudent im Bereich IT-Consulting Insurance bei adesso tätig. Zu seinen Schwerpunkten gehören agile Methoden und Webentwicklung. "
+  avatar_url: /assets/images/avatars/dsorna.jpg
+  github: https://github.com/dsorna
