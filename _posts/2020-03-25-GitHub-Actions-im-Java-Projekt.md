@@ -13,7 +13,7 @@ Die Schwerpunkte sind das Bauen des Projekts, Testsausführung, statische Codean
 
 # Was ist GitHub-Actions?
 Diese API wird für öffentliche GitHub-Projekte zur Verfügung gestellt.
-Dadurch können Workflowschritte definiert werden, die durch GitHub-Events wie einem Pullrequest ausgelöst werden.
+Dadurch können Workflowschritte definiert werden, die durch GitHub-Events wie einem **Pullrequest** ausgelöst werden.
 
 Die Workflowschritte sind demnach vom Code losgelöst und ein Teil des Repositorys. 
 Die eigenen Software Development Practices können erstellt, geteilt, wiederverwendet und geforked werden.
@@ -74,7 +74,7 @@ Das Schlüsselwort ```name``` gibt an, wie das Action später in der Ausführung
 Danach folgt ```on```, was festlegt, auf welche GitHub-Events das Action reagieren soll.
 In den eckigen Klammern folgen die Repositorys, für die, diese Actions gelten sollen.
 
-Normalerweise wird in Softwareprojekten mit Pullrequest gearbeitet, jedoch ist es für Testzwecke in Ordnung auf ```push``` und ```pull_request``` zu hören.
+Normalerweise wird in Softwareprojekten mit **Pullrequest** gearbeitet, jedoch ist es für Testzwecke in Ordnung auf ```push``` und ```pull_request``` zu hören.
 Welche weiteren Event-Typen es gibt, kann unter der dafür vorhandenen [Dokumentation](https://help.github.com/en/actions/reference/events-that-trigger-workflows) nachgesehen werden.
 
 Anschließend beginnt der Workflow, der auch aus ein oder mehreren Workflowschritten bestehen kann.
@@ -84,9 +84,12 @@ Nun folgen die einzelnen Jobs, wobei ```build``` den Namen des einzigen Workflow
 
 Mit ```steps``` wird eine Folge von Schritten definiert, die für diesen Job benötigt werden.
 Als nächstes wird das Repository mit ```- uses: actions/checkout@v2``` ausgecheckt, damit es für den Job benutzt werden kann.
+
 Nachdem das Repository ausgecheckt wurde, wird mit den nächsten drei Zeilen das Java SDK gesetzt.
 Für dieses Projekt wurde Java 13 verwendet, weshalb die Zahl bei ```java-version``` von _1.8_ auf **13** geändert wurde.
+
 Der Job braucht wiederum Rechte, um den danach folgenden Befehl ausführen zu können, daher werden diese mit ```run: chmod +x gradlew``` eingeholt.
+
 Im letzten Schritt der Action wird das Gradle-Projekt mit ```./gradlew build``` gebaut.
 
 ![Bild des Ergebnisses des Gradle Builds](/assets/images/posts/github-actions/gradle-build-result.JPG)
@@ -102,7 +105,9 @@ In diesem Abschnitt wird die bereits erstellte Action um einen weiteren Job erwe
 Dieser kommt direkt nach ```build``` und wird namensgebend ```test``` heißen.
 Für diesen Job müssen wieder die bekannten Schritte durchgeführt werden.
 Das Projekt muss ausgecheckt, mit Java 13 gebaut und mit Rechten versorgt werden.
+
 Das einzige was sich vom voherigen Job unterscheidet ist der Gradle Befehl, denn dieses mal wird ```./gradlew test``` ausgeführt.
+
 Als Referenz dient das [Projekt](https://github.com/adessoAG/github-actions/) des Blogposts, welches unter dem GitHub Account von der adesso SE auffindbar ist. 
 Anschließend erweitert sich die Action um die folgenden Codezeilen.
 ```yaml
@@ -124,44 +129,52 @@ test:
 ### Statische Codeanalyse mit PMD
 Einer der weiteren Kernaspekte dieses Blogposts ist die Analyse eines Java-Projekts mittels statischer Codeanalyse.
 Statische Code Analyse bedeutet, dass ein Tool nach typischen Codemustern sucht und dadurch die Codequalität stark verbessert.
-Als Optionen standen CheckStyle, FindBugs und PMD zur Auswahl. 
-Für unseren Anwendungsfall eignet sich PMD am besten, denn CheckStyle ist rein für die Formatierung zuständig.
-FindBugs hat zwar einen größeren Funktionsumfang und findet typische Muster, wie infinite Loops usw.
-Jedoch besitzt PMD den größten Funktionsumfang und eignet sich daher am besten zum Zeigen.
-GitHub-Actions hat einen eigenen Marketplace, ähnlich wie eine Art iOS oder Google Play Store.
+Als beispielhaftes Tool wird PMD verwendet, was einen großen Funktionsumfang hat.
+
+GitHub-Actions hat einen eigenen Marketplace, indem nach **Community-Contributions** gesucht werden kann.
 Dort kann der Nutzer nach Actions suchen die er für nützlich empfindet und einige davon haben einen Verifizierungshaken.
+
 Nach einer kurzen Google-Recherche fand ich heraus, dass es für PMD schon eine [Community-Action](https://github.com/marketplace/actions/pmd-source-code-analyzer-action) gab und dieser sogar einige Sterne auf GitHub hatte.
 Das Beispiel funktioniert problemlos, jedoch fehlte der Checkout des Repositorys.
-Der Folgende Ausschnitt der YML zeigt was hinzugefügt wurde.
+
+Der Folgende Ausschnitt zeigt was hinzugefügt wurde.
 ```yaml
 pmd:
     
     runs-on: ubuntu-latest
     
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v2 #fehlte im ursprünglichen Action
     - uses: sfdx-actions/setup-pmd@v1
     - name: PMD Source Code Analyzer Action
       run: pmd -d ./src/main/java -f text -R category/java/bestpractices.xml/UnusedLocalVariable -language java -version 13
 
 ```
-Wir erstellen einen neuen Job namens ```pmd```. 
+Wir erstellen einen neuen Job namens ```pmd```.
+
 Dieser hat wieder einen Runner, der essenziell ist, ohne diesen funktioniert ein Job nicht.
+
 Zuerst wird das Repository ausgecheckt und danach wird das Community-Action verwendet.
+
 Im ```run``` wird ```pmd``` aufgerufen mit einem ```-d``` was den Pfad angibt, auf die das RuleSet ausgeführt werden soll.
 Das Format des Ergebnisses wird  mit -f angegeben, da wird alles auf GitHub benötigen ist text die beste Wahl.
 Das RuleSet wird mit -R und allen Regeln definiert, diese können in der offiziellen [Dokumentation](https://pmd.github.io/latest/pmd_rules_java.html#best-practices) von PMD gefunden werden.
 Am Ende wird noch die Programmiersprache und dessen Version festgelegt.
+
 Als der Job positiv durchlief, habe ich zum Testen eine ungenutze lokale Variable angelegt und die erwartete Fehlermeldung kam auch.
 ![Bild des Fehlgeschlagenen PMD-Checks](/assets/images/posts/github-actions/local-variable-fail.JPG)
 
 ### Release erzeugen
 Als Letztes werden wir automatisiert einen Release erzeugen lassen.
-Hierfür suchen wir wieder im Marketplace nach einer passenden Action.
-Es gibt bereits [Create A Release](https://github.com/actions/create-release), die verifiziert von GitHub selbst kommt.
+
+Hierfür durchsuchen wir wieder den Marketplace nach einer passenden Action.
+
+Es gibt bereits [Create A Release](https://github.com/actions/create-release), das verifiziert und von GitHub selbst erstellt wurde.
+
 Nach näherer Betrachtung des vorgegeben Beispiels kann es problemlos angewandt werden.
-Hierfür wird ein neuer Workflow erstellt der nur den Job der Release erstellung beinhaltet.
-Das wird erstellt da er neben dem Eventtypen auch auf den Tag des Push/Pullrequests achten soll.
+
+Hierfür wird ein neuer Workflow erstellt der nur den Job der Release-Erstellung beinhaltet.
+Ein eigener Workflow hierfür wird erstellt da er neben dem Event-Typen auch auf den Tag eines **Push** oder **Pullrequests** achten soll.
 ```yaml
 on:
   push:
@@ -193,26 +206,43 @@ jobs:
           draft: false
           prerelease: false
 ```
-Als Erstes muss wieder der Eventtyp angegeben werden, optional kann auch ein Branch gegeben werden, wenn keiner angegeben ist, gilt diese Action für alle.
-Anschließend auf welche getaggten pushs reagiert werden soll ```v*```, bedeutet das alles was mit dem Buchstaben v startet einen Release erzeugt.
+Als Erstes muss wieder der Event-Typ angegeben werden, optional kann auch ein Branch gegeben werden, wenn keiner angegeben ist, gilt diese Action für alle.
+
+Anschließend auf welche Tags reagiert werden soll ```v*```, bedeutet das alles was mit dem Buchstaben v startet einen Release erzeugt.
+
 Beispielsweise v1.0, v1.0.0 oder weitere, die diesem Muster entsprechen.
+
+*Wie Patterns auf GitHub gehandhabt werden, kannst du [hier](https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#filter-pattern-cheat-sheet) nachschauen.* 
+
 Wieder wird der Runner und der bekannte Step ausgeführt um das Repository zu bekommen.
+
 Danach wird die Action zum Release erzeugen aufgerufen, diese benötigt eine Umgebungsvariable die sich GitHub selbst erstellt, hier muss also kein Token selbst erzeugt werden.
 Den Tag-Namen und den Release-Name setzt bzw. holt sich GitHub selbst vom Commit.
 Im Body steht dann der textuelle Inhalt des Releases.
+
 Der Draft gibt an, ob der Release published _(true)_ oder unpublished _(false)_ sein soll.
+
 Der Wert des Prerelease Attributs legt fest, ob es sich um einen vollwertigen eigenständigen Release handelt oder einen Prerelease.
+
 Anschließend sieht der Release wie folgt aus.
+
 ![Bild des Releases](/assets/images/posts/github-actions/release.JPG)
+
 Die Workflows werden in der Oberfläche separiert aufgelistet.
+
 ![Bild der Workflows](/assets/images/posts/github-actions/workflows.JPG)
+
 Und als Abschluss eine kleine visuelle Darstellung der drei Jobs in der Oberfläche des Workflows.
+
 ![Bild aller Jobs](/assets/images/posts/github-actions/all-actions.JPG)
 
 ## Mein Fazit
-Ich finde GitHub-Actions ist ein muss bei Anwendungen, die sowieso auf der Plattform GitHub verwaltet werden, insbesondere im Open Source Bereich.
+Ich finde GitHub-Actions ist ein muss bei Anwendungen, die sowieso auf GitHub verwaltet werden, insbesondere im Open Source Bereich.
+
 Einige der größten Vorteile sind, dass es eine sehr detaillierte Dokumentation gibt, es einfach zu verstehen ist und einen Marketplace besitzt, wo die Community zu beitragen kann.
+
 Der Funktionsumfang ist gigantisch und jeder, dessen Interesse erweckt wurde, sollte sich die Dokumentation genauer anschauen.
 Denn dieser Blogpost dient lediglich als Guide um zu zeigen wie einfach CI/CD Prozesse mit Actions realisiert werden können. 
+
 Außerdem ist es schön, dass Actions vom Repository, also vom Code, getrennt sind.
 Natürlich werden die Dateien mit ins Repository gepusht, aber die Erstellung dieser erfolgt in der Oberfläche von GitHub.
