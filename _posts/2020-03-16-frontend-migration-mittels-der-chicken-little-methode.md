@@ -35,11 +35,16 @@ Daher wurde auch die Entscheidung getroffen, eine *Frontend-Migration* durchzuf�
 Schlussendlich demonstriert dieses Beispiel aber auch das breite Einsatzgebiet dieser Methode. Sie lässt sich flexibel für entweder nur eine Migrationsart (Programm-, Benutzerschnittstellen- und/oder Datenmigration) oder eine Kombination dieser einsetzen. Eine vollständige Systemmigration, die sämtliche Bereiche umfasst, ist aber auch möglich.
 
 # Die Migration
-
 In diesem Abschnitt erfolgt die Migration der zuvor beschriebenen Anwendung.
-Da hier zunächst nur das Frontend migriert werden soll, entfallen von den ursprünglich [elf Schritten](/_posts/2020-03-16-inkrementelle-softwaremigration-nach-der-chicken-little-methode.md#die-chicken-little-methode) der **Chicken-Little-Methode**, all jene Punkte, die sich auf die Bereiche **Programme und Anwendungen** sowie die **Datenhaltung** beziehen.
+Da sich das Migrationsvorhaben in diesem Beispiel auf das Frontend beschränkt, reduziert sich in der Folge auch die Anzahl der durchzuführenden [Migrations-Schritte]((/_posts/2020-03-16-inkrementelle-softwaremigration-nach-der-chicken-little-methode.md#die-chicken-little-methode)) der **Chicken-Little-Methode**.
+So entfallen sämtliche Punkte, die sich auf die Migration der **Programme und Anwendungen** sowie der **Datenbank** beziehen.  
 
-Übrig bleiben also lediglich noch die **Analyse** _(Schritt 1)_ sowie die **Strukturierung** _(Schritt 2)_ des Altsystems, der **Entwurf** und die **Installation der Zielumgebung** _(Schritt 3 + 6)_ und die **Installation der benötigten Schnittstellen** _(Schritt 7)_ sowie die abschließende **Migration und Umstellung** auf die Neuentwicklung _(Schritt 10 + 11)_.
+Übrig bleiben also nur noch die im Folgenden aufgeführten Schritte:
+
+- **Analyse** _(Schritt 1)_ sowie die **Strukturierung** _(Schritt 2)_ des Altsystems, 
+- der **Entwurf** und die **Installation der Zielumgebung** _(Schritt 3 + 6)_,
+- die **Installation der benötigten Schnittstellen** _(Schritt 7)_
+- sowie die abschließende **Migration und Umstellung** auf die Neuentwicklung _(Schritt 10 + 11)_.
 
 ## Analyse und Strukturierung
 
