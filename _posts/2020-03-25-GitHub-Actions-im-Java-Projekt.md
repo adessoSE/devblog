@@ -13,14 +13,14 @@ Die Schwerpunkte sind das Bauen des Projekts, Testsausführung, statische Codean
 
 # Was ist GitHub-Actions?
 Diese API wird für öffentliche GitHub-Projekte zur Verfügung gestellt.
-Dadurch können Workflowschritte definiert werden, die durch GitHub-Events wie einem **Pullrequest** ausgelöst werden.
+Dadurch können Workflowschritte definiert werden, die durch GitHub-Events, wie einem **Pullrequest** ausgelöst werden.
 
-Die Workflowschritte sind demnach vom Code losgelöst und ein Teil des Repositorys. 
+Die Workflowschritte sind demnach vom Code losgelöst sowie ein Teil des Repositorys. 
 Die eigenen Software Development Practices können erstellt, geteilt, wiederverwendet und geforked werden.
 
 Danach übernimmt GitHub die Ausführung und gibt ein umfangreiches Feedback zurück.
 Außerdem wird eine plattformunabhängige Automatisierung der Build-, Test-, und Deploy-Schritte ermöglicht.
-Die Ausführung kann unter den gängigen Betriebssystemen Windows, macOS und Windows durchgeführt werden.
+Die Ausführung kann unter den gängigen Betriebssystemen Windows, macOS und Linux durchgeführt werden.
 Zudem kannst du festlegen, ob die Workflows in einem Container oder in einer virtuellen Maschine ausgeführt werden sollen.
 
 ## Erzeugung des Java Projekts
@@ -32,7 +32,7 @@ Um Actions in der Oberfläche von GitHub aufzurufen gibt es im Repository den Re
 
 ![Bild vom Actions Reiter](/assets/images/posts/github-actions/actions-tab.JPG)
 
-Angekommen in den Actions kriegen wir vom intuitiven System eine Menge bereits definierter Actions, die **out of the box** kommen.
+Angekommen in den Actions, kriegen wir vom intuitiven System eine Menge bereits definierter Actions, die **out of the box** kommen.
 Namhafte Sprachen und Frameworks werden direkt unterstützt.
 Zum Herumexperimentieren von Actions gibt GitHub dem Benutzer einen kleinen Appell zu einer Starter-Action.
 
@@ -44,7 +44,8 @@ Diese Action wird im späteren Verlauf dieses Blogposts als Grundlage für die a
 
 ![Bild des Gradle-Build-Actions](/assets/images/posts/github-actions/gradle-build-action.JPG)
 
-Im Folgenden wird der Codeblock der Action genauer betrachtet und die einzelnen Werte werden genauer erklärt, wieso und wofür diese da sind und was sie bewirken.
+Im Folgenden wird der Codeblock der Action genauer betrachtet.
+Weiterhin werden die einzelnen Werte genauer erklärt, wieso und wofür diese da sind und was sie bewirken.
 ```yaml
 name: Spring Boot
 
@@ -72,7 +73,7 @@ jobs:
 ```
 Das Schlüsselwort ```name``` gibt an, wie das Action später in der Ausführung bzw. in der Oberfläche heißen soll.
 Danach folgt ```on```, was festlegt, auf welche GitHub-Events das Action reagieren soll.
-In den eckigen Klammern folgen die Repositorys, für die, diese Actions gelten sollen.
+In den eckigen Klammern folgen die Repositorys, für die diese Actions gelten sollen.
 
 Normalerweise wird in Softwareprojekten mit **Pullrequest** gearbeitet, jedoch ist es für Testzwecke in Ordnung auf ```push``` und ```pull_request``` zu hören.
 Welche weiteren Event-Typen es gibt, kann unter der dafür vorhandenen [Dokumentation](https://help.github.com/en/actions/reference/events-that-trigger-workflows) nachgesehen werden.
@@ -80,7 +81,8 @@ Welche weiteren Event-Typen es gibt, kann unter der dafür vorhandenen [Dokument
 Anschließend beginnt der Workflow, der auch aus ein oder mehreren Workflowschritten bestehen kann.
 Je nach Konfiguration werden diese sequenziell oder parallel abgearbeitet.
 
-Nun folgen die einzelnen Jobs, wobei ```build``` den Namen des einzigen Workflowschritt angibt, zudem wird mit ```runs-on``` angegeben, auf welchem Betriebssystem dieser ausgeführt werden soll.
+Nun folgen die einzelnen Jobs, wobei ```build``` den Namen des einzigen Workflowschritt angibt.
+Zudem wird mit ```runs-on``` angegeben, auf welchem Betriebssystem dieser ausgeführt werden soll.
 
 Mit ```steps``` wird eine Folge von Schritten definiert, die für diesen Job benötigt werden.
 Als nächstes wird das Repository mit ```- uses: actions/checkout@v2``` ausgecheckt, damit es für den Job benutzt werden kann.
@@ -152,14 +154,18 @@ pmd:
 ```
 Wir erstellen einen neuen Job namens ```pmd```.
 
-Dieser hat wieder einen Runner, der essenziell ist, ohne diesen funktioniert ein Job nicht.
+Dieser hat wieder einen Runner, der essenziell ist.
+Ohne diesen funktioniert ein Job nicht.
 
-Zuerst wird das Repository ausgecheckt und danach wird das Community-Action verwendet.
+Zuerst wird das Repository ausgecheckt.
+Danach wird das Community-Action verwendet.
 
-Im ```run``` wird ```pmd``` aufgerufen mit einem ```-d``` was den Pfad angibt, auf die das RuleSet ausgeführt werden soll.
-Das Format des Ergebnisses wird  mit -f angegeben, da wird alles auf GitHub benötigen ist text die beste Wahl.
-Das RuleSet wird mit -R und allen Regeln definiert, diese können in der offiziellen [Dokumentation](https://pmd.github.io/latest/pmd_rules_java.html#best-practices) von PMD gefunden werden.
-Am Ende wird noch die Programmiersprache und dessen Version festgelegt.
+Im ```run``` wird ```pmd``` aufgerufen mit einem ```-d```, was den Pfad angibt, auf die das RuleSet ausgeführt werden soll.
+Das Format des Ergebnisses wird  mit ```-f``` angegeben.
+Da wir die Ausgabe des Ergebnisses in texuteller Form bzw. direkt in den GitHub-Logs benötigen, ist ```text``` die richtige Option.
+Das RuleSet wird mit ```-R``` und allen Regeln definiert.
+Außerdem können diese in der offiziellen [Dokumentation](https://pmd.github.io/latest/pmd_rules_java.html#best-practices) von PMD gefunden werden.
+Zum Ende wird noch die Programmiersprache und dessen Version festgelegt.
 
 Als der Job positiv durchlief, habe ich zum Testen eine ungenutze lokale Variable angelegt und die erwartete Fehlermeldung kam auch.
 ![Bild des Fehlgeschlagenen PMD-Checks](/assets/images/posts/github-actions/local-variable-fail.JPG)
@@ -171,10 +177,10 @@ Hierfür durchsuchen wir wieder den Marketplace nach einer passenden Action.
 
 Es gibt bereits [Create A Release](https://github.com/actions/create-release), das verifiziert und von GitHub selbst erstellt wurde.
 
-Nach näherer Betrachtung des vorgegeben Beispiels kann es problemlos angewandt werden.
+Nach näherer Betrachtung des vorgegeben Beispiels, kann es problemlos angewandt werden.
 
-Hierfür wird ein neuer Workflow erstellt der nur den Job der Release-Erstellung beinhaltet.
-Ein eigener Workflow hierfür wird erstellt da er neben dem Event-Typen auch auf den Tag eines **Push** oder **Pullrequests** achten soll.
+Hierfür wird ein neuer Workflow erstellt, der nur den Job der Release-Erstellung beinhaltet.
+Ein eigener Workflow ist sinnvoll, da er neben dem Event-Typen auch auf den Tag eines **Push** oder **Pullrequests** achten soll.
 ```yaml
 on:
   push:
@@ -206,9 +212,11 @@ jobs:
           draft: false
           prerelease: false
 ```
-Als Erstes muss wieder der Event-Typ angegeben werden, optional kann auch ein Branch gegeben werden, wenn keiner angegeben ist, gilt diese Action für alle.
+Als Erstes muss wieder der Event-Typ angegeben werden.
+Optional kann auch ein Branch gegeben werden.
+Wenn keiner angegeben ist, gilt diese Actions für alle.
 
-Anschließend auf welche Tags reagiert werden soll ```v*```, bedeutet das alles was mit dem Buchstaben v startet einen Release erzeugt.
+Anschließend wird angeordnet, auf welche Tags reagiert werden soll ```v*```, bedeutet das alles was mit dem Buchstaben v startet einen Release erzeugt.
 
 Beispielsweise v1.0, v1.0.0 oder weitere, die diesem Muster entsprechen.
 
@@ -216,7 +224,9 @@ Beispielsweise v1.0, v1.0.0 oder weitere, die diesem Muster entsprechen.
 
 Wieder wird der Runner und der bekannte Step ausgeführt um das Repository zu bekommen.
 
-Danach wird die Action zum Release erzeugen aufgerufen, diese benötigt eine Umgebungsvariable die sich GitHub selbst erstellt, hier muss also kein Token selbst erzeugt werden.
+Danach wird die Action zum Release erzeugen aufgerufen.
+Diese benötigt eine Umgebungsvariable, die sich GitHub selbst erstellt. 
+Dementsprechend muss hier kein Token selbst erzeugt werden.
 Den Tag-Namen und den Release-Name setzt bzw. holt sich GitHub selbst vom Commit.
 Im Body steht dann der textuelle Inhalt des Releases.
 
@@ -232,17 +242,18 @@ Die Workflows werden in der Oberfläche separiert aufgelistet.
 
 ![Bild der Workflows](/assets/images/posts/github-actions/workflows.JPG)
 
-Und als Abschluss eine kleine visuelle Darstellung der drei Jobs in der Oberfläche des Workflows.
+Zum Schluss eine kleine visuelle Darstellung der drei Jobs in der Oberfläche des Workflows.
 
 ![Bild aller Jobs](/assets/images/posts/github-actions/all-actions.JPG)
 
 ## Mein Fazit
 Ich finde GitHub-Actions ist ein muss bei Anwendungen, die sowieso auf GitHub verwaltet werden, insbesondere im Open Source Bereich.
 
-Einige der größten Vorteile sind, dass es eine sehr detaillierte Dokumentation gibt, es einfach zu verstehen ist und einen Marketplace besitzt, wo die Community zu beitragen kann.
+Einige der größten Vorteile sind, dass es eine sehr detaillierte Dokumentation gibt, es einfach zu verstehen.
+Des Weiteren gibt es einen Marketplace, zu dem die Community beitragen kann.
 
 Der Funktionsumfang ist gigantisch und jeder, dessen Interesse erweckt wurde, sollte sich die Dokumentation genauer anschauen.
-Denn dieser Blogpost dient lediglich als Guide um zu zeigen wie einfach CI/CD Prozesse mit Actions realisiert werden können. 
+Denn dieser Blogpost dient lediglich als Guide, um zu zeigen wie einfach CI/CD Prozesse mit Actions realisiert werden können. 
 
 Außerdem ist es schön, dass Actions vom Repository, also vom Code, getrennt sind.
 Natürlich werden die Dateien mit ins Repository gepusht, aber die Erstellung dieser erfolgt in der Oberfläche von GitHub.
