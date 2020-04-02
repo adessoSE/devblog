@@ -14,7 +14,7 @@ In diesem Blogbeitrag werfen wir einen genaueren Blick auf die Graphdatenbank Ne
 
 Obwohl jeder, der Interesse an Graphdatenbanken hat, den Konzepten folgen und sie anderswo anwenden kann, empfehle ich, dass Ihr zumindest einige Erfahrungen mit Neo4j und seiner Abfragesprache habt. 
 Falls Ihr mit Neo4j noch nicht vertraut seid, 
-lohnt es sich den Artikel [Neo4j – Ein Einblick in die Welt der Graphdatenbanken](https://www.adesso.de/de/news/blog/neo4j-ein-einblick-in-die-welt-der-graphdatenbanken-3.jsp) von Shahin Sanayei durchzulesen.
+lohnt es sich, den Artikel [Neo4j – Ein Einblick in die Welt der Graphdatenbanken](https://www.adesso.de/de/news/blog/neo4j-ein-einblick-in-die-welt-der-graphdatenbanken-3.jsp) von Shahin Sanayei durchzulesen.
 Aufgrund der Popularität des Spring Frameworks werden die meisten von euch wahrscheinlich auf Neo4j in Form von Spring-Data-Neo4j stoßen, daher werden wir auch auf dessen Vorteile und Grenzen eingehen.
 
 ## Ist mein Modell optimal?
@@ -56,7 +56,7 @@ Die Ausführung der zweiten Abfrage im Neo4j-Profiler zeigt, dass er fast die H�
 Diese Verbesserung wird natürlich mit zunehmendem Datensatz skalieren. 
 Der wesentliche Aspekt dieses Beispiels ist, dass man bei der Entwicklung des Modells auf die Zusammenhänge zwischen Daten achten sollte.
 Unser primäres Ziel sollte es nicht sein, dass die Graphen in der Visualisierung "schön" aussehen (obwohl ein einfacher Graph helfen kann, das Modell zu verstehen). 
-Man sollte sich überlegen welche Abfragen auf den Daten auszuführen sind, diese vorher in Cypher aufschreiben und über mögliche Randfälle nachdenken, 
+Man sollte sich überlegen, welche Abfragen auf den Daten auszuführen sind, diese vorher in Cypher aufschreiben und über mögliche Randfälle nachdenken, 
 die das aktuelle Modell kapput machen oder die Abfragen verlangsamen.
 
 ## Sind meine Queries optimal?
@@ -67,7 +67,7 @@ Im Allgemeinen wollen wir, genau wie bei SQL, die Datenmenge in jeder Subquery s
 Alles, was die Anzahl der zurückgegebenen Zeilen reduziert, wird in den meisten Fällen die Performance verbessern. 
 Dies kann auf verschiedene Weisen erreicht werden:
 
-* das Vermeiden von Kartesische Produkte - Man soll darauf achten, wie Ergebnisse von Subqueries behandelt werden um unnötige Arbeit zu sparen. 
+* das Vermeiden von Kartesische Produkte - Man soll darauf achten, wie Ergebnisse von Subqueries behandelt werden, um unnötige Arbeit zu sparen. 
     Zum Beispiel, um die Anzahl von Projekte und Benutzer zu bekommen, sollte man 
     ```graphql
     MATCH (p:Project) WITH count(p) as countProjects MATCH (u:User) RETURN countProjects, count(u)
@@ -85,7 +85,7 @@ Eine weitere Möglichkeit, Queries zu beschleunigen, besteht darin, dem Neo4j Qu
 Das kann man machen, indem man:
 
 * Indizes benutzt: 
-    Das Platzieren von Indizes auf bestimmten Knoten bewirkt, dass Neo4j diese Knoten zwischenspeichert, so dass sie bei Bedarf schneller gefunden werden können. 
+    Das Platzieren von Indizes auf bestimmten Knoten bewirkt, dass Neo4j diese Knoten zwischenspeichert, sodass sie bei Bedarf schneller gefunden werden können. 
     Im obigen Beispiel möchten wir vielleicht einen Index auf die Knoten `ProjectEntity` und `UserEntity` setzen, 
     da diese Knoten höchstwahrscheinlich der Ausgangspunkt für die meisten Abfragen in unserer Anwendung sein werden. 
     Man muss jedoch vorsichtig sein, da das Platzieren von Indizes auf dem falschen Knoten nach hinten losgehen und zu Verlangsamungen führen kann.
@@ -173,7 +173,7 @@ Mit den Standardmethoden (<code class="highlight language-java">findById(), dele
 der bestimmt, wie tief die Graphen, die man erhält/speichert, sein werden. 
 Ich habe festgestellt, dass diese Repositorien gut für grundlegende CRUD-Operationen sind, aber zu wenig Flexibilität und Leistung für komplexe Abfragen anbieten. 
 Man kann eine Methode jedoch mit der Annotation `@Query` annotieren und die Queries manuell schreiben. 
-Dies hat den Vorteil, dass man genau festlegen kann, welche Teile des Graphen man haben möchte, sowie die Möglichkeit Abfragen auch in der Neo4j-Weboberfläche profilen und anpassen zu können.
+Dies hat den Vorteil, dass man genau festlegen kann, welche Teile des Graphen man haben möchte, sowie die Möglichkeit, Abfragen auch in der Neo4j-Weboberfläche profilen und anpassen zu können.
 
 Insgesamt ist diese Obeject-Graph Mapping-Ebene sehr nützlich und vereinfacht und beschleunigt die Entwicklung erheblich. 
 Leider ist dieser Komfort mit Kosten verbunden. 
