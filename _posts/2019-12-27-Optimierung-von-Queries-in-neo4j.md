@@ -52,7 +52,7 @@ Dann können wir die Abfrage hierauf vereinfachen:
 MATCH (u:User)-[:IS_ASSIGNED_TO {projectId: 61}]->(t:Task) WHERE ID(u) = 60 RETURN t
 ```
 
-Die Ausführung der zweiten Abfrage im Neo4j-Profiler zeigt, dass er fast die Hälfte der DB-Hits auf dem gleichen Datensatz verursacht, da wir keine Projektknoten mehr durchlaufen müssen.
+Die Ausführung der zweiten Abfrage im Neo4j-Profiler zeigt, dass die Datenbank fast um die Hälfte weniger machen muss, da wir keine Projektknoten mehr durchlaufen müssen.
 Diese Verbesserung wird natürlich mit zunehmendem Datensatz skalieren. 
 Der wesentliche Aspekt dieses Beispiels ist, dass man bei der Entwicklung des Modells auf die Zusammenhänge zwischen Daten achten sollte.
 Unser primäres Ziel sollte es nicht sein, dass die Graphen in der Visualisierung "schön" aussehen (obwohl ein einfacher Graph helfen kann, das Modell zu verstehen). 
@@ -168,10 +168,10 @@ Bitte beachtet, dass Neo4j keine maximale Zeichenkettenlänge hat.
 Das bedeutet, dass man (sehr) große Zeichenketten als Properties speichern kann, aber im Normalfall sollte man das nicht tun, da es nicht performancefreundlich ist. 
 Mehr darüber, wie das Speichern von Zeichenketten intern abläuft, findet man [hier](https://neo4j.com/docs/operations-manual/current/performance/property-compression/).
 
-Man kann Repositories auch wie in SD-JPA anlegen, indem man Interfaces erstellt, die die Interface des `Neo4jRepository` erweitern.
+Man kann Repositories auch wie in SD-JPA anlegen, indem man Interfaces erstellt, die das Interface `Neo4jRepository` erweitern.
 Mit den Standardmethoden (<code class="highlight language-java">findById(), delete(), save()</code> usw.) kann man einen zusätzlichen Tiefenparameter angeben, 
 der bestimmt, wie tief die Graphen, die man erhält/speichert, sein werden. 
-Ich habe festgestellt, dass diese Repositorien gut für grundlegende CRUD-Operationen sind, aber zu wenig Flexibilität und Leistung für komplexe Abfragen anbieten. 
+Ich habe festgestellt, dass diese Repositories gut für grundlegende CRUD-Operationen sind, aber zu wenig Flexibilität und Leistung für komplexe Abfragen anbieten. 
 Man kann eine Methode jedoch mit der Annotation `@Query` annotieren und die Queries manuell schreiben. 
 Dies hat den Vorteil, dass man genau festlegen kann, welche Teile des Graphen man haben möchte, sowie die Möglichkeit, Abfragen auch in der Neo4j-Weboberfläche profilen und anpassen zu können.
 
@@ -183,6 +183,6 @@ Das Framework ist definitiv nicht geeignet, um mehrere Millionen Knoten gleichze
 ## Fazit
 
 Ich hoffe, dass ich Euch zumindest eine allgemeine Vorstellung gegeben habe, wie man Queries optimieren und ihre Performance verbessern kann. 
-Ich habe es in diesem Artikel vermieden, aus Gründen der Einfachheit, überkomplexe Graphen/Queries zu präsentieren.
+Ich habe es in diesem Artikel aus Gründen der Einfachheit vermieden, überkomplexe Graphen/Queries zu präsentieren.
 Ich weiß, dass "echte" Domänenmodelle um ein Vielfaches komplexer sind als die von mir vorgestellten Beispiele, 
 aber die Konzepte bleiben gültig und sollten Euch auf den richtigen Weg bringen, um Schwachstellen zu beseitigen. 
