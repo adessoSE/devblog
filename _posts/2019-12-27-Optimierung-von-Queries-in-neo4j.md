@@ -67,8 +67,8 @@ Im Allgemeinen wollen wir, genau wie bei SQL, die Datenmenge in jeder Subquery s
 Alles, was die Anzahl der zurückgegebenen Zeilen reduziert, wird in den meisten Fällen die Performance verbessern. 
 Dies kann auf verschiedene Weisen erreicht werden:
 
-* das Vermeiden von Kartesische Produkte - Man soll darauf achten, wie Ergebnisse von Subqueries behandelt werden, um unnötige Arbeit zu sparen. 
-    Zum Beispiel, um die Anzahl von Projekte und Benutzer zu bekommen, sollte man 
+* das Vermeiden von Kartesischen Produkten - Man sollte darauf achten, wie Ergebnisse von Subqueries behandelt werden, um unnötige Arbeit zu sparen. 
+    Zum Beispiel, um die Anzahl von Projekten und Benutzern zu bekommen, sollte man 
     ```graphql
     MATCH (p:Project) WITH count(p) as countProjects MATCH (u:User) RETURN countProjects, count(u)
     ``` 
