@@ -2,7 +2,7 @@
 layout: [post, post-xml]             
 title:  "Inkrementelle Softwaremigration nach der Chicken-Little-Methode"
 date:   2020-03-16 01:23             
-modified_date:  2020-03-16 16:00
+modified_date:  2020-03-06 16:00
 author: mschick                     
 categories: [Methodik]                   
 tags: [Migration, Softwaremigration, Legacy Software, Maintenance]  
@@ -139,22 +139,40 @@ In den **Schritten 7-10** erfolgt die eigentliche Migration der einzelnen Bestan
 
 Mit der nächsten zu migrierenden Komponente, wird das oben beschriebene Prozedere erneut durchgelaufen, bis schlussendlich die Migration mit der letzten Migration vollständig abgeschlossen ist. 
 
-Die nachfolgende Tabelle gibt nochmals einen Überblick über die jeweils zu durchlaufenden Schritte: 
+Die nachfolgende Auflistung gibt nochmals einen Überblick über die jeweils zu durchlaufenden Schritte: 
 
-Schritt                                   | Beschreibung
-------------------------------------------|--------------------------------
-| 1.  **Altsystem Analyse**               | In diesem Schritt werden einzelne, für die Migration geeignete Komponenten ausgemacht
-| 2.  **Strukturierung des Altsystems**   | Ggf. vorhandene Abhängigkeiten zu anderen Komponenten werden hier vor der Migration aufgelöst.
-| 3.  **Entwurf der Ziel-Interfaces**     | Entwurf der Benutzerschnittstellen sowie Definition notwendiger Gateways
-| 4.  **Entwurf der Ziel-Anwendungen**    | Übernahme oder Reimplementierung der Funktionalitäten 
-| 5.  **Entwurf der Ziel-Datenbank**      | In diesem Schritt erfolgen Anpassungen an der Datenbank
-| 6.  **Installation d. Zielumgebung**    | Installation der Ziel- und Entwicklungsumgebung
-| 7.  **Gateway Installation**            | Implementierung der benötigten Gateways
-| 8.  **Migration der Datenbank**         | Installation und anschließende Migration der Daten in die neue Zieldatenbank
-| 9.  **Migration der Anwendungen**       | Einzelne Programme und Anwendungen werden in der Zielumgebung implementiert
-| 10. **Migration der Benutzerobflächen** | Migration der Benutzeroberfläche
-| 11. **Umstellung auf Neusystem**        |  Umstellung auf die migrierten Bestandsteile  
+1.  **Altsystem Analyse**  
+In diesem Schritt werden einzelne, für die Migration geeignete Komponenten ausgemacht.
 
+2.  **Strukturierung des Altsystems**   
+Ggf. vorhandene Abhängigkeiten zu anderen Komponenten werden hier vor der Migration aufgelöst.
+
+3.  **Entwurf der Ziel-Interfaces**  
+Entwurf der Benutzerschnittstellen sowie Definition der notwendigen Gateways.
+  
+4.  **Entwurf der Ziel-Anwendungen**  
+Übernahme oder Reimplementierung der migrierten Funktionalitäten.
+    
+5.  **Entwurf der Ziel-Datenbank**  
+In diesem Schritt erfolgt der Entwurf sowie Anpassungen an der Datenbank.
+    
+6.  **Installation der Zielumgebung**  
+Einrichtung und Installation von Entwicklungs- und Zielumgebung.
+
+7.  **Gateway Installation**  
+In diesem Schritt erolgt die Installation der erforderlichen Schnittstellen.
+    
+8.  **Migration der Datenbank**  
+Installation und anschließende Migration der Daten in die neue Zieldatenbank.
+
+9.  **Migration der Anwendungen**  
+Einzelne Programme und Anwendungen werden in der Zielumgebung implementiert.
+
+10. **Migration der Benutzerobflächen**  
+Migration der grafischen Benutzeroberflächen.
+
+11. **Umstellung auf Neusystem**  
+In diesem letzten Schritt erfolgt die Umstellung des Altsystems auf die Zielumgebung.
    
 Ein Vorteil der sich aus der **Chicken-Little-Methode** ergibt ist, dass Fehler in der Migration, durch die direkte Verwendung im System, frühzeitiger erkannt und behoben werden können. 
 Schlägt die Migration in einem Teilschritt fehl, so ist lediglich dieser Teilschritt zu wiederholen, was, verglichen mit der Neuentwicklung, deutlich weniger Kosten und Zeitverlust nach sich zieht und auch die Gefahr von negativen Auswirkungen im Altsystem auf ein überschaubares Maß reduziert und dadurch insgesamt kontrollierbarer macht. 
