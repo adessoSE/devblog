@@ -120,24 +120,9 @@ Die *Chicken-Little-Methode* ist flexibel anwendbar und kann sowohl für vollst�
 Bei **Systemmigrationen** ist vor der Migration noch festzulegen, ob die Datenbank als erstes (**Database first**) oder im letzten Schritt (**Database last**) migriert werden soll. 
 Diese Entscheidung beeinflusst unter anderem die zu entwickelnden Schnittstellen im System. 
 Im ersten Fall sind sog. **Forwared Gateways** zu entwickeln, die das Altsystem an die migrierte Datenbank anbinden.  
-Im Gegensatz dazu managen **Reverse Gateways** den Zugriff auf die Datenbank über das Altsystem.
-Jeder Durchgang der Migration besteht dabei aus insgesamt elf Schritten.
-Diese können in beliebiger Reihenfolge durchgeführt oder aber auch komplett ausgelassen werden, wenn diese für das aktuelle Migrationsvorhaben überflüssig sind. 
+Im Gegensatz dazu managen **Reverse Gateways** den Zugriff auf die Datenbank über das Altsystem.  
 
-In **Schritt 1** erfolgt zunächst eine Analyse des Altsystems und darauf basierend die Auswahl von geeigneten Migrations-Kandidaten.
-Hierbei sollte beachtet werden, dass diese keine starken Abhängigkeiten zu den restlichen System-Bestandteilen aufweisen. 
-Diese müssen ansonsten vorab, in **Schritt 2**, aufgelöst werden. 
-In dieser Phase werden außerdem Entscheidungen darüber getroffen, ob, und wenn ja, in welcher Form *Gateways* zu entwickeln sind. 
-
-In den **Schritten 3-5** erfolgt der **Entwurf der Zielanwendung**. 
-Dabei werden die *Benutzeroberflächen*, *Anwendungen und Programme* sowie die *Datenhaltung* separat betrachtet.
-Die Installation der notwendigen *Gateways* erfolgt im **Schritt 6**. 
-
-In den **Schritten 7-10** erfolgt die eigentliche Migration der einzelnen Bestandteile in die Zielumgebung bevor im abschließenden **Schritt 11** die Integration der Migration im Altsystem vorgenommen und damit *scharf geschaltet* wird.
-
-Mit der nächsten zu migrierenden Komponente, wird das oben beschriebene Prozedere erneut durchgelaufen, bis schlussendlich die Migration mit der letzten Migration vollständig abgeschlossen ist. 
-
-Die nachfolgende Auflistung gibt nochmals einen Überblick über die jeweils zu durchlaufenden Schritte: 
+Jeder Durchgang der Migration besteht dabei aus insgesamt elf Schritten und umfasst die folgenden Tätigkeiten: 
 
 1.  **Altsystem Analyse**  
 In diesem Schritt werden einzelne, für die Migration geeignete Komponenten ausgemacht.
@@ -171,6 +156,21 @@ Migration der grafischen Benutzeroberflächen.
 
 11. **Umstellung auf Neusystem**  
 In diesem letzten Schritt erfolgt die Umstellung des Altsystems auf die Zielumgebung.
+
+Die Schritte können in beliebiger Reihenfolge durchgeführt oder aber auch komplett ausgelassen werden, wenn diese für das aktuelle Migrationsvorhaben überflüssig sind. 
+
+In **Schritt 1** erfolgt zunächst eine Analyse des Altsystems und darauf basierend die Auswahl von geeigneten Migrations-Kandidaten.
+Hierbei sollte beachtet werden, dass diese keine starken Abhängigkeiten zu den restlichen System-Bestandteilen aufweisen. 
+Diese müssen ansonsten vorab, in **Schritt 2**, aufgelöst werden. 
+In dieser Phase werden außerdem Entscheidungen darüber getroffen, ob, und wenn ja, in welcher Form *Gateways* zu entwickeln sind. 
+
+In den **Schritten 3-5** erfolgt der **Entwurf der Zielanwendung**. 
+Dabei werden die *Benutzeroberflächen*, *Anwendungen und Programme* sowie die *Datenhaltung* separat betrachtet.
+Die Installation der notwendigen *Gateways* erfolgt im **Schritt 6**. 
+
+In den **Schritten 7-10** erfolgt die eigentliche Migration der einzelnen Bestandteile in die Zielumgebung bevor im abschließenden **Schritt 11** die Integration der Migration im Altsystem vorgenommen und damit *scharf geschaltet* wird.
+
+Mit der nächsten zu migrierenden Komponente, wird das oben beschriebene Prozedere erneut durchgelaufen, bis schlussendlich die Migration mit der letzten Migration vollständig abgeschlossen ist. 
    
 Ein Vorteil der sich aus der **Chicken-Little-Methode** ergibt ist, dass Fehler in der Migration, durch die direkte Verwendung im System, frühzeitiger erkannt und behoben werden können. 
 Schlägt die Migration in einem Teilschritt fehl, so ist lediglich dieser Teilschritt zu wiederholen, was, verglichen mit der Neuentwicklung, deutlich weniger Kosten und Zeitverlust nach sich zieht und auch die Gefahr von negativen Auswirkungen im Altsystem auf ein überschaubares Maß reduziert und dadurch insgesamt kontrollierbarer macht. 
