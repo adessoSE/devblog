@@ -49,11 +49,14 @@ Ergänzend dazu habe ich *Slots* verwendet, um die Sprachbefehle flexibler zu ge
 Die Liste der möglichen Sprachbefehle wird Alexa statisch zur Verfügung gestellt.
 Die eingesprochenen Wörter des Benutzers werden mit Hilfe von *Automatic Speech Recognition (ASR)* und *Natural Language Understanding (NLU)* analysiert und der Sprachassistent versucht, sie einem existierenden Sprachbefehl des Skills zuzuordnen.
 Um die Flexibilität zu erhöhen, können wir auch mehrere alternative Sprachbefehle für einen bestimmten Intent definieren.
+
 Findet Alexa einen passenden Befehl, wird die jeweilige Funktion der Anwendung ausgelöst und die entsprechende Anfrage verarbeitet.
 In diesem Zuge können z. B. weitere Daten über externe Schnittstellen angefragt oder Berechnungen durchgeführt werden.
+
 Jeder Intent definiert schließlich eine Antwort als Ergebnis.
 Teil dieser Antwort ist der durch Alexa auszugebene Text oder auch Informationen für die visuelle Ausgabe der Antwort (bei Sprachassistenten mit Display).
-Der Text wird mit Hilfe von *Text-to-Speech (TTS)* in auditive Signale umgewandelt, sodass er über einen Lautsprecher ausgegeben werden kann und der Benutzer seine Antwort erhält.  
+Der Text wird mit Hilfe von *Text-to-Speech (TTS)* in auditive Signale umgewandelt, sodass er über einen Lautsprecher ausgegeben werden kann und der Benutzer seine Antwort erhält.
+
 Das folgende Diagramm veranschaulicht den beschriebenen Prozess:
 
 ![Ablaufdiagramm](/assets/images/posts/wie-alexa-ein-it-projektteam-unterstuetzen-kann/ablaufdiagramm.png)
@@ -208,13 +211,15 @@ Zusätzlich zur Sprachausgabe können die entsprechenden Informationen auch visu
 # Fazit
 Wir haben nun gesehen, worauf es bei der Entwicklung eines Skills für Sprachassistenten ankommt und wie sich ein Anwendungsfall implementieren lässt.
 Analog zu der beschriebenen Integration des `JiraXrayStatusIntent`s lässt sich unser Skill um weitere Intents ergänzen: Alexa kann Daten aus externen Systemen über deren APIs abfragen und unser Skill kann diese anschließend aggregieren.
-Die Steuerung per Spracheingabe stellt für uns dabei eine intuitive Möglichkeit dar, an Informationen aus der bestehenden Infrastruktur zu gelangen.
+Die Steuerung per Spracheingabe stellt für uns dabei eine intuitive Möglichkeit dar, an Informationen aus der bestehenden Infrastruktur zu gelangen.  
+Wir können also festhalten: Ja, Sprachassistenten lassen sich in eine bestehende Projekt-Infrastruktur integrieren.
 
 Wir dürfen allerdings die Herausforderungen nicht unterschätzen, die eine Integration von Sprachassistenten mit sich bringt.
 Aufgrund der spezifischen Infrastrukturen und Abläufen ist der Aufwand, Sprachassistenten für bestimmte Projekte zu individualisieren sehr hoch.
 Zum Beispiel müssen die Informationen in den angefragten Systemen möglichst einheitlich gepflegt werden, damit Alexa eine vollständige Übersicht abfragen kann.
 Darüber hinaus setzt der rollen- und projektspezifische Wortschatz ein umfassendes und auf das Projekt zugeschnittenes Sprachmodell voraus.
-Nur so kann uns der Sprachassistent korrekt verstehen und uns die gewünschten Antworten zur Verfügung stellen.  
+Nur so kann uns der Sprachassistent korrekt verstehen und uns die gewünschten Antworten zur Verfügung stellen.
+
 Nicht zuletzt stellen auch die Datenschutzrichtlinien eine wesentliche Hürde für Unternehmen dar, wenn Sprachassistenten eingesetzt werden sollen.
 Sowohl [Amazon](https://www.bloomberg.com/news/articles/2019-04-10/is-anyone-listening-to-you-on-alexa-a-global-team-reviews-audio) als auch [Google](https://www.vrt.be/vrtnws/en/2019/07/10/google-employees-are-eavesdropping-even-in-flemish-living-rooms/) setzen weltweit tausende Mitarbeiter ein, um über die Sprachassistenten eingesprochene Mitschnitte transkribieren und analysieren zu lassen.
 Was laut den Aussagen der Hersteller zur Verbesserung der Funktionalität der Sprachassistenten beitragen soll, ist für Privatpersonen mindestens unangenehm und könnte für Unternehmen womöglich sogar geschäftsschädigend sein.
