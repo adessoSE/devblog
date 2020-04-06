@@ -60,10 +60,8 @@ Darüber hinaus spiegelt sich die oben beschriebene Problematik in Form von *Wor
 Solche *Workarounds* haben die Eigenschaft, über die Zeit und mit steigender Anzahl den *Quellcode* aufzublähen. 
 Die daraus resultierende, wachsende Komplexität erschwert im Anschluss die Wartbarkeit und Pflege des Projekts.  
 
-Mit fortschreitendem Alter einer Software, gesellt sich außerdem noch eine weitere Schwierigkeit hinzu: 
-
 Je älter eine Software ist, desto schwieriger wird es, geeignete Entwickler zu finden, die sich damit auskennen. 
-Als prominentes Beispiel hierfür sei die Programmiersprache `COBOL` genannt, die in den späten 50er Jahren des letzten Jahrhunderts entstand und bis heute noch vor allem im Versicherungs- und Bankensektor eingesetzt wird. 
+Als prominentes Beispiel hierfür sei die Programmiersprache *COBOL* genannt, die in den späten 50er Jahren des letzten Jahrhunderts entstand und bis heute noch vor allem im Versicherungs- und Bankensektor eingesetzt wird. 
 Damit diese Systeme weiter betrieben werden können, braucht es erfahrenes Personal. 
 Angesichts der Tatsache, dass Entwickler heutzutage wohl kaum noch solch antiquierte Programmiersprachen lernen wollen ist dies ein wesentlicher Aspekt, der in die Entscheidung, ob eine Moderniserung erfolgen soll oder nicht, auf jeden Fall einfließen sollte.     
 
