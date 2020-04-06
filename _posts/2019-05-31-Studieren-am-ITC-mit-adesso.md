@@ -2,7 +2,7 @@
 layout: [post, post-xml]              
 title:  "Duales Studium am IT-Center Dortmund mit adesso als Partner"            
 date:   2019-05-31 08:37              
-modified_date: 2019-05-31 09:32          
+modified_date: 2020-04-06 13:36          
 author: ccaylak                       
 categories: [People]       
 ---
