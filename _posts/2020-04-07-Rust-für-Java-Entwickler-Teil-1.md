@@ -1,18 +1,17 @@
 ---
 layout: [post, post-xml]              # Pflichtfeld. Nicht ändern!
 title:  "Rust für Java-Entwickler - Teil 1" # Pflichtfeld. Bitte einen Titel für den Blog Post angeben.
-date:   2019-12-20 10:00              # Pflichtfeld. Format "YYYY-MM-DD HH:MM". Muss für Veröffentlichung in der Vergangenheit liegen. (Für Preview egal)
-modified_date: 2019-12-20             # Optional. Muss angegeben werden, wenn eine bestehende Datei geändert wird.
+date:   2020-04-07 14:00              # Pflichtfeld. Format "YYYY-MM-DD HH:MM". Muss für Veröffentlichung in der Vergangenheit liegen. (Für Preview egal)
+modified_date: 2020-04-07             # Optional. Muss angegeben werden, wenn eine bestehende Datei geändert wird.
 author: kiliankrause                  # Pflichtfeld. Es muss in der "authors.yml" einen Eintrag mit diesem Namen geben.
 categories: [Softwareentwicklung]     # Pflichtfeld. Maximal eine der angegebenen Kategorien verwenden.
 tags: [Rust, Actix-Web]               # Bitte auf Großschreibung achten.
 ---
 
-Wenn wir darüber nachdenken, in welcher Sprache bzw. mit welchem Framework wir eine REST-API implementieren wollen, sind Technologien wie Java und Spring vermutlich sehr weit vorne.
+Wenn wir darüber nachdenken in welcher Sprache bzw. mit welchem Framework wir eine REST-API implementieren wollen, sind Technologien wie Java und Spring vermutlich sehr weit vorne.
 Und das nicht ohne Grund.
 In der Java-Welt gibt es sehr viele Frameworks und Bibliotheken, die sich bewährt haben und einen großen Funktionsumfang bieten.
-In diesem Artikel wollen wir uns einen Einblick in eine andere Technologie verschaffen und eine kleine REST-API mit dem Actix-Web Framework implementieren.
-Hierbei handelt es sich um ein Web-Framework für die (noch junge) Programmiersprache Rust.
+In diesem Artikel wollen wir uns Einblick in die (noch junge) Programmiersprache Rust verschaffen und eine kleine REST-API mit dem Actix-Web Framework implementieren.
 
 
 # Was du mitbringen solltest
@@ -20,13 +19,12 @@ Hierbei handelt es sich um ein Web-Framework für die (noch junge) Programmiersp
 Da ich hauptsächlich das Framework - und nicht die Sprache an sich - vorstellen will, solltest du grundlegende Kenntnisse zur Sprache mitbringen.
 Einen guten Einstieg hierfür bietet das Buch [The Rust Programming Language](https://doc.rust-lang.org/book/title-page.html).
 
-
-# Ein neues Projekt aufsetzen
+## Ein neues Projekt aufsetzen
 
 Zuerst erstellen wir uns ein neues Projekt.
-Das machen wir am besten mit dem Package-Manager *Cargo*.
+Das machen wir mit dem Package-Manager *Cargo*.
 Dazu führen wir den Befehl ```cargo new <projekt-name> --bin``` in unserem Workspace aus.
-Bevor wir beginnen können, müssen wir noch die entsprechende Actix-Dependency in der Cargo.toml angeben.
+Um Actix zu verwenden, geben wir die Dependency in der Cargo.toml an.
 
 ```rust
 [dependencies]
@@ -36,9 +34,9 @@ actix-web = "1.0.8" // latest version
 # Unsere REST-API
 
 In unserer Beispielanwendung wollen wir Personen verwalten.
-Dazu werden wir eine kleine und einfache REST-API zur Verfügung stellen.
-Wir wollen die Möglichkeit haben, eine Person zu erstellen, zu löschen und zu modifizieren.
-Außerdem wollen wir Endpoints zur Verfügung stellen, die uns alle oder auch einzelne (durch ihre ID identifizierbare) Personen liefern.
+Dazu werden wir eine kleine und einfache REST-API erstellen.
+Wir wollen die Möglichkeit haben eine Person zu erstellen, zu löschen und zu bearbeiten.
+Außerdem wollen wir Endpoints definieren, die uns alle oder auch einzelne (durch ihre ID identifizierbare) Personen liefern.
 Wir werden also fünf verschiedene Endpoints implementieren müssen, die wie folgt aussehen:
 
 
@@ -51,15 +49,15 @@ Wir werden also fünf verschiedene Endpoints implementieren müssen, die wie fol
 
 # Request Handler
 
-Um Requests verarbeiten zu können, müssen wir sogenannte Request Handler (im Folgenden auch durch RH abgekürzt) implementieren.
+Um Anfragen an unsere API annehmen zu können, müssen wir sogenannte Request Handler (im Folgenden auch durch RH abgekürzt) implementieren.
 Ein RH ist eine Funktion, die Null oder mehrere Parameter entgegennimmt und einen Wert zurückgibt, der das ```Responder```-Trait implementiert.
 Datentypen und -strukturen, die das ```Responder```-Trait implementieren, werden dann vom Framework zu einer HTTP-Response konvertiert.
 So wird sichergestellt, dass nur Typen zurückgegeben werden, die in eine HTTP-Response konvertiert werden können.
 
-## Ein kleiner Beispiel-Request-Handler
+## Request-Handler Beispiel
 
-Um die Funktionsweise von RHs zu verstehen, werden wir uns einen kleinen Beispiel-Request-Handler erstellen.
-Dazu definieren wir eine Funktion, die vorerst keinen Parameter annimmt und die einen Wert zurückliefert, der das ```Responder```-Trait implementiert.
+Betrachten wir ein Request-Handler Beispiel.
+Dazu definieren wir eine Funktion die vorerst keinen Parameter annimmt und die einen Wert zurückliefert, der das ```Responder```-Trait implementiert.
 Actix-Web bietet einige default-Implementierungen des ```Responder```-Traits für gebräuchliche Datentypen und -strukturen an.
 So auch für den Datentyp ```String```.
 Unser RH könnte dann so aussehen:
@@ -70,18 +68,20 @@ fn request_handler() -> impl Responder {
 }
 ```
 
-Wir müssen nun irgendwie definieren, wo und wann diese Funktion aufgerufen werden soll.
-Bevor wir das machen können, müssen wir uns einmal den ```HTTP-Server``` und die ```App``` von Actix-Web angucken.
+Wir müssen nun definieren unter welcher Anfrage diese Funktion aufgerufen werden soll.
+Bevor wir das tun, untersuchen wir zunächst den ```HTTP-Server``` und die ```App``` von Actix-Web.
 
 ### HttpServer und App-Instanz
 
-Mithilfe des Frameworks sind wir in der Lage, einen HTTP-Server zu erstellen, in dem unsere Applikation läuft.
-Dazu müssen wir eine neue Instanz des HttpServer-Structs erstellen und angeben, wo dieser laufen soll (IP-Adresse und Port).
-Dies geben wir mit der ```bind()```-Methode an.
-In dem HTTP-Server erstellen wir dann unsere App-Instanz.
-Hier geben wir dann auch an, bei welchem Request unser Beispiel-RH aufgerufen werden soll.
-In unserem Beispiel könnten wir z.B. einfach den Root-Pfad der URL angeben und als HTTP-Verb ```GET``` angeben.
-Wir erhalten folgende main-Funktion:
+Mithilfe des Frameworks sind wir in der Lage einen HTTP-Server zu erstellen in dem unsere Applikation läuft.
+Dazu müssen wir eine neue Instanz des `HttpServer`-Structs erstellen und angeben wo dieser laufen soll (IP-Adresse und Port).
+
+Dies geben wir mit der `bind()`-Methode an.
+In dem HTTP-Server erstellen wir anschließend unsere App-Instanz.
+Hier geben wir auch an, bei welcher Anfrage unser Beispiel-RH aufgerufen werden soll.
+
+Für unser Beispiel könnten wir einfach den Root-Pfad der URL angeben und mit einem `GET` abrufen.
+Wir erhalten somit folgende main-Funktion:
 
 ```Rust
 fn main() {
@@ -96,16 +96,16 @@ fn main() {
 }
 ```
 
-Somit läuft unser Server auf dem localhost auf Port 8099 und der RH wird immer dann aufgerufen, wenn eine GET-Anfrage auf die Route ```/``` erfolgt.
-Wir haben bereits jetzt eine vollständige Actix-Web-App erstellt und können diese ausführen.
-Dazu sprechen wir einfach im Browser den localhost auf Port 8099 an und erhalten folgende Ausgabe:
+Unser Server läuft nun lokal auf dem Port 8099. Der RH wird immer dann aufgerufen, wenn eine GET-Anfrage auf die Route ```/``` erfolgt.
+Wir haben jetzt bereits eine vollständige Actix-Web-App erstellt und können diese ausführen.
+Dazu rufen wir im Browser den localhost auf Port 8099 auf und erhalten folgende Ausgabe:
 
 ![Beispiel-Request-Handler](/assets/images/posts/Rust-für-Java-Entwickler-Teil-1/beispiel-request-handler.png)
 
 ### Syntaktischer Zucker
 
-Anstatt die Route und das HTTP-Verb über die entsprechenden Methoden zu definieren, haben wir auch die Möglichkeit, dies über Makro-Attribute zu definieren.
-An dieser Stelle können wir uns diese wie Java-Annotationen vorstellen.
+Anstatt die Route und das HTTP-Verb mittels zusätzlichen Methoden zu definieren, haben wir auch die Möglichkeit sie mittels Makro-Attributen zu beschriften.
+Diese können wir uns wie Java-Annotationen vorstellen.
 Für unseren Request Handler würde das dann so aussehen:
 
 ```rust
@@ -115,24 +115,22 @@ fn request_handler() -> impl Responder {
 }
 ```
 
-In unserer main-Funktion müssen wir dann nur noch die ```serivce()```-Methode der App-Instanz aufrufen, und unseren RH als Parameter übergeben:
+Somit können wir uns in der main-Funktion `.route("/", web::get().to(request_handler))` sparen und können stattdessen die `serivce()`-Methode der App-Instanz aufrufen, um unseren RH als Parameter zu übergeben:
 
 ```rust
 App::new().service(request_handler)
 ```
 
 Semantisch sind beide Vorgehensweisen völlig identisch.
-Bei den Makro-Attributen handelt es sich also im Prinzip um syntaktischen Zucker.
+Bei den Makro-Attributen handelt es sich somit um syntaktischen Zucker der das Progammieren erleichtert.
 
-Wir wissen jetzt, wie wir einen Request Handler definieren können und wie wir ihn in die App einzubinden haben.
-An dieser Stelle wollen wir mit unserer kleinen REST-API beginnen und im Laufe des Artikels werden wir weitere Techniken von Actix-Web kennenlernen.
-Starten wollen wir mit dem Datenmodell.
+Wir wissen jetzt wie ein Request Handler definiert und in die App eingebunden wird.
+Um die REST-API sinnvoll zu verwenden, brauchen wir ein Datenmodell.
 
 # Unser Datenmodell
 
-Bevor wir die verschiedenen RHs für unsere Beispielanwendung implementieren, müssen wir vorerst unser Datenmodell definieren.
-Dieses halten wir so schlicht wie möglich, um unnötige Komplexität zu vermeiden.
-Unsere Personen-Struktur würde dann wie folgt aussehen:
+Wir halten unser Datenmodell so schlicht wie möglich, um unnötige Komplexität zu vermeiden.
+Unsere Personen-Struktur sieht deshalb wie folgt aus:
 
 ```rust
 pub struct Person {
@@ -175,9 +173,9 @@ impl Person {
 
 # Implementierung der REST-API
 
-Zunächst wollen wir unseren REST-Endpoint implementieren, der uns alle Personen liefert.
+Zunächst implementieren wir einen REST-Endpoint der uns alle Personen bereitstellt.
 Diese sollen uns als JSON-Objekte vom Server geliefert werden.
-Für die Kommunikation mittels JSON stellt uns Actix-Web eine entsprechende Struktur zur Verfügung, die wir importieren müssen.
+Für die Kommunikation mittels JSON bietet Actix-Web uns eine entsprechende Struktur, die wir importieren müssen.
 
 ```rust
 use actix_web::web::{Json};
@@ -194,14 +192,14 @@ pub fn get_all() -> Json<Vec<Person>> {
 
 Diese Funktion wird immer dann aufgerufen, wenn wir einen GET-Request auf dem ```/persons```-Pfad erhalten.
 Sie liefert uns die JSON-Repräsentation eines Vektors von Personen-Instanzen.
-Der Einfachheit halber wollen wir an dieser Stelle nicht mit einer Datenbank oder dem Dateisystem kommunizieren.
-Wir nehmen einfach an, dass wir einen Vektor von Personen aus der Persistenzschicht geliefert bekommen.
+Ein­fach­heits­hal­ber wollen wir an dieser Stelle nicht mit einer Datenbank oder dem Dateisystem kommunizieren.
+Wir nehmen an, dass die Persistenzschicht uns einen Personen-Vektor liefert.
 
 ```rust
 #[get("/persons")]
 pub fn get_all() -> Json<Vec<Person>> {
     // Kommunikation mit der Datenbank oder dem Dateisystem
-    // Wir initialiseren uns den Vektor an dieser Stelle manuell
+    // Wir initialiseren den Vektor an dieser Stelle händisch
     let micheal = Person::new(1, "Micheal".to_owned(), 32);
     let frank = Person::new(2, "Frank".to_owned(), 28);
     let persons = vec![micheal, frank];
@@ -209,9 +207,8 @@ pub fn get_all() -> Json<Vec<Person>> {
 }
 ```
 
-Unglücklicherweise kompiliert unser Code nicht.
-Doch woran liegt das?
-Actix-Web weiß nicht, wie aus unserer Personen-Struktur ein JSON-Objekt erzeugt werden soll.
+Unglücklicherweise kompiliert unser Code jetzt nicht.
+Actix-Web weiß nicht wie aus unserer Personen-Struktur ein JSON-Objekt erzeugt werden soll.
 An dieser Stelle müssen wir eine weitere Bibliothek in unser Projekt einbinden, die "serde" heißt und Serialisierung und Deserialisierung von JSON-Objekten ermöglicht.
 Wir ergänzen also unsere Cargo.toml:
 
@@ -221,7 +218,7 @@ actix-web = "1.0.8"
 serde = "1.0.101"
 ```
 
-Mit serde kann man auf sehr einfache Art und Weise selbst definierte Strukturen in JSON-Objekte serialisieren bzw. die entsprechenden JSON-Objekte wieder deserialisieren.
+Mit serde kann man selbst definierte Strukturen in JSON-Objekte sehr einfach serialisieren bzw. die entsprechenden JSON-Objekte wieder deserialisieren.
 Dafür müssen wir nur unsere Personen-Struktur wie folgt erweitern:
 
 ```rust
@@ -231,7 +228,7 @@ struct Person {
 }
 ```
 
-Serde weiß, wie es Werte vom Typ u32 und String in JSON-Objekte konvertiert.
+Serde konvertiert die Werte vom Typ u32 und String nun in JSON-Objekte.
 Da unsere Personen-Struktur nur aus diesen Typen besteht, können wir das ```Serialize```- und ```Deserialize```- Trait mithilfe des ```derive```-Makros angeben.
 Schon kompiliert unser Code.
 
@@ -239,14 +236,11 @@ Wenn wir jetzt den Endpoint ansprechen, liefert uns der Server folgende Antwort:
 
 ![GET-persons-Request](/assets/images/posts/Rust-für-Java-Entwickler-Teil-1/get-persons-request.png)
 
-Als nächstes wollen wir unseren Endpoint für das Lesen einer Person über ihre ID implementieren.
-Doch wie können wir dynamische URL-Parameter an unsere Request Handler weitergeben?
-Damit beschäftigen wir uns im folgenden Abschnitt.
 
 ## Dynamische URL-Parameter
 
-Wir wollen in unserer Beispiel-Applikation die Möglichkeit haben, eine Person über ihre ID mit einem GET-Request zu lesen.
-Dafür muss uns das Framework die Möglichkeit bieten, nicht nur statische, sondern auch dynamische URLs für Request Handler zu definieren.
+Als nächstes wollen wir einen Endpoint für das Lesen einer Person über ihre ID implementieren.
+Dazu müssen wir dynamische URL-Parameter an unsere Request Handler weitergeben.
 Die dynamischen Parameter werden in Actix-Web in geschweiften Klammern angegeben.
 Die Route für unseren GET-Request mit einer Personen ID sieht also wie folgt aus:
 
@@ -263,11 +257,12 @@ pub fn get(id: u32) -> Json<Person> {
 }
 ```
 
-Wir erhalten jedoch einen Compilerfehler, wenn wir versuchen, das Projekt zu bauen.
-Das liegt daran, dass jeder Eingabe-Parameter eines RHs das ```FromRequest```-Trait implementieren muss (was offensichtlich für den Typ u32 nicht der Fall ist).
+Wir erhalten jedoch einen Compilerfehler, wenn wir versuchen das Projekt zu bauen.
+Das liegt daran, dass jeder Eingabe-Parameter eines RHs das ```FromRequest```-Trait implementieren muss. Das ist für den Typ u32 nicht der Fall.
+
 Glücklicherweise hilft uns Actix-Web auch hier weiter.
-Es bietet die Path-Struktur an, welche als Wrapper für Request-Parameter dient.
-Wir müssen also nur unsere ID in einem Path wrappen:
+Es bietet eine `Path`-Struktur die als Wrapper für Request-Parameter dient.
+Wir müssen unsere ID also in einem Path wrappen:
 
 ```rust
 #[get("/person/{id}")]
@@ -276,9 +271,10 @@ pub fn get(id: Path<u32>) -> Json<Person> {
 ```
 
 Der Typ Path implementiert das ```Deref```-Trait.
-Um also an den Wert (in unserem Fall  ein Wert vom Typ u32) zu gelangen, kann man einfach die Variable dereferenzieren.
-Auch hier wollen wir zuerst wieder nur Dummy-Werte zurückgeben.
-Wir können uns aber vorstellen, dass wir an dieser Stelle mit einer Datenbank kommunizieren, die uns eine Person mit der entsprechenden ID liefert.
+Um also an unseren Wert vom Typ u32 zu gelangen, muss die Variable dereferenziert werden.
+Auch hier wollen wir zunächst nur einen Dummy-Werte zurückgeben.
+
+Wir können uns allerdings vorstellen, dass an dieser Stelle mit einer Datenbank kommuniziert und eine Person mit der entsprechenden ID geliefert wird.
 
 ```rust
 #[get("/person/{id}")]
@@ -302,7 +298,7 @@ pub struct NewPerson {
 }
 ```
 
-Auch hier müssen wir wieder ```Serialize``` und ```Deserialize``` mithilfe des derive-Makros angeben, denn wir wollen ja die entsprechende Struktur als JSON-Body in einem Request angeben.
+Auch hier müssen wir wieder ```Serialize``` und ```Deserialize``` mithilfe des derive-Makros verwenden, um die entsprechende Struktur als JSON-Body in einem Request anzugeben.
 Unser RH für das Erstellen einer Person sieht dann so aus:
 
 ```rust
@@ -312,15 +308,15 @@ pub fn create(person: Json<NewPerson>) -> String {
 }
 ```
 
-Der Einfachheit halber wollen wir hier zunächst nur einen String zurückgeben.
+Um es simpel zu halten, geben wir zunächst nur einen String zurück.
 Dieser könnte angeben, ob das Erstellen der Person erfolgreich war oder nicht.
-Im Fehlerfall könnte dann eine entsprechende Fehlermeldung zurückgegeben werden.
-Auf eine ausgiebige und konsistente Fehlerbehandlung gehen wir hier nicht ein.
+
+Im Fehlerfall könnte auch eine entsprechende Fehlermeldung geworfen werden.
 
 ## Modifizieren einer Person
 
-Wenn wir eine Person modifizieren wollen, dann wollen wir entweder seinen Namen, sein Alter oder beides ändern.
-Auch hier wollen wir im Request wieder die Änderungen als JSON-Body darstellen.
+Wenn wir eine Person modifizieren wollen, verändern wir entweder seinen Namen, sein Alter oder beides.
+Der Request soll die Änderungen auch hier im JSON-Body tragen.
 Also müssen wir an dieser Stelle eine neue Struktur definieren, die unseren Anforderungen gerecht wird:
 
 ```rust
@@ -331,7 +327,7 @@ pub struct UpdatePerson {
 }
 ```
 
-Der einzige Unterschied zum NewPerson-Struct ist, dass wir den Namen bzw. das Alter nicht angeben *müssen*.
+Der einzige Unterschied zur `NewPerson`-Struct ist, dass wir den Namen bzw. das Alter nicht angeben *müssen*.
 Unser Request Handler könnte dann so aussehen:
 
 ```rust
@@ -361,15 +357,19 @@ Die Behandlung dieser Themen würde allerdings den Rahmen des Artikels sprengen,
 
 # Fazit
 
-In diesem Artikel haben wir gesehen, wie wir eine REST-API mit dem Actix-Web Framework implementieren können.
-Dabei haben wir wichtige Funktionen des Frameworks kennengelernt: Request Handler, Routen, dynamische URL-Parameter und die Kommunikation mittels JSON.
-Wenn bereits Erfahrung in der Sprache Rust vorhanden ist, wird der Einstieg in Actix-Web nicht schwerfallen.
-Natürlich bietet das Framework noch einiges mehr an Funktionalität als in diesem Artikel beschrieben wurde.
-Die [offizielle Dokumentation](https://actix.rs/docs/) ist der beste Ort für diejenigen, die sich noch tiefer mit dem Framework beschäftigen wollen.
-Dort wird auch auf die komplette API-Dokumentation verwiesen.
+In diesem Artikel haben wir gelernt wie eine REST-API mit dem Actix-Web Framework implementiert werden kann.
+Dabei haben wir bereits wichtige Funktionen des Frameworks verwendet: 
+- Request Handler 
+- Routen
+- dynamische URL-Parameter 
+- Kommunikation mittels JSON
+Mit ein wenig Erfahrung in Rust ist der Einstieg also nicht sehr schwer.
+Die [offizielle Dokumentation](https://actix.rs/docs/) ist die beste Anlaufstelle, um tiefer einzusteigen.
 
-Um sich auf das Wesentliche konzentrieren zu können, habe ich die Speicherung der Personen in diesem Artikel nicht implementiert.
-In diesem [Github-Repository](https://github.com/KilianKrause/rest-api-with-actix) ist eine erweiterte Version des Codes zu finden, wo zumindest eine rudimentäre Kommunikation mit dem Dateisystem implementiert ist.
+Natürlich bietet das Framework noch einiges mehr an Funktionalität als in diesem Artikel beschrieben wurde.
+Weitere Aspekte wie die Kommunikation mit einer Datenbank, Fehlerbehandlung und Unit- bzw. Integration-Tests behalten wir uns für weitere Blog-Artikel vor.
+
+Als Teaser finden interessierte Leser in diesem [Github-Repository](https://github.com/KilianKrause/rest-api-with-actix) eine erweiterte Version des Codes, die eine rudimentäre Kommunikation mit dem Dateisystem implementiert.
 
 Ein Beispiel für eine vollständige App mit Actix-Web ist z.B. [hier](https://github.com/fairingrey/actix-realworld-example-app) zu finden.
 Dort wird auch ein ORM für die Speicherung der Personen in einer Datenbank eingesetzt.
