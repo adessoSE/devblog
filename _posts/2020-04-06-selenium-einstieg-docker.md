@@ -228,7 +228,7 @@ Sie enthält neben den Informationen zum erstellen </build> des Docker-Image auc
 Es besteht zudem die Möglichkeit in einem Module mehrere Docker-Images zu konfigurieren.
 Zur besseren Übersicht wurde hier für jeden Container ein eigenes Modul erstellt.
 Als erstes wird in der Allgemeinen Konfiguration der Imagename definiert der verwendet werden soll. 
-In dem </build Tag ist der Tag </dockerFileDir> der wichtigste. 
+In dem Tag </build> ist der Tag </dockerFileDir> der wichtigste. 
 Damit wird angegeben wo das Plugin nach dem Dockerfile und allen weiteren Sourcen schauen soll.
 In diesem Fall ist dies der Pfad "target/docker-files".
 In dem </run> Tag werden alle Informationen angegeben die für die Ausführung eines Containers wichtig sind.
