@@ -228,17 +228,17 @@ Sie enthält neben den Informationen zum erstellen </build> des Docker-Image auc
 Es besteht zudem die Möglichkeit in einem Module mehrere Docker-Images zu konfigurieren.
 Zur besseren Übersicht wurde hier für jeden Container ein eigenes Modul erstellt.
 Als erstes wird in der Allgemeinen Konfiguration der Imagename definiert der verwendet werden soll. 
-In dem </build Tag ist der Tag <dockerFileDir> der wichtigste. 
+In dem </build Tag ist der Tag </dockerFileDir> der wichtigste. 
 Damit wird angegeben wo das Plugin nach dem Dockerfile und allen weiteren Sourcen schauen soll.
 In diesem Fall ist dies der Pfad "target/docker-files".
 In dem </run> Tag werden alle Informationen angegeben die für die Ausführung eines Containers wichtig sind.
 Der Imagename wurde bereits definiert.
-Mit dem Tag <network> wird der Container einem definierten Netzwerk zugewiesen.
+Mit dem Tag </network> wird der Container einem definierten Netzwerk zugewiesen.
 Wird dieser nicht angegeben, so wird der Container dem default Netzwerk des Docker Deamon zugewiesen.
-Der Tag <namingStrategy> definiert wie der Container im Netzwerk angesprochen werden kann. 
-Über <env> besteht die Möglichkeit Umgebungsvariablen für den Container zu definieren.
+Der Tag </namingStrategy> definiert wie der Container im Netzwerk angesprochen werden kann. 
+Über </env> besteht die Möglichkeit Umgebungsvariablen für den Container zu definieren.
 <ports> definiert das Mapping von Container Ports auf die Lokalen Ports des Docker Deamon.
-Mit <wait> besteht die Möglichkeit auf einen Container zu warten.
+Mit </wait> besteht die Möglichkeit auf einen Container zu warten.
 In diesem Beispiel wird auf eine bestimmte Logausgabe gewartet um sicherzustellen, dass der Container vollständig gestartet ist.
 
 All diese Parameter und weitere können in der [Dokumentation](https://dmp.fabric8.io/) des docker-maven-plugin nachgeschlagen werden.
