@@ -68,7 +68,6 @@ fn request_handler() -> impl Responder {
 }
 ```
 
-Anstatt einer Referenz liefert uns `to_owned()` an dieser Stelle einen Wert vom Typ String.
 
 Wir müssen nun definieren unter welcher Anfrage diese Funktion aufgerufen werden soll.
 Bevor wir das tun, untersuchen wir zunächst den `HTTP-Server` und die `App` von Actix-Web.
