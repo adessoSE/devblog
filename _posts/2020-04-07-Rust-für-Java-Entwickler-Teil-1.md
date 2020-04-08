@@ -124,7 +124,7 @@ App::new().service(request_handler)
 ```
 
 Semantisch sind beide Vorgehensweisen völlig identisch.
-Bei den Makro-Attributen handelt es sich somit um syntaktischen Zucker der das Progammieren erleichtert.
+Bei den Makro-Attributen handelt es sich somit um syntaktischen Zucker der das Programmieren erleichtert.
 
 Wir wissen jetzt wie ein Request Handler definiert und in die App eingebunden wird.
 Um die REST-API sinnvoll zu verwenden, brauchen wir ein Datenmodell.
