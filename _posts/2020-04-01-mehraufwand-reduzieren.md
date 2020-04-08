@@ -2,7 +2,7 @@
 layout: [post, post-xml]              					# Pflichtfeld. Nicht ändern!
 title:  "Mehraufwand reduzieren durch das Tolerant Reader Pattern"    					# Pflichtfeld. Bitte einen Titel für den Blog Post angeben.
 date:   2020-04-01 09:00             					# Pflichtfeld. Format "YYYY-MM-DD HH:MM". Muss für Veröffentlichung in der Vergangenheit liegen. (Für Preview egal)
-modified_date: 2020-04-01 09:00                         # Optional. Muss angegeben werden, wenn eine bestehende Datei geändert wird.
+modified_date: 2020-04-01 13:00                         # Optional. Muss angegeben werden, wenn eine bestehende Datei geändert wird.
 author: stefanmueller                 					# Pflichtfeld. Es muss in der "authors.yml" einen Eintrag mit diesem Namen geben.
 categories: [Java]                    					# Pflichtfeld. Maximal eine der angegebenen Kategorien verwenden.
 tags: [Mehraufwand reduzieren, Schnittstellen, Tolerant Reader Pattern]         # Bitte auf Großschreibung achten.
@@ -12,10 +12,6 @@ In fast jedem Softwareprojekt müssen Systeme mit anderen Systemen und deren Anw
 Dies erfolgt regelmäßig unter Zuhilfenahme von Schnittstellen, die in der Praxis unterschiedlich komplex ausfallen. 
 Ein gängiger Weg, eine Schnittstelle anzubinden, ist die Verwendung eines Frameworks zur Generierung von Klassen.
 Daneben gibt es das Tolerant Reader Pattern, dass den Mehraufwand, eine Schnittstelle anzubinden, reduzieren kann.
-
-In fast jedem Softwareprojekt müssen Systeme mit anderen Systemen und deren Anwendungen kommunizieren. 
-Dies erfolgt regelmäßig unter Zuhilfenahme von Schnittstellen, die in der Praxis unterschiedlich komplex ausfallen. 
-Ein gängiger Weg, eine Schnittstelle anzubinden, ist die Verwendung eines Frameworks zur Generierung von Klassen aus einer XSD-Datei (XML-Schemadefinition). 
 
 Die Nutzung eines Frameworks ist zeitsparend und komfortabel, weil darauf verzichtet werden kann, Klassen manuell zu erstellen.
 Zudem erledigt das Framework auch das Un- / Marshalling.

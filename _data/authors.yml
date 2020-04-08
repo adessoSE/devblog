@@ -294,3 +294,12 @@ dsorna:
   bio: "Daniel Sorna ist als Werkstudent im Bereich IT-Consulting Insurance bei adesso tätig. Zu seinen Schwerpunkten gehören agile Methoden und Webentwicklung. "
   avatar_url: /assets/images/avatars/dsorna.jpg
   github: https://github.com/dsorna
+
+DanielKraft:
+  first_name: Daniel
+  last_name: Kraft
+  github_username: DanielKraft
+  email: daniel.kraft@adesso.de
+  bio: "Daniel ist als Werkstudent im Versicherungsbereich bei adesso in Frankfurt am Main tätig."
+  avatar_url: /assets/images/avatars/DanielKraft.jpg
+  github: https://github.com/DanielKraft
