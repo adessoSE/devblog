@@ -15,7 +15,7 @@ Ein bewährter Ansatz ist das Test Driven Development (TDD), welches  eine volls
 Doch eine hohe Test-Coverage stellt nicht unbedingt die Funktionalität der Anwendung sicher. 
 Das kann erst mit umfangreichen System- & Integrationstest und UI-Tests erreicht werden.
 
-Die hinter TDD liegende Idee ist aus Anforderungen direkt Tests abzuleiten und erst anhand dieser Code zu schreiben. 
+Die hinter TDD liegende Idee ist, aus Anforderungen direkt Tests abzuleiten und erst anhand dieser Code zu schreiben. 
 Die Idee lässt sich auch über Unit-Tests hinaus auf weitreichendere Tests übertragen.
 Dabei kann das sog. **Behaviour Driven Development (BDD)** helfen.
 
@@ -39,13 +39,14 @@ Die drei Parteien bauen ein gemeinsames Verständnis für das gewünschte Verhal
 
 Um die Anforderungsbeschreibung möglichst einfach zu gestalten kann die Methode [Example Mapping](https://cucumber.io/blog/bdd/example-mapping-introduction/) herangezogen werden. 
 Beispiele sind eine wunderbare Möglichkeit, um komplizierte Sachverhalte einfach darzustellen. 
-Mehrere Beispiele decken dabei mögliche Fälle und Ergebnisse ab. Eine Anforderung kann mit einigen klaren Beispielen genau beschrieben werden, ohne Unklarheiten offen zu lassen. 
+Mehrere Beispiele decken dabei mögliche Fälle und Ergebnisse ab. 
+Eine Anforderung kann mit einigen klaren Beispielen genau beschrieben werden, ohne Unklarheiten offen zu lassen. 
 Die Beispiele sollten die Frage beantworten: Wie soll sich die Software bei bestimmten Eingaben und Interaktionen verhalten? 
 
 ### Automatisierung mit Cucumber
 
 Nun stellt sich noch die Frage, ob und wie eine Automatisierung solcher Tests möglich ist. Hier hilft das Automatisierungstool **Cucumber**. 
-Die Bespiele werden in **Gherkin** – eine durch Schlüsselwörter strukturierten Sprache, die nah an der natürlichen Sprache ist –  beschrieben und können damit in Schritte gegliedert und automatisiert werden. 
+Die Bespiele werden in **Gherkin** – eine durch Schlüsselwörter strukturierte Sprache, die nah an der natürlichen Sprache ist –  beschrieben und können damit in Schritte gegliedert und automatisiert werden. 
 Den Schritten wird dann Code hinterlegt, der die entsprechende Funktionalität testet. 
 Die Beispiele, oder **Szenarien** wie sie in Cucumber genannt werden, können ausgeführt werden und geben ein Testergebnis zurück. 
 
