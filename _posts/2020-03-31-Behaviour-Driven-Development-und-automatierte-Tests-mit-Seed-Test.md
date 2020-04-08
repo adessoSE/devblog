@@ -13,7 +13,7 @@ Dabei stößt man auf eine Fülle an Begriffen, Methoden, Ansätzen und Tools.
 
 Ein bewährter Ansatz ist das Test Driven Development (TDD), welches  eine vollständige Testabdeckung durch Unit-Tests und hochwertigen Code verspricht. 
 Doch eine hohe Test-Coverage stellt nicht unbedingt die Funktionalität der Anwendung sicher. 
-Das kann erst mit umfangreichen System- & Integrationstest und UI-Tests erreicht werden.
+Das kann erst mit umfangreichen System-, Integrations- und UI-Tests erreicht werden.
 
 Die hinter TDD liegende Idee ist, aus Anforderungen direkt Tests abzuleiten und erst anhand dieser Code zu schreiben. 
 Die Idee lässt sich auch über Unit-Tests hinaus auf weitreichendere Tests übertragen.
