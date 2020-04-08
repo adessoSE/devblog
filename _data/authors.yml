@@ -285,3 +285,12 @@ stefanmueller:
   bio: "Stefan Müller arbeitet als Software Engineer bei der adesso AG. Sein Fokus liegt auf Java-Technologien. Daneben beschäftigt er sich mit Software-Patterns und Software-Architekturen."
   avatar_url: /assets/images/avatars/mueller_stefan_foto.png
   github: https://github.com/stefanAdesso
+
+DanielKraft:
+  first_name: Daniel
+  last_name: Kraft
+  github_username: DanielKraft
+  email: daniel.kraft@adesso.de
+  bio: "Daniel ist als Werkstudent im Versicherungsbereich bei adesso in Frankfurt am Main tätig."
+  avatar_url: /assets/images/avatars/DanielKraft.jpg
+  github: https://github.com/DanielKraft
