@@ -1,8 +1,8 @@
 ---
 layout: [post, post-xml]
 title:  "Architekturanalyse sowie Refactoring auf Basis von Tactical Domain-Driven Design"
-date:   2020-02-13 11:22
-modified_date: 2020-02-14
+date:   2020-04-08 09:00
+modified_date: 2020-04-08 09:00
 author: DanielKraft
 categories: [Java]
 tags: [Domain-Driven Design, Refactoring, Micronaut,jQAssistant]
