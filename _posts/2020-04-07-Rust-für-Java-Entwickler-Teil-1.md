@@ -272,7 +272,7 @@ pub fn get(id: Path<u32>) -> Json<Person> {
 
 Der Typ Path implementiert das ```Deref```-Trait.
 Um also an unseren Wert vom Typ u32 zu gelangen, muss die Variable dereferenziert werden.
-Auch hier wollen wir zunächst nur einen Dummy-Werte zurückgeben.
+Auch hier wollen wir zunächst nur einen Dummy-Wert zurückgeben.
 
 Wir können uns allerdings vorstellen, dass an dieser Stelle mit einer Datenbank kommuniziert und eine Person mit der entsprechenden ID geliefert wird.
 
@@ -361,9 +361,10 @@ In diesem Artikel haben wir gelernt wie eine REST-API mit dem Actix-Web Framewor
 Dabei haben wir bereits wichtige Funktionen des Frameworks verwendet: 
 - Request Handler 
 - Routen
-- dynamische URL-Parameter 
+- Dynamische URL-Parameter 
 - Kommunikation mittels JSON
-Mit ein wenig Erfahrung in Rust ist der Einstieg also nicht sehr schwer.
+
+Mit ein wenig Erfahrung in Rust ist der Einstieg in das Framework nicht sehr schwer.
 Die [offizielle Dokumentation](https://actix.rs/docs/) ist die beste Anlaufstelle, um tiefer einzusteigen.
 
 Natürlich bietet das Framework noch einiges mehr an Funktionalität als in diesem Artikel beschrieben wurde.
