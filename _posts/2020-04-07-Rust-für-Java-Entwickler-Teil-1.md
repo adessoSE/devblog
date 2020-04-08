@@ -23,8 +23,8 @@ Einen guten Einstieg hierfür bietet das Buch [The Rust Programming Language](ht
 
 Zuerst erstellen wir uns ein neues Projekt.
 Das machen wir mit dem Package-Manager *Cargo*.
-Dazu führen wir den Befehl ```cargo new <projekt-name> --bin``` in unserem Workspace aus.
-Um Actix zu verwenden, geben wir die Dependency in der Cargo.toml an.
+Dazu führen wir den Befehl `cargo new <projekt-name> --bin` in unserem Workspace aus.
+Um Actix zu verwenden, geben wir die Dependency in der Cargo.toml (vergleichbar mit einer build.gradle oder pom.xml Datei) an.
 
 ```rust
 [dependencies]
@@ -50,16 +50,16 @@ Wir werden also fünf verschiedene Endpoints implementieren müssen, die wie fol
 # Request Handler
 
 Um Anfragen an unsere API annehmen zu können, müssen wir sogenannte Request Handler (im Folgenden auch durch RH abgekürzt) implementieren.
-Ein RH ist eine Funktion, die Null oder mehrere Parameter entgegennimmt und einen Wert zurückgibt, der das ```Responder```-Trait implementiert.
-Datentypen und -strukturen, die das ```Responder```-Trait implementieren, werden dann vom Framework zu einer HTTP-Response konvertiert.
+Ein RH ist eine Funktion, die Null oder mehrere Parameter entgegennimmt und einen Wert zurückgibt, der das `Responder`-Trait implementiert.
+Datentypen und -strukturen, die das `Responder`-Trait implementieren, werden dann vom Framework zu einer [HTTP-Response](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status) konvertiert.
 So wird sichergestellt, dass nur Typen zurückgegeben werden, die in eine HTTP-Response konvertiert werden können.
 
 ## Request-Handler Beispiel
 
 Betrachten wir ein Request-Handler Beispiel.
-Dazu definieren wir eine Funktion die vorerst keinen Parameter annimmt und die einen Wert zurückliefert, der das ```Responder```-Trait implementiert.
-Actix-Web bietet einige default-Implementierungen des ```Responder```-Traits für gebräuchliche Datentypen und -strukturen an.
-So auch für den Datentyp ```String```.
+Dazu definieren wir eine Funktion die vorerst keinen Parameter annimmt und die einen Wert zurückliefert, der das `Responder`-Trait implementiert.
+Actix-Web bietet einige default-Implementierungen des `Responder`-Traits für gebräuchliche Datentypen und -strukturen an.
+So auch für den Datentyp `String`.
 Unser RH könnte dann so aussehen:
 
 ```Rust
@@ -68,8 +68,10 @@ fn request_handler() -> impl Responder {
 }
 ```
 
+Anstatt einer Referenz liefert uns `to_owned()` an dieser Stelle einen Wert vom Typ String.
+
 Wir müssen nun definieren unter welcher Anfrage diese Funktion aufgerufen werden soll.
-Bevor wir das tun, untersuchen wir zunächst den ```HTTP-Server``` und die ```App``` von Actix-Web.
+Bevor wir das tun, untersuchen wir zunächst den `HTTP-Server` und die `App` von Actix-Web.
 
 ### HttpServer und App-Instanz
 
@@ -80,7 +82,7 @@ Dies geben wir mit der `bind()`-Methode an.
 In dem HTTP-Server erstellen wir anschließend unsere App-Instanz.
 Hier geben wir auch an, bei welcher Anfrage unser Beispiel-RH aufgerufen werden soll.
 
-Für unser Beispiel könnten wir einfach den Root-Pfad der URL angeben und mit einem `GET` abrufen.
+Für unser Beispiel könnten wir einfach den Root-Pfad der URL angeben und mit einem [GET](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/GET) abrufen.
 Wir erhalten somit folgende main-Funktion:
 
 ```Rust
@@ -96,7 +98,7 @@ fn main() {
 }
 ```
 
-Unser Server läuft nun lokal auf dem Port 8099. Der RH wird immer dann aufgerufen, wenn eine GET-Anfrage auf die Route ```/``` erfolgt.
+Unser Server läuft nun lokal auf dem Port 8099. Der RH wird immer dann aufgerufen, wenn eine GET-Anfrage auf die Route `/` erfolgt.
 Wir haben jetzt bereits eine vollständige Actix-Web-App erstellt und können diese ausführen.
 Dazu rufen wir im Browser den localhost auf Port 8099 auf und erhalten folgende Ausgabe:
 
@@ -190,7 +192,7 @@ pub fn get_all() -> Json<Vec<Person>> {
 }
 ```
 
-Diese Funktion wird immer dann aufgerufen, wenn wir einen GET-Request auf dem ```/persons```-Pfad erhalten.
+Diese Funktion wird immer dann aufgerufen, wenn wir einen GET-Request auf dem `/persons`-Pfad erhalten.
 Sie liefert uns die JSON-Repräsentation eines Vektors von Personen-Instanzen.
 Ein­fach­heits­hal­ber wollen wir an dieser Stelle nicht mit einer Datenbank oder dem Dateisystem kommunizieren.
 Wir nehmen an, dass die Persistenzschicht uns einen Personen-Vektor liefert.
@@ -229,7 +231,7 @@ struct Person {
 ```
 
 Serde konvertiert die Werte vom Typ u32 und String nun in JSON-Objekte.
-Da unsere Personen-Struktur nur aus diesen Typen besteht, können wir das ```Serialize```- und ```Deserialize```- Trait mithilfe des ```derive```-Makros angeben.
+Da unsere Personen-Struktur nur aus diesen Typen besteht, können wir das `Serialize`- und `Deserialize`- Trait mithilfe des `derive`-Makros angeben.
 Schon kompiliert unser Code.
 
 Wenn wir jetzt den Endpoint ansprechen, liefert uns der Server folgende Antwort:
@@ -258,7 +260,7 @@ pub fn get(id: u32) -> Json<Person> {
 ```
 
 Wir erhalten jedoch einen Compilerfehler, wenn wir versuchen das Projekt zu bauen.
-Das liegt daran, dass jeder Eingabe-Parameter eines RHs das ```FromRequest```-Trait implementieren muss. Das ist für den Typ u32 nicht der Fall.
+Das liegt daran, dass jeder Eingabe-Parameter eines RHs das `FromRequest`-Trait implementieren muss. Das ist für den Typ u32 nicht der Fall.
 
 Glücklicherweise hilft uns Actix-Web auch hier weiter.
 Es bietet eine `Path`-Struktur die als Wrapper für Request-Parameter dient.
@@ -270,7 +272,7 @@ pub fn get(id: Path<u32>) -> Json<Person> {
 }
 ```
 
-Der Typ Path implementiert das ```Deref```-Trait.
+Der Typ Path implementiert das `Deref`-Trait.
 Um also an unseren Wert vom Typ u32 zu gelangen, muss die Variable dereferenziert werden.
 Auch hier wollen wir zunächst nur einen Dummy-Wert zurückgeben.
 
@@ -298,7 +300,7 @@ pub struct NewPerson {
 }
 ```
 
-Auch hier müssen wir wieder ```Serialize``` und ```Deserialize``` mithilfe des derive-Makros verwenden, um die entsprechende Struktur als JSON-Body in einem Request anzugeben.
+Auch hier müssen wir wieder `Serialize` und `Deserialize` mithilfe des derive-Makros verwenden, um die entsprechende Struktur als JSON-Body in einem Request anzugeben.
 Unser RH für das Erstellen einer Person sieht dann so aus:
 
 ```rust
@@ -339,8 +341,8 @@ pub fn update(id: Path<u32>, person: Json<UpdatePerson>) -> String {
 
 ## Löschen einer Person
 
-Beim Löschen einer Person gibt es keine neuen Funktionen oder Techniken des Frameworks, die vorzustellen wären.
-Deshalb kurz und knapp - hier ist unser Request Handler:
+Das Löschen einer Person benötigt keine neuen Funktionen oder Techniken des Frameworks.
+Ohne weitere Erläuterungen sieht der Request Handler wie folgt aus:
 
 ```rust
 #[delete("/persons/{id}")]
@@ -350,10 +352,6 @@ pub fn delete(id: Path<u32>) -> String {
 ```
 
 Wir haben nun alle Request Handler für unsere REST-API definiert.
-Die Kommunikation mit einer Datenbank haben wir der Übersichtlichkeit und Einfachheit halber weggelassen.
-Dazu müssten wir ein komplett neues Framework einbinden und vorstellen - das wäre ein Thema für einen weiteren Blog-Artikel.
-Doch abgesehen von der Persistenzschicht fehlen uns auch andere elementare Aspekte in unserer App, wie z.B. eine konsistente und durchgehende Fehlerbehandlung sowie Unit- und Integration-Tests.
-Die Behandlung dieser Themen würde allerdings den Rahmen des Artikels sprengen, weshalb ich an dieser Stelle nicht näher darauf eingehen werde.
 
 # Fazit
 
