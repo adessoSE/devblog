@@ -354,8 +354,7 @@ Das Passwort für den Zugriff lautet "secret".
 
 # Ausblick
 
-In weiteren Blogs möchte ich den Docker Part des Projektes näher beleuchten und wie genau man weitere Tests erstellen kann.
-Außerdem möchte ich gerne bekannte Pitfalls sowie Do's and Dont's ansprechen, die mir bereits oft über den Weg gelaufen sind.
+In weiteren Blogs möchte ich den Docker Part des Projektes näher beleuchten, sowie bekannte Pitfalls und Do's and Dont's ansprechen.
 
 
 ### Quellcode auf Github
