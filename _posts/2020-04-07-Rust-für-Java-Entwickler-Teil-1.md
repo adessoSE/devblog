@@ -72,6 +72,7 @@ Anstatt einer Referenz liefert uns `to_owned()` an dieser Stelle einen Wert vom 
 
 Wir müssen nun definieren unter welcher Anfrage diese Funktion aufgerufen werden soll.
 Bevor wir das tun, untersuchen wir zunächst den `HTTP-Server` und die `App` von Actix-Web.
+`to_owned()` ist ein Rust-Feature & liefert uns an dieser Stelle den gewünschten String statt seiner Referenz.
 
 ### HttpServer und App-Instanz
 
