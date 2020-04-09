@@ -16,16 +16,16 @@ Vorkenntinsse im Bereich Java, JUnit, Docker und Maven sind empfehlenswert.
 
 # Vorstellung Docker
 
-Docker ist eine Containervirtualisierung bei der der Kernel die Existenz mehrerer isolierter User-Space-Instnazen erlaubt.
+Docker ist eine Containervirtualisierung, bei der der Kernel die Existenz mehrerer isolierter User-Space-Instnazen erlaubt.
 Diese werden Container genannt.
 Docker besteht im wesentlichen aus drei Komponenten.
 Der Docker-Client, auch Docker CLI(Command Line Interface) genannt, ist für die Interaktion mit dem Docker Daemon notwendig.
 Der Client kommuniziert über eine API mit dem Docker Daemon.
 Der Daemon verarbeitet die Requests des Docker Client und verwaltet die Docker-Objekte wie Container, Volumes und weiteres.
-Die dritte Komponente ist die Docker Registy. 
+Die dritte Komponente ist die Docker Registry. 
 Diese dient zur Abblage und Verteilung von Container Abbildern (Images).
-Die bekannteste Registry ist sicher [Docker Hub](https://hub.docker.com)
-Images sind Vorlagen um Docker-Container zu erstellen.
+Die bekannteste Registry ist sicher [Docker Hub](https://hub.docker.com).
+Images sind Vorlagen, um Docker-Container zu erstellen.
 Sie werden häufig in Schichten angelegt, so dass ein Image auf einem anderen Image basiert. 
 
 ## Dockerfile
@@ -37,19 +37,19 @@ Z.B. welche Ports exposed werden können oder welchen Einstiegspunkt es gibt.
 
 ## Docker-Images
 
-Docker-Images werden durch einen Docker Deamon erzeugt und nach bedarf in einer Registry abgelet.
-Der übliche Weg ein Image zu erzeugen ist ein Dockerfile zu verwenden.
-Ein Docker-Image besteht üblicherweise aus einem Basis Image und Mehreren Schichten von Kommandos.
+Docker-Images werden durch einen Docker Deamon erzeugt und nach bedarf in einer Registry abgelegt.
+Der übliche Weg ein Image zu erzeugen, ist ein Dockerfile zu verwenden.
+Ein Docker-Image besteht üblicherweise aus einem Basis Image und mehreren Schichten von Kommandos.
 Z.B. die Installation und Einrichtung einer Datenbank.
-Das Fertige Image enthält dann eine vollständige Datenbank Installation mit allen notwendigen Schritten um ausgeführt werden zu können.
+Das fertige Image enthält dann eine vollständige Datenbankinstallation mit allen notwendigen Schritten, um ausgeführt werden zu können.
 
 ## Docker-Container
 
 Ein Container ist eine ausführbare Instanz eines Docker-Images. 
-Das Image bilded hier quasi die Vorlage für einen Container.
+Das Image bildet hier quasi die Vorlage für einen Container.
 Aus einem Image können zudem beliebig viele Container erzeugt werden.
-In unserem Beispiel wird so ein Container erzeugt indem ein Webbrowser gestartet werden kann.
-Dieser wiederum kann durch Selenium zu Testauführung verwendet werden.
+In unserem Beispiel wird ein Container erzeugt, in dem ein Webbrowser gestartet werden kann.
+Dieser wiederum kann durch Selenium zur Testauführung verwendet werden.
 
 # Verwendung von Docker für Systemtests
 
@@ -62,13 +62,13 @@ Dazu konzentrieren wir uns in diesem Teil lediglich auf das Modul Docker.
 ## Modul Docker
 
 Das Modul ist lediglich ein Parent Modul ohne eigene Sourcen.
-Es enthält die Basis pom.xml die für jedes sub modul die Grundkonfiguration vorgibt.
+Es enthält die Basis pom.xml, die für jedes Submodul die Grundkonfiguration vorgibt.
 
 ### docker-maven-plugin
 
 Ein Blick in das Parent Modul zeigt die Verwendung des [docker-maven-plugin](https://dmp.fabric8.io/).
-Dieses Plugin ermöglicht die Steuerung eines Docker Deamon ähnlich wie es auch mit der Docker CLI möglich ist.
-Es besteht auch die Möglichkeit auf die Verwendung des Plugins zu verzichten und anstelle dessen das Maven Exec Plugin zu verwenden.
+Dieses Plugin ermöglicht die Steuerung eines Docker Deamon, ähnlich wie es auch mit der Docker CLI möglich ist.
+Es besteht auch die Möglichkeit, auf die Verwendung des Plugins zu verzichten und anstelle dessen das Maven Exec Plugin zu verwenden.
 Aufgrund der besseren Übersichtlichkeit und Konfigurierbarkeit tendiere ich hier zu dem docker-maven-plugin.
 
 ### Grundkonfiguraiton
@@ -89,7 +89,7 @@ ausgeführt wird.
 ![Struktur_demo-container](/assets/images/posts/selenium-einstieg-docker/struktur-demo-container.png)
 
 Das Modul demo-container enthält neben der pom.xml noch ein Dockerfile. 
-Dieses wird benötigt um ein Docker-Image für die zu testende Demo Anwendung zu erstellen.
+Dieses wird benötigt, um ein Docker-Image für die zu testende Demo Anwendung zu erstellen.
 
 #### Dockerfile
 
@@ -111,12 +111,12 @@ Das Dockerfile beschreibt im wesentlichen wie sich unser Demoimage aufbaut.
 
 FROM beschreibt von welchem Docker-Image wir beginnen möchten.
 Hier wählen wir das freie auf http://hub.docker.com verfügbare Image openjdk mit dem Tag 12-alpine.
-Dies bedeutet wir möchten die Version 12 des Open JDK mit der Betriebssystem Basis alpine.
+Dies bedeutet wir möchten die Version 12 des Open JDK mit der Betriebssystembasis alpine.
 
-Anschließend wird unter /opt/app/ ein Arbeitsverzeichniss erstellt in welches das Spring Boot Jar kopiert wird.
-Mit EXPOSE wird bekanntgegeben unter welchem Port in diesem Image eine Anwendung zu erreichen ist.
+Anschließend wird unter /opt/app/ ein Arbeitsverzeichnis erstellt, in welches das Spring Boot Jar kopiert wird.
+Mit EXPOSE wird bekanntgegeben, unter welchem Port in diesem Image eine Anwendung zu erreichen ist.
 
-Als letzter Schritt wird durch den ENTRYPOINT ein Befehl definiert, welcher ausgeführt werden soll wenn ein Container gestartet wird.
+Als letzter Schritt wird durch den ENTRYPOINT ein Befehl definiert, welcher ausgeführt werden soll, wenn ein Container gestartet wird.
 
 #### Resouce Plugin
 
@@ -144,8 +144,8 @@ Als letzter Schritt wird durch den ENTRYPOINT ein Befehl definiert, welcher ausg
 </plugin>
 ```
 
-Das Resources Plugin wird hier zum kopieren der Daten aus dem src Ordner verwendet.
-Die Daten in den Ordner target/docker-files kopiert und dort durch das docker-maven-plugin verwendet.
+Das Resources Plugin wird hier zum Kopieren der Daten aus dem src Ordner verwendet.
+Die Daten werden in den Ordner target/docker-files kopiert und dort durch das docker-maven-plugin verwendet.
 
 #### Dependency Plugin
 
@@ -179,8 +179,8 @@ Die Daten in den Ordner target/docker-files kopiert und dort durch das docker-ma
 </plugin>
 ```
 Durch das dependency plugin wird das im Vorfeld erzeugte webapp-demo Artefakt aus dem Maven Repository geladen und in den target/docker-files Ordner kopiert. 
-Dies ermöglicht die Dependency Funkitonalität von Maven zu verwenden und es muss kein Artefakt manuell aus einem target folder kopiert werden.
-Es wäre so auch mölgich das erzeugen von Artefakten an einen vorgelagerten Prozess auszulagern und das erzeugen des Docker-Image später auszuführen.
+Dies ermöglicht, die Dependency Funkitonalität von Maven zu verwenden und es muss kein Artefakt manuell aus einem target folder kopiert werden.
+Es wäre so auch mölgich, das Erzeugen von Artefakten an einen vorgelagerten Prozess auszulagern und das Erzeugen des Docker-Image später auszuführen.
 
 #### Docker Maven Plugin
 ```xml
@@ -224,31 +224,31 @@ Es wäre so auch mölgich das erzeugen von Artefakten an einen vorgelagerten Pro
 </configuration>
 ```
 Die Konfiguration des docker-maven-plugins ist etwas umfangreicher.
-Sie enthält neben den Informationen zum erstellen ```</build>``` des Docker-Image auch die Konfiguration zum starten eines Containers ```</run>```.
-Es besteht zudem die Möglichkeit in einem Module mehrere Docker-Images zu konfigurieren.
+Sie enthält neben den Informationen zum Erstellen ```</build>``` des Docker-Image auch die Konfiguration zum Starten eines Containers ```</run>```.
+Es besteht zudem die Möglichkeit, in einem Modul mehrere Docker-Images zu konfigurieren.
 Zur besseren Übersicht wurde hier für jeden Container ein eigenes Modul erstellt.
 
-Als erstes wird in der Allgemeinen Konfiguration der Imagename definiert der verwendet werden soll. 
+Als erstes wird in der Allgemeinen Konfiguration der Imagename definiert, der verwendet werden soll. 
 
 In dem Tag ```</build>``` ist der Tag ```</dockerFileDir>``` der wichtigste. 
-Damit wird angegeben wo das Plugin nach dem Dockerfile und allen weiteren Sourcen schauen soll.
+Damit wird angegeben, wo das Plugin nach dem Dockerfile und allen weiteren Sourcen schauen soll.
 In diesem Fall ist dies der Pfad "target/docker-files".
 
-In dem ```</run>``` Tag werden alle Informationen angegeben die für die Ausführung eines Containers wichtig sind.
+In dem ```</run>``` Tag werden alle Informationen angegeben, die für die Ausführung eines Containers wichtig sind.
 Der Imagename wurde bereits definiert.
 
 Mit dem Tag ```</network>``` wird der Container einem definierten Netzwerk zugewiesen.
 Wird dieser nicht angegeben, so wird der Container dem default Netzwerk des Docker Deamon zugewiesen.
 
-Der Tag ```</namingStrategy>``` definiert wie der Container im Netzwerk angesprochen werden kann. 
+Der Tag ```</namingStrategy>``` definiert, wie der Container im Netzwerk angesprochen werden kann. 
 
 Über ```</env>``` besteht die Möglichkeit Umgebungsvariablen für den Container zu definieren.
 
 ```<ports>``` definiert das Mapping von Container Ports auf die Lokalen Ports des Docker Deamon.
 
 
-Mit ```</wait>``` besteht die Möglichkeit auf einen Container zu warten.
-In diesem Beispiel wird auf eine bestimmte Logausgabe gewartet um sicherzustellen, dass der Container vollständig gestartet ist.
+Mit ```</wait>``` besteht die Möglichkeit, auf einen Container zu warten.
+In diesem Beispiel wird auf eine bestimmte Logausgabe gewartet, um sicherzustellen, dass der Container vollständig gestartet ist.
 
 All diese Parameter und weitere können in der [Dokumentation](https://dmp.fabric8.io/) des docker-maven-plugin nachgeschlagen werden.
 
@@ -256,7 +256,7 @@ All diese Parameter und weitere können in der [Dokumentation](https://dmp.fabri
 
 ![Struktur_selenium-hub-container](/assets/images/posts/selenium-einstieg-docker/struktur-selenium-hub-container.png)
 
-Der selenium-hub-container besteht lediglich aus einer pom.xml da das verwendete Docker-Image bereits durch Selenium HQ [bereitgestellt](https://github.com/SeleniumHQ/docker-selenium) wird.
+Der selenium-hub-container besteht lediglich aus einer pom.xml, da das verwendete Docker-Image bereits durch Selenium HQ [bereitgestellt](https://github.com/SeleniumHQ/docker-selenium) wird.
 
 #### Docker Maven Plugin
 
@@ -302,11 +302,10 @@ Die Konfiguration ähnelt dem Demo Container sehr.
 Daher werde ich nicht noch einmal auf jeden Tag eingehen.
 Eine Besonderheit gibt es jedoch.
 
-Das verwendete Image ist ein Debug Image. 
-Welches einen zusätzlichen VNC Server enthält. 
-Dadurch besteht die Möglichkeit die Testausführung über einen VNC Client zu beobachten oder auch zu steuern.
+Das verwendete Image ist ein Debug Image, welches einen zusätzlichen VNC Server enthält. 
+Dadurch besteht die Möglichkeit, die Testausführung über einen VNC Client zu beobachten oder auch zu steuern.
 Der VNC Server ist über den Port 5900 erreichbar und das default Passwort lautet "secret".
-In dem [Github Repository](https://github.com/SeleniumHQ/docker-selenium#debugging) von Selenium HQ wird dieser Fakt noch detailiert beschrieben.
+In dem [Github Repository](https://github.com/SeleniumHQ/docker-selenium#debugging) von Selenium HQ wird dieser Fakt noch detailierter beschrieben.
 
 ## Zusammenspiel
 
@@ -327,7 +326,7 @@ heruntergefahren und entfernt werden.
 ## Vorteile
 
 Gegenüber einer fest installierten Umgebung ist hier zu allererst die schnelle Installationszeit.
-Durch den Fakt alles über Infrastructure as Code zu verwalten erhält man eine sehr schnelle Installationszeit da keine manuellen Eingaben notwending sind.
+Durch den Fakt, alles über Infrastructure as Code zu verwalten, erhält man eine sehr schnelle Installationszeit, da keine manuellen Eingaben notwending sind.
 
 Dazu kommt die Versionierbarkeit. 
 Angenommen eine Anwendung muss mit verschiedenen Versionsständen getestet werden.
@@ -341,7 +340,7 @@ Die bekannte Problematik "Works on my Machine" wird weiter verringert.
 
 Der Entwickler benötigt ein gewisses Verständnis für die eingesetzten Technologien.
 
-Die kompatibilität zwischen Unix und Windows ist leider noch nicht sehr gut.
+Die Kompatibilität zwischen Unix und Windows ist leider noch nicht sehr gut.
 Daher würde ich für die Verwendung immer ein Unix empfehlen.
 
 
