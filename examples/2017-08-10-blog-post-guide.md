@@ -102,6 +102,19 @@ public class HelloWorld {
 }
 ```
 
+### Escapen von geschweiften Klammern in Codesnippets
+Der devblog basiert auf [Jekyll](https://jekyllrb.com/). Jekyll verwendet [Liquid](https://shopify.github.io/liquid/).
+Die Liquid-Syntax basiert auf doppelten geschweiften Klammern:
+```
+{% raw %}
+{{ liquid.befehl }}
+{% endraw %}
+``` 
+
+Daher müssen die Klammern escapet werden, um sie in euren Codesnippets darzustellen.
+Verwendet dazu den `raw`-[Tag](https://shopify.github.io/liquid/tags/raw/).
+
+
 ## Bilder
 
 Um ein Bild zu verwenden, lege die Bild-Datei im Ordner `/assets/images/posts/titel-deines-blog-posts/` ab und
