@@ -13,7 +13,9 @@ tags: [Testing]
 
 # Der Test ob das noch gilt
 ```js
+{% raw  %}
 {{ vue code }}
+{% endraw  %}
 ```
 
 Fin.
