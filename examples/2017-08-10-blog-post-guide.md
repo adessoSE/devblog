@@ -103,7 +103,8 @@ public class HelloWorld {
 ```
 
 ### Escapen von geschweiften Klammern in Codesnippets
-Der devblog basiert auf [Jekyll](https://jekyllrb.com/). Jekyll verwendet [Liquid](https://shopify.github.io/liquid/).
+Der devblog basiert auf [Jekyll](https://jekyllrb.com/).
+Jekyll verwendet [Liquid](https://shopify.github.io/liquid/).
 Die Liquid-Syntax basiert auf doppelten geschweiften Klammern:
 ```
 {% raw %}
