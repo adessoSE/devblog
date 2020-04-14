@@ -63,20 +63,20 @@ Das Projekt ist mit Gradle und Version 13 von Java ausgestattet.</p>
 
 <p><img src="/assets/images/posts/github-actions/actions-tab.JPG" alt="Bild vom Actions Reiter" /></p>
 
-<p>Angekommen in den Actions, kriegen wir vom intuitiven System eine Menge bereits definierter Actions, die <strong>out of the box</strong> kommen.
+<p>Angekommen in den Actions, kriegen wir vom intuitiven System eine Menge bereits definierter Actions, die <strong>out of the box</strong> sind.
 Namhafte Sprachen und Frameworks werden direkt unterstützt.
-Zum Herumexperimentieren von Actions gibt GitHub dem Benutzer einen kleinen Appell zu einer Starter-Action.</p>
+Zum Herumexperimentieren stellt GitHub dem Benutzer eine Starter-Action zur Verfügung bereit.</p>
 
 <p><img src="/assets/images/posts/github-actions/starter.JPG" alt="Bild der Starter-Action" /></p>
 
 <p>In diesem werden alle Punkte einer YML-Datei grob angeschnitten und erklärt, wofür diese benötigt werden.
-Nichts destotrotz gibt es bereits eine Action, um ein Gradle Projekt bauen zu lassen.
+Es gibt bereits zahlreiche Actions von der Community oder auch welche von GitHub selbst, beispielsweise eine um ein Gradle Projekt bauen zu lassen.
 Diese Action wird im späteren Verlauf dieses Blogposts als Grundlage für die anderen Tasks des Workflows wiederverwendet.</p>
 
 <p><img src="/assets/images/posts/github-actions/gradle-build-action.JPG" alt="Bild des Gradle-Build-Actions" /></p>
 
 <p>Im Folgenden wird der Codeblock der Action genauer betrachtet.
-Weiterhin werden die einzelnen Werte genauer erklärt, wieso und wofür diese da sind und was sie bewirken.</p>
+Weiterhin werden die einzelnen Werte genauer erklärt.</p>
 <pre><code class="language-yaml">name: Spring Boot
 
 on:
@@ -101,21 +101,22 @@ jobs:
     - name: Build with Gradle
       run: ./gradlew build
 </code></pre>
-<p>Das Schlüsselwort <code>name</code> gibt an, wie das Action später in der Ausführung bzw. in der Oberfläche heißen soll.
+<p>Das Schlüsselwort <code>name</code> gibt an, wie die Action später in der Ausführung bzw. auf GitHub heißen soll.
 Danach folgt <code>on</code>, was festlegt, auf welche GitHub-Events das Action reagieren soll.
-In den eckigen Klammern folgen die Repositorys, für die diese Actions gelten sollen.</p>
+In der Array-Schreibweise folgen die Repositorys bzw. Branches, für die diese Actions gelten sollen.
+Dementsprechend können Komma separiert mehrere Branches angegeben werden.</p>
 
-<p>Normalerweise wird in Softwareprojekten mit <strong>Pullrequest</strong> gearbeitet, jedoch ist es für Testzwecke in Ordnung auf <code>push</code> und <code>pull_request</code> zu hören.
-Welche weiteren Event-Typen es gibt, kann unter der dafür vorhandenen <a href="https://help.github.com/en/actions/reference/events-that-trigger-workflows">Dokumentation</a> nachgesehen werden.</p>
+<p>Für unser Projekt wird auf die Event-Typen <code>push</code> und <code>pull_request</code> reagiert.
+Welche weiteren Event-Typen es gibt, kann in der <a href="https://help.github.com/en/actions/reference/events-that-trigger-workflows">Dokumentation</a> nachgesehen werden.</p>
 
-<p>Anschließend beginnt der Workflow, der auch aus ein oder mehreren Workflowschritten bestehen kann.
+<p>Anschließend beginnt der Workflow, der aus einem oder mehreren Workflowschritten besteht.
 Je nach Konfiguration werden diese sequenziell oder parallel abgearbeitet.</p>
 
 <p>Nun folgen die einzelnen Jobs, wobei <code>build</code> den Namen des einzigen Workflowschritt angibt.
-Zudem wird mit <code>runs-on</code> angegeben, auf welchem Betriebssystem dieser ausgeführt werden soll.</p>
+Zudem wird mit <code>runs-on</code> angegeben, auf welcher Ausführungsumgebung dieser ausgeführt werden soll.</p>
 
 <p>Mit <code>steps</code> wird eine Folge von Schritten definiert, die für diesen Job benötigt werden.
-Als nächstes wird das Repository mit <code>- uses: actions/checkout@v2</code> ausgecheckt, damit es für den Job benutzt werden kann.</p>
+Als nächstes wird das Repository mit Befehl <code>- uses: actions/checkout@v2</code> über Git ausgecheckt, damit es für den Job benutzt werden kann.</p>
 
 <p>Nachdem das Repository ausgecheckt wurde, wird mit den nächsten drei Zeilen das Java SDK gesetzt.
 Für dieses Projekt wurde Java 13 verwendet, weshalb die Zahl bei <code>java-version</code> von <em>1.8</em> auf <strong>13</strong> geändert wurde.</p>
@@ -126,9 +127,9 @@ Für dieses Projekt wurde Java 13 verwendet, weshalb die Zahl bei <code>java-ver
 
 <p><img src="/assets/images/posts/github-actions/gradle-build-result.JPG" alt="Bild des Ergebnisses des Gradle Builds" /></p>
 
-<p>Oben links am Icon ist erkennbar, ob die Action erfolgreich durchlaufen ist.
-Daneben ist der Ziel-Branch, die Commit-Nummer und Commit-Message angegeben.
-Darunter wird der Name des Actions angegeben, also das was in der ersten Zeile des o.g steht.
+<p>In der ersten Zeile der Abbildung steht der Name des Commits und ob dieser erfolgreich war oder fehlgeschlagen ist.
+Eine Zeile darunter ist der Branch, die Commit-Nummer und die Commit-Message angegeben.
+Anschließend folgt der Name der Actions, also das was in der ersten Zeile der o.g steht.
 Darunter werden die einzelnen Jobs aufgelistet und zu guter Letzt gibt es rechts einen genauen Ablauf der einzelnen Steps.
 Diese besitzen eine Zeitangabe und können bei Bedarf aufgeklappt und näher betrachtet werden.</p>
 
@@ -140,7 +141,7 @@ Das Projekt muss ausgecheckt, mit Java 13 gebaut und mit Rechten versorgt werden
 
 <p>Das einzige was sich vom voherigen Job unterscheidet ist der Gradle Befehl, denn dieses mal wird <code>./gradlew test</code> ausgeführt.</p>
 
-<p>Als Referenz dient das <a href="https://github.com/adessoAG/github-actions/">Projekt</a> des Blogposts, welches unter dem GitHub Account von der adesso SE auffindbar ist. 
+<p>Als Referenz dient das <a href="https://github.com/adessoAG/github-actions/">Projekt</a> des Blogposts, welches unter dem GitHub Account der adesso SE auffindbar ist. 
 Anschließend erweitert sich die Action um die folgenden Codezeilen.</p>
 <pre><code class="language-yaml">test:
     
@@ -158,17 +159,21 @@ Anschließend erweitert sich die Action um die folgenden Codezeilen.</p>
       run: ./gradlew test
 </code></pre>
 <h6 id="statische-codeanalyse-mit-pmd">Statische Codeanalyse mit PMD</h6>
-<p>Einer der weiteren Kernaspekte dieses Blogposts ist die Analyse eines Java-Projekts mittels statischer Codeanalyse.
-Statische Code Analyse bedeutet, dass ein Tool nach typischen Codemustern sucht und dadurch die Codequalität stark verbessert.
-Als beispielhaftes Tool wird PMD verwendet, was einen großen Funktionsumfang hat.</p>
+<p>Ein weiterer Aspekt dieses Blogposts ist das Ausführen einer statischen Codeanalyse mittels Actions im Java-Projekt.
+Statische Codeanalyse bedeutet, dass ein Tool nach typischen Mustern im Code sucht.
+Dies trägt zur Erkennung von Fehlern oder Code-Smells bei und fördert gleichzeitig die Verbesserung der Codequalität.
+Als beispielhaftes Tool wird <a href="https://pmd.github.io/">PMD</a> verwendet, was einen großen Funktionsumfang hat.</p>
 
-<p>GitHub-Actions hat einen eigenen Marketplace, indem nach <strong>Community-Contributions</strong> gesucht werden kann.
-Dort kann der Nutzer nach Actions suchen die er für nützlich empfindet und einige davon haben einen Verifizierungshaken.</p>
+<p>GitHub-Actions hat einen eigenen Marketplace, in dem nach <strong>Community-Contributions</strong> gesucht werden kann.
+Dort kann der Nutzer nach Actions suchen die er für nützlich hält und einige davon haben einen Verifizierungshaken.
+Der Verifizierungshaken bedeutet, dass es sich um die echten Entwickler des Toolings handelt.
+Dadurch ist sichergestellt, dass die Action funktioniert und in naher Zukunft auch funktionieren wird.</p>
 
-<p>Nach einer kurzen Google-Recherche fand ich heraus, dass es für PMD schon eine <a href="https://github.com/marketplace/actions/pmd-source-code-analyzer-action">Community-Action</a> gab und dieser sogar einige Sterne auf GitHub hatte.
-Das Beispiel funktioniert problemlos, jedoch fehlte der Checkout des Repositorys.</p>
+<p>Nach einer kurzen Google-Recherche kam heraus, dass für PMD bereits eine <a href="https://github.com/marketplace/actions/pmd-source-code-analyzer-action">Community-Action</a> existiert.
+Die Action musste angepasst werden, denn das angegebene Beispiel funktioniert nicht. 
+Das auschecken des Git Repositorys fehlte.</p>
 
-<p>Der Folgende Ausschnitt zeigt was hinzugefügt wurde.</p>
+<p>Der Folgende Ausschnitt zeigt, was hinzugefügt wurde.</p>
 <pre><code class="language-yaml">pmd:
     
     runs-on: ubuntu-latest
@@ -182,11 +187,10 @@ Das Beispiel funktioniert problemlos, jedoch fehlte der Checkout des Repositorys
 </code></pre>
 <p>Wir erstellen einen neuen Job namens <code>pmd</code>.</p>
 
-<p>Dieser hat wieder einen Runner, der essenziell ist.
-Ohne diesen funktioniert ein Job nicht.</p>
+<p>Dieser hat wieder eine Ausführungsumgebung, die essenziell ist.</p>
 
 <p>Zuerst wird das Repository ausgecheckt.
-Danach wird das Community-Action verwendet.</p>
+Danach wird die Community-Action verwendet.</p>
 
 <p>Im <code>run</code> wird <code>pmd</code> aufgerufen mit einem <code>-d</code>, was den Pfad angibt, auf die das RuleSet ausgeführt werden soll.
 Das Format des Ergebnisses wird  mit <code>-f</code> angegeben.
@@ -195,7 +199,8 @@ Das RuleSet wird mit <code>-R</code> und allen Regeln definiert.
 Außerdem können diese in der offiziellen <a href="https://pmd.github.io/latest/pmd_rules_java.html#best-practices">Dokumentation</a> von PMD gefunden werden.
 Zum Ende wird noch die Programmiersprache und dessen Version festgelegt.</p>
 
-<p>Als der Job positiv durchlief, habe ich zum Testen eine ungenutze lokale Variable angelegt und die erwartete Fehlermeldung kam auch.
+<p>Als der Job positiv durchlief, wurde zu Testzwecken eine ungenutze lokale Variable angelegt.
+Dies wurde getan um zu überprüfen, ob dadurch die erwartete Fehlermeldung ausgelöst, was der Fall war.
 <img src="/assets/images/posts/github-actions/local-variable-fail.JPG" alt="Bild des Fehlgeschlagenen PMD-Checks" /></p>
 
 <h6 id="release-erzeugen">Release erzeugen</h6>
@@ -243,9 +248,10 @@ jobs:
 Optional kann auch ein Branch gegeben werden.
 Wenn keiner angegeben ist, gilt diese Actions für alle.</p>
 
-<p>Anschließend wird angeordnet, auf welche Tags reagiert werden soll <code>v*</code>, bedeutet das alles was mit dem Buchstaben v startet einen Release erzeugt.</p>
+<p>Anschließend wird angeordnet, auf welche Tags reagiert werden soll,
+<code>v*</code>, bedeutet das alles was mit dem Buchstaben v startet einen Release erzeugt.</p>
 
-<p>Beispielsweise v1.0, v1.0.0 oder weitere, die diesem Muster entsprechen.</p>
+<p>Dadurch wird die semantische Versionierung (v1.0, v1.0.0 usw) unterstützt.</p>
 
 <p><em>Wie Patterns auf GitHub gehandhabt werden, kannst du <a href="https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#filter-pattern-cheat-sheet">hier</a> nachschauen.</em></p>
 
@@ -259,7 +265,7 @@ Im Body steht dann der textuelle Inhalt des Releases.</p>
 
 <p>Der Draft gibt an, ob der Release published <em>(true)</em> oder unpublished <em>(false)</em> sein soll.</p>
 
-<p>Der Wert des Prerelease Attributs legt fest, ob es sich um einen vollwertigen eigenständigen Release handelt oder einen Prerelease.</p>
+<p>Der Wert des Prerelease Attributs legt fest, ob es sich um einen vollwertigen, eigenständigen Release handelt oder einen Prerelease.</p>
 
 <p>Anschließend sieht der Release wie folgt aus.</p>
 
@@ -274,16 +280,16 @@ Im Body steht dann der textuelle Inhalt des Releases.</p>
 <p><img src="/assets/images/posts/github-actions/all-actions.JPG" alt="Bild aller Jobs" /></p>
 
 <h5 id="mein-fazit">Mein Fazit</h5>
-<p>Ich finde GitHub-Actions ist ein muss bei Anwendungen, die sowieso auf GitHub verwaltet werden, insbesondere im Open Source Bereich.</p>
+<p>GitHub-Actions ist ein muss bei Anwendungen, die sowieso auf GitHub verwaltet wurden, insbesondere im Open Source Bereich.</p>
 
-<p>Einige der größten Vorteile sind, dass es eine sehr detaillierte Dokumentation gibt, es einfach zu verstehen.
-Des Weiteren gibt es einen Marketplace, zu dem die Community beitragen kann.</p>
+<p>Einige der größten Vorteile sind, dass es eine sehr detaillierte Dokumentation gibt und es einfach zu verstehen ist.
+Des Weiteren gibt es einen <a href="https://github.com/marketplace?type=actions">Marketplace</a>, zu dem die Community beitragen kann.</p>
 
 <p>Der Funktionsumfang ist gigantisch und jeder, dessen Interesse erweckt wurde, sollte sich die Dokumentation genauer anschauen.
 Denn dieser Blogpost dient lediglich als Guide, um zu zeigen wie einfach CI/CD Prozesse mit Actions realisiert werden können.</p>
 
-<p>Außerdem ist es schön, dass Actions vom Repository, also vom Code, getrennt sind.
-Natürlich werden die Dateien mit ins Repository gepusht, aber die Erstellung dieser erfolgt in der Oberfläche von GitHub.</p>
+<p>Außerdem ist es schön, dass Actions direkt in der Oberfläche von GitHub erstellt werden können.
+Die Dateien werden anschließend mit ins Repository gepusht, aber der Support ist dank der Oberflächte angenehmer.</p>
 
 </div>
 </div>
