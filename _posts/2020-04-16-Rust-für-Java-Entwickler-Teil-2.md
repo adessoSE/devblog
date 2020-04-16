@@ -27,7 +27,7 @@ Wir nehmen an, dass die Daten im JSON-Format gespeichert werden.
 
 Wir legen eine `data.json` Datei im Root-Verzeichnis unseres Projekts an.
 Dort werden wir unsere Personen-Instanzen speichern.
-Dazu implementieren wir zwei Methoden (diese können wir in einer neuen Datei z.B. `person_repository.rs` kapseln):
+Wir implementieren zwei Methoden, mit denen wir von der Datei lesen bzw. in die Datei schreiben können (diese Methoden können wir in einer neuen Datei z.B. `person_repository.rs` kapseln):
 
 ```rust
 fn read_values_from_file() -> Vec<Person> {
@@ -48,10 +48,17 @@ fn write_values_to_file(persons: Vec<Person>) {
 const FILE_NAME: &str = "data.json";
 ```
 
+Außerdem müssen wir eine weitere Dependency `serde_json` angeben:
+
+```rust
+[dependencies]
+actix-web = "1.0.8"
+serde = "1.0.101"
+serde_json = "1.0.41"
+```
+
 Wir vermeiden die Behandlung möglicher Serialisierungs- und Dateizugriffsfehler, um uns stattdessen mit der Fehlerbehandlung einer `GET`-Anfrage zu beschäftigen.
 Aus diesem Grund rufen wir einfach die `unwrap()`-Methode auf, welche ähnlich wie [Optional#get](https://docs.oracle.com/javase/8/docs/api/java/util/Optional.html#get--) funktioniert.
-
-Der vollständige Quellcode inkl. aller Anwendungsfälle der REST-API ist auf [Github](https://github.com/KilianKrause/rest-api-with-actix) verfügbar.
 
 Hier ist eine Funktion, die uns eine Person mit der entsprechenden ID aus der Datei liest:
 
@@ -227,7 +234,7 @@ Der vollständige Test sieht so aus:
 ```rust
 #[test]
 fn test_returns_error() {
-    let mut app = test::init_service(App::new().service(request_handler::get));
+    let mut app = test::init_service(App::new().service(get));
     let req = test::TestRequest::get().uri("/persons/5").to_request();
     let resp = test::block_on(app.call(req)).unwrap();
 
@@ -240,7 +247,7 @@ In dem Test erstellen wir zunächst unsere Test-App und registrieren den Request
 ```rust
 #[test]
 fn test_returns_error() {
-    let mut app = test::init_service(App::new().service(request_handler::get));
+    let mut app = test::init_service(App::new().service(get));
 }
 ```
 
@@ -277,10 +284,10 @@ Hier ist unser Test:
 ```rust
 #[test]
 fn test_returns_success() {
-    let mut app = test::init_service(App::new().service(request_handler::get));
+    let mut app = test::init_service(App::new().service(get));
     let req = test::TestRequest::get().uri("/persons/2").to_request();
 
-    let result: person::Person = test::read_response_json(&mut app, req);
+    let result: Person = test::read_response_json(&mut app, req);
 
     assert_eq!(result.id(), 2);
     assert_eq!(result.age(), 24);
@@ -293,7 +300,7 @@ Wir erstellen dazu wieder unsere Test-App und den Request mit einer ID, die in u
 ```rust
 #[test]
 fn test_returns_success() {
-    let mut app = test::init_service(App::new().service(request_handler::get));
+    let mut app = test::init_service(App::new().service(get));
     let req = test::TestRequest::get().uri("/persons/2").to_request();
 }
 ```
@@ -302,7 +309,7 @@ Im test-Modul von Actix-Web gibt es eine Funktion `read_response_json`, die uns 
 Diese Funktion rufen wir wie folgt auf:
 
 ```rust
-let result: person::Person = test::read_response_json(&mut app, req);
+let result: Person = test::read_response_json(&mut app, req);
 ```
 
 In der `result`-Variable ist jetzt die Person Bob, die in der Datei die ID 2 hat.
@@ -314,7 +321,7 @@ assert_eq!(result.age(), 24);
 assert_eq!(result.name(), "Bob");
 ```
 
-Diejenigen, die sich noch weiter mit den Möglichkeiten von Actix-Web zur Fehlerbehandlung auseinandersetzen wollen, können sich [hier](https://actix.rs/docs/testing/) weiter in das Thema einlesen.
+Diejenigen, die sich noch weiter mit den Möglichkeiten von Actix-Web zum Testen auseinandersetzen wollen, können sich [hier](https://actix.rs/docs/testing/) weiter in das Thema einlesen.
 
 
 # Fazit
