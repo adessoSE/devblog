@@ -7,11 +7,13 @@ author: mschick
 categories: [Methodik]                   
 tags: [Migration, Softwaremigration, Legacy Software, Maintenance]  
 ---
-
-Dieser Artikel widmet sich dem Umgang mit sogenannter **Legacy Software**, also all jenen Anwendungen aber auch ganzen Softwaresystemen, deren zugrundeliegende Technologie durch den immerwährenden Fortschritt in der IT-Welt inzwischen als veraltet gilt.   
+Als Softwareentwickler ist man nicht nur mit der Umsetzung spannender Projekte unter Zuhilfenahme modernster Technologien betraut. 
+Gleichermaßen zählt auch die Modernisierung von veralteter Software in das Aufgabengebiet. 
+Häufig muss solche **Legacy Software** auf einen komplett neuen technischen Stand gehoben werden. 
+In diesem Artikel wird die **Chicken-Little-Methode** aus dem Themenbereich der **Softwaremigration** vorgestellt.
+Diese Methode beschreibt die Migration solcher Legacy Software in mehreren Schritten und bildet eine Alternative zur **vollständigen Neuentwicklung** des Projekts.
 
 Aber wann gilt eine Software oder ein ganzes Softwaresystem überhaupt als veraltet?
-Steht dann gleich eine vollständige Neuentwicklung in's Haus oder gibt es Alternativen? 
 Mit welchen Risiken und Schwierigkeiten wird man bei einer Modernisierung solcher Anwendungen und Systeme konfrontiert?
 
 Auf all diese Fragen versucht dieser Artikel eine Antwort zu liefern. 
