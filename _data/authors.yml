@@ -232,6 +232,15 @@ czarnecki:
   avatar_url: /assets/images/avatars/czarnecki.jpg
   github: https://github.com/czarnecki
 
+pschild:
+  first_name: Philippe
+  last_name: Schild
+  github_username: pschild
+  email: philippe.schild@adesso.de
+  bio: "Philippe Schild ist Software Engineer bei adesso in Essen. Er ist begeisterter Fan von JavaScript-Technologien und entwickelt u.a. Webanwendungen mit Angular."
+  avatar_url: /assets/images/avatars/pschild.jpg
+  github: https://github.com/pschild
+
 smsnheck:
   first_name: Sebastian
   last_name: Heckmann
