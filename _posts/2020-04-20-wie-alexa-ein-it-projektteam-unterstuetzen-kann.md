@@ -1,10 +1,10 @@
 ---
 layout: [post, post-xml]
 title: "Kollegin Alexa – Wie Sprachassistenten ein IT-Projektteam unterstützen können"
-date: 2020-04-04 17:30
+date: 2020-04-20 13:00
 author: pschild
 categories: [Softwareentwicklung]
-tags: [Typescript, Alexa, Sprachassistent]
+tags: [TypeScript, Alexa, Sprachassistent]
 ---
 
 Sprachassistenten wie *Alexa* haben inzwischen den Weg in die Wohnzimmer vieler Menschen gefunden und werden so vor allem im privaten Umfeld eingesetzt.
