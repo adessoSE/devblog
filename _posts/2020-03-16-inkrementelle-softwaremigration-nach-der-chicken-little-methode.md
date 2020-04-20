@@ -5,7 +5,7 @@ date:   2020-03-16 01:23
 modified_date:  2020-03-06 16:00
 author: mschick                     
 categories: [Methodik]                   
-tags: [Migration, Softwaremigration, Legacy Software, Maintenance]  
+tags: [Migration, Legacy Software, Maintenance]  
 ---
 Als Softwareentwickler ist man nicht nur mit der Umsetzung spannender Projekte unter Zuhilfenahme modernster Technologien betraut. 
 Gleichermaßen zählt auch die Modernisierung von veralteter Software in das Aufgabengebiet. 
