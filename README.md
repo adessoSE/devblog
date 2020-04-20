@@ -1,3 +1,5 @@
+![convert-blogpost-to-xml](https://github.com/adessoAG/devblog/workflows/convert-blogpost-to-xml/badge.svg)
+
 # adesso SE devblog
 
 Dieses Repository beinhaltet Blog Posts für den [adesso Blog](https://blog.adesso.de/).
