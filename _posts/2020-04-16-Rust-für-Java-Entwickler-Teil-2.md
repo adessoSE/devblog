@@ -169,7 +169,7 @@ Das sieht dann wie folgt aus (die ID ist willkürlich gewählt):
 ![Fehler](/assets/images/posts/Rust-für-Java-Entwickler-Teil-2/error.png)
 
 Actix bietet für die gebräuchlichsten Fehlercodes entsprechende Funktionen an.
-Eine detailierte Auflistung ist [hier](https://actix.rs/actix-web/actix_web/error/index.html) zu finden.
+Eine detaillierte Auflistung ist [hier](https://actix.rs/actix-web/actix_web/error/index.html) zu finden.
 
 ## Eigene Fehler definieren
 
