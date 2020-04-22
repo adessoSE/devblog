@@ -278,7 +278,7 @@ assert_eq!(resp.status(), http::StatusCode::NOT_FOUND);
 
 ### Test für erfolgreichen REST-Aufruf
 
-Nun wollen wir auch den Fall prüfen, dass eine Person mit der ID exisitert.
+Nun wollen wir auch den Fall prüfen, dass eine Person mit der ID existiert.
 Hier ist unser Test:
 
 ```rust
