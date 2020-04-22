@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<documents>
+    <document uid="d5ee533b77bac8a3b38f2456d8fbcb19">
+        <field name="title"><![CDATA[Kollegin Alexa – Wie Sprachassistenten ein IT-Projektteam unterstützen können]]></field>
+        <field name="subline"><![CDATA[]]></field>
+        <field name="teaser"><![CDATA[<p>Sprachassistenten wie <em>Alexa</em> haben inzwischen den Weg in die Wohnzimmer vieler Menschen gefunden und werden so vor allem im privaten Umfeld eingesetzt.
+Wie aber sehen die Entwicklungen und Einsatzmöglichkeiten im Unternehmenskontext aus? Wie lassen sich Sprachassistenten in eine bestehende Projekt-Infrastruktur integrieren? Können der Arbeitsalltag mit Hilfe von Sprachassistenten erleichtert und Mitarbeiter unterstützt werden?</p>
+
+]]></field>
+        <field name="language_multi_keyword"><![CDATA[de]]></field>
+        <field name="content_type_multi_keyword"><![CDATA[blog]]></field>
+        <field name="mime_type_multi_keyword"><![CDATA[text/html]]></field>
+        <field name="category_multi_keyword"><![CDATA[Softwareentwicklung]]></field>
+        <field name="tag_multi_keyword"><![CDATA[TypeScript]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Alexa]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Sprachassistent]]></field>
+        <field name="date_date"><![CDATA[2020-04-20T13:00:00+02:00]]></field>
+        <field name="date_l"><![CDATA[1587380400000]]></field>
+        <field name="change_date"><![CDATA[1587380400000]]></field>
+        <!--Picture-->
+        <!-- Not in use at the moment-->
+        <!--Author Information-->
+        <field name="author_first_name"><![CDATA[Philippe]]></field>
+        <field name="author_last_name"><![CDATA[Schild]]></field>
+        <field name="author_id"><![CDATA[pschild]]></field>
+        <field name="author_picture_stored_only"><![CDATA[http://localhost:4000/assets/images/avatars/pschild.jpg]]></field>
+        <!--Postcontent-->
+        <field name="headlines"><![CDATA[Kollegin Alexa – Wie Sprachassistenten ein IT-Projektteam unterstützen können]]></field>
+        <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
+            <p>Sprachassistenten wie <em>Alexa</em> haben inzwischen den Weg in die Wohnzimmer vieler Menschen gefunden und werden so vor allem im privaten Umfeld eingesetzt.
+Wie aber sehen die Entwicklungen und Einsatzmöglichkeiten im Unternehmenskontext aus? Wie lassen sich Sprachassistenten in eine bestehende Projekt-Infrastruktur integrieren? Können der Arbeitsalltag mit Hilfe von Sprachassistenten erleichtert und Mitarbeiter unterstützt werden?</p>
+
+</div>]]></field>
+        <field name="content"><![CDATA[<div class="adesso-text-formate">
+<div class="row p-t-2">
+<div class="adesso-container">
+<div class="col-xl-8 adesso-center p-b-1 p-l-0 p-r-0">
+    <p>Sprachassistenten wie <em>Alexa</em> haben inzwischen den Weg in die Wohnzimmer vieler Menschen gefunden und werden so vor allem im privaten Umfeld eingesetzt.
+Wie aber sehen die Entwicklungen und Einsatzmöglichkeiten im Unternehmenskontext aus? Wie lassen sich Sprachassistenten in eine bestehende Projekt-Infrastruktur integrieren? Können der Arbeitsalltag mit Hilfe von Sprachassistenten erleichtert und Mitarbeiter unterstützt werden?</p>
+
+<p>Mit diesen Fragen habe ich mich im Rahmen meiner Masterarbeit beschäftigt und eine prototypische Anwendung für den Sprachassistenten Alexa entwickelt.
+In den folgenden Abschnitten möchte ich euch von den Erkenntnissen meiner Arbeit berichten und euch einen Einblick in die technische Umsetzung geben.</p>
+
+<h4 id="der-status-eines-softwareprojektes">Der Status eines Softwareprojektes</h4>
+<p>Aufgabenfortschritt, Pipelinestatus, Codeanalysen: Der Status eines Softwareprojektes umfasst Informationen verschiedenster Quellen.
+Um eine Frage wie <em>“Wie läuft unser Projekt eigentlich gerade?”</em> fundiert beantworten zu können, müssen wir Metriken und Status aus mehreren Systemen manuell abfragen und zusammentragen. Wer oft damit zu tun hat weiß, dass das viel Zeit kosten kann.<br />
+Wenn Alexa uns die Höhe des Eiffelturms oder den neusten Chuck Norris-Witz erzählen kann, warum können wir sie nicht auch nach Informationen aus einem Softwareprojekt fragen?
+Lasst uns schauen, ob und wie so etwas möglich ist.</p>
+
+<h4 id="konzeption-der-anwendung">Konzeption der Anwendung</h4>
+<p>Für die Konzeption einer Anwendung für Sprachassistenten (im Kontext von Alexa <em>Skill</em> genannt) ist es zunächst wichtig zu ermitteln, <em>was</em> die Benutzer den Assistenten fragen und <em>wie</em> sie diese Anfragen formulieren.
+Es ist also essenziell, mit den Projektbeteiligten gemeinsam Anwendungsfälle und Sprachbefehle zu erarbeiten, die ihren Vorstellungen und ihrem Sprachgebrauch entsprechen.</p>
+
+<h5 id="anwendungsfälle-erarbeiten">Anwendungsfälle erarbeiten</h5>
+<p>Die Anwendungsfälle (im Kontext von Alexa <em>Intents</em> genannt) lassen sich auf verschiedene Weisen aufstellen.
+Es eignen sich zum Beispiel Methoden wie Workshops oder Interviews, um mit den Beteiligten zu sprechen und gemeinsam Ideen zu sammeln.<br />
+Im Rahmen meiner Masterarbeit habe ich Interviews mit mehreren Projektbeteiligten durchgeführt, die verschiedene Rollen im Projekt eingenommen und somit unterschiedliche Perspektiven vertreten haben.
+Eine Konsolidierung dieser Interviews hat gezeigt, dass vor allem Informationen aus den im Projekt verwendeten Systemen wie <em>Jira</em>, <em>GitLab</em> und <em>SonarQube</em> für den Alltag der Mitarbeiter von Bedeutung sind.</p>
+
+<h5 id="sprachmodell-aufstellen">Sprachmodell aufstellen</h5>
+<p>Ausgehend von den Anwendungsfällen ist es sehr wichtig dem Sprachassistenten beizubringen, <em>wie</em> wir die Fragen nach einem solchen Fall formulieren.
+Nur so kann der Sprachassistent unsere Spracheingabe verstehen und uns die passende Antwort geben.<br />
+In meinem Fall habe ich zusammen mit den Interviewpartnern unter anderem die folgenden Sprachbefehle abgeleitet:</p>
+<ul>
+  <li><em>“Berechne den Aufwand für den nächsten Sprint!”</em></li>
+  <li><em>“Zeige mir Informationen zum aktuellen Sprint!”</em></li>
+  <li><em>“Zeige mir das Burndown Chart vom aktuellen Sprint!”</em></li>
+  <li><em>“Wie viele offene Merge Requests gibt es?”</em></li>
+  <li><em>“Zeige mir die SonarQube Übersicht!”</em></li>
+</ul>
+
+<p>Ergänzend dazu habe ich <em>Slots</em> verwendet, um die Sprachbefehle flexibler zu gestalten und dynamische Informationen abzufragen.
+<em>Slots</em> stellen Platzhalter innerhalb eines Sprachbefehls dar und können verschiedene Werte annehmen, wie z. B. ein Datum, eine Nummer oder auch eine Liste von vorgegebenen Werten:</p>
+<ul>
+  <li><em>“Andere den Status von {TicketIdentifier} {TicketNumber} auf {Status}!”</em></li>
+  <li><em>“Zeige mir die Pipelines von {ProjectName}!”</em></li>
+  <li><em>“Wie ist die Qualität von {ProjectName}?”</em></li>
+</ul>
+
+<h5 id="exkurs-was-im-hintergrund-passiert">Exkurs: Was im Hintergrund passiert</h5>
+<p>Die Liste der möglichen Sprachbefehle wird Alexa statisch zur Verfügung gestellt.
+Die eingesprochenen Wörter des Benutzers werden mit Hilfe von <em>Automatic Speech Recognition (ASR)</em> und <em>Natural Language Understanding (NLU)</em> analysiert und der Sprachassistent versucht, sie einem existierenden Sprachbefehl des Skills zuzuordnen.
+Um die Flexibilität zu erhöhen, können wir auch mehrere alternative Sprachbefehle für einen bestimmten Intent definieren.</p>
+
+<p>Findet Alexa einen passenden Befehl, wird die jeweilige Funktion der Anwendung ausgelöst und die entsprechende Anfrage verarbeitet.
+In diesem Zuge können z. B. weitere Daten über externe Schnittstellen angefragt oder Berechnungen durchgeführt werden.</p>
+
+<p>Jeder Intent definiert schließlich eine Antwort als Ergebnis.
+Teil dieser Antwort ist der durch Alexa auszugebene Text oder auch Informationen für die visuelle Ausgabe der Antwort (bei Sprachassistenten mit Display).
+Der Text wird mit Hilfe von <em>Text-to-Speech (TTS)</em> in auditive Signale umgewandelt, sodass er über einen Lautsprecher ausgegeben werden kann und der Benutzer seine Antwort erhält.</p>
+
+<p>Das folgende Diagramm veranschaulicht den beschriebenen Prozess:</p>
+
+<p><img src="/assets/images/posts/wie-alexa-ein-it-projektteam-unterstuetzen-kann/ablaufdiagramm.png" alt="Ablaufdiagramm" /></p>
+
+<h4 id="implementierung">Implementierung</h4>
+<p>Für die Entwicklung von Alexa-Skills existieren verschiedene Frameworks, unter anderem für NodeJS, Java und Python.
+Die fertigen Anwendungen können z. B. auf <a href="https://aws.amazon.com/de/lambda/">AWS Lambda</a> gehostet und betrieben werden.
+Zusätzlich dazu muss der Skill über einen kostenlosen Amazon Developer Account und die dazugehörige Developer Console angelegt und konfiguriert werden.</p>
+
+<p>Um an das Beispiel aus meiner Masterarbeit anzuknüpfen, zeige ich euch in den folgenden Code-Ausschnitten die Eckpfeiler des Alexa-Skills in NodeJS.
+Für zusätzliche Unterstützung bei der Entwicklung habe ich TypeScript und die npm-Bibliothek <a href="https://github.com/alexa-js/alexa-app"><code>alexa-app</code></a> eingesetzt.<br />
+Zur Veranschaulichung implementieren wir im Folgenden den Anwendungsfall <code>JiraXrayStatusIntent</code>, der uns den Test-Status eines bestimmten Jira-Issues anzeigt.
+Den Quellcode des vollständigen Skills findet ihr auf <a href="https://github.com/pschild/alexa-project-assistent">GitHub</a>.</p>
+
+<h5 id="sprachmodell-definieren">Sprachmodell definieren</h5>
+<p>Über das Sprachmodell des Skills lassen sich innerhalb einer JSON-Datei die verschiedenen Intents definieren.<br />
+Wir legen dazu in unserem Sprachmodell alle nötigen Informationen für den <code>JiraXrayStatusIntent</code> an.
+In diesem Fall sind das der Name, die möglichen Slots und ihre Typen sowie eine Liste verschiedener Sätze zum Auslösen des Intents.
+Der Skill kennt damit den Umfang unserer Sprachbefehle und weiß, welche Aktion er bei welchem Befehl ausführen muss.</p>
+
+<pre><code class="language-json">{
+    "interactionModel": {
+        "languageModel": {
+            ...
+            "intents": [
+                {
+                    "name": "JiraXrayStatusIntent",
+                    "slots": [
+                        {
+                            "name": "JiraTicketIdentifier",
+                            "type": "JiraTicketIdentifier",
+                            "samples": [
+                                "ticket {JiraTicketIdentifier}",
+                                "{JiraTicketIdentifier}"
+                            ]
+                        },
+                        {
+                            "name": "JiraTicketNumber",
+                            "type": "AMAZON.NUMBER",
+                            "samples": [
+                                "{JiraTicketNumber}"
+                            ]
+                        }
+                    ],
+                    "samples": [
+                        "zeige die tests von {JiraTicketIdentifier} {JiraTicketNumber}",
+                        "zeige die xray tests von {JiraTicketIdentifier} {JiraTicketNumber}",
+                        ...
+                    ]
+                },
+                ...
+            ]
+        }
+    }
+}
+</code></pre>
+
+<h5 id="grundgerüst-aufstellen-und-intents-verarbeiten">Grundgerüst aufstellen und Intents verarbeiten</h5>
+<p>Neben einer Installation auf <em>AWS Lambda</em> bietet die Bibliothek <code>alexa-app</code> ebenfalls die Möglichkeit, den Skill auf einem lokalen <a href="https://expressjs.com/"><code>express</code></a>-Server zu hosten.
+Die Entwicklung kann somit komplett auf dem eigenen lokalen Computer stattfinden und es besteht keine Abhängigkeit zu AWS.
+Die Anwendung können wir dann wie folgt initialisieren:</p>
+<pre><code class="language-typescript">const app = express();
+const alexaApp = new alexa.app('customSkillName');
+alexaApp.express({
+    expressApp: app
+});
+</code></pre>
+
+<p>Über die Methode <code>.intent(&lt;NAME&gt;, (request, response) =&gt; { ... })</code> können wir den Intent nun der Anwendung bekannt machen:</p>
+<pre><code class="language-typescript">// get an instance of JiraXrayStatusIntentHandler (using a DI framework)
+const intentHandler: JiraXrayStatusIntentHandler = Container.get(JiraXrayStatusIntentHandler);
+alexaApp.intent('JiraXrayStatusIntent', intentHandler.handle.bind(intentHandler));
+</code></pre>
+
+<p>Schließlich stellen wir den Skill über den bereits angesprochenen express-Server auf Port 4242 bereit:</p>
+<pre><code class="language-typescript">app.listen(4242, () =&gt; console.log(`Listening on port 4242`));
+</code></pre>
+
+<h5 id="daten-abfragen-und-analysieren">Daten abfragen und analysieren</h5>
+<p>Die “Geschäftslogik” des Intents implementieren wir in der dazugehörigen Klasse <code>JiraXrayStatusIntentHandler</code>.
+Das Herzstück dieser Klasse ist die Methode <code>handle</code>, die sowohl die Anfrage (<code>request</code>) als auch die Antwort (<code>response</code>) als Parameter entgegennimmt.
+Aus dem <code>request</code> können wir z. B. die dynamischen, über Slots bereitgestellten Inhalte auslesen und verarbeiten.
+Die <code>response</code> wird innerhalb der Methode mit Informationen (Sprachausgabe, anzuzeigende Informationen etc.) angereichert und schließlich zurückgegeben:</p>
+
+<pre><code class="language-typescript">export default class JiraXrayStatusIntentHandler implements IIntentHandler {
+
+    @Inject
+    private controller: JiraEndpointController;
+
+    public async handle(request: alexa.request, response: alexa.response): Promise&lt;alexa.response&gt; {
+
+        // parse information from given speech input
+        const identifierSlotValue = elicitSlot(request, 'JiraTicketIdentifier');
+
+        const issue: JiraIssue = await this.controller.getIssue(identifierSlotValue);
+
+        // transform data, generate charts, ...
+
+        return response
+            .directive(buildDisplayDirective(...))
+            .say(`Alles klar, hier sind die aktuellen Testergebnisse für ...`);
+    }
+}
+</code></pre>
+
+<p>Innerhalb der <code>handle</code>-Methode eines IntentHandlers lassen sich nicht nur eine Schnittstelle, sondern auch Daten aus mehreren Systemen anfragen, indem mehrere <code>EndpointController</code> aufgerufen werden.
+Die systemübergreifenden Daten können wir im Anschluss aggregieren und darstellen:</p>
+
+<pre><code class="language-typescript">const nextRelease = await this.jiraEndpointController.getNextRelease(...);
+const bugs = await this.jiraEndpointController.getBugsInSprint(...);
+const qgStatus = await this.sonarQubeEndpointController.getQualityGateStatus(...);
+const masterBuilds = await this.gitLabEndpointController.buildMasterBuilds(...);
+
+// transform data, generate charts, ...
+
+return response
+    .directive(buildDashboardDirective(...))
+    .say(`Noch ${daysLeft} Tage bis zum nächsten Release. Die letzten Master-Builds sind in Ordnung, allerdings gibt es noch ${bugCount} bekannte Fehler, um die ihr euch kümmern solltet...`);
+</code></pre>
+
+<p>Somit lässt sich beispielsweise eine Dashboard-Ansicht generieren, über die verteilte Informationen übersichtlich dargestellt werden können.
+Mit einem entsprechenden Kommentar kann Alexa die wichtigsten Daten für das Projektteam zusammenfassen.</p>
+
+<h5 id="externe-systeme-anbinden">Externe Systeme anbinden</h5>
+<p>Die Kommunikation mit den APIs von Jira, GitLab und SonarQube findet über <code>EndpointController</code> statt.
+Folgender Code zeigt einen Ausschnitt des <code>JiraEndpointController</code>s, über den wir die Daten eines Issues per GET-Request anfragen:</p>
+
+<pre><code class="language-typescript">export class JiraEndpointController extends EndpointController {
+
+    public async getIssue(identifier: string): Promise&lt;JiraIssue&gt; {
+        const result = await get({
+            uri: `https://&lt;JIRA_URL&gt;/rest/api/2/issue/${identifier}`
+        });
+        return plainToClass(JiraIssue, result as JiraIssue);
+    }
+}
+</code></pre>
+
+<h5 id="ergebnis">Ergebnis</h5>
+<p>Auf den Befehl “Zeige die Tests von AX-7!” antwortet uns Alexa schließlich nach einigen Sekunden: “Alles klar, hier sind die aktuellen Testergebnisse für das Ticket AX-7.”
+Zusätzlich zur Sprachausgabe können die entsprechenden Informationen auch visuell dargestellt werden:</p>
+
+<p><img src="/assets/images/posts/wie-alexa-ein-it-projektteam-unterstuetzen-kann/screenshot.png" alt="Screenshot" /></p>
+
+<h4 id="fazit">Fazit</h4>
+<p>Wir haben nun gesehen, worauf es bei der Entwicklung eines Skills für Sprachassistenten ankommt und wie sich ein Anwendungsfall implementieren lässt.
+Analog zu der beschriebenen Integration des <code>JiraXrayStatusIntent</code>s lässt sich unser Skill um weitere Intents ergänzen: Alexa kann Daten aus externen Systemen über deren APIs abfragen und unser Skill kann diese anschließend aggregieren.
+Die Steuerung per Spracheingabe stellt für uns dabei eine intuitive Möglichkeit dar, an Informationen aus der bestehenden Infrastruktur zu gelangen.<br />
+Wir können also festhalten: Ja, Sprachassistenten lassen sich in eine bestehende Projekt-Infrastruktur integrieren.</p>
+
+<p>Wir dürfen allerdings die Herausforderungen nicht unterschätzen, die eine Integration von Sprachassistenten mit sich bringt.
+Aufgrund der spezifischen Infrastrukturen und Abläufen ist der Aufwand, Sprachassistenten für bestimmte Projekte zu individualisieren sehr hoch.
+Zum Beispiel müssen die Informationen in den angefragten Systemen möglichst einheitlich gepflegt werden, damit Alexa eine vollständige Übersicht abfragen kann.
+Darüber hinaus setzt der rollen- und projektspezifische Wortschatz ein umfassendes und auf das Projekt zugeschnittenes Sprachmodell voraus.
+Nur so kann uns der Sprachassistent korrekt verstehen und uns die gewünschten Antworten zur Verfügung stellen.</p>
+
+<p>Nicht zuletzt stellen auch die Datenschutzrichtlinien eine wesentliche Hürde für Unternehmen dar, wenn Sprachassistenten eingesetzt werden sollen.
+Sowohl <a href="https://www.bloomberg.com/news/articles/2019-04-10/is-anyone-listening-to-you-on-alexa-a-global-team-reviews-audio">Amazon</a> als auch <a href="https://www.vrt.be/vrtnws/en/2019/07/10/google-employees-are-eavesdropping-even-in-flemish-living-rooms/">Google</a> setzen weltweit tausende Mitarbeiter ein, um über die Sprachassistenten eingesprochene Mitschnitte transkribieren und analysieren zu lassen.
+Was laut den Aussagen der Hersteller zur Verbesserung der Funktionalität der Sprachassistenten beitragen soll, ist für Privatpersonen mindestens unangenehm und könnte für Unternehmen womöglich sogar geschäftsschädigend sein.</p>
+
+<h5 id="was-bringt-die-zukunft">Was bringt die Zukunft?</h5>
+<p>Die Entwicklung in der Mensch-Computer-Interaktion und die Statistiken über Sprachassistenten lassen zumindest darauf schließen, dass die natürliche Sprache in Zukunft eine zentrale Rolle dabei spielen wird, wie der Mensch mit dem Computer interagiert.
+Der technologische Fortschritt, getrieben durch den Konkurrenzkampf zwischen Herstellern wie Amazon und Google, könnte dafür sorgen, dass die Sprachassistenten mit der Zeit immer intuitiver und komfortabler zu bedienen sein werden.
+Was die Datenschutz-Aspekte angeht bleibt allerdings abzuwarten, ob und in welcher Form die Hersteller von Sprachassistenten zukünftig für die Sicherung der Privatsphäre sorgen werden.</p>
+
+</div>
+</div>
+</div>
+</div>]]></field>
+    </document>
+</documents>
