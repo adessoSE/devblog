@@ -194,7 +194,20 @@ Wir müssen den Code also nicht vorher umbauen, um mit dem Testen starten zu kö
 
 Wir könnten die Datei z.B. wie folgt initialisieren, um darauf dann die Tests laufen zu lassen:
 
-![Test-Daten](/assets/images/posts/Rust-für-Java-Entwickler-Teil-2/test-data.png)
+```json
+[
+    {
+        "id": 1,
+        "name": "Alice",
+        "age": 42
+    },
+    {
+        "id": 2,
+        "name": "Bob",
+        "age": 24
+    }
+]
+```
 
 
 ## Integrationstests
