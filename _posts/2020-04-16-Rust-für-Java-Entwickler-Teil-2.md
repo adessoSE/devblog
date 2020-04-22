@@ -124,7 +124,7 @@ Um das zu beantworten, müssen wir uns anschauen wie Fehler in Actix-Web behande
 ## Der Actix-Web-Error
 
 Wenn unsere Request Handler Werte vom Typ `Result` zurückliefern, müssen die Typen, die im Falle eines Fehlers zurückgegeben werden, das `ResponseError`-Trait implementieren.
-Es exisitert aber keine Implementierung dieses Traits für den Datentyp `String`, weshalb unser Code nicht kompiliert.
+Es existiert aber keine Implementierung dieses Traits für den Datentyp `String`, weshalb unser Code nicht kompiliert.
 Glücklicherweise liefert uns Actix-Web den `Error`-Typen für die Fehlerbehandlung.
 Diese Struktur hat intern eine Referenz auf ein Objekt vom Typ `ResponseError`.
 
