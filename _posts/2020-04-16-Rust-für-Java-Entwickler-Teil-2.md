@@ -268,7 +268,7 @@ let resp = test::block_on(app.call(req)).unwrap();
 
 Am Server wird der entsprechende Request Handler für den Pfad `/persons/{id}` aufgerufen.
 Dieser ruft anschließend das Repository auf, das in der Datei nach einer Person mit der ID 5 sucht.
-Da keine solche Person exisitert, wird `None` zurückgereicht.
+Da keine solche Person existiert, wird `None` zurückgereicht.
 Der Request Handler gibt einen Actix-Error mit Fehlercode 404 (Not Found) zurück.
 Auf diesen Fehlercode können wir dann wie folgt testen:
 
