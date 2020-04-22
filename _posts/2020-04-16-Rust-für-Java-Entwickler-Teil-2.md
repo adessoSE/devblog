@@ -326,7 +326,7 @@ Diejenigen, die sich noch weiter mit den Möglichkeiten von Actix-Web zum Testen
 
 # Fazit
 
-In diesem Teil der Artikel-Serie haben wir gesehen, welche Möglichkeiten Actix-Web für die Fehlerbehandlung und das automatische Testen bietet.
+In diesem Teil der Artikel-Serie haben wir gesehen welche Möglichkeiten Actix-Web für die Fehlerbehandlung und das automatische Testen bietet.
 Auch hier habe ich natürlich nicht die komplette Funktionspalette des Frameworks vorgestellt.
 Wer tiefer in das Framework einsteigen will, kann sich an der [offiziellen Dokumentation](https://actix.rs/docs/) orientieren.
 Dort wird auch auf die komplette API-Dokumentation verwiesen.
