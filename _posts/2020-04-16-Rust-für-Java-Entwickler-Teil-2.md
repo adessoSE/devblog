@@ -258,7 +258,7 @@ let req = test::TestRequest::get().uri("/persons/5").to_request();
 ```
 
 Wir definieren einen `GET`-Request mit der `/persons/{id}`-URL, wobei wir als ID 5 angeben.
-Da keine Person mit der ID exisiert, erwarten wir, dass der Server uns einen Fehler liefert.
+Da keine Person mit der ID existiert, erwarten wir, dass der Server uns einen Fehler liefert.
 
 Wir führen auf der Test-App den entsprechenden Request aus und speichern die Response, die wir vom Server erhalten, in einer Variablen, um sie später testen zu können.
 
