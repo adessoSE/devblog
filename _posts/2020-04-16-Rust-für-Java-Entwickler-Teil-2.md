@@ -58,7 +58,7 @@ serde_json = "1.0.41"
 ```
 
 Wir vermeiden die Behandlung möglicher Serialisierungs- und Dateizugriffsfehler, um uns stattdessen mit der Fehlerbehandlung einer `GET`-Anfrage zu beschäftigen.
-Aus diesem Grund rufen wir einfach die `unwrap()`-Methode auf, welche ähnlich wie [Optional#get](https://docs.oracle.com/javase/8/docs/api/java/util/Optional.html#get--) funktioniert.
+Aus diesem Grund rufen wir einfach die `unwrap()`-Methode auf, die ähnlich wie [Optional#get](https://docs.oracle.com/javase/8/docs/api/java/util/Optional.html#get--) funktioniert.
 
 Hier ist eine Funktion, die uns eine Person mit der entsprechenden ID aus der Datei liest:
 
