@@ -162,7 +162,7 @@ pub fn get(id: Path<u32>) -> Result<HttpResponse, Error> {
 ```
 
 Wenn eine Person mit der ID existiert, wird diese mit dem Statuscode 200 (OK) als JSON zurück an den Client geschickt.
-Falls die Person jedoch nicht exisiert, wird eine Http-Response mit Statuscode 404 (Not Found) generiert.
+Falls die Person jedoch nicht existiert, wird eine Http-Response mit Statuscode 404 (Not Found) generiert.
 Als Body enthält sie die entsprechende Fehlermeldung.
 Das sieht dann wie folgt aus (die ID ist willkürlich gewählt):
 
