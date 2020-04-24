@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<documents>
+    <document uid="3b1de37e86f5a52408b38831b4c738f1">
+        <field name="title"><![CDATA[Inkrementelle Softwaremigration nach der Chicken-Little-Methode]]></field>
+        <field name="subline"><![CDATA[]]></field>
+        <field name="teaser"><![CDATA[<p>Als Softwareentwickler ist man nicht nur mit der Umsetzung spannender Projekte unter Zuhilfenahme modernster Technologien betraut. 
+Gleichermaßen zählt auch die Modernisierung von veralteter Software in das Aufgabengebiet. 
+Häufig muss solche <strong>Legacy Software</strong> auf einen komplett neuen technischen Stand gehoben werden. 
+In diesem Artikel wird die <strong>Chicken-Little-Methode</strong> aus dem Themenbereich der <strong>Softwaremigration</strong> vorgestellt.
+Diese Methode beschreibt die Migration solcher Legacy Software in mehreren Schritten und bildet eine Alternative zur <strong>vollständigen Neuentwicklung</strong> des Projekts.</p>
+
+]]></field>
+        <field name="language_multi_keyword"><![CDATA[de]]></field>
+        <field name="content_type_multi_keyword"><![CDATA[blog]]></field>
+        <field name="mime_type_multi_keyword"><![CDATA[text/html]]></field>
+        <field name="category_multi_keyword"><![CDATA[Methodik]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Migration]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Legacy Software]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Maintenance]]></field>
+        <field name="date_date"><![CDATA[2020-03-16T01:23:00+01:00]]></field>
+        <field name="date_l"><![CDATA[1584318180000]]></field>
+        <field name="change_date"><![CDATA[1583506800000]]></field>
+        <!--Picture-->
+        <!-- Not in use at the moment-->
+        <!--Author Information-->
+        <field name="author_first_name"><![CDATA[Michael]]></field>
+        <field name="author_last_name"><![CDATA[Schick]]></field>
+        <field name="author_id"><![CDATA[mschick]]></field>
+        <field name="author_picture_stored_only"><![CDATA[http://localhost:4000/assets/images/avatars/mschick.jpg]]></field>
+        <!--Postcontent-->
+        <field name="headlines"><![CDATA[Inkrementelle Softwaremigration nach der Chicken-Little-Methode]]></field>
+        <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
+            <p>Als Softwareentwickler ist man nicht nur mit der Umsetzung spannender Projekte unter Zuhilfenahme modernster Technologien betraut. 
+Gleichermaßen zählt auch die Modernisierung von veralteter Software in das Aufgabengebiet. 
+Häufig muss solche <strong>Legacy Software</strong> auf einen komplett neuen technischen Stand gehoben werden. 
+In diesem Artikel wird die <strong>Chicken-Little-Methode</strong> aus dem Themenbereich der <strong>Softwaremigration</strong> vorgestellt.
+Diese Methode beschreibt die Migration solcher Legacy Software in mehreren Schritten und bildet eine Alternative zur <strong>vollständigen Neuentwicklung</strong> des Projekts.</p>
+
+</div>]]></field>
+        <field name="content"><![CDATA[<div class="adesso-text-formate">
+<div class="row p-t-2">
+<div class="adesso-container">
+<div class="col-xl-8 adesso-center p-b-1 p-l-0 p-r-0">
+    <p>Als Softwareentwickler ist man nicht nur mit der Umsetzung spannender Projekte unter Zuhilfenahme modernster Technologien betraut. 
+Gleichermaßen zählt auch die Modernisierung von veralteter Software in das Aufgabengebiet. 
+Häufig muss solche <strong>Legacy Software</strong> auf einen komplett neuen technischen Stand gehoben werden. 
+In diesem Artikel wird die <strong>Chicken-Little-Methode</strong> aus dem Themenbereich der <strong>Softwaremigration</strong> vorgestellt.
+Diese Methode beschreibt die Migration solcher Legacy Software in mehreren Schritten und bildet eine Alternative zur <strong>vollständigen Neuentwicklung</strong> des Projekts.</p>
+
+<p>Aber wann gilt eine Software oder ein ganzes Softwaresystem überhaupt als veraltet?
+Mit welchen Risiken und Schwierigkeiten wird man bei einer Modernisierung solcher Anwendungen und Systeme konfrontiert?</p>
+
+<p>Auf all diese Fragen versucht dieser Artikel eine Antwort zu liefern. 
+Insbesondere soll hier die <strong>Softwaremigration</strong> im Allgemeinen und das <em>inkrementelle Vorgehen</em> nach der <strong>Chicken-Little-Methode</strong> im Speziellen, als mögliche Alternative zur Neuentwicklung vorgestellt werden.</p>
+
+<p>Zunächst erfolgt aber nochmal eine Einführung in die <strong>Legacy Problematik</strong>.</p>
+
+<h4 id="die-legacy-problematik">Die Legacy Problematik</h4>
+
+<p>Irgendwann im Lebenszyklus eines Softwaresystems, wird der Punkt erreicht, an dem dieses als veraltet gilt und modernisiert werden muss. 
+In der wissenschaftlichen Literatur findet man Definitionen, die besagen, dass die <em>Halbwertszeit</em> von Software im Schnitt fünf Jahre beträgt und im Anschluss daran  zur <em>Legacy Software</em> gehört, also veraltet ist.</p>
+
+<p>Die Gründe für das Veralten von Software und ganzen Systemen liegen hierbei auf der Hand. 
+Durch die rasante Entwicklung und dem permanenten Fortschritt im IT-Bereich kommen immerzu neue Technologien auf den Markt. 
+Dazu zählen beispielsweise neue Programmiersprachen oder aber auch <em>Frameworks</em>, die die aktuellen Standards der Softwaretechnik implementieren. 
+Auf der anderen Seite fallen dafür veraltete Technologien weg; zumeist durch Einstellung von Entwicklung und Support. 
+Neben der Software kann auch die zugrundeliegende Hardware veralten und einen Austausch erforderlich machen.
+Ist die darauf betriebene Software nicht kompatibel mit der neuen Hardware, zwingt einen unter Umständen auch dieser Umstand zur Modernisierung des oftmals kompletten Systems.</p>
+
+<p>Dieser Beitrag beschäftigt sich im ersten Teil mit den Möglichkeiten zur Softwaremodernisierung mittels der <em>Softwaremigration</em>.
+Dabei liegt der Fokus auf der <strong>Chicken-Little-Methode</strong>, einem inkrementellen Vorgehen bei der Migration, welche eine Alternative zur vollständigen Neuentwicklung bildet.</p>
+
+<p>Dazu erfolgt zunächst die theoretische Auseinandersetzung mit dem Thema <strong>Softwaremigration</strong>. Dabei sollen auch das Für und Wider dieser Variante mit denen, der anderen Alternativen wie namentlich dem <strong>Weiterbetrieb</strong>, die vollständige <strong>Neuentwicklung</strong> oder die <strong>Ablösung durch Standardsoftware</strong> gegenübergestellt werden.</p>
+
+<p>Im zweiten Teil, in Form eines eigenständigen Artikels, erfolgt die praktische Demonstration der <strong>Chicken-Little-Methode</strong> am Beispiel einer <strong>Frontend-Migration</strong> einer Webanwendung.</p>
+
+<p>Beginnen wir zunächst mit den <em>Basics</em> der Softwaremigration.</p>
+
+<h4 id="beibehalten-neuentwickeln-oder-doch-migrieren">Beibehalten, Neuentwickeln oder doch migrieren?</h4>
+<p>Wann ist eine Softwaremigration sinnvoll? Welche Alternativen bieten sich außerdem? Um diese Fragen beantworten zu können, muss sich zunächst mit den Vor- und Nachteilen der einzelnen Möglichkeiten auseinander gesetzt werden.</p>
+
+<p>Dazu werden drei der Möglichkeiten, nämlich der <em>Weiterbrieb</em>, die <em>Neuentwicklung</em> und die <em>Softwaremigration</em> im einzelnen nochmal etwas detaillierter betrachtet.</p>
+
+<h5 id="weiterbetrieb-veralteter-software">Weiterbetrieb veralteter Software</h5>
+<p>Getreu dem Motto <em>Never change a running system</em> hat man grundsätzlich die Möglichkeit, ein veraltetes Softwaresystem auch einfach weiter zu betreiben, wenn es die an das System gestellten Anforderungen noch zufriedenstellend erfüllt. 
+Entscheidet man sich für diese Variante, nimmt man gleichzeitig auch die Risiken und daraus resultierenden Einschränkungen in Kauf, spart sich gleichzeitig aber auch die Kosten und Risiken die mit einer Modernisierung einhergehen würden.</p>
+
+<p>Zu den angesprochenen Risiken gehören insbesondere der gesteigerte Aufwand hinsichtlich der <em>Wartung</em> und der <em>Erweiterung</em> des Systems bzw. der Software. 
+Treten beispielsweise in einem Framework, dessen Entwicklung bereits eingestellt wurde, nachträglich Sicherheitslücken auf, müssen diese manuell identifiziert und behoben werden. 
+Das bindet nicht nur Ressourcen und Personal sondern spiegelt sich nicht zuletzt auch in erhöhten Kosten für den Weiterbetrieb wider.</p>
+
+<p>Darüber hinaus bietet moderne Technologie häufig auch neue Möglichkeiten, die die Entwicklung neuer Features deutlich beschleunigen. 
+Manchmal bedingen auch die Schnittstellen, extern angebundener Systeme das eigene System dahingehend anzupassen.
+Verzichtet man hier auf die Möglichkeiten moderner Technologie, ist auch hier wieder mit erhöhten Kosten für die Weiterentwicklung des Altsystems zu rechnen.
+Darüber hinaus spiegelt sich die oben beschriebene Problematik in Form von <em>Workarounds</em> wider.
+Solche <em>Workarounds</em> haben die Eigenschaft, über die Zeit und mit steigender Anzahl den <em>Quellcode</em> aufzublähen. 
+Die daraus resultierende, wachsende Komplexität erschwert im Anschluss die Wartbarkeit und Pflege des Projekts.</p>
+
+<p>Je älter eine Software ist, desto schwieriger wird es, geeignete Entwickler zu finden, die sich damit auskennen. 
+Als prominentes Beispiel hierfür sei die Programmiersprache <em>COBOL</em> genannt, die in den späten 50er Jahren des letzten Jahrhunderts entstand und bis heute noch vor allem im Versicherungs- und Bankensektor eingesetzt wird. 
+Damit diese Systeme weiter betrieben werden können, braucht es erfahrenes Personal. 
+Angesichts der Tatsache, dass Entwickler heutzutage wohl kaum noch solch antiquierte Programmiersprachen lernen wollen ist dies ein wesentlicher Aspekt, der in die Entscheidung, ob eine Moderniserung erfolgen soll oder nicht, auf jeden Fall einfließen sollte.</p>
+
+<h5 id="neuentwicklung">Neuentwicklung</h5>
+<p>Eine Alternative zur Beibehaltung veralteter Software bildet die komplette Neuentwicklung des Projekts. 
+Der Vorteil hierbei ist, dass man die Möglichkeit hat, sich mit einem Schlag aller Altlasten und technischen Schulden
+ zu entledigen.</p>
+
+<p>Diese Variante ist aber nicht nur die teuerste, sondern gleichzeitig auch diejenige, die mit dem höchsten Risiko verbunden ist. 
+Besonders davon betroffen ist jene Software, in welche während der Entwicklung und der anschließenden Wartung über die
+Jahre einiges an Experten-Wissen eingeflossen ist. 
+Häufig sind die Entwickler die bei der initialen Programmierung involviert waren nicht mehr verfügbar. 
+Im schlimmsten Fall kann noch nicht mal auf eine Dokumentation zurückgegriffen werden.
+In solchen Fällen droht immer der Verlust dieses Expertenwissens.</p>
+
+<p>Fehler und Probleme die schon während der Neuentwicklung oder aber erst im Anschluss an den Release auftreten, müssen nachträglich korrigiert werden. 
+Neben den Auswirkungen auf den betrieblichen Geschäftsablauf, zieht dies außerdem zum Teil hohe, nicht abschätzbaren Folgekosten in der Entwicklung sowie Verschiebungen im Zeitplan nach sich. 
+Handelt es sich hierbei dann auch noch um geschäftskritische Prozesse, die von der Software abgewickelt werden sollen, sind die dadurch entstehenden, wirtschaftlichen Schäden enorm.</p>
+
+<p>Aufgrund der genannten Schwierigkeiten und den, gerade bei komplexeren Anwendungssystemen häufig nicht zuverlässig abschätzbaren Umfang von Kosten und Zeit, wird diese Vorgehensweise zur Modernisierung von veralteten Systemen, wo möglich, gerne vermieden.</p>
+
+<h5 id="softwaremigration">Softwaremigration</h5>
+<p>Die <strong>Softwaremigration</strong> ist ein Vorgehen, welches es ermöglicht, ein Softwaresystem auf einen neuen Stand zu heben und dabei die oben beschriebene Problematik bei einer Neuentwicklung zu umschiffen.
+Hierbei handelt es sich um eine <strong>rein technische Transformation</strong> einer Software bzw. eines ganzen Softwaresystems von <em>Technologie A</em> in <em>Technologie B</em>.</p>
+
+<p>Wesentlich für eine Softwaremigration ist, dass die Geschäftslogik hiervon gänzlich unberührt bleibt und 1:1 in das Neusystem übernommen wird. 
+Dadurch soll gewährleistet werden, dass sich das Neusystem identisch zum Altsystem verhält und der Erfolg der Migration im Anschluss beispielsweise durch Regressions-Tests messbar wird.</p>
+
+<p>Aus diesem Grund ist es für das Gelingen des Migrationsvorhaben äußerst wichtig, dass die Migration nicht mit Refactoring-Maßnahmen oder Funktionserweiterungen vermischt wird. 
+Solche Anpassungen müssen entweder vor der Migration noch am Altsystem vorgenommen und in das Neusystem übernommen werden oder aber im Anschluss an die Migration durchgeführt werden.</p>
+
+<p>Eine Softwaremigration kann sowohl das ganze Softwaresystem als auch einzelne Teile daraus, wie z.B. die <strong>Datenhaltung</strong>, die <strong>Programme</strong> und <strong>Prozesse</strong> oder die <strong>Benutzeroberfläche</strong> umfassen und erfolgt typischer Weise entweder durch eine händische <strong>Reimplementierung</strong>, automatische <strong>Konvertierung</strong> mittels dafür vorgesehener Tools oder aber durch <strong>Kapselung</strong> des Programmcodes.</p>
+
+<h4 id="migrationsstrategien">Migrationsstrategien</h4>
+<p>In Wissenschaft und Forschung haben sich verschiedene Vorgehensmodelle und Strategien zur erfolgreichen Durchführung einer Softwaremigration entwickelt. 
+Die Auswahl einer solchen Strategie erfolgt immer individuell und auf Basis des jeweiligen Migrationsvorhabens. 
+Es gibt Strategien die ihren Fokus auf bestimmte Migrationsarten, wie z.B. die Datenmigration richten und solche, die sich bei bestimmten Softwaretypen oder ganzen Systemarchitekturen empfehlen.
+Als ein weiteres Unterscheidungsmerkmal dient hier außerdem der jeweilige <strong>Migrationsansatz</strong>:</p>
+
+<p>Es gibt darüber hinaus Strategien, die einen <em>inkrementellen Ansatz</em> verfolgen bei welchem einzelne Bestandteile separat migriert und im Anschluss daran direkt wieder im Altsystem integriert werden. 
+Bei anderen Strategien hingegen erfolgt die Migration in einem Parallel-System.
+Hierbei wirkt sich die Migration erst nach der vollständigen Durchführung und mit der Umstellung von Alt auf Neu aus.</p>
+
+<h4 id="die-chicken-little-methode">Die Chicken-Little-Methode</h4>
+
+<p>Bei der <em>Chicken-Little-Methode</em> handelt es sich um eine Strategie, die den <em>inkrementellen Migrationsansatz</em> verfolgt und in diesem Artikel näher betrachtet werden soll.<br />
+Diese Strategie wurde als Alternative zur vollständigen Neuentwicklung, von <em>Brodie &amp; Stonebraker</em> entwickelt.</p>
+
+<p><em>Chicken-Little</em> ist übrigens der Name einer Figur aus dem gleichnamigen <a href="https://en.wikipedia.org/wiki/Chicken_Little_(1943_film)">Kurzfilm von Walt Disney</a>, der während des Zweiten Weltkrieges entstand und einen Angsthasen charakterisiert. 
+Die Namenswahl dieser Methode soll unterstreichen, dass das kleinteilige Vorgehen mit dieser Methode, die Risiken und Probleme gegenüber einer Neuentwicklung deutlich reduziert.</p>
+
+<p>Bei der <em>Chicken-Little-Methode</em> werden Teile eines Softwaresystems isoliert migriert und im Anschluss daran direkt wieder im Altsystem über <em>Schnittstellen</em> integriert.</p>
+
+<p>Die <em>Chicken-Little-Methode</em> ist flexibel anwendbar und kann sowohl für vollständige <strong>Systemmigrationen</strong> als auch einzelne Teilbereiche (<strong>Daten-</strong>, <strong>Programm-</strong> und <strong>Benutzeroberflächen-Migrationen</strong>) verwendet werden.</p>
+
+<p>Bei <strong>Systemmigrationen</strong> ist vor der Migration noch festzulegen, ob die Datenbank als erstes (<strong>Database first</strong>) oder im letzten Schritt (<strong>Database last</strong>) migriert werden soll. 
+Diese Entscheidung beeinflusst unter anderem die zu entwickelnden Schnittstellen im System. 
+Im ersten Fall sind sog. <strong>Forwared Gateways</strong> zu entwickeln, die das Altsystem an die migrierte Datenbank anbinden.<br />
+Im Gegensatz dazu managen <strong>Reverse Gateways</strong> den Zugriff auf die Datenbank über das Altsystem.</p>
+
+<p>Jeder Durchgang der Migration besteht dabei aus insgesamt elf Schritten und umfasst die folgenden Tätigkeiten:</p>
+
+<ol>
+  <li>
+    <p><strong>Altsystem Analyse</strong><br />
+In diesem Schritt werden einzelne, für die Migration geeignete Komponenten ausgemacht.</p>
+  </li>
+  <li>
+    <p><strong>Strukturierung des Altsystems</strong> <br />
+Ggf. vorhandene Abhängigkeiten zu anderen Komponenten werden hier vor der Migration aufgelöst.</p>
+  </li>
+  <li>
+    <p><strong>Entwurf der Ziel-Interfaces</strong><br />
+Entwurf der Benutzerschnittstellen sowie Definition der notwendigen Gateways.</p>
+  </li>
+  <li>
+    <p><strong>Entwurf der Ziel-Anwendungen</strong><br />
+Übernahme oder Reimplementierung der migrierten Funktionalitäten.</p>
+  </li>
+  <li>
+    <p><strong>Entwurf der Ziel-Datenbank</strong><br />
+In diesem Schritt erfolgt der Entwurf sowie Anpassungen an der Datenbank.</p>
+  </li>
+  <li>
+    <p><strong>Installation der Zielumgebung</strong><br />
+Einrichtung und Installation von Entwicklungs- und Zielumgebung.</p>
+  </li>
+  <li>
+    <p><strong>Gateway Installation</strong><br />
+In diesem Schritt erolgt die Installation der erforderlichen Schnittstellen.</p>
+  </li>
+  <li>
+    <p><strong>Migration der Datenbank</strong><br />
+Installation und anschließende Migration der Daten in die neue Zieldatenbank.</p>
+  </li>
+  <li>
+    <p><strong>Migration der Anwendungen</strong><br />
+Einzelne Programme und Anwendungen werden in der Zielumgebung implementiert.</p>
+  </li>
+  <li>
+    <p><strong>Migration der Benutzerobflächen</strong><br />
+Migration der grafischen Benutzeroberflächen.</p>
+  </li>
+  <li>
+    <p><strong>Umstellung auf Neusystem</strong><br />
+In diesem letzten Schritt erfolgt die Umstellung des Altsystems auf die Zielumgebung.</p>
+  </li>
+</ol>
+
+<p>Die Schritte können in beliebiger Reihenfolge durchgeführt oder aber auch komplett ausgelassen werden, wenn diese für das aktuelle Migrationsvorhaben überflüssig sind.</p>
+
+<p>In <strong>Schritt 1</strong> erfolgt zunächst eine Analyse des Altsystems und darauf basierend die Auswahl von geeigneten Migrations-Kandidaten.
+Hierbei sollte beachtet werden, dass diese keine starken Abhängigkeiten zu den restlichen System-Bestandteilen aufweisen. 
+Diese müssen ansonsten vorab, in <strong>Schritt 2</strong>, aufgelöst werden. 
+In dieser Phase werden außerdem Entscheidungen darüber getroffen, ob, und wenn ja, in welcher Form <em>Gateways</em> zu entwickeln sind.</p>
+
+<p>In den <strong>Schritten 3-5</strong> erfolgt der <strong>Entwurf der Zielanwendung</strong>. 
+Dabei werden die <em>Benutzeroberflächen</em>, <em>Anwendungen und Programme</em> sowie die <em>Datenhaltung</em> separat betrachtet.
+Die Installation der notwendigen <em>Gateways</em> erfolgt im <strong>Schritt 6</strong>.</p>
+
+<p>In den <strong>Schritten 7-10</strong> erfolgt die eigentliche Migration der einzelnen Bestandteile in die Zielumgebung bevor im abschließenden <strong>Schritt 11</strong> die Integration der Migration im Altsystem vorgenommen und damit <em>scharf geschaltet</em> wird.</p>
+
+<p>Mit der nächsten zu migrierenden Komponente, wird das oben beschriebene Prozedere erneut durchgelaufen, bis schlussendlich die Migration mit der letzten Migration vollständig abgeschlossen ist.</p>
+
+<p>Ein Vorteil der sich aus der <strong>Chicken-Little-Methode</strong> ergibt ist, dass Fehler in der Migration, durch die direkte Verwendung im System, frühzeitiger erkannt und behoben werden können. 
+Schlägt die Migration in einem Teilschritt fehl, so ist lediglich dieser Teilschritt zu wiederholen, was, verglichen mit der Neuentwicklung, deutlich weniger Kosten und Zeitverlust nach sich zieht und auch die Gefahr von negativen Auswirkungen im Altsystem auf ein überschaubares Maß reduziert und dadurch insgesamt kontrollierbarer macht.</p>
+
+<h4 id="zusammenfassung">Zusammenfassung</h4>
+<p>Die <strong>Chicken-Little-Methode</strong> bietet eine gute Alternative zur Neuentwicklung von veralteter Software und ganzen Software-Systemen. 
+Durch das kleinteilige Vorgehen während der Migration, bleiben die Kosten und Risiken zu jeder Zeit überschaubar und beherrschbar.<br />
+Da von jedem Migrations-Schritt immer nur eine kleine Anzahl von Komponenten betroffen sind, sind die Auswirkungen bei einem Fehlschlag der Migration gering.
+In einem solchen Fall ist dann lediglich der betroffene Migrationsschritt zu wiederholen.</p>
+
+<p>Darüber hinaus bietet die direkte Integration der migrierten Komponenten ins Altsystem die Möglichkeit, mögliche Probleme die so während der Planung des Migrationsvorhaben noch nicht bekannt waren, vorzeitig zu erkennen und im weiteren Verlauf zu behandeln. 
+Bei der <em>vollständigen Neuentwicklung</em> hingegen, wäre die Gefahr groß, dass sich solche Probleme und Fehler erst nach dem Release auswirken bzw. bekannt werden und wie bereits erwähnt, in der Folge aufwändig behoben werden müssen.</p>
+
+<p>Ein Kritikpunkt, der in Verbindung von <strong>Software-Migration</strong> und der <strong>Chicken-Little-Methode</strong> am häufigsten geäußert wird, ist der <em>Mehraufwand in der Entwicklung</em>, der durch die zu implementierenden Schnittstellen für die Kommunikation von Alt- und Neusystem entsteht.<br />
+Um dem zu begegnen, gibt es Migrationsstrategien wie bspw. die <a href="https://ieeexplore.ieee.org/document/622311"><strong>Butterfly Methode</strong></a>, die ebenfalls einen inkrementellen Ansatz verfolgt aber auf die Entwicklung von Gateways verzichtet.
+Anstatt migrierte Komponenten direkt wieder in das Altsystem zu integrieren, erfolgt hier die Entwicklung in einem <em>Parallel-System</em>.<br />
+Nach der vollständigen Migration wird das Altsystem deaktiviert und auf das Neusystem umgeschaltet.</p>
+
+<p>Trotz der Kritik o.g. Kritik ist die <strong>Chicken-Little-Methode</strong> ein geeignetes Mittel für eine sichere Modernisierung eines Altsystems oder einzelnen Teilen davon.</p>
+
+<p>Spätestens wenn es darum geht, eine <strong>monolithische Architektur</strong> in eine <strong>verteilte Architektur</strong> zu überführen, kann sich die o.g. genannte Kritik auch zu einer Stärke entwickeln, da hierbei von Natur aus schon Schnittstellen notwendig werden.</p>
+
+<p>In einem weiteren Artikel werde ich das Vorgehen nach der <strong>Chicken-Little-Methode</strong> und dessen flexible Anpassung an die verschiedenen Migrationsarten am praktischen Beispiel einer Webanwendung demonstrieren. 
+Dabei wird es sich im Speziellen um eine <strong>Frontend-Migration</strong> handeln bei der die gegenwärtig eingesetzten <strong>Server-Side-Rendering</strong>-Technologien durch solche des <strong>Client-Side-Renderings</strong> migriert werden sollen.</p>
+
+</div>
+</div>
+</div>
+</div>]]></field>
+    </document>
+</documents>
