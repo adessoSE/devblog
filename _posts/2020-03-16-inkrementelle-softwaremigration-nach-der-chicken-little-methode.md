@@ -197,22 +197,3 @@ Spätestens wenn es darum geht, eine **monolithische Architektur** in eine **ver
 
 In einem weiteren Artikel werde ich das Vorgehen nach der **Chicken-Little-Methode** und dessen flexible Anpassung an die verschiedenen Migrationsarten am praktischen Beispiel einer Webanwendung demonstrieren. 
 Dabei wird es sich im Speziellen um eine **Frontend-Migration** handeln bei der die gegenwärtig eingesetzten **Server-Side-Rendering**-Technologien durch solche des **Client-Side-Renderings** migriert werden sollen.
-
-
-
- 
-
- 
- 
-
-
-
-
-
-
-
-
- 
-
-
-
