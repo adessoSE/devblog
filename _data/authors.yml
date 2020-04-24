@@ -303,3 +303,12 @@ DanielKraft:
   bio: "Daniel ist als Werkstudent im Versicherungsbereich bei adesso in Frankfurt am Main tätig."
   avatar_url: /assets/images/avatars/DanielKraft.jpg
   github: https://github.com/DanielKraft
+
+mschick:
+  first_name: Michael
+  last_name: Schick
+  github_username: mschick
+  email: michael.schick@adesso.de
+  bio: "Michael studiert Informatik an der Fachhochschule Dortmund und schreibt seine Bachelor-Thesis bei adesso zum Thema Softwaremigration. Neben seinem Studium ist er zudem als freiberuflicher Webentwickler tätig."
+  avatar_url: /assets/images/avatars/mschick.jpg
+  github: https://github.com/mschick
