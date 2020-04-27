@@ -1,8 +1,8 @@
 ---
 layout: [post, post-xml]             
 title:  "Inkrementelle Softwaremigration nach der Chicken-Little-Methode"
-date:   2020-03-16 01:23             
-modified_date:  2020-03-06 16:00
+date:   2020-04-27 15:00             
+modified_date:  2020-04-27 15:00
 author: mschick                     
 categories: [Methodik]                   
 tags: [Migration, Legacy Software, Maintenance]  
