@@ -21,6 +21,7 @@ Wenn du einen Pull-Request stellst, teile uns bitte deine Änderungen mit, indem
 - **Review** (abzuhaken durch den Reviewer)
   - [ ] Rechtschreibung korrigiert
   - [ ] Der Artikel wurde in der [Vorschau](https://github.com/adessoAG/devblog/blob/master/examples/2017-08-10-blog-post-guide.md#online-preview) geprüft 
+  - [ ] Der Autor ist bei CCO hinterlegt
   - [ ] CCO wurde über neuen Artikel informiert
   - [ ] Date-Angaben 
     - [ ] stimmen im Header und im Dateinamen überein

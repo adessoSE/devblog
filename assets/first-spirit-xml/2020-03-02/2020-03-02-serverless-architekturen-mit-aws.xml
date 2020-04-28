@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<documents>
+    <document uid="e2d8e590db3c4e59afb2f198393de3da">
+        <field name="title"><![CDATA[Serverless Architekturen mit AWS]]></field>
+        <field name="subline"><![CDATA[]]></field>
+        <field name="teaser"><![CDATA[<p>Mit Serverless Architekturen können kleinere Anwendungen schnell und kosteneffektiv umgesetzt werden. 
+Die Anwendungen können kontinuierlich um weitere Services ergänzt werden und bleiben dabei jederzeit hoch skalierbar und 
+kosten-effektiv. 
+In diesem Beitrag zeige ich die Vor- und Nachteile von Serverless auf und demonstriere anhand von drei Beispielen wie Serverless 
+Services geschickt zu Anwendungen zusammengesetzt werden können.</p>
+
+]]></field>
+        <field name="language_multi_keyword"><![CDATA[de]]></field>
+        <field name="content_type_multi_keyword"><![CDATA[blog]]></field>
+        <field name="mime_type_multi_keyword"><![CDATA[text/html]]></field>
+        <field name="category_multi_keyword"><![CDATA[Architektur]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Architektur]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Serverless]]></field>
+        <field name="tag_multi_keyword"><![CDATA[FaaS]]></field>
+        <field name="tag_multi_keyword"><![CDATA[AWS]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Cloud Computing]]></field>
+        <field name="date_date"><![CDATA[2020-03-02T13:00:00+01:00]]></field>
+        <field name="date_l"><![CDATA[1583150400000]]></field>
+        <field name="change_date"><![CDATA[1583150400000]]></field>
+        <!--Picture-->
+        <!-- Not in use at the moment-->
+        <!--Author Information-->
+        <field name="author_first_name"><![CDATA[Christian]]></field>
+        <field name="author_last_name"><![CDATA[Bachmann]]></field>
+        <field name="author_id"><![CDATA[c-bachmann]]></field>
+        <field name="author_picture_stored_only"><![CDATA[http://localhost:4000/assets/images/avatars/c-bachmann.jpg]]></field>
+        <!--Postcontent-->
+        <field name="headlines"><![CDATA[Serverless Architekturen mit AWS]]></field>
+        <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
+            <p>Mit Serverless Architekturen können kleinere Anwendungen schnell und kosteneffektiv umgesetzt werden. 
+Die Anwendungen können kontinuierlich um weitere Services ergänzt werden und bleiben dabei jederzeit hoch skalierbar und 
+kosten-effektiv. 
+In diesem Beitrag zeige ich die Vor- und Nachteile von Serverless auf und demonstriere anhand von drei Beispielen wie Serverless 
+Services geschickt zu Anwendungen zusammengesetzt werden können.</p>
+
+</div>]]></field>
+        <field name="content"><![CDATA[<div class="adesso-text-formate">
+<div class="row p-t-2">
+<div class="adesso-container">
+<div class="col-xl-8 adesso-center p-b-1 p-l-0 p-r-0">
+    <p>Mit Serverless Architekturen können kleinere Anwendungen schnell und kosteneffektiv umgesetzt werden. 
+Die Anwendungen können kontinuierlich um weitere Services ergänzt werden und bleiben dabei jederzeit hoch skalierbar und 
+kosten-effektiv. 
+In diesem Beitrag zeige ich die Vor- und Nachteile von Serverless auf und demonstriere anhand von drei Beispielen wie Serverless 
+Services geschickt zu Anwendungen zusammengesetzt werden können.</p>
+
+<p>Serverless ist die nächste Stufe in der Entwicklung und Bereitstellung von Software nach Containern. 
+Serverless kommt aus dem Cloud Computing und folgt dem Trend, den Konfigurations- und Betriebsaufwand zu reduzieren, um 
+sich stattdessen mehr auf die Business Logik fokussieren zu können. 
+Bei Serverless gibt es zwar immer noch Server, aber der Betrieb und die Wartung inkl. das Patchen des Betriebssystems 
+ist an den Cloud Provider ausgelagert.</p>
+
+<p><img src="/assets/images/posts/serverless-architekturen-mit-aws/focus_vs_costs.png" alt="Fokus auf Business Logik" /></p>
+
+<p>Die Grafik veranschaulicht die Verringerung des eigenen Verwantwortungsbereichs für die Infrastruktur bei dem Einsatz von 
+Serverless Services gegenüber Containern. 
+Damit einher geht der steigende Fokus auf die Business Logik, wodurch eine schnellere Time-to-Market erzielt 
+werden kann. 
+Außerdem bringen Serverless Services Hochverfügbarkeit und nahezu endlose Skalierung mit, ohne Anpassungen an der 
+Architektur vornehmen zu müssen.</p>
+
+<p>Es gibt auch Serverless Lösungen für den Betrieb von Containern, beispielsweise AWS <a href="https://aws.amazon.com/de/fargate/">Fargate</a>. 
+Bei diesen Lösungen ist man zwar nicht für den Betrieb des Servers zuständig, aber weiterhin für das Management des 
+Betriebssystems und der Laufzeitumgebung, wodurch der Vorteil nicht so hoch ausfällt wie bei Serverless Services, die 
+ohne Container auskommen.</p>
+
+<h4 id="serverless--faas">Serverless != FaaS</h4>
+
+<p>Serverless wurde ursprünglich im Zusammenhang mit Function-as-a-Service (FaaS) wie AWS Lambda genannt. 
+Heute versteht man darunter eine neue Art in der Bereitstellung und dem Betrieb von Software, bei der man sich nicht mehr 
+um Infrastrutkur und Server kümmern muss. 
+Die Cloud Provider bieten eine große und stetig wachsende Vielfalt an Serverless Services an, wie Datenbanken, Cognitive 
+Services oder Authentisierungs-Lösungen. 
+Softwareprojekte lassen sich damit vor allem schnell und kostengünstig realisieren.</p>
+
+<p>Es gibt mehrere Vorteile von Serverless im Vergleich zu Containern, welche ich im folgenden zeigen möchte.</p>
+
+<p><strong>Kosten</strong></p>
+<ul>
+  <li>Durch das Pay-per-Use Modell entstehen keine Kosten für Leerlauf, je nach Service kann eine Grundgebühr erhoben werden.</li>
+  <li>Die Wartungskosten sind niedrig, da keine Server oder Betriebssyteme gewartet werden müssen.</li>
+  <li>Die Anwendung ist in noch kleinere Bausteine zerlegt als bei Microservices und kann dadurch noch effizienter 
+skaliert werden.</li>
+</ul>
+
+<p><strong>Einfachheit &amp; Schnelligkeit</strong></p>
+<ul>
+  <li>Bei der Entwicklung gibt es einen deutlich veringerten Overhead für den Aufbau der Infrastruktur oder den Einsatz von Frameworks .</li>
+  <li>Serverless ist ideal für Proof-of-Concept Projekte und Rapid-Prototyping.</li>
+</ul>
+
+<p><strong>Skalierbarkeit</strong></p>
+<ul>
+  <li>Skalierbarkeit ist als Grundfunktion automatisch gegeben und Aufgabe des Cloud Providers.</li>
+  <li>Die Architektur kann beibehalten werden, auch wenn die Last kontinuierlich steigt.</li>
+  <li>Es besteht kein Risiko für Über- oder Unter-Provisionierung von Ressourcen.</li>
+</ul>
+
+<p><strong>Sicherheit</strong></p>
+<ul>
+  <li>Die Security Updates des darunterliegenden Betriebssystems und der Ausführungsumgebung werden vom Cloud Provider aktuell 
+gehalten.</li>
+</ul>
+
+<p><strong>Hochverfügbarkeit</strong></p>
+<ul>
+  <li>Hochverfügbarkeit ist als Grundfunktion automatisch gegeben.</li>
+  <li>Die Cloud-Provider definieren SLAs mit hoher Verfügbarkeit, bspw. AWS Lambda 99,95%.</li>
+</ul>
+
+<p><strong>Effizienz</strong></p>
+<ul>
+  <li>Die Belegung von Ressourcen bei Leerlauf wird vermieden dadurch ist global gesehen eine insgesamt bessere 
+Auslastung möglich.</li>
+</ul>
+
+<p>Die folgenden Punkte veranschaulichen die Nachteile von Serverless gegenüber Containern.</p>
+
+<p><strong>Vendor-Lock-In</strong></p>
+
+<ul>
+  <li>Einige Services lassen sich einfacher zu anderen Cloud Providern migrieren als andere, wodurch man sich vom Cloud 
+Provider teilweise abhängig macht. 
+In gewisser Weise hat man dieses Problem jedoch mit jedem Framework und jeder Datenbank.</li>
+</ul>
+
+<p><strong>Kaltstart</strong></p>
+
+<ul>
+  <li>Das Kaltstart Problem bezieht sich auf Functions-as-a-Service und bezeichnet das Problem, dass Funktionen bei der 
+ersten Ausführung relativ lange für den Start benötigen.
+Dieses Problem lässt sich jedoch mit der Wahl der richtigen Programmiersprache umgehen.</li>
+</ul>
+
+<h4 id="die-wichtigsten-serverless-services-bei-aws">Die wichtigsten Serverless Services bei AWS</h4>
+
+<p>Die folgende Liste gibt eine Kurzbeschreibung über die wichtigsten Serverless Services von AWS, welche für die folgenden Beispiele verwendet werden.</p>
+
+<p><img src="/assets/images/posts/serverless-architekturen-mit-aws/s3.png" alt="S3" />
+<img src="/assets/images/posts/serverless-architekturen-mit-aws/lambda.png" alt="Lambda" />
+<img src="/assets/images/posts/serverless-architekturen-mit-aws/api-gateway.png" alt="Api-Gateway" />
+<img src="/assets/images/posts/serverless-architekturen-mit-aws/cognito.png" alt="Cognito" />
+<img src="/assets/images/posts/serverless-architekturen-mit-aws/dynamodb.png" alt="DynamoDB" /></p>
+
+<ul>
+  <li>Der <strong><a href="https://aws.amazon.com/de/s3/">Simple Storage Service (S3)</a></strong> ist ein Objektspeicher der standardmäßig per HTTPS angesprochen wird.</li>
+  <li>Mit <strong><a href="https://aws.amazon.com/de/lambda/">Lambda</a></strong> lassen sich einzelne Funktionen in der Cloud ausführen, ausgelöst durch Events. Es werden viele Programmiersprachen unterstützt.</li>
+  <li>Das <strong><a href="https://aws.amazon.com/de/api-gateway/">API-Gateway</a></strong> dient als HTTPS-Endpunkt für den Aufruf von Lambda-Funktionen.</li>
+  <li><strong><a href="https://aws.amazon.com/de/cognito/">Cognito</a></strong> ist ein vollständig verwalteter Benutzer- und Authentisierungsservice. Er unterstützt gängige Mechanismen wie OAuth2.</li>
+  <li><strong><a href="https://aws.amazon.com/de/dynamodb/">DynamoDB</a></strong> ist eine Dokumentenorientierte Datenbank.</li>
+</ul>
+
+<h4 id="verkettung-von-serverless-funktionen-durch-events">Verkettung von Serverless Funktionen durch Events</h4>
+
+<p>Im Mittelpunkt einer Serverless Anwendung steht fast immer eine oder mehrere Serverless Funktionen. 
+Serverless Funktionen sind Event-getrieben. Über Events lassen sich Serverless Services und Funktionen geschickt 
+miteinander kombinieren.</p>
+
+<p>Ein kleiner Auszug aus den <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-services.html#intro-core-components-event-sources">möglichen Auslösern</a> für Lambda Funktionen:</p>
+<ul>
+  <li>Ablage oder Änderung einer Datei im Objektspeicher (S3)</li>
+  <li>Änderungen für einzelne Records in einer Datenbank (DynamoDB)</li>
+  <li>Auslesen einer Queue (<a href="https://aws.amazon.com/de/sqs/">SQS</a>)</li>
+  <li>Eingang einer E-Mail (<a href="https://aws.amazon.com/de/ses/">SES</a>)</li>
+  <li>Eingang einer Nachricht auf einem Topic (<a href="https://aws.amazon.com/de/sns/">SNS</a>)</li>
+</ul>
+
+<h4 id="beispiele-für-serverless-architekturen">Beispiele für Serverless Architekturen</h4>
+
+<p>Im folgenden Abschnitt möchte ich nun drei Anwendungsfälle für Serverless Architekturen mit AWS vorstellen.</p>
+
+<h5 id="beispiel-1-serverless-webanwendung">Beispiel 1: Serverless Webanwendung</h5>
+
+<p><img src="/assets/images/posts/serverless-architekturen-mit-aws/spa.png" alt="Serverless Webanwendung" /></p>
+
+<p>Die Grafik zeigt eine Serverless Architektur für eine einfache Single-Page-Applikation mit Backend und Datenbankzugriff.</p>
+
+<p>Statische Webseiten und Single-Page-Applikationen mit Angular oder React können sehr kostengünstig <a href="https://docs.aws.amazon.com/de_de/AmazonS3/latest/dev/WebsiteHosting.html">auf S3 gehostet 
+werden</a>. 
+Diese Funktion ist standardmäßig ausgeschaltet, sie kann aber im AWS Portal einfach per Konfiguration aktiviert werden.</p>
+
+<p>Um Zugriffe auf die Datenbank zu authentisieren empfiehlt sich der Benutzer- und Authentisierungsservice Cognito. 
+Dieser stellt auch die Login-Maske bereitstellt. Mit dem beim Login erhaltenen Token kann dann über das API Gateway, 
+das als HTTPs-Endpunkt dient,  auf die Lambda Funktion und die Datenbank zugegriffen werden.</p>
+
+<p>Möchte man seine eigene Domain auf die Webseite verweisen lassen, muss man zusätzlich den DNS Service <a href="https://aws.amazon.com/de/route53/">Route53</a> dafür 
+konfigurieren.</p>
+
+<p>Diese Lösung eignet sich besonders für Anwendungsfälle, bei denen die Weboberfläche nur selten genutzt wird, da keine 
+Kosten für den kontinuierlichen Betrieb eines Servers entstehen.</p>
+
+<h5 id="beispiel-2-serverless-e-mail-server">Beispiel 2: Serverless E-Mail Server</h5>
+
+<p>Folgende Grafik zeigt eine Serverless Architektur für einen Serverless E-Mail Server.</p>
+
+<p><img src="/assets/images/posts/serverless-architekturen-mit-aws/mailserver.png" alt="Serverless E-Mail Server" /></p>
+
+<p>Kern der Funktionalität ist der Simple E-Mail Service (SES), der sowohl E-Mails senden als auch empfangen kann. 
+Eine eingehende E-Mail wird von SES empfangen und dieser leitet die Daten an eine Lambda-Funktion weiter. 
+Die Lambda-Funktion ordnet der E-Mail das Postfach anhand des Empfängers zu welches in einer DynamoDB Datenbank 
+gespeichert ist.</p>
+
+<p>Für den Zugriff auf das Postfach bieten sich wiederum unterschiedliche Möglichkeiten.
+Die Postfach-Datenbank kann von einer Anwendung direkt angesprochen werden oder 
+alternativ kann die Webanwendung aus Beispiel 1 verwendet werden.</p>
+
+<p>Gerade Mail-Server haben in der Regel eine geringe Auslastung und müssen doch ständig erreichbar sein. 
+Daher ist diese Architektur sehr effizient im Ressourcenverbrauch. 
+Außerdem bietet sie die Möglichkeit für E-Mail gesteuerte Workflows, was sonst nur umständlich erreicht werden kann.</p>
+
+<h5 id="beispiel-3-datenverarbeitung-von-dokumenten-und-bildern">Beispiel 3: Datenverarbeitung von Dokumenten und Bildern</h5>
+
+<p><img src="/assets/images/posts/serverless-architekturen-mit-aws/textract.png" alt="Serverless Datenverarbeitung" /></p>
+
+<p>Die oben stehende Grafik zeigt eine Serverless Architektur für die Datenverarbeitung von Dokumenten und Bildern. 
+Die Bilder und Dokumente werden auf den Objektspeicher S3 per HTTPS hochgeladen.
+Das Speichern löst ein Event aus, das eine Lambda Funktion startet. 
+Diese Funktion leitet die Dokumente an den Service <a href="https://aws.amazon.com/de/textract/">Textract</a> weiter, der per OCR-Erkennung den Text extrahiert. 
+Anschließend wird der Text in eine Elastic Search Datenbank gespeichert, die es ermöglicht die Texte zu durchsuchen.</p>
+
+<p>Datenverarbeitung von Dokumenten und Bildern ist meist ressourcenintensiv. 
+Hier kommen in der Regel leistungsstarke und kostenintensive Systeme zum Einsatz. 
+Die Vorteile dieser Lösung sind die hohe Skalierbarkeit und Ressourcen-Effizienz.</p>
+
+<h4 id="fazit-und-ausblick">Fazit und Ausblick</h4>
+
+<p>Serverless ist eine neue Art für die Entwicklung und Bereitstellung von Software. 
+Es ermöglicht eine schnellere Entwicklung durch mehr Fokus auf die Business Logik und verspricht niedrigere 
+Wartungskosten wovon sowohl Auftraggeber als auch Entwickler profitieren. 
+Es gibt bereits eine große Vielfalt an Serverless Services die geschickt miteinander kombiniert werden können und die 
+großen Cloud Anbieter stellen regelmäßig neue Services bereit. 
+Die Serverless Bewegung nimmt gerade erst Fahrt auf und ich beobachte gespannt, ob sie Container verdrängen wird.</p>
+
+<p>Wer dies selbst ausprobieren möchte, kann sich einen <a href="https://aws.amazon.com/de/serverless/">Einstieg zu Serverless bei AWS</a> anschauen.
+<a href="https://martinfowler.com/articles/serverless.html">Der Beitrag zu Serverless Architekturen von Mike Roberts</a> bietet eine weitergehende Übersicht.</p>
+
+</div>
+</div>
+</div>
+</div>]]></field>
+    </document>
+</documents>
