@@ -46,15 +46,15 @@ Das bedeutet, dass Anna detailliert beschreiben sollte, wonach REST den Server f
 * URL/api/restaurant/essen/pizza/1
 
 Mit dieser Abfrage würde Anna genau ein gewünschtes Waschmittel bzw. genau eine Pizza erhalten.  
-Durch dieses Design konnte der Client Over und Underfetching an Daten vermeiden. Doch wie würde die Bestellung geschehen, wenn Anna noch zusätzlich einen Drucker und ein Bett haben möchte? Einfach! Dann müssten wir genauso wie beim Restaurant und Supermarkt noch zwei weitere Endpunkte definieren. Wie wäre es aber, wenn Anna eine ganze Liste von Produkten aus verschiedenen Ressourcen hätte? Dann brauchen wir ebenfalls mehrere REST-Endpunkte. Das bedeutet, je mehr Ressourcen aus dem Backend angefordert werden, desto mehr Endpunkte sind erforderlich. Hiermit treffen wir abermals auf das aufgelistete Problem “mehrere Endpunkte erforderlich”. 
+Durch dieses Design konnte der Client Over und Underfetching an Daten vermeiden. Doch wie würde die Bestellung geschehen, wenn Anna noch zusätzlich einen Drucker und ein Bett haben möchte? Dann müssten wir genauso wie beim Restaurant und Supermarkt noch zwei weitere Endpunkte definieren. Wie wäre es aber, wenn Anna eine ganze Liste von Produkten aus verschiedenen Ressourcen hätte? Dann brauchen wir ebenfalls mehrere REST-Endpunkte. Das bedeutet, je mehr Ressourcen aus dem Backend angefordert werden, desto mehr Endpunkte sind erforderlich. Hiermit treffen wir abermals auf das aufgelistete Problem “mehrere Endpunkte erforderlich”. 
 
 # Die Lösung kommt mit GraphQL 
 
 Den genannten Herausforderungen hat sich Facebook 2012 gestellt und mit GraphQL eine Spezifikation entwickelt. Rund um diese Spezifikation haben sich inzwischen einige Implementierungen und ein vollständiges Ökosystem herausgebildet, welche den Einsatz analog zu REST in aktuellen Projekten unterstützen. GraphQL zeichnet sich durch folgende Punkte aus und hebt sich dadurch von REST-APIs ab.
 
-- Durch eine Abfrage kann der Client Daten aus unterschiedlichen Ressourcen anfordern, wie z.B.     Datenbanken oder gar Daten aus anderen GraphQL Servern. Die vom Client aufgelisteten Daten        werden durch eine Abfrage aus den verschiedenen Ressourcen gesammelt, verpackt und anschließend   an den Client gesendet. 
-- Der Client kann sich explizit darauf festlegen, welche Daten er haben möchte, “nicht mehr und     nicht weniger”.     
-- Ein Endpunkt reicht für alle Abfragen völlig aus. Es werden also keine Endpunkte für PUT,         DELETE und anderen Methoden benötigt.   
+    - Durch eine Abfrage kann der Client Daten aus unterschiedlichen Ressourcen anfordern, wie z.B.     Datenbanken oder gar Daten aus anderen GraphQL Servern. Die vom Client aufgelisteten Daten        werden durch eine Abfrage aus den verschiedenen Ressourcen gesammelt, verpackt und anschließend   an den Client gesendet. 
+    - Der Client kann sich explizit darauf festlegen, welche Daten er haben möchte, “nicht mehr und     nicht weniger”.     
+    - Ein Endpunkt reicht für alle Abfragen völlig aus. Es werden also keine Endpunkte für PUT,         DELETE und anderen Methoden benötigt.   
 Diese Anpassungen ermöglichen ein API-Design, welches den Herausforderungen von REST begegnet. Anbei sind noch einmal die Punkte angeführt, welche GraphQL angehen.
 
 **Single Endpoint:**
