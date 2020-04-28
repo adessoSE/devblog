@@ -52,9 +52,10 @@ Durch dieses Design konnte der Client Over und Underfetching an Daten vermeiden.
 
 Den genannten Herausforderungen hat sich Facebook 2012 gestellt und mit GraphQL eine Spezifikation entwickelt. Rund um diese Spezifikation haben sich inzwischen einige Implementierungen und ein vollständiges Ökosystem herausgebildet, welche den Einsatz analog zu REST in aktuellen Projekten unterstützen. GraphQL zeichnet sich durch folgende Punkte aus und hebt sich dadurch von REST-APIs ab.
 
-    - Durch eine Abfrage kann der Client Daten aus unterschiedlichen Ressourcen anfordern, wie z.B.     Datenbanken oder gar Daten aus anderen GraphQL Servern. Die vom Client aufgelisteten Daten        werden durch eine Abfrage aus den verschiedenen Ressourcen gesammelt, verpackt und anschließend   an den Client gesendet. 
-    - Der Client kann sich explizit darauf festlegen, welche Daten er haben möchte, “nicht mehr und     nicht weniger”.     
-    - Ein Endpunkt reicht für alle Abfragen völlig aus. Es werden also keine Endpunkte für PUT,         DELETE und anderen Methoden benötigt.   
+- Durch eine Abfrage kann der Client Daten aus unterschiedlichen Ressourcen anfordern, wie z.B.     Datenbanken oder gar Daten aus anderen GraphQL Servern. Die vom Client aufgelisteten Daten        werden durch eine Abfrage aus den verschiedenen Ressourcen gesammelt, verpackt und anschließend   an den Client gesendet. 
+- Der Client kann sich explizit darauf festlegen, welche Daten er haben möchte, “nicht mehr und     nicht weniger”.     
+- Ein Endpunkt reicht für alle Abfragen völlig aus. Es werden also keine Endpunkte für PUT,         DELETE und anderen Methoden benötigt. 
+  
 Diese Anpassungen ermöglichen ein API-Design, welches den Herausforderungen von REST begegnet. Anbei sind noch einmal die Punkte angeführt, welche GraphQL angehen.
 
 **Single Endpoint:**
@@ -75,7 +76,7 @@ Ein weiteres wichtiges Feature von GraphQL ist, dass GraphQL als Wrapper von unt
 
 **Übersichtlich:**
 
-Der Client muss in den zurückgelieferten Daten nicht nach seinen Anforderungen suchen, da er lediglich die von ihm verlangten Daten erhält.  
+Der Client muss in den zurückgelieferten Daten nicht nach seinen Anforderungen suchen, da er lediglich die von ihm verlangten Daten erhält.
 
 ## Es ist nicht alles Gold was glänzt
 
