@@ -75,7 +75,7 @@ Ein weiteres wichtiges Feature von GraphQL ist, dass GraphQL als Wrapper von unt
 
 **Übersichtlich:**
 
-Der Client muss in den zurückgelieferten Daten nicht nach seinen Anforderungen suchen, da er lediglich die von ihm verlangten Daten erhält. Mit RESTful-APIs musste Anna erst in dem Paket nach ihrem Wunsch suchen und dann alles andere wegwerfen.    
+Der Client muss in den zurückgelieferten Daten nicht nach seinen Anforderungen suchen, da er lediglich die von ihm verlangten Daten erhält.  
 
 ## Es ist nicht alles Gold was glänzt
 
