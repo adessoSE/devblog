@@ -2,7 +2,7 @@
 layout: [post, post-xml]              # Pflichtfeld. Nicht ändern!
 title:  "Behaviour Driven Development und automatisierte Tests mit Seed-Test"         # Pflichtfeld. Bitte einen Titel für den Blog Post angeben.
 date:   2020-03-31 09:00              # Pflichtfeld. Format "YYYY-MM-DD HH:MM". Muss für Veröffentlichung in der Vergangenheit liegen. (Für Preview egal)
-modified_date: 2020-03-31           # Optional. Muss angegeben werden, wenn eine bestehende Datei geändert wird.
+modified_date: 2020-04-29           # Optional. Muss angegeben werden, wenn eine bestehende Datei geändert wird.
 author: dsorna                     # Pflichtfeld. Es muss in der "authors.yml" einen Eintrag mit diesem Namen geben.
 categories: [Softwareentwicklung]                    # Pflichtfeld. Maximal eine der angegebenen Kategorien verwenden.
 tags: [Testing, Behaviour Driven Development, Cucumber, Seed-Test]         # Bitte auf Großschreibung achten.
@@ -58,6 +58,10 @@ Das macht es aber gleichzeitig fehleranfällig und sehr aufwändig umzusetzen, d
 
 Unsere Anwendung Seed-Test versucht genau dieses Problem zu lösen. 
 Durch das Vorgeben vordefinierter Schritte wird sichergestellt, dass alle Schritte des Scenarios eine funktionierende Ausführung hinterlegt haben. 
+Die Schritte sind entsprechend der BDD-Logik in drei Kategorien unterteilt und werden jeweils aus einer Liste ausgewählt. 
+Zuerst können Schritte, wie beispielsweise eine URL für den Startpunkt, als Vorbedingungen (Given) für den Testfall festgelegt werden. 
+Die für den eigentlichen Test auszuführenden Schritte, wie z.B. Eingaben in Textfelder oder Button-Klicks, lassen sich als Aktionen (When) hinzufügen. 
+Zur Überprüfung des Ergebnisses (Then) stehen Schritte, wie die Weiterleitung auf eine neue Seite oder das Anzeigen bestimmter Texte, zur Auswahl. 
 Der Anwender kann die Tests sofort ausführen und erhält als Ergebnis einen anschaulichen Report.
 Ein weiteres Ziel von Seed-Test ist, das Erstellen von Tests soweit zu vereinfachen, dass auch Anwender ohne Programmierkenntnisse Testfälle definieren können. 
 Die Schritte sind so aufgebaut, dass nur noch die gewünschten Eingabe- und Ausgabewerte eingetragen werden müssen. 
@@ -74,7 +78,9 @@ Mit den bisher definierten Schritten können Webapplikationen getestet werden.
 
 Seed-Test gibt es über Heroku auch als [Demo-Version](https://seed-test-frontend.herokuapp.com/) zum Ausprobieren. 
 
-Für Fragen und Feedback meldet euch gerne bei seed-test@adesso.de
+Wir laden Euch herzlich dazu ein, euch über [GitHub](https://github.com/adessoAG/Seed-Test) an Seed-Test zu beteiligen und für Rückfragen oder Vorschläge Issues zu erstellen. 
+Alternativ könnt ihr euch für Fragen und Feedback gerne an <seed-test@adesso.de> wenden. 
+Wir freuen uns auf euer Feedback.
 
 ### Fazit
 
