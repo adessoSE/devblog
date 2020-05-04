@@ -17,7 +17,7 @@ In diesem Artikel wollen wir uns Einblick in die (noch junge) Programmiersprache
         <field name="tag_multi_keyword"><![CDATA[Actix-Web]]></field>
         <field name="date_date"><![CDATA[2020-05-04T09:00:00+02:00]]></field>
         <field name="date_l"><![CDATA[1588575600000]]></field>
-        <field name="change_date"><![CDATA[1588575600000]]></field>
+        <field name="change_date"><![CDATA[1588597200000]]></field>
         <!--Picture-->
         <!-- Not in use at the moment-->
         <!--Author Information-->
@@ -127,7 +127,7 @@ Wir erhalten somit folgende main-Funktion:</p>
 Wir haben jetzt bereits eine vollständige Actix-Web-App erstellt und können diese ausführen.
 Dazu rufen wir im Browser den localhost auf Port 8099 auf und erhalten folgende Ausgabe:</p>
 
-<p><img src="/assets/images/posts/Rust-für-Java-Entwickler-Teil-1/beispiel-request-handler.png" alt="Beispiel-Request-Handler" /></p>
+<p><img src="/assets/images/posts/Rust-für-Java-Entwickler-Teil-1/beispiel-request-handler.PNG" alt="Beispiel-Request-Handler" /></p>
 
 <h6 id="syntaktischer-zucker">Syntaktischer Zucker</h6>
 
@@ -252,7 +252,7 @@ Schon kompiliert unser Code.</p>
 
 <p>Wenn wir jetzt den Endpoint ansprechen, liefert uns der Server folgende Antwort:</p>
 
-<p><img src="/assets/images/posts/Rust-für-Java-Entwickler-Teil-1/get-persons-request.png" alt="GET-persons-Request" /></p>
+<p><img src="/assets/images/posts/Rust-für-Java-Entwickler-Teil-1/get-persons-request.PNG" alt="GET-persons-Request" /></p>
 
 <h5 id="dynamische-url-parameter">Dynamische URL-Parameter</h5>
 
