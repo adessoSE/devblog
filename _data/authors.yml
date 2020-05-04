@@ -312,3 +312,12 @@ mschick:
   bio: "Michael studiert Informatik an der Fachhochschule Dortmund und schreibt seine Bachelor-Thesis bei adesso zum Thema Softwaremigration. Neben seinem Studium ist er zudem als freiberuflicher Webentwickler tätig."
   avatar_url: /assets/images/avatars/mschick.jpg
   github: https://github.com/mschick
+  
+kiliankrause:
+  first_name: Kilian
+  last_name: Krause
+  github_username: KilianKrause
+  email: Kilian.Krause@adesso.de
+  bio: "Kilian Krause ist als Werkstudent im Open-Source-Team bei adesso in Dortmund tätig."
+  avatar_url: /assets/images/avatars/kiliankrause.jpg
+  github: https://github.com/KilianKrause
