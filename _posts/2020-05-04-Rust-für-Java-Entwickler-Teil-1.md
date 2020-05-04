@@ -102,7 +102,7 @@ Unser Server läuft nun lokal auf dem Port 8099. Der RH wird immer dann aufgeruf
 Wir haben jetzt bereits eine vollständige Actix-Web-App erstellt und können diese ausführen.
 Dazu rufen wir im Browser den localhost auf Port 8099 auf und erhalten folgende Ausgabe:
 
-![Beispiel-Request-Handler](/assets/images/posts/Rust-für-Java-Entwickler-Teil-1/beispiel-request-handler.png)
+![Beispiel-Request-Handler](/assets/images/posts/Rust-für-Java-Entwickler-Teil-1/beispiel-request-handler.PNG)
 
 ### Syntaktischer Zucker
 
@@ -236,7 +236,7 @@ Schon kompiliert unser Code.
 
 Wenn wir jetzt den Endpoint ansprechen, liefert uns der Server folgende Antwort:
 
-![GET-persons-Request](/assets/images/posts/Rust-für-Java-Entwickler-Teil-1/get-persons-request.png)
+![GET-persons-Request](/assets/images/posts/Rust-für-Java-Entwickler-Teil-1/get-persons-request.PNG)
 
 
 ## Dynamische URL-Parameter
