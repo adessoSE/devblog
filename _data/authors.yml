@@ -232,15 +232,15 @@ czarnecki:
   avatar_url: /assets/images/avatars/czarnecki.jpg
   github: https://github.com/czarnecki
 
-kiliankrause:
-  first_name: Kilian
-  last_name: Krause
-  github_username: KilianKrause
-  email: Kilian.Krause@adesso.de
-  bio: "Kilian Krause ist als Werkstudent im Open-Source-Team bei adesso in Dortmund tätig."
-  avatar_url: /assets/images/avatars/kiliankrause.jpg
-  github: https://github.com/KilianKrause
-  
+pschild:
+  first_name: Philippe
+  last_name: Schild
+  github_username: pschild
+  email: philippe.schild@adesso.de
+  bio: "Philippe Schild ist Software Engineer bei adesso in Essen. Er ist begeisterter Fan von JavaScript-Technologien und entwickelt u.a. Webanwendungen mit Angular."
+  avatar_url: /assets/images/avatars/pschild.jpg
+  github: https://github.com/pschild
+
 smsnheck:
   first_name: Sebastian
   last_name: Heckmann
@@ -294,3 +294,30 @@ stefanmueller:
   bio: "Stefan Müller arbeitet als Software Engineer bei der adesso AG. Sein Fokus liegt auf Java-Technologien. Daneben beschäftigt er sich mit Software-Patterns und Software-Architekturen."
   avatar_url: /assets/images/avatars/mueller_stefan_foto.png
   github: https://github.com/stefanAdesso
+
+DanielKraft:
+  first_name: Daniel
+  last_name: Kraft
+  github_username: DanielKraft
+  email: daniel.kraft@adesso.de
+  bio: "Daniel ist als Werkstudent im Versicherungsbereich bei adesso in Frankfurt am Main tätig."
+  avatar_url: /assets/images/avatars/DanielKraft.jpg
+  github: https://github.com/DanielKraft
+
+mschick:
+  first_name: Michael
+  last_name: Schick
+  github_username: mschick
+  email: michael.schick@adesso.de
+  bio: "Michael studiert Informatik an der Fachhochschule Dortmund und schreibt seine Bachelor-Thesis bei adesso zum Thema Softwaremigration. Neben seinem Studium ist er zudem als freiberuflicher Webentwickler tätig."
+  avatar_url: /assets/images/avatars/mschick.jpg
+  github: https://github.com/mschick
+  
+kiliankrause:
+  first_name: Kilian
+  last_name: Krause
+  github_username: KilianKrause
+  email: Kilian.Krause@adesso.de
+  bio: "Kilian Krause ist als Werkstudent im Open-Source-Team bei adesso in Dortmund tätig."
+  avatar_url: /assets/images/avatars/kiliankrause.jpg
+  github: https://github.com/KilianKrause
