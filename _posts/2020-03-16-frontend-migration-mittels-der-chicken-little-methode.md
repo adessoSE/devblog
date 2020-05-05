@@ -103,7 +103,7 @@ Sowohl die *Vertragsliste* als auch der *Vertrag* werden dazu jeweils als eigens
 Bei einer *React Komponente* handelt es sich knapp zusammengefasst um einen wiederverwendbaren Teil einer Benutzeroberfläche, der die Funktionalität sowie die Eigenschaften der Komponente (`props`) innerhalb einer *React App* bündelt.
 Ihr Aufbau ähnelt stark dem einer *(Java-)Klasse*.  
 
-Weitere Details dazu findet man u.a. [hier](https://reactjs.org/docs/components-and-props.html).
+Weitere Details dazu finden sich [in der React-Dokumantion](https://reactjs.org/docs/components-and-props.html).
 
 ### Vertragsliste
 
@@ -405,7 +405,6 @@ Anschließend wurde eine [Schnittstelle in Form einer **REST API**](#entwicklung
 Mit der [Anbindung der **React App** an die Schnittstelle](#anbindung-der-react-app-an-die-api) und dem Austausch der alten Komponente durch die neue *React App* wurde der erste Migrationsschritt [erfolgreich abgeschlossen](#migration-und-umstellung-des-frontends) . 
 
 Das in diesem Artikel demonstrierte Prozedere ist für jede weitere Komponente des Frontends zu wiederholen, bis das Frontend mit der letzten Komponente vollständig migriert wurde. 
-
 
 
 
