@@ -1,6 +1,6 @@
 ---
 layout: [post, post-xml]             
-title:  "Frontend Migration mittels der Chicken-Little-Methode"
+title:  "Frontend Migration anhand der Chicken-Little-Methode in der Praxis"
 date:   2020-03-16 01:23             
 author: mschick                     
 categories: [Methodik]                   
@@ -405,7 +405,6 @@ Anschließend wurde eine [Schnittstelle in Form einer **REST API**](#entwicklung
 Mit der [Anbindung der **React App** an die Schnittstelle](#anbindung-der-react-app-an-die-api) und dem Austausch der alten Komponente durch die neue *React App* wurde der erste Migrationsschritt [erfolgreich abgeschlossen](#migration-und-umstellung-des-frontends) . 
 
 Das in diesem Artikel demonstrierte Prozedere ist für jede weitere Komponente des Frontends zu wiederholen, bis das Frontend mit der letzten Komponente vollständig migriert wurde. 
-
 
 
 
