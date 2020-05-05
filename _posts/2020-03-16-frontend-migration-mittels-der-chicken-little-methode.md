@@ -7,7 +7,7 @@ categories: [Methodik]
 tags: [Frontend, Migration, Softwaremigration, React, ReactJS, JSX, JSF, Facelets, REST]  
 ---
 
-In meinem [ersten Beitrag](/_posts/2020-03-16-inkrementelle-softwaremigration-nach-der-chicken-little-methode.md) habe ich die **Chicken-Little-Methode**, eine Vorgehensweise für die schrittweise Migration von *Legacy-Systemen*, vorgestellt.
+In meinem [ersten Beitrag](https://www.adesso.de/de/news/blog/inkrementelle-softwaremigration-nach-der-chicken-little-methode-4.jsp) habe ich die **Chicken-Little-Methode**, eine Vorgehensweise für die schrittweise Migration von *Legacy-Systemen*, vorgestellt.
 Darauf aufbauend soll in diesem Beitrag nun demonstriert werden, wie sich diese Methode auf eine *Frontend-Migration* im Kontext einer Webanwendung anwenden lässt.
 Dazu wird eine existierende Webanwendung betrachtet und gezeigt wie sich eine, auf den *Server-Side Rendering Technologien* **JSF** und **Facelets** basierende Komponente dieser Anwendung, in eine andere Technologie transformieren lässt und im Anschluss daran wieder in das Altsystem integriert wird.
 Als Zieltechnologie für die Migration dient in diesem Beispiel das **Single-Page-Application**-Framework [**ReactJS**](https://reactjs.org/).
@@ -405,7 +405,6 @@ Anschließend wurde eine [Schnittstelle in Form einer **REST API**](#entwicklung
 Mit der [Anbindung der **React App** an die Schnittstelle](#anbindung-der-react-app-an-die-api) und dem Austausch der alten Komponente durch die neue *React App* wurde der erste Migrationsschritt [erfolgreich abgeschlossen](#migration-und-umstellung-des-frontends) . 
 
 Das in diesem Artikel demonstrierte Prozedere ist für jede weitere Komponente des Frontends zu wiederholen, bis das Frontend mit der letzten Komponente vollständig migriert wurde. 
-
 
 
 
