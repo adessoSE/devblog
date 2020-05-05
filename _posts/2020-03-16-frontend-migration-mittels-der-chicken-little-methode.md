@@ -101,9 +101,8 @@ Die Darstellung der *Vertragsliste* innerhalb der *React App* soll auch hier wie
 
 Sowohl die *Vertragsliste* als auch der *Vertrag* werden dazu jeweils als eigenständige *React Komponente* innerhalb der *React App* implementiert.
 Bei einer *React Komponente* handelt es sich knapp zusammengefasst um einen wiederverwendbaren Teil einer Benutzeroberfläche, der die Funktionalität sowie die Eigenschaften der Komponente (`props`) innerhalb einer *React App* bündelt.
-Ihr Aufbau ähnelt stark dem einer *(Java-)Klasse*.  
 
-Weitere Details dazu finden sich [in der React-Dokumantion](https://reactjs.org/docs/components-and-props.html).
+Weitere Details dazu finden sich [in der React-Dokumentation](https://reactjs.org/docs/components-and-props.html).
 
 ### Vertragsliste
 
@@ -212,7 +211,7 @@ Dazu wird mittels der Funktion `eachVertrag()` über die aktuelle Liste in `this
 
 **Randbemerkung:** Das, was im obigen Beispiel wie `HTML-Markup` anmutet ist in Wirklichkeit `JavaScript-Code` in Form von `JSX`.
 Der `JSX-Code` wird durch einen *Transpiler* in *JavaScript* übersetzt.
-Entworfen wurde das ganze von Facebook als Erweiterung des **ES6-Standards**.  Weitere Informationen zu `JSX` und was dahinter steckt, findet Ihr [hier](https://reactjs.org/docs/jsx-in-depth.html) und [hier](https://facebook.github.io/jsx/).
+Entworfen wurde das ganze von Facebook als Erweiterung des **ES6-Standards**.  Weitere Informationen zu `JSX` und was dahinter steckt, findet Ihr [in der React-Dokumentation](https://reactjs.org/docs/jsx-in-depth.html) und [der JSX-Spezifikation](https://facebook.github.io/jsx/).
 
 ### Die Vertragskomponente.
 
@@ -400,9 +399,9 @@ Mit diesem letzten Schritt ist die Migration der Vertragsliste abgeschlossen und
 # Zusammenfassung
 
 Dieser Artikel hat gezeigt, wie sich die **Chicken-Little-Methode** für eine Frontend-Migration anwenden lässt. Dazu wurde das Beispiel der **Vertragsliste** für die erste Iteration dieses inkrementellen Verfahrens ausgewählt. 
-Im Anschluss an die [Analyse](#analyse-und-strukturierung) des Altsystems, wo die zu migrierenden Bestandteile und betroffenen *Java-Klassen* identifiziert wurden, erfolgte zunächst die [Entwicklung](#entwurf-und-entwicklung-der-neuen-benutzeroberflche) dieser Vertragsliste in Form einer **React App**. 
-Anschließend wurde eine [Schnittstelle in Form einer **REST API**](#entwicklung-einer-rest-api-als-schnittstelle-zwischen-alt-und-neu) entwickelt, um die Kommunikation zwischen dem Altsystem und der migrierten Komponente herzustellen. 
-Mit der [Anbindung der **React App** an die Schnittstelle](#anbindung-der-react-app-an-die-api) und dem Austausch der alten Komponente durch die neue *React App* wurde der erste Migrationsschritt [erfolgreich abgeschlossen](#migration-und-umstellung-des-frontends) . 
+Im Anschluss an die Analyse des Altsystems, wo die zu migrierenden Bestandteile und betroffenen *Java-Klassen* identifiziert wurden, erfolgte zunächst die Entwicklung dieser Vertragsliste in Form einer **React App**. 
+Anschließend wurde eine Schnittstelle in Form einer **REST API** entwickelt, um die Kommunikation zwischen dem Altsystem und der migrierten Komponente herzustellen. 
+Mit der Anbindung der **React App** an die Schnittstelle und dem Austausch der alten Komponente durch die neue *React App* wurde der erste Migrationsschritt erfolgreich abgeschlossen. 
 
 Das in diesem Artikel demonstrierte Prozedere ist für jede weitere Komponente des Frontends zu wiederholen, bis das Frontend mit der letzten Komponente vollständig migriert wurde. 
 
