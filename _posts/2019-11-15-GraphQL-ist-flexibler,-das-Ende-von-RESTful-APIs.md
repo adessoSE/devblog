@@ -38,12 +38,12 @@ REST kann bei einer Abfrage nicht alles erledigen, was der Client möcht
 
 Indessen sind die beiden Probleme Over- und Underfetching mithilfe eines zu der Anforderung stimmigen API-Designs gut lösbar. Hinter den REST-APIs verbirgt sich eine sehr mächtige Sprache, mit der der Client sich effizient ausdrücken kann. Den meisten Entwicklern für Webapplikationen ist diese Sprache bekannt.  
 
-Der Client kann dabei ein Bingo geben, das durch den Server zu interpretieren ist. Die Produkte eines Supermarkts werden in der Datenbank beispielsweise durch ID-Nummern bezeichnet. Der Client gibt der REST-API hierzu eine ID-Nummer des geforderten Produkts. Die REST-API reicht diese dem Server weiter. Der Server kümmert sich um die Suche nach dem gewünschten Produkt in der Datenbank. Sollte der Server die Wünsche des Clients erfüllen können, dann nimmt REST-API die Daten mit und fährt zurück zum Client. Andernfalls würde der Server REST-API eine entsprechende Fehlermeldung zurückgeben, beispielsweise, wenn dieses Produkt nicht mehr vorhanden ist. Die Suche nach möglichst effizienten Namen kann einiges bewirken und hat ein besseres API-Design zur Folge. 
+Der Client kann dabei ein Zeichen geben, das durch den Server zu interpretieren ist. Die Produkte eines Supermarkts werden in der Datenbank beispielsweise durch EAN-Codes bezeichnet. Der Client gibt der REST-API hierzu den EAN-Code des geforderten Produkts. Die REST-API reicht dem Server den Code weiter und dieser kümmert sich um die Suche nach dem gewünschten Produkt in der Datenbank. Sollte der Server die Wünsche des Clients erfüllen können, dann nimmt REST-API die Daten mit und fährt zurück zum Client. Andernfalls würde der Server REST-API eine entsprechende Fehlermeldung zurückgeben, beispielsweise, wenn dieses Produkt nicht mehr vorhanden ist. Die Suche nach möglichst effizienten Namen kann einiges bewirken und hat ein besseres API-Design zur Folge. 
 
 Das bedeutet, dass Anna detailliert beschreiben sollte, wonach REST den Server fragen soll. Geeignete Endpunkte sehen zum Beispiel wie folgt aus:  
 
-* URL/api/supermarkt/reinigungsmittel/waschmittel/12
-* URL/api/restaurant/essen/pizza/1
+* URL/api/supermarkt/reinigungsmittel/waschmittel/{ean}
+* URL/api/restaurant/essen/pizza/{ean}
 
 Mit dieser Abfrage würde Anna genau ein gewünschtes Waschmittel bzw. genau eine Pizza erhalten.  
 Durch dieses Design konnte der Client Over und Underfetching an Daten vermeiden. Doch wie würde die Bestellung geschehen, wenn Anna noch zusätzlich einen Drucker und ein Bett haben möchte? Dann müssten wir genauso wie beim Restaurant und Supermarkt noch zwei weitere Endpunkte definieren. Wie wäre es aber, wenn Anna eine ganze Liste von Produkten aus verschiedenen Ressourcen hätte? Dann brauchen wir ebenfalls mehrere REST-Endpunkte. Das bedeutet, je mehr Ressourcen aus dem Backend angefordert werden, desto mehr Endpunkte sind erforderlich. Hiermit treffen wir abermals auf das aufgelistete Problem “mehrere Endpunkte erforderlich”. 
