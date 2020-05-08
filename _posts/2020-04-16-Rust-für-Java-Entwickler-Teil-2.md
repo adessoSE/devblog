@@ -18,7 +18,7 @@ In diesem Teil der Serie möchte ich auf zwei weitere, wichtige Aspekte des Fram
 Grundlegende Kenntnisse in der Programmiersprache Rust sind empfehlenswert, wenn du diesen Artikel liest.
 Einen guten Einstieg in die Sprache bietet das Buch [The Rust Programming Language](https://doc.rust-lang.org/book/title-page.html).
 Außerdem baue ich teilweise auf Strukturen auf, die im ersten Teil dieser Serie erklärt und implementiert wurden.
-Falls du den ersten Teil noch nicht gelesen hast, schau ihn dir gerne [hier](https://www.adesso.de/de/news/blog/rust-fuer-java-entwickler-teil-1.jsp) an.
+Solltest du dies bisher verpasst haben, kannst Du Dir [den ersten Blogpost über das Actix-Web Framwork anschauen](https://www.adesso.de/de/news/blog/rust-fuer-java-entwickler-teil-1.jsp).
 
 # Kommunikation mit dem Dateisystem
 
