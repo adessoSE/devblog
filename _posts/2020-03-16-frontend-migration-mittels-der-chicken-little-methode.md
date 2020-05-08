@@ -36,7 +36,7 @@ Schlussendlich demonstriert dieses Beispiel aber auch das breite Einsatzgebiet d
 
 # Die Migration
 In diesem Abschnitt erfolgt die Migration der zuvor beschriebenen Anwendung.
-Da sich das Migrationsvorhaben in diesem Beispiel auf das Frontend beschränkt, reduziert sich in der Folge auch die Anzahl der durchzuführenden [Migrations-Schritte]((/_posts/2020-03-16-inkrementelle-softwaremigration-nach-der-chicken-little-methode.md#die-chicken-little-methode)) der **Chicken-Little-Methode**.
+Da sich das Migrationsvorhaben in diesem Beispiel auf das Frontend beschränkt, reduziert sich in der Folge auch die Anzahl der durchzuführenden Migrations-Schritte der **Chicken-Little-Methode**.
 So entfallen sämtliche Punkte, die sich auf die Migration der **Programme und Anwendungen** sowie der **Datenbank** beziehen.  
 
 Übrig bleiben also nur noch die im Folgenden aufgeführten Schritte:
@@ -320,14 +320,11 @@ Für die Umsetzung wird sich der Library **RESTEasy** bedient, die den **JAX-RS*
 Darüber lässt sich die Ressource in der **REST-API** adressieren.
 Daneben wird außerdem festgelegt, dass die Kommunikation via `JSON` erfolgen soll. 
 
-Die folgende Tabelle listet die beteiligten **Ressourcen**, die jeweilige **URI**, die dabei verwendete **HTTP-Methode** sowie die jeweils korrespondierende **Java-Methode** auf.
+Die folgende Auflistung zeigt die beteiligten **Ressourcen**, die jeweilige **URI**, die dabei verwendete **HTTP-Methode** sowie die jeweils korrespondierende **Java-Methode** auf.
 
-| Aktion                 | HTTP-Methode       | URI                           | Java-Methode           |
-| ---------------------- | ------------------ | ----------------------------- | ---------------------- | 
-| **Liste abfragen**     | GET                | `/vertragsliste`              | `getVertragsliste()`   |
-| **Verträge berechnen** | POST               | `/vertragsliste`              | `berechneAngebote()`   |
-| **Vertrag löschen**    | DELETE             | `/vertragsliste/{vertragsId}` | `removeVetrag()`       |
-
+* **Liste abfragen**: `GET /vertragsliste` -> `getVertragsliste()`
+* **Verträge berechnen**: `POST /vertragsliste` -> `berechneAngebote()`
+* **Vertrag löschen**: `DELETE /vertragsliste/{vertragsId}` -> `removeVetrag()`
 
 Sowohl für das **Abfragen** der Liste als auch die **Berechnung** der Verträge zeichnet sich die Ressource `Vertragsliste` verantwortlich.  
 Welche Aktion ausgeführt werden soll, wird maßgeblich über die beim **Request** verwendete **HTTP-Methode** bestimmt.
