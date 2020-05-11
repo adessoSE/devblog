@@ -3,10 +3,7 @@
     <document uid="0574f9efe2949a351386932322c7aac3">
         <field name="title"><![CDATA[Frontend Migration anhand der Chicken-Little-Methode in der Praxis]]></field>
         <field name="subline"><![CDATA[]]></field>
-        <field name="teaser"><![CDATA[<p>In meinem <a href="https://www.adesso.de/de/news/blog/inkrementelle-softwaremigration-nach-der-chicken-little-methode-4.jsp">ersten Beitrag</a> habe ich die <strong>Chicken-Little-Methode</strong>, eine Vorgehensweise für die schrittweise Migration von <em>Legacy-Systemen</em>, vorgestellt.
-Darauf aufbauend soll in diesem Beitrag nun demonstriert werden, wie sich diese Methode auf eine <em>Frontend-Migration</em> im Kontext einer Webanwendung anwenden lässt.
-Dazu wird eine existierende Webanwendung betrachtet und gezeigt wie sich eine, auf den <em>Server-Side Rendering Technologien</em> <strong>JSF</strong> und <strong>Facelets</strong> basierende Komponente dieser Anwendung, in eine andere Technologie transformieren lässt und im Anschluss daran wieder in das Altsystem integriert wird.
-Als Zieltechnologie für die Migration dient in diesem Beispiel das <strong>Single-Page-Application</strong>-Framework <a href="https://reactjs.org/"><strong>ReactJS</strong></a>.</p>
+        <field name="teaser"><![CDATA[<p>{}</p>
 
 ]]></field>
         <field name="language_multi_keyword"><![CDATA[de]]></field>
@@ -35,17 +32,18 @@ Als Zieltechnologie für die Migration dient in diesem Beispiel das <strong>Sing
         <!--Postcontent-->
         <field name="headlines"><![CDATA[Frontend Migration anhand der Chicken-Little-Methode in der Praxis]]></field>
         <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
-            <p>In meinem <a href="https://www.adesso.de/de/news/blog/inkrementelle-softwaremigration-nach-der-chicken-little-methode-4.jsp">ersten Beitrag</a> habe ich die <strong>Chicken-Little-Methode</strong>, eine Vorgehensweise für die schrittweise Migration von <em>Legacy-Systemen</em>, vorgestellt.
-Darauf aufbauend soll in diesem Beitrag nun demonstriert werden, wie sich diese Methode auf eine <em>Frontend-Migration</em> im Kontext einer Webanwendung anwenden lässt.
-Dazu wird eine existierende Webanwendung betrachtet und gezeigt wie sich eine, auf den <em>Server-Side Rendering Technologien</em> <strong>JSF</strong> und <strong>Facelets</strong> basierende Komponente dieser Anwendung, in eine andere Technologie transformieren lässt und im Anschluss daran wieder in das Altsystem integriert wird.
-Als Zieltechnologie für die Migration dient in diesem Beispiel das <strong>Single-Page-Application</strong>-Framework <a href="https://reactjs.org/"><strong>ReactJS</strong></a>.</p>
+            <p>{}</p>
 
 </div>]]></field>
         <field name="content"><![CDATA[<div class="adesso-text-formate">
 <div class="row p-t-2">
 <div class="adesso-container">
 <div class="col-xl-8 adesso-center p-b-1 p-l-0 p-r-0">
-    <p>In meinem <a href="https://www.adesso.de/de/news/blog/inkrementelle-softwaremigration-nach-der-chicken-little-methode-4.jsp">ersten Beitrag</a> habe ich die <strong>Chicken-Little-Methode</strong>, eine Vorgehensweise für die schrittweise Migration von <em>Legacy-Systemen</em>, vorgestellt.
+    <p>{}</p>
+
+<p>}</p>
+
+<p>In meinem <a href="https://www.adesso.de/de/news/blog/inkrementelle-softwaremigration-nach-der-chicken-little-methode-4.jsp">ersten Beitrag</a> habe ich die <strong>Chicken-Little-Methode</strong>, eine Vorgehensweise für die schrittweise Migration von <em>Legacy-Systemen</em>, vorgestellt.
 Darauf aufbauend soll in diesem Beitrag nun demonstriert werden, wie sich diese Methode auf eine <em>Frontend-Migration</em> im Kontext einer Webanwendung anwenden lässt.
 Dazu wird eine existierende Webanwendung betrachtet und gezeigt wie sich eine, auf den <em>Server-Side Rendering Technologien</em> <strong>JSF</strong> und <strong>Facelets</strong> basierende Komponente dieser Anwendung, in eine andere Technologie transformieren lässt und im Anschluss daran wieder in das Altsystem integriert wird.
 Als Zieltechnologie für die Migration dient in diesem Beispiel das <strong>Single-Page-Application</strong>-Framework <a href="https://reactjs.org/"><strong>ReactJS</strong></a>.</p>
@@ -103,28 +101,28 @@ Außerdem kann über einen weiteren Button unterhalb der Tabelle eine Tarif-Bere
 <pre><code class="language-xml">&lt;ui:define name="content"&gt;
     ...
     &lt;rich:dataTable id="vertragsliste" var="_vertrag"
-        value="#{vertragslisteController.vertragsliste}"
-        rendered="#{vertragslisteController.liste.size &gt; 0}"&gt;
+        value="#&amp;#123;vertragslisteController.vertragsliste&amp;#125;"
+        rendered="#&amp;#123;vertragslisteController.liste.size &gt; 0&amp;#125;"&gt;
         ...
         &lt;rich:column&gt;
             &lt;f:facet name="header"&gt;Versicherungsart&lt;/f:facet&gt;
-            &lt;h:outputText value="#{_vertrag.vertragsArt()}" /&gt;
+            &lt;h:outputText value="#&amp;#123;_vertrag.vertragsArt()&amp;#125;" /&gt;
         &lt;/rich:column&gt;
 
         &lt;rich:column&gt;
             &lt;f:facet name="header"&gt;Vers.-Nr.&lt;/f:facet&gt;
-            &lt;h:outputText value="#{_vertrag.versicherungsNr()}" /&gt;
+            &lt;h:outputText value="#&amp;#123;_vertrag.versicherungsNr()&amp;#125;" /&gt;
         &lt;/rich:column&gt;
 
         &lt;rich:column&gt;
             &lt;f:facet name="header"&gt;Versicherer&lt;/f:facet&gt;
-            &lt;h:outputText value="#{_vertrag.versicherer()}" /&gt;
+            &lt;h:outputText value="#&amp;#123;_vertrag.versicherer()&amp;#125;" /&gt;
         &lt;/rich:column&gt;
         ...
     &lt;/rich:dataTable&gt;
     ...
     &lt;h:commandButton id="berechnenButton"
-        action="#{vertragslisteController.berechneVertraege()}"
+        action="#&amp;#123;vertragslisteController.berechneVertraege()&amp;#125;"
         value="Berechnen" /&gt;
 
 &lt;/ui:define&gt;
@@ -148,38 +146,38 @@ Bei einer <em>React Komponente</em> handelt es sich knapp zusammengefasst um ein
 <p>Der folgende Quelltext zeigt den grundsätzlichen Aufbau der neuen Komponente <code>Vertragsliste</code>:</p>
 <pre><code class="language-jsx">import React from "react";
 
-class Vertragsliste extends React.Component {
+class Vertragsliste extends React.Component &amp;#123;
 
     // Initialisierung
-    constructor(props) {
+    constructor(props) &amp;#123;
         super(props);
 
-        this.state = {
+        this.state = &amp;#123;
             error: null,
             requestComplete: false,
             vertraege: []
-        };
+        &amp;#125;;
 
         this.eachVertrag = this.eachVertrag.bind(this);
         this.remove = this.remove.bind(this);
         this.calculate = this.calculate.bind(this);
-    }
+    &amp;#125;
 
     // Hier erfolgt der Abruf der Vertragsliste im Altsystem
     // nachdem die Komponente der UI hinzugefügt wurde
-    componentDidMount() {}
+    componentDidMount() &amp;#123;&amp;#125;
 
     // Vertrag im Altsystem löschen
-    remove(vertragsId) {}
+    remove(vertragsId) &amp;#123;&amp;#125;
 
     // Berechnung der Tarife der i.d. Liste enthaltenen Verträge anstoßen
-    calculate() {}
+    calculate() &amp;#123;&amp;#125;
 
     // Verarbeitung der einzelnen Verträge ...
-    eachVertrag(vertrag, i) {}
+    eachVertrag(vertrag, i) &amp;#123;&amp;#125;
      // ... und anschließende Ausgabe der Vertragsliste im Frontend
-         render() {}
-}
+         render() &amp;#123;&amp;#125;
+&amp;#125;
 </code></pre>
 
 <p>Im <em>Konstruktor</em> erfolgt zunächst die Initialisierung des <em>Zustands</em> (<a href="https://reactjs.org/docs/state-and-lifecycle.html"><code>state</code></a>) der Vertragslisten-Komponente.</p>
@@ -198,52 +196,52 @@ Des Weiteren erfolgt hier das <a href="https://reactjs.org/docs/faq-functions.ht
 Dazu wird mittels der Funktion <code>eachVertrag()</code> über die aktuelle Liste in <code>this.state.vertraege</code> iteriert.
  Dort folgt die Instantiierung der jeweiligen Vertrags-Komponenten und ihrer <code>props</code>.</p>
 
-<pre><code class="language-jsx">    eachVertrag(vertrag, i) {
+<pre><code class="language-jsx">    eachVertrag(vertrag, i) &amp;#123;
         return (
             &lt;Vertrag
-                key={i}
-                index={i}
-                vertragsId={vertrag.spartenberatungId}
-                href={vertrag.href}
-                onRemove={this.remove}&gt;
-                &lt;td&gt;{vertrag.versicherungsnummer}&lt;/td&gt;
+                key=&amp;#123;i&amp;#125;
+                index=&amp;#123;i&amp;#125;
+                vertragsId=&amp;#123;vertrag.spartenberatungId&amp;#125;
+                href=&amp;#123;vertrag.href&amp;#125;
+                onRemove=&amp;#123;this.remove&amp;#125;&gt;
+                &lt;td&gt;&amp;#123;vertrag.versicherungsnummer&amp;#125;&lt;/td&gt;
                 &lt;td&gt;...&lt;/td&gt;
             &lt;/Vertrag&gt;
         );
-    }
-        render() {
-            const {error, requestComplete, vertraege} = this.state;
-            if (error) { 
-                {/*Fehlerbehandlung hier, falls Request scheitert*/}
-            } else if (!requestComplete) {
+    &amp;#125;
+        render() &amp;#123;
+            const &amp;#123;error, requestComplete, vertraege&amp;#125; = this.state;
+            if (error) &amp;#123; 
+                &amp;#123;/*Fehlerbehandlung hier, falls Request scheitert*/&amp;#125;
+            &amp;#125; else if (!requestComplete) &amp;#123;
                 return &lt;div&gt;Lade Verträge...&lt;/div&gt;
-            } else {
+            &amp;#125; else &amp;#123;
                 return (
                     &lt;div id="vertragsliste"&gt;
-                        {vertraege &amp;&amp; vertraege.length &gt; 0 ? (
+                        &amp;#123;vertraege &amp;&amp; vertraege.length &gt; 0 ? (
                             &lt;table&gt;
                                 &lt;colgroup span="8"&gt;&lt;/colgroup&gt;
-                                &lt;thead&gt;{!-- Tabellenkopf --&gt;}&lt;/thead&gt;
-                                &lt;tbody&gt;{vertraege.map(this.eachVertrag)}&lt;/tbody&gt;
+                                &lt;thead&gt;&amp;#123;!-- Tabellenkopf --&gt;&amp;#125;&lt;/thead&gt;
+                                &lt;tbody&gt;&amp;#123;vertraege.map(this.eachVertrag)&amp;#125;&lt;/tbody&gt;
                             &lt;/table&gt;
                         ) : (
                             &lt;div&gt;Keine Verträge gefunden&lt;/div&gt;
-                        )}
+                        )&amp;#125;
 
-                        {vertraege &amp;&amp; vertraege.length &gt; 0 &amp;&amp;
+                        &amp;#123;vertraege &amp;&amp; vertraege.length &gt; 0 &amp;&amp;
                         &lt;div className="actionButtons"&gt;
                             &lt;input id="calculate"
                                    type="submit"
                                    name="calculate"
                                    value="Berechnen"
-                                   onClick={this.calculate}/&gt;
+                                   onClick=&amp;#123;this.calculate&amp;#125;/&gt;
                         &lt;/div&gt;
-                        }
+                        &amp;#125;
                     &lt;/div&gt;
                 )
-            }
-        }
-}
+            &amp;#125;
+        &amp;#125;
+&amp;#125;
 </code></pre>
 
 <p><strong>Randbemerkung:</strong> Das, was im obigen Beispiel wie <code>HTML-Markup</code> anmutet ist in Wirklichkeit <code>JavaScript-Code</code> in Form von <code>JSX</code>.
@@ -257,32 +255,32 @@ Die Repräsentation des einzelnen Vertrags im Frontend erfolgt jeweils als Tabel
 
 <pre><code class="language-jsx">import React from "react";
 
-class Vertrag extends React.Component {
-    constructor(props) {
+class Vertrag extends React.Component &amp;#123;
+    constructor(props) &amp;#123;
         super(props);
         this.remove = this.remove.bind(this);
-    }
+    &amp;#125;
 
-    remove() {
+    remove() &amp;#123;
         this.props.onRemove(this.props.vertragsId);
-    }
+    &amp;#125;
 
-    render() {
+    render() &amp;#123;
         return (
             &lt;tr&gt;
-                {this.props.children}
+                &amp;#123;this.props.children&amp;#125;
                 &lt;td&gt;
                     &lt;a href="#" id="edit" target="_parent"&gt;Bearbeiten&lt;/a&gt;
                     &lt;a href="#" id="remove"
-                       onClick={e =&gt;
+                       onClick=&amp;#123;e =&gt;
                            window.confirm("Soll der Vertrag wirklich gelöscht werden?") &amp;&amp;
                            this.remove()
-                       }&gt;Löschen&lt;/a&gt;
+                       &amp;#125;&gt;Löschen&lt;/a&gt;
                 &lt;/td&gt;
             &lt;/tr&gt;
         );
-    }
-}
+    &amp;#125;
+&amp;#125;
 
 export default Vertrag;
 </code></pre>
@@ -312,8 +310,8 @@ Dazu wird eine neue Klasse mit dem Namen <code>VertragslisteResource</code> und 
 
 <pre><code class="language-java">@Name("vertragslisteResource")
 @Path("/vertragsliste")
-@Produces({ "application/json", "text/json" })
-public class VertragslisteResource {
+@Produces(&amp;#123; "application/json", "text/json" &amp;#125;)
+public class VertragslisteResource &amp;#123;
 
     @In(create = true, required = true, value = "vertragListe")
     private VertragslisteController vertragslisteController;
@@ -322,33 +320,33 @@ public class VertragslisteResource {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getVertragsliste() {
+    public Response getVertragsliste() &amp;#123;
 
         vertragsliste = vertragslisteController.getVertragsliste();
         return Response.ok(vertragsListe).build();
-    }
+    &amp;#125;
 
     @POST
-    public Response berechneAngebote(@QueryParam("cid") String cid) {
-        try {
+    public Response berechneAngebote(@QueryParam("cid") String cid) &amp;#123;
+        try &amp;#123;
             vertragslisteController.berechneAngebote();
-        } catch (Exception e) {
+        &amp;#125; catch (Exception e) &amp;#123;
             log.error(e);
             return Response.serverError().build();
-        }
+        &amp;#125;
 
         return Response.ok().build();
-    }
+    &amp;#125;
 
     @DELETE
-    @Path("/{vertragsId}")
-    public Response removeVertrag(@PathParam("vertragsId") int vertragsId) {
+    @Path("/&amp;#123;vertragsId&amp;#125;")
+    public Response removeVertrag(@PathParam("vertragsId") int vertragsId) &amp;#123;
 
         vertragslisteController.removeVertrag(vertragsId);
         return Response.noContent().build();
 
-    }
-}
+    &amp;#125;
+&amp;#125;
 </code></pre>
 
 <p>Für die Umsetzung wird sich der Library <strong>RESTEasy</strong> bedient, die den <strong>JAX-RS</strong>-Standard implementiert und die Definition und Konfiguration von <em>REST-Ressourcen</em> über Annotationen der <em>Java-Klassen</em> erlaubt.</p>
@@ -362,7 +360,7 @@ Daneben wird außerdem festgelegt, dass die Kommunikation via <code>JSON</code> 
 <ul>
   <li><strong>Liste abfragen</strong>: <code>GET /vertragsliste</code> -&gt; <code>getVertragsliste()</code></li>
   <li><strong>Verträge berechnen</strong>: <code>POST /vertragsliste</code> -&gt; <code>berechneAngebote()</code></li>
-  <li><strong>Vertrag löschen</strong>: <code>DELETE /vertragsliste/{vertragsId}</code> -&gt; <code>removeVetrag()</code></li>
+  <li><strong>Vertrag löschen</strong>: <code>DELETE /vertragsliste/&amp;#123;vertragsId&amp;#125;</code> -&gt; <code>removeVetrag()</code></li>
 </ul>
 
 <p>Sowohl für das <strong>Abfragen</strong> der Liste als auch die <strong>Berechnung</strong> der Verträge zeichnet sich die Ressource <code>Vertragsliste</code> verantwortlich.<br />
@@ -376,25 +374,25 @@ Dies geschieht mittels der <em>JavaScript-API</em> <a href="https://developer.mo
 
 <p>Für die Abfrage der Vertragsliste über die API in der Methode <code>componentDidMount()</code> sieht das folgendermaßen aus:</p>
 
-<pre><code class="language-js">componentDidMount() {
+<pre><code class="language-js">componentDidMount() &amp;#123;
         // reset errors
-        this.setState({error: null})
+        this.setState(&amp;#123;error: null&amp;#125;)
 
         fetch("https://makler.portal/api/vertragsliste")
             .then(res =&gt; res.json())
             .then(
-                (result) =&gt; {
-                    this.setState({
+                (result) =&gt; &amp;#123;
+                    this.setState(&amp;#123;
                         requestComplete: true,
                         vertraege: this.state.vertraege
                             .concat(result.vertragsliste.vertraege)
-                    });
-                },
-                (error) =&gt; {
-                    this.setState({requestComplete: true, error})
-                }
+                    &amp;#125;);
+                &amp;#125;,
+                (error) =&gt; &amp;#123;
+                    this.setState(&amp;#123;requestComplete: true, error&amp;#125;)
+                &amp;#125;
             )
-    }
+    &amp;#125;
 </code></pre>
 
 <p>Zunächst werden alle Fehler, die möglicherweise bei einem vorangegangenen Request aufgetreten sind, wieder zurückgesetzt. 
@@ -423,7 +421,7 @@ Das unten stehende Quellcode-Beispiel zeigt die Integration:</p>
     
     &lt;script&gt;
         // IframeResizer
-        iFrameResize({ inPageLinks: true }, "#vertragsliste-react");
+        iFrameResize(&amp;#123; inPageLinks: true &amp;#125;, "#vertragsliste-react");
     &lt;/script&gt;
 &lt;/ui:define&gt;
 </code></pre>
