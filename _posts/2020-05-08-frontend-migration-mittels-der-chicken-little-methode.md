@@ -2,7 +2,7 @@
 layout: [post, post-xml]             
 title:  "Frontend Migration anhand der Chicken-Little-Methode in der Praxis"
 date:   2020-05-08 17:00             
-modified_date: 2020-05-11 12:20
+modified_date: 2020-05-11 12:25
 author: mschick                     
 categories: [Methodik]                   
 tags: [Frontend, Migration, Softwaremigration, React, ReactJS, JSX, JSF, Facelets, REST]  
@@ -65,28 +65,28 @@ Der unten stehende, stark vereinfachte Quellcode-Auszug zeigt das grundsätzlich
 <ui:define name="content">
     ...
     <rich:dataTable id="vertragsliste" var="_vertrag"
-        value="#&#123;vertragslisteController.vertragsliste&#125;"
-        rendered="#&#123;vertragslisteController.liste.size > 0&#125;">
+        value="#{vertragslisteController.vertragsliste}"
+        rendered="#{vertragslisteController.liste.size > 0}">
         ...
         <rich:column>
             <f:facet name="header">Versicherungsart</f:facet>
-            <h:outputText value="#&#123;_vertrag.vertragsArt()&#125;" />
+            <h:outputText value="#{_vertrag.vertragsArt()}" />
         </rich:column>
 
         <rich:column>
             <f:facet name="header">Vers.-Nr.</f:facet>
-            <h:outputText value="#&#123;_vertrag.versicherungsNr()&#125;" />
+            <h:outputText value="#{_vertrag.versicherungsNr()}" />
         </rich:column>
 
         <rich:column>
             <f:facet name="header">Versicherer</f:facet>
-            <h:outputText value="#&#123;_vertrag.versicherer()&#125;" />
+            <h:outputText value="#{_vertrag.versicherer()}" />
         </rich:column>
         ...
     </rich:dataTable>
     ...
     <h:commandButton id="berechnenButton"
-        action="#&#123;vertragslisteController.berechneVertraege()&#125;"
+        action="#{vertragslisteController.berechneVertraege()}"
         value="Berechnen" />
 
 </ui:define>
@@ -111,38 +111,38 @@ Der folgende Quelltext zeigt den grundsätzlichen Aufbau der neuen Komponente `V
 ```jsx
 import React from "react";
 
-class Vertragsliste extends React.Component &#123;
+class Vertragsliste extends React.Component {
 
     // Initialisierung
-    constructor(props) &#123;
+    constructor(props) {
         super(props);
 
-        this.state = &#123;
+        this.state = {
             error: null,
             requestComplete: false,
             vertraege: []
-        &#125;;
+        };
 
         this.eachVertrag = this.eachVertrag.bind(this);
         this.remove = this.remove.bind(this);
         this.calculate = this.calculate.bind(this);
-    &#125;
+    }
 
     // Hier erfolgt der Abruf der Vertragsliste im Altsystem
     // nachdem die Komponente der UI hinzugefügt wurde
-    componentDidMount() &#123;&#125;
+    componentDidMount() {}
 
     // Vertrag im Altsystem löschen
-    remove(vertragsId) &#123;&#125;
+    remove(vertragsId) {}
 
     // Berechnung der Tarife der i.d. Liste enthaltenen Verträge anstoßen
-    calculate() &#123;&#125;
+    calculate() {}
 
     // Verarbeitung der einzelnen Verträge ...
-    eachVertrag(vertrag, i) &#123;&#125;
+    eachVertrag(vertrag, i) {}
      // ... und anschließende Ausgabe der Vertragsliste im Frontend
-         render() &#123;&#125;
-&#125;
+         render() {}
+}
 ```
 
 Im *Konstruktor* erfolgt zunächst die Initialisierung des *Zustands* ([`state`](https://reactjs.org/docs/state-and-lifecycle.html)) der Vertragslisten-Komponente.
@@ -162,52 +162,52 @@ Dazu wird mittels der Funktion `eachVertrag()` über die aktuelle Liste in `this
  Dort folgt die Instantiierung der jeweiligen Vertrags-Komponenten und ihrer `props`.
 
 ```jsx
-    eachVertrag(vertrag, i) &#123;
+    eachVertrag(vertrag, i) {
         return (
             <Vertrag
-                key=&#123;i&#125;
-                index=&#123;i&#125;
-                vertragsId=&#123;vertrag.spartenberatungId&#125;
-                href=&#123;vertrag.href&#125;
-                onRemove=&#123;this.remove&#125;>
-                <td>&#123;vertrag.versicherungsnummer&#125;</td>
+                key={i}
+                index={i}
+                vertragsId={vertrag.spartenberatungId}
+                href={vertrag.href}
+                onRemove={this.remove}>
+                <td>{vertrag.versicherungsnummer}</td>
                 <td>...</td>
             </Vertrag>
         );
-    &#125;
-        render() &#123;
-            const &#123;error, requestComplete, vertraege&#125; = this.state;
-            if (error) &#123; 
-                &#123;/*Fehlerbehandlung hier, falls Request scheitert*/&#125;
-            &#125; else if (!requestComplete) &#123;
+    }
+        render() {
+            const {error, requestComplete, vertraege} = this.state;
+            if (error) { 
+                {/*Fehlerbehandlung hier, falls Request scheitert*/}
+            } else if (!requestComplete) {
                 return <div>Lade Verträge...</div>
-            &#125; else &#123;
+            } else {
                 return (
                     <div id="vertragsliste">
-                        &#123;vertraege && vertraege.length > 0 ? (
+                        {vertraege && vertraege.length > 0 ? (
                             <table>
                                 <colgroup span="8"></colgroup>
-                                <thead>&#123;!-- Tabellenkopf -->&#125;</thead>
-                                <tbody>&#123;vertraege.map(this.eachVertrag)&#125;</tbody>
+                                <thead>{!-- Tabellenkopf -->}</thead>
+                                <tbody>{vertraege.map(this.eachVertrag)}</tbody>
                             </table>
                         ) : (
                             <div>Keine Verträge gefunden</div>
-                        )&#125;
+                        )}
 
-                        &#123;vertraege && vertraege.length > 0 &&
+                        {vertraege && vertraege.length > 0 &&
                         <div className="actionButtons">
                             <input id="calculate"
                                    type="submit"
                                    name="calculate"
                                    value="Berechnen"
-                                   onClick=&#123;this.calculate&#125;/>
+                                   onClick={this.calculate}/>
                         </div>
-                        &#125;
+                        }
                     </div>
                 )
-            &#125;
-        &#125;
-&#125;
+            }
+        }
+}
 ```
 
 **Randbemerkung:** Das, was im obigen Beispiel wie `HTML-Markup` anmutet ist in Wirklichkeit `JavaScript-Code` in Form von `JSX`.
@@ -222,32 +222,32 @@ Die Repräsentation des einzelnen Vertrags im Frontend erfolgt jeweils als Tabel
 ```jsx
 import React from "react";
 
-class Vertrag extends React.Component &#123;
-    constructor(props) &#123;
+class Vertrag extends React.Component {
+    constructor(props) {
         super(props);
         this.remove = this.remove.bind(this);
-    &#125;
+    }
 
-    remove() &#123;
+    remove() {
         this.props.onRemove(this.props.vertragsId);
-    &#125;
+    }
 
-    render() &#123;
+    render() {
         return (
             <tr>
-                &#123;this.props.children&#125;
+                {this.props.children}
                 <td>
                     <a href="#" id="edit" target="_parent">Bearbeiten</a>
                     <a href="#" id="remove"
-                       onClick=&#123;e =>
+                       onClick={e =>
                            window.confirm("Soll der Vertrag wirklich gelöscht werden?") &&
                            this.remove()
-                       &#125;>Löschen</a>
+                       }>Löschen</a>
                 </td>
             </tr>
         );
-    &#125;
-&#125;
+    }
+}
 
 export default Vertrag;
 ```      
@@ -276,8 +276,8 @@ Dazu wird eine neue Klasse mit dem Namen `VertragslisteResource` und folgendem I
 ```java
 @Name("vertragslisteResource")
 @Path("/vertragsliste")
-@Produces(&#123; "application/json", "text/json" &#125;)
-public class VertragslisteResource &#123;
+@Produces({ "application/json", "text/json" })
+public class VertragslisteResource {
 
     @In(create = true, required = true, value = "vertragListe")
     private VertragslisteController vertragslisteController;
@@ -286,33 +286,33 @@ public class VertragslisteResource &#123;
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getVertragsliste() &#123;
+    public Response getVertragsliste() {
 
         vertragsliste = vertragslisteController.getVertragsliste();
         return Response.ok(vertragsListe).build();
-    &#125;
+    }
 
     @POST
-    public Response berechneAngebote(@QueryParam("cid") String cid) &#123;
-        try &#123;
+    public Response berechneAngebote(@QueryParam("cid") String cid) {
+        try {
             vertragslisteController.berechneAngebote();
-        &#125; catch (Exception e) &#123;
+        } catch (Exception e) {
             log.error(e);
             return Response.serverError().build();
-        &#125;
+        }
 
         return Response.ok().build();
-    &#125;
+    }
 
     @DELETE
-    @Path("/&#123;vertragsId&#125;")
-    public Response removeVertrag(@PathParam("vertragsId") int vertragsId) &#123;
+    @Path("/{vertragsId}")
+    public Response removeVertrag(@PathParam("vertragsId") int vertragsId) {
 
         vertragslisteController.removeVertrag(vertragsId);
         return Response.noContent().build();
 
-    &#125;
-&#125;
+    }
+}
 ```      
 
 Für die Umsetzung wird sich der Library **RESTEasy** bedient, die den **JAX-RS**-Standard implementiert und die Definition und Konfiguration von *REST-Ressourcen* über Annotationen der *Java-Klassen* erlaubt. 
@@ -325,7 +325,7 @@ Die folgende Auflistung zeigt die beteiligten **Ressourcen**, die jeweilige **UR
 
 * **Liste abfragen**: `GET /vertragsliste` -> `getVertragsliste()`
 * **Verträge berechnen**: `POST /vertragsliste` -> `berechneAngebote()`
-* **Vertrag löschen**: `DELETE /vertragsliste/&#123;vertragsId&#125;` -> `removeVetrag()`
+* **Vertrag löschen**: `DELETE /vertragsliste/{vertragsId}` -> `removeVetrag()`
 
 Sowohl für das **Abfragen** der Liste als auch die **Berechnung** der Verträge zeichnet sich die Ressource `Vertragsliste` verantwortlich.  
 Welche Aktion ausgeführt werden soll, wird maßgeblich über die beim **Request** verwendete **HTTP-Methode** bestimmt.
@@ -339,25 +339,25 @@ Dies geschieht mittels der *JavaScript-API* [`fetch`](https://developer.mozilla.
 Für die Abfrage der Vertragsliste über die API in der Methode `componentDidMount()` sieht das folgendermaßen aus: 
 
 ```js 
-componentDidMount() &#123;
+componentDidMount() {
         // reset errors
-        this.setState(&#123;error: null&#125;)
+        this.setState({error: null})
 
         fetch("https://makler.portal/api/vertragsliste")
             .then(res => res.json())
             .then(
-                (result) => &#123;
-                    this.setState(&#123;
+                (result) => {
+                    this.setState({
                         requestComplete: true,
                         vertraege: this.state.vertraege
                             .concat(result.vertragsliste.vertraege)
-                    &#125;);
-                &#125;,
-                (error) => &#123;
-                    this.setState(&#123;requestComplete: true, error&#125;)
-                &#125;
+                    });
+                },
+                (error) => {
+                    this.setState({requestComplete: true, error})
+                }
             )
-    &#125;
+    }
 ``` 
 
 Zunächst werden alle Fehler, die möglicherweise bei einem vorangegangenen Request aufgetreten sind, wieder zurückgesetzt. 
@@ -387,7 +387,7 @@ Das unten stehende Quellcode-Beispiel zeigt die Integration:
     
     <script>
         // IframeResizer
-        iFrameResize(&#123; inPageLinks: true &#125;, "#vertragsliste-react");
+        iFrameResize({ inPageLinks: true }, "#vertragsliste-react");
     </script>
 </ui:define>
 ```
