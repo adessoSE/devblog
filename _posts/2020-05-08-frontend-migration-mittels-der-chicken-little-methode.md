@@ -7,6 +7,12 @@ categories: [Methodik]
 tags: [Frontend, Migration, Softwaremigration, React, ReactJS, JSX, JSF, Facelets, REST]  
 ---
 
+{}
+
+&#125;
+
+
+
 In meinem [ersten Beitrag](https://www.adesso.de/de/news/blog/inkrementelle-softwaremigration-nach-der-chicken-little-methode-4.jsp) habe ich die **Chicken-Little-Methode**, eine Vorgehensweise für die schrittweise Migration von *Legacy-Systemen*, vorgestellt.
 Darauf aufbauend soll in diesem Beitrag nun demonstriert werden, wie sich diese Methode auf eine *Frontend-Migration* im Kontext einer Webanwendung anwenden lässt.
 Dazu wird eine existierende Webanwendung betrachtet und gezeigt wie sich eine, auf den *Server-Side Rendering Technologien* **JSF** und **Facelets** basierende Komponente dieser Anwendung, in eine andere Technologie transformieren lässt und im Anschluss daran wieder in das Altsystem integriert wird.
@@ -64,28 +70,28 @@ Der unten stehende, stark vereinfachte Quellcode-Auszug zeigt das grundsätzlich
 <ui:define name="content">
     ...
     <rich:dataTable id="vertragsliste" var="_vertrag"
-        value="#{vertragslisteController.vertragsliste}"
-        rendered="#{vertragslisteController.liste.size > 0}">
+        value="#&#123;vertragslisteController.vertragsliste&#125;"
+        rendered="#&#123;vertragslisteController.liste.size > 0&#125;">
         ...
         <rich:column>
             <f:facet name="header">Versicherungsart</f:facet>
-            <h:outputText value="#{_vertrag.vertragsArt()}" />
+            <h:outputText value="#&#123;_vertrag.vertragsArt()&#125;" />
         </rich:column>
 
         <rich:column>
             <f:facet name="header">Vers.-Nr.</f:facet>
-            <h:outputText value="#{_vertrag.versicherungsNr()}" />
+            <h:outputText value="#&#123;_vertrag.versicherungsNr()&#125;" />
         </rich:column>
 
         <rich:column>
             <f:facet name="header">Versicherer</f:facet>
-            <h:outputText value="#{_vertrag.versicherer()}" />
+            <h:outputText value="#&#123;_vertrag.versicherer()&#125;" />
         </rich:column>
         ...
     </rich:dataTable>
     ...
     <h:commandButton id="berechnenButton"
-        action="#{vertragslisteController.berechneVertraege()}"
+        action="#&#123;vertragslisteController.berechneVertraege()&#125;"
         value="Berechnen" />
 
 </ui:define>
@@ -110,38 +116,38 @@ Der folgende Quelltext zeigt den grundsätzlichen Aufbau der neuen Komponente `V
 ```jsx
 import React from "react";
 
-class Vertragsliste extends React.Component {
+class Vertragsliste extends React.Component &#123;
 
     // Initialisierung
-    constructor(props) {
+    constructor(props) &#123;
         super(props);
 
-        this.state = {
+        this.state = &#123;
             error: null,
             requestComplete: false,
             vertraege: []
-        };
+        &#125;;
 
         this.eachVertrag = this.eachVertrag.bind(this);
         this.remove = this.remove.bind(this);
         this.calculate = this.calculate.bind(this);
-    }
+    &#125;
 
     // Hier erfolgt der Abruf der Vertragsliste im Altsystem
     // nachdem die Komponente der UI hinzugefügt wurde
-    componentDidMount() {}
+    componentDidMount() &#123;&#125;
 
     // Vertrag im Altsystem löschen
-    remove(vertragsId) {}
+    remove(vertragsId) &#123;&#125;
 
     // Berechnung der Tarife der i.d. Liste enthaltenen Verträge anstoßen
-    calculate() {}
+    calculate() &#123;&#125;
 
     // Verarbeitung der einzelnen Verträge ...
-    eachVertrag(vertrag, i) {}
+    eachVertrag(vertrag, i) &#123;&#125;
      // ... und anschließende Ausgabe der Vertragsliste im Frontend
-         render() {}
-}
+         render() &#123;&#125;
+&#125;
 ```
 
 Im *Konstruktor* erfolgt zunächst die Initialisierung des *Zustands* ([`state`](https://reactjs.org/docs/state-and-lifecycle.html)) der Vertragslisten-Komponente.
@@ -161,52 +167,52 @@ Dazu wird mittels der Funktion `eachVertrag()` über die aktuelle Liste in `this
  Dort folgt die Instantiierung der jeweiligen Vertrags-Komponenten und ihrer `props`.
 
 ```jsx
-    eachVertrag(vertrag, i) {
+    eachVertrag(vertrag, i) &#123;
         return (
             <Vertrag
-                key={i}
-                index={i}
-                vertragsId={vertrag.spartenberatungId}
-                href={vertrag.href}
-                onRemove={this.remove}>
-                <td>{vertrag.versicherungsnummer}</td>
+                key=&#123;i&#125;
+                index=&#123;i&#125;
+                vertragsId=&#123;vertrag.spartenberatungId&#125;
+                href=&#123;vertrag.href&#125;
+                onRemove=&#123;this.remove&#125;>
+                <td>&#123;vertrag.versicherungsnummer&#125;</td>
                 <td>...</td>
             </Vertrag>
         );
-    }
-        render() {
-            const {error, requestComplete, vertraege} = this.state;
-            if (error) { 
-                {/*Fehlerbehandlung hier, falls Request scheitert*/}
-            } else if (!requestComplete) {
+    &#125;
+        render() &#123;
+            const &#123;error, requestComplete, vertraege&#125; = this.state;
+            if (error) &#123; 
+                &#123;/*Fehlerbehandlung hier, falls Request scheitert*/&#125;
+            &#125; else if (!requestComplete) &#123;
                 return <div>Lade Verträge...</div>
-            } else {
+            &#125; else &#123;
                 return (
                     <div id="vertragsliste">
-                        {vertraege && vertraege.length > 0 ? (
+                        &#123;vertraege && vertraege.length > 0 ? (
                             <table>
                                 <colgroup span="8"></colgroup>
-                                <thead>{!-- Tabellenkopf -->}</thead>
-                                <tbody>{vertraege.map(this.eachVertrag)}</tbody>
+                                <thead>&#123;!-- Tabellenkopf -->&#125;</thead>
+                                <tbody>&#123;vertraege.map(this.eachVertrag)&#125;</tbody>
                             </table>
                         ) : (
                             <div>Keine Verträge gefunden</div>
-                        )}
+                        )&#125;
 
-                        {vertraege && vertraege.length > 0 &&
+                        &#123;vertraege && vertraege.length > 0 &&
                         <div className="actionButtons">
                             <input id="calculate"
                                    type="submit"
                                    name="calculate"
                                    value="Berechnen"
-                                   onClick={this.calculate}/>
+                                   onClick=&#123;this.calculate&#125;/>
                         </div>
-                        }
+                        &#125;
                     </div>
                 )
-            }
-        }
-}
+            &#125;
+        &#125;
+&#125;
 ```
 
 **Randbemerkung:** Das, was im obigen Beispiel wie `HTML-Markup` anmutet ist in Wirklichkeit `JavaScript-Code` in Form von `JSX`.
@@ -221,32 +227,32 @@ Die Repräsentation des einzelnen Vertrags im Frontend erfolgt jeweils als Tabel
 ```jsx
 import React from "react";
 
-class Vertrag extends React.Component {
-    constructor(props) {
+class Vertrag extends React.Component &#123;
+    constructor(props) &#123;
         super(props);
         this.remove = this.remove.bind(this);
-    }
+    &#125;
 
-    remove() {
+    remove() &#123;
         this.props.onRemove(this.props.vertragsId);
-    }
+    &#125;
 
-    render() {
+    render() &#123;
         return (
             <tr>
-                {this.props.children}
+                &#123;this.props.children&#125;
                 <td>
                     <a href="#" id="edit" target="_parent">Bearbeiten</a>
                     <a href="#" id="remove"
-                       onClick={e =>
+                       onClick=&#123;e =>
                            window.confirm("Soll der Vertrag wirklich gelöscht werden?") &&
                            this.remove()
-                       }>Löschen</a>
+                       &#125;>Löschen</a>
                 </td>
             </tr>
         );
-    }
-}
+    &#125;
+&#125;
 
 export default Vertrag;
 ```      
@@ -275,8 +281,8 @@ Dazu wird eine neue Klasse mit dem Namen `VertragslisteResource` und folgendem I
 ```java
 @Name("vertragslisteResource")
 @Path("/vertragsliste")
-@Produces({ "application/json", "text/json" })
-public class VertragslisteResource {
+@Produces(&#123; "application/json", "text/json" &#125;)
+public class VertragslisteResource &#123;
 
     @In(create = true, required = true, value = "vertragListe")
     private VertragslisteController vertragslisteController;
@@ -285,33 +291,33 @@ public class VertragslisteResource {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getVertragsliste() {
+    public Response getVertragsliste() &#123;
 
         vertragsliste = vertragslisteController.getVertragsliste();
         return Response.ok(vertragsListe).build();
-    }
+    &#125;
 
     @POST
-    public Response berechneAngebote(@QueryParam("cid") String cid) {
-        try {
+    public Response berechneAngebote(@QueryParam("cid") String cid) &#123;
+        try &#123;
             vertragslisteController.berechneAngebote();
-        } catch (Exception e) {
+        &#125; catch (Exception e) &#123;
             log.error(e);
             return Response.serverError().build();
-        }
+        &#125;
 
         return Response.ok().build();
-    }
+    &#125;
 
     @DELETE
-    @Path("/{vertragsId}")
-    public Response removeVertrag(@PathParam("vertragsId") int vertragsId) {
+    @Path("/&#123;vertragsId&#125;")
+    public Response removeVertrag(@PathParam("vertragsId") int vertragsId) &#123;
 
         vertragslisteController.removeVertrag(vertragsId);
         return Response.noContent().build();
 
-    }
-}
+    &#125;
+&#125;
 ```      
 
 Für die Umsetzung wird sich der Library **RESTEasy** bedient, die den **JAX-RS**-Standard implementiert und die Definition und Konfiguration von *REST-Ressourcen* über Annotationen der *Java-Klassen* erlaubt. 
@@ -324,7 +330,7 @@ Die folgende Auflistung zeigt die beteiligten **Ressourcen**, die jeweilige **UR
 
 * **Liste abfragen**: `GET /vertragsliste` -> `getVertragsliste()`
 * **Verträge berechnen**: `POST /vertragsliste` -> `berechneAngebote()`
-* **Vertrag löschen**: `DELETE /vertragsliste/{vertragsId}` -> `removeVetrag()`
+* **Vertrag löschen**: `DELETE /vertragsliste/&#123;vertragsId&#125;` -> `removeVetrag()`
 
 Sowohl für das **Abfragen** der Liste als auch die **Berechnung** der Verträge zeichnet sich die Ressource `Vertragsliste` verantwortlich.  
 Welche Aktion ausgeführt werden soll, wird maßgeblich über die beim **Request** verwendete **HTTP-Methode** bestimmt.
@@ -338,25 +344,25 @@ Dies geschieht mittels der *JavaScript-API* [`fetch`](https://developer.mozilla.
 Für die Abfrage der Vertragsliste über die API in der Methode `componentDidMount()` sieht das folgendermaßen aus: 
 
 ```js 
-componentDidMount() {
+componentDidMount() &#123;
         // reset errors
-        this.setState({error: null})
+        this.setState(&#123;error: null&#125;)
 
         fetch("https://makler.portal/api/vertragsliste")
             .then(res => res.json())
             .then(
-                (result) => {
-                    this.setState({
+                (result) => &#123;
+                    this.setState(&#123;
                         requestComplete: true,
                         vertraege: this.state.vertraege
                             .concat(result.vertragsliste.vertraege)
-                    });
-                },
-                (error) => {
-                    this.setState({requestComplete: true, error})
-                }
+                    &#125;);
+                &#125;,
+                (error) => &#123;
+                    this.setState(&#123;requestComplete: true, error&#125;)
+                &#125;
             )
-    }
+    &#125;
 ``` 
 
 Zunächst werden alle Fehler, die möglicherweise bei einem vorangegangenen Request aufgetreten sind, wieder zurückgesetzt. 
@@ -386,7 +392,7 @@ Das unten stehende Quellcode-Beispiel zeigt die Integration:
     
     <script>
         // IframeResizer
-        iFrameResize({ inPageLinks: true }, "#vertragsliste-react");
+        iFrameResize(&#123; inPageLinks: true &#125;, "#vertragsliste-react");
     </script>
 </ui:define>
 ```
