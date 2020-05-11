@@ -3,7 +3,10 @@
     <document uid="0574f9efe2949a351386932322c7aac3">
         <field name="title"><![CDATA[Frontend Migration anhand der Chicken-Little-Methode in der Praxis]]></field>
         <field name="subline"><![CDATA[]]></field>
-        <field name="teaser"><![CDATA[<p>{}</p>
+        <field name="teaser"><![CDATA[<p>In meinem <a href="https://www.adesso.de/de/news/blog/inkrementelle-softwaremigration-nach-der-chicken-little-methode-4.jsp">ersten Beitrag</a> habe ich die <strong>Chicken-Little-Methode</strong>, eine Vorgehensweise für die schrittweise Migration von <em>Legacy-Systemen</em>, vorgestellt.
+Darauf aufbauend soll in diesem Beitrag nun demonstriert werden, wie sich diese Methode auf eine <em>Frontend-Migration</em> im Kontext einer Webanwendung anwenden lässt.
+Dazu wird eine existierende Webanwendung betrachtet und gezeigt wie sich eine, auf den <em>Server-Side Rendering Technologien</em> <strong>JSF</strong> und <strong>Facelets</strong> basierende Komponente dieser Anwendung, in eine andere Technologie transformieren lässt und im Anschluss daran wieder in das Altsystem integriert wird.
+Als Zieltechnologie für die Migration dient in diesem Beispiel das <strong>Single-Page-Application</strong>-Framework <a href="https://reactjs.org/"><strong>ReactJS</strong></a>.</p>
 
 ]]></field>
         <field name="language_multi_keyword"><![CDATA[de]]></field>
@@ -32,18 +35,17 @@
         <!--Postcontent-->
         <field name="headlines"><![CDATA[Frontend Migration anhand der Chicken-Little-Methode in der Praxis]]></field>
         <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
-            <p>{}</p>
+            <p>In meinem <a href="https://www.adesso.de/de/news/blog/inkrementelle-softwaremigration-nach-der-chicken-little-methode-4.jsp">ersten Beitrag</a> habe ich die <strong>Chicken-Little-Methode</strong>, eine Vorgehensweise für die schrittweise Migration von <em>Legacy-Systemen</em>, vorgestellt.
+Darauf aufbauend soll in diesem Beitrag nun demonstriert werden, wie sich diese Methode auf eine <em>Frontend-Migration</em> im Kontext einer Webanwendung anwenden lässt.
+Dazu wird eine existierende Webanwendung betrachtet und gezeigt wie sich eine, auf den <em>Server-Side Rendering Technologien</em> <strong>JSF</strong> und <strong>Facelets</strong> basierende Komponente dieser Anwendung, in eine andere Technologie transformieren lässt und im Anschluss daran wieder in das Altsystem integriert wird.
+Als Zieltechnologie für die Migration dient in diesem Beispiel das <strong>Single-Page-Application</strong>-Framework <a href="https://reactjs.org/"><strong>ReactJS</strong></a>.</p>
 
 </div>]]></field>
         <field name="content"><![CDATA[<div class="adesso-text-formate">
 <div class="row p-t-2">
 <div class="adesso-container">
 <div class="col-xl-8 adesso-center p-b-1 p-l-0 p-r-0">
-    <p>{}</p>
-
-<p>}</p>
-
-<p>In meinem <a href="https://www.adesso.de/de/news/blog/inkrementelle-softwaremigration-nach-der-chicken-little-methode-4.jsp">ersten Beitrag</a> habe ich die <strong>Chicken-Little-Methode</strong>, eine Vorgehensweise für die schrittweise Migration von <em>Legacy-Systemen</em>, vorgestellt.
+    <p>In meinem <a href="https://www.adesso.de/de/news/blog/inkrementelle-softwaremigration-nach-der-chicken-little-methode-4.jsp">ersten Beitrag</a> habe ich die <strong>Chicken-Little-Methode</strong>, eine Vorgehensweise für die schrittweise Migration von <em>Legacy-Systemen</em>, vorgestellt.
 Darauf aufbauend soll in diesem Beitrag nun demonstriert werden, wie sich diese Methode auf eine <em>Frontend-Migration</em> im Kontext einer Webanwendung anwenden lässt.
 Dazu wird eine existierende Webanwendung betrachtet und gezeigt wie sich eine, auf den <em>Server-Side Rendering Technologien</em> <strong>JSF</strong> und <strong>Facelets</strong> basierende Komponente dieser Anwendung, in eine andere Technologie transformieren lässt und im Anschluss daran wieder in das Altsystem integriert wird.
 Als Zieltechnologie für die Migration dient in diesem Beispiel das <strong>Single-Page-Application</strong>-Framework <a href="https://reactjs.org/"><strong>ReactJS</strong></a>.</p>
