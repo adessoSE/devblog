@@ -2,6 +2,7 @@
 layout: [post, post-xml]             
 title:  "Frontend Migration anhand der Chicken-Little-Methode in der Praxis"
 date:   2020-05-08 17:00             
+modified_date: 2020-05-11 12:20
 author: mschick                     
 categories: [Methodik]                   
 tags: [Frontend, Migration, Softwaremigration, React, ReactJS, JSX, JSF, Facelets, REST]  
