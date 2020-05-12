@@ -122,7 +122,7 @@ Diese Bildausschnitte dienten als Trainingsdaten für das CNN.
 
 Für das CNN wurde [fast.ai](https://github.com/fastai/fastai) verwendet.
 Dieses Library erlaubt es mit nur einigen Zeilen Code ein neuronales Netzwerk zu trainieren.
-Hier ist ein _minimal working example_, welches ein CNN am MNIST Datensatz trainiert:
+Hier ist ein _minimal working example_, welches ein CNN am MNIST Datensatz (Sammlung von handgezeichneten Ziffern des Modified National Institute of Standards and Technology) trainiert:
 
 ```python
 from fastai.vision import *
