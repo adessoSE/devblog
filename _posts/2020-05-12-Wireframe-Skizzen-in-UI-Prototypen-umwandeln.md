@@ -131,7 +131,7 @@ data = image_data_from_folder(path)
 learn = cnn_learner(data, models.resnet18, metrics=accuracy)
 learn.fit(1)
 ```
-_Wenn ihr mehr über [fast.ai](https://github.com/fastai/fastai) erfahren wollt, findet ihr hier den [Einsteiger-Course](https://course.fast.ai/) und die [Dokumentation](https://docs.fast.ai/)._
+_Wenn ihr mehr über [fast.ai](https://github.com/fastai/fastai) erfahren wollt, findet ihr hier den [Einsteiger-Kurs](https://course.fast.ai/) und die [Dokumentation](https://docs.fast.ai/)._
 
 ![GUI](/assets/images/posts/ui-prototyping-wireframe/gui_prototype.png "GUI")
 
