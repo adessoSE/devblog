@@ -10,7 +10,7 @@ UI-Prototyping]    # Optional.
 ---
 
 Prototyping ist essenziell für die Entwicklung von guten User-Interfaces.
-Oftmals ist aber der Schritt von einer Wireframe-Skizze zu einem UI-Prototyp sehr zeitaufwendig.
+Oftmals ist aber der Schritt von einer Wireframe-Skizze zu einem UI-Prototyp sehr zeitaufwändig.
 In diesem Blog-Post möchte ich einen Ansatz vorstellen, mit dem man diesen Schritt mithilfe von Computer Vision und Machine Learning umgehen kann.
 
 
@@ -43,7 +43,7 @@ Dafür müssen diese zuerst lokalisiert und anschließend ausgeschnitten werden.
 
 ## Segmentierung des Bildes in Vorder- und Hintergrund
 
-Mithilfe von einem Ridge-Detection-Filter gefolgt von Otsu-Thresholding kann das Bild einer Wireframe-Skizze einfach in Vorder- und Hintergrund segmentiert werden.
+Mit Hilfe von einem Ridge-Detection-Filter gefolgt von Otsu-Thresholding kann das Bild einer Wireframe-Skizze einfach in Vorder- und Hintergrund segmentiert werden.
 Das Bild wird dadurch in schwarz und weiß binarisiert.
 Das heißt, es existieren keine Graustufen mehr: Pixel können nur noch komplett schwarz oder komplett weiß sein.
 Dieser Schritt ist für den folgenden Schritt notwendig.
@@ -83,13 +83,13 @@ _Aus den Konturen ermittelte Bounding Boxes: AABB (links), rotierte BB (rechts)_
 
 Wie man in der Abbildung links jedoch erkennen kann, ist eine AABB nicht immer optimal.
 Stattdessen kann man eine rotierte Bounding Box ermitteln, wie in der Abbildung rechts zu sehen.
-Von dieser kann der Winkel der Rotation berechnet und anschließend kann der Bildausschnitt in entgegengesetzte Richtung um diesen Winkel rotiert werden.
+Von dieser kann der Winkel der Rotation berechnet und anschließend kann der Bildausschnitt in entgegengesetzter Richtung um diesen Winkel rotiert werden.
 Dadurch wird die rotierte BB wieder zu einer AABB, die man aus dem Bild ausschneiden kann.
 
 
 ## Entfernung der Umrandung
 
-Die gezeichneten Rechtecke um jedes UI-Element dient nur der Lokalisierung der einzelnen Elemente.
+Die gezeichneten Rechtecke um jedes UI-Element dienen nur der Lokalisierung der einzelnen Elemente.
 Nach der Lokalisierung werden die gezeichneten Umrandungen nicht mehr benötigt.
 
 ![Umrandung Entfernung](/assets/images/posts/ui-prototyping-wireframe/border_removal.png "Umrandung Entfernung")
@@ -131,7 +131,7 @@ data = image_data_from_folder(path)
 learn = cnn_learner(data, models.resnet18, metrics=accuracy)
 learn.fit(1)
 ```
-_Wenn ihr mehr über [fast.ai](https://github.com/fastai/fastai) erfahren wollt findet ihr hier den [Einsteiger-Course](https://course.fast.ai/) und die [Dokumentation](https://docs.fast.ai/)_
+_Wenn ihr mehr über [fast.ai](https://github.com/fastai/fastai) erfahren wollt, findet ihr hier den [Einsteiger-Course](https://course.fast.ai/) und die [Dokumentation](https://docs.fast.ai/)._
 
 ![GUI](/assets/images/posts/ui-prototyping-wireframe/gui_prototype.png "GUI")
 
@@ -144,7 +144,7 @@ In der Abbildung ist das Ergebnis dieser zwei Schritte in einer GUI visualisiert
 # Generierung des Prototyps
 
 Anhand der Klassifizierung können dann entsprechende HTML-Tags generiert werden, welche anhand der Position und Größe der Bounding Box mittels CSS positioniert werden können.
-Die HTML-Tags können dann mit Platzhalter-Inhalt wie _Lorem Ipsum_ Text oder zufällige Bilder von [unsplash.com](http://unsplash.com) versehen werden.
+Die HTML-Tags können dann mit Platzhalter-Inhalten wie _Lorem Ipsum_ Text oder zufälligen Bilder von [unsplash.com](http://unsplash.com) versehen werden.
 Dabei kann beispielsweise die Breite und Höhe der ermittelten Bounding Box als Breite und Höhe des Bildes verwendet werden: `https://source.unsplash.com/random/500x600`.
 
 Die Resultate der HTML-Generierung repräsentieren eine Annäherung and einen echten Prototyp, sie sind jedoch bei weitem nicht perfekt.
@@ -157,7 +157,7 @@ Der Nachteil dieser Methode sind jedoch die benötigten Umrandungen um jedes UI-
 
 Wer jedoch die nötigen Ressourcen hat, um ein großes Set an Trainingsdaten zu sammeln, könnte die Schritte der Extraktion mittels OpenCV umgehen und ein Object-Detection-Netzwerk trainieren.
 Dies benötigt jedoch nicht nur weitaus mehr Trainingsdaten, die Daten benötigen zusätzlich zu den Labels auch noch Positionsinformationen für jedes UI-Element im Bild.
-Darüber hinaus müssten die Eingabebilder in das Object-Detection-Netzwerk größer sein, damit genügend Detail erhalten bleibt.
+Darüber hinaus müssten die Eingabebilder in das Object-Detection-Netzwerk größer sein, damit genügend Details erhalten bleiben.
 Dadurch ist nicht nur die Beschaffung der Trainingsdaten, sondern auch der Trainingsaufwand für ein solches Netzwerk weitaus größer.
 
 
@@ -165,7 +165,7 @@ Dadurch ist nicht nur die Beschaffung der Trainingsdaten, sondern auch der Train
 
 __Den kompletten Source Code für das Projekt findet ihr [hier](https://github.com/vincentmathis/wireframe2html).__
 
-Wer sich noch etwas genauer mit diesem Thema beschäftigen möchte, kann sich diese Blog-Posts und wissenschaftliche Artikel durchlesen:
+Wer sich noch etwas genauer mit diesem Thema beschäftigen möchte, kann sich diese Blog-Posts und wissenschaftlichen Artikel durchlesen:
 
 * [Airbnb Design - Sketching Interfaces](https://airbnb.design/sketching-interfaces/)
 * [Teaching Machines to Understand User Interfaces](https://hackernoon.com/teaching-machines-to-understand-user-interfaces-5a0cdeb4d579)
