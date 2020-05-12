@@ -153,7 +153,7 @@ Die Resultate der HTML-Generierung repräsentieren eine Annäherung and einen ec
 # Fazit
 
 Die hier präsentierte Methode konnte auf einem ca. fünf Jahre alten Laptop 99% Genauigkeit erreichen, bei einer Trainingsdauer von unter einer Stunde.
-Der Nachteil dieser Methode sind jedoch die benötigten Umrandungen um jedes UI-Element, welche nicht intuitiv für Wireframe-Skizzen sind.
+Der Nachteil dieser Methode ist jedoch, dass die benötigten Umrandungen um jedes UI-Element nicht intuitiv für Wireframe-Skizzen sind.
 
 Wer jedoch die nötigen Ressourcen hat, um ein großes Set an Trainingsdaten zu sammeln, könnte die Schritte der Extraktion mittels OpenCV umgehen und ein Object-Detection-Netzwerk trainieren.
 Dies benötigt jedoch nicht nur weitaus mehr Trainingsdaten, die Daten benötigen zusätzlich zu den Labels auch noch Positionsinformationen für jedes UI-Element im Bild.
