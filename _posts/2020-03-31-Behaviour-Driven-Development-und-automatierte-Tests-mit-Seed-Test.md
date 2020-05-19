@@ -8,13 +8,11 @@ categories: [Softwareentwicklung]                    # Pflichtfeld. Maximal eine
 tags: [Testing, Behaviour Driven Development, Cucumber, Seed-Test]         # Bitte auf Großschreibung achten.
 ---
 
-Egal ob klassische oder agile Softwareentwicklung – in jedem Entwicklungsprojekt steht man irgendwann vor der Frage, wie die Software getestet werden soll. 
-Dabei stößt man auf eine Fülle an Begriffen, Methoden, Ansätzen und Tools. 
+Der Ruf nach einfach umzusetzenden, automatisierten Tests mit Tools wie Cucumber wird immer stärker.
+Dieser Beitrag zeigt, was sich hinter Cucumber und Behaviour Driven Development (BDD) verbirgt und wie man mit Seed-Test automatisierte Tests erstellen kann, ohne eine Zeile Code schreiben zu müssen.
 
-Ein bewährter Ansatz ist das Test Driven Development (TDD), welches  eine vollständige Testabdeckung durch Unit-Tests und hochwertigen Code verspricht. 
-Doch eine hohe Test-Coverage stellt nicht unbedingt die Funktionalität der Anwendung sicher. 
-Das kann erst mit umfangreichen System-, Integrations- und UI-Tests erreicht werden.
-
+Egal ob klassische oder agile Softwareentwicklung – in jedem Entwicklungsprojekt steht man irgendwann vor der Frage, wie die Software getestet werden soll.
+Ein bewährter Ansatz ist das Test Driven Development (TDD), welches eine vollständige Testabdeckung durch Unit-Tests und hochwertigen Code verspricht. 
 Die hinter TDD liegende Idee ist, aus Anforderungen direkt Tests abzuleiten und erst anhand dieser Code zu schreiben. 
 Die Idee lässt sich auch über Unit-Tests hinaus auf weitreichendere Tests übertragen.
 Dabei kann das sog. **Behaviour Driven Development (BDD)** helfen.
@@ -57,28 +55,34 @@ Das macht es aber gleichzeitig fehleranfällig und sehr aufwändig umzusetzen, d
 ### Seed-Test
 
 Unsere Anwendung Seed-Test versucht genau dieses Problem zu lösen. 
-Durch das Vorgeben vordefinierter Schritte wird sichergestellt, dass alle Schritte des Scenarios eine funktionierende Ausführung hinterlegt haben. 
+Durch das Vorgeben vordefinierter Schritte wird sichergestellt, dass alle Schritte des Szenarios eine funktionierende Ausführung hinterlegt haben. 
 Die Schritte sind entsprechend der BDD-Logik in drei Kategorien unterteilt und werden jeweils aus einer Liste ausgewählt. 
 Zuerst können Schritte, wie beispielsweise eine URL für den Startpunkt, als Vorbedingungen (Given) für den Testfall festgelegt werden. 
 Die für den eigentlichen Test auszuführenden Schritte, wie z.B. Eingaben in Textfelder oder Button-Klicks, lassen sich als Aktionen (When) hinzufügen. 
 Zur Überprüfung des Ergebnisses (Then) stehen Schritte, wie die Weiterleitung auf eine neue Seite oder das Anzeigen bestimmter Texte, zur Auswahl. 
+Ein solches Szenario mit nur vier Schritten kann folgendermaßen aussehen:
+
+![Beispiel für ein Szenario in Seed-Test](/assets/images/posts/bevaviour-driven-development-und-automatisierte-tests-mit-seed-test/scenario-screenshot.jpg)
+
+In diesem Beispiel-Szenario wird mit Selenium ein automatisierter Browser geöffnet und die URL "https://www.google.com/" aufgerufen. 
+Danach wird der Text "adesso SE" in das Suchfeld eingegeben und anschließend auf den "Auf gut Glück"-Button geklickt. 
+Der Erfolg des Tests wird bestimmt indem geprüft wird, ob eine Weiterleitung auf die adesso-Homepage stattgefunden hat.
+
 Der Anwender kann die Tests sofort ausführen und erhält als Ergebnis einen anschaulichen Report.
 Ein weiteres Ziel von Seed-Test ist, das Erstellen von Tests soweit zu vereinfachen, dass auch Anwender ohne Programmierkenntnisse Testfälle definieren können. 
 Die Schritte sind so aufgebaut, dass nur noch die gewünschten Eingabe- und Ausgabewerte eingetragen werden müssen. 
 Anstatt dem Nutzer ein leeres Dokument ohne Anhaltspunkte zu präsentieren, kann dieser ein Szenario Schritt für Schritt zusammenbauen.
-Ein simpler Testfall mit nur vier Schritten sieht folgendermaßen aus:
 
-![Beispiel für ein Szenario in Seed-Test](/assets/images/posts/bevaviour-driven-development-und-automatisierte-tests-mit-seed-test/scenario-screenshot.jpg)
- 
 Seed-Test ist eine Open Source Web-Anwendung und auf [GitHub](https://github.com/adessoAG/Seed-Test) zu finden. 
 Sie wurde mit dem MEAN-Stack (MongoDB, ExpressJS, AngularJS und NodeJS) umgesetzt. 
 Zur Automatisierung der Schritte werden Cucumber und Selenium eingesetzt. 
-Die Szenarien sind durch eine Anbindung an ein Ticketsystem direkt mit den Anforderungen verbunden. 
+Seed-Test lässt sich an das Ticketsystem von GitHub oder an Jira knüpfen.
+Dadurch kann man Issues bzw. Tickets in Seed-Test importieren und so Tests mit direktem Bezug zu den Anforderungen erstellen.
 Mit den bisher definierten Schritten können Webapplikationen getestet werden. 
 
 Seed-Test gibt es über Heroku auch als [Demo-Version](https://seed-test-frontend.herokuapp.com/) zum Ausprobieren. 
 
-Wir laden Euch herzlich dazu ein, euch über [GitHub](https://github.com/adessoAG/Seed-Test) an Seed-Test zu beteiligen und für Rückfragen oder Vorschläge Issues zu erstellen. 
+Ich lade Euch herzlich dazu ein, euch über [GitHub](https://github.com/adessoAG/Seed-Test) an Seed-Test zu beteiligen und für Rückfragen oder Vorschläge Issues zu erstellen. 
 Alternativ könnt ihr euch für Fragen und Feedback gerne an <seed-test@adesso.de> wenden. 
 Wir freuen uns auf euer Feedback.
 
