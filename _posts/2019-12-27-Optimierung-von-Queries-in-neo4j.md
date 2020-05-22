@@ -105,10 +105,10 @@ Das Profiling erfolgt direkt über die Neo4j-Weboberfläche und ist sowohl für 
 ### Was ist ein DB-Hit?
 
 Ein Datenbankhit ist eine abstrakte Arbeitseinheit. 
-Was als einen DB-Hit zählt, findet man [hier](https://neo4j.com/docs/cypher-manual/current/execution-plans/#execution-plans-dbhits). 
+Was als einen DB-Hit zählt, findet man [in der Dokumentation](https://neo4j.com/docs/cypher-manual/current/execution-plans/#execution-plans-dbhits). 
 Im Regelfall möchte man die Anzahl der DB-Hits beim Optimieren von Abfragen reduzieren.
 
-### Verwendenung des Schlüsselwortes `EXPLAIN`.
+### Verwendenung des Schlüsselwortes EXPLAIN.
 
 Man kann jede Anfrage mit dem Schlüsselwort `EXPLAIN` präfixieren und erhält einen detaillierten Ausführungsplan. 
 Die Abfrage wird nicht ausgeführt, so dass man weder ein Ergebnis noch Informationen wie Ausführungszeit oder DB-Hits erhält.
@@ -124,7 +124,7 @@ EXPLAIN MATCH (u:UserEntity)-[:IS_ASSIGNED_TO {projectId: 21}]->(t:TaskEntity) W
 Man sieht, dass zuerst alle Knoten gefunden werden müssen, die mit dem `UserEntity` Label übereinstimmen, danach die Beziehungen `IS_ASSIGNED_TO` und dann ein Filter, um die richtige `projectId` zu finden. 
 Da die Abfrage nicht ausgeführt wird, ist dies eine schnelle Methode, um zu sehen, ob die Abfrage wie erwartet abläuft.
 
-### Verwendenung des Schlüsselwortes `PROFILE`.
+### Verwendenung des Schlüsselwortes PROFILE.
    
 Das Schlüsselwort `PROFILE` funktioniert genauso wie `EXPLAIN`, diesmal wird jedoch die Abfrage ausgeführt, so dass man genau sehen kann, 
 wie viele DB-Hits jede Operation verursacht und wie viele Zeilen sie produziert. 
@@ -154,12 +154,12 @@ Die linke ist eine SD-JPA-Entität und die rechte eine SD-Ne4j-Entität.
 
 ![](/assets/images/posts/Optimierung-von-Queries-in-Neo4j/classes.png)
 
-Sie sehen sehr ähnlich aus (zumindest an der Oberfläche). 
+Sie sehen sehr ähnlich aus, zumindest an der Oberfläche. 
 Dies kann bei der Umstellung von SD-JPA auf SD-Neo4j etwas hilfreich sein.
 
 Bitte beachtet, dass Neo4j keine maximale Zeichenkettenlänge hat. 
 Das bedeutet, dass man (sehr) große Zeichenketten als Properties speichern kann, aber im Normalfall sollte man das nicht tun, da es nicht performancefreundlich ist. 
-Mehr darüber, wie das Speichern von Zeichenketten intern abläuft, findet man [hier](https://neo4j.com/docs/operations-manual/current/performance/property-compression/).
+Mehr darüber, wie das Speichern von Zeichenketten intern abläuft, findet man [in der Neo4J Dokumentation](https://neo4j.com/docs/operations-manual/current/performance/property-compression/).
 
 Man kann Repositories auch wie in SD-JPA anlegen, indem man Interfaces erstellt, die das Interface `Neo4jRepository` erweitern.
 Mit den Standardmethoden (<code class="highlight language-java">findById(), delete(), save()</code> usw.) kann man einen zusätzlichen Tiefenparameter angeben, 
@@ -168,14 +168,14 @@ Ich habe festgestellt, dass diese Repositories gut für grundlegende CRUD-Operat
 Man kann eine Methode jedoch mit der Annotation `@Query` annotieren und die Queries manuell schreiben. 
 Dies hat den Vorteil, dass man genau festlegen kann, welche Teile des Graphen man haben möchte, sowie die Möglichkeit, Abfragen auch in der Neo4j-Weboberfläche profilen und anpassen zu können.
 
-Insgesamt ist diese Obeject-Graph Mapping-Ebene sehr nützlich und vereinfacht und beschleunigt die Entwicklung erheblich. 
+Insgesamt ist dies Object Graph Mapping sehr nützlich und vereinfacht und beschleunigt die Entwicklung erheblich. 
 Leider ist dieser Komfort mit Kosten verbunden. 
 SD-Neo4j verwendet viele Reflections, um das Mapping durchzuführen, und für bestimmte Operationen kann sich ein zusätzlicher Overhead als Bottlneck herausstellen. 
 Das Framework ist definitiv nicht geeignet, um mehrere Millionen Knoten gleichzeitig zu speichern und man sollte vielleicht auf den Neo4j Java-Treiber zurückgreifen, um solche Operationen effizient durchzuführen.
 
 ## Fazit
 
-Ich hoffe, dass ich Euch zumindest eine allgemeine Vorstellung gegeben habe, wie man Queries optimieren und ihre Performance verbessern kann. 
-Ich habe es in diesem Artikel aus Gründen der Einfachheit vermieden, überkomplexe Graphen/Queries zu präsentieren.
-Ich weiß, dass "echte" Domänenmodelle um ein Vielfaches komplexer sind als die von mir vorgestellten Beispiele, 
-aber die Konzepte bleiben gültig und sollten Euch auf den richtigen Weg bringen, um Schwachstellen zu beseitigen. 
+Ich hoffe, dass ich Euch einen guten Start gegeben habe, wie man Queries optimieren und ihre Performance verbessern kann. 
+In diesem Artikel habe ich aus Gründen der Einfachheit vermieden, komplexe Graphen/Queries zu präsentieren.
+Echte Domänenmodelle sind um ein Vielfaches komplexer als die von mir vorgestellten Beispiele, 
+die Konzepte bleiben jedoch gültig und sollten Euch auf den richtigen Weg bringen, um Schwachstellen zu beseitigen. 
