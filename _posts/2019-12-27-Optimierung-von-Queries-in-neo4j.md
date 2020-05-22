@@ -68,12 +68,12 @@ Alles, was die Anzahl der zurückgegebenen Zeilen reduziert, wird in den meisten
 Dies kann auf verschiedene Weisen erreicht werden:
 
 * das Vermeiden von Kartesischen Produkten - Man sollte darauf achten, wie Ergebnisse von Subqueries behandelt werden, um unnötige Arbeit zu sparen.
-    ```graphql
-    # Schneller Query zum Abruf der Anzahl von Projekten
-    MATCH (p:Project) WITH count(p) as countProjects MATCH (u:User) RETURN countProjects, count(u)
-    # Langsamer Query
-    MATCH (p:Project), (u:User) RETURN  count(p), count(u)
-    ```
+```graphql
+# Schneller Query zum Abruf der Anzahl von Projekten
+MATCH (p:Project) WITH count(p) as countProjects MATCH (u:User) RETURN countProjects, count(u)
+# Langsamer Query
+MATCH (p:Project), (u:User) RETURN  count(p), count(u)
+```
 * das Benutzen von `LIMIT/DISTINCT/SKIP` - Funktioniert genauso wie `LIMIT/DISTINCT/OFFSET` in SQL.
 * das Benutzen von `collect()/UNWIND` - Die `collect()` Funktion sammelt einzelne Elemente in einer Liste.
     Dies kann auch nützlich sein, um kartesische Produkte zwischen Subqueries zu vermeiden. `UNWIND` ist die inverse Operation zu `collect()`, es wird eine separate Zeile für jedes Element einer Liste erstellt.
@@ -87,12 +87,12 @@ Das kann man machen, indem man:
     da diese Knoten höchstwahrscheinlich der Ausgangspunkt für die meisten Abfragen in unserer Anwendung sein werden. 
     Man muss jedoch vorsichtig sein, da das Platzieren von Indizes auf dem falschen Knoten nach hinten losgehen und zu Verlangsamungen führen kann.
 * Labels benutzt: Im Allgemeinen sollte man beim Schreiben von Abfragen immer Labels verwenden. 
-     ```graphql
-     # Schneller Query
-     MATCH (p:Project) WHERE p.name = "testProject" RETURN p
-     # Langsamer Query
-     MATCH (p) WHERE p.name = "testProject" RETURN p
-    ```
+```graphql
+# Schneller Query
+MATCH (p:Project) WHERE p.name = "testProject" RETURN p
+# Langsamer Query
+MATCH (p) WHERE p.name = "testProject" RETURN p
+```
 Bei der zweiten Abfrage muss Neo4j alle Objekte in der Datenbank betrachten und nicht nur Projekte. 
 Wenn man jedoch der Meinung ist, dass der Typ des Objekts irrelevant ist, kann man auch kein Label verwenden. 
 In diesem Fall sollte man profilen und gucken, was am besten funktioniert.
