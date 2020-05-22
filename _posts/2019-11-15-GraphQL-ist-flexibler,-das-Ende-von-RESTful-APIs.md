@@ -34,7 +34,7 @@ REST gibt dem Client durch eine Abfrage viele Daten zurück, sodass der Client s
 
 **Underfetching:**  
 
-REST kann bei einer Abfrage nicht alles erledigen, was der Client möchte. Die Informationen sind ggf. über verschiedene Endpunkte verteilt. Aus diesem Grund muss der Client manchmal mehrere Abfragen nacheinander tätigen, um alle Informationen zu erhalten. REST muss demzufolge zwei Routen durchlaufen, um Annas Wünsche zu erfüllen. Mit nur einer Abfrage,beispielsweise an den Endpunkt “/api/restaurant”,  würde Anna nur die Pizza bekommen.
+REST kann bei einer Abfrage nicht alles erledigen, was der Client möchte. Die Informationen sind ggf. über verschiedene Endpunkte verteilt. Aus diesem Grund muss der Client manchmal mehrere Abfragen nacheinander tätigen, um alle Informationen zu erhalten. REST muss demzufolge zwei Routen durchlaufen, um Annas Wünsche zu erfüllen. Mit nur einer Abfrage,beispielsweise an den Endpunkt "/api/restaurant",  würde Anna nur die Pizza bekommen.
 
 Indessen sind die beiden Probleme Over- und Underfetching mithilfe eines zu der Anforderung stimmigen API-Designs gut lösbar. Hinter den REST-APIs verbirgt sich eine sehr mächtige Sprache, mit der der Client sich effizient ausdrücken kann. Den meisten Entwicklern für Webapplikationen ist diese Sprache bekannt.  
 
@@ -42,11 +42,11 @@ Der Client kann dabei ein Zeichen geben, das durch den Server zu interpretieren 
 
 Das bedeutet, dass Anna detailliert beschreiben sollte, wonach REST den Server fragen soll. Geeignete Endpunkte sehen zum Beispiel wie folgt aus:  
 
-* URL/api/supermarkt/reinigungsmittel/waschmittel/{ean}
-* URL/api/restaurant/essen/pizza/{ean}
+* URL/api/supermarkt/produkte/{ean}
+* URL/api/restaurant/pizza/magherita
 
-Mit dieser Abfrage würde Anna genau ein gewünschtes Waschmittel bzw. genau eine Pizza erhalten.  
-Durch dieses Design konnte der Client Over und Underfetching an Daten vermeiden. Doch wie würde die Bestellung geschehen, wenn Anna noch zusätzlich einen Drucker und ein Bett haben möchte? Dann müssten wir genauso wie beim Restaurant und Supermarkt noch zwei weitere Endpunkte definieren. Wie wäre es aber, wenn Anna eine ganze Liste von Produkten aus verschiedenen Ressourcen hätte? Dann brauchen wir ebenfalls mehrere REST-Endpunkte. Das bedeutet, je mehr Ressourcen aus dem Backend angefordert werden, desto mehr Endpunkte sind erforderlich. Hiermit treffen wir abermals auf das aufgelistete Problem “mehrere Endpunkte erforderlich”. 
+Mit dieser Abfrage würde Anna genau ein gewünschtes Produkt und die Pizza erhalten.  
+Durch dieses Design konnte der Client Over und Underfetching an Daten vermeiden. Doch wie würde die Bestellung geschehen, wenn Anna noch zusätzliche Produkte haben möchte? Dann müssten wir genauso wie beim Supermarkt weitere API-Aufrufe tätigen. Da die API beim Restaurant nicht auf Standards wie EAN-Codes zurückgreift, müssen wir hier schauen, wie die anderen Ressourcen identifiziert werden können. Wie wäre es aber, wenn Anna eine ganze Liste von Produkten aus verschiedenen Ressourcen hätte? Dann brauchen wir ebenfalls mehrere REST-Endpunkte. Das bedeutet, je mehr Ressourcen aus dem Backend angefordert werden, desto mehr Endpunkte sind erforderlich. Hiermit treffen wir abermals auf das aufgelistete Problem “mehrere Endpunkte erforderlich”. 
 
 # Die Lösung kommt mit GraphQL 
 
