@@ -24,7 +24,7 @@ In diesem Artikel wird dazu beispielhaft gezeigt, wie ein einfaches Liniendiagra
         <field name="author_first_name"><![CDATA[Maksim]]></field>
         <field name="author_last_name"><![CDATA[Atanasov]]></field>
         <field name="author_id"><![CDATA[maximAtanasov]]></field>
-        <field name="author_picture_stored_only"><![CDATA[http://localhost:4000/assets/images/avatars/maximAtanasov.png]]></field>
+        <field name="author_picture_stored_only"><![CDATA[http://localhost:4000/assets/images/avatars/maximAtanasov.jpg]]></field>
         <!--Postcontent-->
         <field name="headlines"><![CDATA[Wicked Charts - JavaScript Charts mit Apache Wicket]]></field>
         <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
