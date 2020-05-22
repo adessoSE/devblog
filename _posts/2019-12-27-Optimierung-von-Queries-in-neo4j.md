@@ -52,12 +52,12 @@ Dann können wir die Abfrage hierauf vereinfachen:
 MATCH (u:User)-[:IS_ASSIGNED_TO {projectId: 61}]->(t:Task) WHERE ID(u) = 60 RETURN t
 ```
 
-Die Ausführung der zweiten Abfrage im Neo4j-Profiler zeigt, dass die Datenbank fast um die Hälfte weniger machen muss, da wir keine Projektknoten mehr durchlaufen müssen.
+Die Ausführung der zweiten Abfrage im Neo4j-Profiler zeigt, dass die Datenbank nur ungefähr die Hälfte an Arbeit in die Abarbeitung des Query steckt, da wir keine Projektknoten mehr durchlaufen müssen.
 Diese Verbesserung wird natürlich mit zunehmendem Datensatz skalieren. 
 Der wesentliche Aspekt dieses Beispiels ist, dass man bei der Entwicklung des Modells auf die Zusammenhänge zwischen Daten achten sollte.
 Unser primäres Ziel sollte es nicht sein, dass die Graphen in der Visualisierung "schön" aussehen (obwohl ein einfacher Graph helfen kann, das Modell zu verstehen). 
 Man sollte sich überlegen, welche Abfragen auf den Daten auszuführen sind, diese vorher in Cypher aufschreiben und über mögliche Randfälle nachdenken, 
-die das aktuelle Modell kapput machen oder die Abfragen verlangsamen.
+die im aktuellen Modell nicht funktionieren oder die Abfragen verlangsamen.
 
 ## Sind meine Queries optimal?
 
@@ -67,16 +67,13 @@ Im Allgemeinen wollen wir, genau wie bei SQL, die Datenmenge in jeder Subquery s
 Alles, was die Anzahl der zurückgegebenen Zeilen reduziert, wird in den meisten Fällen die Performance verbessern. 
 Dies kann auf verschiedene Weisen erreicht werden:
 
-* das Vermeiden von Kartesischen Produkten - Man sollte darauf achten, wie Ergebnisse von Subqueries behandelt werden, um unnötige Arbeit zu sparen. 
-    Zum Beispiel, um die Anzahl von Projekten und Benutzern zu bekommen, sollte man 
+* das Vermeiden von Kartesischen Produkten - Man sollte darauf achten, wie Ergebnisse von Subqueries behandelt werden, um unnötige Arbeit zu sparen.
     ```graphql
+    # Schneller Query zum Abruf der Anzahl von Projekten
     MATCH (p:Project) WITH count(p) as countProjects MATCH (u:User) RETURN countProjects, count(u)
-    ``` 
-    statt 
-    ```graphql
+    # Langsamer Query
     MATCH (p:Project), (u:User) RETURN  count(p), count(u)
     ```
-     verwenden.
 * das Benutzen von `LIMIT/DISTINCT/SKIP` - Funktioniert genauso wie `LIMIT/DISTINCT/OFFSET` in SQL.
 * das Benutzen von `collect()/UNWIND` - Die `collect()` Funktion sammelt einzelne Elemente in einer Liste.
     Dies kann auch nützlich sein, um kartesische Produkte zwischen Subqueries zu vermeiden. `UNWIND` ist die inverse Operation zu `collect()`, es wird eine separate Zeile für jedes Element einer Liste erstellt.
@@ -89,18 +86,14 @@ Das kann man machen, indem man:
     Im obigen Beispiel möchten wir vielleicht einen Index auf die Knoten `ProjectEntity` und `UserEntity` setzen, 
     da diese Knoten höchstwahrscheinlich der Ausgangspunkt für die meisten Abfragen in unserer Anwendung sein werden. 
     Man muss jedoch vorsichtig sein, da das Platzieren von Indizes auf dem falschen Knoten nach hinten losgehen und zu Verlangsamungen führen kann.
-* Labels benutzt: Im Allgemeinen sollte man beim Schreiben von Abfragen immer Labels verwenden. Zum Beispiel wird
-
- ```graphql
- MATCH (p:Project) WHERE p.name = "testProject" RETURN p
- ```
- 
-viel schneller sein als 
-
- ```graphql
- MATCH (p) WHERE p.name = "testProject" RETURN p
-```
-Denn bei der zweiten Abfrage muss Neo4j alle Objekte in der Datenbank betrachten und nicht nur Projekte. 
+* Labels benutzt: Im Allgemeinen sollte man beim Schreiben von Abfragen immer Labels verwenden. 
+     ```graphql
+     # Schneller Query
+     MATCH (p:Project) WHERE p.name = "testProject" RETURN p
+     # Langsamer Query
+     MATCH (p) WHERE p.name = "testProject" RETURN p
+    ```
+Bei der zweiten Abfrage muss Neo4j alle Objekte in der Datenbank betrachten und nicht nur Projekte. 
 Wenn man jedoch der Meinung ist, dass der Typ des Objekts irrelevant ist, kann man auch kein Label verwenden. 
 In diesem Fall sollte man profilen und gucken, was am besten funktioniert.
 
