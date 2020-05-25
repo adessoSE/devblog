@@ -7,9 +7,8 @@ categories: [Architektur]
 tags: [Architektur, Serverless, FaaS, AWS, Cloud Computing]       
 ---
 
-In Deutschland setzen nur [22% der Unternehmen](https://de.statista.com/statistik/daten/studie/183491/umfrage/nutzung-von-cloud-computing-diensten-in-unternehmen-in-europa/) Cloud Dienste ein. 
+In Deutschland setzen nur 22% der Unternehmen Cloud Services ein. 
 Damit befindet sich Deutschland im europäischen Vergleich im hinteren Drittel. 
-In den Niederlanden beträgt der Anteil 48% und beim Spitzenreiter Finnland gar 65%.
 Der Einsatz von Cloud Computing findet oft durch den Einsatz in Neuentwicklungen Einzug in die Unternehmen. 
 In meinem Blogbeitrag möchte ich aufzeigen, dass sich der Aufwand für die Migration einer bestehenden Anwendung in die Cloud lohnt. 
 
@@ -32,6 +31,7 @@ Die einzelnen Punkte stelle ich im folgenden Abschnitt genauer vor.
 ![Gründe für die Migration einer Anwendung in die Cloud](/assets/images/posts/gruende-und-strategien-fuer-cloud-migration/gruende.png) 
 
 **Kostenreduktion**
+
 Der Aufwand für den Betrieb und die Wartung der Infrastruktur wird oft nicht bemessen und dadurch unterschätzt. 
 Eine Kostenaufstellung und ein Vergleich mit der Cloud zeigen meist auf, dass sich eine Migration lohnt. 
 In der Cloud entfallen die Kosten und der Aufwand für die Anschaffung und für die Inbetriebnahme von Hardwarekomponenten. 
@@ -41,6 +41,7 @@ Durch die gezielte Auswahl der passenden Speicherklasse, lassen sich Kosten eins
 Insbesondere Speicherklassen für Langzeitarchivierung und mit seltenem Zugriff sind sehr kostengünstig.
 
 **Skalierbarkeit**
+
 Eine selbst betriebene Infrastruktur wird in der Regel mit einer fixen Kapazität für die Spitzenlast provisioniert, die nur selten ausgereizt wird.  
 Dadurch entsteht eine Überprovisionierung von Ressourcen, wie die folgende Grafik verdeutlicht.
 
@@ -51,11 +52,13 @@ In der Cloud betriebene Software hingegen, lässt sich jederzeit horizontal oder
 Probleme mit vollgelaufenem Festplattenspeicher können in der Cloud eliminiert werden. Dazu gibt es Speicherdienste mit Pay-per-Use Modell und unbegrenzter Kapazität.
 
 **Verfügbarkeit**
+
 Die Cloud Anbieter sichern eine [hohe Verfügbarkeit](https://aws.amazon.com/de/compute/sla/) ihrer Dienste von 99,99% oder höher vertraglich zu, welche mit eigener Infrastruktur nicht erreicht werden kann. 
 Darüber hinaus ist es in der Cloud einfach die Anwendung auf mehrere Rechenzentren zu verteilen und [automatisches Failover](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-types.html) zu konfigurieren.
 
 
 **Sicherheit**
+
 Bei dem Betrieb einer Software ist es notwendig kontinuierlich auf bekannt gewordene Sicherheitslücken zu reagieren. 
 Zu den betroffenen Ebenen können das Betriebssystem, die Laufzeitumgebung sowie die verwendeten Bibliotheken innerhalb der Anwendung zählen.
 Stützt man sich ganz auf [Serverless Services](https://aws.amazon.com/de/serverless/), kann man sich darauf verlassen, dass der Cloud Anbieter sich kontinuierlich um die 
@@ -74,16 +77,19 @@ und die sichere Verwendung von Passwörtern innerhalb der Anwendung bereit ([Sec
 Verschlüsselung bei der Übertragung ist bei allen Services Standard und [Verschlüsselung für persistente Daten](https://docs.aws.amazon.com/de_de/AmazonS3/latest/dev/serv-side-encryption.html) kann leicht aktiviert werden.
 
 **Agilität und Erweiterbarkeit**
+
 Der Betrieb der Anwendung in der Cloud und der Einsatz von Cloud-native Services unterstützt die Agilität, da Änderungen an der technischen Infrastruktur 
 schnell umsetzbar sind. Dadurch rücken die fachlichen Anforderungen weiter in den Vordergrund, was die Entwicklungsgeschwindigkeit erhöht.
 
 **Internationale Expansion**
+
 Die Cloud Anbieter betreiben Rechenzentren, die auf der ganzen Welt verteilt sind. 
 Mit dem Betrieb einer Anwendung in der Cloud ist es einfach sie international zu expandieren und an mehreren Standorten zu betreiben. 
 Das ermöglicht niedrige Zugriffszeiten für Kunden auf der ganzen Welt. 
 Viele Cloud Services darunter auch Datenbanken unterstützen [globale Datenreplikation](https://aws.amazon.com/de/dynamodb/global-tables/). 
 
 **Datensicherung**
+
 Datenbanken und Speicherdienste in der Cloud bieten die Möglichkeit für automatische Datensicherungen sowie [Point-in-Time Recovery](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/PointInTimeRecovery_Howitworks.html). 
 Von Festplatten kann jederzeit ein [Snapshot erstellt](https://docs.aws.amazon.com/de_de/AWSEC2/latest/UserGuide/ebs-creating-snapshot.html) werden, oder ein alter Snapshot eingespielt werden.
 
@@ -102,6 +108,7 @@ Im Folgenden Abschnitt gehe ich nun detaillierter auf die 6 bekannten Cloud Migr
 
 
 **Rehosting / Lift-and-Shift**
+
 Die Rehosting-Strategie stellt den ersten Schritt für die Migration einer Anwendung in die Cloud dar.
 Die Strategie hat zum Ziel, die Anwendung in die Cloud zu überführen, ohne Anpassungen an der Architektur vorzunehmen. 
 Bei diesem Integrationsschritt werden noch keine höherwertigen Cloud Services eingesetzt. 
@@ -110,6 +117,7 @@ Virtuelle Maschinen werden in die Cloud „kopiert“.
 Dazu gibt das bei AWS das Werkzeug [VM-Import](https://aws.amazon.com/ec2/vm-import/), dass den Import bspw. einer VMWare oder Microsoft Hyper-V VM automatisiert.
 In diesem Schritt wird normalerweise noch keine automatische Skalierung konfiguriert. 
 Gab es vorher einen redundanten Betrieb und einen Loadbalancer, so wird diese Konfiguration mit in die Cloud überführt.
+
 Der Vorteil dieser Strategie ist, dass sie als Einstieg leicht anzuwenden ist und durch Werkzeugunterstützung größtenteils automatisiert werden kann. 
 Die Anwendung der weiteren Migrationsschritte ist deutlich einfacher, wenn die Anwendung bereits in der Cloud betrieben wird.
 Außerdem können häufig allein durch den Wechsel in die Cloud rund 25% oder mehr bei den Betriebskosten eingespart werden 
@@ -118,6 +126,7 @@ Außerdem können häufig allein durch den Wechsel in die Cloud rund 25% oder me
 
 
 **Replatforming**
+
 Bei der Replatforming Strategie geht es darum einzelne Komponenten der Anwendung in die Cloud auszulagen ohne dabei die Architektur zu überarbeiten. 
 Komponenten, die zuvor selbst verwaltet wurden, können durch Cloud verwaltete Services ersetzt werden. 
 Typische Dienste dazu sind Datenbanken ([RDS](https://aws.amazon.com/de/rds/), [DynamoDB](https://aws.amazon.com/de/dynamodb/)), 
@@ -125,12 +134,14 @@ Queues ([SQS](https://aws.amazon.com/de/sqs/)) und Speicherdienste ([S3](https:/
 Der Betrieb der Anwendung kann in diesem Schritt durch den Einsatz von Diensten, die sich auf Container-Technologien stützen, weiter automatisiert werden. 
 Zu diesen Diensten zählen [ECS](https://aws.amazon.com/de/ecs/) und [Elastic Beanstalk](https://aws.amazon.com/de/elasticbeanstalk/) für Docker Container, 
 sowie [EKS](https://aws.amazon.com/de/eks/) für Kubernetes.
+
 Die wesentlichen Vorteile nach Anwendung dieser Strategie sind der geringere Wartungsaufwand für den Betrieb, sowie die höhere Skalierbarkeit und die höhere Zuverlässigkeit.
 Für die Anwendung dieser Strategie muss die Anwendung nicht zwingend in der Cloud betrieben werden. 
 Für die Vermeidung zu großer Latenzen ist es jedoch sinnvoll.
 
 
 **Repurchasing**
+
 Die Repurchasing-Strategie hat zum Ziel, von einer zuvor selbst betriebenen Software auf ein Cloud-Produkt umzusteigen. 
 Beispielsweise von einem selbst betriebenen Ticketsystem oder WIKI zu einem Software-as-a-Service Produkt.
 Durch die Anwendung dieser Strategie entfällt der Wartungsaufwand für das Patchen und Skalieren der Software.
@@ -138,6 +149,7 @@ Die Migration der Bestandsdaten vom alten in das neue Produkt, kann unterschiedl
 Handelt es sich um das gleiche Produkt oder den gleichen Hersteller wird der Import i.d.R durch Werkzeuge unterstützt.
 
 **Refactoring / Rearchitecting**
+
 Bei der Refactoring-Strategie wird nun auch die Architektur der Anwendung betrachtet und ggf. angepasst, um das volle Potential der Cloud zu nutzen.
 Ziel ist es sich überall auf Cloud Services zu stützen, wo es möglich ist. 
 Im Idealfall kommen dabei Serverless Services zum Einsatz, die den höchsten Grad an Skalierung bei gleichzeitig niedrigstem Betriebsaufwand bieten.
@@ -145,17 +157,21 @@ Für die Skalierbarkeit sollte geprüft werden, ob es sinnvoll ist die Anwendung
 Einzelne Funktionen die selten aufgerufen werden, oder extrem schnell skalieren müssen sollten als Serverless Functions ([Lambda](https://aws.amazon.com/de/lambda/)) ausgelagert werden.
 Die Authentisierung kann nun auf den Cloud Services Cognito umgestellt werden. 
 Statische Webseiten sollten aus der Anwendung herausgelöst werden und auf dem Speicherdienst [S3 gehostet](https://docs.aws.amazon.com/de_de/AmazonS3/latest/dev/WebsiteHosting.html) werden.
-Falls noch nicht geschehen sollte der Betrieb nun auf Container-Dienste wie ECS für Docker Container oder EKS für Kubernetes, 
+Falls noch nicht geschehen, sollte der Betrieb nun auf Container-Dienste wie ECS für Docker Container oder EKS für Kubernetes, 
 optional mit der Serverless Unterstützung von [Fargate](https://aws.amazon.com/de/fargate/), umgestellt werden. 
 Ebenfalls sollte die Infrastruktur nun automatisiert über Infrastructure-as-Code Werkezeuge wie [AWS CloudFormation](https://aws.amazon.com/de/cloudformation/) oder 
 [Terraform](https://www.terraform.io/) ausgerollt werden.
+
+Die Umsetzung der Strategie erfordert im Vergleich den höchsten Aufwand.
 Nach der Durchführung ist die Anwendung eine Cloud-native Anwendung, die das Geschäftsmodell und die kontinuierliche Weiterentwicklung bestmöglich unterstützt.
 
 **Retain**
+
 Steht den Migrationskosten kein erhöhter Nutzen gegenüber ist es legitim, keine Migration durchzuführen. 
 Das schließt nicht aus, dass die Strategie regelmäßig überprüft und angepasst werden kann.
 
 **Retire**
+
 Stellt man bei der Analyse fest, dass die Anwendung kaum noch genutzt wird, kann es sinnvoll sein sie einzustellen um die Wartungs- und Betriebskosten einzusparen.
 
 
