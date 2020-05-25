@@ -158,7 +158,7 @@ optional mit der Serverless Unterstützung von [Fargate](https://aws.amazon.com/
 Ebenfalls sollte die Infrastruktur nun automatisiert über Infrastructure-as-Code Werkezeuge wie [AWS CloudFormation](https://aws.amazon.com/de/cloudformation/) oder 
 [Terraform](https://www.terraform.io/) ausgerollt werden.
 
-Die Umsetzung der Strategie erfordert im Vergleich den höchsten Aufwand.
+Die Umsetzung dieser Strategie erfordert im Vergleich den höchsten Aufwand.
 Nach der Durchführung ist die Anwendung eine Cloud native Anwendung, die das Geschäftsmodell und die kontinuierliche Weiterentwicklung bestmöglich unterstützt.
 
 ## Retain
@@ -179,4 +179,3 @@ Für die Migration einer Anwendung in die Cloud habe ich 6 mögliche Strategien 
 Hat man sich für den Weg in die Cloud entschieden, bietet sich die Rehosting Strategie als erster Migrationsschritt an. 
 Durch die aufeinanderfolgende Anwendung der Replatforming und der Refactoring Strategie kann die Cloud Integration kontinuierlich erhöht werden, um das ganze Potential der Cloud zu nutzen.
 In einem folgenden Beitrag werde ich die konkrete Migration einer exemplarischen Webanwendung hin zu einer Cloud nativen Anwendung auf der AWS Plattform vorstellen, unter Anwendung der Refactoring Strategie.
-
