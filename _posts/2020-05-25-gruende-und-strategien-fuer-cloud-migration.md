@@ -34,7 +34,7 @@ Die einzelnen Argumente stelle ich im folgenden Abschnitt genauer vor.
 Der Aufwand für den Betrieb und die Wartung der Infrastruktur wird oft nicht bemessen und dadurch unterschätzt. 
 Eine Kostenaufstellung und ein Vergleich mit der Cloud zeigen meist auf, dass sich eine Migration lohnt. 
 In der Cloud entfallen die Kosten und der Aufwand für die Anschaffung und für die Inbetriebnahme von Hardwarekomponenten. 
-Außerdem lassen sich in der Cloud die Kosten, die durch Überprovisierung entstehen, reduzieren, da die Cloud Skalierung und ein Pay-per-Use Preismodell bietet.
+Außerdem lassen sich in der Cloud die Kosten, die durch Überprovisionierung entstehen, reduzieren, da die Cloud Skalierung und ein Pay-per-Use Preismodell bietet.
 Bei Datenspeichern in der Cloud gibt es eine Vielfalt an [Speicherklassen](https://aws.amazon.com/de/s3/storage-classes/). 
 Durch die gezielte Auswahl der passenden Speicherklasse, lassen sich Kosten einsparen. 
 Insbesondere Speicherklassen für Langzeitarchivierung und mit seltenem Zugriff sind sehr kostengünstig.
@@ -179,5 +179,4 @@ Für die Migration einer Anwendung in die Cloud habe ich 6 mögliche Strategien 
 Hat man sich für den Weg in die Cloud entschieden, bietet sich die Rehosting Strategie als erster Migrationsschritt an. 
 Durch die aufeinanderfolgende Anwendung der Replatforming und der Refactoring Strategie kann die Cloud Integration kontinuierlich erhöht werden, um das ganze Potential der Cloud zu nutzen.
 In einem folgenden Beitrag werde ich die konkrete Migration einer exemplarischen Webanwendung hin zu einer Cloud nativen Anwendung auf der AWS Plattform vorstellen, unter Anwendung der Refactoring Strategie.
-
 
