@@ -68,7 +68,7 @@ In diesem Dokument stehen u.a. die benötigen Services, Instanzen, Festplatten s
 Durch automatisiertes Aufsetzen der Infrastruktur werden menschliche Fehler reduziert. 
 Für Webanwendungen in der Cloud stehen Services zum [DDoS-Schutz](https://aws.amazon.com/de/shield/) und [Web Application Firewalls](https://aws.amazon.com/de/waf/) jederzeit auf Abruf bereit.
 
-Das zweithäufigste Sicherheitsproblem laut [OWASP Top 10 für Webanwendungen](https://owasp.org/www-project-top-ten/) ist die mangelnde Umsetzung bei der Authentisierung („Broken Authentication“). 
+Das zweithäufigste Sicherheitsproblem laut [OWASP Top 10 für Webanwendungen](https://owasp.org/www-project-top-ten/) ist die mangelhafte Umsetzung bei der Authentisierung („Broken Authentication“). 
 Die Cloud Anbieter bieten dazu Authentisierungsdienste an ([Cognito](https://aws.amazon.com/de/cognito/)), die einfach zu integrieren sind und mit denen sich dieses Risiko verringern lässt.
 Außerdem stehen Services für das sichere Verwalten von Sicherheitsschlüsseln ([KMS](https://aws.amazon.com/de/kms/)) und die sichere Verwendung von Passwörtern innerhalb der Anwendung bereit ([Secrets Manager](https://aws.amazon.com/de/secrets-manager/)). Verschlüsselung bei der Übertragung ist bei allen Services Standard und [Verschlüsselung für persistente Daten](https://docs.aws.amazon.com/de_de/AmazonS3/latest/dev/serv-side-encryption.html) kann leicht aktiviert werden.
 
@@ -159,7 +159,7 @@ Ebenfalls sollte die Infrastruktur nun automatisiert über Infrastructure-as-Cod
 [Terraform](https://www.terraform.io/) ausgerollt werden.
 
 Die Umsetzung dieser Strategie erfordert im Vergleich den höchsten Aufwand.
-Nach der Durchführung ist die Anwendung eine Cloud native Anwendung, die das Geschäftsmodell und die kontinuierliche Weiterentwicklung bestmöglich unterstützt.
+Nach der Durchführung dieser Strategie ist die Anwendung eine Cloud native Anwendung, die das Geschäftsmodell und die kontinuierliche Weiterentwicklung bestmöglich unterstützt.
 
 ## Retain
 
