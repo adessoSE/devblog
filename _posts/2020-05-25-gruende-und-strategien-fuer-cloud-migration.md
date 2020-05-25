@@ -10,7 +10,7 @@ tags: [Architektur, Serverless, FaaS, AWS, Cloud Computing]
 In Deutschland setzen nur 22% der Unternehmen Cloud Services ein. 
 Damit befindet sich Deutschland im europäischen Vergleich im hinteren Drittel. 
 Der Einsatz von Cloud Computing findet oft durch den Einsatz in Neuentwicklungen Einzug in die Unternehmen. 
-In meinem Blogbeitrag möchte ich aufzeigen, dass sich der Aufwand für die Migration einer bestehenden Anwendung in die Cloud lohnt. 
+In meinem Blogbeitrag zeige ich, dass sich auch für bestehende Anwendungen der Aufwand für die Migration in die Cloud lohnt. 
 
 Das Ziel der agilen Softwareentwicklung ist es hochwertige, stets nutzbare Software zu liefern, die kontinuierlich erweitert werden kann. 
 Auf die Bereitstellung der Infrastruktur und den Betrieb der Software entfällt dabei notwendigerweise ein großer Anteil des Aufwands.
