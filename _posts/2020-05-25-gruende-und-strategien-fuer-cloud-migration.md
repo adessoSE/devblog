@@ -12,7 +12,7 @@ Damit befindet sich Deutschland im europäischen Vergleich im hinteren Drittel.
 Der Einsatz von Cloud Computing findet oft durch den Einsatz in Neuentwicklungen Einzug in die Unternehmen. 
 In meinem Blogbeitrag zeige ich, dass sich auch für bestehende Anwendungen der Aufwand für die Migration in die Cloud lohnt. 
 
-Das Ziel der agilen Softwareentwicklung ist es hochwertige, stets nutzbare Software zu liefern, die kontinuierlich erweitert werden kann. 
+Das Ziel der agilen Softwareentwicklung ist es, hochwertige, stets nutzbare Software zu liefern, die kontinuierlich erweitert werden kann. 
 Auf die Bereitstellung der Infrastruktur und den Betrieb der Software entfällt dabei notwendigerweise ein großer Anteil des Aufwands.
 Durch die Migration einer Anwendung in die Cloud kann der Aufwand für die Infrastruktur weiter in den Hintergrund und die Fokussierung auf die 
 Geschäftslogik weiter in den Vordergrund gerückt werden. 
