@@ -2,7 +2,7 @@
 layout: [post, post-xml]
 title:  "Optimierung von Queries in Neo4j"
 date:   2020-05-22 09:00
-modified_date: 2020-05-22 09:00
+modified_date: 2020-05-28 16:00
 author: maximAtanasov
 categories: [Softwareentwicklung]
 tags: [NoSQL, Graphdatenbanken, Neo4j]
