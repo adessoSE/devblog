@@ -108,7 +108,7 @@ Im folgenden Abschnitt gehe ich nun detaillierter auf die 6 bekannten Cloud Migr
 Die Rehosting Strategie stellt den ersten Schritt für die Migration einer Anwendung in die Cloud dar.
 Die Strategie hat zum Ziel, die Anwendung in die Cloud zu überführen, ohne größere Veränderungen an der Funktionsweise, dem Design oder dem Code der Anwendung vorzunehmen.
 Bei diesem Integrationsschritt werden noch keine höherwertigen Cloud Services eingesetzt. 
-Die Migration stützt sich in der Regel auf Cloud Computing Dienste die Rechenleistung ([EC2](https://aws.amazon.com/de/ec2/)), virtuelle Netzwerke ([VPC](https://aws.amazon.com/de/vpc/)) und Festplattenspeicher ([EBS](https://aws.amazon.com/de/ebs/)) bereitstellen.  
+Die Migration stützt sich in der Regel auf Cloud Computing Dienste, die Rechenleistung ([EC2](https://aws.amazon.com/de/ec2/)), virtuelle Netzwerke ([VPC](https://aws.amazon.com/de/vpc/)) und Festplattenspeicher ([EBS](https://aws.amazon.com/de/ebs/)) bereitstellen.  
 Das Verschieben von virtuellen Maschinen aus VMWare oder Microsoft Hyper-V wird durch Werkzeuge unterstützt ([VM-Import](https://aws.amazon.com/ec2/vm-import/)).
 In diesem Schritt wird normalerweise noch keine automatische Skalierung konfiguriert. 
 Gab es vorher einen redundanten Betrieb und einen Loadbalancer, so wird diese Konfiguration mit in die Cloud überführt.
