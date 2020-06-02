@@ -2,7 +2,7 @@
 layout:         [post, post-xml]              
 title:          "GraphQL ist flexibler, das Ende von RESTful-APIs?"
 date:           2019-11-15 18:00
-modified_date:  2020-04-28 15:00
+modified_date:  2020-06-02 15:00
 author:         muhannaddarraj 
 categories:     [Architektur]
 tags:           [RESTful-Web-Services, GraphQL]
@@ -18,7 +18,7 @@ In aktuellen Projektsituationen hat sich das API-Design nach REST mittlerweile d
 
 Das folgende Beispiel soll die weiteren Herausforderungen dieses Architekturansatzes verdeutlichen.
 
-Stellen wir uns vor, dass der Client eine Person “Anna” ist, die zu Hause sitzt und gerne eine Pizza von einem Restaurant, sowie Waschmittel von einem Supermarkt bestellen möchte. Anna hat REST beauftragt, diese Produkte für sie zu holen. Leider kann REST nur einen Weg einschlagen, weshalb Anna zuerst nach der Pizza fragt. REST hat daraufhin alles von der Speisekarte des Restaurants an sie geliefert. Anna entnimmt ihre gewünschte Pizza und entsorgt die überschüssigen Produkte. Nachdem REST das Essen besorgt hat, macht er sich nun auf den Weg zum Supermarkt, um das von Anna geforderte Waschmittel zu beschaffen. Dabei bringt er abermals das gesamte Sortiment mit. Anna wählt das Waschmittel aus, welches sie haben möchte, und entsorgt ebenfalls alle weiteren Produkte.  
+Stellen wir uns vor, dass der Client eine Person “Anna” ist, die zu Hause sitzt und gerne eine Pizza Margherita von einem Restaurant, sowie Waschmittel von einem Supermarkt bestellen möchte. Anna hat REST beauftragt, diese Produkte für sie zu holen. Leider kann REST nur einen Weg einschlagen, weshalb Anna zuerst nach der Pizza fragt. REST hat daraufhin alles von der Speisekarte des Restaurants an sie geliefert. Anna entnimmt ihre gewünschte Pizza und entsorgt die überschüssigen Produkte. Nachdem REST das Essen besorgt hat, macht er sich nun auf den Weg zum Supermarkt, um das von Anna geforderte Waschmittel zu beschaffen. Dabei bringt er abermals das gesamte Sortiment mit. Anna wählt das Waschmittel aus, welches sie haben möchte, und entsorgt ebenfalls alle weiteren Produkte.  
 
 Aus Annas Erfahrung lassen sich deutlich die folgenden Nachteile von REST entnehmen:   
 
@@ -43,7 +43,7 @@ Der Client kann dabei ein Zeichen geben, das durch den Server zu interpretieren 
 Das bedeutet, dass Anna detailliert beschreiben sollte, wonach REST den Server fragen soll. Geeignete Endpunkte sehen zum Beispiel wie folgt aus:  
 
 * URL/api/supermarkt/produkte/{ean}
-* URL/api/restaurant/pizza/magherita
+* URL/api/restaurant/pizza/margherita
 
 Mit dieser Abfrage würde Anna genau ein gewünschtes Produkt und die Pizza erhalten.  
 Durch dieses Design konnte der Client Over und Underfetching an Daten vermeiden. Doch wie würde die Bestellung geschehen, wenn Anna noch zusätzliche Produkte haben möchte? Dann müssten wir genauso wie beim Supermarkt weitere API-Aufrufe tätigen. Da die API beim Restaurant nicht auf Standards wie EAN-Codes zurückgreift, müssen wir hier schauen, wie die anderen Ressourcen identifiziert werden können. Wie wäre es aber, wenn Anna eine ganze Liste von Produkten aus verschiedenen Ressourcen hätte? Dann brauchen wir ebenfalls mehrere REST-Endpunkte. Das bedeutet, je mehr Ressourcen aus dem Backend angefordert werden, desto mehr Endpunkte sind erforderlich. Hiermit treffen wir abermals auf das aufgelistete Problem “mehrere Endpunkte erforderlich”. 
