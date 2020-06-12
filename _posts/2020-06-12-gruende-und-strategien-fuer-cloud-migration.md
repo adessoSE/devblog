@@ -1,7 +1,7 @@
 ---
 layout: [post, post-xml]                          
 title:  "Gründe und Strategien für die Migration einer Applikation in die Cloud"         
-date:   2020-05-25 13:00                   
+date:   2020-06-12 08:00                   
 author: c-bachmann                                  
 categories: [Architektur]                        
 tags: [Architektur, Serverless, FaaS, AWS, Cloud Computing]       
