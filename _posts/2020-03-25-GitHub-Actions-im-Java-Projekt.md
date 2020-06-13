@@ -222,7 +222,7 @@ Optional kann auch ein Branch gegeben werden.
 Wenn keiner angegeben ist, gilt diese Actions für alle.
 
 Anschließend wird angeordnet, auf welche Tags reagiert werden soll,
-```v*```, bedeutet das alles was mit dem Buchstaben v startet einen Release erzeugt.
+`v*`, bedeutet das alles was mit dem Buchstaben v startet einen Release erzeugt.
 
 Dadurch wird die semantische Versionierung (v1.0, v1.0.0 usw) unterstützt.
 
