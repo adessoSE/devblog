@@ -38,13 +38,9 @@ Angekommen in den Actions, kriegen wir vom intuitiven System eine Menge bereits 
 Namhafte Sprachen und Frameworks werden unterstützt.
 Zum Herumexperimentieren stellt GitHub dem Benutzer eine Starter-Action zur Verfügung.
 
-![Bild der Starter-Action](/assets/images/posts/github-actions/starter.JPG)
-
 In diesem werden alle Punkte einer YML-Datei grob angeschnitten und erklärt, wofür diese benötigt werden.
 Es gibt bereits zahlreiche Actions von GitHub selbst und der Open-Source Community, beispielsweise eine um ein Gradle Projekt bauen und testen zu lassen.
 Diese Action wird im späteren Verlauf dieses Blogposts als Grundlage für die anderen Tasks des Workflows wiederverwendet.
-
-![Bild des Gradle-Build-Actions](/assets/images/posts/github-actions/gradle-build-action.JPG)
 
 Im Folgenden wird der Codeblock der Action genauer betrachtet.
 Weiterhin werden die einzelnen Werte genauer erklärt.
@@ -256,17 +252,9 @@ Im Body steht dann der textuelle Inhalt des Releases.
 
 Der Draft gibt an, ob der Release published _(true)_ oder unpublished _(false)_ sein soll.
 Der Wert des Prerelease Attributs legt fest, ob es sich um einen vollwertigen, eigenständigen Release handelt oder einen Prerelease.
-Anschließend sieht der Release wie folgt aus.
+Anschließend sieht das Release wie folgt aus.
 
 ![Bild des Releases](/assets/images/posts/github-actions/release.JPG)
-
-Die Workflows werden in der Oberfläche separiert aufgelistet.
-
-![Bild der Workflows](/assets/images/posts/github-actions/workflows.JPG)
-
-Zum Schluss eine kleine visuelle Darstellung der drei Jobs in der Oberfläche des Workflows.
-
-![Bild aller Jobs](/assets/images/posts/github-actions/all-actions.JPG)
 
 ## Mein Fazit
 GitHub-Actions ist ein muss bei Anwendungen, die sowieso auf GitHub verwaltet wurden, insbesondere im Open Source Bereich.
