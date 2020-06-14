@@ -201,11 +201,8 @@ Da CSS Dateien oder andere Abhängigkeiten vom HTML-Output vorhanden sein könne
 
 ### Release erzeugen
 Als Letztes werden wir automatisiert einen Release erzeugen lassen.
-
 Hierfür durchsuchen wir wieder den Marketplace nach einer passenden Action.
-
 Es gibt bereits [Create A Release](https://github.com/actions/create-release), das verifiziert und von GitHub selbst erstellt wurde.
-
 Nach näherer Betrachtung des vorgegeben Beispiels, kann es problemlos angewandt werden.
 
 Hierfür wird ein neuer Workflow erstellt, der nur den Job der Release-Erstellung beinhaltet.
