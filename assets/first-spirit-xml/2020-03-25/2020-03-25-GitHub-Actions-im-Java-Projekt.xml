@@ -228,13 +228,10 @@ Dem Workflowschritten wird ein Name unter <code>name</code> gegeben und ein Outp
 Da CSS Dateien oder andere Abhängigkeiten vom HTML-Output vorhanden sein können, werden ganze Pfade und keine einzelnen Dateien übergeben.</p>
 
 <h6 id="release-erzeugen">Release erzeugen</h6>
-<p>Als Letztes werden wir automatisiert einen Release erzeugen lassen.</p>
-
-<p>Hierfür durchsuchen wir wieder den Marketplace nach einer passenden Action.</p>
-
-<p>Es gibt bereits <a href="https://github.com/actions/create-release">Create A Release</a>, das verifiziert und von GitHub selbst erstellt wurde.</p>
-
-<p>Nach näherer Betrachtung des vorgegeben Beispiels, kann es problemlos angewandt werden.</p>
+<p>Als Letztes werden wir automatisiert einen Release erzeugen lassen.
+Hierfür durchsuchen wir wieder den Marketplace nach einer passenden Action.
+Es gibt bereits <a href="https://github.com/actions/create-release">Create A Release</a>, das verifiziert und von GitHub selbst erstellt wurde.
+Nach näherer Betrachtung des vorgegeben Beispiels, kann es problemlos angewandt werden.</p>
 
 <p>Hierfür wird ein neuer Workflow erstellt, der nur den Job der Release-Erstellung beinhaltet.
 Ein eigener Workflow ist sinnvoll, da er neben dem Event-Typen auch auf den Tag eines <strong>Push</strong> oder <strong>Pullrequests</strong> achten soll.</p>
