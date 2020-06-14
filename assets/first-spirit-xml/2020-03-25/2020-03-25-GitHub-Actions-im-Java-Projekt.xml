@@ -73,13 +73,9 @@ Das Projekt ist mit Java 11 und Gradle ausgestattet.</p>
 Namhafte Sprachen und Frameworks werden unterstützt.
 Zum Herumexperimentieren stellt GitHub dem Benutzer eine Starter-Action zur Verfügung.</p>
 
-<p><img src="/assets/images/posts/github-actions/starter.JPG" alt="Bild der Starter-Action" /></p>
-
 <p>In diesem werden alle Punkte einer YML-Datei grob angeschnitten und erklärt, wofür diese benötigt werden.
 Es gibt bereits zahlreiche Actions von GitHub selbst und der Open-Source Community, beispielsweise eine um ein Gradle Projekt bauen und testen zu lassen.
 Diese Action wird im späteren Verlauf dieses Blogposts als Grundlage für die anderen Tasks des Workflows wiederverwendet.</p>
-
-<p><img src="/assets/images/posts/github-actions/gradle-build-action.JPG" alt="Bild des Gradle-Build-Actions" /></p>
 
 <p>Im Folgenden wird der Codeblock der Action genauer betrachtet.
 Weiterhin werden die einzelnen Werte genauer erklärt.</p>
@@ -283,17 +279,9 @@ Im Body steht dann der textuelle Inhalt des Releases.</p>
 
 <p>Der Draft gibt an, ob der Release published <em>(true)</em> oder unpublished <em>(false)</em> sein soll.
 Der Wert des Prerelease Attributs legt fest, ob es sich um einen vollwertigen, eigenständigen Release handelt oder einen Prerelease.
-Anschließend sieht der Release wie folgt aus.</p>
+Anschließend sieht das Release wie folgt aus.</p>
 
 <p><img src="/assets/images/posts/github-actions/release.JPG" alt="Bild des Releases" /></p>
-
-<p>Die Workflows werden in der Oberfläche separiert aufgelistet.</p>
-
-<p><img src="/assets/images/posts/github-actions/workflows.JPG" alt="Bild der Workflows" /></p>
-
-<p>Zum Schluss eine kleine visuelle Darstellung der drei Jobs in der Oberfläche des Workflows.</p>
-
-<p><img src="/assets/images/posts/github-actions/all-actions.JPG" alt="Bild aller Jobs" /></p>
 
 <h5 id="mein-fazit">Mein Fazit</h5>
 <p>GitHub-Actions ist ein muss bei Anwendungen, die sowieso auf GitHub verwaltet wurden, insbesondere im Open Source Bereich.</p>
