@@ -33,7 +33,7 @@ Um Actions in der Oberfläche von GitHub aufzurufen, gibt es im Repository den R
 
 ![Bild vom Actions Reiter](/assets/images/posts/github-actions/actions-tab.JPG)
 
-Angekommen in den Actions, kriegen wir vom intuitiven System eine Menge bereits definierter Actions, die out of the box einsatzbar sind.
+Angekommen in den Actions, kriegen wir vom intuitiven System eine Menge bereits definierter Actions, die out of the box einsetzbar sind.
 Namhafte Sprachen und Frameworks werden unterstützt.
 Zum Experimentieren stellt GitHub dem Benutzer eine Starter-Action zur Verfügung.
 
@@ -88,7 +88,7 @@ Als nächstes wird das Repository mit Befehl ```- uses: actions/checkout@v2``` �
 Nachdem das Repository ausgecheckt wurde, wird mit den nächsten drei Zeilen das Java SDK gesetzt.
 Für dieses Projekt wurde Java 11 verwendet, weshalb die Zahl bei ```java-version``` auf **11** wurde.
 
-Der Gradle Wrapper ist hier noch nicht als ausfühbar markiert, daher wird dieser mit ```run: chmod +x gradlew``` kurzerhand geändert.
+Der Gradle Wrapper ist hier noch nicht als ausführbar markiert, daher wird dieser mit ```run: chmod +x gradlew``` kurzerhand geändert.
 
 Im letzten Schritt der Action wird das Gradle-Projekt mit ```./gradlew build``` gebaut und getestet.
 
