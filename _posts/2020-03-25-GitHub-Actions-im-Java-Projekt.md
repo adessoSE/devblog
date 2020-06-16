@@ -7,18 +7,17 @@ author: ccaylak
 categories: [Softwareentwicklung]
 tags: [GitHub, Gradle, Spring Boot, Java]     
 ---
-GitHub-Actions ist das hauseigene Tool der Open-Source Plattform, um Prozesse in einem Softwareprojekt zu automatisieren.
-In diesem Blogpost wirst du methodisch lernen, wie ein Java Projekt mit GitHub Actions ausgestattet wird.
-Die Schwerpunkte sind das Bauen und Testen des Projekts. 
-Zudem das Deployen von Artefakten in Bezug auf Actions und die Anbindung von Cloud Services wie z.B SonarCloud.
-Abschließend noch die Erzeugung eines Releases. 
+GitHub Actions ist das hauseigene Tool Open-Source Plattform GitHub, um Prozesse in einem Softwareprojekt zu automatisieren.
+In diesem Blogpost wirst du lernen, wie ein Java Projekt mit GitHub Actions ausgestattet wird.
+Die Schwerpunkte sind das Bauen und Testen des Projekts, sowie das Deployen von Artefakten und die Anbindung von Cloud Services wie z.B SonarCloud.
+Abschließend schauen wir uns auch die Erzeugung eines Releases an. 
 
 # Was ist GitHub Actions?
-Diese API wird für öffentliche GitHub Projekte zur Verfügung gestellt.
-Dadurch können Workflowschritte definiert werden, die durch GitHub Events, wie einem **Pull Request** ausgelöst werden.
+Diese API wird für GitHub Projekte zur Verfügung gestellt.
+Dadurch können Workflowschritte definiert werden, die durch Events, wie einem **Pull Request** ausgelöst werden.
 
-Die Workflowschritte sind demnach vom Code losgelöst, sowie ein Teil des Repositorys. 
-Die eigenen Software Development Practices können erstellt, geteilt, wiederverwendet und geforked werden.
+Diese Workflows werden als Infrastructure as Code entwickelt, sind also ein Teil des Repositorys. 
+Die eigenen Workflows können erstellt, geteilt, wiederverwendet und geforked werden.
 
 Danach übernimmt GitHub die Ausführung und gibt dem Entwickler ein umfangreiches Feedback.
 Außerdem wird eine plattformunabhängige Automatisierung der Build-, Test-, und Deployschritte ermöglicht.
@@ -34,9 +33,9 @@ Um Actions in der Oberfläche von GitHub aufzurufen, gibt es im Repository den R
 
 ![Bild vom Actions Reiter](/assets/images/posts/github-actions/actions-tab.JPG)
 
-Angekommen in den Actions, kriegen wir vom intuitiven System eine Menge bereits definierter Actions, die **out of the box** sind.
+Angekommen in den Actions, kriegen wir vom intuitiven System eine Menge bereits definierter Actions, die out of the box einsatzbar sind.
 Namhafte Sprachen und Frameworks werden unterstützt.
-Zum Herumexperimentieren stellt GitHub dem Benutzer eine Starter-Action zur Verfügung.
+Zum Experimentieren stellt GitHub dem Benutzer eine Starter-Action zur Verfügung.
 
 In diesem werden alle Punkte einer YML-Datei grob angeschnitten und erklärt, wofür diese benötigt werden.
 Es gibt bereits zahlreiche Actions von GitHub selbst und der Open-Source Community, beispielsweise eine um ein Gradle Projekt bauen und testen zu lassen.
@@ -89,7 +88,7 @@ Als nächstes wird das Repository mit Befehl ```- uses: actions/checkout@v2``` �
 Nachdem das Repository ausgecheckt wurde, wird mit den nächsten drei Zeilen das Java SDK gesetzt.
 Für dieses Projekt wurde Java 11 verwendet, weshalb die Zahl bei ```java-version``` auf **11** wurde.
 
-Der Job braucht wiederum Rechte, um den danach folgenden Befehl ausführen zu können, daher werden diese mit ```run: chmod +x gradlew``` eingeholt.
+Der Gradle Wrapper ist hier noch nicht als ausfühbar markiert, daher wird dieser mit ```run: chmod +x gradlew``` kurzerhand geändert.
 
 Im letzten Schritt der Action wird das Gradle-Projekt mit ```./gradlew build``` gebaut und getestet.
 
@@ -140,8 +139,6 @@ Dieser wird als Secret im GitHub Repository angelegt, damit er nicht von außen 
 
 Wir erstellen einen neuen Job namens ```sonarcloud```.
 
-Alles bereits konfigurierte vom o.g Kapitel wird wieder benötigt.
-Damit ist das Setzen der Ausführungsumgebung, das Auschecken von Git, das Aufsetzten vom SDK und die Gradle Rechte Einholung gemeint.
 ```yaml
   sonarcloud:
 
