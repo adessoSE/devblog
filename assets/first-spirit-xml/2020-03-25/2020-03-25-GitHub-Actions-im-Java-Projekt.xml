@@ -3,11 +3,10 @@
     <document uid="38d7fc145b8d3dfe02d36cefe0d6d63d">
         <field name="title"><![CDATA[GitHub Actions im Java Projekt]]></field>
         <field name="subline"><![CDATA[]]></field>
-        <field name="teaser"><![CDATA[<p>GitHub-Actions ist das hauseigene Tool der Open-Source Plattform, um Prozesse in einem Softwareprojekt zu automatisieren.
-In diesem Blogpost wirst du methodisch lernen, wie ein Java Projekt mit GitHub Actions ausgestattet wird.
-Die Schwerpunkte sind das Bauen und Testen des Projekts. 
-Zudem das Deployen von Artefakten in Bezug auf Actions und die Anbindung von Cloud Services wie z.B SonarCloud.
-Abschließend noch die Erzeugung eines Releases.</p>
+        <field name="teaser"><![CDATA[<p>GitHub Actions ist das hauseigene Tool Open-Source Plattform GitHub, um Prozesse in einem Softwareprojekt zu automatisieren.
+In diesem Blogpost wirst du lernen, wie ein Java Projekt mit GitHub Actions ausgestattet wird.
+Die Schwerpunkte sind das Bauen und Testen des Projekts, sowie das Deployen von Artefakten und die Anbindung von Cloud Services wie z.B SonarCloud.
+Abschließend schauen wir uns auch die Erzeugung eines Releases an.</p>
 
 ]]></field>
         <field name="language_multi_keyword"><![CDATA[de]]></field>
@@ -31,29 +30,27 @@ Abschließend noch die Erzeugung eines Releases.</p>
         <!--Postcontent-->
         <field name="headlines"><![CDATA[GitHub Actions im Java Projekt]]></field>
         <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
-            <p>GitHub-Actions ist das hauseigene Tool der Open-Source Plattform, um Prozesse in einem Softwareprojekt zu automatisieren.
-In diesem Blogpost wirst du methodisch lernen, wie ein Java Projekt mit GitHub Actions ausgestattet wird.
-Die Schwerpunkte sind das Bauen und Testen des Projekts. 
-Zudem das Deployen von Artefakten in Bezug auf Actions und die Anbindung von Cloud Services wie z.B SonarCloud.
-Abschließend noch die Erzeugung eines Releases.</p>
+            <p>GitHub Actions ist das hauseigene Tool Open-Source Plattform GitHub, um Prozesse in einem Softwareprojekt zu automatisieren.
+In diesem Blogpost wirst du lernen, wie ein Java Projekt mit GitHub Actions ausgestattet wird.
+Die Schwerpunkte sind das Bauen und Testen des Projekts, sowie das Deployen von Artefakten und die Anbindung von Cloud Services wie z.B SonarCloud.
+Abschließend schauen wir uns auch die Erzeugung eines Releases an.</p>
 
 </div>]]></field>
         <field name="content"><![CDATA[<div class="adesso-text-formate">
 <div class="row p-t-2">
 <div class="adesso-container">
 <div class="col-xl-8 adesso-center p-b-1 p-l-0 p-r-0">
-    <p>GitHub-Actions ist das hauseigene Tool der Open-Source Plattform, um Prozesse in einem Softwareprojekt zu automatisieren.
-In diesem Blogpost wirst du methodisch lernen, wie ein Java Projekt mit GitHub Actions ausgestattet wird.
-Die Schwerpunkte sind das Bauen und Testen des Projekts. 
-Zudem das Deployen von Artefakten in Bezug auf Actions und die Anbindung von Cloud Services wie z.B SonarCloud.
-Abschließend noch die Erzeugung eines Releases.</p>
+    <p>GitHub Actions ist das hauseigene Tool Open-Source Plattform GitHub, um Prozesse in einem Softwareprojekt zu automatisieren.
+In diesem Blogpost wirst du lernen, wie ein Java Projekt mit GitHub Actions ausgestattet wird.
+Die Schwerpunkte sind das Bauen und Testen des Projekts, sowie das Deployen von Artefakten und die Anbindung von Cloud Services wie z.B SonarCloud.
+Abschließend schauen wir uns auch die Erzeugung eines Releases an.</p>
 
 <h4 id="was-ist-github-actions">Was ist GitHub Actions?</h4>
-<p>Diese API wird für öffentliche GitHub Projekte zur Verfügung gestellt.
-Dadurch können Workflowschritte definiert werden, die durch GitHub Events, wie einem <strong>Pull Request</strong> ausgelöst werden.</p>
+<p>Diese API wird für GitHub Projekte zur Verfügung gestellt.
+Dadurch können Workflowschritte definiert werden, die durch Events, wie einem <strong>Pull Request</strong> ausgelöst werden.</p>
 
-<p>Die Workflowschritte sind demnach vom Code losgelöst, sowie ein Teil des Repositorys. 
-Die eigenen Software Development Practices können erstellt, geteilt, wiederverwendet und geforked werden.</p>
+<p>Diese Workflows werden als Infrastructure as Code entwickelt, sind also ein Teil des Repositorys. 
+Die eigenen Workflows können erstellt, geteilt, wiederverwendet und geforked werden.</p>
 
 <p>Danach übernimmt GitHub die Ausführung und gibt dem Entwickler ein umfangreiches Feedback.
 Außerdem wird eine plattformunabhängige Automatisierung der Build-, Test-, und Deployschritte ermöglicht.
@@ -69,9 +66,9 @@ Das Projekt ist mit Java 11 und Gradle ausgestattet.</p>
 
 <p><img src="/assets/images/posts/github-actions/actions-tab.JPG" alt="Bild vom Actions Reiter" /></p>
 
-<p>Angekommen in den Actions, kriegen wir vom intuitiven System eine Menge bereits definierter Actions, die <strong>out of the box</strong> sind.
+<p>Angekommen in den Actions, kriegen wir vom intuitiven System eine Menge bereits definierter Actions, die out of the box einsatzbar sind.
 Namhafte Sprachen und Frameworks werden unterstützt.
-Zum Herumexperimentieren stellt GitHub dem Benutzer eine Starter-Action zur Verfügung.</p>
+Zum Experimentieren stellt GitHub dem Benutzer eine Starter-Action zur Verfügung.</p>
 
 <p>In diesem werden alle Punkte einer YML-Datei grob angeschnitten und erklärt, wofür diese benötigt werden.
 Es gibt bereits zahlreiche Actions von GitHub selbst und der Open-Source Community, beispielsweise eine um ein Gradle Projekt bauen und testen zu lassen.
@@ -123,7 +120,7 @@ Als nächstes wird das Repository mit Befehl <code>- uses: actions/checkout@v2</
 <p>Nachdem das Repository ausgecheckt wurde, wird mit den nächsten drei Zeilen das Java SDK gesetzt.
 Für dieses Projekt wurde Java 11 verwendet, weshalb die Zahl bei <code>java-version</code> auf <strong>11</strong> wurde.</p>
 
-<p>Der Job braucht wiederum Rechte, um den danach folgenden Befehl ausführen zu können, daher werden diese mit <code>run: chmod +x gradlew</code> eingeholt.</p>
+<p>Der Gradle Wrapper ist hier noch nicht als ausfühbar markiert, daher wird dieser mit <code>run: chmod +x gradlew</code> kurzerhand geändert.</p>
 
 <p>Im letzten Schritt der Action wird das Gradle-Projekt mit <code>./gradlew build</code> gebaut und getestet.</p>
 
@@ -171,8 +168,6 @@ Dieser wird als Secret im GitHub Repository angelegt, damit er nicht von außen 
 
 <p>Wir erstellen einen neuen Job namens <code>sonarcloud</code>.</p>
 
-<p>Alles bereits konfigurierte vom o.g Kapitel wird wieder benötigt.
-Damit ist das Setzen der Ausführungsumgebung, das Auschecken von Git, das Aufsetzten vom SDK und die Gradle Rechte Einholung gemeint.</p>
 <pre><code class="language-yaml">  sonarcloud:
 
     runs-on: ubuntu-latest
