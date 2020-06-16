@@ -66,7 +66,7 @@ Das Projekt ist mit Java 11 und Gradle ausgestattet.</p>
 
 <p><img src="/assets/images/posts/github-actions/actions-tab.JPG" alt="Bild vom Actions Reiter" /></p>
 
-<p>Angekommen in den Actions, kriegen wir vom intuitiven System eine Menge bereits definierter Actions, die out of the box einsatzbar sind.
+<p>Angekommen in den Actions, kriegen wir vom intuitiven System eine Menge bereits definierter Actions, die out of the box einsetzbar sind.
 Namhafte Sprachen und Frameworks werden unterstützt.
 Zum Experimentieren stellt GitHub dem Benutzer eine Starter-Action zur Verfügung.</p>
 
@@ -120,7 +120,7 @@ Als nächstes wird das Repository mit Befehl <code>- uses: actions/checkout@v2</
 <p>Nachdem das Repository ausgecheckt wurde, wird mit den nächsten drei Zeilen das Java SDK gesetzt.
 Für dieses Projekt wurde Java 11 verwendet, weshalb die Zahl bei <code>java-version</code> auf <strong>11</strong> wurde.</p>
 
-<p>Der Gradle Wrapper ist hier noch nicht als ausfühbar markiert, daher wird dieser mit <code>run: chmod +x gradlew</code> kurzerhand geändert.</p>
+<p>Der Gradle Wrapper ist hier noch nicht als ausführbar markiert, daher wird dieser mit <code>run: chmod +x gradlew</code> kurzerhand geändert.</p>
 
 <p>Im letzten Schritt der Action wird das Gradle-Projekt mit <code>./gradlew build</code> gebaut und getestet.</p>
 
