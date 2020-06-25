@@ -286,7 +286,7 @@ GitHub-Actions ist sehr empfehlenswert bei Anwendungen, die sowieso auf GitHub v
 Insbesondere im Open Source Bereich bzw. öffentliche Repositories, denn für private Repositories gibt einige <a href="https://help.github.com/en/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-actions">wichtige Restriktionen</a>, die kosten verursachen könnten.
 Detaillierte Dokumentation und eine breite Palette <a href="https://github.com/marketplace?type=actions">vorgegebener Actions</a> ermöglichen uns schnelle Umsetzung gewünscher Workflows.
 Der Funktionsumfang ist gigantisch und jeder, dessen Interesse erweckt wurde, sollte sich die Dokumentation genauer anschauen.
-Dieser Blogpost dient lediglich als Guide, um zu zeigen wie einfach CI/CD Prozesse mit Actions realisiert werden können. 
+Dieser Blogpost dient lediglich als Einführung, um zu zeigen wie einfach CI/CD Prozesse mit Actions realisiert werden können. 
 Außerdem ist es schön, dass die Actions direkt in der Oberfläche von GitHub erstellt werden können und anschließend mit ins Repository gepusht werden.</p>
 
 </div>
