@@ -2,7 +2,7 @@
 layout: [post, post-xml]              
 title: "GitHub Actions im Java Projekt"            
 date: 2020-03-25 09:38              
-modified_date: 2020-06-25 10:52
+modified_date: 2020-06-25 13:55
 author: ccaylak                       
 categories: [Softwareentwicklung]
 tags: [GitHub, Gradle, Spring Boot, Java]     
@@ -25,7 +25,7 @@ Die Ausführung kann unter den gängigen Betriebssystemen Windows, Linux und mac
 Auch kannst du festlegen, ob die Workflows in einem Container oder in einer virtuellen Maschine ausgeführt werden sollen.
 
 ## Erzeugung des Java Projekts
-Um einen demonstrativen Workflow zu erstellen, nutzen wir ein [Java Projekt](https://) das mit [Spring Boot Starter](https://start.spring.io/) initialisiert wurde.
+Um einen demonstrativen Workflow zu erstellen, nutzen wir ein [Java Projekt](https://github.com/adessoAG/github-actions-demo) das mit [Spring Boot Starter](https://start.spring.io/) initialisiert wurde.
 Das Projekt ist mit Java 11 und Gradle ausgestattet.
 
 ### Gradle Projekt bauen und testen
@@ -134,7 +134,7 @@ systemProp.sonar.organization=adesso-ag
 systemProp.sonar.projectKey=adessoAG_github-actions-demo
 ```
 Auf SonarCloud muss du noch über den Pfad _My Account->Security->Tokens_ einen projektspezifischen Token generieren.
-Dieser wird als Secret im GitHub Repository angelegt, damit er nicht von außen sichtbar ist.
+Dieser wird als [Secret](https://help.github.com/en/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets) im GitHub Repository angelegt, damit er nicht von außen sichtbar ist.
 Secrets werden in der GitHub Oberfläche des Repositories über Settings->Secrets angelegt.
 
 Wir erstellen einen neuen Job namens `sonarcloud`.
@@ -158,7 +158,7 @@ Wir erstellen einen neuen Job namens `sonarcloud`.
 ```
 
 Folgend verwenden wir den zuvor erstellten Sonar Token und von Actions selbst generierten GitHub Token als Umgebungsvariable.
-Umgebungsvariablen bzw. Enviroment variables werden unter `env` angegeben.
+Umgebungsvariablen bzw. Enviroment Variables werden unter `env` angegeben.
 Hinterher wird `gradlew test jacocoTestReport sonarqube -Dsonar.login=$SONAR_TOKEN` im `run` ausgeführt.
 Folgende Zeilen Code ergänzen den `sonarcloud` Workflow:
 ```yaml
@@ -171,7 +171,7 @@ Folgende Zeilen Code ergänzen den `sonarcloud` Workflow:
 
 ### Artefakte hochladen
 
-Die Test-Coverage eines Projekts wird mit Jacoco gehandhabt, der Entwickler kriegt anschließend einen entsprechenden HTML-Report.
+Die Test-Coverage eines Projekts wird mit Jacoco gehandhabt, der Entwickler bekommt anschließend einen entsprechenden HTML-Report.
 Außerdem erstellt Gradle selbst auch einen Test-Report im HTML-Format, der zusammen mit dem Jacoco Test-Report als Artefakt hochgeladen werden soll.
 Dies wird mit den folgenden zwei Workflowschritten realisiert.
 
@@ -188,8 +188,8 @@ Dies wird mit den folgenden zwei Workflowschritten realisiert.
         path: build/reports/tests/test
 ``` 
 
-Für das Hochladen von Artefakten wird  `actions/upload-artifact@v1` verwendet.
-Dem Workflowschritten wird ein Name unter `name` gegeben und ein Output-Pfad der zur hochladenenden Datei bzw. Dateien.
+Für das Hochladen von Artefakten wird `actions/upload-artifact@v1` verwendet.
+Dem Workflowschritten wird ein Name unter `name` gegeben und ein Output-Pfad der zu den hochladenenden Dateien führt.
 Da CSS Dateien oder andere Abhängigkeiten vom HTML-Output vorhanden sein können, werden ganze Pfade und keine einzelnen Dateien übergeben.
 
 ### Release erzeugen
@@ -258,8 +258,9 @@ Nach etwas mehr als einer Stunde haben wir einen automatisierten Workflow erstel
 Dieser baut, testet ein Gradle Projekt und deployt HTML-Reports als Artefakte.
 Dazu erstellt der Workflow mittels Commit-Tags Releases.
 GitHub-Actions ist sehr empfehlenswert bei Anwendungen, die sowieso auf GitHub verwaltet werden.
-Insbesondere im Open Source Bereich bzw. öffentliche Repositories, denn für private Repositories gibt einige [wichtige Restriktionen](https://help.github.com/en/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-actions), die kosten verursachen könnten.
+Insbesondere im Open Source Bereich bzw. öffentlichen Repositories ist der Einsatz sehr empfehlenswert, da keine Kosten zu erwarten sind. 
+Bei privaten Repositories ist es empfehlenswert auf [Restriktionen](https://help.github.com/en/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-actions) und Kosten zu achten.
 Detaillierte Dokumentation und eine breite Palette [vorgegebener Actions](https://github.com/marketplace?type=actions) ermöglichen uns schnelle Umsetzung gewünscher Workflows.
 Der Funktionsumfang ist gigantisch und jeder, dessen Interesse erweckt wurde, sollte sich die Dokumentation genauer anschauen.
-Dieser Blogpost dient lediglich als Guide, um zu zeigen wie einfach CI/CD Prozesse mit Actions realisiert werden können. 
-Außerdem ist es schön, dass die Actions direkt in der Oberfläche von GitHub erstellt werden können und anschließend mit ins Repository gepusht werden.
+Dieser Blogpost dient lediglich als Einführung, um zu zeigen wie einfach CI/CD Prozesse mit Actions realisiert werden können. 
+Außerdem ist es schön, dass die Actions direkt in der Oberfläche von GitHub erstellt und anschließend mit ins Repository gepusht werden.
