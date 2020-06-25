@@ -3,7 +3,7 @@
     <document uid="38d7fc145b8d3dfe02d36cefe0d6d63d">
         <field name="title"><![CDATA[GitHub Actions im Java Projekt]]></field>
         <field name="subline"><![CDATA[]]></field>
-        <field name="teaser"><![CDATA[<p>GitHub Actions ist das hauseigene Tool Open-Source Plattform GitHub, um Prozesse in einem Softwareprojekt zu automatisieren.
+        <field name="teaser"><![CDATA[<p>GitHub Actions ist das hauseigene Tool der Code-Hosting-Plattform GitHub, um Prozesse in einem Softwareprojekt zu automatisieren.
 In diesem Blogpost wirst du lernen, wie ein Java Projekt mit GitHub Actions ausgestattet wird.
 Die Schwerpunkte sind das Bauen und Testen des Projekts, sowie das Deployen von Artefakten und die Anbindung von Cloud Services wie z.B SonarCloud.
 Abschließend schauen wir uns auch die Erzeugung eines Releases an.</p>
@@ -19,7 +19,7 @@ Abschließend schauen wir uns auch die Erzeugung eines Releases an.</p>
         <field name="tag_multi_keyword"><![CDATA[Java]]></field>
         <field name="date_date"><![CDATA[2020-03-25T09:38:00+01:00]]></field>
         <field name="date_l"><![CDATA[1585125480000]]></field>
-        <field name="change_date"><![CDATA[1592177400000]]></field>
+        <field name="change_date"><![CDATA[1593075120000]]></field>
         <!--Picture-->
         <!-- Not in use at the moment-->
         <!--Author Information-->
@@ -30,7 +30,7 @@ Abschließend schauen wir uns auch die Erzeugung eines Releases an.</p>
         <!--Postcontent-->
         <field name="headlines"><![CDATA[GitHub Actions im Java Projekt]]></field>
         <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
-            <p>GitHub Actions ist das hauseigene Tool Open-Source Plattform GitHub, um Prozesse in einem Softwareprojekt zu automatisieren.
+            <p>GitHub Actions ist das hauseigene Tool der Code-Hosting-Plattform GitHub, um Prozesse in einem Softwareprojekt zu automatisieren.
 In diesem Blogpost wirst du lernen, wie ein Java Projekt mit GitHub Actions ausgestattet wird.
 Die Schwerpunkte sind das Bauen und Testen des Projekts, sowie das Deployen von Artefakten und die Anbindung von Cloud Services wie z.B SonarCloud.
 Abschließend schauen wir uns auch die Erzeugung eines Releases an.</p>
@@ -40,7 +40,7 @@ Abschließend schauen wir uns auch die Erzeugung eines Releases an.</p>
 <div class="row p-t-2">
 <div class="adesso-container">
 <div class="col-xl-8 adesso-center p-b-1 p-l-0 p-r-0">
-    <p>GitHub Actions ist das hauseigene Tool Open-Source Plattform GitHub, um Prozesse in einem Softwareprojekt zu automatisieren.
+    <p>GitHub Actions ist das hauseigene Tool der Code-Hosting-Plattform GitHub, um Prozesse in einem Softwareprojekt zu automatisieren.
 In diesem Blogpost wirst du lernen, wie ein Java Projekt mit GitHub Actions ausgestattet wird.
 Die Schwerpunkte sind das Bauen und Testen des Projekts, sowie das Deployen von Artefakten und die Anbindung von Cloud Services wie z.B SonarCloud.
 Abschließend schauen wir uns auch die Erzeugung eines Releases an.</p>
@@ -52,13 +52,13 @@ Dadurch können Workflowschritte definiert werden, die durch Events wie beispiel
 <p>Diese Workflows werden als Infrastructure as Code entwickelt, sind also ein Teil des Repositorys. 
 Praktischerweise können sie auch geteilt und wiederverwendet werden.</p>
 
-<p>Danach übernimmt GitHub die Ausführung und gibt dem Entwickler ein umfangreiches Feedback.
-Außerdem wird eine plattformunabhängige Automatisierung der Build-, Test-, und Deployschritte ermöglicht.
+<p>Danach wird die Actions ausgeführt und es wird ein umfangreiches Feedback wie z.B Logs und Ausführzeiten erstellt.
+Das umfangreiche Feedback kann individuell für jeden Schritt angepasst werden.
 Die Ausführung kann unter den gängigen Betriebssystemen Windows, Linux und macOS durchgeführt werden.
 Auch kannst du festlegen, ob die Workflows in einem Container oder in einer virtuellen Maschine ausgeführt werden sollen.</p>
 
 <h5 id="erzeugung-des-java-projekts">Erzeugung des Java Projekts</h5>
-<p>Als beispielhaftes Java Projekt dient eine Spring Boot Anwendung, die mit dem <a href="https://start.spring.io/">Spring Boot Starter</a> erstellt wurde.
+<p>Um einen demonstrativen Workflow zu erstellen, nutzen wir ein <a href="https://">Java Projekt</a> das mit <a href="https://start.spring.io/">Spring Boot Starter</a> initialisiert wurde.
 Das Projekt ist mit Java 11 und Gradle ausgestattet.</p>
 
 <h6 id="gradle-projekt-bauen-und-testen">Gradle Projekt bauen und testen</h6>
@@ -66,12 +66,12 @@ Das Projekt ist mit Java 11 und Gradle ausgestattet.</p>
 
 <p><img src="/assets/images/posts/github-actions/actions-tab.JPG" alt="Bild vom Actions Reiter" /></p>
 
-<p>Angekommen in den Actions, kriegen wir vom intuitiven System eine Menge bereits definierter Actions, die out of the box einsetzbar sind.
+<p>Angekommen in den Actions, werden vom intuitiven System eine Menge bereits integrierter Actions bereitgestellt.
 Namhafte Sprachen und Frameworks werden unterstützt.
 Zum Experimentieren stellt GitHub dem Benutzer eine Starter-Action zur Verfügung.</p>
 
-<p>In diesem werden alle Punkte einer YML-Datei grob angeschnitten und erklärt, wofür diese benötigt werden.
-Es gibt bereits zahlreiche Actions von GitHub selbst und der Open-Source Community, beispielsweise eine um ein Gradle Projekt bauen und testen zu lassen.
+<p>In der Starter-Action werden alle Punkte einer YML-Datei kurz erkläutert.
+Es gibt bereits zahlreiche Actions die von GitHub und der Open-Source Community bereitgestellt sind.
 Diese Action wird im späteren Verlauf dieses Blogposts als Grundlage für die anderen Tasks des Workflows wiederverwendet.</p>
 
 <p>Im Folgenden wird der Codeblock der Action genauer betrachtet.
@@ -112,17 +112,14 @@ Welche weiteren Event-Typen es gibt, kann in der <a href="https://help.github.co
 Je nach Konfiguration können diese sequenziell oder parallel abgearbeitet werden.</p>
 
 <p>Nun folgen die einzelnen Jobs, wobei <code>build</code> den Namen des einzigen Workflowschritt angibt.
-Zusätzlich wird mit <code>runs-on</code> angegeben, auf welcher Ausführungsumgebung dieser ausgeführt werden soll.</p>
-
-<p>Mit <code>steps</code> wird eine Folge von Schritten definiert, die für diesen Job benötigt werden.
-Als nächstes wird das Repository mit Befehl <code>- uses: actions/checkout@v2</code> über Git ausgecheckt, damit es für den Job benutzt werden kann.</p>
-
-<p>Nachdem das Repository ausgecheckt wurde, wird mit den nächsten drei Zeilen das Java SDK gesetzt.
+Zusätzlich wird mit <code>runs-on</code> angegeben, auf welcher Ausführungsumgebung dieser ausgeführt werden soll.
+Mit <code>steps</code> wird eine Folge von Schritten definiert, die für diesen Job benötigt werden.
+Als nächstes wird das Repository mit Befehl <code>- uses: actions/checkout@v2</code> über Git ausgecheckt, damit es für den Job benutzt werden kann.
+Nachdem das Repository ausgecheckt wurde, wird mit den nächsten drei Zeilen das Java SDK gesetzt.
 Für dieses Projekt wurde Java 11 verwendet, weshalb die Zahl bei <code>java-version</code> auf <strong>11</strong> wurde.</p>
 
-<p>Der Gradle Wrapper ist hier noch nicht als ausführbar markiert, daher wird dieser mit <code>run: chmod +x gradlew</code> kurzerhand geändert.</p>
-
-<p>Im letzten Schritt der Action wird das Gradle-Projekt mit <code>./gradlew build</code> gebaut und getestet.</p>
+<p>Der Gradle Wrapper ist hier noch nicht als ausführbar markiert, daher wird dieser mit <code>run: chmod +x gradlew</code> kurzerhand geändert.
+Im letzten Schritt der Action wird das Gradle-Projekt mit <code>./gradlew build</code> gebaut und getestet.</p>
 
 <p><img src="/assets/images/posts/github-actions/gradle-build-result.JPG" alt="Bild des Ergebnisses des Gradle Builds" /></p>
 
@@ -134,8 +131,10 @@ Diese besitzen eine Zeitangabe und können bei Bedarf aufgeklappt und näher bet
 
 <h6 id="sonarcloud-anbindung">SonarCloud Anbindung</h6>
 <p>Ein weiterer Aspekt dieses Blogposts ist die SonarCloud Anbindung mittels Actions im Java Projekt.
-Für unseren Anwendungsfall benötigen wir das SonarQube und Jacoco für Gradle. 
-Diese fügen wir dem Projekt hinzu, indem wir folgende Zeilen zum Punkt plugins der build.gradle eintragen.</p>
+Für unseren Anwendungsfall benötigen wir das <a href="https://docs.sonarqube.org/latest/analysis/scan/sonarscanner-for-gradle/">SonarQube</a> und <a href="https://docs.gradle.org/current/userguide/jacoco_plugin.html">Jacoco Plugin</a> für Gradle.
+SonarQube ist ein cloudbasierter Dienst, der den Sourcecode auf Qualität testet und die Ergebnisse über eine Webseite darstellt.
+JaCoCo steht für Java Code Coverage Library und erstellt Ergebnisse für die Testabdeckung eines Projekts.
+Diese fügen wir dem Projekt hinzu, indem wir folgende Zeilen zum Abschnitt <code>plugins</code> innerhalb der <code>build.gradle</code> eintragen.</p>
 
 <pre><code class="language-gradle">plugins {
 	id "org.sonarqube" version "3.0"
@@ -156,7 +155,7 @@ jacocoTestReport {
 }
 </code></pre>
 
-<p>Als Letztes muss SonarCloud in den gradle.properties konfiguriert werden.
+<p>Als Letztes muss SonarCloud in den <code>gradle.properties</code> konfiguriert werden.
 Hierzu wird die Url, Organisation und der Project-Key eingeschrieben.</p>
 
 <pre><code class="language-gradle">systemProp.sonar.host.url=https://sonarcloud.io/
@@ -221,8 +220,7 @@ Da CSS Dateien oder andere Abhängigkeiten vom HTML-Output vorhanden sein könne
 <h6 id="release-erzeugen">Release erzeugen</h6>
 <p>Als Letztes werden wir automatisiert einen Release erzeugen lassen.
 Hierfür durchsuchen wir wieder den Marketplace nach einer passenden Action.
-Es gibt bereits <a href="https://github.com/actions/create-release">Create A Release</a>, das verifiziert und von GitHub selbst erstellt wurde.
-Nach näherer Betrachtung des vorgegeben Beispiels, kann es problemlos angewandt werden.</p>
+Es gibt bereits <a href="https://github.com/actions/create-release">Create A Release</a>, das verifiziert und von GitHub selbst erstellt wurde.</p>
 
 <p>Hierfür wird ein neuer Workflow erstellt, der nur den Job der Release-Erstellung beinhaltet.
 Ein eigener Workflow ist sinnvoll, da er neben dem Event-Typen auch auf den Tag eines <strong>Push</strong> oder <strong>Pullrequests</strong> achten soll.</p>
@@ -288,7 +286,7 @@ Des Weiteren gibt es einen <a href="https://github.com/marketplace?type=actions"
 Denn dieser Blogpost dient lediglich als Guide, um zu zeigen wie einfach CI/CD Prozesse mit Actions realisiert werden können.</p>
 
 <p>Außerdem ist es schön, dass Actions direkt in der Oberfläche von GitHub erstellt werden können.
-Die Dateien werden anschließend mit ins Repository gepusht, aber der Support ist dank der Oberflächte angenehmer.</p>
+Die Dateien werden anschließend mit ins Repository gepusht, aber der Support ist dank der Oberfläche angenehmer.</p>
 
 </div>
 </div>
