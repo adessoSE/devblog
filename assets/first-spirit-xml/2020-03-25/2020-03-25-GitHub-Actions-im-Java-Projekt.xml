@@ -19,7 +19,7 @@ Abschließend schauen wir uns auch die Erzeugung eines Releases an.</p>
         <field name="tag_multi_keyword"><![CDATA[Java]]></field>
         <field name="date_date"><![CDATA[2020-03-25T09:38:00+01:00]]></field>
         <field name="date_l"><![CDATA[1585125480000]]></field>
-        <field name="change_date"><![CDATA[1593075120000]]></field>
+        <field name="change_date"><![CDATA[1593086100000]]></field>
         <!--Picture-->
         <!-- Not in use at the moment-->
         <!--Author Information-->
@@ -58,7 +58,7 @@ Die Ausführung kann unter den gängigen Betriebssystemen Windows, Linux und mac
 Auch kannst du festlegen, ob die Workflows in einem Container oder in einer virtuellen Maschine ausgeführt werden sollen.</p>
 
 <h5 id="erzeugung-des-java-projekts">Erzeugung des Java Projekts</h5>
-<p>Um einen demonstrativen Workflow zu erstellen, nutzen wir ein <a href="https://">Java Projekt</a> das mit <a href="https://start.spring.io/">Spring Boot Starter</a> initialisiert wurde.
+<p>Um einen demonstrativen Workflow zu erstellen, nutzen wir ein <a href="https://github.com/adessoAG/github-actions-demo">Java Projekt</a> das mit <a href="https://start.spring.io/">Spring Boot Starter</a> initialisiert wurde.
 Das Projekt ist mit Java 11 und Gradle ausgestattet.</p>
 
 <h6 id="gradle-projekt-bauen-und-testen">Gradle Projekt bauen und testen</h6>
@@ -163,7 +163,7 @@ systemProp.sonar.organization=adesso-ag
 systemProp.sonar.projectKey=adessoAG_github-actions-demo
 </code></pre>
 <p>Auf SonarCloud muss du noch über den Pfad <em>My Account-&gt;Security-&gt;Tokens</em> einen projektspezifischen Token generieren.
-Dieser wird als Secret im GitHub Repository angelegt, damit er nicht von außen sichtbar ist.
+Dieser wird als <a href="https://help.github.com/en/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets">Secret</a> im GitHub Repository angelegt, damit er nicht von außen sichtbar ist.
 Secrets werden in der GitHub Oberfläche des Repositories über Settings-&gt;Secrets angelegt.</p>
 
 <p>Wir erstellen einen neuen Job namens <code>sonarcloud</code>.</p>
@@ -186,7 +186,7 @@ Secrets werden in der GitHub Oberfläche des Repositories über Settings-&gt;Sec
 </code></pre>
 
 <p>Folgend verwenden wir den zuvor erstellten Sonar Token und von Actions selbst generierten GitHub Token als Umgebungsvariable.
-Umgebungsvariablen bzw. Enviroment variables werden unter <code>env</code> angegeben.
+Umgebungsvariablen bzw. Enviroment Variables werden unter <code>env</code> angegeben.
 Hinterher wird <code>gradlew test jacocoTestReport sonarqube -Dsonar.login=$SONAR_TOKEN</code> im <code>run</code> ausgeführt.
 Folgende Zeilen Code ergänzen den <code>sonarcloud</code> Workflow:</p>
 <pre><code class="language-yaml">- name: SonarQube and Jacoco
@@ -198,7 +198,7 @@ Folgende Zeilen Code ergänzen den <code>sonarcloud</code> Workflow:</p>
 
 <h6 id="artefakte-hochladen">Artefakte hochladen</h6>
 
-<p>Die Test-Coverage eines Projekts wird mit Jacoco gehandhabt, der Entwickler kriegt anschließend einen entsprechenden HTML-Report.
+<p>Die Test-Coverage eines Projekts wird mit Jacoco gehandhabt, der Entwickler bekommt anschließend einen entsprechenden HTML-Report.
 Außerdem erstellt Gradle selbst auch einen Test-Report im HTML-Format, der zusammen mit dem Jacoco Test-Report als Artefakt hochgeladen werden soll.
 Dies wird mit den folgenden zwei Workflowschritten realisiert.</p>
 
@@ -214,8 +214,8 @@ Dies wird mit den folgenden zwei Workflowschritten realisiert.</p>
         path: build/reports/tests/test
 </code></pre>
 
-<p>Für das Hochladen von Artefakten wird  <code>actions/upload-artifact@v1</code> verwendet.
-Dem Workflowschritten wird ein Name unter <code>name</code> gegeben und ein Output-Pfad der zur hochladenenden Datei bzw. Dateien.
+<p>Für das Hochladen von Artefakten wird <code>actions/upload-artifact@v1</code> verwendet.
+Dem Workflowschritten wird ein Name unter <code>name</code> gegeben und ein Output-Pfad der zu den hochladenenden Dateien führt.
 Da CSS Dateien oder andere Abhängigkeiten vom HTML-Output vorhanden sein können, werden ganze Pfade und keine einzelnen Dateien übergeben.</p>
 
 <h6 id="release-erzeugen">Release erzeugen</h6>
@@ -283,11 +283,12 @@ Anschließend sieht das Release wie folgt aus.</p>
 Dieser baut, testet ein Gradle Projekt und deployt HTML-Reports als Artefakte.
 Dazu erstellt der Workflow mittels Commit-Tags Releases.
 GitHub-Actions ist sehr empfehlenswert bei Anwendungen, die sowieso auf GitHub verwaltet werden.
-Insbesondere im Open Source Bereich bzw. öffentliche Repositories, denn für private Repositories gibt einige <a href="https://help.github.com/en/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-actions">wichtige Restriktionen</a>, die kosten verursachen könnten.
+Insbesondere im Open Source Bereich bzw. öffentlichen Repositories ist der Einsatz sehr empfehlenswert, da keine Kosten zu erwarten sind. 
+Bei privaten Repositories ist es empfehlenswert auf <a href="https://help.github.com/en/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-actions">Restriktionen</a> und Kosten zu achten.
 Detaillierte Dokumentation und eine breite Palette <a href="https://github.com/marketplace?type=actions">vorgegebener Actions</a> ermöglichen uns schnelle Umsetzung gewünscher Workflows.
 Der Funktionsumfang ist gigantisch und jeder, dessen Interesse erweckt wurde, sollte sich die Dokumentation genauer anschauen.
-Dieser Blogpost dient lediglich als Guide, um zu zeigen wie einfach CI/CD Prozesse mit Actions realisiert werden können. 
-Außerdem ist es schön, dass die Actions direkt in der Oberfläche von GitHub erstellt werden können und anschließend mit ins Repository gepusht werden.</p>
+Dieser Blogpost dient lediglich als Einführung, um zu zeigen wie einfach CI/CD Prozesse mit Actions realisiert werden können. 
+Außerdem ist es schön, dass die Actions direkt in der Oberfläche von GitHub erstellt und anschließend mit ins Repository gepusht werden.</p>
 
 </div>
 </div>
