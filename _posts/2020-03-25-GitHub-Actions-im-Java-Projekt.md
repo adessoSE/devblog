@@ -7,7 +7,7 @@ author: ccaylak
 categories: [Softwareentwicklung]
 tags: [GitHub, Gradle, Spring Boot, Java]     
 ---
-GitHub Actions ist das hauseigene Tool Open-Source Plattform GitHub, um Prozesse in einem Softwareprojekt zu automatisieren.
+GitHub Actions ist das hauseigene Tool der Code-Hosting-Plattform GitHub, um Prozesse in einem Softwareprojekt zu automatisieren.
 In diesem Blogpost wirst du lernen, wie ein Java Projekt mit GitHub Actions ausgestattet wird.
 Die Schwerpunkte sind das Bauen und Testen des Projekts, sowie das Deployen von Artefakten und die Anbindung von Cloud Services wie z.B SonarCloud.
 Abschließend schauen wir uns auch die Erzeugung eines Releases an. 
@@ -19,13 +19,13 @@ Dadurch können Workflowschritte definiert werden, die durch Events wie beispiel
 Diese Workflows werden als Infrastructure as Code entwickelt, sind also ein Teil des Repositorys. 
 Praktischerweise können sie auch geteilt und wiederverwendet werden.
 
-Danach übernimmt GitHub die Ausführung und gibt dem Entwickler ein umfangreiches Feedback.
-Außerdem wird eine plattformunabhängige Automatisierung der Build-, Test-, und Deployschritte ermöglicht.
+Danach wird die Actions ausgeführt und es wird ein umfangreiches Feedback wie z.B Logs und Ausführzeiten erstellt.
+Das umfangreiche Feedback kann individuell für jeden Schritt angepasst werden.
 Die Ausführung kann unter den gängigen Betriebssystemen Windows, Linux und macOS durchgeführt werden.
 Auch kannst du festlegen, ob die Workflows in einem Container oder in einer virtuellen Maschine ausgeführt werden sollen.
 
 ## Erzeugung des Java Projekts
-Als beispielhaftes Java Projekt dient eine Spring Boot Anwendung, die mit dem [Spring Boot Starter](https://start.spring.io/) erstellt wurde.
+Um einen demonstrativen Workflow zu erstellen, nutzen wir ein [Java Projekt](https://) das mit [Spring Boot Starter](https://start.spring.io/) initialisiert wurde.
 Das Projekt ist mit Java 11 und Gradle ausgestattet.
 
 ### Gradle Projekt bauen und testen
@@ -33,12 +33,12 @@ Um Actions in der Oberfläche von GitHub aufzurufen, gibt es im Repository den R
 
 ![Bild vom Actions Reiter](/assets/images/posts/github-actions/actions-tab.JPG)
 
-Angekommen in den Actions, kriegen wir vom intuitiven System eine Menge bereits definierter Actions, die out of the box einsetzbar sind.
+Angekommen in den Actions, werden vom intuitiven System eine Menge bereits integrierter Actions bereitgestellt.
 Namhafte Sprachen und Frameworks werden unterstützt.
 Zum Experimentieren stellt GitHub dem Benutzer eine Starter-Action zur Verfügung.
 
-In diesem werden alle Punkte einer YML-Datei grob angeschnitten und erklärt, wofür diese benötigt werden.
-Es gibt bereits zahlreiche Actions von GitHub selbst und der Open-Source Community, beispielsweise eine um ein Gradle Projekt bauen und testen zu lassen.
+In der Starter-Action werden alle Punkte einer YML-Datei kurz erkläutert.
+Es gibt bereits zahlreiche Actions die von GitHub und der Open-Source Community bereitgestellt sind.
 Diese Action wird im späteren Verlauf dieses Blogposts als Grundlage für die anderen Tasks des Workflows wiederverwendet.
 
 Im Folgenden wird der Codeblock der Action genauer betrachtet.
@@ -68,29 +68,26 @@ jobs:
     - name: Build with Gradle
       run: ./gradlew build
 ```
-Das Schlüsselwort ```name``` gibt an, wie die Action in der Ausführung bzw. auf GitHub heißen wird.
-Danach folgt ```on```, was festlegt, auf welche GitHub-Events die Action reagieren soll.
+Das Schlüsselwort `name` gibt an, wie die Action in der Ausführung bzw. auf GitHub heißen wird.
+Danach folgt `on`, was festlegt, auf welche GitHub-Events die Action reagieren soll.
 In der Array-Schreibweise folgen die Repositorys bzw. Branches, für die diese Actions gelten sollen.
 Dementsprechend können Komma separiert mehrere Branches angegeben werden.
 
-Für unser Projekt wird auf die Event-Typen ```push``` und ```pull_request``` reagiert.
+Für unser Projekt wird auf die Event-Typen `push` und `pull_request` reagiert.
 Welche weiteren Event-Typen es gibt, kann in der [Dokumentation](https://help.github.com/en/actions/reference/events-that-trigger-workflows) nachgesehen werden.
 
 Anschließend beginnt der Workflow, der aus einem oder mehreren Workflowschritten besteht.
 Je nach Konfiguration können diese sequenziell oder parallel abgearbeitet werden.
 
-Nun folgen die einzelnen Jobs, wobei ```build``` den Namen des einzigen Workflowschritt angibt.
-Zusätzlich wird mit ```runs-on``` angegeben, auf welcher Ausführungsumgebung dieser ausgeführt werden soll.
-
-Mit ```steps``` wird eine Folge von Schritten definiert, die für diesen Job benötigt werden.
-Als nächstes wird das Repository mit Befehl ```- uses: actions/checkout@v2``` über Git ausgecheckt, damit es für den Job benutzt werden kann.
-
+Nun folgen die einzelnen Jobs, wobei `build` den Namen des einzigen Workflowschritt angibt.
+Zusätzlich wird mit `runs-on` angegeben, auf welcher Ausführungsumgebung dieser ausgeführt werden soll.
+Mit `steps` wird eine Folge von Schritten definiert, die für diesen Job benötigt werden.
+Als nächstes wird das Repository mit Befehl `- uses: actions/checkout@v2` über Git ausgecheckt, damit es für den Job benutzt werden kann.
 Nachdem das Repository ausgecheckt wurde, wird mit den nächsten drei Zeilen das Java SDK gesetzt.
-Für dieses Projekt wurde Java 11 verwendet, weshalb die Zahl bei ```java-version``` auf **11** wurde.
+Für dieses Projekt wurde Java 11 verwendet, weshalb die Zahl bei `java-version` auf **11** wurde.
 
-Der Gradle Wrapper ist hier noch nicht als ausführbar markiert, daher wird dieser mit ```run: chmod +x gradlew``` kurzerhand geändert.
-
-Im letzten Schritt der Action wird das Gradle-Projekt mit ```./gradlew build``` gebaut und getestet.
+Der Gradle Wrapper ist hier noch nicht als ausführbar markiert, daher wird dieser mit `run: chmod +x gradlew` kurzerhand geändert.
+Im letzten Schritt der Action wird das Gradle-Projekt mit `./gradlew build` gebaut und getestet.
 
 ![Bild des Ergebnisses des Gradle Builds](/assets/images/posts/github-actions/gradle-build-result.JPG)
 
@@ -102,8 +99,10 @@ Diese besitzen eine Zeitangabe und können bei Bedarf aufgeklappt und näher bet
 
 ### SonarCloud Anbindung
 Ein weiterer Aspekt dieses Blogposts ist die SonarCloud Anbindung mittels Actions im Java Projekt.
-Für unseren Anwendungsfall benötigen wir das SonarQube und Jacoco für Gradle. 
-Diese fügen wir dem Projekt hinzu, indem wir folgende Zeilen zum Punkt plugins der build.gradle eintragen.
+Für unseren Anwendungsfall benötigen wir das [SonarQube](https://docs.sonarqube.org/latest/analysis/scan/sonarscanner-for-gradle/) und [Jacoco Plugin](https://docs.gradle.org/current/userguide/jacoco_plugin.html) für Gradle.
+SonarQube ist ein cloudbasierter Dienst, der den Sourcecode auf Qualität testet und die Ergebnisse über eine Webseite darstellt.
+JaCoCo steht für Java Code Coverage Library und erstellt Ergebnisse für die Testabdeckung eines Projekts.
+Diese fügen wir dem Projekt hinzu, indem wir folgende Zeilen zum Abschnitt `plugins` innerhalb der `build.gradle` eintragen.
 
 ```gradle
 plugins {
@@ -126,7 +125,7 @@ jacocoTestReport {
 }
 ```
 
-Als Letztes muss SonarCloud in den gradle.properties konfiguriert werden.
+Als Letztes muss SonarCloud in den `gradle.properties` konfiguriert werden.
 Hierzu wird die Url, Organisation und der Project-Key eingeschrieben. 
 
 ```gradle
@@ -137,7 +136,7 @@ systemProp.sonar.projectKey=adessoAG_github-actions-demo
 Auf SonarCloud muss du noch über den Pfad _My Account->Security->Tokens_ einen projektspezifischen Token generieren.
 Dieser wird als Secret im GitHub Repository angelegt, damit er nicht von außen sichtbar ist.
 
-Wir erstellen einen neuen Job namens ```sonarcloud```.
+Wir erstellen einen neuen Job namens `sonarcloud`.
 
 ```yaml
   sonarcloud:
@@ -158,9 +157,9 @@ Wir erstellen einen neuen Job namens ```sonarcloud```.
 ```
 
 Folgend wird der zuvor erstellte Sonar Token und von Actions selbst generierter GitHub Token als Umgebungsvariable angegeben.
-Umgebungsvariablen bzw. Enviroment variables werden unter ```env``` angegeben.
-Hinterher wird ```gradlew test jacocoTestReport sonarqube -Dsonar.login=$SONAR_TOKEN``` im ```run``` ausgeführt.
-Folgende Zeilen Code ergänzen den ```sonarcloud``` Workflow:
+Umgebungsvariablen bzw. Enviroment variables werden unter `env` angegeben.
+Hinterher wird `gradlew test jacocoTestReport sonarqube -Dsonar.login=$SONAR_TOKEN` im `run` ausgeführt.
+Folgende Zeilen Code ergänzen den `sonarcloud` Workflow:
 ```yaml
 - name: SonarQube and Jacoco
       run: ./gradlew test jacocoTestReport sonarqube -Dsonar.login=$SONAR_TOKEN      
@@ -188,15 +187,14 @@ Dies wird mit den folgenden zwei Workflowschritten realisiert.
         path: build/reports/tests/test
 ``` 
 
-Für das Hochladen von Artefakten wird  ```actions/upload-artifact@v1``` verwendet.
-Dem Workflowschritten wird ein Name unter ```name``` gegeben und ein Output-Pfad der zur hochladenenden Datei bzw. Dateien.
+Für das Hochladen von Artefakten wird  `actions/upload-artifact@v1` verwendet.
+Dem Workflowschritten wird ein Name unter `name` gegeben und ein Output-Pfad der zur hochladenenden Datei bzw. Dateien.
 Da CSS Dateien oder andere Abhängigkeiten vom HTML-Output vorhanden sein können, werden ganze Pfade und keine einzelnen Dateien übergeben.
 
 ### Release erzeugen
 Als Letztes werden wir automatisiert einen Release erzeugen lassen.
 Hierfür durchsuchen wir wieder den Marketplace nach einer passenden Action.
 Es gibt bereits [Create A Release](https://github.com/actions/create-release), das verifiziert und von GitHub selbst erstellt wurde.
-Nach näherer Betrachtung des vorgegeben Beispiels, kann es problemlos angewandt werden.
 
 Hierfür wird ein neuer Workflow erstellt, der nur den Job der Release-Erstellung beinhaltet.
 Ein eigener Workflow ist sinnvoll, da er neben dem Event-Typen auch auf den Tag eines **Push** oder **Pullrequests** achten soll.
@@ -263,4 +261,4 @@ Der Funktionsumfang ist gigantisch und jeder, dessen Interesse erweckt wurde, so
 Denn dieser Blogpost dient lediglich als Guide, um zu zeigen wie einfach CI/CD Prozesse mit Actions realisiert werden können. 
 
 Außerdem ist es schön, dass Actions direkt in der Oberfläche von GitHub erstellt werden können.
-Die Dateien werden anschließend mit ins Repository gepusht, aber der Support ist dank der Oberflächte angenehmer.
+Die Dateien werden anschließend mit ins Repository gepusht, aber der Support ist dank der Oberfläche angenehmer.
