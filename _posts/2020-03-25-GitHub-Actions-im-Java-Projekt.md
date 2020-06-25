@@ -14,7 +14,7 @@ Abschließend schauen wir uns auch die Erzeugung eines Releases an.
 
 # Was ist GitHub Actions?
 Diese API wird für GitHub Projekte zur Verfügung gestellt.
-Dadurch können Workflowschritte definiert werden, die durch Events, wie einem **Pull Request** ausgelöst werden.
+Dadurch können Workflowschritte definiert werden, die durch Events wie beispielsweise **Pull Requests** ausgelöst werden.
 
 Diese Workflows werden als Infrastructure as Code entwickelt, sind also ein Teil des Repositorys. 
 Die eigenen Workflows können erstellt, geteilt, wiederverwendet und geforked werden.
