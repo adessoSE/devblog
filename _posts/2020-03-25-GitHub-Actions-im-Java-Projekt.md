@@ -37,7 +37,7 @@ Angekommen in den Actions, werden vom intuitiven System eine Menge bereits integ
 Namhafte Sprachen und Frameworks werden unterstützt.
 Zum Experimentieren stellt GitHub dem Benutzer eine Starter-Action zur Verfügung.
 
-In der Starter-Action werden alle Punkte einer YML-Datei kurz erkläutert.
+In der Starter-Action werden alle Punkte einer YML-Datei kurz erläutert.
 Es gibt bereits zahlreiche Actions die von GitHub und der Open-Source Community bereitgestellt sind.
 Diese Action wird im späteren Verlauf dieses Blogposts als Grundlage für die anderen Tasks des Workflows wiederverwendet.
 
