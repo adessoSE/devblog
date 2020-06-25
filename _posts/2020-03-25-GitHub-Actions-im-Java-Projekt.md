@@ -17,7 +17,7 @@ Diese API wird für GitHub Projekte zur Verfügung gestellt.
 Dadurch können Workflowschritte definiert werden, die durch Events wie beispielsweise **Pull Requests** ausgelöst werden.
 
 Diese Workflows werden als Infrastructure as Code entwickelt, sind also ein Teil des Repositorys. 
-Die eigenen Workflows können erstellt, geteilt, wiederverwendet und geforked werden.
+Praktischerweise können sie auch geteilt und wiederverwendet werden.
 
 Danach übernimmt GitHub die Ausführung und gibt dem Entwickler ein umfangreiches Feedback.
 Außerdem wird eine plattformunabhängige Automatisierung der Build-, Test-, und Deployschritte ermöglicht.
