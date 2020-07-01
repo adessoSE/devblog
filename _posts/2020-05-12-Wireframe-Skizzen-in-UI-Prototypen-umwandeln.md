@@ -20,8 +20,14 @@ In diesem Blog-Post möchte ich einen Ansatz vorstellen, mit dem man diesen Schr
 
 _Eingabe und Resultat_
 
+![Handgezeichnete Skizze und entsprechender fertige UI-Prototyp](/assets/images/posts/ui-prototyping-wireframe/input_output.jpg "Eingabe und Ausgabe")
+
+_Handgezeichnete Skizze und entsprechender fertige UI-Prototyp_
+
 Auf der linken Seite sieht man ein Foto einer handgezeichneten Wireframe-Skizze.
-Auf der rechten Seite sieht man ein Browser-Screenshot einer HTML-Datei, die von dem Programm generiert wurde.
+Oben in der Skizze wurde eine Navigation-Bar gezeichnet, in der Mitte ein Grid von Bildern mit Paragraphen daneben und unten ein Pagination-Element.
+Auf der rechten Seite sieht man eine Website, die in etwa der Skizze entspricht.
+Diese Website wurde mithilfe von Komponenten des Bootstrap CSS-Frameworks erstellt.
 
 
 # Aufbau der Pipeline
