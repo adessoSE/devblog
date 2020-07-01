@@ -258,7 +258,7 @@ jobs:
 </code></pre>
 <p>Als Erstes muss wieder der Event-Typ angegeben werden.
 Optional kann auch ein Branch angegeben werden.
-Wenn keiner angegeben ist, gilt diese Actions für alle.</p>
+Wenn kein Branch angegeben ist, gilt diese Actions für alle.</p>
 
 <p>Anschließend wird angeordnet, auf welche Tags reagiert werden soll,
 <code>v*</code>, bedeutet das alles, was mit dem Buchstaben v startet, einen Release erzeugt.
@@ -280,7 +280,7 @@ Anschließend sieht das Release wie folgt aus.</p>
 
 <h5 id="mein-fazit">Mein Fazit</h5>
 <p>Nach etwas mehr als einer Stunde haben wir einen automatisierten Workflow erstellt. 
-Dieser baut, testet ein Gradle Projekt und deployt HTML-Reports als Artefakte.
+Dieser baut und testet ein Gradle Projekt und deployt HTML-Reports als Artefakte.
 Dazu erstellt der Workflow mittels Commit-Tags Releases.
 GitHub-Actions ist sehr empfehlenswert bei Anwendungen, die sowieso auf GitHub verwaltet werden.
 Insbesondere im Open Source Bereich bzw. öffentlichen Repositories ist der Einsatz sehr empfehlenswert, da keine Kosten zu erwarten sind. 
