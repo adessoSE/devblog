@@ -56,7 +56,7 @@ Den genannten Herausforderungen hat sich Facebook 2012 gestellt und mit GraphQL 
 - Der Client kann sich explizit darauf festlegen, welche Daten er haben möchte, “nicht mehr und     nicht weniger”.     
 - Ein Endpunkt reicht für alle Abfragen völlig aus. Es werden also keine Endpunkte für PUT,         DELETE und anderen Methoden benötigt. 
   
-Diese Anpassungen ermöglichen ein API-Design, welches den Herausforderungen von REST begegnet. Anbei sind noch einmal die Punkte angeführt, welche GraphQL angehen.
+Diese Anpassungen ermöglichen ein API-Design, welches den Herausforderungen von REST begegnet. Im Folgenden sind noch einmal die Punkte angeführt, für die GraphQL eine Lösung bietet.
 
 **Single Endpoint:**
 
