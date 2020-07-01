@@ -257,7 +257,7 @@ Anschließend sieht das Release wie folgt aus.
 Nach etwas mehr als einer Stunde haben wir einen automatisierten Workflow erstellt. 
 Dieser baut und testet ein Gradle Projekt und deployt HTML-Reports als Artefakte.
 Dazu erstellt der Workflow mittels Commit-Tags Releases.
-GitHub-Actions ist sehr empfehlenswert bei Anwendungen, die sowieso auf GitHub verwaltet werden.
+GitHub-Actions ist sehr empfehlenswert bei Anwendungen, die bereits auf GitHub verwaltet werden.
 Insbesondere im Open Source Bereich bzw. öffentlichen Repositories ist der Einsatz sehr empfehlenswert, da keine Kosten zu erwarten sind. 
 Bei privaten Repositories ist es empfehlenswert auf [Restriktionen](https://help.github.com/en/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-actions) und Kosten zu achten.
 Detaillierte Dokumentation und eine breite Palette [vorgegebener Actions](https://github.com/marketplace?type=actions) ermöglichen uns schnelle Umsetzung gewünscher Workflows.
