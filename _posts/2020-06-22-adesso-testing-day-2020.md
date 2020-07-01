@@ -1,10 +1,11 @@
 ﻿---
 layout: [post, post-xml]              # Pflichtfeld. Nicht ändern!
 title:  "adesso testing day 2020"     # Pflichtfeld. Bitte einen Titel für den Blog Post angeben.
-date:   2022-06-22 10:25              # Pflichtfeld. Format "YYYY-MM-DD HH:MM". Muss für Veröffentlichung in der Vergangenheit liegen. (Für Preview egal)
+date:   2020-06-22 10:25              # Pflichtfeld. Format "YYYY-MM-DD HH:MM". Muss für Veröffentlichung in der Vergangenheit liegen. (Für Preview egal)
 author: stwacker                      # Pflichtfeld. Es muss in der "authors.yml" einen Eintrag mit diesem Namen geben.
 categories: [Branchen & People]       # Pflichtfeld. Maximal eine der angegebenen Kategorien verwenden.
 tags: [Testing]                       # Optional.
+modified_date: 2020-07-01 15:33
 ---
 
 
