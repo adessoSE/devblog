@@ -11,7 +11,7 @@ UI-Prototyping]    # Optional.
 
 Prototyping ist essenziell für die Entwicklung von guten User-Interfaces.
 Oftmals ist aber der Schritt von einer Wireframe-Skizze zu einem UI-Prototyp sehr zeitaufwändig.
-In diesem Blog-Post möchte ich einen Ansatz vorstellen, mit dem man diesen Schritt mithilfe von Computer Vision und Machine Learning umgehen kann.
+In diesem Blog-Post möchte ich einen Ansatz vorstellen, mit dem man diesen Schritt mithilfe von Computer Vision und Machine Learning verkürzen kann.
 
 
 # Das Resultat
