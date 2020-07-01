@@ -42,8 +42,8 @@ Der Client kann dabei ein Zeichen geben, das durch den Server zu interpretieren 
 
 Das bedeutet, dass Anna detailliert beschreiben sollte, wonach REST den Server fragen soll. Geeignete Endpunkte sehen zum Beispiel wie folgt aus:  
 
-* URL/api/supermarkt/produkte/{ean}
-* URL/api/restaurant/pizza/margherita
+* `URL/api/supermarkt/produkte/{ean}`
+* `URL/api/restaurant/pizza/margherita`
 
 Mit dieser Abfrage würde Anna genau ein gewünschtes Produkt und die Pizza erhalten.  
 Durch dieses Design konnte der Client Over- und Underfetching an Daten vermeiden. Doch wie würde die Bestellung geschehen, wenn Anna noch zusätzliche Produkte haben möchte? Dann müssten wir genauso wie beim Supermarkt weitere API-Aufrufe tätigen. Da die API beim Restaurant nicht auf Standards wie EAN-Codes zurückgreift, müssen wir hier schauen, wie die anderen Ressourcen identifiziert werden können. Wie wäre es aber, wenn Anna eine ganze Liste von Produkten aus verschiedenen Ressourcen hätte? Dann brauchen wir ebenfalls mehrere REST-Endpunkte. Das bedeutet, je mehr Ressourcen aus dem Backend angefordert werden, desto mehr Endpunkte sind erforderlich. Hiermit treffen wir abermals auf das aufgelistete Problem “mehrere Endpunkte erforderlich”. 
