@@ -52,7 +52,7 @@ Dadurch können Workflowschritte definiert werden, die durch Events wie beispiel
 <p>Diese Workflows werden direkt in der Oberfläche des Repositories entwickelt. 
 Praktischerweise können sie auch geteilt und wiederverwendet werden.</p>
 
-<p>Danach wird die Actions ausgeführt und es wird ein umfangreiches Feedback wie z.B. Logs und Ausführzeiten erstellt.
+<p>Danach wird die Actions ausgeführt und es wird ein umfangreiches Feedback mit z.B. Logs und Ausführzeiten erstellt.
 Das umfangreiche Feedback kann individuell für jeden Schritt angepasst werden.
 Die Ausführung kann unter den gängigen Betriebssystemen Windows, Linux und macOS durchgeführt werden.
 Auch kannst du festlegen, ob die Workflows in einem Container oder in einer virtuellen Maschine ausgeführt werden sollen.</p>
@@ -116,7 +116,7 @@ Zusätzlich wird mit <code>runs-on</code> angegeben, auf welcher Ausführungsumg
 Mit <code>steps</code> wird eine Folge von Schritten definiert, die für diesen Job benötigt werden.
 Als nächstes wird das Repository mit Befehl <code>- uses: actions/checkout@v2</code> über Git ausgecheckt, damit es für den Job benutzt werden kann.
 Nachdem das Repository ausgecheckt wurde, wird mit den nächsten drei Zeilen das Java SDK gesetzt.
-Für dieses Projekt wurde Java 11 verwendet, weshalb die Zahl bei <code>java-version</code> auf <strong>11</strong> wurde.</p>
+Für dieses Projekt wurde Java 11 verwendet, weshalb die Zahl bei <code>java-version</code> auf <strong>11</strong> gesetzt wurde.</p>
 
 <p>Der Gradle Wrapper ist hier noch nicht als ausführbar markiert, daher wird dieser mit <code>run: chmod +x gradlew</code> kurzerhand geändert.
 Im letzten Schritt der Action wird das Gradle-Projekt mit <code>./gradlew build</code> gebaut und getestet.</p>
@@ -131,10 +131,10 @@ Diese besitzen eine Zeitangabe und können bei Bedarf aufgeklappt und näher bet
 
 <h6 id="sonarcloud-anbindung">SonarCloud Anbindung</h6>
 <p>Ein weiterer Aspekt dieses Blogposts ist die SonarCloud Anbindung mittels Actions im Java Projekt.
-Für unseren Anwendungsfall benötigen wir das <a href="https://docs.sonarqube.org/latest/analysis/scan/sonarscanner-for-gradle/">SonarQube</a> und <a href="https://docs.gradle.org/current/userguide/jacoco_plugin.html">Jacoco Plugin</a> für Gradle.
+Für unseren Anwendungsfall benötigen wir das <a href="https://docs.sonarqube.org/latest/analysis/scan/sonarscanner-for-gradle/">SonarQube-</a> und <a href="https://docs.gradle.org/current/userguide/jacoco_plugin.html">Jacoco-</a>Plugin für Gradle.
 SonarQube ist ein cloudbasierter Dienst, der den Sourcecode auf Qualität testet und die Ergebnisse über eine Webseite darstellt.
 JaCoCo steht für Java Code Coverage Library und erstellt Ergebnisse für die Testabdeckung eines Projekts.
-Diese fügen wir dem Projekt hinzu, indem wir folgende Zeilen zum Abschnitt <code>plugins</code> innerhalb der <code>build.gradle</code> eintragen.</p>
+Diese fügen wir dem Projekt hinzu, indem wir folgende Zeilen im Abschnitt <code>plugins</code> innerhalb der <code>build.gradle</code> ergänzen.</p>
 
 <pre><code class="language-gradle">plugins {
 	id "org.sonarqube" version "3.0"
@@ -185,7 +185,7 @@ Secrets werden in der GitHub Oberfläche des Repositories über Settings-&gt;Sec
       run: chmod +x gradlew
 </code></pre>
 
-<p>Folgend verwenden wir den zuvor erstellten Sonar Token und von Actions selbst generierten GitHub Token als Umgebungsvariable.
+<p>Folgend verwenden wir den zuvor erstellten Sonar Token und den von Actions selbst generierten GitHub Token als Umgebungsvariable.
 Umgebungsvariablen bzw. Enviroment Variables werden unter <code>env</code> angegeben.
 Hinterher wird <code>gradlew test jacocoTestReport sonarqube -Dsonar.login=$SONAR_TOKEN</code> im <code>run</code> ausgeführt.
 Folgende Zeilen Code ergänzen den <code>sonarcloud</code> Workflow:</p>
@@ -215,7 +215,7 @@ Dies wird mit den folgenden zwei Workflowschritten realisiert.</p>
 </code></pre>
 
 <p>Für das Hochladen von Artefakten wird <code>actions/upload-artifact@v1</code> verwendet.
-Dem Workflowschritten wird ein Name unter <code>name</code> gegeben und ein Output-Pfad der zu den hochladenenden Dateien führt.
+Unter <code>name</code> wird jeweils der Name des Workflowschritts und unter <code>path</code> der Output-Pfad, der zu den hochladenenden Dateien führt, angegeben.
 Da CSS Dateien oder andere Abhängigkeiten vom HTML-Output vorhanden sein können, werden ganze Pfade und keine einzelnen Dateien übergeben.</p>
 
 <h6 id="release-erzeugen">Release erzeugen</h6>
@@ -257,7 +257,7 @@ jobs:
           prerelease: false
 </code></pre>
 <p>Als Erstes muss wieder der Event-Typ angegeben werden.
-Optional kann auch ein Branch gegeben werden.
+Optional kann auch ein Branch angegeben werden.
 Wenn keiner angegeben ist, gilt diese Actions für alle.</p>
 
 <p>Anschließend wird angeordnet, auf welche Tags reagiert werden soll,
