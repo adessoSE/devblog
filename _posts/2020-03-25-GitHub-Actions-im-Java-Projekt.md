@@ -189,7 +189,7 @@ Dies wird mit den folgenden zwei Workflowschritten realisiert.
 ``` 
 
 Für das Hochladen von Artefakten wird `actions/upload-artifact@v1` verwendet.
-Dem Workflowschritten wird ein Name unter `name` gegeben und ein Output-Pfad der zu den hochladenenden Dateien führt.
+Unter `name` wird jeweils der Name des Workflowschritts und unter `path` der Output-Pfad, der zu den hochladenenden Dateien führt, angegeben.
 Da CSS Dateien oder andere Abhängigkeiten vom HTML-Output vorhanden sein können, werden ganze Pfade und keine einzelnen Dateien übergeben.
 
 ### Release erzeugen
