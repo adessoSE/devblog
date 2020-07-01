@@ -34,7 +34,7 @@ REST gibt dem Client durch eine Abfrage viele Daten zurück, sodass der Client s
 
 **Underfetching:**  
 
-REST kann bei einer Abfrage nicht alles erledigen, was der Client möchte. Die Informationen sind ggf. über verschiedene Endpunkte verteilt. Aus diesem Grund muss der Client manchmal mehrere Abfragen nacheinander tätigen, um alle Informationen zu erhalten. REST muss demzufolge zwei Routen durchlaufen, um Annas Wünsche zu erfüllen. Mit nur einer Abfrage, beispielsweise an den Endpunkt "/api/restaurant",  würde Anna nur die Pizza bekommen.
+REST kann nur einen Endpunkt gleichzeitig abfragen, die Informationen können aber über mehrere Endpunkte verteilt sein. Aus diesem Grund muss der Client manchmal mehrere Abfragen nacheinander tätigen, um alle Informationen zu erhalten. REST muss demzufolge zwei Routen durchlaufen, um Annas Wünsche zu erfüllen. Mit nur einer Abfrage, beispielsweise an den Endpunkt `/api/restaurant`,  würde Anna nur die Pizza bekommen.
 
 Indessen sind die beiden Probleme Over- und Underfetching mit Hilfe eines zu der Anforderung stimmigen API-Designs gut lösbar. Hinter den REST-APIs verbirgt sich eine sehr mächtige Sprache, mit der der Client sich effizient ausdrücken kann. Den meisten Entwicklern für Webapplikationen ist diese Sprache bekannt.  
 
