@@ -70,7 +70,7 @@ Wie bereits beschrieben, legt der Client genau fest, welche Daten er anfordern m
 
 **GraphQL als Wrapper:**
 
-Ein weiteres wichtiges Feature von GraphQL ist, dass GraphQL als Wrapper von unterschiedlichen Ressourcen angelegt werden kann. Insbesondere, wenn Informationen auf verschiedenen Systemen liegen, beispielsweise in unterschiedlichen Datenbanksystemen.
+Ein weiteres wichtiges Feature von GraphQL ist, dass GraphQL als Wrapper von unterschiedlichen Ressourcen angelegt werden kann. Dies ist insebsondere von Vorteil, wenn Informationen auf verschiedene Server verteilt sind, beispielsweise bei Datenbanksystemen.
 
 ![GraphQL als Wrapper](/assets/images/posts/GraphQL-ist-flexibler,-das-Ende-von-RESTful-APIs/Wrapper.PNG)
 
