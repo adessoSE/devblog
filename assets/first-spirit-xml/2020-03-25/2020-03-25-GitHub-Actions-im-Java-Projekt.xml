@@ -5,7 +5,7 @@
         <field name="subline"><![CDATA[]]></field>
         <field name="teaser"><![CDATA[<p>GitHub Actions ist das hauseigene Tool der Code-Hosting-Plattform GitHub, um Prozesse in einem Softwareprojekt zu automatisieren.
 In diesem Blogpost wirst du lernen, wie ein Java Projekt mit GitHub Actions ausgestattet wird.
-Die Schwerpunkte sind das Bauen und Testen des Projekts, sowie das Deployen von Artefakten und die Anbindung von Cloud Services wie z.B SonarCloud.
+Die Schwerpunkte sind das Bauen und Testen des Projekts, sowie das Deployen von Artefakten und die Anbindung von Cloud Services wie z.B. SonarCloud.
 Abschließend schauen wir uns auch die Erzeugung eines Releases an.</p>
 
 ]]></field>
@@ -32,7 +32,7 @@ Abschließend schauen wir uns auch die Erzeugung eines Releases an.</p>
         <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
             <p>GitHub Actions ist das hauseigene Tool der Code-Hosting-Plattform GitHub, um Prozesse in einem Softwareprojekt zu automatisieren.
 In diesem Blogpost wirst du lernen, wie ein Java Projekt mit GitHub Actions ausgestattet wird.
-Die Schwerpunkte sind das Bauen und Testen des Projekts, sowie das Deployen von Artefakten und die Anbindung von Cloud Services wie z.B SonarCloud.
+Die Schwerpunkte sind das Bauen und Testen des Projekts, sowie das Deployen von Artefakten und die Anbindung von Cloud Services wie z.B. SonarCloud.
 Abschließend schauen wir uns auch die Erzeugung eines Releases an.</p>
 
 </div>]]></field>
@@ -42,7 +42,7 @@ Abschließend schauen wir uns auch die Erzeugung eines Releases an.</p>
 <div class="col-xl-8 adesso-center p-b-1 p-l-0 p-r-0">
     <p>GitHub Actions ist das hauseigene Tool der Code-Hosting-Plattform GitHub, um Prozesse in einem Softwareprojekt zu automatisieren.
 In diesem Blogpost wirst du lernen, wie ein Java Projekt mit GitHub Actions ausgestattet wird.
-Die Schwerpunkte sind das Bauen und Testen des Projekts, sowie das Deployen von Artefakten und die Anbindung von Cloud Services wie z.B SonarCloud.
+Die Schwerpunkte sind das Bauen und Testen des Projekts, sowie das Deployen von Artefakten und die Anbindung von Cloud Services wie z.B. SonarCloud.
 Abschließend schauen wir uns auch die Erzeugung eines Releases an.</p>
 
 <h4 id="was-ist-github-actions">Was ist GitHub Actions?</h4>
@@ -52,7 +52,7 @@ Dadurch können Workflowschritte definiert werden, die durch Events wie beispiel
 <p>Diese Workflows werden direkt in der Oberfläche des Repositories entwickelt. 
 Praktischerweise können sie auch geteilt und wiederverwendet werden.</p>
 
-<p>Danach wird die Actions ausgeführt und es wird ein umfangreiches Feedback wie z.B Logs und Ausführzeiten erstellt.
+<p>Danach wird die Actions ausgeführt und es wird ein umfangreiches Feedback wie z.B. Logs und Ausführzeiten erstellt.
 Das umfangreiche Feedback kann individuell für jeden Schritt angepasst werden.
 Die Ausführung kann unter den gängigen Betriebssystemen Windows, Linux und macOS durchgeführt werden.
 Auch kannst du festlegen, ob die Workflows in einem Container oder in einer virtuellen Maschine ausgeführt werden sollen.</p>
@@ -103,7 +103,7 @@ jobs:
 <p>Das Schlüsselwort <code>name</code> gibt an, wie die Action in der Ausführung bzw. auf GitHub heißen wird.
 Danach folgt <code>on</code>, was festlegt, auf welche GitHub-Events die Action reagieren soll.
 In der Array-Schreibweise folgen die Repositorys bzw. Branches, für die diese Actions gelten sollen.
-Dementsprechend können Komma separiert mehrere Branches angegeben werden.</p>
+Dementsprechend können kommasepariert mehrere Branches angegeben werden.</p>
 
 <p>Für unser Projekt wird auf die Event-Typen <code>push</code> und <code>pull_request</code> reagiert.
 Welche weiteren Event-Typen es gibt, kann in der <a href="https://help.github.com/en/actions/reference/events-that-trigger-workflows">Dokumentation</a> nachgesehen werden.</p>
@@ -111,7 +111,7 @@ Welche weiteren Event-Typen es gibt, kann in der <a href="https://help.github.co
 <p>Anschließend beginnt der Workflow, der aus einem oder mehreren Workflowschritten besteht.
 Je nach Konfiguration können diese sequenziell oder parallel abgearbeitet werden.</p>
 
-<p>Nun folgen die einzelnen Jobs, wobei <code>build</code> den Namen des einzigen Workflowschritt angibt.
+<p>Nun folgen die einzelnen Jobs, wobei <code>build</code> den Namen des einzigen Workflowschritts angibt.
 Zusätzlich wird mit <code>runs-on</code> angegeben, auf welcher Ausführungsumgebung dieser ausgeführt werden soll.
 Mit <code>steps</code> wird eine Folge von Schritten definiert, die für diesen Job benötigt werden.
 Als nächstes wird das Repository mit Befehl <code>- uses: actions/checkout@v2</code> über Git ausgecheckt, damit es für den Job benutzt werden kann.
@@ -162,7 +162,7 @@ Hierzu wird die Url, Organisation und der Project-Key eingeschrieben.</p>
 systemProp.sonar.organization=adesso-ag
 systemProp.sonar.projectKey=adessoAG_github-actions-demo
 </code></pre>
-<p>Auf SonarCloud muss du noch über den Pfad <em>My Account-&gt;Security-&gt;Tokens</em> einen projektspezifischen Token generieren.
+<p>Auf SonarCloud musst du noch über den Pfad <em>My Account-&gt;Security-&gt;Tokens</em> einen projektspezifischen Token generieren.
 Dieser wird als <a href="https://help.github.com/en/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets">Secret</a> im GitHub Repository angelegt, damit er nicht von außen sichtbar ist.
 Secrets werden in der GitHub Oberfläche des Repositories über Settings-&gt;Secrets angelegt.</p>
 
@@ -261,15 +261,15 @@ Optional kann auch ein Branch gegeben werden.
 Wenn keiner angegeben ist, gilt diese Actions für alle.</p>
 
 <p>Anschließend wird angeordnet, auf welche Tags reagiert werden soll,
-<code>v*</code>, bedeutet das alles was mit dem Buchstaben v startet einen Release erzeugt.
-Dadurch wird die semantische Versionierung (v1.0, v1.0.0 usw) unterstützt.
+<code>v*</code>, bedeutet das alles, was mit dem Buchstaben v startet, einen Release erzeugt.
+Dadurch wird die semantische Versionierung (v1.0, v1.0.0 usw.) unterstützt.
 <em>Wie Patterns auf GitHub gehandhabt werden, kannst du <a href="https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#filter-pattern-cheat-sheet">hier</a> nachschauen.</em> 
-Wieder wird der Runner und der bekannte Step ausgeführt um das Repository zu bekommen.</p>
+Wieder wird der Runner und der bekannte Step ausgeführt, um das Repository zu bekommen.</p>
 
 <p>Danach erzeugt die Action einen Release.
 Die Action benötigt eine Umgebungsvariable, die automatisiert von GitHub erstellt wird. 
 Dementsprechend muss hier kein Token selbst erzeugt werden.
-Den Tag-Namen und den Release-Name setzt bzw. holt sich GitHub selbst vom Commit.
+Den Tag-Namen und den Release-Namen setzt bzw. holt sich GitHub selbst vom Commit.
 Im Body steht dann der Inhalt des Releases.</p>
 
 <p>Der Draft gibt an, ob der Release published <em>(true)</em> oder unpublished <em>(false)</em> sein soll.
@@ -287,7 +287,7 @@ Insbesondere im Open Source Bereich bzw. öffentlichen Repositories ist der Eins
 Bei privaten Repositories ist es empfehlenswert auf <a href="https://help.github.com/en/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-actions">Restriktionen</a> und Kosten zu achten.
 Detaillierte Dokumentation und eine breite Palette <a href="https://github.com/marketplace?type=actions">vorgegebener Actions</a> ermöglichen uns schnelle Umsetzung gewünscher Workflows.
 Der Funktionsumfang ist gigantisch und jeder, dessen Interesse erweckt wurde, sollte sich die Dokumentation genauer anschauen.
-Dieser Blogpost dient lediglich als Einführung, um zu zeigen wie einfach CI/CD Prozesse mit Actions realisiert werden können. 
+Dieser Blogpost dient lediglich als Einführung, um zu zeigen, wie einfach CI/CD Prozesse mit Actions realisiert werden können. 
 Außerdem ist es schön, dass die Actions direkt in der Oberfläche von GitHub erstellt und anschließend mit ins Repository gepusht werden.</p>
 
 </div>
