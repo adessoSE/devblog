@@ -255,7 +255,7 @@ Anschließend sieht das Release wie folgt aus.
 
 ## Mein Fazit
 Nach etwas mehr als einer Stunde haben wir einen automatisierten Workflow erstellt. 
-Dieser baut, testet ein Gradle Projekt und deployt HTML-Reports als Artefakte.
+Dieser baut und testet ein Gradle Projekt und deployt HTML-Reports als Artefakte.
 Dazu erstellt der Workflow mittels Commit-Tags Releases.
 GitHub-Actions ist sehr empfehlenswert bei Anwendungen, die sowieso auf GitHub verwaltet werden.
 Insbesondere im Open Source Bereich bzw. öffentlichen Repositories ist der Einsatz sehr empfehlenswert, da keine Kosten zu erwarten sind. 
