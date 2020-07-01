@@ -102,7 +102,7 @@ Ein weiterer Aspekt dieses Blogposts ist die SonarCloud Anbindung mittels Action
 Für unseren Anwendungsfall benötigen wir das [SonarQube-](https://docs.sonarqube.org/latest/analysis/scan/sonarscanner-for-gradle/) und [Jacoco-](https://docs.gradle.org/current/userguide/jacoco_plugin.html)Plugin für Gradle.
 SonarQube ist ein cloudbasierter Dienst, der den Sourcecode auf Qualität testet und die Ergebnisse über eine Webseite darstellt.
 JaCoCo steht für Java Code Coverage Library und erstellt Ergebnisse für die Testabdeckung eines Projekts.
-Diese fügen wir dem Projekt hinzu, indem wir folgende Zeilen zum Abschnitt `plugins` innerhalb der `build.gradle` eintragen.
+Diese fügen wir dem Projekt hinzu, indem wir folgende Zeilen im Abschnitt `plugins` innerhalb der `build.gradle` ergänzen.
 
 ```gradle
 plugins {
