@@ -84,7 +84,7 @@ Zusätzlich wird mit `runs-on` angegeben, auf welcher Ausführungsumgebung diese
 Mit `steps` wird eine Folge von Schritten definiert, die für diesen Job benötigt werden.
 Als nächstes wird das Repository mit Befehl `- uses: actions/checkout@v2` über Git ausgecheckt, damit es für den Job benutzt werden kann.
 Nachdem das Repository ausgecheckt wurde, wird mit den nächsten drei Zeilen das Java SDK gesetzt.
-Für dieses Projekt wurde Java 11 verwendet, weshalb die Zahl bei `java-version` auf **11** wurde.
+Für dieses Projekt wurde Java 11 verwendet, weshalb die Zahl bei `java-version` auf **11** gesetzt wurde.
 
 Der Gradle Wrapper ist hier noch nicht als ausführbar markiert, daher wird dieser mit `run: chmod +x gradlew` kurzerhand geändert.
 Im letzten Schritt der Action wird das Gradle-Projekt mit `./gradlew build` gebaut und getestet.
