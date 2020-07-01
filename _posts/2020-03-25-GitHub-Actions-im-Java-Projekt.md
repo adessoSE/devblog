@@ -157,7 +157,7 @@ Wir erstellen einen neuen Job namens `sonarcloud`.
       run: chmod +x gradlew
 ```
 
-Folgend verwenden wir den zuvor erstellten Sonar Token und von Actions selbst generierten GitHub Token als Umgebungsvariable.
+Folgend verwenden wir den zuvor erstellten Sonar Token und den von Actions selbst generierten GitHub Token als Umgebungsvariable.
 Umgebungsvariablen bzw. Enviroment Variables werden unter `env` angegeben.
 Hinterher wird `gradlew test jacocoTestReport sonarqube -Dsonar.login=$SONAR_TOKEN` im `run` ausgeführt.
 Folgende Zeilen Code ergänzen den `sonarcloud` Workflow:
