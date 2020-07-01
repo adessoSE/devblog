@@ -60,7 +60,7 @@ Diese Anpassungen ermöglichen ein API-Design, welches den Herausforderungen von
 
 **Single Endpoint:**
 
-GraphQL besitzt nur einen Endpunkt. Die Abfragen werden durch Queries beschrieben, sodass nur eine Query an den Endpunkt geschickt werden muss. Diese Query wird in einer speziellen Query-Sprache beschrieben, ähnlich zu SQL. Diese wird anschließend vom Server interpretiert. Zum Besipiel URL/graphql?query=annaswuensche. In „annaswuensche“ kann der Client alle Daten beschreiben, die er benötigt. Es ist auch möglich, alle Daten aus dem Server durch eine Abfrage zu beziehen. 
+GraphQL besitzt nur einen Endpunkt. Die Abfragen werden durch Queries beschrieben, sodass nur eine Query an den Endpunkt geschickt werden muss. Diese Query wird in einer speziellen Query-Sprache beschrieben, ähnlich zu SQL. Diese wird anschließend vom Server interpretiert. Zum Besipiel `URL/graphql?query=annaswuensche`. In „annaswuensche“ kann der Client alle Daten beschreiben, die er benötigt. Es ist auch möglich, alle Daten aus dem Server durch eine Abfrage zu beziehen. 
 
 ![GraphQL und RESTful APIs](/assets/images/posts/GraphQL-ist-flexibler,-das-Ende-von-RESTful-APIs/APIs.PNG)
 
