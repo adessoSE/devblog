@@ -30,6 +30,14 @@ Auf der rechten Seite sieht man eine Website, die in etwa der Skizze entspricht.
 Diese Website wurde mithilfe von Komponenten des Bootstrap CSS-Frameworks erstellt.
 
 
+# Verwendete Technologien
+
+Um diesen Schritt zu automatisieren wurden hauptsächlich diese drei Bibliotheken verwendet:
+
+1. [OpenCV](https://opencv.org/): Eine Library für Computer Vision Techniken, hauptsächlich gemacht für die digitale Bildverarbeitung und die Erkennung von Objekten in Bildern.
+2. [fastai](https://www.fast.ai/): Eine Library, die Machine Learning und vor allem Deep Learning einfach zugänglich machen soll.
+3. [yattag](https://www.yattag.org/): Eine Library zur Generierung von HTML-Code.
+
 # Aufbau der Pipeline
 
 ![Pipeline](/assets/images/posts/ui-prototyping-wireframe/pipeline.jpg "Pipeline")
@@ -37,9 +45,15 @@ Diese Website wurde mithilfe von Komponenten des Bootstrap CSS-Frameworks erstel
 _Aufbau der Programm-Pipeline visualisiert_
 
 Die Pipeline ist so aufgebaut, dass ein Foto einer Wireframe-Skizze eingeben wird.
-Anschließend werden die gezeichneten UI-Elemente mittels Computer Vision Techniken ([OpenCV](https://opencv.org/)) aus dem Bild ausgeschnitten.
+Aus einem Foto einer Wireframe-Skizze werden die gezeichneten UI-Elemente mittels Computer Vision Techniken ausgeschnitten.
+Dafür werden verschiedene Verfahren und Funktion von [OpenCV](https://opencv.org/) verwendet, um die gezeichneten Linien von dem Hintergrund zu separieren.
+
 Die ausgeschnittenen UI-Elemente werden dann durch ein Convolutional Neural Network (CNN) klassifiziert.
-Aus den klassifizierten Elementen können HTML-Elemente generiert werden, die entsprechend den UI-Elementen in der Skizze positioniert werden.
+CNNs sind spezielle neuronale Netzwerke aus dem Machine-Learning-Bereich, welche besonders gut bei der Erkennung von Objekten in einem Bild sind.
+Sie basieren auf bestimmte Prinzipien und Erkenntnissen über den visuellen Kortex von Lebewesen.
+[fastai](https://www.fast.ai/) bietet einfache Lösungen, um ein solches CNN zu trainieren und zu verwenden.
+
+Aus den klassifizierten Elementen können mithilfe von [yattag](https://www.yattag.org/) HTML-Elemente generiert werden, die entsprechend den UI-Elementen in der Skizze positioniert werden.
 
 
 # Extrahierung der UI-Elemente aus dem Foto
