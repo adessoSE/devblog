@@ -233,7 +233,7 @@ jobs:
 ```
 Als Erstes muss wieder der Event-Typ angegeben werden.
 Optional kann auch ein Branch angegeben werden.
-Wenn keiner angegeben ist, gilt diese Actions für alle.
+Wenn kein Branch angegeben ist, gilt diese Actions für alle.
 
 Anschließend wird angeordnet, auf welche Tags reagiert werden soll,
 `v*`, bedeutet das alles, was mit dem Buchstaben v startet, einen Release erzeugt.
