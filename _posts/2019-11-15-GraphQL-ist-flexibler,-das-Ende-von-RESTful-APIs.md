@@ -52,7 +52,7 @@ Durch dieses Design kann Over- und Underfetching vermieden werden. Doch wie wür
 
 Den genannten Herausforderungen hat sich Facebook 2012 gestellt und mit GraphQL eine Spezifikation entwickelt. Rund um diese Spezifikation haben sich inzwischen einige Implementierungen und ein vollständiges Ökosystem herausgebildet, welche den Einsatz analog zu REST in aktuellen Projekten unterstützen. GraphQL zeichnet sich durch folgende Punkte aus und hebt sich dadurch von REST-APIs ab.
 
-- Durch eine Abfrage kann der Client Daten aus unterschiedlichen Ressourcen anfordern, wie z.B.     Datenbanken oder gar Daten aus anderen GraphQL Servern. Die vom Client aufgelisteten Daten        werden durch eine Abfrage aus den verschiedenen Ressourcen gesammelt, verpackt und anschließend   an den Client gesendet. 
+- Durch eine Abfrage kann der Client Daten aus unterschiedlichen Ressourcen anfordern, z.B. aus Datenbanken oder anderen GraphQL Servern. Die vom Client aufgelisteten Daten werden durch eine Abfrage aus den verschiedenen Ressourcen gesammelt, verpackt und anschließend an den Client gesendet. 
 - Der Client kann sich explizit darauf festlegen, welche Daten er haben möchte, “nicht mehr und     nicht weniger”.     
 - Ein Endpunkt reicht für alle Abfragen völlig aus. Es werden also keine Endpunkte für PUT,         DELETE und anderen Methoden benötigt. 
   
