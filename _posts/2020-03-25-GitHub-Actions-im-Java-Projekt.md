@@ -19,7 +19,7 @@ Dadurch können Workflowschritte definiert werden, die durch Events wie beispiel
 Diese Workflows werden direkt in der Oberfläche des Repositories entwickelt. 
 Praktischerweise können sie auch geteilt und wiederverwendet werden.
 
-Danach wird die Actions ausgeführt und es wird ein umfangreiches Feedback wie z.B. Logs und Ausführzeiten erstellt.
+Danach wird die Actions ausgeführt und es wird ein umfangreiches Feedback mit z.B. Logs und Ausführzeiten erstellt.
 Das umfangreiche Feedback kann individuell für jeden Schritt angepasst werden.
 Die Ausführung kann unter den gängigen Betriebssystemen Windows, Linux und macOS durchgeführt werden.
 Auch kannst du festlegen, ob die Workflows in einem Container oder in einer virtuellen Maschine ausgeführt werden sollen.
