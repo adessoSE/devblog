@@ -24,7 +24,7 @@ Aus Annas Erfahrung lassen sich deutlich die folgenden Nachteile von REST entn
 
 **Mehrere Endpunkte erforderlich:**  
 
-Da REST nur feste Datenstrukturen zurückliefert, müssen mehrere Endpunkte angelegt werden, um die verschiedenen Daten aus dem Server beziehen zu können. Beispielsweise konnte Anna ihre Wünsche nicht zur selben Zeit nennen, da REST diese Wünsche aus mehreren “Endpunkten” nacheinander holen musste und eine parallele Abfrage nicht möglich ist. Die Endpunkte sehen wie folgt aus:
+Da REST nur feste Datenstrukturen zurückliefert, müssen mehrere Endpunkte angelegt werden, um die verschiedenen Daten vom Server beziehen zu können. Beispielsweise konnte Anna ihre Wünsche nicht zur selben Zeit nennen, da REST diese Wünsche aus mehreren Endpunkten nacheinander holen musste und eine parallele Abfrage nicht möglich ist. Die Endpunkte sehen wie folgt aus:
 * URL/api/restaurant   
 * URL/api/supermarkt
 
