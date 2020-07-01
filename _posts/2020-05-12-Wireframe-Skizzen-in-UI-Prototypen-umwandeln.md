@@ -124,7 +124,7 @@ Dadurch wird die gezeichnete Umrandung effektiv und ohne viel Aufwand aus dem Bi
 # Klassifizieren der ausgeschnittenen UI-Elemente
 
 Um den entsprechenden HTML-Code zu generieren, müssen die extrahierten Bildausschnitte klassifiziert werden.
-Dafür kann ein Convolutional Neural Network trainiert werden.
+Dafür kann ein Convolutional Neural Network (CNN) trainiert werden.
 
 ![Training Data](/assets/images/posts/ui-prototyping-wireframe/training_data.png "Training Data")
 
