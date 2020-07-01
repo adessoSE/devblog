@@ -14,11 +14,21 @@ Oftmals ist aber der Schritt von einer Wireframe-Skizze zu einem UI-Prototyp seh
 In diesem Blog-Post möchte ich einen Ansatz vorstellen, mit dem man diesen Schritt mithilfe von Computer Vision und Machine Learning verkürzen kann.
 
 
-# Das Resultat
+# Wofür überhaupt der Aufwand?
 
-![Eingabe und Ausgabe](/assets/images/posts/ui-prototyping-wireframe/input_output.jpg "Eingabe und Ausgabe")
+Die Entwicklung von guten User-Interfaces ist keine einfache Sache.
+Jeder, der schon einmal probiert hat ein ein Element mithilfe von CSS zu zentrieren, weiß, wovon ich spreche.
+Es gibt sogar eine Website die nur für diesen Zweck existiert: [howtocenterincss.com](http://howtocenterincss.com/).
 
-_Eingabe und Resultat_
+Ohne gründliche Planung verschwendet man bei der Erstellung von User-Interfaces also sehr viel Zeit.
+Also ist es oft sinnvoll, sich vorher zu überlegen, wie das User-Interface aussehen soll, bevor man mit der Arbeit anfängt.
+Das hilft vor allem Probleme früh zu erkennen und auszubessern.
+Oft ist es aber so, dass viele Probleme erst ersichtlich werden, wenn man seine skizzierte Idee in tatsächlichen HTML- und CSS-Code umsetzt.
+
+# Das Ziel
+
+Es wäre also präferabel, einen Click-Dummy seines User-Interfaces zu erstellen um diese Probleme zu erkennen, bevor man noch mehr Arbeit hineinsteckt.
+In dem folgenden Bild sieht man eine skizzierte Idee eines User-Interfaces und ein Click-Dummy, der der Skizze entspricht.
 
 ![Handgezeichnete Skizze und entsprechender fertige UI-Prototyp](/assets/images/posts/ui-prototyping-wireframe/input_output.jpg "Eingabe und Ausgabe")
 
@@ -28,6 +38,10 @@ Auf der linken Seite sieht man ein Foto einer handgezeichneten Wireframe-Skizze.
 Oben in der Skizze wurde eine Navigation-Bar gezeichnet, in der Mitte ein Grid von Bildern mit Paragraphen daneben und unten ein Pagination-Element.
 Auf der rechten Seite sieht man eine Website, die in etwa der Skizze entspricht.
 Diese Website wurde mithilfe von Komponenten des Bootstrap CSS-Frameworks erstellt.
+
+UI-Prototypen mithilfe von fertigen Bootstrap-Komponenten zu erstellen verkürzt den Arbeitsaufwand zwar signifikant, aber wäre es nicht noch besser, den UI-Prototyp automatisch generieren zu lassen, anstatt diese Komponenten von Hand zusammenzubauen?
+
+Das ist die Idee dieses Ansatzes: Oft verwendete und typische UI-Elemente aus einer handgezeichneten Skizze erkennen und diese automatisch als Bootstrap-Komponenten zusammenbauen und daraus eine HTML-Datei generieren.
 
 
 # Verwendete Technologien
