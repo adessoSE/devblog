@@ -232,7 +232,7 @@ jobs:
           prerelease: false
 ```
 Als Erstes muss wieder der Event-Typ angegeben werden.
-Optional kann auch ein Branch gegeben werden.
+Optional kann auch ein Branch angegeben werden.
 Wenn keiner angegeben ist, gilt diese Actions für alle.
 
 Anschließend wird angeordnet, auf welche Tags reagiert werden soll,
