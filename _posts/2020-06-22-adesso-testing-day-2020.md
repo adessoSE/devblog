@@ -84,7 +84,7 @@ Innerhalb eines Projektes besteht oft das Problem, dass sich der Fachbereich mit
 Als Lösung wurde teilweise versucht, den Fachbereich zu befähigen, Software selber entwickeln zu können - meist mit geringem Erfolg, weil mit zu viel Aufwand verbunden. 
 Eine andere Lösung ist, beide Teams näher zusammenzubringen, wie es agile Modelle gerne vorführen. 
 Dies bringt sicherlich viele Vorteile, löst aber das Grundproblem leider nicht. Auch im Bereich der Testautomatisierung existiert das gleiche Problem: aufgrund speziellem KnowHows liefert Team A die fachlichen Testfälle und Team B automatisiert diese mit einem speziellen Framework. 
-Über Ansatz, dies zu verbessern, berichteten Felix Sommer und Daniel Sorna. 
+Über den Ansatz, dies zu verbessern, berichteten Felix Sommer und Daniel Sorna. 
 Sie stellten das Projekt Seed-Test vor, das Behaviour-Driven-Development mit der Sprache Gherkin mit einem Selenium-gesteuerten Record-And-Play-Mechnismus verbindet. 
 Über dieses Projekt wurde hier bereits [in einem Blog-Artikel](https://www.adesso.de/de/news/blog/behaviour-driven-development-und-automatisierte-tests-mit-seed-test.jsp) berichtet. 
 Das Projekt wurde mittlerweile als Open-Source-Projekt auf [GitHub](https://github.com/adessoAG/Seed-Test) veröffentlicht.
