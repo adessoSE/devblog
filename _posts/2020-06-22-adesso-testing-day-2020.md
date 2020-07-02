@@ -63,7 +63,7 @@ Die Firma [eggplant](https://www.eggplantsoftware.com/) bietet mit ihren Produkt
 Nachdem bereits im letzten Jahr über die Möglichkeiten zur Etablierung kontinuierlicher QM-Prozessverbesserung diskutiert wurde, berichteten Kolja Dütsch und Kirsten Strack vom Stand der Dinge. 
 Rund um das Thema PITQM - angelehnt an das von adesso gerne eingesetzte Vorgehensmodell [PITPM - Pragmatisches IT-Projektmanagement](https://pitpm.net/) - hat sich seit dem letzten testing day eine Projektgruppe gebildet, die sich um die Einführung und Weiterentwicklung dieses Themas kümmert.
 
-![PITQM](/assets/images/posts/adesso-testing-day-2020/pitqm.JPG)
+![PITQM](/assets/images/posts/adesso-testing-day-2020/pitqm.jpg)
 
 
 # Viele Themen rund um das Thema Testautomatisierung
