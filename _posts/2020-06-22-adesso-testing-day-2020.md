@@ -96,7 +96,7 @@ Das Projekt wurde mittlerweile als Open-Source-Projekt auf [GitHub](https://gith
 
 Neben der konkreten Arbeit mit einem Werkzeug stellt sich oft die Frage, welches Werkzeug für eine konkrete Aufgabe bzw. für ein bestehendes Projekt am besten geeignet ist. 
 Während noch vor einigen Jahren die Suche nach einem speziellen Werkzeug eher ergebnislos blieb, hat man heute vielfach eher die Qual der Wahl. 
-Michael Menz berichtete von eienr adesso Studie zu verbreiteten Testmanagementwerkzeugen für einen Kunden und gab so den Teilnehmern des adesso testing days ein Hilfsmittel an die Hand zukünftig selber schnell eine Auswahl von Werkzeugen treffen zu können.
+Michael Menz berichtete von eienr adesso Studie zu verbreiteten Testmanagementwerkzeugen für einen Kunden und gab so den Teilnehmern des adesso testing days ein Hilfsmittel an die Hand, um zukünftig selber schnell eine Auswahl von Werkzeugen treffen zu können.
 
 
 # Gelungene Veranstaltung - trotz Corona
