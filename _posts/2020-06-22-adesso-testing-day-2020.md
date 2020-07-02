@@ -89,7 +89,7 @@ Sie stellten das Projekt Seed-Test vor, das Behaviour-Driven-Development mit der
 Über dieses Projekt wurde hier bereits [in einem Blog-Artikel](https://www.adesso.de/de/news/blog/behaviour-driven-development-und-automatisierte-tests-mit-seed-test.jsp) berichtet. 
 Das Projekt wurde mittlerweile als Open-Source-Projekt auf [GitHub](https://github.com/adessoAG/Seed-Test) veröffentlicht.
 
-![Testing Day 2019](/assets/images/posts/adesso-testing-day-2020/seed-test.JPG)
+![Testing Day 2019](/assets/images/posts/adesso-testing-day-2020/seed-test.jpg)
 
 
 # Die Qual der Wahl oder die Wahl der Qual - wie finde ich eine passende Testmanagementunterstützung
