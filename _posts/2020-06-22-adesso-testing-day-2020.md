@@ -16,10 +16,12 @@ Das Coronavirus hat viele Auswirkungen - auch der adesso testing day mit seiner 
 
 Der adesso testing day ist inzwischen zur festen Institution für die Testing Community der adesso geworden. 
 Da neben den Fachvorträgen auch der persönliche Austausch und das Networking wichtiges Element der Veranstaltung sind, fand der testing day bisher immer als Präsenzveranstaltung in den Räumlichkeiten unseres Dortmunder Hauptsitzes statt. 
-Doch mit Corona wird alles anders - auch beim testing day. Mit bis zu 80 Teilnehmern hätten wir den Sicherheitsabstand selbst in unseren neuen Räumlichkeiten nicht einhalten können. 
+Doch mit Corona wird alles anders - auch beim testing day.
+Mit bis zu 80 Teilnehmern hätten wir den Sicherheitsabstand selbst in unseren neuen Räumlichkeiten nicht einhalten können. 
 Eine Absage kam für uns allerdings auch nicht in Frage - dafür war uns der testing day zu wichtig. 
 Daher wurde das Format von einer Präsenzveranstaltung zu einer Teams-Konferenz umgestellt. 
-Da Online-Konferenzen zum Teil deutlich anstrenger sein können als ein Präsenztermin, wurden die Vorträge auf zwei Termine aufgeteilt. Die sonst explizit eingebaute WarmUp-Networking-Session entfiel.
+Da Online-Konferenzen zum Teil deutlich anstrenger sein können als ein Präsenztermin, wurden die Vorträge auf zwei Termine aufgeteilt. 
+Die sonst explizit eingebaute WarmUp-Networking-Session entfiel.
 
 ![Testing Day 2019](/assets/images/posts/adesso-testing-day-2020/testing-day-2019.jpg)
 
@@ -39,7 +41,8 @@ Oliver Jordan stellte die adesso health solutions mit dem Produkt KVAI vor und b
 * Möglichst niedriger manueller Testaufwand 
 * Fertigstellung der Testfälle vor Codeerzeugung (Idealfall)
 
-Im Anschluss komplettierte Timo Weber das Bild durch einen Einblick in die Qualitätsoffensive der adesso insurance solutions. Die getroffenen Maßnahmen waren unter anderem:
+Im Anschluss komplettierte Timo Weber das Bild durch einen Einblick in die Qualitätsoffensive der adesso insurance solutions. 
+Die getroffenen Maßnahmen waren unter anderem:
 
 * Erstellung eines Muster QS-Plans
 * Besetzung eines Qualitätsmanagers
@@ -75,7 +78,8 @@ Auch die Einführung der Zertifizierung zum ISTQB Test Automation Engineer zeigt
 
 Tobias Schmitz zeigte in seinem Vortrag, wie ein modelbasierter Test einer mobilen Anwendung mit Tricentis Tosca aussehen kann. 
 Dass man im Gegensatz zur landläufigen Meinung doch nicht auf ewig bei dem einmal eingeführten Testwerkzeug bleiben muss, zeigte der Vortrag von Christian Heinrich und Esien Novruzov. 
-Sie berichteten über einen Wechsel von Protractor zu Cypress.io, um endlich stabile Ende-zu-Ende Tests zu erreichen. Den vielen Vorteilen (u.a. Video-Aufnahmen der Tests, Möglichkeiten zur Zeitreise und Mocking des Backends) standen nur wenige Nachteile gegenüber (z.B. Cross Origin Probleme im Chrome Browser, keine Unterstützung von Iframes und fehlende Unterstützung des Browser-Tab-Wechsels).
+Sie berichteten über einen Wechsel von Protractor zu Cypress.io, um endlich stabile Ende-zu-Ende Tests zu erreichen. 
+Den vielen Vorteilen (unter anderem Video-Aufnahmen der Tests, Möglichkeiten zur Zeitreise und Mocking des Backends) standen nur wenige Nachteile gegenüber (zum Beispiel Cross Origin Probleme im Chrome Browser, keine Unterstützung von Iframes und fehlende Unterstützung des Browser-Tab-Wechsels).
 
 ## Eigenentwicklungen
 
@@ -83,7 +87,8 @@ Einem anderen Problem widmete sich die Projektgruppe Seed-Test.
 Innerhalb eines Projektes besteht oft das Problem, dass sich der Fachbereich mit der Domäne auskennt während das technische KnowHow bei Entwicklern zu finden ist. 
 Als Lösung wurde teilweise versucht, den Fachbereich zu befähigen, Software selber entwickeln zu können - meist mit geringem Erfolg, weil mit zu viel Aufwand verbunden. 
 Eine andere Lösung ist, beide Teams näher zusammenzubringen, wie es agile Modelle gerne vorführen. 
-Dies bringt sicherlich viele Vorteile, löst aber das Grundproblem leider nicht. Auch im Bereich der Testautomatisierung existiert das gleiche Problem: aufgrund speziellem KnowHows liefert Team A die fachlichen Testfälle und Team B automatisiert diese mit einem speziellen Framework. 
+Dies bringt sicherlich viele Vorteile, löst aber das Grundproblem leider nicht. 
+Auch im Bereich der Testautomatisierung existiert das gleiche Problem: aufgrund speziellem KnowHows liefert Team A die fachlichen Testfälle und Team B automatisiert diese mit einem speziellen Framework. 
 Über den Ansatz, dies zu verbessern, berichteten Felix Sommer und Daniel Sorna. 
 Sie stellten das Projekt Seed-Test vor, das Behaviour-Driven-Development mit der Sprache Gherkin mit einem Selenium-gesteuerten Record-And-Play-Mechnismus verbindet. 
 Über dieses Projekt wurde hier bereits [in einem Blog-Artikel](https://www.adesso.de/de/news/blog/behaviour-driven-development-und-automatisierte-tests-mit-seed-test.jsp) berichtet. 
