@@ -101,7 +101,7 @@ Michael Menz berichtete von eienr adesso Studie zu verbreiteten Testmanagementwe
 
 # Gelungene Veranstaltung - trotz Corona
 
-Der kurzfristig auf ein Online-Format umgestellte adesso testing day 2020 zeigte mit über 70 Teilnehmern entgegen aller Befürchtungen das konstant große Interesse am Thema Testing sowie an der Qualität der Vorträge die große Kompetenz der adesso in diesem Bereich. 
+Der kurzfristig auf ein Online-Format umgestellte adesso testing day 2020 zeigte mit über 70 Teilnehmern entgegen aller Befürchtungen das konstant große Interesse am Thema Testing, an der Qualität der Vorträge und die große Kompetenz der adesso in diesem Bereich. 
 Dieses Jahr waren bereits 8 Gesellschaften aus 6 Ländern vertreten. 
 Nichtsdestotrotz freue ich mich, alle Kollegen im nächsten Jahr hoffentlich wieder persönlich vor Ort begrüssen zu dürfen.
 Bis zum nächsten Jahr - bleibt gesund!
