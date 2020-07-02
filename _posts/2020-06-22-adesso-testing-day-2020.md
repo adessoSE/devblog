@@ -39,7 +39,7 @@ Oliver Jordan stellte die adesso health solutions mit dem Produkt KVAI vor und b
 * Möglichst niedriger manueller Testaufwand 
 * Fertigstellung der Testfälle vor Codeerzeugung (Idealfall)
 
-Im Anschluss komplettierte Timo Weber das Bild durch einen Einblick die Qualitätsoffensive der adesso insurance solutions. Die getroffenen Maßnahmen waren unter anderem:
+Im Anschluss komplettierte Timo Weber das Bild durch einen Einblick in die Qualitätsoffensive der adesso insurance solutions. Die getroffenen Maßnahmen waren unter anderem:
 
 * Erstellung eines Muster QS-Plans
 * Besetzung eines Qualitätsmanagers
