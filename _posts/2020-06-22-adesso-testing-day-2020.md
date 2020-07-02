@@ -27,7 +27,7 @@ Da Online-Konferenzen zum Teil deutlich anstrenger sein können als ein Präsenz
 # Testen in der Produktentwicklung
 
 Den Anfang machten zwei Vorträge rund um das Thema Testen im Kontext einer Produktentwicklung. 
-adesso hat schon seit einiger Zeit Produkte und Lösungen im Angebot, so zum Beispiel mit infocus eine Lösung für Lotteriegesellschaften und über das Tochterunternehmen eSpirit die CMS-Lösung FirstSpirit, das auch in vielen adesso-Projekten eingesetzt wird. 
+adesso hat schon seit einiger Zeit Produkte und Lösungen im Angebot, so zum Beispiel mit infocus eine Lösung für Lotteriegesellschaften oder über das Tochterunternehmen eSpirit die CMS-Lösung FirstSpirit, die auch in vielen adesso-Projekten eingesetzt wird. 
 Neu ist neben der adesso insurance solutions als Produkthaus für Versicherungslösungen die adesso health solutions, die ein Produkt für die gesetzlichen Krankenkassen anbietet.
 
 Oliver Jordan stellte die adesso health solutions mit dem Produkt KVAI vor und berichtete über die im Produktkontext eingesetzten QS-Maßnahmen:
