@@ -75,7 +75,7 @@ Auch die Einführung der Zertifizierung zum ISTQB Test Automation Engineer zeigt
 
 Tobias Schmitz zeigte in seinem Vortrag, wie ein modelbasierter Test einer mobilen Anwendung mit Tricentis Tosca aussehen kann. 
 Dass man im Gegensatz zur landläufigen Meinung doch nicht auf ewig bei dem einmal eingeführten Testwerkzeug bleiben muss, zeigte der Vortrag von Christian Heinrich und Esien Novruzov. 
-Sie berichteten über einen Wechsel von Protractor zu Cypress.io, um endlich stabile Ende-zu-Ende Tests zu erreichen. Den vielen Vorteilen (u.a. Video-Aufnahmen der Tests, Möglichkeiten zur Zeit-Reise und Mocking des Backends) standen nur wenige Nachteile gegenüber (z.B. Cross Origin Probleme im Chrome Browser, keine Unterstützung von Iframes und fehlende Unterstützung des Browser-Tab-Wechsels).
+Sie berichteten über einen Wechsel von Protractor zu Cypress.io, um endlich stabile Ende-zu-Ende Tests zu erreichen. Den vielen Vorteilen (u.a. Video-Aufnahmen der Tests, Möglichkeiten zur Zeitreise und Mocking des Backends) standen nur wenige Nachteile gegenüber (z.B. Cross Origin Probleme im Chrome Browser, keine Unterstützung von Iframes und fehlende Unterstützung des Browser-Tab-Wechsels).
 
 ## Eigenentwicklungen
 
