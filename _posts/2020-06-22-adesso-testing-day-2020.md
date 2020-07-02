@@ -5,7 +5,7 @@ date:   2020-06-22 10:25              # Pflichtfeld. Format "YYYY-MM-DD HH:MM". 
 author: stwacker                      # Pflichtfeld. Es muss in der "authors.yml" einen Eintrag mit diesem Namen geben.
 categories: [Branchen & People]       # Pflichtfeld. Maximal eine der angegebenen Kategorien verwenden.
 tags: [Testing]                       # Optional.
-modified_date: 2020-07-01 15:33
+modified_date: 2020-07-02 08:14
 ---
 
 
@@ -23,7 +23,7 @@ Daher wurde das Format von einer Präsenzveranstaltung zu einer Teams-Konferenz 
 Da Online-Konferenzen zum Teil deutlich anstrenger sein können als ein Präsenztermin, wurden die Vorträge auf zwei Termine aufgeteilt. 
 Die sonst explizit eingebaute WarmUp-Networking-Session entfiel.
 
-![Testing Day 2019](/assets/images/posts/adesso-testing-day-2020/testing-day-2019.jpg)
+![Testing Day 2019](/assets/images/posts/adesso-testing-day-2020/adesso-testing-day-2019.jpg)
 
 
 # Testen in der Produktentwicklung
