@@ -21,7 +21,7 @@ Eine Absage kam für uns allerdings auch nicht in Frage - dafür war uns der tes
 Daher wurde das Format von einer Präsenzveranstaltung zu einer Teams-Konferenz umgestellt. 
 Da Online-Konferenzen zum Teil deutlich anstrenger sein können als ein Präsenztermin, wurden die Vorträge auf zwei Termine aufgeteilt. Die sonst explizit eingebaute WarmUp-Networking-Session entfiel.
 
-![Testing Day 2019](/assets/images/posts/adesso-testing-day-2020/testing-day-2019.JPG)
+![Testing Day 2019](/assets/images/posts/adesso-testing-day-2020/testing-day-2019.jpg)
 
 
 # Testen in der Produktentwicklung
