@@ -53,7 +53,7 @@ Im Anschluss komplettierte Timo Weber das Bild durch einen Einblick in die Quali
 Verfahren der künstlichen Intelligenz sind in aller Munde - nicht erst mit der Vision eines selbstfahrenden Autos. 
 Auch adesso bietet mit der gestarteten [KI-Kampagne](https://ki.adesso.de/de/) bereits diverse Dienstleistungen rund um das Thema KI. 
 Für den Test stellt sich die Herausforderung, wie ein sich ständig veränderndes, weil selbstlernendes System getestet werden soll. 
-Hierzu beschäftigt sich bereits eine Arbeitsgruppe der Testing Community. 
+Hiermit beschäftigt sich bereits eine Arbeitsgruppe der Testing Community. 
 Aber auch der umgekehrte Ansatz ist interessant: wie kann der Softwaretest durch KI-Methoden unterstützt werden? 
 Die Firma [eggplant](https://www.eggplantsoftware.com/) bietet mit ihren Produkten entsprechende Ansätze über die Antony Edwards (COO eggplant) und Max Gerrard (VP Global Technical Services eggplant) in Ihrem Vortrag "Eggplant – Intro to applying Artificial Intelligence (AI) and Machine Learning to automate QA to help support a new culture of working, to deliver DevOps at scale and optimize your customer’s User' Experiences (UX)" berichteten.
 
