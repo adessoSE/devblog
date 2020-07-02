@@ -32,7 +32,7 @@ Neu ist neben der adesso insurance solutions als Produkthaus für Versicherungsl
 
 Oliver Jordan stellte die adesso health solutions mit dem Produkt KVAI vor und berichtete über die im Produktkontext eingesetzten QS-Maßnahmen:
 
-* Orientierung am Lehrplan des International  Software Testing Qualification Boards
+* Orientierung am Lehrplan des International Software Testing Qualification Boards
 * Testaktivitäten beginnen frühestmöglich im SWE-Prozess
 * Risikobasierte Testplanung 
 * Hohe Verfolgbarkeit der Softwaretests
