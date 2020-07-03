@@ -24,11 +24,11 @@ Eine Action wird in der Web-Oberfläche von GitHub erstellt.
 Praktischerweise kann sie geteilt und wiederverwendet werden.
 
 ## Erzeugung des Java Projekts
-Um einen demonstrativen Workflow zu erstellen, nutzen wir ein [Java Projekt](https://github.com/adessoAG/github-actions-demo) das mit [Spring Boot Starter](https://start.spring.io/) initialisiert wurde.
+Um einen demonstrativen Workflow zu erstellen, nutzen wir ein [Java Projekt](https://github.com/adessoAG/github-actions-demo), das mit [Spring Boot Starter](https://start.spring.io/) initialisiert wurde.
 Das Projekt ist mit Java 11 und Gradle ausgestattet.
 
 ## Gradle Projekt bauen und testen
-Um GitHub Actions in der Oberfläche aufzurufen, gibt es in der Repository-Ansicht den Reiter "Action".
+Um GitHub Actions in der Oberfläche aufzurufen, gibt es in der Repository-Ansicht den Reiter "Actions".
 
 ![Bild vom Actions Reiter](/assets/images/posts/github-actions/actions-tab.JPG)
 
@@ -169,7 +169,7 @@ Folgende Zeilen Code ergänzen den `sonarcloud` Workflow:
 ## Artefakte hochladen
 
 Die Test-Coverage eines Projekts wird mit JaCoCo gehandhabt, der Entwickler bekommt anschließend einen entsprechenden HTML-Report.
-Außerdem erstellt Gradle selbst auch einen Test-Report im HTML-Format, der zusammen mit dem Jacoco Test-Report als Artefakt hochgeladen werden soll.
+Außerdem erstellt Gradle selbst auch einen Test-Report im HTML-Format, der zusammen mit dem JaCoCo Test-Report als Artefakt hochgeladen werden soll.
 Dies wird mit den folgenden zwei Jobs realisiert.
 
 ```yaml
@@ -186,7 +186,7 @@ Dies wird mit den folgenden zwei Jobs realisiert.
 ``` 
 
 Für das Hochladen von Artefakten wird `actions/upload-artifact@v1` verwendet.
-Unter `name` wird jeweils der Name des Jobs und unter `path` der Output-Pfad, der zu den hochladenenden Dateien führt, angegeben.
+Unter `name` wird jeweils der Name des Jobs und unter `path` der Output-Pfad, der zu den hochzuladenenden Dateien führt, angegeben.
 Da CSS Dateien oder andere Abhängigkeiten vom HTML-Output vorhanden sein können, werden ganze Pfade und keine einzelnen Dateien übergeben.
 
 ## Release erzeugen
@@ -245,7 +245,7 @@ Den Tag-Namen und den Release-Namen setzt bzw. holt sich GitHub selbst vom Commi
 Im Body steht dann der Inhalt des Release.
 
 Der Draft gibt an, ob das Release published _(true)_ oder unpublished _(false)_ sein soll.
-Der Wert des Prerelease Attributs legt fest, ob es sich um ein vollwertiges, eigenständiges Release handelt oder einen Prerelease.
+Der Wert des Prerelease Attributs legt fest, ob es sich um ein vollwertiges, eigenständiges Release handelt oder ein Prerelease.
 Anschließend sieht das Release wie folgt aus.
 
 ![Bild des Release](/assets/images/posts/github-actions/release.JPG)
@@ -253,11 +253,11 @@ Anschließend sieht das Release wie folgt aus.
 # Mein Fazit
 Nach etwas mehr als einer Stunde haben wir einen automatisierten Workflow erstellt. 
 Dieser baut und testet ein Gradle Projekt und deployt HTML-Reports als Artefakte.
-Dazu erstellt der Workflow mittels Commit-Tags Release.
+Dazu erstellt der Workflow mittels Commit-Tags Releases.
 GitHub-Actions ist sehr empfehlenswert bei Anwendungen, die bereits auf GitHub verwaltet werden.
 Insbesondere im Open Source Bereich bzw. öffentlichen Repositories ist der Einsatz sehr empfehlenswert, da keine Kosten zu erwarten sind. 
 Bei privaten Repositories ist es empfehlenswert auf [Restriktionen und Kosten](https://help.github.com/en/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-actions) zu achten.
-Detaillierte Dokumentation und eine breite Palette [vorgegebener Actions](https://github.com/marketplace?type=actions) ermöglichen uns schnelle Umsetzung gewünscher Workflows.
+Detaillierte Dokumentation und eine breite Palette [vorgegebener Actions](https://github.com/marketplace?type=actions) ermöglichen uns schnelle Umsetzung gewünschter Workflows.
 Der Funktionsumfang ist gigantisch und jeder, dessen Interesse erweckt wurde, sollte sich die Dokumentation genauer anschauen.
 Dieser Blogpost dient lediglich als Einführung, um zu zeigen, wie einfach CI/CD Prozesse mit Actions realisiert werden können. 
 Außerdem ist es schön, dass die Actions direkt in der Oberfläche von GitHub erstellt und anschließend mit ins Repository gepusht werden.
