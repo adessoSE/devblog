@@ -17,22 +17,22 @@ In diesem Blog-Post möchte ich einen Ansatz vorstellen, mit dem man diesen Schr
 # Wofür überhaupt der Aufwand?
 
 Die Entwicklung von guten User-Interfaces ist keine einfache Sache.
-Jeder, der schon einmal probiert hat ein ein Element mithilfe von CSS zu zentrieren, weiß, wovon ich spreche.
+Jeder, der schon einmal probiert hat, ein Element mithilfe von CSS zu zentrieren, weiß, wovon ich spreche.
 Es gibt sogar eine Website die nur für diesen Zweck existiert: [howtocenterincss.com](http://howtocenterincss.com/).
 
 Ohne gründliche Planung verschwendet man bei der Erstellung von User-Interfaces also sehr viel Zeit.
 Also ist es oft sinnvoll, sich vorher zu überlegen, wie das User-Interface aussehen soll, bevor man mit der Arbeit anfängt.
-Das hilft vor allem Probleme früh zu erkennen und auszubessern.
+Das hilft vor allem, Probleme früh zu erkennen und auszubessern.
 Oft ist es aber so, dass viele Probleme erst ersichtlich werden, wenn man seine skizzierte Idee in tatsächlichen HTML- und CSS-Code umsetzt.
 
 # Das Ziel
 
-Es wäre also präferabel, einen Click-Dummy seines User-Interfaces zu erstellen um diese Probleme zu erkennen, bevor man noch mehr Arbeit hineinsteckt.
+Es wäre also präferabel, einen Click-Dummy seines User-Interfaces zu erstellen, um diese Probleme zu erkennen, bevor man noch mehr Arbeit hineinsteckt.
 In dem folgenden Bild sieht man eine skizzierte Idee eines User-Interfaces und ein Click-Dummy, der der Skizze entspricht.
 
-![Handgezeichnete Skizze und entsprechender fertige UI-Prototyp](/assets/images/posts/ui-prototyping-wireframe/input_output.jpg "Eingabe und Ausgabe")
+![Handgezeichnete Skizze und entsprechender fertiger UI-Prototyp](/assets/images/posts/ui-prototyping-wireframe/input_output.jpg "Eingabe und Ausgabe")
 
-_Handgezeichnete Skizze und entsprechender fertige UI-Prototyp_
+_Handgezeichnete Skizze und entsprechender fertiger UI-Prototyp_
 
 Auf der linken Seite sieht man ein Foto einer handgezeichneten Wireframe-Skizze.
 Oben in der Skizze wurde eine Navigation-Bar gezeichnet, in der Mitte ein Grid von Bildern mit Paragraphen daneben und unten ein Pagination-Element.
