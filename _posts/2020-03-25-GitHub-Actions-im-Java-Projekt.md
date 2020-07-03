@@ -2,7 +2,7 @@
 layout: [post, post-xml]              
 title: "GitHub Actions im Java Projekt"            
 date: 2020-03-25 09:38              
-modified_date: 2020-07-01 20:37
+modified_date: 2020-07-03 15:25
 author: ccaylak                       
 categories: [Softwareentwicklung]
 tags: [GitHub, Gradle, Spring Boot, Java]     
