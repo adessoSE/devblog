@@ -50,7 +50,7 @@ Durch dieses Design kann Over- und Underfetching vermieden werden. Doch wie wür
 
 # Die Lösung kommt mit GraphQL 
 
-Den genannten Herausforderungen hat sich Facebook 2012 gestellt und mit GraphQL eine Spezifikation entwickelt. Rund um diese Spezifikation haben sich inzwischen einige Implementierungen und ein vollständiges Ökosystem herausgebildet, welche den Einsatz analog zu REST in aktuellen Projekten unterstützen. GraphQL zeichnet sich durch folgende Punkte aus und hebt sich dadurch von REST-APIs ab.
+Den genannten Herausforderungen hat sich Facebook 2012 gestellt und mit GraphQL eine Spezifikation entwickelt. Rund um diese Spezifikation haben sich inzwischen einige Implementierungen und ein vollständiges Ökosystem gebildet, welche den Einsatz analog zu REST in aktuellen Projekten unterstützen. GraphQL zeichnet sich durch folgende Punkte aus und hebt sich dadurch von REST-APIs ab.
 
 - Durch eine Abfrage kann der Client Daten aus unterschiedlichen Ressourcen anfordern, z.B. aus Datenbanken oder anderen GraphQL Servern. Die vom Client aufgelisteten Daten werden durch eine Abfrage aus den verschiedenen Ressourcen gesammelt, verpackt und anschließend an den Client gesendet. 
 - Der Client kann sich explizit darauf festlegen, welche Daten er haben möchte, sodass keine überflüssigen Daten zur Last fallen.    
@@ -88,7 +88,7 @@ GraphQL kam zwar mit vielen guten Lösungsansätzen für bekannte Probleme von R
 
 **Kompliziert:**
 
-Der Client genießt die Freiheit, während der Server den gesamten Aufwand auf seinen Schultern zu tragen hat. Auf Grund der Flexibilität, die dem Client angeboten wird, steckt viel Aufwand in der Verarbeitung auf Seiten des Backends. Darüber hinaus ist es herausfordernd mit GraphQL anzufangen. Die Definition einer RESTful-API ist erheblich einfacher und den meisten Entwicklern bekannt, sodass viel Aufwand und Zeit gespart werden kann. 
+Bei GraphQL liegt die überwiegende Teil der Komplexität einer Anfrage beim Server. Auf Grund der Flexibilität, die dem Client angeboten wird, steckt viel Aufwand in der Verarbeitung auf Seiten des Backends. Darüber hinaus ist der Einstieg in die Entwicklung einer GraphQL-API deutlich komplexer. Die Definition einer RESTful-API ist erheblich einfacher und den meisten Entwicklern bekannt, sodass viel Aufwand und Zeit gespart werden kann. 
 
 **Komplexität im Caching:**
 
