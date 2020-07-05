@@ -330,3 +330,13 @@ kiliankrause:
   bio: "Kilian Krause ist als Werkstudent im Open-Source-Team bei adesso in Dortmund tätig."
   avatar_url: /assets/images/avatars/kiliankrause.jpg
   github: https://github.com/KilianKrause
+
+viktor-mucha:
+  first_name: Viktor
+  last_name: Mucha
+  github_username: viktor-mucha
+  email: Viktor.Mucha@adesso.de
+  bio: "Viktor Mucha ist Senior Software Engineer und arbeitet seit 8 Jahren bei adesso in der LOB Lottery. Sein Schwerpunkt liegt in der Konzeption und Entwicklung von Change Requests der Software-Lösung in|FOCUS in Java."
+  avatar_url: /assets/images/avatars/viktor-mucha.png
+  github: https://github.com/viktor-mucha
+  
