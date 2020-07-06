@@ -22,7 +22,7 @@ Es gibt sogar eine Website die nur für diesen Zweck existiert: [howtocenterincs
 
 Ohne gründliche Planung verschwendet man bei der Erstellung von User-Interfaces also sehr viel Zeit.
 Also ist es oft sinnvoll, sich vorher zu überlegen, wie das User-Interface aussehen soll, bevor man mit der Arbeit anfängt.
-Das hilft vor allem, Probleme früh zu erkennen und auszubessern.
+Das hilft dabei, Probleme früh zu erkennen und auszubessern.
 Oft ist es aber so, dass viele Probleme erst ersichtlich werden, wenn man seine skizzierte Idee in tatsächlichen HTML- und CSS-Code umsetzt.
 
 # Das Ziel
