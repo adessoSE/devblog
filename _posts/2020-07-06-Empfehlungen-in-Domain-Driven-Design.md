@@ -26,27 +26,27 @@ Die fachlichen Begriffe finden sich dann im Code der Software wieder.
 In objektorientierten Sprachen können dies Objekt-Klassen sein. 
 
 Doch wie wird entschieden, ob ein von uns Entwicklern verwendeter Fachbegriff Teil der Ubiquitous Language ist? 
-Hier wird empfohlen im Dialog mit Domänenexperten auf die Reaktion dieser zu achten, wenn ein Begriff durch uns Entwicklern eingeführt wird. 
+Hier wird empfohlen, im Dialog mit Domänenexperten auf die Reaktion dieser zu achten, wenn ein Begriff durch uns Entwickler eingeführt wird. 
 Greift der Domänenexperte den Begriff bei der Diskussion einer Funktion auf? 
 Neigt er stattdessen zu einer abweichenden Umschreibung oder ignoriert er gar den Begriff? 
-Diese Hinweise können durch uns Entwicklern aufgegriffen und im Dialog explizit angesprochen werden, um die relevanten von den irrelevanten Begriffen auszusortieren. 
+Diese Hinweise können durch uns Entwickler aufgegriffen und im Dialog explizit angesprochen werden, um die relevanten von den irrelevanten Begriffen auszusortieren. 
 Dies kann einen entscheidenden Einfluss auf die Gestaltung der Modell-Objekte haben.
 
 ## Subdomains
 
 Ein weiteres wichtiges Werkzeug in DDD ist das Unterteilen des Domänenmodells in einzelne Teilgebiete, die als Subdomains bezeichnet werden. 
-Jede Subdomain beinhaltet einen abgegrenzten Anwendungskontext, dem sogenannten Bounded Context. 
+Jede Subdomain beinhaltet einen abgegrenzten Anwendungskontext, den sogenannten Bounded Context. 
 Die Abgrenzung erfolgt zu den weiteren Subdomains. 
 Die fachliche Komplexität wird somit auf die einzelnen Teilgebiete reduziert. 
 Die abgegrenzten Subdomains interagieren miteinander an definierten Schnittstellen, die zusammengefasst Context Mapping genannt werden.
 
-Im Bounded Context stellt sich nun die Frage welche Modell-Objekte zu einem bestimmten Bounded Context gehören. 
+Im Bounded Context stellt sich nun die Frage, welche Modell-Objekte zu einem bestimmten Bounded Context gehören. 
 Verwenden zwei Entwickler das selbe Modell-Objekt für unterschiedliche Funktionen? 
 Reichern sie beispielsweise eine Klasse mit unterschiedlichen Attributen oder Methoden an, um ihre jeweilige Aufgabe zu erfüllen? 
 Verändern sie das Domänenmodell einer bereits vorhandenen Funktion maßgeblich? 
 Dies sind nach Evans Hinweise, dass der fachliche Kontext für eine bestimmte Teilfunktion nicht ausreichend definiert ist. 
 Somit bestehen Unklarheiten oder Mehrdeutigkeiten im Verständnis der Modell-Objekte. 
-Abhilfe verschafft es die Grenzen der Teilfunktionen zu definieren und diese unter dem Entwicklungsteam bekannt zu machen. 
+Abhilfe verschafft es, die Grenzen der Teilfunktionen zu definieren und diese unter dem Entwicklungsteam bekannt zu machen. 
 Daraus kann resultieren, dass ein Begriff in unterschiedlichen Kontexten unterschiedlich verwendet wird. 
 Eine Unterteilung in zwei unterschiedliche Subdomains ist dann sinnvoll.
 
@@ -85,8 +85,8 @@ Dann sollte die erste Entity der zweiten in einem Aggregate untergeordnet werden
 
 ## Fazit
 
-Domain Driven Design bietet nützliche Werkzeuge um den Fokus des Software-Entwicklungsprozesses auf die Domäne zu richten. 
-Dieser Artikel hat einige der Werkzeuge, sowie Empfehlungen zu ihrer Verwendung, vorgestellt. 
+Domain Driven Design bietet nützliche Werkzeuge, um den Fokus des Software-Entwicklungsprozesses auf die Domäne zu richten. 
+Dieser Artikel hat einige der Werkzeuge sowie Empfehlungen zu ihrer Verwendung vorgestellt. 
 Die Empfehlungen bieten einen Einblick in die Verwendung der Werkzeuge im Projektalltag. 
 Die Fragen in diesem Zusammenhang begegnen uns Entwicklern in der Praxis gelegentlich oder gar häufig. 
 In der Auseinandersetzung mit den DDD-Werkzeugen können somit die Empfehlungen hervorgehoben betrachtet werden. 
