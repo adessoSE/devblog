@@ -28,7 +28,7 @@ Oft ist es aber so, dass viele Probleme erst ersichtlich werden, wenn man seine 
 # Das Ziel
 
 Es wäre also präferabel, einen Click-Dummy seines User-Interfaces zu erstellen, um diese Probleme zu erkennen, bevor man noch mehr Arbeit hineinsteckt.
-In dem folgenden Bild sieht man eine skizzierte Idee eines User-Interfaces und ein Click-Dummy, der der Skizze entspricht.
+In dem folgenden Bild sieht man eine skizzierte Idee eines User-Interfaces und einen Click-Dummy, der der Skizze entspricht.
 
 ![Handgezeichnete Skizze und entsprechender fertiger UI-Prototyp](/assets/images/posts/ui-prototyping-wireframe/input_output.jpg "Eingabe und Ausgabe")
 
@@ -64,7 +64,7 @@ Dafür werden verschiedene Verfahren und Funktion von OpenCV verwendet, um die g
 
 Die ausgeschnittenen UI-Elemente werden dann durch ein Convolutional Neural Network (CNN) klassifiziert.
 CNNs sind spezielle neuronale Netzwerke aus dem Machine-Learning-Bereich, welche besonders gut bei der Erkennung von Objekten in einem Bild sind.
-Sie basieren auf bestimmte Prinzipien und Erkenntnissen über den visuellen Kortex von Lebewesen.
+Sie basieren auf bestimmten Prinzipien und Erkenntnissen über den visuellen Kortex von Lebewesen.
 fastai bietet einfache Lösungen, um ein solches CNN zu trainieren und zu verwenden.
 
 Aus den klassifizierten Elementen können mithilfe von yattag HTML-Elemente generiert werden, die entsprechend den UI-Elementen in der Skizze positioniert werden.
@@ -178,7 +178,7 @@ In der Abbildung ist das Ergebnis dieser zwei Schritte in einer GUI visualisiert
 # Generierung des Prototyps
 
 Anhand der Klassifizierung können dann entsprechende HTML-Tags generiert werden, welche anhand der Position und Größe der Bounding Box mittels CSS positioniert werden können.
-Die HTML-Tags können dann mit Platzhalter-Inhalten wie _Lorem Ipsum_ Text oder zufälligen Bilder von [unsplash.com](http://unsplash.com) versehen werden.
+Die HTML-Tags können dann mit Platzhalter-Inhalten wie _Lorem Ipsum_ Text oder zufälligen Bildern von [unsplash.com](http://unsplash.com) versehen werden.
 Dabei kann beispielsweise die Breite und Höhe der ermittelten Bounding Box als Breite und Höhe des Bildes verwendet werden: `https://source.unsplash.com/random/500x600`.
 
 Die Resultate der HTML-Generierung repräsentieren eine Annäherung and einen echten Prototyp, sie sind jedoch bei weitem nicht perfekt.
