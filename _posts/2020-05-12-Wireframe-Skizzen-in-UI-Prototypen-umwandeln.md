@@ -59,7 +59,7 @@ Um diesen Schritt zu automatisieren wurden hauptsächlich diese drei Bibliotheke
 _Aufbau der Programm-Pipeline visualisiert_
 
 Die Pipeline ist so aufgebaut, dass ein Foto einer Wireframe-Skizze eingeben wird.
-Aus einem Foto einer Wireframe-Skizze werden die gezeichneten UI-Elemente mittels Computer Vision Techniken ausgeschnitten.
+Aus diesem Foto werden die gezeichneten UI-Elemente mittels Computer Vision Techniken ausgeschnitten.
 Dafür werden verschiedene Verfahren und Funktion von [OpenCV](https://opencv.org/) verwendet, um die gezeichneten Linien von dem Hintergrund zu separieren.
 
 Die ausgeschnittenen UI-Elemente werden dann durch ein Convolutional Neural Network (CNN) klassifiziert.
