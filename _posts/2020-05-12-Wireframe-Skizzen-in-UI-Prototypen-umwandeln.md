@@ -60,14 +60,14 @@ _Aufbau der Programm-Pipeline visualisiert_
 
 Die Pipeline ist so aufgebaut, dass ein Foto einer Wireframe-Skizze eingeben wird.
 Aus diesem Foto werden die gezeichneten UI-Elemente mittels Computer Vision Techniken ausgeschnitten.
-Dafür werden verschiedene Verfahren und Funktion von [OpenCV](https://opencv.org/) verwendet, um die gezeichneten Linien von dem Hintergrund zu separieren.
+Dafür werden verschiedene Verfahren und Funktion von OpenCV verwendet, um die gezeichneten Linien von dem Hintergrund zu separieren.
 
 Die ausgeschnittenen UI-Elemente werden dann durch ein Convolutional Neural Network (CNN) klassifiziert.
 CNNs sind spezielle neuronale Netzwerke aus dem Machine-Learning-Bereich, welche besonders gut bei der Erkennung von Objekten in einem Bild sind.
 Sie basieren auf bestimmte Prinzipien und Erkenntnissen über den visuellen Kortex von Lebewesen.
-[fastai](https://www.fast.ai/) bietet einfache Lösungen, um ein solches CNN zu trainieren und zu verwenden.
+fastai bietet einfache Lösungen, um ein solches CNN zu trainieren und zu verwenden.
 
-Aus den klassifizierten Elementen können mithilfe von [yattag](https://www.yattag.org/) HTML-Elemente generiert werden, die entsprechend den UI-Elementen in der Skizze positioniert werden.
+Aus den klassifizierten Elementen können mithilfe von yattag HTML-Elemente generiert werden, die entsprechend den UI-Elementen in der Skizze positioniert werden.
 
 
 # Extrahierung der UI-Elemente aus dem Foto
@@ -154,7 +154,7 @@ _Beispiele für extrahierte Bildausschnitte aus den Skizzen_
 Aus den gesammelten Fotos wurden dann mit der zuvor beschriebenen Methode die einzelnen UI-Elemente extrahiert.
 Diese Bildausschnitte dienten als Trainingsdaten für das CNN.
 
-Für das CNN wurde [fast.ai](https://github.com/fastai/fastai) verwendet.
+Für das CNN wurde fastai verwendet.
 Dieses Library erlaubt es mit nur einigen Zeilen Code ein neuronales Netzwerk zu trainieren.
 Hier ist ein _minimal working example_, welches ein CNN am MNIST Datensatz (Sammlung von handgezeichneten Ziffern des Modified National Institute of Standards and Technology) trainiert:
 
@@ -165,7 +165,7 @@ data = image_data_from_folder(path)
 learn = cnn_learner(data, models.resnet18, metrics=accuracy)
 learn.fit(1)
 ```
-_Wenn ihr mehr über [fast.ai](https://github.com/fastai/fastai) erfahren wollt, findet ihr hier den [Einsteiger-Kurs](https://course.fast.ai/) und die [Dokumentation](https://docs.fast.ai/)._
+_Wenn ihr mehr über fastai erfahren wollt, findet ihr hier den [Einsteiger-Kurs](https://course.fast.ai/) und die [Dokumentation](https://docs.fast.ai/)._
 
 ![GUI](/assets/images/posts/ui-prototyping-wireframe/gui_prototype.png "GUI")
 
