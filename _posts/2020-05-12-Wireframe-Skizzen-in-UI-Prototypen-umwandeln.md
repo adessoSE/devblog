@@ -77,7 +77,7 @@ Dafür müssen diese zuerst lokalisiert und anschließend ausgeschnitten werden.
 
 ## Segmentierung des Bildes in Vorder- und Hintergrund
 
-Mit Hilfe von einem Ridge-Detection-Filter gefolgt von Otsu-Thresholding kann das Bild einer Wireframe-Skizze einfach in Vorder- und Hintergrund segmentiert werden.
+Mit Hilfe eines Ridge-Detection-Filter gefolgt von Otsu-Thresholding kann das Bild einer Wireframe-Skizze einfach in Vorder- und Hintergrund segmentiert werden.
 Das Bild wird dadurch in schwarz und weiß binarisiert.
 Das heißt, es existieren keine Graustufen mehr: Pixel können nur noch komplett schwarz oder komplett weiß sein.
 Dieser Schritt ist für den folgenden Schritt notwendig.
