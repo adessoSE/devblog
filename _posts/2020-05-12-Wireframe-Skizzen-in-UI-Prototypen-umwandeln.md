@@ -41,7 +41,7 @@ Diese Website wurde mithilfe von Komponenten des Bootstrap CSS-Frameworks erstel
 
 UI-Prototypen mithilfe von fertigen Bootstrap-Komponenten zu erstellen verkürzt den Arbeitsaufwand zwar signifikant, aber wäre es nicht noch besser, den UI-Prototyp automatisch generieren zu lassen, anstatt diese Komponenten von Hand zusammenzubauen?
 
-Das ist die Idee dieses Ansatzes: Oft verwendete und typische UI-Elemente aus einer handgezeichneten Skizze erkennen und diese automatisch als Bootstrap-Komponenten zusammenbauen und daraus eine HTML-Datei generieren.
+Das ist die Idee dieses Ansatzes: Oft verwendete und typische UI-Elemente aus einer handgezeichneten Skizze erkennen, diese automatisch als Bootstrap-Komponenten zusammenbauen und daraus eine HTML-Datei generieren.
 
 
 # Verwendete Technologien
