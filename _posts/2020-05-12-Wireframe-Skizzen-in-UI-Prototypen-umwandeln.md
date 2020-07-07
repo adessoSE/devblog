@@ -117,7 +117,7 @@ _Aus den Konturen ermittelte Bounding Boxes: AABB (links), rotierte BB (rechts)_
 
 Wie man in der Abbildung links jedoch erkennen kann, ist eine AABB nicht immer optimal.
 Stattdessen kann man eine rotierte Bounding Box ermitteln, wie in der Abbildung rechts zu sehen.
-Von dieser kann der Winkel der Rotation berechnet und anschließend kann der Bildausschnitt in entgegengesetzter Richtung um diesen Winkel rotiert werden.
+Von dieser kann der Winkel der Rotation berechnet und anschließend der Bildausschnitt in entgegengesetzter Richtung um diesen Winkel rotiert werden.
 Dadurch wird die rotierte BB wieder zu einer AABB, die man aus dem Bild ausschneiden kann.
 
 
