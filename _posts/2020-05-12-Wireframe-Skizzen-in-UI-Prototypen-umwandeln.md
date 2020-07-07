@@ -21,7 +21,7 @@ Jeder, der schon einmal probiert hat, ein Element mithilfe von CSS zu zentrieren
 Es gibt sogar eine Website die nur für diesen Zweck existiert: [howtocenterincss.com](http://howtocenterincss.com/).
 
 Ohne gründliche Planung verschwendet man bei der Erstellung von User-Interfaces also sehr viel Zeit.
-Also ist es oft sinnvoll, sich vorher zu überlegen, wie das User-Interface aussehen soll, bevor man mit der Arbeit anfängt.
+Daher ist es oft sinnvoll, sich vorher zu überlegen, wie das User-Interface aussehen soll, bevor man mit der Arbeit anfängt.
 Das hilft dabei, Probleme früh zu erkennen und auszubessern.
 Oft ist es aber so, dass viele Probleme erst ersichtlich werden, wenn man seine skizzierte Idee in tatsächlichen HTML- und CSS-Code umsetzt.
 
