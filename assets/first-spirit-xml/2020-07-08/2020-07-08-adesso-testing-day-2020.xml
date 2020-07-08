@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<documents>
+    <document uid="240047f9311ddbf94480f443834622af">
+        <field name="title"><![CDATA[adesso testing day 2020]]></field>
+        <field name="subline"><![CDATA[]]></field>
+        <field name="teaser"><![CDATA[<p>Das Coronavirus hat viele Auswirkungen - auch der adesso testing day mit seiner inzwischen siebten Auflage war betroffen. Beim adesso testing day handelt es sich um eine adesso-interne Konferenz zum Austausch zwischen allen am Thema Testing interessierten adessi – Bereichs- und Geschäftsstellenübergreifend.</p>
+
+]]></field>
+        <field name="language_multi_keyword"><![CDATA[de]]></field>
+        <field name="content_type_multi_keyword"><![CDATA[blog]]></field>
+        <field name="mime_type_multi_keyword"><![CDATA[text/html]]></field>
+        <field name="category_multi_keyword"><![CDATA[Inside adesso]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Testing]]></field>
+        <field name="date_date"><![CDATA[2020-07-08T15:00:00+02:00]]></field>
+        <field name="date_l"><![CDATA[1594213200000]]></field>
+        <field name="change_date"><![CDATA[1594213200000]]></field>
+        <!--Picture-->
+        <!-- Not in use at the moment-->
+        <!--Author Information-->
+        <field name="author_first_name"><![CDATA[Stephan]]></field>
+        <field name="author_last_name"><![CDATA[Wacker]]></field>
+        <field name="author_id"><![CDATA[stwacker]]></field>
+        <field name="author_picture_stored_only"><![CDATA[http://localhost:4000/assets/images/avatars/stwacker.png]]></field>
+        <!--Postcontent-->
+        <field name="headlines"><![CDATA[adesso testing day 2020]]></field>
+        <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
+            <p>Das Coronavirus hat viele Auswirkungen - auch der adesso testing day mit seiner inzwischen siebten Auflage war betroffen. Beim adesso testing day handelt es sich um eine adesso-interne Konferenz zum Austausch zwischen allen am Thema Testing interessierten adessi – Bereichs- und Geschäftsstellenübergreifend.</p>
+
+</div>]]></field>
+        <field name="content"><![CDATA[<div class="adesso-text-formate">
+<div class="row p-t-2">
+<div class="adesso-container">
+<div class="col-xl-8 adesso-center p-b-1 p-l-0 p-r-0">
+    <p>Das Coronavirus hat viele Auswirkungen - auch der adesso testing day mit seiner inzwischen siebten Auflage war betroffen. Beim adesso testing day handelt es sich um eine adesso-interne Konferenz zum Austausch zwischen allen am Thema Testing interessierten adessi – Bereichs- und Geschäftsstellenübergreifend.</p>
+
+<h4 id="adesso-testing-day-als-online-format">adesso testing day als Online-Format</h4>
+
+<p>Der adesso testing day ist inzwischen zur festen Institution für die Testing Community der adesso geworden. 
+Da neben den Fachvorträgen auch der persönliche Austausch und das Networking wichtiges Element der Veranstaltung sind, fand der testing day bisher immer als Präsenzveranstaltung in den Räumlichkeiten unseres Dortmunder Hauptsitzes statt. 
+Doch mit Corona wird alles anders - auch beim testing day.
+Mit bis zu 80 Teilnehmern hätten wir den Sicherheitsabstand selbst in unseren neuen Räumlichkeiten nicht einhalten können. 
+Eine Absage kam für uns allerdings auch nicht in Frage - dafür war uns der testing day zu wichtig. 
+Daher wurde das Format von einer Präsenzveranstaltung zu einer Teams-Konferenz umgestellt. 
+Da Online-Konferenzen zum Teil deutlich anstrenger sein können als ein Präsenztermin, wurden die Vorträge auf zwei Termine aufgeteilt. 
+Die sonst explizit eingebaute WarmUp-Networking-Session entfiel.</p>
+
+<p><img src="/assets/images/posts/adesso-testing-day-2020/adesso-testing-day-2019.jpg" alt="Testing Day 2019" /></p>
+
+<h4 id="testen-in-der-produktentwicklung">Testen in der Produktentwicklung</h4>
+
+<p>Den Anfang machten zwei Vorträge rund um das Thema Testen im Kontext einer Produktentwicklung. 
+adesso hat schon seit einiger Zeit Produkte und Lösungen im Angebot, so zum Beispiel mit infocus eine Lösung für Lotteriegesellschaften oder über das Tochterunternehmen eSpirit die CMS-Lösung FirstSpirit, die auch in vielen adesso-Projekten eingesetzt wird. 
+Neu ist neben der adesso insurance solutions als Produkthaus für Versicherungslösungen die adesso health solutions, die ein Produkt für die gesetzlichen Krankenkassen anbietet.</p>
+
+<p>Oliver Jordan stellte die adesso health solutions mit dem Produkt KVAI vor und berichtete über die im Produktkontext eingesetzten QS-Maßnahmen:</p>
+
+<ul>
+  <li>Orientierung am Lehrplan des International Software Testing Qualification Boards</li>
+  <li>Testaktivitäten beginnen frühestmöglich im SWE-Prozess</li>
+  <li>Risikobasierte Testplanung</li>
+  <li>Hohe Verfolgbarkeit der Softwaretests</li>
+  <li>Möglichst niedriger manueller Testaufwand</li>
+  <li>Fertigstellung der Testfälle vor Codeerzeugung (Idealfall)</li>
+</ul>
+
+<p>Im Anschluss komplettierte Timo Weber das Bild durch einen Einblick in die Qualitätsoffensive der adesso insurance solutions. 
+Die getroffenen Maßnahmen waren unter anderem:</p>
+
+<ul>
+  <li>Erstellung eines Muster QS-Plans</li>
+  <li>Besetzung eines Qualitätsmanagers</li>
+  <li>Etablierung eines QS-Wikis</li>
+  <li>Schulung über priorisierte QS-Maßnahmen (unter anderem über die Nutzung des Testmanagementwerkzeugs SpiraTest)</li>
+  <li>Etablierung eines Regeltermins zum Austausch und zum Tracking der geplanten Maßnahmen</li>
+</ul>
+
+<h4 id="testen-mit-ki-unterstützung">Testen mit KI-Unterstützung</h4>
+
+<p>Verfahren der künstlichen Intelligenz sind in aller Munde - nicht erst mit der Vision eines selbstfahrenden Autos. 
+Auch adesso bietet mit der gestarteten <a href="https://ki.adesso.de/de/">KI-Kampagne</a> bereits diverse Dienstleistungen rund um das Thema KI. 
+Für den Test stellt sich die Herausforderung, wie ein sich ständig veränderndes, weil selbstlernendes System getestet werden soll. 
+Hiermit beschäftigt sich bereits eine Arbeitsgruppe der Testing Community. 
+Aber auch der umgekehrte Ansatz ist interessant: wie kann der Softwaretest durch KI-Methoden unterstützt werden? 
+Die Firma <a href="https://www.eggplantsoftware.com/">eggplant</a> bietet mit ihren Produkten entsprechende Ansätze über die Antony Edwards (COO eggplant) und Max Gerrard (VP Global Technical Services eggplant) in Ihrem Vortrag “Eggplant – Intro to applying Artificial Intelligence (AI) and Machine Learning to automate QA to help support a new culture of working, to deliver DevOps at scale and optimize your customer’s User’ Experiences (UX)” berichteten.</p>
+
+<h4 id="pitqm">PITQM</h4>
+
+<p>Nachdem bereits im letzten Jahr über die Möglichkeiten zur Etablierung kontinuierlicher QM-Prozessverbesserung diskutiert wurde, berichteten Kolja Dütsch und Kirsten Strack vom Stand der Dinge. 
+Rund um das Thema PITQM - angelehnt an das von adesso gerne eingesetzte Vorgehensmodell <a href="https://pitpm.net/">PITPM - Pragmatisches IT-Projektmanagement</a> - hat sich seit dem letzten testing day eine Projektgruppe gebildet, die sich um die Einführung und Weiterentwicklung dieses Themas kümmert.</p>
+
+<p><img src="/assets/images/posts/adesso-testing-day-2020/pitqm.jpg" alt="PITQM" /></p>
+
+<h4 id="viele-themen-rund-um-das-thema-testautomatisierung">Viele Themen rund um das Thema Testautomatisierung</h4>
+
+<p>Insgesamt gab es beim diesjährigen testing day einen deutlichen Schwerpunkt rund um das Thema Testwerkzeuge im allgemeinen bzw. Testautomatisierung im besonderen. 
+Auch die Einführung der Zertifizierung zum ISTQB Test Automation Engineer zeigt das große Interesse und auch den großen Bedarf an KnowHow in diesem Bereich.</p>
+
+<h5 id="einsatz-bestehender-werkzeuge">Einsatz bestehender Werkzeuge</h5>
+
+<p>Tobias Schmitz zeigte in seinem Vortrag, wie ein modelbasierter Test einer mobilen Anwendung mit Tricentis Tosca aussehen kann. 
+Dass man im Gegensatz zur landläufigen Meinung doch nicht auf ewig bei dem einmal eingeführten Testwerkzeug bleiben muss, zeigte der Vortrag von Christian Heinrich und Esien Novruzov. 
+Sie berichteten über einen Wechsel von Protractor zu Cypress.io, um endlich stabile Ende-zu-Ende Tests zu erreichen. 
+Den vielen Vorteilen (unter anderem Video-Aufnahmen der Tests, Möglichkeiten zur Zeitreise und Mocking des Backends) standen nur wenige Nachteile gegenüber (zum Beispiel Cross Origin Probleme im Chrome Browser, keine Unterstützung von Iframes und fehlende Unterstützung des Browser-Tab-Wechsels).</p>
+
+<h5 id="eigenentwicklungen">Eigenentwicklungen</h5>
+
+<p>Einem anderen Problem widmete sich die Projektgruppe Seed-Test. 
+Innerhalb eines Projektes besteht oft das Problem, dass sich der Fachbereich mit der Domäne auskennt während das technische KnowHow bei Entwicklern zu finden ist. 
+Als Lösung wurde teilweise versucht, den Fachbereich zu befähigen, Software selber entwickeln zu können - meist mit geringem Erfolg, weil mit zu viel Aufwand verbunden. 
+Eine andere Lösung ist, beide Teams näher zusammenzubringen, wie es agile Modelle gerne vorführen. 
+Dies bringt sicherlich viele Vorteile, löst aber das Grundproblem leider nicht. 
+Auch im Bereich der Testautomatisierung existiert das gleiche Problem: aufgrund speziellem KnowHows liefert Team A die fachlichen Testfälle und Team B automatisiert diese mit einem speziellen Framework. 
+Über den Ansatz, dies zu verbessern, berichteten Felix Sommer und Daniel Sorna. 
+Sie stellten das Projekt Seed-Test vor, das Behaviour-Driven-Development mit der Sprache Gherkin mit einem Selenium-gesteuerten Record-And-Play-Mechnismus verbindet. 
+Über dieses Projekt wurde hier bereits <a href="https://www.adesso.de/de/news/blog/behaviour-driven-development-und-automatisierte-tests-mit-seed-test.jsp">in einem Blog-Artikel</a> berichtet. 
+Das Projekt wurde mittlerweile als Open-Source-Projekt auf <a href="https://github.com/adessoAG/Seed-Test">GitHub</a> veröffentlicht.</p>
+
+<p><img src="/assets/images/posts/adesso-testing-day-2020/seed-test.jpg" alt="Testing Day 2019" /></p>
+
+<h4 id="die-qual-der-wahl-oder-die-wahl-der-qual---wie-finde-ich-eine-passende-testmanagementunterstützung">Die Qual der Wahl oder die Wahl der Qual - wie finde ich eine passende Testmanagementunterstützung</h4>
+
+<p>Neben der konkreten Arbeit mit einem Werkzeug stellt sich oft die Frage, welches Werkzeug für eine konkrete Aufgabe bzw. für ein bestehendes Projekt am besten geeignet ist. 
+Während noch vor einigen Jahren die Suche nach einem speziellen Werkzeug eher ergebnislos blieb, hat man heute vielfach eher die Qual der Wahl. 
+Michael Menz berichtete von einer adesso Studie zu verbreiteten Testmanagementwerkzeugen für einen Kunden und gab so den Teilnehmern des adesso testing days ein Hilfsmittel an die Hand, um zukünftig selber schnell eine Auswahl von Werkzeugen treffen zu können.</p>
+
+<h4 id="gelungene-veranstaltung---trotz-corona">Gelungene Veranstaltung - trotz Corona</h4>
+
+<p>Der kurzfristig auf ein Online-Format umgestellte adesso testing day 2020 zeigte mit über 70 Teilnehmern das konstant große Interesse am Thema Testing, an der Qualität der Vorträge und die große Kompetenz der adesso in diesem Bereich. 
+Dieses Jahr waren bereits 8 Gesellschaften aus 6 Ländern vertreten. 
+Nichtsdestotrotz freue ich mich, alle Kollegen im nächsten Jahr wieder persönlich vor Ort begrüssen zu dürfen.
+Bis zum nächsten Jahr - bleibt gesund!</p>
+
+</div>
+</div>
+</div>
+</div>]]></field>
+    </document>
+</documents>
