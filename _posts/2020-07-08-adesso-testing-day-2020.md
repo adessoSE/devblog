@@ -1,7 +1,7 @@
 ---
 layout: [post, post-xml]              # Pflichtfeld. Nicht ändern!
 title:  "adesso testing day 2020"     # Pflichtfeld. Bitte einen Titel für den Blog Post angeben.
-date:   2020-06-22 10:25              # Pflichtfeld. Format "YYYY-MM-DD HH:MM". Muss für Veröffentlichung in der Vergangenheit liegen. (Für Preview egal)
+date:   2020-07-08 15:00              # Pflichtfeld. Format "YYYY-MM-DD HH:MM". Muss für Veröffentlichung in der Vergangenheit liegen. (Für Preview egal)
 author: stwacker                      # Pflichtfeld. Es muss in der "authors.yml" einen Eintrag mit diesem Namen geben.
 categories: [Inside adesso]       # Pflichtfeld. Maximal eine der angegebenen Kategorien verwenden.
 tags: [Testing]                       # Optional.
@@ -100,12 +100,12 @@ Das Projekt wurde mittlerweile als Open-Source-Projekt auf [GitHub](https://gith
 
 Neben der konkreten Arbeit mit einem Werkzeug stellt sich oft die Frage, welches Werkzeug für eine konkrete Aufgabe bzw. für ein bestehendes Projekt am besten geeignet ist. 
 Während noch vor einigen Jahren die Suche nach einem speziellen Werkzeug eher ergebnislos blieb, hat man heute vielfach eher die Qual der Wahl. 
-Michael Menz berichtete von eienr adesso Studie zu verbreiteten Testmanagementwerkzeugen für einen Kunden und gab so den Teilnehmern des adesso testing days ein Hilfsmittel an die Hand, um zukünftig selber schnell eine Auswahl von Werkzeugen treffen zu können.
+Michael Menz berichtete von einer adesso Studie zu verbreiteten Testmanagementwerkzeugen für einen Kunden und gab so den Teilnehmern des adesso testing days ein Hilfsmittel an die Hand, um zukünftig selber schnell eine Auswahl von Werkzeugen treffen zu können.
 
 
 # Gelungene Veranstaltung - trotz Corona
 
-Der kurzfristig auf ein Online-Format umgestellte adesso testing day 2020 zeigte mit über 70 Teilnehmern entgegen aller Befürchtungen das konstant große Interesse am Thema Testing, an der Qualität der Vorträge und die große Kompetenz der adesso in diesem Bereich. 
+Der kurzfristig auf ein Online-Format umgestellte adesso testing day 2020 zeigte mit über 70 Teilnehmern das konstant große Interesse am Thema Testing, an der Qualität der Vorträge und die große Kompetenz der adesso in diesem Bereich. 
 Dieses Jahr waren bereits 8 Gesellschaften aus 6 Ländern vertreten. 
-Nichtsdestotrotz freue ich mich, alle Kollegen im nächsten Jahr hoffentlich wieder persönlich vor Ort begrüssen zu dürfen.
+Nichtsdestotrotz freue ich mich, alle Kollegen im nächsten Jahr wieder persönlich vor Ort begrüssen zu dürfen.
 Bis zum nächsten Jahr - bleibt gesund!
