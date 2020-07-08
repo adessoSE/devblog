@@ -97,8 +97,8 @@ Diese besitzen eine Zeitangabe und können bei Bedarf aufgeklappt und näher bet
 ## SonarCloud Anbindung
 Ein weiterer Aspekt dieses Blogposts ist die SonarCloud Anbindung mittels GitHub Actions.
 Für unseren Anwendungsfall benötigen wir das [SonarQube-](https://docs.sonarqube.org/latest/analysis/scan/sonarscanner-for-gradle/) und [Jacoco-Plugin](https://docs.gradle.org/current/userguide/jacoco_plugin.html) für Gradle.
-SonarQube ist ein cloudbasierter Dienst, der den Sourcecode auf Qualität testet und die Ergebnisse über eine Webseite darstellt.
-JaCoCo steht für Java Code Coverage Library und erstellt Ergebnisse für die Testabdeckung eines Projekts.
+SonarCloud kann für Open Source Projekte kostenfrei genutzt werden, um die statische Analyse mit dem SonarQube Scanner zu veröffentlichen.
+JaCoCo steht für Java Code Coverage Library und erstellt Ergebnisse für die Testabdeckung eines Projekts. Diese werden von der Sonar-Analyse aufgegriffen.
 Diese fügen wir dem Projekt hinzu, indem wir folgende Zeilen im Abschnitt `plugins` innerhalb der `build.gradle` ergänzen.
 
 ```gradle
@@ -168,7 +168,7 @@ Folgende Zeilen Code ergänzen den `sonarcloud` Workflow:
 
 ## Artefakte hochladen
 
-Die Test-Coverage eines Projekts wird mit JaCoCo gehandhabt, der Entwickler bekommt anschließend einen entsprechenden HTML-Report.
+Die Test-Coverage eines Projekts wird mit JaCoCo gehandhabt, der Entwickler bekommt anschließend einen entsprechenden HTML-Report. Hierüber kann die Coverage eingesehen werden, wenn beispielsweise kein SonarQube vorhanden ist.
 Außerdem erstellt Gradle selbst auch einen Test-Report im HTML-Format, der zusammen mit dem JaCoCo Test-Report als Artefakt hochgeladen werden soll.
 Dies wird mit den folgenden zwei Jobs realisiert.
 
@@ -254,10 +254,8 @@ Anschließend sieht das Release wie folgt aus.
 Nach etwas mehr als einer Stunde haben wir einen automatisierten Workflow erstellt. 
 Dieser baut und testet ein Gradle Projekt und deployt HTML-Reports als Artefakte.
 Dazu erstellt der Workflow mittels Commit-Tags Releases.
-GitHub-Actions ist sehr empfehlenswert bei Anwendungen, die bereits auf GitHub verwaltet werden.
-Insbesondere im Open Source Bereich bzw. öffentlichen Repositories ist der Einsatz sehr empfehlenswert, da keine Kosten zu erwarten sind. 
-Bei privaten Repositories ist es empfehlenswert auf [Restriktionen und Kosten](https://help.github.com/en/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-actions) zu achten.
+GitHub-Actions einfach bei Anwendungen anzubinden, die bereits auf GitHub verwaltet werden.
+Insbesondere im Open Source Bereich bzw. öffentlichen Repositories ist der Einsatz möglich, da keine Kosten zu erwarten sind. 
+Bei privaten Repositories solltest Du auf die [Restriktionen und Kosten](https://help.github.com/en/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-actions) achten.
 Detaillierte Dokumentation und eine breite Palette [vorgegebener Actions](https://github.com/marketplace?type=actions) ermöglichen uns schnelle Umsetzung gewünschter Workflows.
 Der Funktionsumfang ist gigantisch und jeder, dessen Interesse erweckt wurde, sollte sich die Dokumentation genauer anschauen.
-Dieser Blogpost dient lediglich als Einführung, um zu zeigen, wie einfach CI/CD Prozesse mit Actions realisiert werden können. 
-Außerdem ist es schön, dass die Actions direkt in der Oberfläche von GitHub erstellt und anschließend mit ins Repository gepusht werden.
