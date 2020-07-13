@@ -16,10 +16,13 @@ Wird nun der Domänenschnitt überdacht? Die Datenstrukturen neu verteilt?
 Was passiert, wenn mehrere Geschäftsprozesse geplant werden, die verschiedene Domänen gleichzeitig nutzen?
 
 Hier haben sich in den letzten Jahren zwei Ansätze heraus kristallisiert, die in den gängigen Foren und Auditorien teils kontrovers diskutiert werden.
+
 Die Ansätze werden als
 * **Orchestrierung von Geschäftsprozessen** und
 * **Choreographie von Geschäftsprozessen** bezeichnet.
+
 In den folgenden Kapiteln werde ich die beiden Ansätze detaillierter beschreiben, die Vor- und Nachteile aufzählen und anonymisierte Fälle aus verschiedenen realen Projekten der letzten Jahre beschreiben.
+
 Ziel ist es, einen neutralen Überblick über die Modellierung von Geschäftsprozessen in verteilten Systemen aufzuzeigen ohne eine eigene Bewertung abzugeben.
 
 # Szenario
