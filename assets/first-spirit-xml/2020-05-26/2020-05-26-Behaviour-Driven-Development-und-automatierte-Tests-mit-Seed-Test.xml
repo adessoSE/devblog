@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<documents>
+    <document uid="a63f64a9da7d6fe0552606ec4a0b07f1">
+        <field name="title"><![CDATA[Behaviour Driven Development und automatisierte Tests mit Seed-Test]]></field>
+        <field name="subline"><![CDATA[]]></field>
+        <field name="teaser"><![CDATA[<p>Der Ruf nach einfach umzusetzenden, automatisierten Tests mit Tools wie Cucumber wird immer stärker.
+Dieser Beitrag zeigt, was sich hinter Cucumber und Behaviour Driven Development (BDD) verbirgt und wie man mit Seed-Test automatisierte Tests erstellen kann, ohne eine Zeile Code schreiben zu müssen.</p>
+
+]]></field>
+        <field name="language_multi_keyword"><![CDATA[de]]></field>
+        <field name="content_type_multi_keyword"><![CDATA[blog]]></field>
+        <field name="mime_type_multi_keyword"><![CDATA[text/html]]></field>
+        <field name="category_multi_keyword"><![CDATA[Softwareentwicklung]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Testing]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Behaviour Driven Development]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Cucumber]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Seed-Test]]></field>
+        <field name="date_date"><![CDATA[2020-05-26T09:00:00+02:00]]></field>
+        <field name="date_l"><![CDATA[1590476400000]]></field>
+        <field name="change_date"><![CDATA[1590476400000]]></field>
+        <!--Picture-->
+        <!-- Not in use at the moment-->
+        <!--Author Information-->
+        <field name="author_first_name"><![CDATA[Daniel]]></field>
+        <field name="author_last_name"><![CDATA[Sorna]]></field>
+        <field name="author_id"><![CDATA[dsorna]]></field>
+        <field name="author_picture_stored_only"><![CDATA[http://localhost:4000/assets/images/avatars/dsorna.jpg]]></field>
+        <!--Postcontent-->
+        <field name="headlines"><![CDATA[Behaviour Driven Development und automatisierte Tests mit Seed-Test]]></field>
+        <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
+            <p>Der Ruf nach einfach umzusetzenden, automatisierten Tests mit Tools wie Cucumber wird immer stärker.
+Dieser Beitrag zeigt, was sich hinter Cucumber und Behaviour Driven Development (BDD) verbirgt und wie man mit Seed-Test automatisierte Tests erstellen kann, ohne eine Zeile Code schreiben zu müssen.</p>
+
+</div>]]></field>
+        <field name="content"><![CDATA[<div class="adesso-text-formate">
+<div class="row p-t-2">
+<div class="adesso-container">
+<div class="col-xl-8 adesso-center p-b-1 p-l-0 p-r-0">
+    <p>Der Ruf nach einfach umzusetzenden, automatisierten Tests mit Tools wie Cucumber wird immer stärker.
+Dieser Beitrag zeigt, was sich hinter Cucumber und Behaviour Driven Development (BDD) verbirgt und wie man mit Seed-Test automatisierte Tests erstellen kann, ohne eine Zeile Code schreiben zu müssen.</p>
+
+<p>Egal ob klassische oder agile Softwareentwicklung – in jedem Entwicklungsprojekt steht man irgendwann vor der Frage, wie die Software getestet werden soll.
+Ein bewährter Ansatz ist das Test Driven Development (TDD), welches eine vollständige Testabdeckung durch Unit-Tests und hochwertigen Code verspricht. 
+Die hinter TDD liegende Idee ist, aus Anforderungen direkt Tests abzuleiten und erst anhand dieser Code zu schreiben. 
+Die Idee lässt sich auch über Unit-Tests hinaus auf weitreichendere Tests übertragen.
+Dabei kann das sog. <strong>Behaviour Driven Development (BDD)</strong> helfen.</p>
+
+<h6 id="das-problem-costs-of-translation">Das Problem: Costs of Translation</h6>
+
+<p>In einem standardisierten Requirements Engineering Prozess werden Anforderungen identifiziert, oft von Business Analysten oder anderen Mitarbeitern aus dem Fachbereich formuliert und an die Entwicklung überreicht. 
+Der Entwickler muss diese fachliche Anforderung daraufhin in Code übersetzen. 
+Da die Entwicklung aber ein anderes Verständnis von den jeweiligen Anforderungen hat als der Fachbereich, der die Anforderung definiert hat, kommt es in manchen Fällen zu Übersetzungsfehlern. 
+Bei solchen Fehlern handelt es sich nicht um Bugs, sondern um vermeidbare Fehler im Kommunikationsprozess. 
+Ein ähnlicher Übersetzungsprozess findet beim Ableiten von Tests aus Anforderungen statt.</p>
+
+<p>Solche Fehler fallen oft erst auf, wenn die Funktionalität in der Anwendung landet, getestet und rückgemeldet wird. 
+Abhängig davon wie viel Zeit vergeht, bis der Fehler entdeckt wird, entstehen Kosten – die sog. <strong>Costs of Translation</strong>. 
+Ein kürzerer Entwicklungszyklus kann demnach die Costs of Translation senken.</p>
+
+<h6 id="anforderungen-gemeinsam-mit-beispielen-definieren">Anforderungen gemeinsam mit Beispielen definieren</h6>
+
+<p>Um Cost of Translation jedoch ganz zu vermeiden, muss bereits bei der Beschreibung der Anforderung angesetzt werden. 
+Beim Behaviour Driven Development kommen die <strong>Business-Analyse</strong>, die <strong>Entwicklung</strong> und das <strong>Qualitätsmanagement</strong> zusammen und beschreiben gemeinsam die Anforderung. 
+Die drei Parteien bauen ein gemeinsames Verständnis für das gewünschte Verhalten der Software auf.</p>
+
+<p>Um die Anforderungsbeschreibung möglichst einfach zu gestalten kann die Methode <a href="https://cucumber.io/blog/bdd/example-mapping-introduction/">Example Mapping</a> herangezogen werden. 
+Beispiele sind eine wunderbare Möglichkeit, um komplizierte Sachverhalte einfach darzustellen. 
+Mehrere Beispiele decken dabei mögliche Fälle und Ergebnisse ab. 
+Eine Anforderung kann mit einigen klaren Beispielen genau beschrieben werden, ohne Unklarheiten offen zu lassen. 
+Die Beispiele sollten die Frage beantworten: Wie soll sich die Software bei bestimmten Eingaben und Interaktionen verhalten?</p>
+
+<h6 id="automatisierung-mit-cucumber">Automatisierung mit Cucumber</h6>
+
+<p>Nun stellt sich noch die Frage, ob und wie eine Automatisierung solcher Tests möglich ist. Hier hilft das Automatisierungstool <strong>Cucumber</strong>. 
+Die Bespiele werden in <strong>Gherkin</strong> – eine durch Schlüsselwörter strukturierte Sprache, die nah an der natürlichen Sprache ist –  beschrieben und können damit in Schritte gegliedert und automatisiert werden. 
+Den Schritten wird dann Code hinterlegt, der die entsprechende Funktionalität testet. 
+Die Beispiele, oder <strong>Szenarien</strong> wie sie in Cucumber genannt werden, können ausgeführt werden und geben ein Testergebnis zurück.</p>
+
+<p>Der große Vorteil von Cucumber und Gherkin ist, dass Testfälle in einer beinahe natürlichen Sprache definiert werden können und damit für jeden verständlich sind. 
+Die Szenarien werden in einem Editor geschrieben und können nahezu frei formuliert werden. 
+Das macht es aber gleichzeitig fehleranfällig und sehr aufwändig umzusetzen, da zu jedem unterschiedlichen Schritt eine Ausführung hinterlegt werden muss.</p>
+
+<h6 id="seed-test">Seed-Test</h6>
+
+<p>Unsere Anwendung Seed-Test versucht genau dieses Problem zu lösen. 
+Durch das Vorgeben vordefinierter Schritte wird sichergestellt, dass alle Schritte des Szenarios eine funktionierende Ausführung hinterlegt haben. 
+Die Schritte sind entsprechend der BDD-Logik in drei Kategorien unterteilt und werden jeweils aus einer Liste ausgewählt. 
+Zuerst können Schritte, wie beispielsweise eine URL für den Startpunkt, als Vorbedingungen (Given) für den Testfall festgelegt werden. 
+Die für den eigentlichen Test auszuführenden Schritte, wie z.B. Eingaben in Textfelder oder Button-Klicks, lassen sich als Aktionen (When) hinzufügen. 
+Zur Überprüfung des Ergebnisses (Then) stehen Schritte, wie die Weiterleitung auf eine neue Seite oder das Anzeigen bestimmter Texte, zur Auswahl. 
+Ein solches Szenario mit nur vier Schritten kann folgendermaßen aussehen:</p>
+
+<p><img src="/assets/images/posts/bevaviour-driven-development-und-automatisierte-tests-mit-seed-test/scenario-screenshot.jpg" alt="Beispiel für ein Szenario in Seed-Test" /></p>
+
+<p>In diesem Beispiel-Szenario wird mit Selenium ein automatisierter Browser geöffnet und die URL “https://www.google.com/” aufgerufen. 
+Danach wird der Text “adesso SE” in das Suchfeld eingegeben und anschließend auf den “Auf gut Glück”-Button geklickt. 
+Der Erfolg des Tests wird bestimmt indem geprüft wird, ob eine Weiterleitung auf die adesso-Homepage stattgefunden hat.</p>
+
+<p>Der Anwender kann die Tests sofort ausführen und erhält als Ergebnis einen anschaulichen Report.
+Ein weiteres Ziel von Seed-Test ist, das Erstellen von Tests soweit zu vereinfachen, dass auch Anwender ohne Programmierkenntnisse Testfälle definieren können. 
+Die Schritte sind so aufgebaut, dass nur noch die gewünschten Eingabe- und Ausgabewerte eingetragen werden müssen. 
+Anstatt dem Nutzer ein leeres Dokument ohne Anhaltspunkte zu präsentieren, kann dieser ein Szenario Schritt für Schritt zusammenbauen.</p>
+
+<p>Seed-Test ist eine Open Source Web-Anwendung und auf <a href="https://github.com/adessoAG/Seed-Test">GitHub</a> zu finden. 
+Sie wurde mit dem MEAN-Stack (MongoDB, ExpressJS, AngularJS und NodeJS) umgesetzt. 
+Zur Automatisierung der Schritte werden Cucumber und Selenium eingesetzt. 
+Seed-Test lässt sich an das Ticketsystem von GitHub oder an Jira knüpfen.
+Dadurch kann man Issues bzw. Tickets in Seed-Test importieren und so Tests mit direktem Bezug zu den Anforderungen erstellen.
+Mit den bisher definierten Schritten können Webapplikationen getestet werden.</p>
+
+<p>Seed-Test gibt es über Heroku auch als <a href="https://seed-test-frontend.herokuapp.com/">Demo-Version</a> zum Ausprobieren.</p>
+
+<p>Ich lade Euch herzlich dazu ein, euch über <a href="https://github.com/adessoAG/Seed-Test">GitHub</a> an Seed-Test zu beteiligen und für Rückfragen oder Vorschläge Issues zu erstellen. 
+Alternativ könnt ihr euch für Fragen und Feedback gerne an <a href="mailto:seed-test@adesso.de">seed-test@adesso.de</a> wenden. 
+Wir freuen uns auf euer Feedback.</p>
+
+<h6 id="fazit">Fazit</h6>
+
+<p>Behaviour Driven Development (BDD) fördert die Zusammenarbeit zwischen Business-Analyse, Entwicklung und Qualitätsmanagement. 
+Es versucht die Cost of Translation, die beim Übertragen von Anforderungen in Code und Testfälle entstehen, zu minimieren. 
+Mit Cucumber wird die Automatisierung von Tests nach BDD möglich, bringt aber auch Probleme mit sich. 
+Unsere Open Source Anwendung Seed-Test löst einige dieser Probleme und macht Cucumber und BDD für eine breitere Nutzergruppe zugänglich.</p>
+
+</div>
+</div>
+</div>
+</div>]]></field>
+    </document>
+</documents>

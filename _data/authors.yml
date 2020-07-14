@@ -85,7 +85,7 @@ maximAtanasov:
   github_username: maximAtanasov
   email: Maksim.Atanasov@adesso.de
   bio: "Maksim Atanasov ist Werkstudent bei adesso in Dortmund und entwickelt Software im Open Source Bereich."
-  avatar_url: /assets/images/avatars/maximAtanasov.png
+  avatar_url: /assets/images/avatars/maximAtanasov.jpg
   github: https://github.com/maximAtanasov
 
 nils-a:
@@ -195,7 +195,7 @@ jo2:
   bio: "Johannes Teklote ist Werkstudent bei adesso in Dortmund und entwickelt Software im Open Source Bereich."
   avatar_url: /assets/images/avatars/johannesteklote.jpg
   github: https://github.com/jo2
-  
+
 frederikschlemmer:
   first_name: Frederik
   last_name: Schlemmer
@@ -231,6 +231,15 @@ czarnecki:
   bio: "Florian Czarnecki ist als Werkstudent im Open-Source-Team bei adesso in Dortmund tätig"
   avatar_url: /assets/images/avatars/czarnecki.jpg
   github: https://github.com/czarnecki
+
+pschild:
+  first_name: Philippe
+  last_name: Schild
+  github_username: pschild
+  email: philippe.schild@adesso.de
+  bio: "Philippe Schild ist Software Engineer bei adesso in Essen. Er ist begeisterter Fan von JavaScript-Technologien und entwickelt u.a. Webanwendungen mit Angular."
+  avatar_url: /assets/images/avatars/pschild.jpg
+  github: https://github.com/pschild
 
 smsnheck:
   first_name: Sebastian
@@ -285,3 +294,39 @@ stefanmueller:
   bio: "Stefan Müller arbeitet als Software Engineer bei der adesso AG. Sein Fokus liegt auf Java-Technologien. Daneben beschäftigt er sich mit Software-Patterns und Software-Architekturen."
   avatar_url: /assets/images/avatars/mueller_stefan_foto.png
   github: https://github.com/stefanAdesso
+
+dsorna:
+  first_name: Daniel
+  last_name: Sorna
+  github_username: dsorna
+  email: daniel.sorna@adesso.de
+  bio: "Daniel Sorna ist als Werkstudent im Bereich IT-Consulting Insurance bei adesso tätig. Zu seinen Schwerpunkten gehören agile Methoden und Webentwicklung. "
+  avatar_url: /assets/images/avatars/dsorna.jpg
+  github: https://github.com/dsorna
+
+DanielKraft:
+  first_name: Daniel
+  last_name: Kraft
+  github_username: DanielKraft
+  email: daniel.kraft@adesso.de
+  bio: "Daniel ist als Werkstudent im Versicherungsbereich bei adesso in Frankfurt am Main tätig."
+  avatar_url: /assets/images/avatars/DanielKraft.jpg
+  github: https://github.com/DanielKraft
+
+mschick:
+  first_name: Michael
+  last_name: Schick
+  github_username: mschick
+  email: michael.schick@adesso.de
+  bio: "Michael studiert Informatik an der Fachhochschule Dortmund und schreibt seine Bachelor-Thesis bei adesso zum Thema Softwaremigration. Neben seinem Studium ist er zudem als freiberuflicher Webentwickler tätig."
+  avatar_url: /assets/images/avatars/mschick.jpg
+  github: https://github.com/mschick
+  
+kiliankrause:
+  first_name: Kilian
+  last_name: Krause
+  github_username: KilianKrause
+  email: Kilian.Krause@adesso.de
+  bio: "Kilian Krause ist als Werkstudent im Open-Source-Team bei adesso in Dortmund tätig."
+  avatar_url: /assets/images/avatars/kiliankrause.jpg
+  github: https://github.com/KilianKrause

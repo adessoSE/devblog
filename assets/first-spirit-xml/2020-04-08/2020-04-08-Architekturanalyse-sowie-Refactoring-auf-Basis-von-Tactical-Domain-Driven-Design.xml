@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<documents>
+    <document uid="a58c653c5655b09014c00e82da25032f">
+        <field name="title"><![CDATA[Architekturanalyse sowie Refactoring auf Basis von Tactical Domain-Driven Design]]></field>
+        <field name="subline"><![CDATA[]]></field>
+        <field name="teaser"><![CDATA[<p>Zurzeit wird das Domain-Driven Design gerne in der Softwareentwicklung
+verwendet.
+Allerdings werden meistens nicht alle Standards des Tactical Domain-Driven Design eingehalten, obwohl das Tactical Domain-Driven Design dabei helfen kann die Qualität unseres Quellcodes zu verbessern.
+In diesem Blog-Artikel stelle ich euch ein Werkzeug vor welches Java-Systeme, basierend auf dem Tactical Domain-Driven Design analysieren, bewerten und verbessern kann.
+Dieses Werkzeug ist in Verbindung mit meiner Bachelorarbeit an der Hochschule Darmstadt entstanden.</p>
+
+]]></field>
+        <field name="language_multi_keyword"><![CDATA[de]]></field>
+        <field name="content_type_multi_keyword"><![CDATA[blog]]></field>
+        <field name="mime_type_multi_keyword"><![CDATA[text/html]]></field>
+        <field name="category_multi_keyword"><![CDATA[Java]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Domain-Driven Design]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Refactoring]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Micronaut]]></field>
+        <field name="tag_multi_keyword"><![CDATA[jQAssistant]]></field>
+        <field name="date_date"><![CDATA[2020-04-08T09:00:00+02:00]]></field>
+        <field name="date_l"><![CDATA[1586329200000]]></field>
+        <field name="change_date"><![CDATA[1586329200000]]></field>
+        <!--Picture-->
+        <!-- Not in use at the moment-->
+        <!--Author Information-->
+        <field name="author_first_name"><![CDATA[Daniel]]></field>
+        <field name="author_last_name"><![CDATA[Kraft]]></field>
+        <field name="author_id"><![CDATA[DanielKraft]]></field>
+        <field name="author_picture_stored_only"><![CDATA[http://localhost:4000/assets/images/avatars/DanielKraft.jpg]]></field>
+        <!--Postcontent-->
+        <field name="headlines"><![CDATA[Architekturanalyse sowie Refactoring auf Basis von Tactical Domain-Driven Design]]></field>
+        <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
+            <p>Zurzeit wird das Domain-Driven Design gerne in der Softwareentwicklung
+verwendet.
+Allerdings werden meistens nicht alle Standards des Tactical Domain-Driven Design eingehalten, obwohl das Tactical Domain-Driven Design dabei helfen kann die Qualität unseres Quellcodes zu verbessern.
+In diesem Blog-Artikel stelle ich euch ein Werkzeug vor welches Java-Systeme, basierend auf dem Tactical Domain-Driven Design analysieren, bewerten und verbessern kann.
+Dieses Werkzeug ist in Verbindung mit meiner Bachelorarbeit an der Hochschule Darmstadt entstanden.</p>
+
+</div>]]></field>
+        <field name="content"><![CDATA[<div class="adesso-text-formate">
+<div class="row p-t-2">
+<div class="adesso-container">
+<div class="col-xl-8 adesso-center p-b-1 p-l-0 p-r-0">
+    <p>Zurzeit wird das Domain-Driven Design gerne in der Softwareentwicklung
+verwendet.
+Allerdings werden meistens nicht alle Standards des Tactical Domain-Driven Design eingehalten, obwohl das Tactical Domain-Driven Design dabei helfen kann die Qualität unseres Quellcodes zu verbessern.
+In diesem Blog-Artikel stelle ich euch ein Werkzeug vor welches Java-Systeme, basierend auf dem Tactical Domain-Driven Design analysieren, bewerten und verbessern kann.
+Dieses Werkzeug ist in Verbindung mit meiner Bachelorarbeit an der Hochschule Darmstadt entstanden.</p>
+
+<h4 id="aufbau-und-funktionsweise-des-werkzeugs">Aufbau und Funktionsweise des Werkzeugs</h4>
+<p>Das Werkzeug wurde von mir in dem <a href="https://micronaut.io/">Micronaut-Framework</a> entwickelt.
+Diese Framework wurde bereits in dem früheren Blog-Artikel <a href="https://www.adesso.de/de/news/blog/micronaut-eine-alternative-zu-spring-4.jsp">Micronaut - Eine Alternative zu Spring</a> vorgestellt.
+Der Quellcode des Werkzeugs ist auf <a href="https://github.com/DanielKraft/illumi-code-ddd">GitHub</a> zu finden.
+Für die Verwendung des Werkzeugs benötigen wir das Analysewerkzeug <a href="https://jqassistant.org/">jQAssistant</a>.
+jQAssistant ermöglicht es uns Java-Artefakte zu analysieren und in einer <a href="https://neo4j.com/">Neo4j</a> Graphendatenbank darzustellen.</p>
+
+<p><img src="/assets/images/posts/Architekturanalyse-sowie-Refactoring-auf-Basis-von-Domain-Driven-Design/Workflow.png" alt="Ablaufplan des Werkzeugs" title="Ablaufplan des Werkzeugs" /></p>
+
+<p>Der Ablauf des Werkzeugs gliedert sich in fünf Phasen.
+Im ersten Schritt muss das Java-System mithilfe von jQAssistant ausgelesen werden.
+Anschließend analysieren und bewerten wir den aktuellen Zustand des Java-Systems.
+Aufgrund dieser Bewertung wird das Java-System nun verbessert und erneut bewertet.
+In den folgenden Abschnitten werde ich die drei Funktionen des Werkzeugs näher erläutern.</p>
+
+<h5 id="architekturanalyse">Architekturanalyse</h5>
+<p>Während der Architekturanalyse werden benötigte Daten aus der Neo4j-Datenbank ausgelesen.
+Anschließend werden die Java-Artefakte den verschiedenen Tactical Domain-Driven Design Bausteinen zugeordnet.
+Um diese Funktion auszuführen, rufen wir folgende URL auf.
+Die Funktion benötigt als Parameter den Fully Qualified Name des Projekt-Packages.</p>
+<pre><code class="language-bash">http://localhost:8040/analyse/${PACKAGE_FQN}
+</code></pre>
+<p>Die analysierten Java-Artefakte werden wie im folgenden Beispiel als JSON zurückgegeben.
+Das Beispiel zeigt, dass die Klasse <code>Pet</code> anhand ihrer Eigenschaften als Entity klassifiziert wurde.</p>
+<pre><code class="language-json">{
+    "extends": "org.springframework.samples.petclinic.model.NamedEntity",
+    "DDD": "ENTITY",
+    "name": "Pet",
+    "fields": [
+        "- birthDate: java.time.LocalDate"
+    ],
+    "methods": [
+        "+ &lt;init&gt;(): void",
+        "+ setBirthDate(java.time.LocalDate): void",
+        "+ getBirthDate(): java.time.LocalDate"
+    ]
+}
+</code></pre>
+
+<h5 id="architekturbewertung">Architekturbewertung</h5>
+<p>Die zweite Funktion des Werkzeugs ist die Architekturbewertung.
+Dabei wird die analysierte Softwarearchitektur mithilfe von zwei Metriken bewertet.
+Die Architekturbewertung können wir uns mit der nachfolgenden URL erzeugt lassen.</p>
+<pre><code class="language-bash">http://localhost:8040/metric
+</code></pre>
+<p>In den nächsten Abschnitten gehen wir näher auf die einzelnen Metriken ein.</p>
+
+<h6 id="object-oriented-design-metrik">Object-Oriented Design Metrik</h6>
+<p>Die Object-Oriented Design Metrik beschreibt die Abstraktheit sowie die Instabilität von Modulen.
+Ein Modul gilt als abstrakt, wenn es nur Interfaces oder abstrakte Klassen enthält.
+Die Instabilität wird daran gemessen von wie vielen Modulen das Modul abhängig ist.
+Die Abstraktheit und Instabilität eines Moduls sollte ausgewogen sein.</p>
+<pre><code class="language-json">"OOD": {
+    "distance": {
+        "avg": 0.39,
+        "min": 0.17,
+        "median": 0.2,
+        "max": 1,
+        "standard deviation": 0.41
+    }
+}
+</code></pre>
+<p>Das Werkzeug liefert uns die durchschnittliche Distanz der Module zum optimalsten Zustand.
+Je geringer dieser Wert ist , desto besser ist das Object-Oriented Design Java-Systems.</p>
+
+<h6 id="domain-driven-design-metrik">Domain-Driven Design Metrik</h6>
+<p>Die Domain-Driven Design Metrik bewertet alle Artefakte des Java-Systems anhand von vordefinierten Kriterien.
+Dabei sind die einzelnen Kriterien unterschiedlich stark gewichtet.
+Die Gesamtbewertung des Java-Systems spiegelt als die prozentuale Einhaltung der gewichteten Kriterien wider.</p>
+<pre><code class="language-json">"DDD": {
+    "metric": {
+        "score": "E",
+        "fitness": 46.21,
+        "#Issues": 76,
+        "statistic": {
+            "avg": 30.09,
+            "min": 0,
+            "median": 40,
+            "max": 80,
+            "standard deviation": 27.22
+        }
+    }
+}
+</code></pre>
+<p>Als Ergebnis dieser Metrik bekommen wir die Gesamtbewertung des Java-Systems sowie die Anzahl der nicht eingehaltenen Kriterien.
+Anhand dieser Bewertung können wir nach der Generierung eines Architekturvorschlags überprüfen, ob es zu einer Verbesserung geführt hat.</p>
+
+<h5 id="generierung-eines-architekturvorschlags">Generierung eines Architekturvorschlags</h5>
+<p>Die letzte Funktion des Werkzeugs bietet die Möglichkeit die analysierte Softwarearchitektur anhand von Domain-Driven Design Kriterien zu verbessern.
+Diese Funktion steht über die folgende REST-Anfrage zur Verfügung.
+Die Ergebnisse dieser Funktion werden im gleichen Format zurückgegeben wie bei der Architekturanalyse.</p>
+<pre><code class="language-bash">http://localhost:8040/refactor
+</code></pre>
+<p>Bei der Verbesserung der Softwarearchitektur werden folgende Anpassungen vorgenommen.
+Die Java-Artefakte werden den richtigen Tactical Domain-Driven Design Modulen zugeordnet und außerdem werden ihnen fehlende Felder oder Methoden hinzugefügt.
+Dabei kann es auch vorkommen, dass ein Java-Artefakt einem anderen Tactical Domain-Driven Design Baustein zugeordnet wird oder sogar neue Java-Artefakte erzeugt werden.</p>
+
+<h4 id="ergebnisse-von-verschiedenen-beispielsystemen">Ergebnisse von verschiedenen Beispielsystemen</h4>
+<p>In diesem Abschnitt gehe ich auf die Ergebnisse von drei verschiedenen Beispielsystemen ein.</p>
+
+<p><img src="/assets/images/posts/Architekturanalyse-sowie-Refactoring-auf-Basis-von-Domain-Driven-Design/metrics.png" alt="Ergebnisse der zwei unterschiedlichen Metriken" title="Ergebnisse der zwei unterschiedlichen Metriken" /></p>
+
+<p>Das linke Diagramm zeigt die prozentuale Erfüllung der Object-Oriented Design Metrik.
+Es ist zu erkennen, dass die Verbesserung der Softwarearchitektur nicht zu einer deutlichen Verschlechterung geführt hat.
+Im rechten Diagramm zeigt sich allerdings ein ganz anderes Bild.
+Dieses Diagramm visualisiert die Ergebnisse der Domain-Driven Design Metrik.
+Daran ist deutlich zu erkennen, dass durch den Umwandlungsalgorithmus das Tactical Domain-Driven Design des Java-Systems deutlich verbessert wurde.</p>
+
+<h4 id="fazit">Fazit</h4>
+<p>Dieses Werkzeug bietet uns die Möglichkeit, Java-System auf Basis vom Tactical Domain-Driven Design zu bewerten.
+Die Bewertung kann uns das Aufspüren von möglichen Schwachstellen erleichtern.
+Außerdem gibt es die Möglichkeit sich ein Architekturvorschlag auf Basis vom Tactical Domain-Driven Design zu generieren.
+Dieser Architekturvorschlag kann anschließend als Inspiration für Architekturveränderungen genutzt werden.</p>
+
+</div>
+</div>
+</div>
+</div>]]></field>
+    </document>
+</documents>
