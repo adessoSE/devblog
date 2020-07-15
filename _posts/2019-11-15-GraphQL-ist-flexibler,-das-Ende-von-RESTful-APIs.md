@@ -100,7 +100,7 @@ In der Graphentheorie ist ein Baum ein spezieller Typ eines Graphen. Ebenso kann
 
 **Workaround, um eine Datei hochzuladen:**
 
-Eine Datei mittels GraphQL hochzuladen, ist nicht auf direktem Wege möglich, wie es beispielsweise bei RESTful-APIs der Fall ist. Die "Mutations" in GraphQL können Dateien nicht interpretieren, weshalb Entwickler die Datei zuerst in Base64 konvertieren und die Enkodierung der Mutation-Anfrage übergeben müssen. Alternativ kann die Datei mittels RESTful-API hochgeladen werden und GraphQL als Wrapper benutzen, um die URL der Mutation-Anfrage übergeben zu können. Es sind weitere Lösungsansätze bekannt, doch in den meisten Fällen ist dieser Prozess komplizierter und aufwändiger umsetzbar als über RESTful-APIs.  
+Eine Datei mittels GraphQL hochzuladen, ist nicht auf direktem Wege möglich, wie es beispielsweise bei RESTful-APIs der Fall ist. Die "Mutations" in GraphQL können Dateien nicht interpretieren, weshalb Entwickler die Datei zuerst in Base64 konvertieren und die Enkodierung der Mutation-Anfrage übergeben müssen. Alternativ kann die Datei mittels REST-API hochgeladen werden, wobei GraphQL als Wrapper genutzt wird, um die URL der Mutation-Anfrage zu übergeben. Es sind weitere Lösungsansätze bekannt, doch in den meisten Fällen ist dieser Prozess komplizierter und aufwändiger als über RESTful-APIs.  
 
 Wie bereits gesehen, gibt es mit GraphQL auch einige Herausforderungen, die Facebook allerdings mittlerweile mit neuen Lösungsansätzen zu beheben versucht. Diese erhöhen die Komplexität der Implementierung. Eine mächtige, fehlerfreie und saubere Graph-API zu erreichen erfordert Know-How und Aufwand.  
 
