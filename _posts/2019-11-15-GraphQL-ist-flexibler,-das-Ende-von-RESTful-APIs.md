@@ -64,9 +64,15 @@ GraphQL besitzt nur einen Endpunkt. Die Abfragen werden durch Queries beschriebe
 
 ![GraphQL und RESTful APIs](/assets/images/posts/GraphQL-ist-flexibler,-das-Ende-von-RESTful-APIs/APIs.PNG)
 
-## Kein Overfetching und Underfetching:
+## GraphQL als Wrapper:
 
-Wie bereits beschrieben, legt der Client genau fest, welche Attribute eines Objektes er anfordern möchte. Im Folgenden ist ein Beispiel einer Query in GraphQL aus der Versicherungsbranche: Sei die folgende Abfrage vom Kunden gewünscht: "Die Telefonnummer eines bestimmten Versicherungsnehmers sowie die ID- und Telefonnummern seiner Partner"
+Ein weiteres wichtiges Feature von GraphQL ist, dass GraphQL als Wrapper von unterschiedlichen Ressourcen angelegt werden kann. Dies ist insebsondere von Vorteil, wenn Informationen über verschiedene Server verteilt sind, beispielsweise bei Datenbanksystemen.
+
+![GraphQL als Wrapper](/assets/images/posts/GraphQL-ist-flexibler,-das-Ende-von-RESTful-APIs/Wrapper.PNG)
+
+## Übersichtlich:
+
+Der Client muss in den zurückgelieferten Daten nicht nach seinen Anforderungen suchen, weil er lediglich die von ihm verlangten Attribute eines Objektes bzw. von Objekten erhält. Im Folgenden ist ein Beispiel einer Query in GraphQL aus der Versicherungsbranche: Sei die folgende Abfrage vom Kunden gewünscht: "Die Telefonnummer eines bestimmten Versicherungsnehmers sowie die ID- und Telefonnummern seiner Partner"
 
 ```graphql
     {
@@ -80,37 +86,7 @@ Wie bereits beschrieben, legt der Client genau fest, welche Attribute eines Obje
     }
 ```
 
-Durch diese Query haben wir das Overfetching von unnötigen Attributen vermieden. Versicherungsnehmer und Partnerdaten können andere Attribute "Personaldaten" wie Name, Geburtsdatum, Partnerrolle usw. haben. Wir erhalten allerdings ein JSON-Objekt "data", das lediglich die gewünschten Attributen enthält.
-
-```json
-    {
-        "data": {
-            "versicherungsnehmer": {
-                "telefonnummer": "012",
-                "partnerdaten": [
-                    {
-                    "id": "1",
-                    "telefonnummer": "0123"
-                    },
-                    {
-                    "id": "2",
-                    "telefonnummer": "01234"
-                    }
-                ]
-            }
-        }
-    }
-``` 
-
-## GraphQL als Wrapper:
-
-Ein weiteres wichtiges Feature von GraphQL ist, dass GraphQL als Wrapper von unterschiedlichen Ressourcen angelegt werden kann. Dies ist insebsondere von Vorteil, wenn Informationen über verschiedene Server verteilt sind, beispielsweise bei Datenbanksystemen.
-
-![GraphQL als Wrapper](/assets/images/posts/GraphQL-ist-flexibler,-das-Ende-von-RESTful-APIs/Wrapper.PNG)
-
-## Übersichtlich:
-
-Der Client muss in den zurückgelieferten Daten nicht nach seinen Anforderungen suchen, weil er lediglich die von ihm verlangten Attribute eines Objektes bzw. von Objekten erhält.
+Durch diese Query haben wir das Overfetching von unnötigen Attributen vermieden. Versicherungsnehmer und Partnerdaten können andere Attribute wie Name, Geburtsdatum, Partnerrolle usw. haben. Wir erhalten allerdings ein übersichtliches JSON-Objekt "data", welches lediglich die gewünschten Attributen enthält.
 
 # Es ist nicht alles Gold was glänzt
 
@@ -126,11 +102,11 @@ Ein sehr wichtiges Feature, welches sowohl dem Client als auch dem Server große
 
 Eine Datei mittels GraphQL hochzuladen, ist nicht auf direktem Wege möglich, wie es beispielsweise bei REST-APIs der Fall ist. Die "Mutations" in GraphQL können Dateien nicht interpretieren, weshalb Entwickler die Datei zuerst in Base64 konvertieren und die Enkodierung der Mutation-Anfrage übergeben müssen. Alternativ kann die Datei mittels REST-API hochgeladen werden, wobei GraphQL als Wrapper genutzt wird, um die URL der Mutation-Anfrage zu übergeben. Es sind weitere Lösungsansätze bekannt, doch in den meisten Fällen ist dieser Prozess komplizierter und aufwändiger als über REST-APIs.
 
-Wie bereits gesehen, gibt es mit GraphQL auch einige Herausforderungen, die Facebook allerdings mittlerweile mit neuen Lösungsansätzen zu beheben versucht. Diese erhöhen die Komplexität der Implementierung. Eine mächtige, fehlerfreie und saubere Graph-API zu erreichen erfordert Know-How und Aufwand.
-
 ## Anfragen können hohe Last verursachen:  
 
 In der Graphentheorie ist ein Baum ein spezieller Typ eines Graphen. Ebenso kann eine Query als Baum dargestellt werden. GraphQL beschränkt die Tiefe eines Baumes nicht, womit der Client Freiheiten gewinnt. Daraus ergibt sich aber auf der anderen Seite auch, dass über eine Abfrage riesige Mengen von Daten eines Zweiges geladen werden können, bis ein Blatt erreicht wird. Demzufolge wird der Server mit vielen Daten belastet und die Verarbeitung einer Anfrage verlängert sich. Diese Anfragen könnten auch zu einem Serverausfall führen.Verschiedene Endpunkte in REST-APIs haben also nicht nur Nachteile, sondern auch viele Vorteile. Eine komplizierte Anfrage kann mit den REST-Endpunkten problemlos und einfach implementiert werden, denn ein Endpunkt liefert feste Datenstrukturen zurück, sodass ein Entwickler die Menge der Daten beschränken und den Server schützen kann.
+
+Wie bereits gesehen, gibt es mit GraphQL auch einige Herausforderungen, die Facebook allerdings mittlerweile mit neuen Lösungsansätzen zu beheben versucht. Diese erhöhen die Komplexität der Implementierung. Eine mächtige, fehlerfreie und saubere Graph-API zu erreichen erfordert Know-How und Aufwand.
 
 # GraphQL löst REST-APIs nicht ab
 
@@ -142,8 +118,8 @@ Welche der beiden Technologien nun die Bessere ist, lässt sich nicht final besi
 
 # Ein Ausblick – Symbiose beider Ansätze
 
-Da die meisten modernen Applikationen bereits mit REST entwickelt wurden, kann eine Kombination von GraphQL und REST-APIs sinnvoll sein. In diesem Fall ist die Umsetzung der REST-APIs nach GraphQL nicht notwendig, um von den GraphQL-Vorteilen zu profitieren.
+Da die meisten modernen Applikationen bereits mit REST entwickelt wurden, kann eine Kombination von GraphQL und REST-APIs sinnvoll sein. In diesem Fall ist die Übersetzung der REST-APIs nach GraphQL nicht notwendig, um von den GraphQL-Vorteilen zu profitieren.
 
 ![GraphQL als Gateway](/assets/images/posts/GraphQL-ist-flexibler,-das-Ende-von-RESTful-APIs/Gateway.PNG)
 
-Wir haben gesehen, dass GraphQL Daten aus verschiedenen Ressourcen abrufen kann. Dies können wir uns zu Nutze machen, indem wir GraphQL als Gateway verwenden, um bereits vorhandene REST-Endpunkte aufzurufen und Informationen anzufordern. Der Client kann damit von der Flexibilität von GraphQL profitieren, ohne REST in GraphQL umsetzen zu müssen.
+Wir haben gesehen, dass GraphQL Daten aus verschiedenen Ressourcen abrufen kann. Dies können wir uns zu Nutze machen, indem wir GraphQL als Gateway verwenden, um bereits vorhandene REST-Endpunkte aufzurufen und Informationen anzufordern. Der Client kann damit von der Flexibilität von GraphQL profitieren, ohne REST in GraphQL übersetzen zu müssen.
