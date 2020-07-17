@@ -81,7 +81,7 @@ Der Dirigent steht dabei im Mittelpunkt und gibt den Takt und die Geschwindigkei
 
 Bei der Orchestrierung von Geschäftsprozess wird das System nach diesem Ansatz realisiert.
 Die einzelnen Services warten auf die Anweisung eines orchestrierenden (steuernden) Services.
-Sie kennen sich gegenseitig nicht und wissen auch nicht wann sie etwas zu tun haben.
+Die anderen Services kennen sich gegenseitig nicht und wissen auch nicht wann sie etwas zu tun haben.
 
 In dem zentralen Service wird der Geschäftsprozess modelliert und gesteuert. Wie die Umsetzung des Prozesses im Detail entschieden wird, ist projektabhängig.
 Es ist möglich, den Prozess selbst zu entwickeln oder aber auch möglich eine Workflow-Engine zu nutzen und den Prozess „nur“ zu modellieren.
