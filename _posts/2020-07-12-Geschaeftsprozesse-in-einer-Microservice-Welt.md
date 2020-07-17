@@ -63,7 +63,7 @@ Die Fachlichkeit und die Fachlogik werden als Schwerpunkt bei der Modellierung b
 
 # Domänenschnitt
 
-Wie zu Beginn beschrieben, gibt es verschiedene Ansätze, wie Domänen geschnitten werden sollen.
+Wie zu Beginn beschrieben, gibt es verschiedene Ansätze, wie Domänen geschnitten werden können.
 Der bekannteste ist Domain-Driven-Design. Leider lassen es reale Kunden und Projekte nicht immer zu,
 perfekt nach dem Lehrbuch zu arbeiten, sodass hier mitunter interessante Konstrukte entstehen.
 
