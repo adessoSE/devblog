@@ -110,7 +110,7 @@ der ihm Daten liefert und den Nachfolger, an den er Daten liefern muss. Jeder we
 Auch hier muss die Umsetzung des Teilprozesses im Detail entschieden werden, jeder Service kann dies selbst entscheiden.
 Natürlich sollte dem Anwender ein zentrales Bild gezeigt werden.
 
-Eine Instanz des Prozesses, beispielsweise die Bestellung 4712 vom Kunden Meyer, wird von dem führenden ersten Service angelegt,
+Eine Instanz des Prozesses, beispielsweise die Bestellung 4712 vom Kunden Meyer, wird von dem ersten Service angelegt,
 mit Daten angereichert und an den nächsten Service übergeben. Jeder Teilprozess wird dabei in dem jeweiligen Service gestartet, ausgeführt und wieder beendet.
 Jeder weitere nachfolgende Service startet seinen eigenen, vollkommen unabhängigen Teilprozess.
 
