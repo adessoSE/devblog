@@ -10,9 +10,10 @@ Bei der Neuentwicklung eines modernen Software-Systems wird dessen Architektur m
 Die Granularität der Verteilung des Systems kann von einzelnen Komponenten, über Teilsysteme auf Basis von Microservices,
 bis zu Serverless Computing in der Cloud festgelegt werden.
 Basierend auf fachlichen Anforderungen werden Domänen gebildet, Datenstrukturen geplant, modelliert und auf die Domänen verteilt.
-Dabei werden gängige Methoden eingesetzt, beispielsweise das Domain-Driven-Design (DDD), die die Planung unterstützen und die Entscheidungsfindung vereinfachen.
+Dabei werden gängige Methoden eingesetzt, beispielsweise das Domain-driven Design (DDD), die die Planung unterstützen und die Entscheidungsfindung vereinfachen.
 Was passiert, wenn ein größerer Geschäftsprozess modelliert werden muss, der sich über mehrere Domänen erstreckt?
-Wird nun der Domänenschnitt überdacht? Die Datenstrukturen neu verteilt?
+Wird nun der Domänenschnitt überdacht?
+Die Datenstrukturen neu verteilt?
 Was passiert, wenn mehrere Geschäftsprozesse geplant werden, die verschiedene Domänen gleichzeitig nutzen?
 
 Hier haben sich in den letzten Jahren zwei Ansätze herauskristallisiert, die in den gängigen Foren und Auditorien teils kontrovers diskutiert werden.
@@ -34,9 +35,9 @@ Die Systemarchitektur besteht dabei aus dem Web-Client, einem Backend mit Gesch�
 Die Anforderungs-Manager übergeben uns einen modellierten und vom Kunden bereits abgenommenen Geschäftsprozess, mit der Bitte,
 fachliche Domänen zu planen und den Prozess abzubilden.
 
-**Geschäftsprozess „Verkauf und Versand von Produkten“**
+**Geschäftsprozess "Verkauf und Versand von Produkten"**
 
-Das folgende Modell stellt eine vereinfachte Form des Geschäftsprozesses „Verkauf und Versand von Produkten“ dar
+Das folgende Modell stellt eine vereinfachte Form des Geschäftsprozesses "Verkauf und Versand von Produkten" dar
 und basiert auf einem überschaubar gehaltenen BPMN-Modell.
 
 ![Gesamtprozess](/assets/images/posts/Geschaeftsprozesse-in-einer-Microservice-Welt/Geschaeftsprozesse_Gesamt.png)
@@ -46,27 +47,26 @@ und basiert auf einem überschaubar gehaltenen BPMN-Modell.
 Als Grundlage für das weitere Verständnis dieses Artikels folgt eine kurze Beschreibung, was Microservices sind.
 
 Microservices sind ein Architekturmuster, bei der eine Anwendung aus unabhängigen Diensten besteht,
-die kleine Aufgaben erledigen, wobei „klein“ immer eine Projektdefinition ist.
+die kleine Aufgaben erledigen, wobei "klein" immer eine Projektdefinition ist.
 Diese Dienste kommunizieren beispielsweise entkoppelt (asynchron) miteinander und tauschen idealerweise nur die notwendigsten Informationen aus.
 Im besten Fall kennen sie sich untereinander gar nicht, sondern versenden einfach nur Nachrichten. Wer Interesse an den Nachrichten hat, hört diesen zu.
 
-Zusammengefasst, ist die Anweisung an die Planung eines Microservices:
-„Erledige nur eine Aufgabe und erledige sie gut!“
+Zusammengefasst, ist die Anweisung an die Planung eines Microservice:
+"Erledige nur eine Aufgabe und erledige sie gut!"
 
-In den folgenden Texten werden wir zur vereinfachten Darstellung den Begriff „Service“ nutzen.
+In den folgenden Texten werden wir zur vereinfachten Darstellung den Begriff "Service" nutzen.
 
-## Domain Driven Design
+## Domain-driven Design
 
-Domain Driven Design (DDD) ist ein Modellierungsansatz für Software-Systeme.
+Domain-driven Design (DDD) ist ein Modellierungsansatz für Software-Systeme.
 Er basiert darauf, die Teilsysteme (Domänen) auf Basis der Fachlichkeit zu zerlegen.
 Die Fachlichkeit und die Fachlogik werden als Schwerpunkt bei der Modellierung betrachtet.
 
 # Domänenschnitt
 
 Wie zu Beginn beschrieben, gibt es verschiedene Ansätze, wie Domänen geschnitten werden können.
-Der bekannteste ist Domain-Driven-Design. Leider lassen es reale Kunden und Projekte nicht immer zu,
+Der bekannteste ist Domain-driven Design. Leider lassen es reale Kunden und Projekte nicht immer zu,
 perfekt nach dem Lehrbuch zu arbeiten, sodass hier mitunter interessante Konstrukte entstehen.
-
 Dazu zählen beispielsweise ausgiebige, fast philosophische Diskussionen über Domänen-Schnitte auf Architektenebene.
 Manchmal wird aber auch nach Anzahl der Teams oder nach Interesse bzw. Befindlichkeit des Product-Owners geplant.
 
@@ -80,19 +80,19 @@ Der Begriff Orchestrierung ist an Musikkonzerte angelehnt. Hier sitzen viele Mus
 Der Dirigent steht dabei im Mittelpunkt und gibt den Takt und die Geschwindigkeit vor. Alles hängt von seinem Können ab.
 
 Bei der Orchestrierung von Geschäftsprozess wird das System nach diesem Ansatz realisiert.
-Die einzelnen Services warten auf die Anweisung eines orchestrierenden (steuernden) Services.
+Die einzelnen Services warten auf die Anweisung eines orchestrierenden (steuernden) Service.
 Die anderen Services kennen sich gegenseitig nicht und wissen auch nicht wann sie etwas zu tun haben.
 
 In dem zentralen Service wird der Geschäftsprozess modelliert und gesteuert. Wie die Umsetzung des Prozesses im Detail entschieden wird, ist projektabhängig.
-Es ist möglich, den Prozess selbst zu entwickeln oder eine Workflow-Engine zu nutzen und den Prozess „nur“ zu modellieren.
+Es ist möglich, den Prozess selbst zu entwickeln oder eine Workflow-Engine zu nutzen und den Prozess "nur" zu modellieren.
 Der Einsatz einer Workflow-Engine ist von Vorteil, wenn Prozesse komplexer werden und Berechtigungen und Eskalationen abgebildet werden müssen.
 Viele Systeme bringen diese Features bereits mit, sodass das Verhältnis von Programmierung und Konfiguration zu Gunsten der Konfiguration ausfällt.
 Auch das Verwalten von verschiedenen Versionen eines Prozesses wird über eine solche Workflow-Engine abgebildet.
 Damit ist die Veränderung eines Prozesses während des produktiven Einsatzes gemeint. Die Workflow-Engine definiert,
 wie sich aktuelle Prozess-Instanzen verhalten, wenn beispielsweise Prozess-Schritte hinzugefügt oder aber auch verändert werden.
 
-Eine Instanz des Prozesses, beispielsweise die Bestellung 4711 des Kunden Müller, wird zentral durch die Workflow-Engine des orchestrierenden Services gesteuert.
-Die einzelnen Services werden über ihre Aktionen informiert und mit Daten versorgt. Die Teilbearbeitung findet dabei in den einzelnen Services statt,
+Eine Instanz des Prozesses, beispielsweise die Bestellung 4711 des Kunden Müller, wird zentral durch die Workflow-Engine des orchestrierenden Service gesteuert.
+Die einzelnen Services werden über ihre Aktionen informiert und mit Daten versorgt. Die Teilbearbeitung findet dabei in den einzelnen Service statt,
 die von dem orchestrierenden Service überwacht werden. Im Anschluss werden ihre Daten wieder an die Zentrale zurückgeschickt.
 
 ![Orchestrierung](/assets/images/posts/Geschaeftsprozesse-in-einer-Microservice-Welt/Orchestrierung.png)
@@ -116,11 +116,11 @@ Jeder weitere nachfolgende Service startet seinen eigenen, vollkommen unabhängi
 
 ![Choreographie](/assets/images/posts/Geschaeftsprozesse-in-einer-Microservice-Welt/Choreographie.png)
 
-# Fallbeispiel „Erweiterung“
+# Fallbeispiel "Erweiterung"
 
 Das Projekt VuP wird im ersten Meilenstein umgesetzt und geht erfolgreich an den Start.
 Nach einiger Zeit gibt es die ersten Kundenbeschwerden, weil die Produkte in einem schlechten Zustand bei den Kunden ankommen.
-Die Firma entscheidet sich, den Geschäftsprozess um einen eigenen Prozess „Verpackung“ zu erweitern, der wiederum aus einzelnen Teilprozessen besteht.
+Die Firma entscheidet sich, den Geschäftsprozess um einen eigenen Prozess "Verpackung" zu erweitern, der wiederum aus einzelnen Teilprozessen besteht.
 
 Aktuell sieht der Prozess-Ausschnitt folgendermaßen aus:
 
@@ -145,7 +145,7 @@ Eine Lösung im Bereich der Choreographie besteht aus folgenden Schritten:
 
 ![Choreographie_Neu](/assets/images/posts/Geschaeftsprozesse-in-einer-Microservice-Welt/Choreographie_neu.png)
 
-# Fallbeispiel „Status“
+# Fallbeispiel "Status"
 
 Das Projekt VuP wird in einem weiteren Meilenstein umgesetzt und geht erfolgreich mit der neuen Version an den Start.
 Aus den Erfahrungen des Tagesgeschäftes erkennt die Firma, dass manchmal Änderungen des Kunden an seiner Bestellung nachgetragen werden müssen.
@@ -159,14 +159,14 @@ D.h. hier haben wir eine bidirektionale Abhängigkeit zwischen zwei Teilprozesse
 
 Eine Lösung im Bereich der Orchestrierung besteht aus folgenden Schritten:
 * Der Geschäftsprozess wird um eine Statuskontrolle ähnlich dem Schaubild erweitert. Dies bedeutet, dass nachdem ein Bearbeiter den Vorgang geöffnet hat, der Vorgang für die anderen Abteilungen gesperrt werden muss.
-* Da der Prozess zentral verwaltet wird, kann hier der Status für alle Anwender, die Zugriff auf den Prozess haben, sichtbar dargestellt werden, beispielsweise „In Bearbeitung in der Abteilung Faktura“.
+* Da der Prozess zentral verwaltet wird, kann hier der Status für alle Anwender, die Zugriff auf den Prozess haben, sichtbar dargestellt werden, beispielsweise "In Bearbeitung in der Abteilung Faktura".
 
 Eine Lösung im Bereich der Choreographie besteht aus folgenden Schritten:
 * Hier müssen zwei Teilprozesse und damit zwei Services direkt miteinander kommunizieren.
 * Die erste Möglichkeit ist, die Kommunikation findet weiterhin asynchron über Nachrichten statt. Es kann dabei aber das Risiko bestehen, dass beide Anwender ihren Teilprozess gleichzeitig starten und dabei die Status-Nachrichten zu spät auf der anderen Seite ankommen.
 * Die zweite Möglichkeit ist, die Kommunikation in diesem Fall synchron stattfinden zu lassen. Die Services können sich so direkt gegenseitig aufrufen und den Status übergeben.
 
-# Fallbeispiel „Korrektur“
+# Fallbeispiel "Korrektur"
 
 Das Projekt VuP wird in einem weiteren Meilenstein umgesetzt und geht erfolgreich mit der neuen Version an den Start.
 Die Faktura der Firma stellt leider fest, dass der Vertrieb bei der Erfassung regelmäßig Fehler macht,
@@ -187,7 +187,7 @@ Eine Lösung im Bereich der Orchestrierung besteht aus folgenden Schritten:
 
 Eine Lösung im Bereich der Choreographie besteht aus folgenden Schritten:
 * Die Domäne Faktura wird um die Erfassung von Stornos und Korrekturen erweitert.
-* Die beiden beteiligten Services „Kunde“ und „Produktion“ müssen die Kommunikation mit der Faktura Domäne anpassen und die Daten aus der Korrektur-Erfassung entgegennehmen.
+* Die beiden beteiligten Services "Kunde" und "Produktion" müssen die Kommunikation mit der Faktura Domäne anpassen und die Daten aus der Korrektur-Erfassung entgegennehmen.
 * Da es sich hier um eine verteilte und asynchrone Kommunikation handelt, muss ein Service-übergreifender Schlüssel ausgetauscht werden, mit dem die Prozess-Instanz eindeutig identifiziert werden kann, beispielsweise eine Transaktions-ID oder Vorgangs-ID.
 * Am Ende der Teilprozesse muss ein Service auf die Daten der beiden anderen Services warten, bis von beiden eine Rückmeldung geschickt wird, diese dann konsolidieren und weiterverarbeiten.
 
@@ -198,20 +198,13 @@ Eine Lösung im Bereich der Choreographie besteht aus folgenden Schritten:
 # Zusammenfassung
 
 Orchestrierung und Choreographie sind zwei fantastische Architektur-Muster mit der die Interkation und Kommunikation zwischen verteilten Systemen gesteuert werden kann.
-Der richtige Einsatz muss innerhalb jedes Projektes neu überdacht werden. Einen „Ansatz-passt-für-alles“ gibt es leider nicht.
+Der richtige Einsatz muss innerhalb jedes Projektes neu überdacht werden. Einen "Ansatz-passt-für-alles" gibt es leider nicht.
 
 * **Microservices sind EINE richtige Architektur-Entscheidung!**
-
 * **Die Architektur sollte durch die Anforderungen des Kunden abgeleitet werden!**
-
 * **Choreographie von Geschäftsprozessen ist sinnvoll!**
-
 * **Orchestrierung von Geschäftsprozessen ist sinnvoll!**
-
 * **Workflow-Systeme sind nicht böse!**
-
 * **Zu Beginn eines Projektes sollten alle Aspekte besprochen und mehrere Lösungsalternativen objektiv bewertet werden!**
-
 * **Bei agilen Projekten in Sprints planen aber den Marathon sehen!**
-
 * **Die schwarz-weißen Denkmuster abschalten!**
