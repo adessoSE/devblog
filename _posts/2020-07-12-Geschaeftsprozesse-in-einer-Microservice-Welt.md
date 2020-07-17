@@ -179,7 +179,7 @@ Exemplarisch könnte eine Prozessanpassung folgendermaßen aussehen:
 ![Geschaeftsprozesse_Korrektur](/assets/images/posts/Geschaeftsprozesse-in-einer-Microservice-Welt/Geschaeftsprozesse_Korrektur.png)
 
 Eine Lösung im Bereich der Orchestrierung besteht aus folgenden Schritten:
-* Der Geschäftsprozess wird um die Erfassung von Storno- und Korrekturen erweitert.
+* Der Geschäftsprozess wird um die Erfassung von Stornos und Korrekturen erweitert.
 * Der Geschäftsprozess wird um zwei Teilprozesse erweitert, die unabhängig voneinander und gleichzeitig stattfinden können.
 * Für die Anwender der jeweiligen Abteilung werden Bearbeitungsdialoge erstellt, die den Teilprozess aus der jeweiligen Sicht darstellen.
 * Am Ende der Teilprozesse werden diese zentral wieder zum Hauptprozess zusammengefügt und die Bearbeitung findet wie gehabt statt.
