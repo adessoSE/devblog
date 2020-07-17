@@ -15,7 +15,7 @@ Was passiert, wenn ein größerer Geschäftsprozess modelliert werden muss, der 
 Wird nun der Domänenschnitt überdacht? Die Datenstrukturen neu verteilt?
 Was passiert, wenn mehrere Geschäftsprozesse geplant werden, die verschiedene Domänen gleichzeitig nutzen?
 
-Hier haben sich in den letzten Jahren zwei Ansätze heraus kristallisiert, die in den gängigen Foren und Auditorien teils kontrovers diskutiert werden.
+Hier haben sich in den letzten Jahren zwei Ansätze herauskristallisiert, die in den gängigen Foren und Auditorien teils kontrovers diskutiert werden.
 
 Die Ansätze werden als
 * **Orchestrierung von Geschäftsprozessen** und
@@ -63,7 +63,7 @@ Die Fachlichkeit und die Fachlogik werden als Schwerpunkt bei der Modellierung b
 
 # Domänenschnitt
 
-Wie zu Beginn beschrieben, gibt es verschiedene Ansätze, wie Domänen geschnitten werden sollen.
+Wie zu Beginn beschrieben, gibt es verschiedene Ansätze, wie Domänen geschnitten werden können.
 Der bekannteste ist Domain-Driven-Design. Leider lassen es reale Kunden und Projekte nicht immer zu,
 perfekt nach dem Lehrbuch zu arbeiten, sodass hier mitunter interessante Konstrukte entstehen.
 
@@ -81,10 +81,10 @@ Der Dirigent steht dabei im Mittelpunkt und gibt den Takt und die Geschwindigkei
 
 Bei der Orchestrierung von Geschäftsprozess wird das System nach diesem Ansatz realisiert.
 Die einzelnen Services warten auf die Anweisung eines orchestrierenden (steuernden) Services.
-Sie kennen sich gegenseitig nicht und wissen auch nicht wann sie etwas zu tun haben.
+Die anderen Services kennen sich gegenseitig nicht und wissen auch nicht wann sie etwas zu tun haben.
 
 In dem zentralen Service wird der Geschäftsprozess modelliert und gesteuert. Wie die Umsetzung des Prozesses im Detail entschieden wird, ist projektabhängig.
-Es ist möglich, den Prozess selbst zu entwickeln oder aber auch möglich eine Workflow-Engine zu nutzen und den Prozess „nur“ zu modellieren.
+Es ist möglich, den Prozess selbst zu entwickeln oder eine Workflow-Engine zu nutzen und den Prozess „nur“ zu modellieren.
 Der Einsatz einer Workflow-Engine ist von Vorteil, wenn Prozesse komplexer werden und Berechtigungen und Eskalationen abgebildet werden müssen.
 Viele Systeme bringen diese Features bereits mit, sodass das Verhältnis von Programmierung und Konfiguration zu Gunsten der Konfiguration ausfällt.
 Auch das Verwalten von verschiedenen Versionen eines Prozesses wird über eine solche Workflow-Engine abgebildet.
@@ -93,7 +93,7 @@ wie sich aktuelle Prozess-Instanzen verhalten, wenn beispielsweise Prozess-Schri
 
 Eine Instanz des Prozesses, beispielsweise die Bestellung 4711 des Kunden Müller, wird zentral durch die Workflow-Engine des orchestrierenden Services gesteuert.
 Die einzelnen Services werden über ihre Aktionen informiert und mit Daten versorgt. Die Teilbearbeitung findet dabei in den einzelnen Services statt,
-die von dem orchestrierenden Service überwacht werden. Im Anschluss werden ihre Daten wieder an die Zentrale zurückschicken.
+die von dem orchestrierenden Service überwacht werden. Im Anschluss werden ihre Daten wieder an die Zentrale zurückgeschickt.
 
 ![Orchestrierung](/assets/images/posts/Geschaeftsprozesse-in-einer-Microservice-Welt/Orchestrierung.png)
 
@@ -110,7 +110,7 @@ der ihm Daten liefert und den Nachfolger, an den er Daten liefern muss. Jeder we
 Auch hier muss die Umsetzung des Teilprozesses im Detail entschieden werden, jeder Service kann dies selbst entscheiden.
 Natürlich sollte dem Anwender ein zentrales Bild gezeigt werden.
 
-Eine Instanz des Prozesses, beispielsweise die Bestellung 4712 vom Kunden Meyer, wird von dem führenden ersten Service angelegt,
+Eine Instanz des Prozesses, beispielsweise die Bestellung 4712 vom Kunden Meyer, wird von dem ersten Service angelegt,
 mit Daten angereichert und an den nächsten Service übergeben. Jeder Teilprozess wird dabei in dem jeweiligen Service gestartet, ausgeführt und wieder beendet.
 Jeder weitere nachfolgende Service startet seinen eigenen, vollkommen unabhängigen Teilprozess.
 
@@ -179,16 +179,16 @@ Exemplarisch könnte eine Prozessanpassung folgendermaßen aussehen:
 ![Geschaeftsprozesse_Korrektur](/assets/images/posts/Geschaeftsprozesse-in-einer-Microservice-Welt/Geschaeftsprozesse_Korrektur.png)
 
 Eine Lösung im Bereich der Orchestrierung besteht aus folgenden Schritten:
-* Der Geschäftsprozess wird um die Erfassung von Storno- und Korrekturen erweitert.
+* Der Geschäftsprozess wird um die Erfassung von Stornos und Korrekturen erweitert.
 * Der Geschäftsprozess wird um zwei Teilprozesse erweitert, die unabhängig voneinander und gleichzeitig stattfinden können.
 * Für die Anwender der jeweiligen Abteilung werden Bearbeitungsdialoge erstellt, die den Teilprozess aus der jeweiligen Sicht darstellen.
 * Am Ende der Teilprozesse werden diese zentral wieder zum Hauptprozess zusammengefügt und die Bearbeitung findet wie gehabt statt.
 * Die Steuerung der Parallelität und das Zusammenführen der Teilvorgänge werden von der Workflow-Engine übernommen.
 
 Eine Lösung im Bereich der Choreographie besteht aus folgenden Schritten:
-* Die Domäne Faktura wird um die Erfassung von Storno- und Korrekturen erweitert.
+* Die Domäne Faktura wird um die Erfassung von Stornos und Korrekturen erweitert.
 * Die beiden beteiligten Services „Kunde“ und „Produktion“ müssen die Kommunikation mit der Faktura Domäne anpassen und die Daten aus der Korrektur-Erfassung entgegennehmen.
-* Da es sich hier um eine verteilte und asynchrone Kommunikation handelt, muss ein Service-übergreifender Schlüssel ausgetauscht werden, mit dem die Prozess-Instanz eindeutig identifiziert werden kann. Beispielsweise eine Transaktions-ID oder Vorgangs-ID.
+* Da es sich hier um eine verteilte und asynchrone Kommunikation handelt, muss ein Service-übergreifender Schlüssel ausgetauscht werden, mit dem die Prozess-Instanz eindeutig identifiziert werden kann, beispielsweise eine Transaktions-ID oder Vorgangs-ID.
 * Am Ende der Teilprozesse muss ein Service auf die Daten der beiden anderen Services warten, bis von beiden eine Rückmeldung geschickt wird, diese dann konsolidieren und weiterverarbeiten.
 
 # Vorteile vs. Nachteile aus Sicht der Geschäftsprozess-Modellierung
