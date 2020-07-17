@@ -188,7 +188,7 @@ Eine Lösung im Bereich der Orchestrierung besteht aus folgenden Schritten:
 Eine Lösung im Bereich der Choreographie besteht aus folgenden Schritten:
 * Die Domäne Faktura wird um die Erfassung von Stornos und Korrekturen erweitert.
 * Die beiden beteiligten Services „Kunde“ und „Produktion“ müssen die Kommunikation mit der Faktura Domäne anpassen und die Daten aus der Korrektur-Erfassung entgegennehmen.
-* Da es sich hier um eine verteilte und asynchrone Kommunikation handelt, muss ein Service-übergreifender Schlüssel ausgetauscht werden, mit dem die Prozess-Instanz eindeutig identifiziert werden kann. Beispielsweise eine Transaktions-ID oder Vorgangs-ID.
+* Da es sich hier um eine verteilte und asynchrone Kommunikation handelt, muss ein Service-übergreifender Schlüssel ausgetauscht werden, mit dem die Prozess-Instanz eindeutig identifiziert werden kann, beispielsweise eine Transaktions-ID oder Vorgangs-ID.
 * Am Ende der Teilprozesse muss ein Service auf die Daten der beiden anderen Services warten, bis von beiden eine Rückmeldung geschickt wird, diese dann konsolidieren und weiterverarbeiten.
 
 # Vorteile vs. Nachteile aus Sicht der Geschäftsprozess-Modellierung
