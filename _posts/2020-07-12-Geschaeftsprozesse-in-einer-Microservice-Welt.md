@@ -93,7 +93,7 @@ wie sich aktuelle Prozess-Instanzen verhalten, wenn beispielsweise Prozess-Schri
 
 Eine Instanz des Prozesses, beispielsweise die Bestellung 4711 des Kunden Müller, wird zentral durch die Workflow-Engine des orchestrierenden Services gesteuert.
 Die einzelnen Services werden über ihre Aktionen informiert und mit Daten versorgt. Die Teilbearbeitung findet dabei in den einzelnen Services statt,
-die von dem orchestrierenden Service überwacht werden. Im Anschluss werden ihre Daten wieder an die Zentrale zurückschicken.
+die von dem orchestrierenden Service überwacht werden. Im Anschluss werden ihre Daten wieder an die Zentrale zurückgeschickt.
 
 ![Orchestrierung](/assets/images/posts/Geschaeftsprozesse-in-einer-Microservice-Welt/Orchestrierung.png)
 
