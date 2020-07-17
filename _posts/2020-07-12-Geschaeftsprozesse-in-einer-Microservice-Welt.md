@@ -30,7 +30,7 @@ Ziel ist es, einen neutralen Überblick über die Modellierung von Geschäftspro
 Wir werden in der frühen Phase des Projektes VuP (Verkauf und Produktion von Waren) der Firma Hersteller AG als Lösungsarchitekt in das Projekt aufgenommen und sollen als Schnittstelle zwischen dem Kunden, den Anforderungs-Managern und dem Entwicklungsteam vermitteln.
 Durch das Enterprise-Architecture-Management (EAM) der Firma Hersteller AG wurde bereits vorgeschrieben,
 dass das Projekt VuP auf einer verteilten Architektur mit einem Web-Frontend realisiert werden soll.
-Die Systemarchitektur besteht dabei aus dem Web-Client, einem Backend mit Geschäftslogik welches auf Microservices basiert und einer SQL-Datenbank.
+Die Systemarchitektur besteht dabei aus dem Web-Client, einem Backend mit Geschäftslogik, welches auf Microservices basiert, und einer SQL-Datenbank.
 Die Anforderungs-Manager übergeben uns einen modellierten und vom Kunden bereits abgenommenen Geschäftsprozess, mit der Bitte,
 fachliche Domänen zu planen und den Prozess abzubilden.
 
@@ -39,7 +39,7 @@ fachliche Domänen zu planen und den Prozess abzubilden.
 Das folgende Modell stellt eine vereinfachte Form des Geschäftsprozesses „Verkauf und Versand von Produkten“ dar
 und basiert auf einem überschaubar gehaltenen BPMN-Modell.
 
-![Gesamtprozess](/assets/images/posts/Geschaeftsprozesse-in-einer-Microservice-Welt/Geschäftsprozesse_Gesamt.png)
+![Gesamtprozess](/assets/images/posts/Geschaeftsprozesse-in-einer-Microservice-Welt/Geschaeftsprozesse_Gesamt.png)
 
 ## Microservices
 
@@ -58,14 +58,14 @@ In den folgenden Texten werden wir zur vereinfachten Darstellung den Begriff „
 ## Domain Driven Design
 
 Domain Driven Design (DDD) ist ein Modellierungsansatz für Software-Systeme.
-Er basiert darauf die Teilsysteme (Domänen) auf Basis der Fachlichkeit zu zerlegen.
+Er basiert darauf, die Teilsysteme (Domänen) auf Basis der Fachlichkeit zu zerlegen.
 Die Fachlichkeit und die Fachlogik werden als Schwerpunkt bei der Modellierung betrachtet.
 
 # Domänenschnitt
 
 Wie zu Beginn beschrieben, gibt es verschiedene Ansätze, wie Domänen geschnitten werden sollen.
 Der bekannteste ist Domain-Driven-Design. Leider lassen es reale Kunden und Projekte nicht immer zu,
-perfekt nach dem Lehrbuch zu arbeiten, so dass hier mitunter interessante Konstrukte entstehen.
+perfekt nach dem Lehrbuch zu arbeiten, sodass hier mitunter interessante Konstrukte entstehen.
 
 Dazu zählen beispielsweise ausgiebige, fast philosophische Diskussionen über Domänen-Schnitte auf Architektenebene.
 Manchmal wird aber auch nach Anzahl der Teams oder nach Interesse bzw. Befindlichkeit des Product-Owners geplant.
@@ -76,7 +76,7 @@ In unserem Projekt VuP entstehen am Ende der Planung die folgenden vier Domänen
 
 # Orchestrierung von Geschäftsprozessen
 
-Der Begriff Orchestrierung ist an Musikkonzerten angelehnt. Hier sitzen viele Musiker und haben nur eine Aufgabe: Zur richtigen Zeit ihr Instrument zu spielen.
+Der Begriff Orchestrierung ist an Musikkonzerte angelehnt. Hier sitzen viele Musiker und haben nur eine Aufgabe: Zur richtigen Zeit ihr Instrument zu spielen.
 Der Dirigent steht dabei im Mittelpunkt und gibt den Takt und die Geschwindigkeit vor. Alles hängt von seinem Können ab.
 
 Bei der Orchestrierung von Geschäftsprozess wird das System nach diesem Ansatz realisiert.
@@ -84,12 +84,12 @@ Die einzelnen Services warten auf die Anweisung eines orchestrierenden (steuernd
 Sie kennen sich gegenseitig nicht und wissen auch nicht wann sie etwas zu tun haben.
 
 In dem zentralen Service wird der Geschäftsprozess modelliert und gesteuert. Wie die Umsetzung des Prozesses im Detail entschieden wird, ist projektabhängig.
-Es ist möglich den Prozess selbst zu entwickeln oder aber auch möglich eine Workflow-Engine zu nutzen und den Prozess „nur“ zu modellieren.
+Es ist möglich, den Prozess selbst zu entwickeln oder aber auch möglich eine Workflow-Engine zu nutzen und den Prozess „nur“ zu modellieren.
 Der Einsatz einer Workflow-Engine ist von Vorteil, wenn Prozesse komplexer werden und Berechtigungen und Eskalationen abgebildet werden müssen.
-Viele Systeme bringen diese Features bereits mit, so dass das Verhältnis von Programmierung und Konfiguration zu Gunsten der Konfiguration ausfällt.
+Viele Systeme bringen diese Features bereits mit, sodass das Verhältnis von Programmierung und Konfiguration zu Gunsten der Konfiguration ausfällt.
 Auch das Verwalten von verschiedenen Versionen eines Prozesses wird über eine solche Workflow-Engine abgebildet.
 Damit ist die Veränderung eines Prozesses während des produktiven Einsatzes gemeint. Die Workflow-Engine definiert,
-wie sich aktuelle Prozess-Instanzen verhalten wenn beispielsweise Prozess-Schritte hinzugefügt, oder aber auch verändert werden.
+wie sich aktuelle Prozess-Instanzen verhalten, wenn beispielsweise Prozess-Schritte hinzugefügt oder aber auch verändert werden.
 
 Eine Instanz des Prozesses, beispielsweise die Bestellung 4711 des Kunden Müller, wird zentral durch die Workflow-Engine des orchestrierenden Services gesteuert.
 Die einzelnen Services werden über ihre Aktionen informiert und mit Daten versorgt. Die Teilbearbeitung findet dabei in den einzelnen Services statt,
@@ -100,11 +100,11 @@ die von dem orchestrierenden Service überwacht werden. Im Anschluss werden ihre
 # Choreographie von Geschäftsprozessen
 
 Der Begriff Choreographie ist an ein Ballett-Ensemble angelehnt. Hier sitzen im Vorfeld alle Beteiligten (Tänzer, Designer, Musiker) zusammen,
-planen und proben gemeinsam eine Choreographie. Dabei weiß jeder, was er zu tun hat, vor allem wann er etwas zu tun hat.
+planen und proben gemeinsam eine Choreographie. Dabei weiß jeder, was er zu tun hat, vor allem, wann er etwas zu tun hat.
 Dies bedeutet, der Tänzer kennt seine Vorgänger und seine Nachfolger, weiß, wo er zu stehen hat und wann sein Einsatz ist.
 Hier hängt alles vom Können aller Beteiligten ab.
 
-Bei der Choreographie von Geschäftsprozess wird das System nach diesem Ansatz realisiert. Der Geschäftsprozess wird zum Zeitpunkt der Modellierung in Teilprozesse zerlegt,
+Bei der Choreographie von Geschäftsprozessen wird das System nach diesem Ansatz realisiert. Der Geschäftsprozess wird zum Zeitpunkt der Modellierung in Teilprozesse zerlegt,
 die dann auf die einzelnen Domänen verteilt werden. Dadurch kennen die Services sich gegenseitig, zumindest den Vorgänger,
 der ihm Daten liefert und den Nachfolger, an den er Daten liefern muss. Jeder weiß genau, wann er was zu tun hat, es gibt keine zentrale Steuerung.
 Auch hier muss die Umsetzung des Teilprozesses im Detail entschieden werden, jeder Service kann dies selbst entscheiden.
@@ -112,14 +112,14 @@ Natürlich sollte dem Anwender ein zentrales Bild gezeigt werden.
 
 Eine Instanz des Prozesses, beispielsweise die Bestellung 4712 vom Kunden Meyer, wird von dem führenden ersten Service angelegt,
 mit Daten angereichert und an den nächsten Service übergeben. Jeder Teilprozess wird dabei in dem jeweiligen Service gestartet, ausgeführt und wieder beendet.
-Jeder weitere nachfolgende Service startet seinen eigenen vollkommen unabhängigen Teilprozess.
+Jeder weitere nachfolgende Service startet seinen eigenen, vollkommen unabhängigen Teilprozess.
 
 ![Choreographie](/assets/images/posts/Geschaeftsprozesse-in-einer-Microservice-Welt/Choreographie.png)
 
 # Fallbeispiel „Erweiterung“
 
 Das Projekt VuP wird im ersten Meilenstein umgesetzt und geht erfolgreich an den Start.
-Nach einiger Zeit gibt es die ersten Kundenbeschwerden weil die Produkte in einem schlechten Zustand bei den Kunden ankommen.
+Nach einiger Zeit gibt es die ersten Kundenbeschwerden, weil die Produkte in einem schlechten Zustand bei den Kunden ankommen.
 Die Firma entscheidet sich, den Geschäftsprozess um einen eigenen Prozess „Verpackung“ zu erweitern, der wiederum aus einzelnen Teilprozessen besteht.
 
 Aktuell sieht der Prozess-Ausschnitt folgendermaßen aus:
@@ -132,7 +132,7 @@ Zukünftig wird vor der Auslieferung und der Übergabe an die Faktura noch der P
 
 Eine Lösung im Bereich der Orchestrierung besteht aus folgenden Schritten:
 * Es wird eine neue Domäne Verpackung als Service implementiert.
-* Der Geschäftsprozess im orchestrierenden Service wird erweitert, so dass der neue Prozess technisch umgesetzt ist.
+* Der Geschäftsprozess im orchestrierenden Service wird erweitert, sodass der neue Prozess technisch umgesetzt ist.
 * Die Kommunikation zwischen Verpackung und Orchestrierung wird aufgesetzt.
 
 ![Orchestrierung_Neu](/assets/images/posts/Geschaeftsprozesse-in-einer-Microservice-Welt/Orchestrierung_neu.png)
