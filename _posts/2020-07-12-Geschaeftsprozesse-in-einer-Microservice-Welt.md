@@ -186,7 +186,7 @@ Eine Lösung im Bereich der Orchestrierung besteht aus folgenden Schritten:
 * Die Steuerung der Parallelität und das Zusammenführen der Teilvorgänge werden von der Workflow-Engine übernommen.
 
 Eine Lösung im Bereich der Choreographie besteht aus folgenden Schritten:
-* Die Domäne Faktura wird um die Erfassung von Storno- und Korrekturen erweitert.
+* Die Domäne Faktura wird um die Erfassung von Stornos und Korrekturen erweitert.
 * Die beiden beteiligten Services „Kunde“ und „Produktion“ müssen die Kommunikation mit der Faktura Domäne anpassen und die Daten aus der Korrektur-Erfassung entgegennehmen.
 * Da es sich hier um eine verteilte und asynchrone Kommunikation handelt, muss ein Service-übergreifender Schlüssel ausgetauscht werden, mit dem die Prozess-Instanz eindeutig identifiziert werden kann. Beispielsweise eine Transaktions-ID oder Vorgangs-ID.
 * Am Ende der Teilprozesse muss ein Service auf die Daten der beiden anderen Services warten, bis von beiden eine Rückmeldung geschickt wird, diese dann konsolidieren und weiterverarbeiten.
