@@ -84,7 +84,7 @@ Die einzelnen Services warten auf die Anweisung eines orchestrierenden (steuernd
 Die anderen Services kennen sich gegenseitig nicht und wissen auch nicht wann sie etwas zu tun haben.
 
 In dem zentralen Service wird der Geschäftsprozess modelliert und gesteuert. Wie die Umsetzung des Prozesses im Detail entschieden wird, ist projektabhängig.
-Es ist möglich, den Prozess selbst zu entwickeln oder aber auch möglich eine Workflow-Engine zu nutzen und den Prozess „nur“ zu modellieren.
+Es ist möglich, den Prozess selbst zu entwickeln oder eine Workflow-Engine zu nutzen und den Prozess „nur“ zu modellieren.
 Der Einsatz einer Workflow-Engine ist von Vorteil, wenn Prozesse komplexer werden und Berechtigungen und Eskalationen abgebildet werden müssen.
 Viele Systeme bringen diese Features bereits mit, sodass das Verhältnis von Programmierung und Konfiguration zu Gunsten der Konfiguration ausfällt.
 Auch das Verwalten von verschiedenen Versionen eines Prozesses wird über eine solche Workflow-Engine abgebildet.
