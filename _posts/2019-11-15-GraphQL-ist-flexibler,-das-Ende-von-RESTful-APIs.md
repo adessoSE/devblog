@@ -54,7 +54,7 @@ Den genannten Herausforderungen hat sich Facebook 2012 gestellt und mit GraphQL 
 
 ## Single Endpoint:
 
-GraphQL besitzt nur einen Endpunkt. Es werden also keine Endpunkte für PUT, DELETE und anderen Methoden benötigt. Die Abfragen werden durch Queries beschrieben, sodass nur eine Query an den Endpunkt geschickt werden muss. Diese Query wird in einer speziellen Query-Sprache beschrieben, ähnlich zu SQL. Sie wird anschließend vom Server interpretiert. Ein Beispiel hierfür ist die Query `URL/graphql?query=annaswuensche`. In "annaswuensche" kann der Client alle Daten beschreiben, die er benötigt.
+GraphQL besitzt nur einen Endpunkt. Es werden also keine Endpunkte für PUT, DELETE und andere Methoden benötigt. Die Abfragen werden durch Queries beschrieben, sodass nur eine Query an den Endpunkt geschickt werden muss. Diese Query wird in einer speziellen Query-Sprache beschrieben, ähnlich zu SQL. Sie wird anschließend vom Server interpretiert. Ein Beispiel hierfür ist die Query `URL/graphql?query=annaswuensche`. In "annaswuensche" kann der Client alle Daten beschreiben, die er benötigt.
 
 ![GraphQL und RESTful APIs](/assets/images/posts/GraphQL-ist-flexibler,-das-Ende-von-RESTful-APIs/APIs.PNG)
 
