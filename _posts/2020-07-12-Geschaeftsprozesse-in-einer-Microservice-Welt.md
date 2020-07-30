@@ -6,6 +6,11 @@ author: swindisch
 categories: [Architektur]
 tags: [Microservice, Geschäftsprozesse, Orchestrierung, Choreographie]
 ---
+Das Verständnis von Geschäftsprozessen und damit verbunden ihre fachliche sowie technische Umsetzung sind ein wichtiger Bestandteil bei der Analyse und Planung von Software-Systemen. Gerade in Bezug auf eine verteilte Architektur gibt es einige knifflige Herausforderungen, die beachtet werden müssen.
+Der folgende Artikel beschreibt zwei gängige Architektur-Ansätze. 
+
+# Einleitung
+
 Bei der Neuentwicklung eines modernen Software-Systems wird dessen Architektur meist auf Basis von verteilten Systemen modelliert.
 Die Granularität der Verteilung des Systems kann von einzelnen Komponenten, über Teilsysteme auf Basis von Microservices,
 bis zu Serverless Computing in der Cloud festgelegt werden.
