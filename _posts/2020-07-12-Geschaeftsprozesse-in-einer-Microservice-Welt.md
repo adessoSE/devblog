@@ -1,6 +1,6 @@
 ---
 layout: [post, post-xml]
-title:  "Geschäftsprozesse in einer Microservice Welt"
+title:  "Geschäftsprozesse in einer Microservice-Welt"
 date:   2020-07-12 08:00
 author: swindisch
 categories: [Architektur]
@@ -22,7 +22,7 @@ Die Ansätze werden als
 * **Orchestrierung von Geschäftsprozessen** und
 * **Choreographie von Geschäftsprozessen** bezeichnet.
 
-In den folgenden Kapiteln werde ich die beiden Ansätze detaillierter beschreiben, die Vor- und Nachteile aufzählen und anonymisierte Fälle aus verschiedenen realen Projekten der letzten Jahre beschreiben.
+In diesem Blogpost werde ich die beiden Ansätze detaillierter beschreiben, die Vor- und Nachteile aufzählen und anonymisierte Fälle aus verschiedenen realen Projekten der letzten Jahre beschreiben.
 
 Ziel ist es, einen neutralen Überblick über die Modellierung von Geschäftsprozessen in verteilten Systemen aufzuzeigen ohne eine eigene Bewertung abzugeben.
 
@@ -54,7 +54,7 @@ Im besten Fall kennen sie sich untereinander gar nicht, sondern versenden einfac
 Zusammengefasst, ist die Anweisung an die Planung eines Microservice:
 "Erledige nur eine Aufgabe und erledige sie gut!"
 
-In den folgenden Texten werden wir zur vereinfachten Darstellung den Begriff "Service" nutzen.
+Im Folgenden werden wir zur vereinfachten Darstellung den Begriff "Service" nutzen.
 
 ## Domain-driven Design
 
@@ -68,7 +68,7 @@ Wie zu Beginn beschrieben, gibt es verschiedene Ansätze, wie Domänen geschnitt
 Der bekannteste ist Domain-driven Design. Leider lassen es reale Kunden und Projekte nicht immer zu,
 perfekt nach dem Lehrbuch zu arbeiten, sodass hier mitunter interessante Konstrukte entstehen.
 Dazu zählen beispielsweise ausgiebige, fast philosophische Diskussionen über Domänen-Schnitte auf Architektenebene.
-Manchmal wird aber auch nach Anzahl der Teams oder nach Interesse bzw. Befindlichkeit des Product-Owners geplant.
+Manchmal wird aber auch nach Anzahl der Teams oder nach Interesse bzw. "Gefühl" des Product-Owners geplant.
 
 In unserem Projekt VuP entstehen am Ende der Planung die folgenden vier Domänen:
 
