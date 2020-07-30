@@ -1,13 +1,13 @@
 ---
 layout: [post, post-xml]
 title:  "Geschäftsprozesse in einer Microservice-Welt"
-date:   2020-07-12 08:00
+date:   2020-07-31 15:00
 author: swindisch
 categories: [Architektur]
 tags: [Microservice, Geschäftsprozesse, Orchestrierung, Choreographie]
 ---
 Das Verständnis von Geschäftsprozessen und damit verbunden ihre fachliche sowie technische Umsetzung sind ein wichtiger Bestandteil bei der Analyse und Planung von Software-Systemen. Gerade in Bezug auf eine verteilte Architektur gibt es einige knifflige Herausforderungen, die beachtet werden müssen.
-Der folgende Artikel beschreibt zwei gängige Architektur-Ansätze. 
+In diesem Blogpost schauen wir uns zwei gängige Architektur-Ansätze an. 
 
 # Einleitung
 
