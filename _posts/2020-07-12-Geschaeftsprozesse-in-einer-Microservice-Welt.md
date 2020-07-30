@@ -45,6 +45,7 @@ und basiert auf einem überschaubar gehaltenen BPMN-Modell.
 ## Microservices
 
 Als Grundlage für das weitere Verständnis dieses Artikels folgt eine kurze Beschreibung, was Microservices sind.
+Einen tieferen Einstieg bietet hier unser Blogpost zu "[Microservices für nichttechnische Leute](https://www.adesso.de/de/news/blog/technische-dinge-fuer-nicht-technische-leute-teil-2.jsp)". Die Herausforderungen, die sich durch die Nutzung von Microservices ergeben haben wir auch bereits [in einem weiteren Blogpost dargestellt](https://www.adesso.de/de/news/blog/microservices-erzeugen-lediglich-andere-technische-schulden.jsp).
 
 Microservices sind ein Architekturmuster, bei der eine Anwendung aus unabhängigen Diensten besteht,
 die kleine Aufgaben erledigen, wobei "klein" immer eine Projektdefinition ist.
