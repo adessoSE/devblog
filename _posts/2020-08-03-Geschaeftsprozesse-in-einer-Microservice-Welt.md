@@ -1,7 +1,7 @@
 ---
 layout: [post, post-xml]
 title:  "Geschäftsprozesse in einer Microservice-Welt"
-date:   2020-07-31 15:00
+date:   2020-08-03 09:00
 author: swindisch
 categories: [Architektur]
 tags: [Microservice, Geschäftsprozesse, Orchestrierung, Choreographie]
