@@ -83,7 +83,8 @@ Als N채chstes wird das Repository mit dem Befehl `- uses: actions/checkout@v2` �
 Nachdem das Repository ausgecheckt wurde, wird mit den n채chsten drei Zeilen das Java SDK gesetzt.
 F체r dieses Projekt wurde Java 11 verwendet, weshalb die Zahl bei `java-version` auf **11** gesetzt wurde.
 
-Der Gradle Wrapper ist hier noch nicht als ausf체hrbar markiert, daher wird dieser mit `run: chmod +x gradlew` kurzerhand ge채ndert.
+Die Action als Nutzer innerhalb der VM oder des Containers hat noch keine Rechte zum Ausf체hren des Gradle Wrappers.
+Dies wird mit dem Befehl `run: chmod +x gradlew` ge채ndert.
 Im letzten Schritt der Action wird das Gradle-Projekt mit `./gradlew build` gebaut und getestet.
 
 ![Bild des Ergebnisses des Gradle Builds](/assets/images/posts/github-actions/gradle-build-result.JPG)
