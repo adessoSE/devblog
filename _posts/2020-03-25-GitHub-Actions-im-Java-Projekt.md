@@ -79,7 +79,7 @@ Nun folgen die einzelnen Jobs des Workflows, wobei `build` den Namen repräsenti
 Je nach Konfiguration können Jobs sequenziell oder parallel ausgeführt werden.
 Zusätzlich wird mit `runs-on` angegeben, auf welcher Ausführungsumgebung dieser ausgeführt werden soll.
 Mit `steps` wird die Folge von Schritten definiert, die für diesen Job benötigt werden.
-Als Nächstes wird das Repository mit Befehl `- uses: actions/checkout@v2` über Git ausgecheckt, damit es für den Job benutzt werden kann.
+Als Nächstes wird das Repository mit dem Befehl `- uses: actions/checkout@v2` über Git ausgecheckt, damit es für den Job benutzt werden kann.
 Nachdem das Repository ausgecheckt wurde, wird mit den nächsten drei Zeilen das Java SDK gesetzt.
 Für dieses Projekt wurde Java 11 verwendet, weshalb die Zahl bei `java-version` auf **11** gesetzt wurde.
 
