@@ -69,7 +69,7 @@ jobs:
 ```
 Das Schlüsselwort `name` gibt an, wie der Workflow in der Ausführung bzw. auf GitHub heißen wird.
 Danach folgt `on`, was festlegt, auf welche Events die Action reagieren soll.
-In der Array-Schreibweise folgen die Repositories bzw. Branches, für die diese Action gelten sollen.
+In der Array-Schreibweise folgen die Repositories bzw. Branches, für die diese Action gelten soll.
 Dementsprechend können kommasepariert mehrere Branches angegeben werden.
 
 Für unser Projekt wird auf die Event-Typen `push` und `pull_request` reagiert.
