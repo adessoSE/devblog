@@ -13,32 +13,32 @@ Abschließend schauen wir uns die automatisierte Release-Erzeugung an.
 
 # Was ist GitHub Actions?
 GitHub Actions ist ein hauseigenes Tool der Code-Hosting-Plattform GitHub, um Prozesse in einem Softwareprojekt zu automatisieren.
-Dadurch kannst du dir Workflows für dein Repository erstellen.
-Ein einzelner Workflow besteht aus einem oder mehreren Jobs, wobei ein Job aus einem oder mehreren Schritten besteht.
+Dadurch kannst du Workflows für dein Repository erstellen.
+Ein Workflow besteht aus einem oder mehreren Jobs, wobei ein Job aus einem oder mehreren Schritten besteht.
 Du kannst festlegen, ob Workflows in einem Container oder in einer virtuellen Maschine ausgeführt werden sollen.
-Die Ausführung kann unter den gängigen Betriebssystemen Windows, Linux und macOS durchgeführt werden.
+Die Ausführung kann unter den gängigen Betriebssystemen Windows, Linux und macOS erfolgen.
 Workflows werden durch Events wie beispielsweise **Pull Requests** ausgelöst und ausgeführt.
-Wenn ein Workflow ausgeführt wird, arbeitet er alle seine darin enthaltenen Jobs mit entsprechenden Schritten ab und erstellt dir ein umfangreiches Feedback mit Logs und Ausführzeiten.
+Wenn ein Workflow ausgeführt wird, arbeitet er alle seine Jobs, sowie Schritte ab und erstellt dir ein umfangreiches Feedback mit Logs und Ausführungszeiten.
 Das Feedback kann individuell für jeden Schritt angepasst werden.
 Eine Action wird in der Web-Oberfläche von GitHub erstellt.
-Praktischerweise kann sie geteilt und wiederverwendet werden.
+Praktischerweise kann eine erstellte Action geteilt und wiederverwendet werden.
 
 ## Erzeugung des Java Projekts
 Um einen demonstrativen Workflow zu erstellen, nutzen wir ein [Java Projekt](https://github.com/adessoAG/github-actions-demo), das mit [Spring Boot Starter](https://start.spring.io/) initialisiert wurde.
 Das Projekt ist mit Java 11 und Gradle ausgestattet.
 
 ## Gradle Projekt bauen und testen
-Um GitHub Actions in der Oberfläche aufzurufen, gibt es in der Repository-Ansicht den Reiter "Actions".
+Um GitHub Actions aufzurufen, gibt es in der Repository-Ansicht den Reiter "Actions".
 
 ![Bild vom Actions Reiter](/assets/images/posts/github-actions/actions-tab.JPG)
 
-Angekommen in den Actions, werden vom intuitiven System bereits eine Menge integrierter Actions bereitgestellt.
+Angekommen in den Actions, werden bereits eine Menge integrierter Actions bereitgestellt.
 Namhafte Sprachen und Frameworks werden unterstützt.
 Zum Experimentieren stellt GitHub dem Benutzer eine Starter-Action zur Verfügung.
 
 In der Starter-Action werden alle Punkte einer YML-Datei kurz erläutert.
-Es gibt bereits zahlreiche Actions die von GitHub und der Open Source Community bereitgestellt sind.
 Diese Action wird im späteren Verlauf dieses Blogposts als Grundlage für die anderen Jobs des Workflows wiederverwendet.
+Außerdem gibt es bereits zahlreiche Actions die von GitHub selbst und der Open Source Community bereitgestellt sind.
 
 Im Folgenden wird der Codeblock der Action genauer betrachtet.
 Weiterhin werden die einzelnen Punkte genauer erklärt.
@@ -69,7 +69,7 @@ jobs:
 ```
 Das Schlüsselwort `name` gibt an, wie der Workflow in der Ausführung bzw. auf GitHub heißen wird.
 Danach folgt `on`, was festlegt, auf welche Events die Action reagieren soll.
-In der Array-Schreibweise folgen die Repositories bzw. Branches, für die diese Action gelten soll.
+In der Array-Schreibweise folgen die Repositories bzw. Branches, für die diese Action gilt.
 Dementsprechend können kommasepariert mehrere Branches angegeben werden.
 
 Für unser Projekt wird auf die Event-Typen `push` und `pull_request` reagiert.
@@ -109,7 +109,7 @@ plugins {
 }
 ```
 
-Nun legen wir die Version von JaCoCo fest und dass ein Test-Report als XML generiert wird.
+Nun legen wir die Version von JaCoCo fest und dass ein Test-Report im XML-Format generiert wird.
 
 ```gradle
 jacoco {
@@ -124,7 +124,7 @@ jacocoTestReport {
 ```
 
 Als Letztes muss SonarCloud in den `gradle.properties` konfiguriert werden.
-Hierzu wird die Url, Organisation und der Project-Key eingeschrieben. 
+Hierzu wird die Url, Organisation und der Project-Key eingetragen. 
 
 ```gradle
 systemProp.sonar.host.url=https://sonarcloud.io/
@@ -169,7 +169,8 @@ Folgende Zeilen Code ergänzen den `sonarcloud` Workflow:
 
 ## Artefakte hochladen
 
-Die Test-Coverage eines Projekts wird mit JaCoCo gehandhabt, der Entwickler bekommt anschließend einen entsprechenden HTML-Report. Hierüber kann die Coverage eingesehen werden, wenn beispielsweise kein SonarQube vorhanden ist.
+Die Test-Coverage eines Projekts wird mit JaCoCo gehandhabt, der Entwickler bekommt anschließend einen HTML-Report.
+Hierüber kann die Coverage eingesehen werden, wenn beispielsweise kein SonarQube vorhanden ist.
 Außerdem erstellt Gradle selbst auch einen Test-Report im HTML-Format, der zusammen mit dem JaCoCo Test-Report als Artefakt hochgeladen werden soll.
 Dies wird mit den folgenden zwei Jobs realisiert.
 
@@ -187,15 +188,15 @@ Dies wird mit den folgenden zwei Jobs realisiert.
 ``` 
 
 Für das Hochladen von Artefakten wird `actions/upload-artifact@v1` verwendet.
-Unter `name` wird jeweils der Name des Jobs und unter `path` der Output-Pfad, der zu den hochzuladenenden Dateien führt, angegeben.
+Unter `name` wird jeweils der Name des Jobs und unter `path` der Output-Pfad, der zu den hochzuladenden Dateien führt, angegeben.
 Da CSS Dateien oder andere Abhängigkeiten vom HTML-Output vorhanden sein können, werden ganze Pfade und keine einzelnen Dateien übergeben.
 
 ## Release erzeugen
 Als Letztes werden wir automatisiert ein Release erzeugen lassen.
-Es ist wichtig zu wissen, dass bei Commits Tags gesetzt werden können.
+Es ist wichtig zu wissen, dass bei Commits sogenannte Tags gesetzt werden können.
 Dadurch wird ein Workflow bei festgelegten Versionstags ausgelöst.
 Hierfür durchsuchen wir wieder den Marketplace nach einer passenden Action.
-Es gibt bereits [Create A Release](https://github.com/actions/create-release), das verifiziert und von GitHub selbst erstellt wurde.
+Es gibt bereits [Create A Release](https://github.com/actions/create-release), das von GitHub selbst erstellt wurde.
 
 Hierfür wird ein neuer Workflow erstellt, der nur den Job der Release-Erstellung beinhaltet.
 ```yaml
@@ -231,10 +232,9 @@ jobs:
 ```
 Als Erstes muss wieder der Event-Typ angegeben werden.
 Optional kann auch ein Branch angegeben werden.
-Wenn kein expliziter Branch angegeben ist, gilt diese Action für implizit für alle Branches.
+Wenn kein expliziter Branch angegeben ist, gilt diese Action implizit für alle Branches.
 
-Anschließend wird angeordnet, auf welche Tags reagiert werden soll,
-`v*`, bedeutet das alles, was mit dem Buchstaben v startet, ein Release erzeugt.
+Anschließend wird angeordnet, auf welche Tags reagiert werden soll, `v*`, bedeutet das alles, was mit dem Buchstaben v startet, ein Release erzeugt.
 Dadurch wird die semantische Versionierung (v1.0, v1.0.0 usw.) unterstützt.
 *Wie Patterns auf GitHub gehandhabt werden, kannst du [hier](https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#filter-pattern-cheat-sheet) nachschauen.* 
 Wieder wird der Runner und der bekannte Step ausgeführt, um das Repository zu bekommen.
@@ -243,7 +243,7 @@ Danach erzeugt die Action ein Release.
 Die Action benötigt eine Umgebungsvariable, die automatisiert von GitHub erstellt wird. 
 Dementsprechend muss hier kein Token selbst erzeugt werden.
 Den Tag-Namen und den Release-Namen setzt bzw. holt sich GitHub selbst vom Commit.
-Im Body steht dann der Inhalt des Release.
+Im Body steht der Inhalt des Release.
 
 Der Draft gibt an, ob das Release published _(true)_ oder unpublished _(false)_ sein soll.
 Der Wert des Prerelease Attributs legt fest, ob es sich um ein vollwertiges, eigenständiges Release handelt oder ein Prerelease.
@@ -257,6 +257,6 @@ Dieser baut und testet ein Gradle Projekt und deployt HTML-Reports als Artefakte
 Dazu erstellt der Workflow mittels Commit-Tags Releases.
 GitHub-Actions sind einfach bei Anwendungen anzubinden, die bereits auf GitHub verwaltet werden.
 Insbesondere im Open Source Bereich bzw. öffentlichen Repositories ist der Einsatz möglich, da keine Kosten zu erwarten sind. 
-Bei privaten Repositories solltest Du auf die [Restriktionen und Kosten](https://help.github.com/en/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-actions) achten.
+Bei privaten Repositories solltest du auf die [Restriktionen und Kosten](https://help.github.com/en/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-actions) achten.
 Detaillierte Dokumentation und eine breite Palette [vorgegebener Actions](https://github.com/marketplace?type=actions) ermöglichen uns schnelle Umsetzung gewünschter Workflows.
 Der Funktionsumfang ist gigantisch und jeder, dessen Interesse erweckt wurde, sollte sich die Dokumentation genauer anschauen.
