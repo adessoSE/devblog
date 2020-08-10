@@ -16,7 +16,7 @@ Diese Sammlung von Werkzeugen ist seitdem unter dem Begriff Domain Driven Design
 In der Modellierung der Anwenderdomäne stehen wir Entwickler häufig vor wiederkehrenden Herausforderungen, die durch die DDD-Werkzeuge adressiert werden. 
 Dieser Artikel stellt exemplarisch einige dieser Herausforderungen vor.
 Zur Verdeutlichung werden die Herausforderungen anhand eines fiktiven Beispiels erklärt.
-Es wird die Software zur Verwaltung von Reisebuchungen, sowie der durch sie entstehenden Rechnungen, betrachtet.
+Es wird die Software zur Verwaltung von Reisebuchungen sowie der durch sie entstehenden Rechnungen betrachtet.
 
 ## Gemeinsames Verständnis des Domänenmodells
 
@@ -24,15 +24,15 @@ Die grundlegende Herausforderung, vor welcher wir Entwickler bei der Domänenmod
 Das Verständnis über die Domäne kann als Domänensprache bezeichnet werden, die in DDD als Ubiqitous Language bekannt ist.
 Die gemeinsame Domänensprache sollte insbesondere durch alle Entwickler, sowie durch die im Projekt involvierten Domänenexperten gesprochen werden.
 Die Domänenexperten sind Anwender der Software mit einem hohen fachlichen Wissen.
-Sie dienen als Kommunikationsschnittstelle zwischen dem Entwicklerteam und dem Fachbereich und helfen dabei fachliche Fragen zu beantworten.
+Sie dienen als Kommunikationsschnittstelle zwischen dem Entwicklerteam und dem Fachbereich und helfen dabei, fachliche Fragen zu beantworten.
 Die Domänensprache ist unter anderem eine Sammlung der fachlichen Begriffe, die in der Software relevant sind.
 Die fachlichen Begriffe können sich dann im Code der Software wiederfinden.
 
 Wir müssen uns im Falle der Software zur Verwaltung von Reisebuchungen somit die Frage stellen, welche fachlichen Begriffe für diese Relevanz haben.
 Hierbei sind die Begriffe "Reisebuchung" und "Rechnung" selbst zu nennen. 
 Weitere relevante Begriffe sind "Kunde" und "Reise-Betrieb".
-Der Begriff "Reise-Betrieb" repräsentiert die während einer Reise involvierten Betriebe, wie beispielsweise Hotels und Gastronomien.
-Besonders herausfordernd ist es den fachlichen Rahmen der Software entsprechend den fachlichen Bedürfnissen einzugrenzen.
+Der Begriff "Reise-Betrieb" repräsentiert die während einer Reise involvierten Betriebe wie beispielsweise Hotels und Gastronomien.
+Besonders herausfordernd ist es, den fachlichen Rahmen der Software entsprechend den fachlichen Bedürfnissen einzugrenzen.
 Es stellt sich beispielsweise die Frage, ob für die Verwaltung der Reisebuchungen eine Bewertung eines Reise-Betriebs unterstützt werden soll.
 
 ## Unterteilung des Domänenmodells
@@ -56,7 +56,7 @@ Dies erfolgt auf Ebene eines fachlichen Teilbereichs, also einer Subdomain.
 Wir Entwickler stehen hier vor der Herausforderung, welche grundlegenden Elemente der Domäne, also fachlichen Begriffe, relevant sind. 
 Die Herausfoderung zur Erkennung der relevanten Elemente ist oft, die Rolle der Begriffe innerhalb der fachlichen Prozesse zu verstehen.
 Es stellt sich ebenfalls die Frage, wie die identifizierten Elemente zu modellieren sind.
-Diese Herausforderung adressiert DDD mit der Zielsetzung die Elemente in fachlich eindeutige Entitäten und Werteobjekte zu unterteilen, die als Entities und Values bezeichnet werden.
+Diese Herausforderung adressiert DDD mit der Zielsetzung, die Elemente in fachlich eindeutige Entitäten und Werteobjekte zu unterteilen, die als Entities und Values bezeichnet werden.
 Fachlich eindeutige Elemente benötigen ein eindeutiges Identifizierungsmerkmal innerhalb der Domäne.
 Werteobjekte sind hingegen fachlich relevante Elemente der Domäne ohne Notwendigkeit der eindeutigen Identifizierung.
 Sie werden somit allein durch ihre Attribute modelliert.
@@ -75,7 +75,7 @@ Um das Gestalten der Abhängigkeiten zwischen Modell-Elementen sinnvoll an die D
 Ein Aggregate ist eine Gruppierung von Elementen mit einer fachlichen Abgrenzung zu weiteren Elementen des Modells.
 Die hierbei adressierte Herausforderung ist somit, die zuvor identifizierten Entities und Values nach fachlichen Kriterien zu gruppieren.
 
-In der Subdomain für die Reisebuchungen ist beispielsweise eine Herausforderung zu erkennen, ob die "Reisebuchung" und ein involvierter "Reise-Betrieb" nur gemeinsam eine fachliche Rolle spielen.
+In der Subdomain für die Reisebuchungen ist beispielsweise eine Herausforderung, zu erkennen, ob die "Reisebuchung" und ein involvierter "Reise-Betrieb" nur gemeinsam eine fachliche Rolle spielen.
 Weiterhin kann es sein, dass ein "Reise-Betrieb" fachlich nur dann betrachtet wird, wenn die zugehörige "Reisebuchung" ebenfalls betrachtet wird.
 Dann ist eine Gruppierung der Elemente "Reisebuchung" und "Reise-Betrieb" in einem Aggregate sinnvoll, wobei die "Reisebuchung" in dem Aggregate eine übergeordnete Rolle spielt.
 
@@ -83,6 +83,6 @@ Dann ist eine Gruppierung der Elemente "Reisebuchung" und "Reise-Betrieb" in ein
 
 Domain Driven Design bietet nützliche Werkzeuge, die häufig auftretende Herausforderungen in der Domänenmodellierung adressieren.
 Dieser Artikel hat einige der Herausforderungen und die durch sie adressierten DDD-Werkzeuge vorgestellt. 
-Es ist insbesondere zu erkennen, dass wir diese Herausforderung in der Domänenmodellierung systematisch und gezielt im Blick haben können, wenn wir ein Domänenmodell erstellen, das in eine Software resultieren soll.
-DDD bietet somit durch Anwendung der Werkzeuge die Möglichkeit die Herausforderungen mit einer erhöhten Aufmerksamkeit zu betrachten.
+Es ist insbesondere zu erkennen, dass wir diese Herausforderung in der Domänenmodellierung systematisch und gezielt im Blick haben können, wenn wir ein Domänenmodell erstellen, das in einer Software resultieren soll.
+DDD bietet somit durch Anwendung der Werkzeuge die Möglichkeit, die Herausforderungen mit einer erhöhten Aufmerksamkeit zu betrachten.
 So können Schwierigkeiten der effizienten Ausrichtung der Software an die Domäne frühzeitig unterbunden werden.
