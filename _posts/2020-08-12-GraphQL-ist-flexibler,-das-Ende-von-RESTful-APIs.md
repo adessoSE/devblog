@@ -1,11 +1,11 @@
 ---
 layout:         [post, post-xml]              
 title:          "GraphQL ist flexibler, das Ende von REST-APIs?"
-date:           2019-11-15 18:00
-modified_date:  2020-07-15 23:00
+date:           2020-08-12-20:00
+modified_date:  2020-08-12-20:00
 author:         muhannaddarraj 
 categories:     [Architektur]
-tags:           [RESTful-Web-Services, GraphQL]
+tags:           [GraphQL, REST, Webservices]
 ---
 
 Die Brücke zwischen dem Frontend und dem Backend wurde bisher in den meisten modernen Applikationen durch eine REST-Schnittstelle geschlossen, um eine Kommunikation mit der Geschäftslogik zu ermöglichen. Nun verstecken sich hinter modernen Softwaresystemen viele Daten und Funktionen und die Menge an genutzten Informationen vergrößert sich stetig. Dies beeinflusst auch die Kommunikation zwischen Client und Server und macht diese aufwändiger. Um einen flexiblen Umgang mit vielen Daten zur Verfügung zu stellen, stellt sich Facebooks GraphQL als Alternative zu REST auf.
