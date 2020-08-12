@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<documents>
+    <document uid="87d62adcf6939f545cc1b84e9c64abf1">
+        <field name="title"><![CDATA[Optimierung von Queries in Neo4j]]></field>
+        <field name="subline"><![CDATA[]]></field>
+        <field name="teaser"><![CDATA[<p>Da NoSQL-Datenbanken in den letzten Jahren an Popularität zugenommen haben und öfters eingesetz werden, 
+können viele Entwickler beim Wechsel von der klassischen, relationalen Denkweise über Daten zu einem völlig anderen Konzept auf eine steile Lernkurve stoßen.
+In diesem Blogbeitrag werfen wir einen genaueren Blick auf die Graphdatenbank Neo4j und ihre Abfragesprache Cypher und erlernen Optimierungsstrategien und -konzepte anhand von Beispielen.</p>
+
+]]></field>
+        <field name="language_multi_keyword"><![CDATA[de]]></field>
+        <field name="content_type_multi_keyword"><![CDATA[blog]]></field>
+        <field name="mime_type_multi_keyword"><![CDATA[text/html]]></field>
+        <field name="category_multi_keyword"><![CDATA[Softwareentwicklung]]></field>
+        <field name="tag_multi_keyword"><![CDATA[NoSQL]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Graphdatenbanken]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Neo4j]]></field>
+        <field name="date_date"><![CDATA[2020-05-22T09:00:00+02:00]]></field>
+        <field name="date_l"><![CDATA[1590130800000]]></field>
+        <field name="change_date"><![CDATA[1590674400000]]></field>
+        <!--Picture-->
+        <!-- Not in use at the moment-->
+        <!--Author Information-->
+        <field name="author_first_name"><![CDATA[Maksim]]></field>
+        <field name="author_last_name"><![CDATA[Atanasov]]></field>
+        <field name="author_id"><![CDATA[maximAtanasov]]></field>
+        <field name="author_picture_stored_only"><![CDATA[http://localhost:4000/assets/images/avatars/maximAtanasov.jpg]]></field>
+        <!--Postcontent-->
+        <field name="headlines"><![CDATA[Optimierung von Queries in Neo4j]]></field>
+        <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
+            <p>Da NoSQL-Datenbanken in den letzten Jahren an Popularität zugenommen haben und öfters eingesetz werden, 
+können viele Entwickler beim Wechsel von der klassischen, relationalen Denkweise über Daten zu einem völlig anderen Konzept auf eine steile Lernkurve stoßen.
+In diesem Blogbeitrag werfen wir einen genaueren Blick auf die Graphdatenbank Neo4j und ihre Abfragesprache Cypher und erlernen Optimierungsstrategien und -konzepte anhand von Beispielen.</p>
+
+</div>]]></field>
+        <field name="content"><![CDATA[<div class="adesso-text-formate">
+<div class="row p-t-2">
+<div class="adesso-container">
+<div class="col-xl-8 adesso-center p-b-1 p-l-0 p-r-0">
+    <p>Da NoSQL-Datenbanken in den letzten Jahren an Popularität zugenommen haben und öfters eingesetz werden, 
+können viele Entwickler beim Wechsel von der klassischen, relationalen Denkweise über Daten zu einem völlig anderen Konzept auf eine steile Lernkurve stoßen.
+In diesem Blogbeitrag werfen wir einen genaueren Blick auf die Graphdatenbank Neo4j und ihre Abfragesprache Cypher und erlernen Optimierungsstrategien und -konzepte anhand von Beispielen.</p>
+
+<p>Obwohl jeder, der Interesse an Graphdatenbanken hat, den Konzepten folgen und sie anderswo anwenden kann, empfehle ich, dass Ihr zumindest einige Erfahrungen mit Neo4j und seiner Abfragesprache habt. 
+Falls Ihr mit Neo4j noch nicht vertraut seid, 
+lohnt es sich, den Artikel <a href="https://www.adesso.de/de/news/blog/neo4j-ein-einblick-in-die-welt-der-graphdatenbanken-3.jsp">Neo4j – Ein Einblick in die Welt der Graphdatenbanken</a> von Shahin Sanayei durchzulesen.
+Aufgrund der Popularität des Spring Frameworks werden die meisten von euch wahrscheinlich auf Neo4j in Form von Spring-Data-Neo4j stoßen, daher werden wir auch auf dessen Vorteile und Grenzen eingehen.</p>
+
+<h5 id="ist-mein-modell-optimal">Ist mein Modell optimal?</h5>
+
+<p>Wir sollten immer versuchen, Probleme zu vermeiden, bevor sie auftreten. 
+Performance-Probleme zu bekämpfen, nachdem wir unsere Anwendung in einer bestimmten Weise entwickelt haben, kann sehr frustrierend sein. 
+Aus diesem Grund ist es sehr wichtig, die Zeit zu investieren, um das Graphenmodell sorgfältig zu planen und zu verfeinern, bevor es implementiert wird.
+Eine nachträgliche Änderung kann schwierig sein und kostet wertvolle Zeit, die besser für die Implementierung neuer Features genutzt werden kann.</p>
+
+<p>Um dies zu veranschaulichen, werfen wir einen Blick auf das folgende Beispiel.</p>
+
+<p>Betrachten wir folgendes Entitätsdiagramm:</p>
+
+<p><img src="/assets/images/posts/Optimierung-von-Queries-in-Neo4j/Initial_graph.png" alt="" /></p>
+
+<p>Dieses Scheint auf den ersten Blick vernünftig zu sein. 
+Wir können alle Benutzer, ihre Projekte und die Aufgaben der Projekte abrufen.
+Aber können wir alle Aufgaben erhalten, die einem Benutzer in einem bestimmten Projekt zugewiesen wurden? 
+Ja, da alle erforderlichen Beziehungen vorhanden sind.
+Die folgende Abfrage gibt uns genau das, was wir wollen:</p>
+
+<pre><code class="language-graphql">MATCH (u:User)&lt;-[:IS_ASSIGNED_TO]-(t:Task)&lt;-[:HAS]-(p:Project) WHERE ID(u) = 60 AND ID(p) = 61 RETURN t
+</code></pre>
+
+<p>Die Abfrage funktioniert einwandfrei und liefert alle fünfzig Aufgaben für den angegebenen Benutzer. 
+Allerdings ist es nicht so effizient, wie es sein kann.
+Wenn wir den Graphen so umstrukturieren, dass er eine Eigenschaft, nämlich die Projekt-ID, über die Beziehung zwischen Benutzern und Aufgaben verwendet, erhalten wir folgendes Modell:</p>
+
+<p><img src="/assets/images/posts/Optimierung-von-Queries-in-Neo4j/Second_graph.png" alt="" /></p>
+
+<p>Dann können wir die Abfrage hierauf vereinfachen:</p>
+
+<pre><code class="language-graphql">MATCH (u:User)-[:IS_ASSIGNED_TO {projectId: 61}]-&gt;(t:Task) WHERE ID(u) = 60 RETURN t
+</code></pre>
+
+<p>Die Ausführung der zweiten Abfrage im Neo4j-Profiler zeigt, dass die Datenbank nur ungefähr die Hälfte an Arbeit in die Abarbeitung des Query steckt, da wir keine Projektknoten mehr durchlaufen müssen.
+Diese Verbesserung wird natürlich mit zunehmendem Datensatz skalieren. 
+Der wesentliche Aspekt dieses Beispiels ist, dass man bei der Entwicklung des Modells auf die Zusammenhänge zwischen Daten achten sollte.
+Unser primäres Ziel sollte es nicht sein, dass die Graphen in der Visualisierung “schön” aussehen (obwohl ein einfacher Graph helfen kann, das Modell zu verstehen). 
+Man sollte sich überlegen, welche Abfragen auf den Daten auszuführen sind, diese vorher in Cypher aufschreiben und über mögliche Randfälle nachdenken, 
+die im aktuellen Modell nicht funktionieren oder die Abfragen verlangsamen.</p>
+
+<h5 id="sind-meine-queries-optimal">Sind meine Queries optimal?</h5>
+
+<p>Ein gutes Modell wird uns helfen, die Cypher-Abfragen eher intuitiv zu schreiben. 
+Es gibt jedoch ein paar Tricks, die man beachten sollte. 
+Im Allgemeinen wollen wir, genau wie bei SQL, die Datenmenge in jeder Subquery so weit wie möglich reduzieren. 
+Alles, was die Anzahl der zurückgegebenen Zeilen reduziert, wird in den meisten Fällen die Performance verbessern. 
+Dies kann auf verschiedene Weisen erreicht werden:</p>
+
+<ul>
+  <li>das Vermeiden von Kartesischen Produkten - Man sollte darauf achten, wie Ergebnisse von Subqueries behandelt werden, um unnötige Arbeit zu sparen.</li>
+</ul>
+
+<pre><code class="language-graphql"># Schneller Query zum Abruf der Anzahl von Projekten
+MATCH (p:Project) WITH count(p) as countProjects MATCH (u:User) RETURN countProjects, count(u)
+# Langsamer Query
+MATCH (p:Project), (u:User) RETURN  count(p), count(u)
+</code></pre>
+
+<ul>
+  <li>das Benutzen von <code>LIMIT/DISTINCT/SKIP</code> - Funktioniert genauso wie <code>LIMIT/DISTINCT/OFFSET</code> in SQL.</li>
+  <li>das Benutzen von <code>collect()/UNWIND</code> - Die <code>collect()</code> Funktion sammelt einzelne Elemente in einer Liste.
+  Dies kann auch nützlich sein, um kartesische Produkte zwischen Subqueries zu vermeiden. <code>UNWIND</code> ist die inverse Operation zu <code>collect()</code>, es wird eine separate Zeile für jedes Element einer Liste erstellt.</li>
+</ul>
+
+<p>Eine weitere Möglichkeit, Queries zu beschleunigen, besteht darin, dem Neo4j Query-Planner mit zusätzlichen Informationen über der Graphen zu füttern.
+Das kann man machen, indem man:</p>
+
+<ul>
+  <li>Indizes benutzt: 
+  Das Platzieren von Indizes auf bestimmten Knoten bewirkt, dass Neo4j diese Knoten zwischenspeichert, sodass sie bei Bedarf schneller gefunden werden können. 
+  Im obigen Beispiel möchten wir vielleicht einen Index auf die Knoten <code>ProjectEntity</code> und <code>UserEntity</code> setzen, 
+  da diese Knoten höchstwahrscheinlich der Ausgangspunkt für die meisten Abfragen in unserer Anwendung sein werden. 
+  Man muss jedoch vorsichtig sein, da das Platzieren von Indizes auf dem falschen Knoten nach hinten losgehen und zu Verlangsamungen führen kann.</li>
+  <li>Labels benutzt: Im Allgemeinen sollte man beim Schreiben von Abfragen immer Labels verwenden.</li>
+</ul>
+
+<pre><code class="language-graphql"># Schneller Query
+MATCH (p:Project) WHERE p.name = "testProject" RETURN p
+# Langsamer Query
+MATCH (p) WHERE p.name = "testProject" RETURN p
+</code></pre>
+
+<p>Bei der zweiten Abfrage muss Neo4j alle Objekte in der Datenbank betrachten und nicht nur Projekte. 
+Wenn man jedoch der Meinung ist, dass der Typ des Objekts irrelevant ist, kann man auch kein Label verwenden. 
+In diesem Fall sollte man profilen und gucken, was am besten funktioniert.</p>
+
+<h5 id="profiling">Profiling</h5>
+
+<p>Neo4j bietet auch Profiling-Tools an, die uns helfen können, einen Bottleneck zu lokalisieren und entsprechend anzupassen. 
+Das Profiling erfolgt direkt über die Neo4j-Weboberfläche und ist sowohl für die Community als auch für die Enterprise Edition verfügbar.</p>
+
+<h6 id="was-ist-ein-db-hit">Was ist ein DB-Hit?</h6>
+
+<p>Ein Datenbankhit ist eine abstrakte Arbeitseinheit. 
+Was als einen DB-Hit zählt, findet man <a href="https://neo4j.com/docs/cypher-manual/current/execution-plans/#execution-plans-dbhits">in der Dokumentation</a>. 
+Im Regelfall möchte man die Anzahl der DB-Hits beim Optimieren von Abfragen reduzieren.</p>
+
+<h6 id="verwendenung-des-schlüsselwortes-explain">Verwendenung des Schlüsselwortes EXPLAIN.</h6>
+
+<p>Man kann jede Anfrage mit dem Schlüsselwort <code>EXPLAIN</code> präfixieren und erhält einen detaillierten Ausführungsplan. 
+Die Abfrage wird nicht ausgeführt, so dass man weder ein Ergebnis noch Informationen wie Ausführungszeit oder DB-Hits erhält.</p>
+
+<p>So sieht beispielsweise der Ausführungsplan für die folgende Query aus:</p>
+
+<pre><code class="language-graphql">EXPLAIN MATCH (u:UserEntity)-[:IS_ASSIGNED_TO {projectId: 21}]-&gt;(t:TaskEntity) WHERE ID(u) = 5 RETURN t
+</code></pre>
+
+<p><img src="/assets/images/posts/Optimierung-von-Queries-in-Neo4j/EXPLAIN.png" alt="" /></p>
+
+<p>Man sieht, dass zuerst alle Knoten gefunden werden müssen, die mit dem <code>UserEntity</code> Label übereinstimmen, danach die Beziehungen <code>IS_ASSIGNED_TO</code> und dann ein Filter, um die richtige <code>projectId</code> zu finden. 
+Da die Abfrage nicht ausgeführt wird, ist dies eine schnelle Methode, um zu sehen, ob die Abfrage wie erwartet abläuft.</p>
+
+<h6 id="verwendenung-des-schlüsselwortes-profile">Verwendenung des Schlüsselwortes PROFILE.</h6>
+
+<p>Das Schlüsselwort <code>PROFILE</code> funktioniert genauso wie <code>EXPLAIN</code>, diesmal wird jedoch die Abfrage ausgeführt, so dass man genau sehen kann, 
+wie viele DB-Hits jede Operation verursacht und wie viele Zeilen sie produziert. 
+So kann man herausfinden, wo ein möglicher Bottleneck liegen könnte.</p>
+
+<p>Betrachten wir ein Beispiel mit der gleichen Abfrage wie oben.</p>
+
+<pre><code class="language-graphql">PROFILE MATCH (u:UserEntity)-[:IS_ASSIGNED_TO {projectId: 21}]-&gt;(t:TaskEntity) WHERE ID(u) = 5 RETURN t
+</code></pre>
+
+<p><img src="/assets/images/posts/Optimierung-von-Queries-in-Neo4j/PROFILE.png" alt="" /></p>
+
+<p>Man sieht nun, dass eine einzelne <code>UserEntity</code> mit der angegebenen ID gefunden wird. 
+Danach werden alle 500 <code>IS_ASSIGNED_TO</code> Beziehungen gefunden und dann auf nur noch 50 gefiltert, die der Projekt-ID entsprechen.
+Bei komplexeren Queries kann man auch sehen, welche Daten zusammengefügt werden und erhält mehr Einblicke in die problematischsten Teile der Query.</p>
+
+<h5 id="spring-data-neo4j">Spring-Data-Neo4j</h5>
+
+<p>Ich kann mir vorstellen, dass die meisten von Euch mit Spring-Data-JPA und dem Hibernate ORM sehr vertraut sind. 
+Ähnliche Funktionen sind für Neo4j mit Spring-Data-Neo4j und Neo4j-OGM (Object-Graph Mapper) verfügbar. 
+Die Zuordnung von Klassen zu Graph-Knoten ist analog zur Verwendung von SD-JPA. 
+Man verwendet einfach die richtigen Annotationen und fügt die Objekte dem Entity-Scan hinzu.</p>
+
+<p>Zum Beispiel haben wir hier zwei Klassen nebeneinander. 
+Die linke ist eine SD-JPA-Entität und die rechte eine SD-Ne4j-Entität.</p>
+
+<p><img src="/assets/images/posts/Optimierung-von-Queries-in-Neo4j/classes.png" alt="" /></p>
+
+<p>Sie sehen sehr ähnlich aus, zumindest an der Oberfläche. 
+Dies kann bei der Umstellung von SD-JPA auf SD-Neo4j etwas hilfreich sein.</p>
+
+<p>Bitte beachtet, dass Neo4j keine maximale Zeichenkettenlänge hat. 
+Das bedeutet, dass man (sehr) große Zeichenketten als Properties speichern kann, aber im Normalfall sollte man das nicht tun, da es nicht performancefreundlich ist. 
+Mehr darüber, wie das Speichern von Zeichenketten intern abläuft, findet man <a href="https://neo4j.com/docs/operations-manual/current/performance/property-compression/">in der Neo4J Dokumentation</a>.</p>
+
+<p>Man kann Repositories auch wie in SD-JPA anlegen, indem man Interfaces erstellt, die das Interface <code>Neo4jRepository</code> erweitern.
+Mit den Standardmethoden (<code class="highlight language-java">findById(), delete(), save()</code> usw.) kann man einen zusätzlichen Tiefenparameter angeben, 
+der bestimmt, wie tief die Graphen, die man erhält/speichert, sein werden. 
+Ich habe festgestellt, dass diese Repositories gut für grundlegende CRUD-Operationen sind, aber zu wenig Flexibilität und Leistung für komplexe Abfragen anbieten. 
+Man kann eine Methode jedoch mit der Annotation <code>@Query</code> annotieren und die Queries manuell schreiben. 
+Dies hat den Vorteil, dass man genau festlegen kann, welche Teile des Graphen man haben möchte, sowie die Möglichkeit, Abfragen auch in der Neo4j-Weboberfläche profilen und anpassen zu können.</p>
+
+<p>Insgesamt ist dies Object Graph Mapping sehr nützlich und vereinfacht und beschleunigt die Entwicklung erheblich. 
+Leider ist dieser Komfort mit Kosten verbunden. 
+SD-Neo4j verwendet viele Reflections, um das Mapping durchzuführen, und für bestimmte Operationen kann sich ein zusätzlicher Overhead als Bottlneck herausstellen. 
+Das Framework ist definitiv nicht geeignet, um mehrere Millionen Knoten gleichzeitig zu speichern und man sollte vielleicht auf den Neo4j Java-Treiber zurückgreifen, um solche Operationen effizient durchzuführen.</p>
+
+<h5 id="fazit">Fazit</h5>
+
+<p>Ich hoffe, dass ich Euch einen guten Start gegeben habe, wie man Queries optimieren und ihre Performance verbessern kann. 
+In diesem Artikel habe ich aus Gründen der Einfachheit vermieden, komplexe Graphen/Queries zu präsentieren.
+Echte Domänenmodelle sind um ein Vielfaches komplexer als die von mir vorgestellten Beispiele, 
+die Konzepte bleiben jedoch gültig und sollten Euch auf den richtigen Weg bringen, um Schwachstellen zu beseitigen.</p>
+
+</div>
+</div>
+</div>
+</div>]]></field>
+    </document>
+</documents>

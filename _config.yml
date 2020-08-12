@@ -17,6 +17,7 @@ blog_intro: "In unserem Blog nehmen wir Sie mit auf eine spannende Reise quer du
 permalink: blog-posts/:year-:month-:day/:title.html
 timezone: Europe/Berlin
 future: true
+excerpt_separator: "\n\n"
 
 #Pagination
 pagination:

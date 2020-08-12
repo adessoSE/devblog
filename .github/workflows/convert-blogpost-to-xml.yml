@@ -1,0 +1,24 @@
+#Run jekyll2cms in a Docker container to convert the new blogpost into XML 
+name: convert-blogpost-to-xml
+
+on:
+  push:
+    branches: 
+      - master
+  schedule:
+    # * is a special character in YAML so you have to quote this string
+    - cron:  '0 1 * * *'
+
+jobs:
+  pull-and-run-jekyll2cms-docker-image:
+    if: github.repository == 'adessoag/devblog'
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@master
+        
+      - name: Pull Docker image
+        run: docker pull jekyll2cms/jekyll2cms:2.1.0
+
+      - name: Run Docker image
+        run: docker run --env REPOSITORY_REMOTE_URL='${{ secrets.REPOSITORY_REMOTE_URL }}' --env REPOSITORY_LOCAL_USER_NAME='${{ secrets.REPOSITORY_LOCAL_USER_NAME }}' --env REPOSITORY_LOCAL_USER_MAIL='${{ secrets.REPOSITORY_LOCAL_USER_MAIL }}' --env REPOSITORY_LOCAL_USER_PASSWORD='${{ secrets.REPOSITORY_LOCAL_USER_PASSWORD }}' jekyll2cms/jekyll2cms:2.1.0
