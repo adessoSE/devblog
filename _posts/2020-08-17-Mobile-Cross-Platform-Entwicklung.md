@@ -16,10 +16,10 @@ Ich habe mir vier Cross-Platform-Frameworks herausgesucht, die momentan am Markt
 ![Suchinteresse bei Google](/assets/images/posts/mobile-cross-platform-entwicklung/google_trends.png)
 
 Im Gegensatz zum Paradigma der nativen App-Entwicklung, verfolgen die Cross-Platform-Frameworks einen Ansatz, um die App-Entwicklung unabhängig vom Betriebssystem zumachen.
-Dabei gibt es wiederum verschiedene Ansätze dieses Cross-Platform-Paradigma umzusetzen. Ein Ansatz ist es, die App-Komponenten zur Laufzeit in native Komponenten zu kompilieren. Diese Apps werden hybrid-native Apps genannt React Native, Xamarin oder Flutter.
+Dabei gibt es wiederum verschiedene Ansätze dieses Cross-Platform-Paradigma umzusetzen. Ein Ansatz ist es, die App-Komponenten zur Laufzeit in native Komponenten zu kompilieren. Diese Apps werden hybrid-native Apps genannt (z. B. React Native, Xamarin oder Flutter).
 Weil auch die meisten mobilen Endgeräte heutzutage einen Webbrowser besitzen, gibt es auch den Ansatz, die Anwendung für den mobilen Browser so zu optimieren, dass sich die Apps für die User kaum noch von einer nativen App unterscheiden lassen.
 Diese Apps werden Progressive Web Apps (PWA) genannt.
-Desweiteren gibt es die sogenannten hybrid Apps, die eine WebView als Laufzeitumgebung verwenden.
+Desweiteren gibt es die sogenannten hybrid Apps, die eine WebView als Laufzeitumgebung verwenden (z. B. Apache Cordova).
 Die unterschiedlichen Paradigmen werden im Folgenden, im Kontext der unterschiedlichen Frameworks, detaillierter erläutert.
 
 # Ionic
