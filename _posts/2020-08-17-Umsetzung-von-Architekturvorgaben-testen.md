@@ -24,7 +24,8 @@ Und diese Abweichungen können bewusst, oder unbewusst entstanden sein.
 Bewusst, vielleicht unter Zeitnot um eine Deadline zu halten, und mit dem Ziel das ganze wieder in Ordnung zu bringen, sobald etwas Zeit dafür ist. 
 Oder unbewusst, da einem Entwickler nicht klar war, dass dies kein wünschenswerter Lösungsansatz war. 
 Vielleicht war er auch einfach neu dabei, und er war mit der Architektur noch nicht vertraut. 
-Sind diese Abweichungen jedenfalls erstmal da, werden sie häufig nicht gleich wieder korrigiert, und verfestigen sich durch weiteren Code, der auf diese aufbaut.
+Sind diese Abweichungen jedenfalls erstmal da, werden sie häufig nicht gleich wieder korrigiert.
+Dann verfestigen sich durch weiteren Code, der auf diese aufbaut.
 
 Und genau hier setzt ArchUnit an. 
 Unbewusste Abweichungen sollen vermieden werden – und das ganze so einfach, dass es für jeden Entwickler natürlich ist, sie zu entdecken. 
@@ -67,7 +68,7 @@ Und schon können wir auf die 3 APIs zugreifen, die einen ArchUnit zur Definitio
 * Core API
 
 Einen kleinen Einblick in diese APIs werden wir im Folgenden anhand eines Beispiels gewinnen.
-Dafür lasst uns davon ausgehen, dass wir eine Schichten-Architektur mit folgenden Vorgaben sicherstellen sollen:
+Dafür lasst uns davon ausgehen, dass wir eine Schichten-Architektur mit folgenden Schichten sicherstellen sollen:
 
 * Controllers: 
 Hier sind Schnittstellen (z.B. REST) enthalten, so dass unsere Backendanwendung durch Clients aufgerufen werden kann. 
@@ -100,7 +101,7 @@ Mit Hilfe der Library API lassen sich so bereits ein großer Teil der obigen Anf
 public class LayerTest {
 
 	@ArchTest
-	public static final ArchRule LAYER_DEPENDENCIES_ARE_RESPECTED = layeredArchitecture()
+	public static final ArchRule LAYER_DEPENDENCIES_ARE_RESPECTED_CHECK = layeredArchitecture()
 			.layer("Controllers").definedBy("de.adesso.blog.archunit.layers.controller..")
 			.layer("Processes").definedBy("de.adesso.blog.archunit.layers.process..")
 			.layer("Services").definedBy("de.adesso.blog.archunit.layers.service..")
@@ -114,7 +115,7 @@ public class LayerTest {
 
 Zunächst wird über die RunWith Annotation festgelegt, dass der Test mit ArchUnit ausgeführt werden soll. 
 AnalyseClasses legt dann fest für welches Package der Test ausgeführt werden soll.
-Jeder Architekturtest kann nun mit @ArchTest eingeleitet und Member Variable vom Typ ArchRule erstellt werden.
+Jeder Architekturtest kann nun mit @ArchTest eingeleitet und als Variable vom Typ ArchRule erstellt werden.
 Für unseren ersten Test definieren wir zunächst jede der 4 Schichten: 
 Innerhalb von layer() wird ihr ein Name gegeben, mit definedBy() wird festgelegt in welchem Paket man Klassen dieser Schicht findet.
 Anschließend wird noch festgelegt welche Schichten auf welche anderen Schichten zugreifen dürfen.
@@ -123,14 +124,14 @@ Ist dies der Fall, wird der Test rot – ein nicht vorgesehener Zugriff auf Schi
 
 Dieses Beispiel zeigt denke ich, wie einfach die Library Schicht zu verwenden ist. 
 Neben der Prüfung auf Schichten Architekturen bietet die Library Schicht noch viele weitere Möglichkeiten wie Prüfungen für Hexagonale Architekturen, oder auch generelle Programmierrichtlinien. 
-Aber natürlich kann ArchUnit hiermit keine vorgefertigte Blaupause für alle architekturellen Vorgaben bieten. 
+Aber natürlich kann ArchUnit mit der Library API keine vorgefertigte Blaupause für alle architekturellen Vorgaben bieten. 
 
 
 ## Lang API - Tests als Sätze formulieren
 
 Wenn es spezieller wird, müssen wir auf die Lang API ausweichen. 
 Diese ist mit dem Ziel entwickelt worden ein möglichst breites Spektrum an Vorgaben so einfach beschreiben zu können, wie mit natürlicher Sprache. 
-Hiermit können wir nun eine Lücke füllen, die sich nach der Umsetzung der Library Schicht oben noch ergeben hat: 
+Hiermit können wir nun eine Lücke füllen, die sich nach der Umsetzung mit der Library API oben noch ergeben hat: 
 Sicherstellen, dass Klassen entsprechend der Erwartung benannt sind.
 
 ```java
@@ -150,10 +151,10 @@ Sicherstellen, dass Klassen entsprechend der Erwartung benannt sind.
 			.should().haveSimpleNameEndingWith("Service");
 ```
 
-Wie angekündigt sind die Regeln der Language-Schicht selbsterklärend, aufgrund der sprechenden Benennung – die Möglichkeiten aber dennoch sehr vielseitig. 
+Wie angekündigt sind die Regeln der Language API selbsterklärend, aufgrund der sprechenden Benennung – die Möglichkeiten aber dennoch sehr vielseitig. 
 Es gibt viele weitere vordefinierte Prüfungen und Einschränkungen – statt auf den Namen können wir zum Beispiel auch auf Annotationen, Modifier oder den Zugriff auf andere Klassen prüfen. Zudem lassen sich auch weitere Prüfungen selber definieren. 
 Hierbei ist zu beachten, dass eine Prüfung in der Language-Schicht üblicherweise wie folgt aussieht: 
-Klassen mit ${Einschränkung/Predicate} sollten ${Bedingung/Condition} erfüllen.
+"Klassen mit ${Einschränkung/Predicate} sollten ${Bedingung/Condition} erfüllen."
 
 Beim selbst Erstellen einer eigenen Prüfung können wir daher bei der Einschränkung oder der Bedingung ansetzen. 
 In diesem Beispiel fehlt uns noch eine Bedingung, die verhindert, dass von Prozessen auf andere Prozesse zugegriffen wird. 
@@ -168,15 +169,17 @@ Diese verwendet zu einem großen Teil Konzepte, wie wir sie von der Java Reflect
 Die Bedingung, dass Prozesse nicht auf andere Prozesse zugreifen dürfen könnte man nun beispielsweise wie folgt umsetzen:
 
 ```java
-	private static final ArchCondition<JavaClass> NOT_ACCESS_OTHER_PROCESSES_CONDITION = new ArchCondition<JavaClass>(
-			"not access other processes") {
+	private static final ArchCondition<JavaClass> NOT_ACCESS_OTHER_PROCESSES_CONDITION 
+		= new ArchCondition<JavaClass>("not access other processes") {
+		
 		@Override
 		public void check(JavaClass classUnderTest, ConditionEvents events) {
 			for (JavaAccess access : classUnderTest.getAllAccessesFromSelf()) {
 				// access so same class is allowed
 				if (access.getTargetOwner() != access.getOriginOwner() 
 						// but call to other processes isn't allowed
-						&& (access.getTargetOwner().getPackageName().startsWith("de.adesso.blog.archunit.layers.process"))) {
+						&& (access.getTargetOwner().getPackageName()
+							.startsWith("de.adesso.blog.archunit.layers.process"))) {
 
 					String message = String.format("Access to other process by %s", access.getOrigin());
 					events.add(SimpleConditionEvent.violated(access, message));
@@ -195,7 +198,8 @@ Nun müssen wir diese Bedingung noch in eine Regel integrieren:
 
 ```java
 	@ArchTest
-	public static final ArchRule PROCESSES_SHOULD_NOT_ACCESS_OTHER_PROCESSES_CHECK = ArchRuleDefinition.classes()
+	public static final ArchRule PROCESSES_SHOULD_NOT_ACCESS_OTHER_PROCESSES_CHECK 
+		= ArchRuleDefinition.classes()
 			.that().resideInAPackage("de.adesso.blog.archunit.layers.process..")
 			.should(NOT_ACCESS_OTHER_PROCESSES_CONDITION);
 ```
@@ -207,7 +211,7 @@ Hierbei handelt es sich natürlich um sehr einfache Beispiele.
 In einem realen Projekt hätten wir mit Sicherheit eine größere Komplexität und weitere Besonderheiten. 
 Vielleicht zum Beispiel spezielle Annotationen für Prozesse und Services – eine Überprüfung hierauf wäre aber nicht komplizierter als die Prüfung auf den Klassennamen. 
 Die Prüfung auf die Annotation könnte uns dann auch wieder Hilfsklassen mit anderen Namen in den Schichten erlauben, die durch die Namensprüfung aktuell ausgeschlossen wären.
-Insgesamt haben wir bisher denke ich ein gutes Bild erhalten mit wie wenig Zeilen Code, der dazu noch äußerst sprechend ist, sich architekturelle Vorgaben sicherstellen lassen.
+Insgesamt haben wir bisher denke ich ein gutes Bild erhalten wie wir mit wenigen Zeilen Code, die dazu recht sprechend sind, architekturelle Vorgaben sicherstellen können.
 
 
 # Umgang mit Legacy Code und gewollten Abweichungen
