@@ -177,9 +177,9 @@ Die Bedingung, dass Prozesse nicht auf andere Prozesse zugreifen dürfen könnte
 			for (JavaAccess access : classUnderTest.getAllAccessesFromSelf()) {
 				// access so same class is allowed
 				if (access.getTargetOwner() != access.getOriginOwner() 
-						// but call to other processes isn't allowed
-						&& (access.getTargetOwner().getPackageName()
-							.startsWith("de.adesso.blog.archunit.layers.process"))) {
+					// but call to other processes isn't allowed
+					&& (access.getTargetOwner().getPackageName()
+						.startsWith("de.adesso.blog.archunit.layers.process"))) {
 
 					String message = String.format("Access to other process by %s", access.getOrigin());
 					events.add(SimpleConditionEvent.violated(access, message));
@@ -221,11 +221,14 @@ Insbesondere bei größere Legacy Anwendungen ist ein entsprechendes Refactoring
 Ein Hilfsmittel, das einem ArchUnit dabei an die Hand gibt ist die sogenannte „Freezing Arch Rule“. 
 Um diese zu verwenden müssen wir mit FreezingArchRule.freeze() eine vorhandene ArchRule umfassen: 
 
+```java
 	@ArchTest
-	public static final ArchRule PROCESSES_SHOULD_NOT_ACCESS_OTHER_PROCESSES_CHECK = FreezingArchRule.freeze(
-			ArchRuleDefinition.classes().that().resideInAPackage("de.adesso.blog.archunit.layers.process..")
-			.should(notAccessOtherProcessesCondition));
-
+	public static final ArchRule PROCESSES_SHOULD_NOT_ACCESS_OTHER_PROCESSES_CHECK 
+		= FreezingArchRule.freeze(
+			ArchRuleDefinition.classes().
+				that().resideInAPackage("de.adesso.blog.archunit.layers.process..")
+				.should(notAccessOtherProcessesCondition));
+```
 
 Der Effekt davon? 
 Beim ersten Aufrufen der Regeln werden alle existierenden Verletzungen der Regel gespeichert. 
@@ -248,4 +251,4 @@ Das wir diese Ausnahmen aber explizit festlegen müssen bringt uns wieder zurüc
 ArchUnit erlaubt es uns unbewusste Abweichungen zu Architekturvorgaben zu vermeiden! 
 Es zwingt uns, uns mit den Abweichungen auseinanderzusetzen und eine bewusste Entscheidung im Sinne des Projektes zu treffen.
 Zudem ist es relativ einfach anzuwenden. 
-Und selbst falls wir nur einen Teil der Architekturvorgaben hiermit abbilden, kann dies bereits ein wichtiger Schritt für die Qualitätssicherung eines Projektes sein.
+Und selbst falls wir nur einen Teil der Architekturvorgaben hiermit abbilden, kann dies bereits ein wichtiger Schritt für die Qualitätssicherung eines Projektes sein. 	
