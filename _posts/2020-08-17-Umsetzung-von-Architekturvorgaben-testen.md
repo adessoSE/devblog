@@ -14,7 +14,7 @@ Wie dies mit Hilfe von Tool Unterstützung durch ArchUnit sichergestellt werden 
 
 # „Das ist historisch gewachsen“
 
-Dies ist ein Satz den ich schon häufig gehört habe, genauso wie sicherlich auch auch die meisten anderen Entwickler in IT Projekten. 
+Dies ist ein Satz den ich schon häufig gehört habe, genauso wie sicherlich auch die meisten anderen Entwickler in IT Projekten. 
 Es ist ein Satz der häufig erklären soll warum etwas nicht so aussieht wie man es erwartet. 
 Nicht so, wie es aussehen sollte. 
 Nicht so, wie es beim Aufsetzen des Projektes die Architektur noch vorgesehen hatte.
@@ -66,8 +66,8 @@ Und schon können wir auf die 3 APIs zugreifen, die einen ArchUnit zur Definitio
 * Lang API
 * Core API
 
-Einen kleinen Einblick in diese APIs werden wir im folgenden anhand eines Beispiels gewinnen.
-Dafür lasst uns davon Ausgehen, dass wir eine Schichten-Architektur mit folgenden Vorgaben sicherstellen sollen:
+Einen kleinen Einblick in diese APIs werden wir im Folgenden anhand eines Beispiels gewinnen.
+Dafür lasst uns davon ausgehen, dass wir eine Schichten-Architektur mit folgenden Vorgaben sicherstellen sollen:
 
 * Controllers: 
 Hier sind Schnittstellen (z.B. REST) enthalten, so dass unsere Backendanwendung durch Clients aufgerufen werden kann. 
@@ -88,7 +88,7 @@ Service-Klassen sollten so benannt werden, dass sie auf „Service“ enden.
 Hierbei handelt es sich um eine klassische Persistenzschicht. 
 Sie soll nur durch Services aufgerufen werden.
 
-## Library API - Eine Blibliothek an Möglichkeiten
+## Library API - Eine Bibliothek an Möglichkeiten
 
 Mit der Library API bietet einen ArchUnit bereits eine ganze Bibliothek an fertigen Regeln. 
 Diese decken die grundlegenden Regeln von gängigen Architekturmuster ab, und müssen nur entsprechend der eigenen Anforderungen konfiguriert werden. 
@@ -100,7 +100,7 @@ Mit Hilfe der Library API lassen sich so bereits ein großer Teil der obigen Anf
 public class LayerTest {
 
 	@ArchTest
-	public static final ArchRule layer_dependencies_are_respected = layeredArchitecture()
+	public static final ArchRule LAYER_DEPENDENCIES_ARE_RESPECTED = layeredArchitecture()
 			.layer("Controllers").definedBy("de.adesso.blog.archunit.layers.controller..")
 			.layer("Processes").definedBy("de.adesso.blog.archunit.layers.process..")
 			.layer("Services").definedBy("de.adesso.blog.archunit.layers.service..")
@@ -162,13 +162,13 @@ Die Einschränkung von oben aus der Library API konnte das nicht abdecken, da di
 
 ## Core API - Alles andere geht hiermit
 
-Wenn wir diese Beschränkug nun umsetzen wollen, bekommen wir auch einen ersten Kontakt zur Core-API von ArchUnit. 
+Wenn wir diese Beschränkung nun umsetzen wollen, bekommen wir auch einen ersten Kontakt zur Core-API von ArchUnit. 
 Diese verwendet zu einem großen Teil Konzepte, wie wir sie von der Java Reflection API kennen, erweitert diese aber, um die Beziehungen zwischen Code besser darstellen zu können. 
 
 Die Bedingung, dass Prozesse nicht auf andere Prozesse zugreifen dürfen könnte man nun beispielsweise wie folgt umsetzen:
 
 ```java
-	private static ArchCondition<JavaClass> notAccessOtherProcessesCondition = new ArchCondition<JavaClass>(
+	private static final ArchCondition<JavaClass> NOT_ACCESS_OTHER_PROCESSES_CONDITION = new ArchCondition<JavaClass>(
 			"not access other processes") {
 		@Override
 		public void check(JavaClass classUnderTest, ConditionEvents events) {
@@ -197,14 +197,14 @@ Nun müssen wir diese Bedingung noch in eine Regel integrieren:
 	@ArchTest
 	public static final ArchRule PROCESSES_SHOULD_NOT_ACCESS_OTHER_PROCESSES_CHECK = ArchRuleDefinition.classes()
 			.that().resideInAPackage("de.adesso.blog.archunit.layers.process..")
-			.should(notAccessOtherProcessesCondition);
+			.should(NOT_ACCESS_OTHER_PROCESSES_CONDITION);
 ```
 
 Dadurch, dass wir unsere neue Bedingung nun auf alle Klassen im Paket für Prozesse testen, haben wir sichergestellt, dass kein Prozess einen anderen aufrufen kann. 
 Unsere zuvor aufgestellten architekturellen Anforderungen an unsere Schichten-Architektur sind damit nun komplett abgedeckt.
 
 Hierbei handelt es sich natürlich um sehr einfache Beispiele. 
-In einem realen Projekt hätten wir mit Sicherheit eine größere Komplxität und weitere Besonderheiten. 
+In einem realen Projekt hätten wir mit Sicherheit eine größere Komplexität und weitere Besonderheiten. 
 Vielleicht zum Beispiel spezielle Annotationen für Prozesse und Services – eine Überprüfung hierauf wäre aber nicht komplizierter als die Prüfung auf den Klassennamen. 
 Die Prüfung auf die Annotation könnte uns dann auch wieder Hilfsklassen mit anderen Namen in den Schichten erlauben, die durch die Namensprüfung aktuell ausgeschlossen wären.
 Insgesamt haben wir bisher denke ich ein gutes Bild erhalten mit wie wenig Zeilen Code, der dazu noch äußerst sprechend ist, sich architekturelle Vorgaben sicherstellen lassen.
@@ -244,4 +244,4 @@ Das wir diese Ausnahmen aber explizit festlegen müssen bringt uns wieder zurüc
 ArchUnit erlaubt es uns unbewusste Abweichungen zu Architekturvorgaben zu vermeiden! 
 Es zwingt uns, uns mit den Abweichungen auseinanderzusetzen und eine bewusste Entscheidung im Sinne des Projektes zu treffen.
 Zudem ist es relativ einfach anzuwenden. 
-Und selbst falls wir nur einen Teil der Architekturvorgaben hiermit abilden, kann dies bereits ein wichtiger Schritt für die Qualitätssicherung eines Projektes sein.
+Und selbst falls wir nur einen Teil der Architekturvorgaben hiermit abbilden, kann dies bereits ein wichtiger Schritt für die Qualitätssicherung eines Projektes sein.
