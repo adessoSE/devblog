@@ -330,7 +330,7 @@ mschick:
   bio: "Michael studiert Informatik an der Fachhochschule Dortmund und schreibt seine Bachelor-Thesis bei adesso zum Thema Softwaremigration. Neben seinem Studium ist er zudem als freiberuflicher Webentwickler tätig."
   avatar_url: /assets/images/avatars/mschick.jpg
   github: https://github.com/mschick
-  
+
 kiliankrause:
   first_name: Kilian
   last_name: Krause
@@ -339,3 +339,12 @@ kiliankrause:
   bio: "Kilian Krause ist als Werkstudent im Open-Source-Team bei adesso in Dortmund tätig."
   avatar_url: /assets/images/avatars/kiliankrause.jpg
   github: https://github.com/KilianKrause
+
+vincentlipschinski:
+  first_name: Vincent
+  last_name: Lipschinski
+  github_username: v1nc33
+  email: Vincent.Lipschinski@adesso.de
+  bio: "Vincent Lipschinski arbeitet als Software Engineer bei adesso. Sein Fokus liegt auf den JavaScript-Technologien und entwickelt Anwendungen mit React und Angular."
+  avatar_url: /assets/images/avatars/vincentlipschinski.jpg
+  github: https://github.com/v1nc33
