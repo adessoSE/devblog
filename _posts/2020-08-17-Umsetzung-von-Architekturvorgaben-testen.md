@@ -7,7 +7,7 @@ categories: [Architektur]
 tags: [Architektur, Testing]       
 ---
 
-Eine gute Softwarearchitektur ist einer der Bestandteile, die den Erfolg eines Softwareentwicklungsprojektes maßgeblich mitbestimmt.  
+Eine gute Softwarearchitektur ist einer der Bestandteile, der den Erfolg eines Softwareentwicklungsprojektes maßgeblich mitbestimmt.  
 Diese muss nicht nur auf dem Reißbrett entwickelt werden, sondern auch konsequent über den  ganzen Lebenszyklus eines Projektes im Code umgesetzt werden. 
 Wie dies mit Hilfe von Tool Unterstützung durch ArchUnit sichergestellt werden kann, möchte ich in diesem Betrag vorstellen.
 
