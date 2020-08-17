@@ -1,11 +1,11 @@
 ---
 layout: [post, post-xml]              
 title: "GitHub Actions im Java Projekt"            
-date: 2020-03-25 09:38              
-modified_date: 2020-07-03 15:25
+date: 2020-08-17 13:00              
+modified_date: 2020-08-17 13:00
 author: ccaylak                       
 categories: [Softwareentwicklung]
-tags: [GitHub, CI, Open Source, Java]     
+tags: [Java, Gradle, CI, GitHub, Open Source]     
 ---
 In diesem Blogpost wirst du lernen, wie ein Java Projekt mit GitHub Actions ausgestattet wird.
 Die Schwerpunkte sind das Bauen und Testen des Projekts, sowie das Deployen von Artefakten und die Anbindung von Cloud Services wie z.B. SonarCloud.
