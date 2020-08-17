@@ -330,3 +330,13 @@ kiliankrause:
   bio: "Kilian Krause ist als Werkstudent im Open-Source-Team bei adesso in Dortmund tätig."
   avatar_url: /assets/images/avatars/kiliankrause.jpg
   github: https://github.com/KilianKrause
+
+klausSchnaithmann:
+  first_name: Klaus
+  last_name: Schnaithmann
+  github_username: klausSchnaithmann
+  email: Klaus.Schnaithmann@adesso.de
+  bio: "Klaus Schnaithmann arbeitet als Senior Software Engineer bei adesso in Frankfurt. Er interessiert sich für Software Architektur und hat einen breiten Erfahrungsschatz im Banking Umfeld."
+  avatar_url: /assets/images/avatars/klausSchnaithmann.jpg
+  github: https://github.com/klausSchnaithmann
+  
