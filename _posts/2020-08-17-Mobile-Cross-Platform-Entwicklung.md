@@ -123,4 +123,4 @@ Dabei solltet ihr Apps nativ entwickeln, wenn ihr die höchste Leistungsfähigke
 Cross-Platform-Entwicklung hingegen kann sich lohnen, wenn Zeit und Kosten wichtig sind, weil die Entwicklungszeiten reduziert werden können.
 Weiterhin solltet ihr dann überlegen, ob ihr ein Framework für eine hybrid oder hybrid-native App verwenden wollt.
 Die hybrid-native Apps haben tendentiell eine bessere Performanz als hybrid Apps, was für die User jedoch selten wirklich spürbar ist.
-PWAs haben hingegen den Vorteil, die App nicht installieren zu müssen.
+PWAs haben hingegen den Vorteil, dass die Nutzer die App nicht installieren zu müssen.
