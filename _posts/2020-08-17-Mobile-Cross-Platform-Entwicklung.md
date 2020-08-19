@@ -15,7 +15,7 @@ Ich habe mir vier Cross-Platform-Frameworks herausgesucht, die momentan am Markt
 
 ![Suchinteresse bei Google](/assets/images/posts/mobile-cross-platform-entwicklung/google_trends.png)
 
-_[Quelle](https://trends.google.de/trends/explore?q=Ionic,Xamarin,Flutter,React%20Native)_
+_[Quelle: google](https://trends.google.de/trends/explore?q=Ionic,Xamarin,Flutter,React%20Native)_
 
 Im Gegensatz zum Paradigma der nativen App-Entwicklung, verfolgen die Cross-Platform-Frameworks einen Ansatz, um die App-Entwicklung unabhängig vom Betriebssystem zumachen.
 Dabei gibt es wiederum verschiedene Ansätze dieses Cross-Platform-Paradigma umzusetzen. Ein Ansatz ist es, die App-Komponenten zur Laufzeit in native Komponenten zu kompilieren.
@@ -33,7 +33,7 @@ Letzteres ermöglicht den Zugriff auf die betriebssystemspezifischen APIs des En
 
 ![Apache Cordova Architektur](/assets/images/posts/mobile-cross-platform-entwicklung/cordovaapparchitecture.png)
 
-_[Quelle](https://cordova.apache.org/static/img/guide/cordovaapparchitecture.png)_
+_[Quelle: Apache](https://cordova.apache.org/static/img/guide/cordovaapparchitecture.png)_
 
 In der obigen Abbildung ist ein Diagramm der Systemarchitektur von Apache Cordova abgebildet.
 Die Web App, oben links, beinhaltet den Quellcode der App und ist als normale Website implementiert.
@@ -52,7 +52,7 @@ Xamarin wurde 2016 von Mircrosoft übernommen, blieb aber weiterhin Open Source.
 
 ![Xamarin Architektur](/assets/images/posts/mobile-cross-platform-entwicklung/xamarin_architecture.png)
 
-_[Quelle](https://docs.microsoft.com/de-ch/xamarin/get-started/what-is-xamarin-images/xamarin-architecture.png)_
+_[Quelle: Microsoft](https://docs.microsoft.com/de-ch/xamarin/get-started/what-is-xamarin-images/xamarin-architecture.png)_
 
 Eine Open Source Version des .NET-Frameworks namens Mono, das auf Unix-artigen Systemen (Linux, Unix, FreeBSD und macOS) lauffähig ist, bietet die Grundlage von Xamarin.
 Mono übernimmt Aufgaben wie Speichermanagement, Garbage Collection und die Interoperabilität mit den Endgeräten.
@@ -69,7 +69,7 @@ Flutter ist Open Source, wird von Google entwickelt und wurde 2017 veröffentlic
 
 ![Flutter Architektur](/assets/images/posts/mobile-cross-platform-entwicklung/flutter_architektur.png)
 
-_[Quelle](https://hackernoon.com/hn-images/1*uXUhqyod87IqP0pVXPVjhg.png)_
+_[Quelle: hackernoon.com](https://hackernoon.com/hn-images/1*uXUhqyod87IqP0pVXPVjhg.png)_
 
 Außergewöhnlich bei diesem Framework ist die verwendete Programmiersprache namens Dart.
 Dart ist eine objektorientierte Programmiersprache die von Google aktiv entwickelt wird.
@@ -101,7 +101,7 @@ React Native wurde von Facebook entwickelt, baut auf React auf und verwendet Jav
 
 ![React Native Architektur](/assets/images/posts/mobile-cross-platform-entwicklung/react_native_architecture.jpg)
 
-_[Quelle](https://www.moveoapps.com/blog/wp-content/uploads/2017/07/native-appv1.jpg)_
+_[Quelle: moveoapps.com](https://www.moveoapps.com/blog/wp-content/uploads/2017/07/native-appv1.jpg)_
 
 Wie React ist auch React Native komponentenbasiert aufgebaut.
 Wer also mit React vertraut ist, für denjenigen/diejenige ist das Entwickeln mit React Native keine große Umstellung, denn das Grundprinzip bei React ist dasselbe, wie bei React Native.
