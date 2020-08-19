@@ -1,11 +1,11 @@
 ---
 layout: [post, post-xml]
 title: "Mobile Cross Platform Entwicklung"
-date: 2020-08-17-10:00
-modified_date: 2020-08-17-10:00
+date: 2020-08-19-09:00
+modified_date: 2020-08-19-09:00
 author: vincentlipschinski
 categories: [Architektur]
-tags: [Cross Platform, React Native, Xamarin, Flutter, Ionic]
+tags: [Mobile, Cross Platform, React Native, Xamarin, Flutter, Ionic]
 ---
 
 Die Entwicklung mobiler Apps für Android und iOS ist kostspielig und technisch aufwendig.
@@ -14,9 +14,11 @@ Cross-Platform-Frameworks versprechen, die mobile Anwendungsentwicklung zu verei
 Ich habe mir vier Cross-Platform-Frameworks herausgesucht, die momentan am Markt erfolgreich sind und dabei unterschiedliche Paradigmen verwenden.
 
 ![Suchinteresse bei Google](/assets/images/posts/mobile-cross-platform-entwicklung/google_trends.png)
+_-[Google Trends](https://trends.google.de/trends/explore?q=Ionic,Xamarin,Flutter,React Native)-_
 
 Im Gegensatz zum Paradigma der nativen App-Entwicklung, verfolgen die Cross-Platform-Frameworks einen Ansatz, um die App-Entwicklung unabhängig vom Betriebssystem zumachen.
-Dabei gibt es wiederum verschiedene Ansätze dieses Cross-Platform-Paradigma umzusetzen. Ein Ansatz ist es, die App-Komponenten zur Laufzeit in native Komponenten zu kompilieren. Diese Apps werden hybrid-native Apps genannt (z. B. React Native, Xamarin oder Flutter).
+Dabei gibt es wiederum verschiedene Ansätze dieses Cross-Platform-Paradigma umzusetzen. Ein Ansatz ist es, die App-Komponenten zur Laufzeit in native Komponenten zu kompilieren.
+Diese Apps werden hybrid-native Apps genannt (z. B. React Native, Xamarin oder Flutter).
 Weil auch die meisten mobilen Endgeräte heutzutage einen Webbrowser besitzen, gibt es auch den Ansatz, die Anwendung für den mobilen Browser so zu optimieren, dass sich die Apps für die User kaum noch von einer nativen App unterscheiden lassen.
 Diese Apps werden Progressive Web Apps (PWA) genannt.
 Desweiteren gibt es die sogenannten hybrid Apps, die eine WebView als Laufzeitumgebung verwenden (z. B. Apache Cordova).
@@ -29,6 +31,7 @@ Man kann mit Ionic sowohl PWAs als auch hyprid Apps erstellen. Es basiert auf An
 Letzteres ermöglicht den Zugriff auf die betriebssystemspezifischen APIs des Endgeräts.
 
 ![Apache Cordova Architektur](/assets/images/posts/mobile-cross-platform-entwicklung/cordovaapparchitecture.png)
+_[Bildquelle](https://cordova.apache.org/static/img/guide/cordovaapparchitecture.png)_
 
 In der obigen Abbildung ist ein Diagramm der Systemarchitektur von Apache Cordova abgebildet.
 Die Web App, oben links, beinhaltet den Quellcode der App und ist als normale Website implementiert.
@@ -46,6 +49,7 @@ Durch die Verwendung einer WebView ist die Performanz möglicherweise etwas schl
 Xamarin wurde 2016 von Mircrosoft übernommen, blieb aber weiterhin Open Source. Xamarin-Apps werden in der Programmiersprache C# entwickelt und werden in der .NET Laufzeitumgebung ausgeführt.
 
 ![Xamarin Architektur](/assets/images/posts/mobile-cross-platform-entwicklung/xamarin_architecture.png)
+_[Bildquelle](https://docs.microsoft.com/de-ch/xamarin/get-started/what-is-xamarin-images/xamarin-architecture.png)_
 
 Eine Open Source Version des .NET-Frameworks namens Mono, das auf Unix-artigen Systemen (Linux, Unix, FreeBSD und macOS) lauffähig ist, bietet die Grundlage von Xamarin.
 Mono übernimmt Aufgaben wie Speichermanagement, Garbage Collection und die Interoperabilität mit den Endgeräten.
@@ -61,6 +65,7 @@ Durch die Verwendung nativer UI-Komponenten wird eine hohe Performanz realisiert
 Flutter ist Open Source, wird von Google entwickelt und wurde 2017 veröffentlicht.
 
 ![Flutter Architektur](/assets/images/posts/mobile-cross-platform-entwicklung/flutter_architektur.png)
+_[Bildquelle](https://hackernoon.com/hn-images/1*uXUhqyod87IqP0pVXPVjhg.png)_
 
 Außergewöhnlich bei diesem Framework ist die verwendete Programmiersprache namens Dart.
 Dart ist eine objektorientierte Programmiersprache die von Google aktiv entwickelt wird.
@@ -91,6 +96,7 @@ Flutter erreicht durch die Kompilierung in Maschinencode, eine hohe Performanz. 
 React Native wurde von Facebook entwickelt, baut auf React auf und verwendet JavaScript sowie JSX als Programmiersprachen.
 
 ![React Native Architektur](/assets/images/posts/mobile-cross-platform-entwicklung/react_native_architecture.jpg)
+_[Bildquelle](https://www.moveoapps.com/blog/wp-content/uploads/2017/07/native-appv1.jpg)_
 
 Wie React ist auch React Native komponentenbasiert aufgebaut.
 Wer also mit React vertraut ist, für denjenigen/diejenige ist das Entwickeln mit React Native keine große Umstellung, denn das Grundprinzip bei React ist dasselbe, wie bei React Native.
