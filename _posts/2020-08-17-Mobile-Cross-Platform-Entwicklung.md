@@ -41,7 +41,7 @@ Hier kommt häufig das Ionic-Framework zum Einsatz.
 
 Ein integraler Bestandteil der Cordova-Architektur sind die Cordova Plugins.
 Sie stellen eine Schnittstelle zwischen Cordova und den nativen Komponenten zur Verfügung und ermöglichen so die Kommunikation und den Zugriff auf die APIs des Endgeräts.
-Dies ermöglicht es, aus dem JavaScript-Quellcode heraus nativen Quellcode aufzurufen. Cordova bietet dazu eine Auswahl von Core Plugins an wie beispielsweise Batterie Status, Kamera oder Kontakte.
+Dies ermöglicht es, aus dem JavaScript-Quellcode heraus nativen Quellcode aufzurufen. Cordova bietet dazu eine Auswahl von Core Plugins an wie beispielsweise Batterie Status, Kamera oder Kontakte an.
 Darüber hinaus können Plugins auch selbst entwickelt oder von Drittanbietern bezogen werden.
 
 Durch die Verwendung einer WebView ist die Performanz möglicherweise etwas schlechter als bei der Verwendung nativer Komponenten.
