@@ -81,7 +81,7 @@ Die UI-Komponenten (Widgets) werden in einer hierarchischen Struktur angeordnet 
 Das Rendering der Widgets wird durch eine eigens entwickelte Engine namens Skia realisiert.
 Flutter ist damit, im Gegensatz zu Frameworks, die native UI-Komponenten verwenden, in der Lage, jeden einzelnen Pixel auf dem Bildschirm direkt zu kontrollieren.
 Aus diesem Grund müssen eigene UI-Komponenten verwendet werden.
-Diese wurden vom Flutter-Team nachgebaut, um das typische Android- bzw. iOS-Look-and-Feel zu erhalten.
+Eine Auswahl von UI-Komponenten wurden vom Flutter-Team nachgebaut, um das typische Android- bzw. iOS-Look-and-Feel zu erhalten.
 
 Flutter liefert ein eigenes SDK, mit dem der Dart-Quellcode auf zwei verschiedene Arten kompiliert werden kann:
 
