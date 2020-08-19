@@ -23,7 +23,7 @@ Diese Apps werden hybrid-native Apps genannt (z. B. React Native, Xamarin oder F
 Weil auch die meisten mobilen Endgeräte heutzutage einen Webbrowser besitzen, gibt es auch den Ansatz, die Anwendung für den mobilen Browser so zu optimieren, dass sich die Apps für die User kaum noch von einer nativen App unterscheiden lassen.
 Diese Apps werden Progressive Web Apps (PWA) genannt.
 Des Weiteren gibt es die sogenannten hybrid Apps, die eine WebView als Laufzeitumgebung verwenden (z. B. Apache Cordova).
-Die unterschiedlichen Paradigmen werden im Folgenden im Kontext der unterschiedlichen Frameworks detaillierter erläutert.
+Die unterschiedlichen Paradigmen werden im Folgenden im Kontext der unterschiedlichen Frameworks genauer erläutert.
 
 # Ionic
 
