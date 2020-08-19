@@ -17,13 +17,13 @@ Ich habe mir vier Cross-Platform-Frameworks herausgesucht, die momentan am Markt
 
 _[Quelle: google](https://trends.google.de/trends/explore?q=Ionic,Xamarin,Flutter,React%20Native)_
 
-Im Gegensatz zum Paradigma der nativen App-Entwicklung, verfolgen die Cross-Platform-Frameworks einen Ansatz, um die App-Entwicklung unabhängig vom Betriebssystem zumachen.
+Im Gegensatz zum Paradigma der nativen App-Entwicklung verfolgen die Cross-Platform-Frameworks einen Ansatz, um die App-Entwicklung unabhängig vom Betriebssystem zumachen.
 Dabei gibt es wiederum verschiedene Ansätze dieses Cross-Platform-Paradigma umzusetzen. Ein Ansatz ist es, die App-Komponenten zur Laufzeit in native Komponenten zu kompilieren.
 Diese Apps werden hybrid-native Apps genannt (z. B. React Native, Xamarin oder Flutter).
 Weil auch die meisten mobilen Endgeräte heutzutage einen Webbrowser besitzen, gibt es auch den Ansatz, die Anwendung für den mobilen Browser so zu optimieren, dass sich die Apps für die User kaum noch von einer nativen App unterscheiden lassen.
 Diese Apps werden Progressive Web Apps (PWA) genannt.
-Desweiteren gibt es die sogenannten hybrid Apps, die eine WebView als Laufzeitumgebung verwenden (z. B. Apache Cordova).
-Die unterschiedlichen Paradigmen werden im Folgenden, im Kontext der unterschiedlichen Frameworks, detaillierter erläutert.
+Des Weiteren gibt es die sogenannten hybrid Apps, die eine WebView als Laufzeitumgebung verwenden (z. B. Apache Cordova).
+Die unterschiedlichen Paradigmen werden im Folgenden im Kontext der unterschiedlichen Frameworks detaillierter erläutert.
 
 # Ionic
 
@@ -40,9 +40,9 @@ Die Web App, oben links, beinhaltet den Quellcode der App und ist als normale We
 Hier kommt häufig das Ionic-Framework zum Einsatz.
 
 Ein integraler Bestandteil der Cordova-Architektur sind die Cordova Plugins.
-Sie stellen eine Schnittstelle zwischen Cordova – und nativer Komponenten zur Verfügung und ermöglichen so, die Kommunikation und den Zugriff auf die APIs des Endgeräts.
-Dies ermöglicht es, aus dem JavaScript-Quellcode heraus, nativen Quellcode aufzurufen. Cordova bietet dazu eine Auswahl von Core Plugins an, wie beispielsweise Batterie Status, Kamera oder Kontakten.
-Darüber hinaus können Plugins auch selbst entwickelt oder von Drittanbieter bezogen werden.
+Sie stellen eine Schnittstelle zwischen Cordova und den nativen Komponenten zur Verfügung und ermöglichen so die Kommunikation und den Zugriff auf die APIs des Endgeräts.
+Dies ermöglicht es, aus dem JavaScript-Quellcode heraus nativen Quellcode aufzurufen. Cordova bietet dazu eine Auswahl von Core Plugins an wie beispielsweise Batterie Status, Kamera oder Kontakte.
+Darüber hinaus können Plugins auch selbst entwickelt oder von Drittanbietern bezogen werden.
 
 Durch die Verwendung einer WebView ist die Performanz möglicherweise etwas schlechter als bei der Verwendung nativer Komponenten.
 
@@ -74,14 +74,14 @@ _[Quelle: hackernoon.com](https://hackernoon.com/hn-images/1*uXUhqyod87IqP0pVXPV
 Außergewöhnlich bei diesem Framework ist die verwendete Programmiersprache namens Dart.
 Dart ist eine objektorientierte Programmiersprache die von Google aktiv entwickelt wird.
 Der Dart-Quellcode kann einerseits zu nativem Maschinencode kompiliert und andererseits zu JavaScript transpiliert werden.
-Die Sprache ist stark typisiert und ähnelt syntaktisch anderen Programmiersprachen wie: Java, JavaScript oder C#.
+Die Sprache ist stark typisiert und ähnelt syntaktisch anderen Programmiersprachen wie Java, JavaScript oder C#.
 
 Das Erstellen der UI erfolgt im Dart-Quellcode (UI as Code).
 Die UI-Komponenten (Widgets) werden in einer hierarchischen Struktur angeordnet (Widget Tree).
-Das Rendering der Widgets wird durch eine eigens entwickelte Engine, namens Skia, realisiert.
+Das Rendering der Widgets wird durch eine eigens entwickelte Engine namens Skia realisiert.
 Flutter ist damit, im Gegensatz zu Frameworks, die native UI-Komponenten verwenden, in der Lage, jeden einzelnen Pixel auf dem Bildschirm direkt zu kontrollieren.
 Aus diesem Grund müssen eigene UI-Komponenten verwendet werden.
-Diese wurden vom Flutter-Team nachgebaut, um das typische Android - bzw. iOS Look-and-Feel zu erhalten.
+Diese wurden vom Flutter-Team nachgebaut, um das typische Android- bzw. iOS-Look-and-Feel zu erhalten.
 
 Flutter liefert ein eigenes SDK, mit dem der Dart-Quellcode auf zwei verschiedene Arten kompiliert werden kann:
 
