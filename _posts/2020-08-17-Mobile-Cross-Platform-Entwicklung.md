@@ -104,7 +104,7 @@ React Native wurde von Facebook entwickelt, baut auf React auf und verwendet Jav
 _[Quelle: moveoapps.com](https://www.moveoapps.com/blog/wp-content/uploads/2017/07/native-appv1.jpg)_
 
 Wie React ist auch React Native komponentenbasiert aufgebaut.
-Wer also mit React vertraut ist, für denjenigen/diejenige ist das Entwickeln mit React Native keine große Umstellung, denn das Grundprinzip bei React ist dasselbe, wie bei React Native.
+Wer also mit React vertraut ist, für den ist das Entwickeln mit React Native keine große Umstellung, denn das Grundprinzip bei React ist dasselbe, wie bei React Native.
 
 React benutzt das sogenannte reconciliation, wobei es sich um effiziente Algorithmen im Hintergrund handelt, die den virtuellen DOM mit dem realen DOM vergleichen.
 Reconciliation ermöglicht, dass nur diejenigen Elemente des realen DOMs gerendert werden,die für die richtige Darstellung der UI notwendig sind.
