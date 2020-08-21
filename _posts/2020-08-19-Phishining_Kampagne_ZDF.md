@@ -1,7 +1,7 @@
 ---
 layout: [post, post-xml]              
 title:  "Phishing Kampagne bei adesso"        
-date:   2020-08-19 09:00              # Pflichtfeld. Format "YYYY-MM-DD HH:MM". Muss für Veröffentlichung in der Vergangenheit liegen. (Für Preview egal)
+date:   2020-08-20 09:00              # Pflichtfeld. Format "YYYY-MM-DD HH:MM". Muss für Veröffentlichung in der Vergangenheit liegen. (Für Preview egal)
 author: vschiller                     
 categories: [Business & People]       
 tags: [Security Awareness]     
@@ -58,18 +58,25 @@ Von den Teilnehmenden, die auf eine Phishing E-Mail klickten, klickten sich 23,5
 Darüber hinaus interagierten 29,5% auf der falschen LinkedIn-Anmeldeseite, d.h. diejenigen, die eine LinkedIn-E-Mail erhielten und darauf klickten, klickten entweder auf das Passwort-Feld oder auf den Registrierungs-Button. 
 In Bezug auf alle versandten simulierten Phishing E-Mails öffneten 44,1% die E-Mail in einem E-Mail Programm und sogar 1,5% antworteten auf die E-Mail. 
 
+
 ![Phishing Statistik](/assets/images/posts/Phishing-Kampagne-2019/AlleRatenPhishing.png) 
+
 
 Die Klickraten der einzelnen E-Mail-Vorlagen betrugen am Ende der Kampagne 31% für die CEO-Fraud, 29,9% für die LinkedIn E-Mail, 33,4,% für den Voicemail Service und 11,2% für die Anwalts E-Mail. 
 Besonders bemerkenswert ist, dass am Ende des ersten Tages die Klickrate der CEO Fraud mit 194 versandten E-Mails und 102 Klicks bei 52,6% lag. 
 
-![Klickraten pro Template](/assets/images/posts/Phishing-Kampagne-2019/AlleRatenPhishing.png) 
-
 Die Verteilung der einzelnen Phishing Templates und deren Klickraten pro Tag könnt ihr den folgenden Grafiken entnehmen: 
 
+
 ![CEO Fraud](/assets/images/posts/Phishing-Kampagne-2019/CEOFraudKlickraten.png) 
-![LinkedIn Bewerbung](/assets/images/posts/Phishing-Kampagne-2019/LinkedInKlickraten.png) 
+
+
+![LinkedIn Bewerbung](/assets/images/posts/Phishing-Kampagne-2019/LinkedInKlickraten.png)
+
+
 ![Anwalts E-Mail](/assets/images/posts/Phishing-Kampagne-2019/AnwaltsmailKlickraten.png) 
+
+
 ![Voicemail Service](/assets/images/posts/Phishing-Kampagne-2019/VoicemailKlickraten.png)
 
 
