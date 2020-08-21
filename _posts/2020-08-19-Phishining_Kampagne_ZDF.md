@@ -10,6 +10,9 @@ tags: [Security Awareness]
 Phishing ist eine Kunst der Manipulation, die sowohl technisches als auch menschliches Wissen erfordert. 
 Wird eine Phishing E-Mail nicht durch technische Maßnahmen daran gehindert, vom Empfangenden aufgerufen zu werden, liegt es am diesem, richtig zu handeln. 
 Handelt das Opfer nicht korrekt, ist der Klick auf den Link oder Anhang das erste notwendige Ereignis des Opfers für einen erfolgreichen Phishing-Betrug. 
+
+# Phishing Awareness durch Phishing
+
 Opfer eines Phishing-Angriffs in Deutschland zu werden, ist nicht unwahrscheinlich. 
 Phishing-Angriffe sind im Cybercrime Report 2018 nach wie vor ein wichtiges Thema. 
 Darüber hinaus wurde vom BSI eine Umfrage zur Cybersicherheit durchgeführt, die zeigt, dass im Jahr 2018 43 % der befragten Großunternehmen von Cybersicherheitsvorfällen betroffen waren, wobei die Hälfte dieser Angriffe erfolgreich waren. 
@@ -17,13 +20,13 @@ Von den gemeldeten Sicherheitsvorfällen wurde mehr als die Hälfte durch Malwar
 In dem Report wird weiter beschrieben, dass in der Hälfte der erfolgreich abgewehrten Fälle technische Maßmahmen eine Infektion verhindern konnten, in den anderen Fällen soll das Bewusstsein der Mitarbeitenden der Erfolgsfaktor gewesen sein. 
 Um genau dieses Bewusstsein zu erlangen und die menschliche Firewall zu aktivieren, können Unternehmen heute simulierte Phishing-Schulungen bei Dienstleistern erwerben. 
 
-# Phishing Simulation bei adesso
+## Phishing Simulation bei adesso
 
 Um uns also bestmöglich vor Phishing Attacken zu schützen, wollten wir die bewusstseinsschärfende Maßnahme ebenfalls nutzen und im Rahmen einer Masterarbeit begleiten lassen. 
 Für diesen ersten Durchlauf haben wir uns für den Dienstleister SoSafe entschieden, der sich auf solche Phishing Simulationen spezialisiert hat. 
 Die folgenden Abschnitte beziehen sich auf den Ablauf der Phishing Kampgagne und auf die Ergebnnisse der Phishing Simulation. 
 
-## Der Plan 
+### Der Plan 
 
 Einmal mit der Brechstange eine Phishing Simulation durchführen, beschreiben die geplanten zwei Wochen Phishing Simulation recht gut. 
 Es war geplant, an jeden der 2495 adessi in Deutschland vier verschiedene Phishing E-Mails zu versenden, so dass insgesamt etwa 9980 E-Mails versendet werden sollten. 
@@ -37,7 +40,8 @@ Bei der LinkedIn E-Mail musste man nicht nur auf den Link klicken, sondern auch 
 Alternativ führt auch die Schaltfläche "Registrieren" zur Schulungsseite. 
 Auf diese Weise wurde sichergestellt, dass keine echten Anmeldedaten von LinkedIn abgegriffen wurden.
 
-## Die Realität
+
+### Die Realität
 
 Soweit der Plan. Die Realität sah am Ende etwas anders aus. 
 Das Endergebnis: 3423 versandte E-Mails von den ursprünglich geplanten 9980. 
@@ -65,7 +69,8 @@ Die Verteilung der einzelnen Phishing Templates und deren Klickraten pro Tag kö
 ![Anwalts E-Mail](/assets/images/posts/Phishing-Kampagne-2019/AnwaltsmailKlickraten.png) 
 ![Voicemail Service](/assets/images/posts/Phishing-Kampagne-2019/VoicemailKlickraten.png)
 
-## Das Feedback
+
+### Das Feedback
 
 Die Phishing Simulation wurde ohne vorherige Ankündigung durchgeführt, schließlich werden reale Phishing Angriffe ebenfalls nicht angekündigt. 
 Um ein Stimmungsbild abzuholen wurden zwei Online Umfragen und diverse semistrukturierte Interviews durchgeführt. 
@@ -77,8 +82,7 @@ Eine solche Schulungsmaßnahme schien mehr Aufmerksamkeit und Gespräche zu erze
 Dies war genau der Effekt den wir erzielen wollten.
 
 
-
-## Fazit 
+### Fazit 
 
 Wie immer zeigt sich: Je besser die Phishing E-Mails in den Kontext der empfangenden Person passt und je weniger Fehler die Phishing E-Mail aufweist, umso höher ist die Wahrscheinlichkeit, dass die Person auf die E-Mail eingeht und den Betrug nicht bemerkt. 
 Um einen Schaden zu verhindern und präventiv vorzugehen sind Phishing Simulationen ein hilfreiches Werkzeug. 
