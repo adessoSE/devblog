@@ -11,6 +11,7 @@ Phishing ist eine Kunst der Manipulation, die sowohl technisches als auch mensch
 Wird eine Phishing E-Mail nicht durch technische Maßnahmen daran gehindert, vom Empfangenden aufgerufen zu werden, liegt es am diesem, richtig zu handeln. 
 Handelt das Opfer nicht korrekt, ist der Klick auf den Link oder Anhang das erste notwendige Ereignis des Opfers für einen erfolgreichen Phishing-Betrug. 
 
+
 # Phishing Awareness durch Phishing
 
 Opfer eines Phishing-Angriffs in Deutschland zu werden, ist nicht unwahrscheinlich. 
@@ -20,11 +21,13 @@ Von den gemeldeten Sicherheitsvorfällen wurde mehr als die Hälfte durch Malwar
 In dem Report wird weiter beschrieben, dass in der Hälfte der erfolgreich abgewehrten Fälle technische Maßmahmen eine Infektion verhindern konnten, in den anderen Fällen soll das Bewusstsein der Mitarbeitenden der Erfolgsfaktor gewesen sein. 
 Um genau dieses Bewusstsein zu erlangen und die menschliche Firewall zu aktivieren, können Unternehmen heute simulierte Phishing-Schulungen bei Dienstleistern erwerben. 
 
+
 ## Phishing Simulation bei adesso
 
-Um uns also bestmöglich vor Phishing Attacken zu schützen, wollten wir die bewusstseinsschärfende Maßnahme ebenfalls nutzen und im Rahmen einer Masterarbeit begleiten lassen. 
+Um uns also bestmöglich vor Phishing Attacken zu schützen, wollten wir diese bewusstseinsschärfende Maßnahme ebenfalls nutzen und im Rahmen einer Masterarbeit begleiten lassen. 
 Für diesen ersten Durchlauf haben wir uns für den Dienstleister SoSafe entschieden, der sich auf solche Phishing Simulationen spezialisiert hat. 
 Die folgenden Abschnitte beziehen sich auf den Ablauf der Phishing Kampgagne und auf die Ergebnnisse der Phishing Simulation. 
+
 
 ### Der Plan 
 
