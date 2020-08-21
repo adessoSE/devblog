@@ -330,3 +330,12 @@ kiliankrause:
   bio: "Kilian Krause ist als Werkstudent im Open-Source-Team bei adesso in Dortmund tätig."
   avatar_url: /assets/images/avatars/kiliankrause.jpg
   github: https://github.com/KilianKrause
+
+vschiller:
+  first_name: Vivien Emily
+  last_name: Schiller
+  github_username: Vivien-Emily
+  email: vivien.schiller@adesso.de
+  bio: "Vivien Schiller ist als Senior Software Engineer bei adesso in Dortmund tätig und ist dort auf die Sicherheit von Webanwendungen spezialisiert. Ihr Fokus liegt dabei auf User Centered Security."
+  avatar_url: /assets/images/avatars/vschiller.jpg
+  github: https://github.com/Vivien-Emily
