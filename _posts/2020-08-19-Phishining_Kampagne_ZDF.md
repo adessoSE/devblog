@@ -14,11 +14,11 @@ Handelt das Opfer nicht korrekt, ist der Klick auf den Link oder Anhang das erst
 
 # Phishing Awareness durch Phishing
 
-Opfer eines Phishing-Angriffs in Deutschland zu werden, ist nicht unwahrscheinlich. 
+Opfer eines Phishing Angriffs in Deutschland zu werden, ist nicht unwahrscheinlich. 
 Phishing-Angriffe sind im Cybercrime Report 2018 nach wie vor ein wichtiges Thema. 
 Darüber hinaus wurde vom BSI eine Umfrage zur Cybersicherheit durchgeführt, die zeigt, dass im Jahr 2018 43 % der befragten Großunternehmen von Cybersicherheitsvorfällen betroffen waren, wobei die Hälfte dieser Angriffe erfolgreich waren. 
 Von den gemeldeten Sicherheitsvorfällen wurde mehr als die Hälfte durch Malware injiziert, wobei 90 % als Anhang oder Link in einer E-Mail verbreitet wurden. 
-In dem Report wird weiter beschrieben, dass in der Hälfte der erfolgreich abgewehrten Fälle technische Maßmahmen eine Infektion verhindern konnten, in den anderen Fällen soll das Bewusstsein der Mitarbeitenden der Erfolgsfaktor gewesen sein. 
+In dem Report wird weiter beschrieben, dass in der Hälfte der erfolgreich abgewehrten Fälle technische Maßnahmen eine Infektion verhindern konnten, in den anderen Fällen soll das Bewusstsein der Mitarbeitenden der Erfolgsfaktor gewesen sein. 
 Um genau dieses Bewusstsein zu erlangen und die menschliche Firewall zu aktivieren, können Unternehmen heute simulierte Phishing-Schulungen bei Dienstleistern erwerben. 
 
 
@@ -26,7 +26,7 @@ Um genau dieses Bewusstsein zu erlangen und die menschliche Firewall zu aktivier
 
 Um uns also bestmöglich vor Phishing Attacken zu schützen, wollten wir diese bewusstseinsschärfende Maßnahme ebenfalls nutzen und im Rahmen einer Masterarbeit begleiten lassen. 
 Für diesen ersten Durchlauf haben wir uns für den Dienstleister SoSafe entschieden, der sich auf solche Phishing Simulationen spezialisiert hat. 
-Die folgenden Abschnitte beziehen sich auf den Ablauf der Phishing Kampgagne und auf die Ergebnnisse der Phishing Simulation. 
+Die folgenden Abschnitte beziehen sich auf den Ablauf der Phishing Kampagne und auf die Ergebnisse der Phishing Simulation. 
 
 
 ### Der Plan 
@@ -55,14 +55,14 @@ Der Bericht über die Statistiken wurde elf Tage nach dem Ende der Kampagne gezo
 Die Klickraten für alle versandten Phishing E-Mails betrug insgesamt 26,4%. 
 Von 903 E-Mails, bei denen ein Link oder ein Anhang geöffnet wurde, wurden 35,5% auf dem Smartphone geöffnet. 
 Von den Teilnehmenden, die auf eine Phishing E-Mail klickten, klickten sich 23,5% Schritt für Schritt bis zum Ende durch das eLearning durch. 
-Darüber hinaus interagierten 29,5% auf der falschen LinkedIn-Anmeldeseite, d.h. diejenigen, die eine LinkedIn-E-Mail erhielten und darauf klickten, klickten entweder auf das Passwort-Feld oder auf den Registrierungs-Button. 
+Darüber hinaus interagierten 29,5% auf der falschen LinkedIn-Anmeldeseite, d.h. diejenigen, die eine LinkedIn-E-Mail erhielten und daraufklickten, klickten entweder auf das Passwort-Feld oder auf den Registrierungs-Button. 
 In Bezug auf alle versandten simulierten Phishing E-Mails öffneten 44,1% die E-Mail in einem E-Mail Programm und sogar 1,5% antworteten auf die E-Mail. 
 
 
 ![Phishing Statistik](/assets/images/posts/Phishing-Kampagne-2019/AlleRatenPhishing.png) 
 
 
-Die Klickraten der einzelnen E-Mail-Vorlagen betrugen am Ende der Kampagne 31% für die CEO-Fraud, 29,9% für die LinkedIn E-Mail, 33,4,% für den Voicemail Service und 11,2% für die Anwalts E-Mail. 
+Die Klickraten der einzelnen E-Mail-Vorlagen betrugen am Ende der Kampagne 31% für die CEO-Fraud, 29,9% für die LinkedIn E-Mail, 33,4% für den Voicemail Service und 11,2% für die Anwalts E-Mail. 
 Besonders bemerkenswert ist, dass am Ende des ersten Tages die Klickrate der CEO Fraud mit 194 versandten E-Mails und 102 Klicks bei 52,6% lag. 
 
 Die Verteilung der einzelnen Phishing Templates und deren Klickraten pro Tag könnt ihr den folgenden Grafiken entnehmen: 
@@ -82,14 +82,14 @@ Die Verteilung der einzelnen Phishing Templates und deren Klickraten pro Tag kö
 
 ### Das Feedback
 
-Die Phishing Simulation wurde ohne vorherige Ankündigung durchgeführt, schließlich werden reale Phishing Angriffe ebenfalls nicht angekündigt. 
+Die Phishing Simulation wurde ohne vorherige Ankündigung durchgeführt, so wie reale Phishing Angriffe ebenfalls nicht angekündigt werden. 
 Um ein Stimmungsbild abzuholen wurden zwei Online Umfragen und diverse semistrukturierte Interviews durchgeführt. 
 Zu der ersten Online Umfrage gelangte man, indem man auf eine Phishing E-Mail eingegangen war und auf die zur Verfügung gestellte Schulungsseite gelangte. 
 Innerhalb dieser Umfrage konnte man sich zudem auch für ein weiterführendes Interview anmelden.
-Die zweite Umfrage wurde in dem Aufklärungsnewsflash von unserem Vorstand versendet, sodass jeder adessi die Möglichkeit hatte ein Feedback zurückzuspielen. 
+Die zweite Umfrage wurde in dem Aufklärungsnewsflash von unserem Vorstand versendet, sodass alle adessi die Möglichkeit hatten ein Feedback zurückzuspielen. 
 Das Stimmungsbild über die Online Umfragen und den Interviews war durchweg positiv und eine Wiederholung wurde sich gewünscht.
 Eine solche Schulungsmaßnahme schien mehr Aufmerksamkeit und Gespräche zu erzeugen, als eine übliche (Online) Schulung.
-Dies war genau der Effekt den wir erzielen wollten.
+Dies war genau der Effekt, den wir erzielen wollten.
 
 
 ### Fazit 
