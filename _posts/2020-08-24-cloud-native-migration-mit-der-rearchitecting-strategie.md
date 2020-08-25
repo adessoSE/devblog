@@ -1,6 +1,6 @@
 ---
 layout: [post, post-xml]                          
-title:  "Cloud native Migration einer Anwendung mit der Rearchitecting Strategie"         
+title:  "Cloud native Migration mit der Rearchitecting Strategie"         
 date:   2020-08-24 08:00                   
 author: c-bachmann                                  
 categories: [Architektur]                        
