@@ -21,18 +21,18 @@ Dabei kann die Rearchitecting Strategie auch kleinschrittig angewendet werden. J
 
 Die Überführung zu einer Cloud nativen Anwendung führt zu einer höheren Entwicklungsproduktivität, gerade wenn die Komplexität der Software steigt und die Teamgröße wächst. 
 Gleichzeitig erhöht es die Softwarequalität und verbessert die Stabilität und die Verfügbarkeit.
-In diesem Beitrag zeige ich wie die Rearchitecting Strategie iterativ und inkrementell angewendet werden kann, um eine Anwendung in eine Cloud native Anwendung zu überführen.
+In diesem Beitrag zeige ich, wie die Rearchitecting Strategie iterativ und inkrementell angewendet werden kann, um eine Anwendung in eine Cloud native Anwendung zu überführen.
 
 # Welchen Mehrwehrt bietet die Rearchitecting Strategie?
 
 Vor der Rearchitecting Strategie sollte bereits die Rehosting und Replatforming Strategie angewendet worden sein. 
-D.h. die Anwendung läuft bereits in der Cloud und einige Dienste wie die Datenbank, sind bereits an den Cloud Anbieter ausgelagert worden.
+D.h. die Anwendung läuft bereits in der Cloud und einige Dienste wie die Datenbank sind bereits an den Cloud Anbieter ausgelagert worden.
 Die Anwendung wird auf virtuellen Maschinen betrieben oder in einer Container Umgebung wie Kubernetes.
 Trotzdem gibt es großes Optimierungspotential bei der Kosteneffizienz, der Entwicklungseffizienz und der betrieblichen Qualität, wie die folgende Grafik veranschaulicht.
  
 ![Kosten und Nutzen der Rearchitecting Strategie im Vergleich](/assets/images/posts/cloud-native-migration-mit-der-rearchitecting-strategie/aufwand-nutzen.png) 
 
-Um die Möglichkeiten der Cloud wie das Pay-per-Use Preismodel, Autoscaling, Scale-to-Zero und Zero-Downtime Deployments auszunutzen, ist es notwendig die Architektur der Anwendung zu prüfen und an die Cloud anzupassen.
+Um die Möglichkeiten der Cloud wie das Pay-per-Use Preismodel, Autoscaling, Scale-to-Zero und Zero-Downtime Deployments auszunutzen, ist es notwendig, die Architektur der Anwendung zu prüfen und an die Cloud anzupassen.
 Das scheint vom Aufwand her hoch und wird daher oft gescheut. 
 Der Fehler liegt häufig darin, dass ein Big Bang Ansatz gewählt wird. 
 Stattdessen sollte kleinschrittig und iterativ vorgegangen werden, sodass zu jederzeit funktionierende Software und neue Features ausgeliefert werden können.
@@ -72,19 +72,19 @@ Jeder Cloud-Anbieter hat dazu seinen eigenen Dienst. Als unabhängiges Werkzeug 
 
 Durch IaC werden Änderungen an der Infrastruktur versioniert, was Nachvollziehbarkeit der Änderungen, Wiederverwendbarkeit und Rollbacks ermöglicht.
 Das Infrastrukturtemplate wird mit Parametern versehen, wodurch mit einer zentralen Definition mehrere Umgebungen aufgesetzt werden können (Development, Staging, Produktion).
-Mit IaC ist es auch möglich die Entwicklungsumgebung in der Cloud automatisiert abends zu löschen und morgens um 6 Uhr automatisiert wiederaufzubauen, um Kosten zu sparen.
+Mit IaC ist es auch möglich, die Entwicklungsumgebung in der Cloud automatisiert abends zu löschen und morgens um 6 Uhr automatisiert wiederaufzubauen, um Kosten zu sparen.
 
 Die Automatisierung der Infrastruktur sorgt insgesamt für Stabilität und reduziert Fehler durch Anpassungen von Hand.
 
 ## Continuous Delivery (CD)
-Um die schnellere und zuverlässige Auslieferung der Software zu garantieren wird Continuous Integration und Continuous Delivery eingesetzt.
+Um die schnellere und zuverlässige Auslieferung der Software zu garantieren, wird Continuous Integration und Continuous Delivery eingesetzt.
 Continuous Integration (CI) sorgt für den automatisierten Build, die Ausführung der Tests und die Veröffentlichung des Artefakts nach jeder Codeänderung. 
 Ich gehe davon aus, dass CI bereits eingesetzt wird.
 
 Continuous Delivery (CD) erweitert CI und sorgt dafür, dass gebaute Artefakte automatisiert in die Produktion gebracht werden können. 
 Voraussetzung dafür ist eine gute Testabdeckung.
 Die Automatisierung der Deployments reduziert manuelle Fehler und erhöht die Stabilität und Verfügbarkeit der Software. 
-Als Werkzeuge können sowohl Cloud Dienste als auch Build-Server von Drittanbietern, wie Jenkins eingesetzt, werden. 
+Als Werkzeuge können sowohl Cloud Dienste, als auch Build-Server von Drittanbietern wie Jenkins eingesetzt werden. 
 Da der Betrieb von Build-Servern wartungsaufwändig ist, sollte man auch den Einsatz einer komplett verwalteten Continuous Delivery Pipeline des jeweiligen Cloud Anbieters in Erwägung ziehen.
 
 ## Datenbankdienst des Cloud Anbieters nutzen
@@ -125,10 +125,10 @@ Ein Logmanagement System ist essenziell für die effiziente Wartung der Anwendun
 Logmanagement Systeme sind entweder teuer eingekauft oder wartungsaufwändig und fehleranfällig.
 Bei der Rearchitecting Strategie sollte man den Logmanagement Dienst des jeweiligen Cloud Anbieters nutzen, um diesen Problemen zu entgehen.
 Das zentralisierte Logging ist die Voraussetzung für die Aktivierung von Alerts und dem Erstellen von Monitoring Dashboards, auf denen das Verhalten der Anwendung kontinuierlich überwacht werden kann.
-Damit sich aus den Logmeldungen Metriken ableiten lassen und Fehler leichter diagnostizierbar sind, kann es erforderlich sein das Logging der Anwendung zu überarbeiten.
+Damit sich aus den Logmeldungen Metriken ableiten lassen und Fehler leichter diagnostizierbar sind, kann es erforderlich sein, das Logging der Anwendung zu überarbeiten.
 
 ## Die Anwendung in kleinere Module zerlegen
-Die Cloud nutzt ein Pay-per-Use Modell. Deswegen ist es sinnvoll die Anwendung in kleinere eigenständige Komponenten aufzuteilen, denn kleinere Komponenten skalieren kosteneffektiver.
+Die Cloud nutzt ein Pay-per-Use Modell. Deswegen ist es sinnvoll, die Anwendung in kleinere, eigenständige Komponenten aufzuteilen, denn kleinere Komponenten skalieren kosteneffektiver.
 Die Anwendung sollte in Microservices aufgeteilt werden, falls noch nicht geschehen. 
 
 Innerhalb der Microservices sollte geprüft werden, ob einzelne Funktionen der Anwendung als Serverless Functions bzw. Functions as a Service (FaaS) ausgelagert werden können.  
@@ -144,15 +144,15 @@ Die folgende Grafik veranschaulicht das Vorgehensmodell des Strangler Fig Patter
 Neue Features werden als neue Module in die Anwendung integriert. Ein Dispatcher sorgt für die Verteilung der Anfragen auf die Module. 
 Gemeinsam genutzte Funktionalität wird anschließend als neues Modul aus der bestehenden Anwendung herausgelöst.
 Über die Zeit wird die Anwendung dadurch in kleinere Module zerlegt.
-Die Zerlegung der Anwendung fördert außerdem die unabhängige Entwicklung der Teams wodurch Features einfacher in Produktion gebracht werden können.
+Die Zerlegung der Anwendung fördert außerdem die unabhängige Entwicklung der Teams, wodurch Features einfacher in Produktion gebracht werden können.
 
 # Was haben wir gewonnen?
 
-Schauen wir uns an was wir durch die Anwendung der Rearchitecting Strategie im Vergleich zur Replatforming Strategie gewonnen haben.
+Schauen wir uns an, was wir durch die Anwendung der Rearchitecting Strategie im Vergleich zur Replatforming Strategie gewonnen haben.
 
 ## Kosteneffizienz
 Durch die Rearchitecting Strategie wird das Pay-per-Use Preismodell optimal ausgenutzt. 
-In Kombination mit automatischer Skalierung und Scale-to-Zero, gibt es keine Über- oder Unterprovisionierung mehr.
+In Kombination mit automatischer Skalierung und Scale-to-Zero gibt es keine Über- oder Unterprovisionierung mehr.
 Wenn eine Komponente nicht genutzt wird, entstehen auch keine Kosten.
 Das gilt nicht nur für Computing Ressourcen, sondern auch Speicherdienste, Datenbanken und andere Cloud native Dienste. 
 
@@ -166,9 +166,9 @@ Die Infrastrukturautomatisierung ermöglicht die Versionierung und den reproduzi
 Es verhindert Fehlkonfiguration und Sicherheitsprobleme durch manuelle Eingriffe.
 Die Cloud native Services ermöglichen Zero-Downtime Deployments und Rollbacks, was die Verfügbarkeit verbessert. 
 Außerdem versorgt der Cloud Anbieter die Dienste mit Sicherheitsupdates ohne Downtime.
-Zero-Downtime Deployments ermöglichen es häufiger und zu jeder Tageszeit Software in Produktion auszurollen, wodurch Features schneller ausgerollt werden können und Fehler schneller behoben werden können. 
+Zero-Downtime Deployments ermöglichen es, häufiger und zu jeder Tageszeit Software in Produktion auszurollen, wodurch Features schneller ausgerollt werden können und Fehler schneller behoben werden können. 
 
-Die Logging und Alerting Dienste der Cloud Anbieter ermöglichen die Frühzeitige Erkennung von Fehlern. 
+Die Logging und Alerting Dienste der Cloud Anbieter ermöglichen die frühzeitige Erkennung von Fehlern. 
 Datensicherung, Datenversionierung und Rollbacks sind einfach zu konfigurieren.
 Durch die automatische Skalierung ist die Performanz der Anwendung jederzeit sichergestellt. 
 Die Auslagerung der statischen Webseiten in Kombination mit dem CDN sorgt für niedrigste Latenzen.
@@ -191,15 +191,14 @@ Für die lokale Entwicklung benötigt jeder Entwickler Zugriff auf die Cloud Die
 
 
 # Weitere Werkzeugunterstützung 
-Es gibt diverse Plugins für die Entwicklungsumgebung, die die effiziente Entwicklung, das Deployment und das Debuggen von Cloud Anwendungen ermöglichen, bspw. [AWS Toolkits](https://aws.amazon.com/de/tools/) 
-Und [Google Code](https://cloud.google.com/code/). 
+Es gibt diverse Plugins für die Entwicklungsumgebung, die die effiziente Entwicklung, das Deployment und das Debuggen von Cloud Anwendungen ermöglichen, bspw. [AWS Toolkits](https://aws.amazon.com/de/tools/) oder [Google Code](https://cloud.google.com/code/). 
 AWS bietet mit dem Well [Architected Tool](https://aws.amazon.com/de/well-architected-tool/) ein Werkzeug an, das die Architektur analysiert und Verbesserungempfehlungen ausgibt.
 
 
 # Fazit
-Mit der Rearchitecting Strategie habe ich gezeigt wie eine Anwendung zu einer Cloud native Anwendung überführt werden kann. 
+Mit der Rearchitecting Strategie habe ich gezeigt, wie eine Anwendung in eine Cloud native Anwendung überführt werden kann. 
 Die Rearchitecting Strategie kann und sollte inkrementell angewendet werden, statt in einem großen mehrjährigen Projekt mit einer Big Bang Strategie.
 Somit garantiert die Rearchitecting Strategie zu jederzeit funktionierende und erweiterbare Software.
-Erst mit der Rearchitecting Strategie werden die Vorteile der Cloud wie Kosteneffizienz, betriebliche Qualität und die gesteigerte Entwicklungseffizienz, optimal ausgenutzt.
+Erst mit der Rearchitecting Strategie werden die Vorteile der Cloud wie Kosteneffizienz, betriebliche Qualität und die gesteigerte Entwicklungseffizienz optimal ausgenutzt.
 
 
