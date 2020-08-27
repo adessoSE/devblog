@@ -180,7 +180,7 @@ Datenverschlüsselung wird von Datenbanken und Datenspeicherdiensten unterstütz
 Durch Automatisierung der Infrastruktur mit IaC werden Sicherheits- und Berechtigungsfehler in der Infrastruktur reduziert.
 Zero Downtime Deployments ermöglichen darüber hinaus das schnelle Ausrollen von Sicherheitspatches.
 Außerdem haben die Cloud Anbieter weitere Sicherheitsdienste im Portfolio, die sich leicht in die Anwendung integrieren lassen. 
-Dazu zählen Web Application Firewalls auch Werkzeuge zur statischen Codeprüfung und Sicherheitsratgeber.
+Dazu zählen Web Application Firewalls, aber auch Werkzeuge zur statischen Codeprüfung oder Sicherheitsratgeber.
 
 # Hat die Rearchitecting Strategie auch Nachteile?
 Durch den Einsatz von Cloud native Services verstärkt sich der Vendor Lockin. 
