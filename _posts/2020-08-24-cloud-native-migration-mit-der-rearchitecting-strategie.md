@@ -76,7 +76,7 @@ Mit IaC ist es auch möglich, die Entwicklungsumgebung in der Cloud automatisier
 Die Automatisierung der Infrastruktur sorgt insgesamt für Stabilität und reduziert Fehler durch Anpassungen von Hand.
 
 ## Continuous Delivery (CD)
-Um die schnellere und zuverlässige Auslieferung der Software zu garantieren, wird Continuous Integration und Continuous Delivery eingesetzt.
+Um die schnellere und zuverlässigere Auslieferung der Software zu garantieren, wird Continuous Integration und Continuous Delivery eingesetzt.
 Continuous Integration (CI) sorgt für den automatisierten Build, die Ausführung der Tests und die Veröffentlichung des Artefakts nach jeder Codeänderung. 
 Ich gehe davon aus, dass CI bereits eingesetzt wird.
 
