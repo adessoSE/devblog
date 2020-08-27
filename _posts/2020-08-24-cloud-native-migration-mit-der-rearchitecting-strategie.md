@@ -11,7 +11,7 @@ Mit der Rearchitecting Strategie kann eine Anwendung in eine Cloud native Anwend
 In diesem Beitrag zeige ich, wie die Rearchitecting Strategie kleinschrittig und iterativ angewendet werden kann, sodass auch während der Migration zu jederzeit
 lauffähige und erweiterbarte Software ausgeliefert werden kann und ich zeige, warum sich der Migrationsaufwand lohnt.
 
-In meinem vorangegangenen Blog-Beitrag habe ich [Gründe und Strategien für die Migration einer Applikation in die Cloud](https://www.adesso.de/de/news/blog/gruende-und-strategien-fuer-die-migration-einer-applikation-in-die-cloud.jsp) aufgezeigt.
+In meinem vorangegangenen Blog-Beitrag habe ich die [Gründe und Strategien für die Migration einer Applikation in die Cloud](https://www.adesso.de/de/news/blog/gruende-und-strategien-fuer-die-migration-einer-applikation-in-die-cloud.jsp) aufgezeigt.
 In diesem Beitrag zeige ich, wie die Rearchitecting Strategie angewendet werden kann, um eine Anwendung ein eine Cloud native Anwendungung zu überführen.
 
 Bei der Migration sollte man sich schrittweise einer Cloud native Anwendung annähern, indem man die Strategien Rehosting, Replatforming und Rearchitecting nacheinander anwendet.
