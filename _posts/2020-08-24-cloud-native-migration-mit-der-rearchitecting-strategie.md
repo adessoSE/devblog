@@ -156,7 +156,7 @@ Wenn eine Komponente nicht genutzt wird, entstehen auch keine Kosten.
 Das gilt nicht nur für Computing Ressourcen, sondern auch Speicherdienste, Datenbanken und andere Cloud native Dienste. 
 
 ## Entwicklungseffizienz
-Mit der Umstellung auf Cloud native Services wurde ein großer Teil der Infrastruktur Verantwortung an den Cloud Anbieter ausgelagert, wodurch mehr Fokus auf die Weiterentwicklung der Anwendung gelegt werden kann. 
+Mit der Umstellung auf Cloud native Services wurde ein großer Teil der infrastrukturellen Verantwortung an den Cloud Anbieter ausgelagert, wodurch mehr Fokus auf die Weiterentwicklung der Anwendung gelegt werden kann. 
 Der aufwändige Aufbau, die Wartung und das Patchen der Infrastruktur wurden drastisch reduziert.
 Die Erweiterung der Anwendung wird vereinfacht, da die Services der Cloud Anbieter einfach miteinander integrierbar sind.
 
