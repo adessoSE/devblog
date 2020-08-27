@@ -27,7 +27,7 @@ In diesem Beitrag zeige ich, wie die Rearchitecting Strategie iterativ und inkre
 
 Vor der Rearchitecting Strategie sollte bereits die Rehosting und Replatforming Strategie angewendet worden sein. 
 D.h. die Anwendung läuft bereits in der Cloud und einige Dienste wie die Datenbank sind bereits an den Cloud Anbieter ausgelagert worden.
-Die Anwendung wird auf virtuellen Maschinen betrieben oder in einer Container Umgebung wie Kubernetes.
+Außerdem wird die Anwendung auf virtuellen Maschinen oder in einer Container Umgebung wie Kubernetes betrieben.
 Trotzdem gibt es großes Optimierungspotential bei der Kosteneffizienz, der Entwicklungseffizienz und der betrieblichen Qualität, wie die folgende Grafik veranschaulicht.
  
 ![Kosten und Nutzen der Rearchitecting Strategie im Vergleich](/assets/images/posts/cloud-native-migration-mit-der-rearchitecting-strategie/aufwand-nutzen.png) 
@@ -200,4 +200,3 @@ Mit der Rearchitecting Strategie habe ich gezeigt, wie eine Anwendung in eine Cl
 Die Rearchitecting Strategie kann und sollte inkrementell angewendet werden, statt in einem großen mehrjährigen Projekt mit einer Big Bang Strategie.
 Somit garantiert die Rearchitecting Strategie zu jederzeit funktionierende und erweiterbare Software.
 Erst mit der Rearchitecting Strategie werden die Vorteile der Cloud wie Kosteneffizienz, betriebliche Qualität und die gesteigerte Entwicklungseffizienz optimal ausgenutzt.
-
