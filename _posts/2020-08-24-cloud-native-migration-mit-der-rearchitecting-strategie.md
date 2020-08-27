@@ -170,7 +170,7 @@ Zero-Downtime Deployments ermöglichen es, häufiger und zu jeder Tageszeit Soft
 Die Logging und Alerting Dienste der Cloud Anbieter ermöglichen die frühzeitige Erkennung von Fehlern. 
 Datensicherung, Datenversionierung und Rollbacks sind einfach zu konfigurieren.
 Durch die automatische Skalierung ist die Performanz der Anwendung jederzeit sichergestellt. 
-Die Auslagerung der statischen Webseiten in Kombination mit dem CDN sorgt für niedrigste Latenzen.
+Die Auslagerung der statischen Webseiten in Kombination mit dem CDN sorgt für niedrige Latenzen.
 
 
 ## Sicherheit
