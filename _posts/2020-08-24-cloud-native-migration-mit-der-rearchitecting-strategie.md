@@ -46,7 +46,7 @@ Google nennt das Vorgehen „move-and-improve“.
 
 Bei der Rearchitecting Strategie werden möglichst viele Komponenten und Dienste der Anwendung an den Cloud Anbieter ausgelagert, denn der Cloud Anbieter ist auf den Betrieb dieser Dienste spezialisiert. 
 Dadurch reduziert sich der Wartungsaufwand für Infrastrukturkomponenten und es kann mehr Fokus auf die Weiterentwicklung des Geschäftsmodells gelegt werden.
-Im folgenden Abschnitt erläutere ich die Schritte bei der Anwendung der Rearchitecting Strategie.
+Im folgenden Abschnitt erläutere ich die Schritte, aus denen die Rearchitecting Strategie besteht.
 
 ## Umstellung der Laufzeitumgebung
 Falls noch nicht in einem vorhergehenden Schritt geschehen, sollte die Anwendung in Docker Containern betrieben werden. Docker ist ein Standard, der von allen Cloud Anbietern unterstützt wird. 
