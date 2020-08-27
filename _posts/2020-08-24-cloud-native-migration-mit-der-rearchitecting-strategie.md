@@ -56,8 +56,7 @@ Die Cloud Anbieter bieten verschiedene Container Ausführungsumgebungen an.
 Es sollten die Laufzeitumgebungen gewählt werden, bei denen möglichst viel betriebliche Verantwortung an den Cloud Anbieter ausgelagert wird.
 Bei diesen höherwertigen Diensten liegt das Autoscaling, Scale-to-Zero und das regelmäßige Einspielen von Sicherheitspatches im Verantwortungsbereich des Cloud Anbieters.
 
-Die Softwareartefakte werden als Docker Images in eine Container Registry ausgeliefert. 
-Alle großen Cloud Anbieter bieten dafür eine Container Registry als Service an.
+Die Softwareartefakte werden als Docker Images in eine Container Registry ausgeliefert, die von jedem großen Cloud Anbietern zur Verfügung gestellt wird.
 
 Folgende Liste bietet eine Übersicht über die Container Laufzeitumgebungen der großen Cloudanbieter, aufsteigend sortiert nach der Wertigkeit:
 - AWS: Elastic Kubernetes Services, Elastic Beanstalk, Elastic Container Service, Fargate
