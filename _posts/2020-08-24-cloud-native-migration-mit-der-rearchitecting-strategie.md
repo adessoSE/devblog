@@ -42,7 +42,7 @@ Schauen wir uns im nächsten Abschnitt die Rearchitecting Strategie genauer an.
 
 Die Rearchitecting Strategie sollte inkrementell nach den Grundprinzipien der agilen Softwareentwicklung angewendet werden. 
 Das garantiert zu jeder Zeit lauffähige Software, die auch während der Cloud Migration um neue Features erweitert werden kann. 
-Google nennt das Vorgehen „move-and-improve“.
+Google nennt das Vorgehen „move-and-improve".
 
 Bei der Rearchitecting Strategie werden möglichst viele Komponenten und Dienste der Anwendung an den Cloud Anbieter ausgelagert, denn der Cloud Anbieter ist auf den Betrieb dieser Dienste spezialisiert. 
 Dadurch reduziert sich der Wartungsaufwand für Infrastrukturkomponenten und es kann mehr Fokus auf die Weiterentwicklung des Geschäftsmodells gelegt werden.
@@ -64,7 +64,7 @@ Folgende Liste zeigt eine Übersicht über die Container Laufzeitumgebungen der 
 - Azure: Azure Kubernetes Service, Azure Container Instances
 
 ## Automatisierung der Infrastruktur
-Bei allen Cloud Anbietern können Infrastrukturkomponenten wie Virtuelle Maschinen, Datenspeicher, Netzwerkkomponenten und auch die zugehörigen Berechtigungen als „Infrastructure as Code“ (kurz IaC) definiert werden.
+Bei allen Cloud Anbietern können Infrastrukturkomponenten wie Virtuelle Maschinen, Datenspeicher, Netzwerkkomponenten und auch die zugehörigen Berechtigungen als "Infrastructure as Code" (kurz IaC) definiert werden.
 Das bedeutet, dass die Infrastruktur und zugehörige Berechtigungen als Programmcode in einem Infrastrukturtemplate definiert werden.
 Wenn IaC noch nicht eingesetzt wurde, dann wird es jetzt mit der Rearchitecting Strategie eingeführt.
 Jeder Cloud-Anbieter hat dazu seinen eigenen Dienst. Als unabhängiges Werkzeug hat sich jedoch [Terraform](https://www.terraform.io/) etabliert.
@@ -135,7 +135,7 @@ Dazu eignen sich besonders asynchrone oder eventbasierte Abläufe, wie Dokumente
 Einige Programmiersprachen bzw. Frameworks wie Go, NodeJS oder Quarkus sind für FaaS deutlich besser geeignet als bspw. Java und Spring. 
 Bei Letzterem sollte die Umstellung auf FaaS mit einer Umstellung der Programmiersprache einhergehen.
 
-Die Zerlegung kann unter Anwendung des „[Strangler Fig Pattern](https://martinfowler.com/bliki/StranglerFigApplication.html)“ für evolutionäre Architekturen inkrementell erfolgen.
+Die Zerlegung kann unter Anwendung des "[Strangler Fig Pattern](https://martinfowler.com/bliki/StranglerFigApplication.html)" für evolutionäre Architekturen inkrementell erfolgen.
 Die folgende Grafik veranschaulicht das Vorgehensmodell des Strangler Fig Pattern.
  
 ![Das Strangler Fig Pattern](/assets/images/posts/cloud-native-migration-mit-der-rearchitecting-strategie/strangler-fig-pattern.png)  
