@@ -54,11 +54,11 @@ Es unterstützt die Automatisierung der Betriebsumgebung und reduziert dadurch d
 
 Die Cloud Anbieter bieten verschiedene Container Ausführungsumgebungen an. 
 Es sollten die Laufzeitumgebungen gewählt werden, bei denen möglichst viel betriebliche Verantwortung an den Cloud Anbieter ausgelagert wird.
-Bei diesen höherwertigen Diensten liegt das Autoscaling, Scale-to-Zero und das regelmäßige Einspielen von Sicherheitspatches im Verantwortungsbereich des Cloud Anbieters.
+Bei diesen hoch automatisierten Laufzeitumgebungen liegt das Autoscaling, Scale-to-Zero und das regelmäßige Einspielen von Sicherheitspatches im Verantwortungsbereich des Cloud Anbieters.
 
 Die Softwareartefakte werden als Docker Images in eine Container Registry ausgeliefert, die von jedem großen Cloud Anbietern zur Verfügung gestellt wird.
 
-Folgende Liste bietet eine Übersicht über die Container Laufzeitumgebungen der großen Cloudanbieter, aufsteigend sortiert nach der Wertigkeit:
+Folgende Liste zeigt eine Übersicht über die Container Laufzeitumgebungen der großen Cloudanbieter, aufsteigend sortiert nach dem Grad der Automatisierung:
 - AWS: Elastic Kubernetes Services, Elastic Beanstalk, Elastic Container Service, Fargate
 - Google: Google Kubernetes Engine, Google Cloud Run
 - Azure: Azure Kubernetes Service, Azure Container Instances
@@ -81,7 +81,7 @@ Continuous Integration (CI) sorgt für den automatisierten Build, die Ausführun
 Ich gehe davon aus, dass CI bereits eingesetzt wird.
 
 Continuous Delivery (CD) erweitert CI und sorgt dafür, dass gebaute Artefakte automatisiert in die Produktion gebracht werden können. 
-Voraussetzung dafür ist eine gute Testabdeckung.
+Um die Softwarequalität in jedem Release automatisiert zu prüfen, ist eine gute Testabdeckung erforderlich.
 Die Automatisierung der Deployments reduziert manuelle Fehler und erhöht die Stabilität und Verfügbarkeit der Software. 
 Als Werkzeuge können sowohl Cloud Dienste, als auch Build-Server von Drittanbietern wie Jenkins eingesetzt werden. 
 Da der Betrieb von Build-Servern wartungsaufwändig ist, sollte man auch den Einsatz einer komplett verwalteten Continuous Delivery Pipeline des jeweiligen Cloud Anbieters in Erwägung ziehen.
@@ -191,7 +191,7 @@ Für die lokale Entwicklung benötigt jeder Entwickler Zugriff auf die Cloud Die
 
 # Weitere Werkzeugunterstützung 
 Es gibt diverse Plugins für die Entwicklungsumgebung, die die effiziente Entwicklung, das Deployment und das Debuggen von Cloud Anwendungen ermöglichen, bspw. [AWS Toolkits](https://aws.amazon.com/de/tools/) oder [Google Code](https://cloud.google.com/code/). 
-AWS bietet mit dem Well [Architected Tool](https://aws.amazon.com/de/well-architected-tool/) ein Werkzeug an, das die Architektur analysiert und Verbesserungempfehlungen ausgibt.
+AWS bietet mit dem [Well Architected Tool](https://aws.amazon.com/de/well-architected-tool/) ein Werkzeug an, das die Architektur analysiert und Verbesserungempfehlungen ausgibt.
 
 
 # Fazit
