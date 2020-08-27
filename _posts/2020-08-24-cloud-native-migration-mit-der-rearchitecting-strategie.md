@@ -197,5 +197,5 @@ AWS bietet mit dem Well [Architected Tool](https://aws.amazon.com/de/well-archit
 # Fazit
 Mit der Rearchitecting Strategie habe ich gezeigt, wie eine Anwendung in eine Cloud native Anwendung überführt werden kann. 
 Die Rearchitecting Strategie kann und sollte inkrementell angewendet werden, statt in einem großen mehrjährigen Projekt mit einer Big Bang Strategie.
-Somit garantiert die Rearchitecting Strategie zu jederzeit funktionierende und erweiterbare Software.
+Die Rearchitecting Strategie garantiert dabei zu jederzeit funktionierende und erweiterbare Software.
 Erst mit der Rearchitecting Strategie werden die Vorteile der Cloud wie Kosteneffizienz, betriebliche Qualität und die gesteigerte Entwicklungseffizienz optimal ausgenutzt.
