@@ -42,7 +42,7 @@ Schauen wir uns im nächsten Abschnitt die Rearchitecting Strategie genauer an.
 
 Die Rearchitecting Strategie sollte inkrementell nach den Grundprinzipien der agilen Softwareentwicklung angewendet werden. 
 Das garantiert zu jeder Zeit lauffähige Software, die auch während der Cloud Migration um neue Features erweitert werden kann. 
-Google nennt das Vorgehen „move-and-improve".
+Google nennt das Vorgehen "move-and-improve".
 
 Bei der Rearchitecting Strategie werden möglichst viele Komponenten und Dienste der Anwendung an den Cloud Anbieter ausgelagert, denn der Cloud Anbieter ist auf den Betrieb dieser Dienste spezialisiert. 
 Dadurch reduziert sich der Wartungsaufwand für Infrastrukturkomponenten und es kann mehr Fokus auf die Weiterentwicklung des Geschäftsmodells gelegt werden.
