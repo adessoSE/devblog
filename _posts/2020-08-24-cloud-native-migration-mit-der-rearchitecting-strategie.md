@@ -158,7 +158,7 @@ Das gilt nicht nur für Computing Ressourcen, sondern auch Speicherdienste, Date
 ## Entwicklungseffizienz
 Mit der Umstellung auf Cloud native Services wurde ein großer Teil der infrastrukturellen Verantwortung an den Cloud Anbieter ausgelagert, wodurch mehr Fokus auf die Weiterentwicklung der Anwendung gelegt werden kann. 
 Der Aufwand für den Aufbau, die Wartung und das Patchen der Infrastruktur wurden drastisch reduziert.
-Die Erweiterung der Anwendung wird vereinfacht, da die Services der Cloud Anbieter einfach miteinander integrierbar sind.
+Die Erweiterung der Anwendung wird vereinfacht, da die Services der Cloud Anbieter einfach untereinander verbunden werden können.
 
 ## Betriebliche Qualität
 Die Infrastrukturautomatisierung ermöglicht die Versionierung und den reproduzierbaren Aufbau der Infrastruktur. 
