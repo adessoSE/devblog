@@ -133,7 +133,7 @@ Die Anwendung sollte in Microservices aufgeteilt werden, falls noch nicht gesche
 Innerhalb der Microservices sollte geprüft werden, ob einzelne Funktionen der Anwendung als Serverless Functions bzw. Functions as a Service (FaaS) ausgelagert werden können.  
 Dazu eignen sich besonders asynchrone oder eventbasierte Abläufe, wie Dokumenten- oder Bildverarbeitung, die schnell hoch und runter skalieren müssen und unregelmäßig verwendet werden.
 Einige Programmiersprachen bzw. Frameworks wie Go, NodeJS oder Quarkus sind für FaaS deutlich besser geeignet als bspw. Java und Spring. 
-In letzterem Fall sollte die Umstellung auf FaaS mit der Umstellung der Programmiersprache einhergehen.
+Bei Letzterem sollte die Umstellung auf FaaS mit einer Umstellung der Programmiersprache einhergehen.
 
 Die Zerlegung kann unter Anwendung des „[Strangler Fig Pattern](https://martinfowler.com/bliki/StranglerFigApplication.html)“ für evolutionäre Architekturen inkrementell erfolgen.
 Die folgende Grafik veranschaulicht das Vorgehensmodell des Strangler Fig Pattern.
