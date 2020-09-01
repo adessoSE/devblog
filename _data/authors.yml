@@ -330,3 +330,12 @@ kiliankrause:
   bio: "Kilian Krause ist als Werkstudent im Open-Source-Team bei adesso in Dortmund tätig."
   avatar_url: /assets/images/avatars/kiliankrause.jpg
   github: https://github.com/KilianKrause
+
+sramathas:
+  first_name: Sasisegaran
+  last_name: Ramathas
+  github_username: segvr
+  email: sasisegaran.ramathas@adesso.de
+  bio: "Sasisegaran Ramathas ist als Tester im Testforce-Team bei adesso in Dortmund tätig."
+  avatar_url: /assets/images/avatars/segvr.jpg
+  github: https://github.com/segvr
