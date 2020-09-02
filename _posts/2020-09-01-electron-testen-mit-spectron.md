@@ -136,10 +136,10 @@ Damit wird die Anwendung also nach jedem Testfall geschlossen.
 
 In unserem Fall haben wir genau einen Testfall, den wir ausführen wollen. 
 Der Ablauf von diesem automatisierten Test ist: 
-1.)	    Anwendung starten 
-2.)     Warten bis die Anwendung geladen wurde 
-3.) 	Auslesen des Titels anhand des TagName (h1) und Speicherung in einer Variable 
-4.) 	Vergleich zwischen dem erzeugten Wert und dem erwarteten Wert 
+1. Anwendung starten 
+2. Warten bis die Anwendung geladen wurde 
+3. Auslesen des Titels anhand des TagName (h1) und Speicherung in einer Variable 
+4. Vergleich zwischen dem erzeugten Wert und dem erwarteten Wert 
 
 
 # Fazit
