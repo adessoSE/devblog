@@ -142,6 +142,7 @@ Der Ablauf von diesem automatisierten Test ist:
 4. Vergleich zwischen dem erzeugten Wert und dem erwarteten Wert 
 
 
+
 # Fazit
 
 Um mit Spectron, automatisierte Tests zu entwickeln, wäre es von Vorteil, wenn man fundierte Kenntnisse in Programmiersprachen besitzt wie TypeScript. 
