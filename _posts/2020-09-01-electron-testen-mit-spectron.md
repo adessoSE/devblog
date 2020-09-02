@@ -93,7 +93,7 @@ Sobald wir das Kommando „npm run test“ ausführen, schaut Mocha nach ausfüh
 Im Folgenden sehen wir eine kleine Beispiel Anwendung auf der eine Loginmaske platziert ist. 
 Wir werden nun einen einfachen Test schreiben, bei dem wir die Überschrift der angezeigten Seite überprüfen.
 
-![Login Maske Demo Anwendung](assets/images/posts/electron-testen-mit-spectron/login_maske.png)
+![Login Maske Demo Anwendung](/assets/images/posts/electron-testen-mit-spectron/login_maske.png)
 
 Bei diesem Testfall werden wir die Anwendung starten, die Überschrift auslesen und diesen mit unserer Erwartung vergleichen. 
 Die Testklasse für diesen Anwendungsfall sieht folgendermaßen aus: 
