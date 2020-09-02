@@ -7,7 +7,6 @@ categories: [Softwareentwicklung]     # Pflichtfeld. Maximal eine der angegebene
 tags: [Testing, Spectron, Electron]   # Optional.
 ---
 
-
 Im Rahmen eines Projektes wird eine Anwendung für den Bereich Gesundheitswesen von adesso entwickelt. 
 Die Anwendung soll keine herkömmliche Webapplikation sein, sondern eine Desktopanwendung. 
 Der ein oder andere hat bestimmt schon von plattformunabhängigen Frameworks gehört, um Desktopanwendungen für die Betriebssysteme Windows, MacOS und Linux mit einer Codebasis zu entwickeln. 
@@ -16,6 +15,7 @@ Mit dem Electron Framework ist es möglich durch Web-Technologien, Anwendungen d
 Die Anwendung kann wie gewohnt installiert und aus der Taskleiste gestartet werden. 
 Ein großer Vorteil gegenüber Webapplikationen ist der, dass die Anwendung offlinefähig ist. 
 Denn unser Kunde wird mit der Anwendung arbeiten auch wenn er keine Verbindung zum Internet hat und kann später seinen Arbeitsstand synchronisieren, wenn er mit dem Internet verbunden ist. 
+
 
 
 # Electron
@@ -33,6 +33,7 @@ Tests sind ein wichtiges Element in dem Entwicklungsprozess, die vor einem Relea
 Dazu haben wir automatisierte Regressionstests, mit denen wir bei jedem Release die alten und soweit es geht, auch die neuen Funktionen testen.
 
 
+
 # Spectron
 
 Nun, wie testet man eine Electron Anwendung automatisiert? 
@@ -44,6 +45,7 @@ Spectron ist die hauseigene Testbibliothek für Electron Anwendungen, welches ei
 Spectron baut auf ChromeDriver und WebDriverIO auf und durch die Unterstützung von Mocha und Chai können automatisierte End-to-End Tests entwickelt werden. 
 
 
+
 # Beispiel
 
 Da die Anwendung für unseren Kunden noch in der Entwicklung ist, und diese noch nicht veröffentlicht werden darf, habe ich eine eigene kleine Beispielanwendung in Electron erstellt. 
@@ -53,6 +55,7 @@ Im Folgenden werden wir einen kleinen Test zusammen entwickeln, um Euch einen ku
 npm install –save-dev spectron 
 ```
  
+ 
 Damit wir in unserem Test Vergleiche anwenden können, um zum Beispiel Werte auszulesen und zu prüfen ob sie richtig sind, benötigen wir hier Chai. 
 Zusätzlich installieren wir noch Mocha. Mocha ist ein Test-Framework für Node.js. 
 Chai und Mocha wird auf die gleiche Weise wie Spectron installiert: 
@@ -60,6 +63,7 @@ Chai und Mocha wird auf die gleiche Weise wie Spectron installiert:
  ```sh
 npm install mocha chai 
 ``` 
+
 
 Nachdem wir unsere nötigen Packages hinzugefügt haben, sollte unsere Package.json folgendermaßen aussehen: 
 
@@ -73,6 +77,7 @@ Nachdem wir unsere nötigen Packages hinzugefügt haben, sollte unsere Package.j
 } 
 ```
 
+
 Als nächstes bearbeiten wir unser Package.json. 
 Wir ergänzen diese um ein Kommando um die Tests ausführen zu können.
 
@@ -81,6 +86,7 @@ Wir ergänzen diese um ein Kommando um die Tests ausführen zu können.
 "test": "mocha" 
 } 
 ```
+
 
 Sobald wir das Kommando „npm run test“ ausführen, schaut Mocha nach ausführbaren Tests und führt diese dann aus. 
 
@@ -118,6 +124,7 @@ describe('Sample Test', () => {
 }); 
 ```
 
+
 Die Syntax ‚Describe‘ entspricht einer TestSuite. 
 Innerhalb dieser TestStuite können sich mehrere Testfälle (it) befinden, welche zum Beispiel prüfen, ob ein erwarteter Wert angezeigt wird. 
 In der Helper Klasse befinden sich die Methoden, um die Anwendung zu starten und zu beenden. 
@@ -133,6 +140,7 @@ Der Ablauf von diesem automatisierten Test ist:
 2.)     Warten bis die Anwendung geladen wurde 
 3.) 	Auslesen des Titels anhand des TagName (h1) und Speicherung in einer Variable 
 4.) 	Vergleich zwischen dem erzeugten Wert und dem erwarteten Wert 
+
 
 # Fazit
 
