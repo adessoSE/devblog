@@ -3,8 +3,8 @@ layout: [post, post-xml]              # Pflichtfeld. Nicht ändern!
 title:  "End-2-End-Tests für Electron Anwendungen"     # Pflichtfeld. Bitte einen Titel für den Blog Post angeben.
 date:   2020-07-08 15:00              # Pflichtfeld. Format "YYYY-MM-DD HH:MM". Muss für Veröffentlichung in der Vergangenheit liegen. (Für Preview egal)
 author: sramathas                     # Pflichtfeld. Es muss in der "authors.yml" einen Eintrag mit diesem Namen geben.
-categories: [Inside adesso]       # Pflichtfeld. Maximal eine der angegebenen Kategorien verwenden.
-tags: [Testing, Spectron, Electron]                       # Optional.
+categories: [Softwareentwicklung]     # Pflichtfeld. Maximal eine der angegebenen Kategorien verwenden.
+tags: [Testing, Spectron, Electron]   # Optional.
 ---
 
 
@@ -63,6 +63,76 @@ npm install mocha chai
 
 Nachdem wir unsere nötigen Packages hinzugefügt haben, sollte unsere Package.json folgendermaßen aussehen: 
 
+```json
+"devDependencies": { 
+  "chai": "^3.5.0", 
+      "chai-as-promised": "^5.3.0", 
+      "electron": "^1.3.4", 
+      "mocha": "^3.0.2", 
+      "spectron": "^3.4.0" 
+} 
+```
+
+Als nächstes bearbeiten wir unser Package.json. 
+Wir ergänzen diese um ein Kommando um die Tests ausführen zu können.
+
+```json
+"scripts": { 
+"test": "mocha" 
+} 
+```
+
+Sobald wir das Kommando „npm run test“ ausführen, schaut Mocha nach ausführbaren Tests und führt diese dann aus. 
+
+Im Folgenden sehen wir eine kleine Beispiel Anwendung auf der eine Loginmaske platziert ist. 
+Wir werden nun einen einfachen Test schreiben, bei dem wir die Überschrift der angezeigten Seite überprüfen.
+
+![Login Maske Demo Anwendung](assets/images/posts/electron-testen-mit-spectron/login_maske.png)
+
+Bei diesem Testfall werden wir die Anwendung starten, die Überschrift auslesen und diesen mit unserer Erwartung vergleichen. 
+Die Testklasse für diesen Anwendungsfall sieht folgendermaßen aus: 
+
+```typescript
+const helper = require('./helper'); 
+const chai = require('chai'); 
+const expect = chai.expect; 
+ 
+describe('Sample Test', () => { 
+  let app; 
+ 
+  beforeEach(async () => { 
+    app = await helper.startApp(); 
+  }); 
+ 
+  afterEach(async() => { 
+    await helper.stopApp(app); 
+  }); 
+ 
+  it('opens a window', async() => { 
+    await app.client.waitUntilWindowLoaded(); 
+    const ueberschrift = await app.client.getText('h1'); 
+    console.log(ueberschrift); 
+    expect(ueberschrift).to.be.equal('Login Form^'); 
+  }); 
+ 
+}); 
+```
+
+Die Syntax ‚Describe‘ entspricht einer TestSuite. 
+Innerhalb dieser TestStuite können sich mehrere Testfälle (it) befinden, welche zum Beispiel prüfen, ob ein erwarteter Wert angezeigt wird. 
+In der Helper Klasse befinden sich die Methoden, um die Anwendung zu starten und zu beenden. 
+Das Starten und Beenden der Anwendung befindet sich jeweils in einer beforeEach() und afterEarch() Methode. 
+Die beforeEach() Methode wird vor jeden Testfall ausgeführt. 
+Also Starten wir vor jedem Testfall den Client neu. 
+Die afterEach() Methode wird entsprechend nach jedem Testfall ausgeführt. 
+Damit wird die Anwendung also nach jedem Testfall geschlossen.  
+
+In unserem Fall haben wir genau einen Testfall, den wir ausführen wollen. 
+Der Ablauf von diesem automatisierten Test ist: 
+1.)	    Anwendung starten 
+2.)     Warten bis die Anwendung geladen wurde 
+3.) 	Auslesen des Titels anhand des TagName (h1) und Speicherung in einer Variable 
+4.) 	Vergleich zwischen dem erzeugten Wert und dem erwarteten Wert 
 
 # Fazit
 
