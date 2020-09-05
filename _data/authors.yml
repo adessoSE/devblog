@@ -7,12 +7,12 @@ shsanayei:
   avatar_url: /assets/images/avatars/shsanayei.png
   github: https://github.com/shsanayei
 
-david:
+daklassen:
   first_name: David
   last_name: Klassen
   github_username: daklassen
   email: daviddd.kl@gmail.com
-  bio:
+  bio: "David Klassen ist Fullstack Software Engineer bei adesso. Neben seiner Arbeit in Kundenprojekten beschäftigt er sich gerne mit Open Source Software und neuen Technologien oder Patterns."
   avatar_url: /assets/images/avatars/david.png
   github: https://github.com/daklassen
 
