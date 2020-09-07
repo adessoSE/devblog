@@ -211,7 +211,7 @@ Hierbei handelt es sich natürlich um sehr einfache Beispiele.
 In einem realen Projekt hätten wir mit Sicherheit eine größere Komplexität und weitere Besonderheiten. 
 Vielleicht existieren spezielle Annotationen für Prozesse und Services – eine Überprüfung hierauf wäre aber nicht komplizierter als die Prüfung auf den Klassennamen. 
 Die Prüfung auf die Annotation könnte uns dann auch wieder Hilfsklassen mit anderen Namen in den Schichten erlauben, die durch die Namensprüfung aktuell ausgeschlossen wären.
-Insgesamt haben wir bisher denke ich ein gutes Bild erhalten, wie wir mit wenigen Zeilen Code, die dazu recht sprechend sind, architekturelle Vorgaben sicherstellen können.
+Insgesamt haben wir bisher ein gutes Bild erhalten, wie wir mit wenigen Zeilen Code, die dazu recht sprechend sind, architekturelle Vorgaben sicherstellen können.
 
 
 # Umgang mit Legacy Code und gewollten Abweichungen
