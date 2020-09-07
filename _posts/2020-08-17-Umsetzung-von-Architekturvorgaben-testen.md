@@ -242,7 +242,7 @@ Und ein roter Test wird gleich ein paar Fragen aufwerfen:
 Warum haben wir eine Abweichung? Brauchen wir hier wirklich eine Ausnahme? 
 Und selbst, wenn wir zu dem Schluss kommen, dass die Abweichung im besten Sinne des Projektes ist: 
 Vielleicht können wir die Korrektur zu dieser Ausnahme direkt einplanen? 
-Braucht es die Ausnahme wirklich auch im Branch für das kommende Release?
+Braucht es die Ausnahme auch im Branch für das kommende Release?
 
 
 # Fazit
