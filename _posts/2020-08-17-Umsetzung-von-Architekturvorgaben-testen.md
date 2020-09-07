@@ -156,7 +156,7 @@ Es gibt viele weitere vordefinierte Prüfungen und Einschränkungen – statt au
 Hierbei ist zu beachten, dass eine Prüfung in der Language-Schicht üblicherweise wie folgt aussieht: 
 "Klassen mit ${Einschränkung/Predicate} sollten ${Bedingung/Condition} erfüllen."
 
-Beim selbst Erstellen einer eigenen Prüfung können wir daher bei der Einschränkung oder der Bedingung ansetzen. 
+Beim Erstellen einer eigenen Prüfung können wir daher bei der Einschränkung oder der Bedingung ansetzen. 
 In diesem Beispiel fehlt uns noch eine Bedingung, die verhindert, dass von Prozessen auf andere Prozesse zugegriffen wird. 
 Die Einschränkung von oben aus der Library API konnte das nicht abdecken, da diese die Zugriffe innerhalb eines Layers nicht begrenzt. 
 
