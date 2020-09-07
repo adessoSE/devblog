@@ -164,7 +164,7 @@ Die Einschränkung von oben aus der Library API konnte das nicht abdecken, da di
 ## Core API - Alles andere geht hiermit
 
 Wenn wir diese Beschränkung nun umsetzen wollen, bekommen wir auch einen ersten Kontakt zur Core-API von ArchUnit. 
-Diese verwendet zu einem großen Teil Konzepte, wie wir sie von der Java Reflection API kennen, erweitert diese aber, um die Beziehungen zwischen Code besser darstellen zu können. 
+Diese verwendet zu einem großen Teil Konzepte, wie wir sie von der Java Reflection API kennen, erweitert diese aber, um die Beziehungen zwischen Code-Fragmenten besser darstellen zu können. 
 
 Die Bedingung, dass Prozesse nicht auf andere Prozesse zugreifen dürfen, könnte man nun beispielsweise wie folgt umsetzen:
 
