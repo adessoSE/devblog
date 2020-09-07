@@ -123,7 +123,7 @@ Beim ausführen dieser Klasse als JUnit Test, geht ArchUnit nun über die Klasse
 Ist dies der Fall, wird der Test rot – ein nicht vorgesehener Zugriff auf Schichten wird somit verhindert.
 
 Dieses Beispiel zeigt, wie einfach die Library Schicht zu verwenden ist. 
-Neben der Prüfung auf Schichten Architekturen bietet die Library Schicht noch viele weitere Möglichkeiten wie Prüfungen für Hexagonale Architekturen oder auch generelle Programmierrichtlinien. 
+Neben der Prüfung auf Schichten Architekturen bietet die Library API noch viele weitere Möglichkeiten wie Prüfungen für Hexagonale Architekturen oder auch generelle Programmierrichtlinien. 
 Aber natürlich kann ArchUnit mit der Library API keine vorgefertigte Blaupause für alle architekturellen Vorgaben bieten. 
 
 
