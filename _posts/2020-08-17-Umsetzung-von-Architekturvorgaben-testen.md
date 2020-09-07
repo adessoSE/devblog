@@ -16,8 +16,8 @@ Wie dies mit Hilfe von Tool Unterstützung durch ArchUnit sichergestellt werden 
 
 Dies ist ein Satz, den ich schon häufig gehört habe, genauso wie sicherlich auch die meisten anderen Entwickler in IT Projekten. 
 Es ist ein Satz der häufig erklären soll, warum etwas nicht so aussieht wie man es erwartet. 
-Nicht so, wie es aussehen sollte. 
-Nicht so, wie es beim Aufsetzen des Projektes die Architektur noch vorgesehen hatte.
+Er soll entschuldigen, dass etwas nicht so aussieht, wie es aussehen sollte. 
+Und damit meint der Satz häufig, dass etwas nicht so aussieht, wie es die Architektur beim Aufsetzen des Projektes noch vorgesehen hatte.
 
 Wie genau es dazu kam, lässt sich in den meisten Fällen nicht mehr herausfinden – aber Gründe dafür kann es viele geben. 
 Und diese Abweichungen können bewusst oder unbewusst entstanden sein. 
