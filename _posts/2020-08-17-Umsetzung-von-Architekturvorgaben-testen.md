@@ -25,7 +25,7 @@ Bewusst, vielleicht unter Zeitnot, um eine Deadline zu halten, und mit dem Ziel,
 Oder unbewusst, da einem Entwickler nicht klar war, dass dies kein wünschenswerter Lösungsansatz war. 
 Vielleicht war er auch einfach neu dabei, und er war mit der Architektur noch nicht vertraut. 
 Sind diese Abweichungen jedenfalls erstmal da, werden sie häufig nicht gleich wieder korrigiert.
-Dann verfestigen sie sich durch weiteren Code, der auf diese aufbaut.
+Dann verfestigen sie sich durch weiteren Code, der auf diesen Abweichungen aufbaut.
 
 Und genau hier setzt ArchUnit an. 
 Unbewusste Abweichungen sollen vermieden werden – und das ganze so einfach, dass es für jeden Entwickler natürlich ist, sie zu entdecken. 
