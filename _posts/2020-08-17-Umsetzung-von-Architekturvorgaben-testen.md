@@ -151,7 +151,7 @@ Sicherstellen, dass Klassen entsprechend der Erwartung benannt sind.
 			.should().haveSimpleNameEndingWith("Service");
 ```
 
-Wie angekündigt sind die Regeln der Language API selbsterklärend, aufgrund der sprechenden Benennung – die Möglichkeiten aber dennoch sehr vielseitig. 
+Wie angekündigt sind die Regeln der Language API aufgrund der sprechenden Benennung selbsterklärend – die Möglichkeiten sind aber dennoch sehr vielseitig. 
 Es gibt viele weitere vordefinierte Prüfungen und Einschränkungen – statt auf den Namen können wir zum Beispiel auch auf Annotationen, Modifier oder den Zugriff auf andere Klassen prüfen. Zudem lassen sich auch weitere Prüfungen selber definieren. 
 Hierbei ist zu beachten, dass eine Prüfung in der Language-Schicht üblicherweise wie folgt aussieht: 
 "Klassen mit ${Einschränkung/Predicate} sollten ${Bedingung/Condition} erfüllen."
