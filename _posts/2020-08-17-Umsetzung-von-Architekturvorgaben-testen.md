@@ -27,10 +27,10 @@ Vielleicht war er auch einfach neu dabei, und er war mit der Architektur noch ni
 Sind diese Abweichungen jedenfalls erstmal da, werden sie häufig nicht gleich wieder korrigiert.
 Dann verfestigen sie sich durch weiteren Code, der auf diesen Abweichungen aufbaut.
 
-Und genau hier setzt ArchUnit an. 
-Unbewusste Abweichungen sollen vermieden werden – und das ganze so einfach, dass es für jeden Entwickler natürlich ist, sie zu entdecken. 
-So natürlich, wie über Unit Tests sicherzustellen, dass ein Modul funktioniert: 
-ArchUnit erlaubt es uns, die Architektur über Unit Tests zu validieren! 
+Und genau hier setzt ArchUnit an: 
+Unbewusste Abweichungen sollen vermieden werden. 
+Und das ganze auf eine Weise, die sich für Entwickler völlig natürlich anfühlt, sie zu verwenden.
+Daher schafft ArchUnit die Möglickeit die Einhaltung von Architekturvorgaben über Unit Tests zu validieren! 
 
 
 # Architekturelle Abweichungen über Tests entdecken!
