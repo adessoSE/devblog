@@ -29,7 +29,7 @@ Dann verfestigen sie sich durch weiteren Code, der auf diesen Abweichungen aufba
 
 Und genau hier setzt ArchUnit an: 
 Unbewusste Abweichungen sollen vermieden werden. 
-Und das ganze auf eine Weise, die sich für Entwickler völlig natürlich anfühlt, sie zu verwenden.
+Und das ganze auf eine Weise, deren Verwendung sich für Entwickler völlig natürlich anfühlt.
 Daher schafft ArchUnit die Möglickeit die Einhaltung von Architekturvorgaben über Unit Tests zu validieren! 
 
 
