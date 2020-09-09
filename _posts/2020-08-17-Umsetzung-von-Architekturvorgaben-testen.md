@@ -219,7 +219,7 @@ Insgesamt haben wir bisher ein gutes Bild erhalten, wie wir mit wenigen Zeilen C
 Dennoch mag es Gründe geben, warum nicht auf einen Schlag die gesamte Anwendung den Vorgaben entsprechen kann. 
 Insbesondere bei größeren Legacy Anwendungen ist ein entsprechendes Refactoring ein zeitaufwendiger Prozess, der sich eventuell nur Schrittweise durchführen lässt. 
 Ein Hilfsmittel, das einem ArchUnit dabei an die Hand gibt, ist die sogenannte „Freezing Arch Rule“. 
-Um diese zu verwenden müssen wir eine vorhandene ArchRule mit FreezingArchRule.freeze() umfassen:
+Um diese zu verwenden, müssen wir eine vorhandene ArchRule mit FreezingArchRule.freeze() umfassen:
 
 ```java
 	@ArchTest
