@@ -12,7 +12,7 @@ Diese muss nicht nur auf dem Reißbrett entwickelt werden, sondern auch konseque
 Wie dies mit Hilfe von Tool Unterstützung durch ArchUnit sichergestellt werden kann, möchte ich in diesem Beitrag vorstellen.
 
 
-# „Das ist historisch gewachsen“
+# "Das ist historisch gewachsen"
 
 Dies ist ein Satz, den ich schon häufig gehört habe, genauso wie sicherlich auch die meisten anderen Entwickler in IT Projekten. 
 Es ist ein Satz der häufig erklären soll, warum etwas nicht so aussieht wie man es erwartet. 
@@ -73,18 +73,18 @@ Dafür lasst uns davon ausgehen, dass wir eine Schichten-Architektur mit folgend
 * Controllers: 
 Hier sind Schnittstellen (z.B. REST) enthalten, sodass unsere Backendanwendung durch Clients aufgerufen werden kann. 
 Sie leitet die Requests dann an fachliche Prozesse weiter. 
-Controller-Klassen sollten so benannt werden, dass sie auf „Controller“ enden.
+Controller-Klassen sollten so benannt werden, dass sie auf "Controller" enden.
 * Processes: 
 Prozesse bilden die Fachlogik eines bestimmten Use Cases ab. 
 Sie werden von Controllern aufgerufen. 
 Zur Implementierung der Fachlogik rufen sie ggf. unterschiedliche Services auf und orchestrieren deren Verwendung. 
 Prozesse sind streng getrennt voneinander und rufen sich nicht gegenseitig auf. 
-Prozess-Klassen sollten so benannt werden, dass sie auf „Process“ enden.
+Prozess-Klassen sollten so benannt werden, dass sie auf "Process" enden.
 * Services: 
 Kapseln Funktionalitäten, die von unterschiedlichen Prozessen verwendet werden sollen, um eine einheitliche Umsetzung dieser Funktionalitäten sicherzustellen. 
 Dabei können Services sowohl von Prozessen als auch von anderen Services aufgerufen werden. 
 Sie rufen dann weitere Services oder Klassen aus der Persistenzschicht auf. 
-Service-Klassen sollten so benannt werden, dass sie auf „Service“ enden.
+Service-Klassen sollten so benannt werden, dass sie auf "Service" enden.
 * Persistence: 
 Hierbei handelt es sich um eine klassische Persistenzschicht. 
 Sie soll nur durch Services aufgerufen werden.
@@ -218,7 +218,7 @@ Insgesamt haben wir bisher ein gutes Bild erhalten, wie wir mit wenigen Zeilen C
 
 Dennoch mag es Gründe geben, warum nicht auf einen Schlag die gesamte Anwendung den Vorgaben entsprechen kann. 
 Insbesondere bei größeren Legacy Anwendungen ist ein entsprechendes Refactoring ein zeitaufwendiger Prozess, der sich eventuell nur Schrittweise durchführen lässt. 
-Ein Hilfsmittel, das einem ArchUnit dabei an die Hand gibt, ist die sogenannte „Freezing Arch Rule“. 
+Ein Hilfsmittel, das einem ArchUnit dabei an die Hand gibt, ist die sogenannte "Freezing Arch Rule". 
 Um diese zu verwenden, müssen wir eine vorhandene ArchRule mit FreezingArchRule.freeze() umfassen:
 
 ```java
