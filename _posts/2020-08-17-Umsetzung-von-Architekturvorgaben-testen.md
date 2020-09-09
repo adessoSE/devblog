@@ -68,7 +68,7 @@ Und schon können wir auf die 3 APIs zugreifen, die einem ArchUnit zur Definitio
 * Core API
 
 Einen kleinen Einblick in diese APIs werden wir im Folgenden anhand eines Beispiels gewinnen.
-Dafür lasst uns davon ausgehen, dass wir eine Schichten-Architektur mit folgenden Schichten sicherstellen sollen:
+Dafür lasst uns davon ausgehen, dass wir eine Schichtenarchitektur mit folgenden Schichten sicherstellen sollen:
 
 * Controllers: 
 Hier sind Schnittstellen (z.B. REST) enthalten, sodass unsere Backendanwendung durch Clients aufgerufen werden kann. 
@@ -123,7 +123,7 @@ Beim ausführen dieser Klasse als JUnit Test, geht ArchUnit nun über die Klasse
 Ist dies der Fall, wird der Test rot – ein nicht vorgesehener Zugriff auf Schichten wird somit verhindert.
 
 Dieses Beispiel zeigt, wie einfach die Library API zu verwenden ist. 
-Neben der Prüfung auf Schichten Architekturen bietet die Library API noch viele weitere Möglichkeiten wie Prüfungen für Hexagonale Architekturen oder auch generelle Programmierrichtlinien. 
+Neben der Prüfung auf Schichtenarchitekturen bietet die Library API noch viele weitere Möglichkeiten wie Prüfungen für Hexagonale Architekturen oder auch generelle Programmierrichtlinien. 
 Aber natürlich kann ArchUnit mit der Library API keine vorgefertigte Blaupause für alle architekturellen Vorgaben bieten. 
 
 
@@ -205,7 +205,7 @@ Nun müssen wir diese Bedingung noch in eine Regel integrieren:
 ```
 
 Dadurch, dass wir unsere neue Bedingung nun auf alle Klassen im Paket für Prozesse testen, haben wir sichergestellt, dass kein Prozess einen anderen aufrufen kann. 
-Unsere zuvor aufgestellten architekturellen Anforderungen an unsere Schichten-Architektur sind damit nun komplett abgedeckt.
+Unsere zuvor aufgestellten architekturellen Anforderungen an unsere Schichtenarchitektur sind damit nun komplett abgedeckt.
 
 Hierbei handelt es sich natürlich um sehr einfache Beispiele. 
 In einem realen Projekt hätten wir mit Sicherheit eine größere Komplexität und weitere Besonderheiten. 
