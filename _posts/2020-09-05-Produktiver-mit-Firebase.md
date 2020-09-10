@@ -11,7 +11,7 @@ Während sich Googles Frontend Framework Angular mittlerweile deutlich etabliert
 Meiner Meinung nach bietet die Firebase Plattform allerdings ein enormes Potential, vor allem, weil sie dem Entwickler viele Aspekte abnimmt.
 Wie fast immer kommen sämtliche Vorteile aber auch mit entsprechenden Nachteilen, weshalb eine Evaluation für den konkreten Anwendungsfall notwendig ist.
 
-In diesem Beitrag möchte ich von meinen Erfahrungen mit der Plattform berichten, indem ich von meiner Migration auf Firebase im Rahmen eines Hobbyprojektes berichte.
+In diesem Beitrag möchte ich von meinen Erfahrungen mit der Plattform berichten, indem ich meine Migration auf Firebase im Rahmen eines Hobbyprojektes erläutere.
 Zum besseren Verständnis sind Grundkenntnisse über Angular und Keycloak vorausgesetzt.
 
 # Status quo
@@ -24,7 +24,7 @@ Das Backend hatte ich mit Spring Boot und einer SQL-Datenbank aufgesetzt, das Fr
 Gehostet habe ich diese vier Hauptkomponenten auf einem kleinen Raspberry Pi in meinem Heimnetzwerk.
 Schnell ist mir aufgefallen, dass ich mehr Zeit mit dem Aufsetzen und Instandhalten meiner kleinen Infrastruktur verbracht habe, als mit der eigentlichen Entwicklung von Funktionen für den Benutzer.
 
-Außerdem wollte ich die Anwendung in Zukunft auch gerne irgendwann öffentlich schalten, was nochmal zusätzlichen Aufwand bedeutet hätte, weil ich mir verstärkt Gedanken um Sicherheit, Verfügbarkeit oder Skalierbarkeit machen müsste.
+Außerdem wollte ich die Anwendung in Zukunft auch gerne irgendwann öffentlich schalten, was nochmal zusätzlichen Aufwand bedeutet hätte, weil ich mir verstärkt Gedanken um Sicherheit, Verfügbarkeit oder Skalierbarkeit hätte machen müssen.
 Ich hätte also beispielweise darauf achten müssen, die Version meiner Keycloak Instanz möglichst aktuell zu halten oder einen Mechanismus zu entwickeln, der automatisch die Anzahl meiner Spring Boot Instanzen hochfährt, sobald das Backend mit der aktuellen Last überfordert ist.
 
 # Firebase für mehr Produktivität
@@ -38,7 +38,7 @@ Um Firebase zu nutzen, muss man sich im ersten Schritt über die Firebase Konsol
 Anschließend landet man auf einer sehr übersichtlich gestalteten Admin-Oberfläche.
 
 Für meine Anwendung hat die Migration Anpassungen in allen vier oben genannten Hauptkomponenten bedeutet.
-Im Folgenden möchte ich grob auf diese Anpassungen eingehen, um so den Unterschied zwischen einer klassischen Java Enterprise Lösung und Firebase exemplarisch klar zu machen und einige Produkte von Firebase dabei vorzustellen.
+Im Folgenden möchte ich grob auf diese Anpassungen eingehen, um so den Unterschied zwischen einer klassischen Java Enterprise Lösung und Firebase exemplarisch darzustellen und um einige Produkte von Firebase dabei vorzustellen.
 
 # Von Keycloak zu Firebase Authentication
 
@@ -52,7 +52,9 @@ npm install firebase @angular/fire --save
 ```
 
 Um mich nicht um Dinge wie Benutzerregistrierung oder Password-Verwaltung kümmern zu müssen, hatte meine Anwendung bereits mit Keycloak nur die Möglichkeit, sich über einen bestehenden Google Account einzuloggen.
-Auch nach der Migration sollte dies zunächst der einzige Weg für einen Login sein. Als Vorbereitung habe ich in der Firebase Konsole Google als möglichen Anbieter aktiviert.
+Auch nach der Migration sollte dies zunächst der einzige Weg für einen Login sein. 
+
+Als Vorbereitung habe ich in der Firebase Konsole Google als möglichen Anbieter aktiviert.
 
 Der folgende Code-Ausschnitt zeigt meinen _AuthService_, der im Prinzip nur Methoden des importierten _AngularFireAuth_ Service aufruft.
 Mit diesen wenigen Zeilen war schon der Großteil der Anbindung erledigt.
@@ -105,22 +107,21 @@ export class AuthGuard implements CanActivate {
 
 Verglichen mit der Anbindung an Keycloak war die Anbindung an Firebase Authentication um einiges schneller und leichter implementiert.
 Auf der anderen Seite muss man aber auch erwähnen, dass ich dadurch viele Funktionen bzw. Möglichkeiten verloren habe, die einem Lösungen wie Keycloak bieten.
-Beispielsweise die Möglichkeit, die Benutzer über einen eigenen Identity Provider zu authentifizieren oder eine eigene Zwei-Faktor-Authentisierung zu erstellen.
-Falls jedoch, wie in meinem Fall, auf diese Dinge verzichtet werden kann, spart man Aufwand ein ohne Risiken bzgl. Sicherheit eingehen zu müssen.
+Dazu gehören beispielsweise die Möglichkeit, die Benutzer über einen eigenen Identity Provider zu authentifizieren oder eine eigene Zwei-Faktor-Authentisierung zu erstellen.
+Falls jedoch, wie in meinem Fall, auf diese Dinge verzichtet werden kann, spart man sich die potentiell mit Sicherheitsrisiken behaftete Implementierung dieser Funktionen.
 
 # Von Spring Boot + SQL-Datenbank zu Cloud Firestore
 
 Nachdem Keycloak nun ersetzt war, musste ich mir im nächsten Schritt überlegen, wie ich mein Spring Boot Backend und die dazugehörige SQL-Datenbank in die Firebase Cloud migriere.
 
-Da mein Backend hauptsächlich CRUD-Operationen durchgeführt hat und zusätzlich mithilfe von Keycloak Autorisierungs-Fragen prüfte, ließ es sich sehr einfach Migrieren.
+Da mein Backend hauptsächlich CRUD-Operationen durchgeführt hat und zusätzlich mithilfe von Keycloak Autorisierungen prüfte, ließ es sich sehr einfach Migrieren.
 Denn Firebase stellt mit der Cloud Firestore eine NoSQL-Datenbank bereit, die man direkt aus dem Client ansteuern kann.
 Ich konnte mir also die ganze Schicht zwischen Frontend und Datenbank einsparen und habe stattdessen direkt aus Angular heraus auf die Firebase Datenbank zugegriffen.
 
 Generell bietet Firebase dem Entwickler zwei verschiedene Datenbanken an.
-Eine sog. Echtzeitdatenbank und den Cloud Firestore.
+Zum einen die sogenannte Echtzeitdatenbank und zum anderen den Cloud Firestore.
 Beide unterstützen Echtzeit-Datensynchronisierungen, sind Cloud-basiert und lassen sich direkt vom Client aus ansprechen.
-Der Unterschied liegt im Datenmodel;
-Die Echtzeitdatenbank speichert die Daten in einem großen JSON-Baum ab während der Cloud Firestore die Daten in Dokumenten speichert, die hierarchisch in Sammlungen sortiert sind.
+Der wesentliche Unterschied liegt dabei im Datenmodel, denn während die Echtzeitdatenbank die Daten in einem großen JSON-Baum abspeichert, werden die Daten in der Cloud Firestore in Dokumenten gespeichert, die hierarchisch in Sammlungen sortiert sind.
 
 Um aus meiner Anwendung heraus die Cloud Firestore Datenbank anzusprechen, musste ich wieder die Firebase Konsole starten, dort die Datenbank initial einrichten und entsprechende Sammlungen und Dokumente anlegen.
 Darüber hinaus musste ich Autorisierungsregeln in einer speziell dafür entwickelten Syntax definieren.
@@ -136,28 +137,32 @@ Der folgende Code zeigt exemplarisch das Laden der Rezepte eines Benutzers:
 ...
 import { AngularFirestore } from '@angular/fire/firestore';
 
-constructor(private firestore: AngularFirestore) {}
+@Injectable() 
+export class RecipeService { 
 
-getUsersRecipes(user: User): Observable<RecipeDTO[]> {
-  return this.firestore
-    .collection<RecipeDTO>('recipes', ref => ref.where('author.id', '==', user.id))
-    .snapshotChanges()
-    .pipe(
-      map(actions =>
-        actions.map(a => {
-          const data = a.payload.doc.data();
-          const id = a.payload.doc.id;
-          return { id, ...data } as RecipeDTO;
-        })
-      )
-    );
+  constructor(private firestore: AngularFirestore) {}
+
+  getUsersRecipes(user: User): Observable<RecipeDTO[]> {
+    return this.firestore
+      .collection<RecipeDTO>('recipes', ref => ref.where('author.id', '==', user.id))
+      .snapshotChanges()
+      .pipe(
+        map(actions =>
+          actions.map(action => {
+            const data = action.payload.doc.data();
+            const id = action.payload.doc.id;
+            return { id, ...data } as RecipeDTO;
+          })
+        )
+      );
+  }
 }
 ```
 
 Besonders zu erwähnen ist, dass man über das Observable _snapshotChanges()_ nicht nur die Rezepte zum Zeitpunkt den initialen Ladens bekommt, sondern auch jedes Update in Echtzeit.
 Das bedeutet, dass selbst wenn ich über die Google Konsole Daten in der Datenbank verändere, diese in Echtzeit direkt an alle Benutzer propagiert werden, die sich in diesem Fall gerade das Rezept anschauen.
 
-Insgesamt bekommt man als Entwickler auch was die Datenbank angeht komplexe und teure Funktionen geboten.
+Auch auf Seiten der Datenbank werden komplexe und teure Funktionen angeboten.
 Nachteilig ist, dass sich komplexere Strukturen nicht so einfach modellieren lassen und man bei der Modellierung schnell Fehler machen kann, die zu sehr teuren Queries führen.
 Und da man bei Firebase quasi pro Abfrage bezahlt, ist "teuer" hier im wahrsten Sinne des Wortes zu verstehen.
 
@@ -182,4 +187,4 @@ Mithilfe dieser Produkte kann man sich bei der Entwicklung einer Webapplikation 
 In meiner Beschreibung bin ich nicht auf alle Produkte von Firebase eingegangen.
 Interessant wäre da besonders die Betrachtung der Cloud Functions, die quasi das klassische Backend ablösen.
 Darüber hinaus stellt Firebase auch eine ganze Reihe an Produkten zur Qualitätssicherung und Analyse bereit.
-Insgesamt also ein valider Kandidat für euer nächstes Projekt - auch wenn es "nur" ein Hobbyprojekt ist.
+Insgesamt ist Firebase also ein valider Kandidat für euer nächstes Projekt - auch wenn es "nur" ein Hobbyprojekt ist.
