@@ -53,7 +53,6 @@ npm install firebase @angular/fire --save
 
 Um mich nicht um Dinge wie Benutzerregistrierung oder Password-Verwaltung kümmern zu müssen, hatte meine Anwendung bereits mit Keycloak nur die Möglichkeit, sich über einen bestehenden Google Account einzuloggen.
 Auch nach der Migration sollte dies zunächst der einzige Weg für einen Login sein. 
-
 Als Vorbereitung habe ich in der Firebase Konsole Google als möglichen Anbieter aktiviert.
 
 Der folgende Code-Ausschnitt zeigt meinen _AuthService_, der im Prinzip nur Methoden des importierten _AngularFireAuth_ Service aufruft.
@@ -119,7 +118,7 @@ Denn Firebase stellt mit der Cloud Firestore eine NoSQL-Datenbank bereit, die ma
 Ich konnte mir also die ganze Schicht zwischen Frontend und Datenbank einsparen und habe stattdessen direkt aus Angular heraus auf die Firebase Datenbank zugegriffen.
 
 Generell bietet Firebase dem Entwickler zwei verschiedene Datenbanken an.
-Zum einen die sogenannte Echtzeitdatenbank und zum anderen den Cloud Firestore.
+Es gibt da zum einen die sogenannte Echtzeitdatenbank und zum anderen den Cloud Firestore.
 Beide unterstützen Echtzeit-Datensynchronisierungen, sind Cloud-basiert und lassen sich direkt vom Client aus ansprechen.
 Der wesentliche Unterschied liegt dabei im Datenmodel, denn während die Echtzeitdatenbank die Daten in einem großen JSON-Baum abspeichert, werden die Daten in der Cloud Firestore in Dokumenten gespeichert, die hierarchisch in Sammlungen sortiert sind.
 
@@ -187,4 +186,5 @@ Mithilfe dieser Produkte kann man sich bei der Entwicklung einer Webapplikation 
 In meiner Beschreibung bin ich nicht auf alle Produkte von Firebase eingegangen.
 Interessant wäre da besonders die Betrachtung der Cloud Functions, die quasi das klassische Backend ablösen.
 Darüber hinaus stellt Firebase auch eine ganze Reihe an Produkten zur Qualitätssicherung und Analyse bereit.
+Als Beispiel ist hier die [Leistungsüberwachung](https://firebase.google.com/products/performance?hl=de) zu nennen, die einen guten Einblick in die Performance Details der App liefert.
 Insgesamt ist Firebase also ein valider Kandidat für euer nächstes Projekt - auch wenn es "nur" ein Hobbyprojekt ist.
