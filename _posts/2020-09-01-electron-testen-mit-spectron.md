@@ -129,14 +129,16 @@ Zusätzlich zu dieser Überprüfung, sehen wir ein Beispiel um die zwei Inputfel
 
 ```typescript
   it('type username and password', async() => { 
-    await app.client.setValue('#username', 'demoUser')
-    await app.client.setValue('#password', 'demoPassword')
+    await app.client.setValue('#username', 'demoUser');
+    await app.client.setValue('#password', 'demoPassword');
+    await app.client.click('#submitButton');
   }); 
 ```
 
 Wir nutzen hier die 'setValue()' Methode um ein Inputfeld mit Inhalt zu befüllen. 
 Diese Methode benötigt zwei Paramenter. 
-Ein Paramenter um das Element zu finden, welches Inputfeld angesprochen werden soll und dem zweiten Paramenter geben wir den Inhalt selbst mit.
+Ein Paramenter um das Element zu finden über die ID, welches Inputfeld angesprochen werden soll und dem zweiten Paramenter geben wir den Inhalt selbst mit.
+Anschließend klicken wir auf den Einloggen Button.
 
 
 # Fazit
