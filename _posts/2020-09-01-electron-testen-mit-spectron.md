@@ -125,6 +125,18 @@ Der Ablauf von diesem automatisierten Test ist:
 3. Auslesen des Titels anhand des TagName 'h1' und Speicherung in einer Variable 
 4. Vergleich zwischen dem erzeugten Wert und dem erwarteten Wert 
 
+Zusätzlich zu dieser Überprüfung, sehen wir ein Beispiel um die zwei Inputfelder Username und Passwort zu befüllen.
+
+```typescript
+  it('type username and password', async() => { 
+    await app.client.setValue('#username', 'demoUser')
+    await app.client.setValue('#password', 'demoPassword')
+  }); 
+```
+
+Wir nutzen hier die 'setValue()' Methode um ein Inputfeld mit Inhalt zu befüllen. 
+Diese Methode benötigt zwei Paramenter. 
+Ein Paramenter um das Element zu finden, welches Inputfeld angesprochen werden soll und dem zweiten Paramenter geben wir den Inhalt selbst mit.
 
 
 # Fazit
