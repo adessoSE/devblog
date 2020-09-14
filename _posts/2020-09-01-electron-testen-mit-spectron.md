@@ -141,6 +141,7 @@ Ein Paramenter um das Element zu finden über die ID, welches Inputfeld angespro
 Anschließend klicken wir auf den Einloggen Button.
 
 
+
 # Fazit
 
 Um mit Spectron automatisierte Tests zu entwickeln, wäre es von Vorteil, wenn man fundierte Kenntnisse in TypeScript besitzt.
