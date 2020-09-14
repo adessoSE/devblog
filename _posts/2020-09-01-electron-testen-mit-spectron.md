@@ -138,7 +138,7 @@ Zusätzlich zu dieser Überprüfung, sehen wir ein Beispiel um die zwei Inputfel
 Wir nutzen hier die 'setValue()' Methode um ein Inputfeld mit Inhalt zu befüllen. 
 Diese Methode benötigt zwei Paramenter. 
 Ein Paramenter um das Element zu finden über die ID, welches Inputfeld angesprochen werden soll und dem zweiten Paramenter geben wir den Inhalt selbst mit.
-Anschließend klicken wir auf den Einloggen Button.
+Anschließend klicken wir mit der 'click()' Methode, der wir die ID des Buttons geben, auf den Einloggen Button.
 
 
 
