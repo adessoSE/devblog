@@ -339,3 +339,12 @@ kiliankrause:
   bio: "Kilian Krause ist als Werkstudent im Open-Source-Team bei adesso in Dortmund tätig."
   avatar_url: /assets/images/avatars/kiliankrause.jpg
   github: https://github.com/KilianKrause
+
+tlange:
+  first_name: Thilo
+  last_name: Lange
+  github_username: ThiloLange
+  email: thilo.lange@adesso.de
+  bio: "Thilo Lange ist Software Architect am Standort Stralsund"
+  avatar_url: /assets/images/avatars/tlange.jpg
+  github: https://github.com/ThiloLange
