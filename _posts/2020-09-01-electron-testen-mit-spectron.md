@@ -135,7 +135,7 @@ Zusätzlich zu dieser Überprüfung, sehen wir ein Beispiel um die zwei Inputfel
   }); 
 ```
 
-Wir nutzen hier die 'setValue()' Methode um ein Inputfeld mit Inhalt zu befüllen. 
+Wir nutzen hier die 'setValue()' Methode, um ein Inputfeld mit Inhalt zu befüllen. 
 Diese Methode benötigt zwei Paramenter. 
 Ein Paramenter um das Element zu finden über die ID, welches Inputfeld angesprochen werden soll und dem zweiten Paramenter geben wir den Inhalt selbst mit.
 Anschließend klicken wir mit der 'click()' Methode, der wir die ID des Buttons geben, auf den Einloggen Button.
@@ -149,6 +149,6 @@ Für Erfahrene Programmierer fällt der Einstieg in die Automatisierung natürli
 Diejenigen, die nur wenig oder gar keine Erfahrung in Programmiersprachen haben, können auf Tools wie Tricentis Tosca, Ranorex oder eggPlant ausweichen.
 Dort gibt es die Möglichkeit, bestimmte Verläufe auf einer Oberfläche aufzunehmen und diese als Skript abzuspeichern. 
 Ein weiterer Pluspunkt für die Nutzung eines dieser drei Tools ist, dass man zusätzlich unterschiedliche Geräte bedienen kann. 
-Der Nachteil von Tools mit denen man die Schritte aufnehmen und als automatisiertes Skript laufen lassen kann, ist der das wir für jeden neuen Test auch jeden einzelnen Ablauf erneut aufnehmen müssen. 
+Der Nachteil von Tools, mit denen man die Schritte aufnehmen und als automatisiertes Skript laufen lassen kann, ist der, dass wir für jeden neuen Test auch jeden einzelnen Ablauf erneut aufnehmen müssen. 
 Die Möglichkeit, bestimmte Abschnitte zu speichern und wieder zu verwenden, ist nicht gegeben. 
-An dieser Stelle hat das Programmieren von Skripten, den Vorteil, bestimmte Abläufe bzw. Methoden immer wieder verwenden zu können.
+An dieser Stelle hat das Programmieren von Skripten den Vorteil, bestimmte Abläufe bzw. Methoden immer wieder verwenden zu können.
