@@ -30,12 +30,12 @@ Dann verfestigen sie sich durch weiteren Code, der auf diesen Abweichungen aufba
 Und genau hier setzt ArchUnit an: 
 Unbewusste Abweichungen sollen vermieden werden. 
 Und das ganze auf eine Weise, deren Verwendung sich für Entwickler völlig natürlich anfühlt.
-Daher schafft ArchUnit die Möglickeit die Einhaltung von Architekturvorgaben über Unit Tests zu validieren! 
+Daher schafft ArchUnit die Möglickeit die Einhaltung von Architekturvorgaben über Unit Tests zu validieren. 
 
 
 # Architekturelle Abweichungen über Tests entdecken!
 
-Und diese Tests zu erstellen ist in den meisten Fällen gar nicht schwer! 
+Und diese Tests zu erstellen ist in den meisten Fällen gar nicht schwer. 
 Zunächst müssen wir nur die Abhängigkeiten zu ArchUnit definieren – das ist sowohl mit Maven als auch Gradle ein Kinderspiel. 
 So reichen mit Maven zum Beispiel diese 3 Abhängigkeiten, um sein Projekt mit JUnit 4 und ArchUnit zu testen:
 
@@ -119,7 +119,7 @@ Jeder Architekturtest kann nun mit @ArchTest eingeleitet und als Variable vom Ty
 Für unseren ersten Test definieren wir zunächst jede der 4 Schichten: 
 Innerhalb von layer() wird ihr ein Name gegeben, mit definedBy() wird festgelegt in welchem Paket man Klassen dieser Schicht findet.
 Anschließend wird noch festgelegt welche Schichten auf welche anderen Schichten zugreifen dürfen.
-Beim ausführen dieser Klasse als JUnit Test, geht ArchUnit nun über die Klassen einer Schicht und prüft, ob diese Referenzen zu Klassen aus Schichten enthalten, für die ein Zugriff nicht erlaubt ist. 
+Beim Ausführen dieser Klasse als JUnit Test, geht ArchUnit nun über die Klassen einer Schicht und prüft, ob diese Referenzen zu Klassen aus Schichten enthalten, für die ein Zugriff nicht erlaubt ist. 
 Ist dies der Fall, wird der Test rot – ein nicht vorgesehener Zugriff auf Schichten wird somit verhindert.
 
 Dieses Beispiel zeigt, wie einfach die Library API zu verwenden ist. 
