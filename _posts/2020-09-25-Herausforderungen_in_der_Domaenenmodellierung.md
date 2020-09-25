@@ -1,11 +1,11 @@
 ---
 layout: [post, post-xml]              # Pflichtfeld. Nicht ändern!
 title:  "Herausforderungen in der Domänenmodellierung"         # Pflichtfeld. Bitte einen Titel für den Blog Post angeben.
-date:   2020-08-09 17:04              # Pflichtfeld. Format "YYYY-MM-DD HH:MM". Muss für Veröffentlichung in der Vergangenheit liegen. (Für Preview egal)
-modified_date: 2020-08-09             # Optional. Muss angegeben werden, wenn eine bestehende Datei geändert wird.
+date:   2020-09-25 12:00              # Pflichtfeld. Format "YYYY-MM-DD HH:MM". Muss für Veröffentlichung in der Vergangenheit liegen. (Für Preview egal)
+modified_date: 2020-09-25 12:00             # Optional. Muss angegeben werden, wenn eine bestehende Datei geändert wird.
 author: viktor-mucha                  # Pflichtfeld. Es muss in der "authors.yml" einen Eintrag mit diesem Namen geben.
 categories: [Softwareentwicklung]                    # Pflichtfeld. Maximal eine der angegebenen Kategorien verwenden.
-tags: [Softwareentwicklung]         # Bitte auf Großschreibung achten.
+tags: [Domain Driven Design, Modellierung, Architektur]         # Bitte auf Großschreibung achten.
 ---
 
 Software dient dazu die tägliche Arbeit einer Anwenderdomäne zu unterstützen. 
