@@ -116,8 +116,15 @@ Jedoch zeigt die Erfahrung, dass mit einer guten Planung, einem hohen Stellenwer
 Das Team, das die Neuentwicklung durchführt, benötigt dazu nicht nur Zeit und Budget für das eigentliche Schreiben der Unit Tests selbst, sondern auch für das Management der Tests und für das Konfigurieren und regelmäßige Nachjustieren der automatisierten Code Analyse.
 
 Im Zusammenhang mit Unit Tests ist dabei zu klären, welches Tool und welche Metriken der Code Analyse für ein Projekt zugrunde liegen sollen.
-In einem größeren Unternehmen, das ein solches Tool bereits zentral bereitstellt, bietet es sich in jedem Fall an, dieses auch zu verwenden und mit einem Standard-Set an Metriken zu beginnen.
+In einem größeren Unternehmen, das ein solches Tool bereits zentral bereitstellt, bietet es sich in jedem Fall an, dieses auch zu verwenden und mit einem Standard-Set an Metriken (z.B. Line- oder Condition-Coverage) zu beginnen.
 Eine Abweichung vom Standard-Tool und –Set muss dann natürlich in der Projektdokumentation nachvollziehbar niedergeschrieben sein.
+
+Bei all den hier beschriebenen Tätigkeiten, sollte jedoch nie vergessen werden, was  einen guten Unit Test eigentlich auszeichnet.
+Zu sagen, der Test ist grün und hat eine Code Coverage von über 80% erfüllt zwar auf den ersten Blick die Anforderung, wäre jedoch bei weitem nicht ausreichend.
+Ein guter Unit Test prüft die fachliche Anforderung in allen Aspekten, also auch die Grenzfälle, und ist für Dritte gut lesbar und verständlich.
+Zur Bewertung der Qualität eines Unit Tests hilft häufig auch die Antwort auf die folgende Frage:
+
+__Schlägt der Test fehl, sobald der zu testende Anwendungs-Code so geändert wird, dass danach die fachliche Anforderung nicht mehr korrekt umgesetzt ist?__
 
 ## Integrationstests 
 
