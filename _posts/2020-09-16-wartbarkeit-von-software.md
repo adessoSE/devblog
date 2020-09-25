@@ -80,15 +80,44 @@ Das Betriebshandbuch beinhaltet mindestens die folgenden Artefakte:
 
 # Tests
 
-Das Application Management Team wird den entwickelten Source Code verändern...
-einerseits werden im Rahmen der Wartung Fehler zu beheben sein, anderseits wird es Change Requests geben, die vom Application Management Team umgesetzt werden.
-Um sicherzustellen, dass die dann vorgenommenen Code-Änderungen keine Seiteneffekte haben und alle Anwendungsfälle der Software weiterhin funktionieren, müssen automatisierte Tests mit einer hohen Testabdeckung vorhanden sein.
+Das Wartungs-Team wird die Aufgabe haben, vom Kunden gemeldetes Fehlverhalten möglichst schnell in einer dem Produktivsystem ähnlichen Umgebung (Integrations- oder Test-Stage) zu reproduzieren.
+Basierend auf der folgenden Fehleranalyse wird das Wartungs-Team dann den entwickelten Quell-Code korrigieren müssen.
+Auch für fachliche Änderungen (Change Requests), die zusätzlich in der Wartungs- und Betriebs-Phase umzusetzen sind, wird der Quell-Code angepasst werden.
+Aber Code-Anpassungen können Seiteneffekte haben, vor allem, wenn Sie an zentraler Stelle vorgenommen werden.
+
+Es ist häufig so, dass das Wartungs-Team aus weniger Mitarbeitern besteht als das für die Neuentwicklung verantwortliche Entwicklungs-Team.
+In gleichem Maße ist auch die zur Verfügung stehende Zeit (und das Budget) in der Wartung häufig deutlich kleiner.
+Trotzdem wird vom Kunden zurecht erwartet, dass die komplexe Fachlichkeit und Technik der Software schon bei der ersten Fehlerbehebung verstanden wird und weitere Code-Anpassungen dann mit ebenso hoher Qualität wie bereits der vorherigen Neuentwicklung erfolgen.
+
+__Um dem Wartungs-Team Sicherheit zu geben, dass die vorgenommenen Änderungen keine unerwünschten Seiteneffekte auf andere Anwendungsfälle haben, ist eine möglichst hohe Testabdeckung durch die unterschiedlichen automatisierten Testmethoden unerlässlich.__
+
+Wäre die Testabdeckung fachlicher Anwendungsfälle gering oder schlimmstenfalls gar nicht vorhanden, müsste das Wartungs-Team bei der Behebung eines Fehlers die gesamte Fachlichkeit kennen.
+Zusätzlich müsste nach der Änderung ein vollständiger manueller Systemtest wiederholt werden, in gleichem Umfang wie er zur Abnahme durchgeführt wurde.
+Nur so wäre sichergestellt, dass die Änderung korrekt, vollumfänglich und frei von Seiteneffekten ist.
+
+Während der Neuentwicklung wurden bereits umfängliche Unit Tests geschrieben, automatisierte Integrations-Tests erstellt und regelmäßige Last- und Performance-Tests durchgeführt.
+Diese sind zur Erhaltung der Qualität für das Wartungs-Team sehr wertvoll.
+Damit das Wartungs-Team diese Tests auch bestmöglich und schnell nutzen kann, müssen sie in einer Test-Umgebung automatisiert und Inhalt und Durchführung gut dokumentiert sein.
 
 ## Unit Tests 
 
-Es sind automatisierte Unit Tests vorhanden, sowohl für das Backend (Java) als auch für das Frontend (JavaScript etc.).
-Die Codeabdeckung der Unitestes erreicht eine Zweigabdeckung von mindestens 80%.
-Die Metriken zur Codeabdeckung werden automatisiert im Rahmen der Continuous Integration erhoben.
+Wie schon vielerorts beschrieben, ist es unerlässlich, dass Unit Tests (Modul- bzw. Komponenten-tests) überhaupt vorhanden sind.
+Diese Anforderung gilt dabei nicht nur für Backend-Code (z.B. Java) sondern gleichermaßen auch für den im Webumfeld in den letzten Jahren wieder wachsenden Anteil an Frontend-Code (z.B. Javascript).
+
+Der Quelltext der Unit Tests sollte in Bezug auf Lesbarkeit und Robustheit von gleicher Qualität wie der Anwendungs-Code selbst sein.
+Außerdem kann der optimale Zustand für einen Unit Test sein, dass er nicht nur die fachliche Anforderung sicherstellt, sondern diese auch gleich dokumentiert.
+
+Alle vorhandenen Unit Tests sollten im Rahmen der Continuous Integration so automatisiert sein, dass sie nach jeder Änderung (nach jedem Commit) schnellstmöglich ein Ergebnis liefern.
+Das bedeutet, dass ein Tool zur Code Analyse (z.B. SonarQube) bereitgestellt und konfiguriert wird, das die Metriken zur Testabdeckung direkt nach einem Commit erhebt, diese durch ein für das Projekt definiertes Qualitätsziel (Quality Gate) prüft und die Entwickler und Entwicklerinnen dann per E-Mail zeitnah informiert.
+
+Aber wie hoch sollte die Testabdeckung durch Unit Tests denn nun sein?
+Diese Frage ist viel diskutiert und dieser BLOG ist nicht dazu gedacht, eine abschließende Antwort für jedes Projekt zu finden.
+Jedoch zeigt die Erfahrung, dass mit einer guten Planung, einem hohen Stellenwert für die Tests und entsprechender Konfiguration des Code Analyse Tools eine hohe Testabdeckung von jenseits der 80% mit vertretbarem Aufwand durchaus erreichbar ist.
+Das Team, das die Neuentwicklung durchführt, benötigt dazu nicht nur Zeit und Budget für das eigentliche Schreiben der Unit Tests selbst, sondern auch für das Management der Tests und für das Konfigurieren und regelmäßige Nachjustieren der automatisierten Code Analyse.
+
+Im Zusammenhang mit Unit Tests ist dabei zu klären, welches Tool und welche Metriken der Code Analyse für ein Projekt zugrunde liegen sollen.
+In einem größeren Unternehmen, das ein solches Tool bereits zentral bereitstellt, bietet es sich in jedem Fall an, dieses auch zu verwenden und mit einem Standard-Set an Metriken zu beginnen.
+Eine Abweichung vom Standard-Tool und –Set muss dann natürlich in der Projektdokumentation nachvollziehbar niedergeschrieben sein.
 
 ## Integrationstests 
 
