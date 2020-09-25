@@ -4,7 +4,7 @@ title:  "ArchUnit – Die Umsetzung von Architekturvorgaben lässt sich testen!"
 date:   2020-08-17 20:25                   
 author: klausSchnaithmann                                  
 categories: [Architektur]                        
-tags: [Architektur, Testing]       
+tags: [ArchUnit, Architektur, Java, Testing]       
 ---
 
 Eine gute Softwarearchitektur ist einer der Bestandteile, der den Erfolg eines Softwareentwicklungsprojektes maßgeblich mitbestimmt.  
