@@ -126,25 +126,46 @@ Zur Bewertung der Qualität eines Unit Tests hilft häufig auch die Antwort auf 
 
 __Schlägt der Test fehl, sobald der zu testende Anwendungs-Code so geändert wird, dass danach die fachliche Anforderung nicht mehr korrekt umgesetzt ist?__
 
-## Integrationstests 
+## Integrations- und Schnittstellentests 
 
-Es sind automatisierte Integrationstests vorhanden (z.B. via SoapUI, Postman, Selenium, Cypress etc.).
-Es wird eine ABC-Einteilung der Geschäftsprozesse vorgenommen.  
+Während Unit Tests die korrekte Funktionalität der kleinsten Einheiten, nämlich einzelner, in sich geschlossener Komponenten der Software sicherstellen, prüfen Integrationstests die Funktionalität, wenn mehrere solcher Komponenten zusammen arbeiten.
+Zusätzlich prüfen Schnittstellentests die Korrektheit der zwischen den Komponenten ausgetauschten Daten.
+Auch hierfür gilt aus Sicht der Wartung die Anforderung, dass entsprechende Tests während der Neuentwicklung der Software bereits mit hoher Testabdeckung umgesetzt wurden und möglichst automatisiert und regelmäßig durchgeführt werden.
 
-Kategorie A umfasst alle geschäftskritischen Kernprozesse der Anwendung.
-Sie sind dauerhaft in verwenden und dürfen nicht ausfallen. 
+In der Theorie werden bei einem Integrationstest einige, bereits durch Unit Tests getestete Einzel-Komponenten zu einer neuen Komponente zusammengefügt und deren Zusammenwirken getestet.
+Die dabei entstandene „größere“ neue Komponente kann danach wieder als vollständig getestete Einzel-Komponente angesehen und wiederum in Kombination mit weiteren Komponenten getestet werden.
+Im Ergebnis wird somit das gesamte System in Komponenten geschnitten, wobei der Schnitt anhand fachlicher und/oder technischer Grenzen vorgenommen wird und je nach Projekt und angewendeten Technologien unterschiedlich ausfällt.
+Zusätzlich gilt es dann noch, die entstandenen Schnittstellen zwischen den Komponenten durch geeignete Schnittstellentests zu prüfen.
+Dabei werden lediglich noch die Daten geprüft, die über diese Schnittstelle zwischen den Komponenten ausgetauscht werden.
 
-Kategorie B umfasst alle Standardprozesse der Anwendung.
-Sie werden regelmäßig verwendet und führen zu einer starken Beeinträchtigung, wenn sie ausfallen. 
+Beispielhaft besteht eine Webanwendung aus einer Frontend- und einer Backend-Komponente, deren fachliches Zusammenwirken (z.B. mit Selenium) getestet werden kann.
+Frontend und Backend bestehen wiederum aus unterschiedlichen Einzel-Komponenten, deren Fachlichkeit bereits durch entsprechende Unit-Test geprüft wurde.
+Zwischen Frontend und Backend existiert dann noch eine Schnittstelle für die ein Schnittstellentest (z.B. mit SoapUI oder Postman) umzusetzen ist.
 
-Kategorie C umfasst alle sonstigen Prozesse der Anwendung.
-Sie werden selten verwendet und/oder führen nur zu einer geringen Beeinträchtigung, wenn sie ausfallen. 
+Nun zur Frage, wie hoch die Testabdeckung  durch fachliche Integrationstests sein muss.
+Zumindest alle Kernfunktionalitäten sollten abgedeckt sein.
+Da für den Rest jedoch auch immer eine Betrachtung von Kosten und Nutzen sinnvoll ist, kann die Liste aller Anwendungsfälle durch eine Gewichtung in 3 Kategorien eingeteilt werden:
 
-Die drei Kategorien werden wie folgt durch Integrationstests abgedeckt. 
+* Kategorie A umfasst alle geschäftskritischen Kernprozesse der Anwendung.
+Sie sind dauerhaft in Verwendung und dürfen nicht ausfallen.
+Mindestens 80% sollten mit einem Test für den Positivfall und zwei Tests für Negativfälle abgedeckt sein.
+ 
+* Kategorie B umfasst alle Standardprozesse der Anwendung.
+Sie werden regelmäßig verwendet und führen zu einer starken Beeinträchtigung, wenn sie ausfallen.
+Mindestens 70% der B-Prozesse sollten mit einem Test für den Positivfall und einem Test für Negativfälle abgedeckt sein.
 
-* Mindestens 80% der A-Prozesse sind jeweils mit einem Test für den Positivfall und zwei Tests für Negativfälle abgedeckt.  
-* Mindestens 70% der B-Prozesse sind jeweils mit einem Test für den Positivfall und einem Test für Negativfälle abgedeckt.  
-* Mindestens 50% der C-Prozesse sind jeweils mit einem Test für den Positivfall abgedeckt. 
+* Kategorie C umfasst alle sonstigen Prozesse der Anwendung.
+Sie werden selten verwendet und/oder führen nur zu einer geringen Beeinträchtigung, wenn sie ausfallen.
+Mindestens 50% der C-Prozesse sollten jeweils mit einem Test für den Positivfall abgedeckt sein.
+
+Häufig ist es für einen Integrationstest notwendig, Schnittstellen zu Komponenten, die in diesem Test nicht direkt getestet aber benötigt werden, zu simulieren.
+Gleiches gilt für Schnittstellen zu Umsystemen, die manchmal nicht in einer Testumgebung zur Verfügung gestellt werden können.
+Dazu können Mock-Services (z.B. mit SoapUID) implementiert werden, deren Konfiguration, Funktionsweise und fachliches Verhalten so dokumentiert sein muss, dass das Wartungs-Team diese verstehen und aufsetzen kann.
+
+Für Integrations- und Schnittstellentests wurden während der Neuentwicklung der Software Testdaten erstellt oder vom Kunden bereitgestellt werden.
+Diese sollten so aufgebaut sein, dass sie der Fachlichkeit so nah wie möglich kommen.
+Es ist zu dokumentieren, wie diese Testdaten aufgebaut sind und welche Schritte notwendig sind, damit die Daten zum Zeitpunkt eines Testlaufs korrekt eingespielt werden können.
+Im besten Fall passiert dies bereits automatisiert im Rahmen einer Continuous Integration (z.B. in eine DB im Docker Container).
 
 ## Last- und Performancetests  
 
