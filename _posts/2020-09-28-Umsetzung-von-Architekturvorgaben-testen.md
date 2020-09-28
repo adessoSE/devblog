@@ -1,7 +1,7 @@
 ---
 layout: [post, post-xml]                          
 title:  "ArchUnit – Die Umsetzung von Architekturvorgaben lässt sich testen!"         
-date:   2020-08-17 20:25                   
+date:   2020-09-28 16:00                   
 author: klausSchnaithmann                                  
 categories: [Architektur]                        
 tags: [ArchUnit, Architektur, Java, Testing]       
