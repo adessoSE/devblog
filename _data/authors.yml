@@ -210,7 +210,7 @@ vincentmathis:
   last_name: Mathis
   github_username: vincentmathis
   email: vincent.mathis@adesso.de
-  bio: "Vincent Mathis ist Praktikant in der Software-Entwicklung. Er arbeitet in Frankfurt im Insurance Bereich."
+  bio: "Vincent Mathis ist Werkstudent in der Software-Entwicklung. Er arbeitet in Frankfurt im Insurance Bereich."
   avatar_url: /assets/images/avatars/vincentmathis.jpg
   github: https://github.com/vincentmathis
 
@@ -267,6 +267,15 @@ frenzel:
   bio: "Daniel Frenzel ist Senior Software Engineer bei adesso in Dortmund und entwickelt seit mehreren Jahren Java- und Webanwendungen."
   avatar_url: /assets/images/avatars/fwshngtn.jpg
   github: https://github.com/fwshngtn
+
+muhannaddarraj:
+  first_name: Muhannad
+  last_name: Darraj
+  github_username: muhannaddarraj
+  email: muhannad.darraj@adesso.de
+  bio: "Muhannad Darraj ist als studentischer Mitarbeiter in der Line of Business Insurance bei adesso tätig. Sein Arbeitsschwerpunkt liegt in der Softwareentwicklung. Er recherchiert gerne in seiner Freizeit nach alternativen Technologien, um die bestmögliche Software zu erschaffen und sein Wissen zu erweitern."
+  avatar_url: /assets/images/avatars/dar.jpg
+  github: https://github.com/muhannaddarraj
 
 Flo4l:
   first_name: Florian
@@ -339,4 +348,13 @@ klausSchnaithmann:
   bio: "Klaus Schnaithmann arbeitet als Senior Software Engineer bei adesso in Frankfurt. Er interessiert sich für Software Architektur und hat einen breiten Erfahrungsschatz im Banking Umfeld."
   avatar_url: /assets/images/avatars/klausSchnaithmann.jpg
   github: https://github.com/klausSchnaithmann
+
+viktor-mucha:
+  first_name: Viktor
+  last_name: Mucha
+  github_username: viktor-mucha
+  email: Viktor.Mucha@adesso.de
+  bio: "Viktor Mucha ist Senior Software Engineer und arbeitet seit 8 Jahren bei adesso in der LOB Lottery. Sein Schwerpunkt liegt in der Konzeption und Entwicklung von Change Requests der Software-Lösung in|FOCUS in Java."
+  avatar_url: /assets/images/avatars/viktor-mucha.jpg
+  github: https://github.com/viktor-mucha
   
