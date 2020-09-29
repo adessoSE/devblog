@@ -167,31 +167,27 @@ Diese sollten so aufgebaut sein, dass sie der Fachlichkeit so nah wie möglich k
 Es ist zu dokumentieren, wie diese Testdaten aufgebaut sind und welche Schritte notwendig sind, damit die Daten zum Zeitpunkt eines Testlaufs korrekt eingespielt werden können.
 Im besten Fall passiert dies bereits automatisiert im Rahmen einer Continuous Integration (z.B. in eine DB im Docker Container).
 
-## Last- und Performancetests  
+## Last- und Performancetests
 
-Es werden automatisiert Last- und Performancetests durchgeführt, im besten Fall auf einer produktionsnah konfigurierten Testumgebung.
-Für die Tests werden die in den nicht funktionalen Anforderungen vorgegebenen maximalen Nutzerzahlen und Datenvolumen verwendet.
-Die Antwortzeiten der Software bleiben in den vorgegebenen Werten. 
+Um sicherzustellen, dass eine neu entwickelte Software im späteren produktiven Betrieb den geforderten, nichtfunktionalen Anforderungen genügt, sind Last- und Performance-Tests zu implementieren.
+Diese Tests sind so umzusetzen, dass sie einerseits das zu erwartende Nutzerverhalten (die zu erwartende Last) simulieren, andererseits aber auch eine Aussage über den zu erwarteten Ressourcen-Bedarf und die Skalierung treffen können.
 
-Die Last- und Performancetests werden regelmäßig durchgeführt.
-Je nach Projektumfang erfolgt dies mindestens einmal alle 1 – 3 Monate.
-Die Ergebnisse und ggf. daraus resultierende Maßnahmen werden dokumentiert. 
+Zur Durchführung eines Last- oder Performance-Tests kann ein entsprechendes Tool (z.B. Gatling, JMeter…) so konfiguriert werden, dass es automatisiert Anwendungsfälle in gewünschter Häufigkeit, Parallelität und Last-Veränderung (Erhöhung, Senkung) auf einem eigens dafür bereitgestellten Testsystem ausführt.
 
-## Massendatentests 
+Aber welche Anwendungsfälle sind repräsentativ für einen Last- oder Performance-Test?
+Erstens sind zumindest Kernanwendungsprozesse, die am häufigsten benutzt werden im Einzelnen zu prüfen.
+Zweitens sollte ein Test einen Mix aus unterschiedlichen Anwendungsfällen gleichzeitig durchführen.
+Und drittens sind diejenigen Prozesse zu prüfen, die mit hoher Wahrscheinlichkeit einen negativen Einfluss auf die Performance haben werden.
+Dazu zählen unter anderem Prozesse, die auf vielen Daten arbeiten und/oder einen komplexen Algorithmus implementieren (z.B. lang laufende Reports).
 
-Es werden automatisierte Massendatentests durchgeführt, im besten Fall auf einer produktionsnah konfigurierten Testumgebung.
-Für die Tests wird das in den nicht funktionalen Anforderungen vorgegebene maximale Datenaufkommen verwendet.
-Die Tests beinhalten die Ausführung von allen vorhandenen datenintensiven Anwendungsfällen (z.B. Massendatenimport und –export, Statistikberechnungen etc.).
-Die Auswertung der Massendatentests trifft Aussagen über die folgenden Themen: 
+Vorab muss entsprechend Zeit und Budget bereitgestellt werden, die unterschiedlichen Tests zu planen und die zu ermittelnden Messwerte und das Performance-Ziel (Grenzen) zu definieren.
+Dann sind diese Tests umzusetzen und werden während der Entwicklung in regelmäßigen Abständen (z.B. 1-mal pro Sprint oder 1-mal im Monat) durchzuführen.
+Nach einem Test werden die Messwerte zusammengetragen, gegen das Performance-Ziel geprüft und der Test sollte fehlschlagen, wenn eine bestimmte Grenze (das Performance-Ziel) überschritten wird.
+Die folgenden Messwerte können je nach Art der Software ermittelt werden:
 
-* Speicherauslastung 
-* Garbage-Collection 
-* Auswirkung auf die Performance 
-* Auswirkung auf die Datenbank (z.B. arbeiten Views/Queries weiterhin performant?) 
-
-Die Massendatentests werden regelmäßig durchgeführt.
-Je nach Projektumfang erfolgt dies mindestens einmal alle 1 – 3 Monate.
-Die Ergebnisse und ggf. daraus resultierende Maßnahmen werden dokumentiert. 
+* Antwortzeit (Durchschnitt, Percentil, Max)
+* Maximale Anzahl gleichzeitiger Nutzer bzw. Anwendungsfälle pro Nutzer
+* Arbeitsspeicher-Bedarf (Min, Max, Durchsatz)
 
 ## Automatisierung der Testumgebungen 
 
@@ -242,7 +238,6 @@ Es existiert ein Projekt auf dem adesso Jenkins, das regelmäßig die folgenden 
 **Wöchentlich bis monatlich:**
 * Ausführung der Last-Tests
 * Ausführung der Performance- uns/oder Massendaten-Tests
-
 
 ## Artefakt-Repository
 
