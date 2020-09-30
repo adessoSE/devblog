@@ -131,13 +131,21 @@ Zusätzlich zu dieser Überprüfung, sehen wir ein Beispiel um die zwei Inputfel
   it('type username and password', async() => { 
     await app.client.setValue('#username', 'demoUser');
     await app.client.setValue('#password', 'demoPassword');
+    const InputUsername = await app.client.getText('#username');
+    const InputPasswort = await app.client.getText('#password');
+    
+    expect(InputUsername).to.be.equal('demoUser')
+    expect(InputPasswort).to.be.equal('demoPassoword')
+
     await app.client.click('#submitButton');
   }); 
 ```
 
 Wir nutzen hier die 'setValue()' Methode um ein Inputfeld mit Inhalt zu befüllen. 
 Diese Methode benötigt zwei Paramenter. 
-Ein Paramenter um das Element zu finden über die ID, welches Inputfeld angesprochen werden soll und dem zweiten Paramenter geben wir den Inhalt selbst mit.
+Der erste Paramenter dient dazu, das entsprechende Inputelement über die ID zu finden, der zweite weist dem Feld den angegebenen Wert zu.
+Optional können wir an dieser Stelle überprüfen ob die beiden Inputfelder auch überhaupt bzw. richtig befüllt worden sind.
+Wir holen uns die zwei befüllten Felder mit Hilfe der 'getText()' Methode und überprüfen diese mit 'expect' mit unseren erwarteten Werten.
 Anschließend klicken wir mit der 'click()' Methode, der wir die ID des Buttons geben, auf den Einloggen Button.
 
 
