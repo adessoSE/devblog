@@ -1,4 +1,13 @@
-# E2E-Tests vom Webservice bis zur DB eines Monolithen mit JUnit
+---
+layout:         [post, post-xml]              
+title:          "E2E-Tests vom Webservice bis zur DB eines Monolithen mit JUnit"
+date:           2020-09-30 16:00
+author:         thorbolo
+categories:     [Softwareentwicklung]
+tags:           [Test, JUnit, E2E, Webservice, Monolith]
+---
+
+
 
 In diesem Artikel geht es um automatisierte, in der CI-Pipeline integrierbare, Tests, die die gesamte Geschäftslogik eines Monolithen von der obersten Schicht (einem Webservice) bis zur untersten Schicht (der Datenbank) abdecken können.
 
@@ -53,7 +62,7 @@ Mithilfe des *rest-assured*-Frameworks wird schließlich ein Rest-Client erzeugt
 
 Zahlreiche weitere anwendungsspezifische Konfigurationen werden mit den Hausmitteln von JUnit eingerichtet, sodass am Anfang eines jeden JUnit-Tests eine fertige Laufzeit des Monolithen und ein Rest-Client zur Verfügung stehen.
 
-Von hier an ist das implementieren der Tests kaum mehr, als ein üblicher JUnit-Test.
+Von hier an ist das Implementieren der Tests kaum mehr als ein üblicher JUnit-Test.
 
 #### Die Tools
 
@@ -76,11 +85,11 @@ Von hier an ist das implementieren der Tests kaum mehr, als ein üblicher JUnit-
 - Tests erodieren nicht, da sie bei Änderungen direkt mit angepasst werden müssen (spätestens, wenn die nächste Ausführung fehlschlägt)
 - Once-Written-Never-Forgotten; Testszenarios müssen nur einmalig als Test implementiert werden und werden bei jeder zukünftigen Ausführung abgetestet.
 
-## Die Sclaimer (*Disclaimer*, entschuldigt das Wortspiel :)
+## Die Sclaimer ("Disclaimer" wäre ein Kombobreaker gewesen:)
 
-Mir ist bewusst, dass JUnit ein Framework ist, welches darauf abzielt, so leichtgewichtige Tests wie nur möglich zu schreiben und das unsere Verwendung des Frameworks diesem Grundgedanken zutiefst widerspricht.
+Mir ist bewusst, dass JUnit ein Framework ist, welches darauf abzielt, so leichtgewichtige Tests wie nur möglich zu schreiben und dass unsere Verwendung des Frameworks diesem Grundgedanken zutiefst widerspricht.
 
-An manchen Stellen mussten wir daher etwas kreativ mit den gegeben Möglichkeiten von JUnit umgehen. Wichtig ist, dass wir uns dessen bewusst sind und dass wir lediglich in diesem Kontext von den Best-Practices eines üblichen Unit-Tests abweichen.
+An manchen Stellen mussten wir daher etwas kreativ mit den gegebenen Möglichkeiten von JUnit umgehen. Wichtig ist, dass wir uns dessen bewusst sind und dass wir lediglich in diesem Kontext von den Best-Practices eines üblichen Unit-Tests abweichen.
 
 Das Resultat ist zumindest in unserem Kontext jedoch über jeden Zweifel erhaben und legitimiert dazu, auch mal out-of-the-box zu denken.
 
