@@ -13,7 +13,7 @@ In diesem Artikel geht es um automatisierte, in der CI-Pipeline integrierbare, T
 
 Dieser Artikel richtet sich an Projektleiter, Architekten oder interessierte Entwickler, die sich bei der Entwicklung eines Webservices (oder danach) fragen, wie man diesen dauerhaft testet und qualitätssichern kann.
 
-## Die Ausgangslage
+# Die Ausgangslage
 
 Der Monolith in meinem aktuellen Projekt sollte um eine neue (REST-)Webservice-Schnittstelle erweitert werden.
 
@@ -26,7 +26,7 @@ Natürlich kommen hierbei die üblichen Verdächtigen auf:
 
 Beide Möglichkeiten erfordern allerdings einen relativ großen Pflege Aufwand und vor allem erodieren sie schnell, wenn die Schnittstelle sich mit der Zeit ändert.
 
-## Die Grundidee
+# Die Grundidee
 
 Ich stelle einmal die These auf, dass Entwickler ungern ihre eigenen Entwicklungen testen und faul sind (behauptete zumindest mein Informatik-Lehrer, als es ums Copy-Paste-Pattern ging).
 
@@ -42,7 +42,7 @@ Aus dem "As-Code" Gedanken, entsprang die Idee, ob das nicht in leicht ausführb
 
 Alle möglichen Komplexitäten der Schnittstelle müssten ja nur einmal in einem solchen Test implementiert werden und wären beliebig wiederholbar ausführbar.
 
-## Die Umsetzung
+# Die Umsetzung
 
 In diesem Artikel beschreibe ich die Umsetzung nur sehr grob, um den Rahmen nicht zu sprengen.
 
@@ -64,7 +64,7 @@ Zahlreiche weitere anwendungsspezifische Konfigurationen werden mit den Hausmitt
 
 Von hier an ist das Implementieren der Tests kaum mehr als ein üblicher JUnit-Test.
 
-#### Die Tools
+## Die Tools
 
 - TestContainers (DB)
   - https://www.testcontainers.org
@@ -77,7 +77,7 @@ Von hier an ist das Implementieren der Tests kaum mehr als ein üblicher JUnit-T
   - http://rest-assured.io
   - Erzeugen von REST-Calls As-Code
 
-## Die Vorteile
+# Die Vorteile
 
 - Die E2E-Tests laufen vollkommen automatisiert
 - Ausführung der Tests in CI-Pipeline und damit frühzeitige Erkennung von Fehlern in der Geschäftslogik des Monolithen
@@ -85,7 +85,7 @@ Von hier an ist das Implementieren der Tests kaum mehr als ein üblicher JUnit-T
 - Tests erodieren nicht, da sie bei Änderungen direkt mit angepasst werden müssen (spätestens, wenn die nächste Ausführung fehlschlägt)
 - Once-Written-Never-Forgotten; Testszenarios müssen nur einmalig als Test implementiert werden und werden bei jeder zukünftigen Ausführung abgetestet.
 
-## Die Sclaimer ("Disclaimer" wäre ein Kombobreaker gewesen:)
+# Die Sclaimer ("Disclaimer" wäre ein Kombobreaker gewesen:)
 
 Mir ist bewusst, dass JUnit ein Framework ist, welches darauf abzielt, so leichtgewichtige Tests wie nur möglich zu schreiben und dass unsere Verwendung des Frameworks diesem Grundgedanken zutiefst widerspricht.
 
