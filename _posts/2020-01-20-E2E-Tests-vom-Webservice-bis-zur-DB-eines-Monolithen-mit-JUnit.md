@@ -1,4 +1,4 @@
-# E2E-Tests vom Webservice bis zur DB eines Monolithen mit JUnit (nicht-technischer Teil)
+# E2E-Tests vom Webservice bis zur DB eines Monolithen mit JUnit
 
 In diesem Artikel geht es um automatisierte, in der CI-Pipeline integrierbare, Tests, die die gesamte Geschäftslogik eines Monolithen von der obersten Schicht (einem Webservice) bis zur untersten Schicht (der Datenbank) abdecken können.
 
