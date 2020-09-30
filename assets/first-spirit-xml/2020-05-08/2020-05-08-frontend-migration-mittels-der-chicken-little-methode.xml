@@ -1,0 +1,448 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<documents>
+    <document uid="0574f9efe2949a351386932322c7aac3">
+        <field name="title"><![CDATA[Frontend Migration anhand der Chicken-Little-Methode in der Praxis]]></field>
+        <field name="subline"><![CDATA[]]></field>
+        <field name="teaser"><![CDATA[<p>In meinem <a href="https://www.adesso.de/de/news/blog/inkrementelle-softwaremigration-nach-der-chicken-little-methode-4.jsp">ersten Beitrag</a> habe ich die <strong>Chicken-Little-Methode</strong>, eine Vorgehensweise für die schrittweise Migration von <em>Legacy-Systemen</em>, vorgestellt.
+Darauf aufbauend soll in diesem Beitrag nun demonstriert werden, wie sich diese Methode auf eine <em>Frontend-Migration</em> im Kontext einer Webanwendung anwenden lässt.
+Dazu wird eine existierende Webanwendung betrachtet und gezeigt wie sich eine, auf den <em>Server-Side Rendering Technologien</em> <strong>JSF</strong> und <strong>Facelets</strong> basierende Komponente dieser Anwendung, in eine andere Technologie transformieren lässt und im Anschluss daran wieder in das Altsystem integriert wird.
+Als Zieltechnologie für die Migration dient in diesem Beispiel das <strong>Single-Page-Application</strong>-Framework <a href="https://reactjs.org/"><strong>ReactJS</strong></a>.</p>
+
+]]></field>
+        <field name="language_multi_keyword"><![CDATA[de]]></field>
+        <field name="content_type_multi_keyword"><![CDATA[blog]]></field>
+        <field name="mime_type_multi_keyword"><![CDATA[text/html]]></field>
+        <field name="category_multi_keyword"><![CDATA[Methodik]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Frontend]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Migration]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Softwaremigration]]></field>
+        <field name="tag_multi_keyword"><![CDATA[React]]></field>
+        <field name="tag_multi_keyword"><![CDATA[ReactJS]]></field>
+        <field name="tag_multi_keyword"><![CDATA[JSX]]></field>
+        <field name="tag_multi_keyword"><![CDATA[JSF]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Facelets]]></field>
+        <field name="tag_multi_keyword"><![CDATA[REST]]></field>
+        <field name="date_date"><![CDATA[2020-05-08T17:00:00+02:00]]></field>
+        <field name="date_l"><![CDATA[1588950000000]]></field>
+        <field name="change_date"><![CDATA[1589192700000]]></field>
+        <!--Picture-->
+        <!-- Not in use at the moment-->
+        <!--Author Information-->
+        <field name="author_first_name"><![CDATA[Michael]]></field>
+        <field name="author_last_name"><![CDATA[Schick]]></field>
+        <field name="author_id"><![CDATA[mschick]]></field>
+        <field name="author_picture_stored_only"><![CDATA[http://localhost:4000/assets/images/avatars/mschick.jpg]]></field>
+        <!--Postcontent-->
+        <field name="headlines"><![CDATA[Frontend Migration anhand der Chicken-Little-Methode in der Praxis]]></field>
+        <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
+            <p>In meinem <a href="https://www.adesso.de/de/news/blog/inkrementelle-softwaremigration-nach-der-chicken-little-methode-4.jsp">ersten Beitrag</a> habe ich die <strong>Chicken-Little-Methode</strong>, eine Vorgehensweise für die schrittweise Migration von <em>Legacy-Systemen</em>, vorgestellt.
+Darauf aufbauend soll in diesem Beitrag nun demonstriert werden, wie sich diese Methode auf eine <em>Frontend-Migration</em> im Kontext einer Webanwendung anwenden lässt.
+Dazu wird eine existierende Webanwendung betrachtet und gezeigt wie sich eine, auf den <em>Server-Side Rendering Technologien</em> <strong>JSF</strong> und <strong>Facelets</strong> basierende Komponente dieser Anwendung, in eine andere Technologie transformieren lässt und im Anschluss daran wieder in das Altsystem integriert wird.
+Als Zieltechnologie für die Migration dient in diesem Beispiel das <strong>Single-Page-Application</strong>-Framework <a href="https://reactjs.org/"><strong>ReactJS</strong></a>.</p>
+
+</div>]]></field>
+        <field name="content"><![CDATA[<div class="adesso-text-formate">
+<div class="row p-t-2">
+<div class="adesso-container">
+<div class="col-xl-8 adesso-center p-b-1 p-l-0 p-r-0">
+    <p>In meinem <a href="https://www.adesso.de/de/news/blog/inkrementelle-softwaremigration-nach-der-chicken-little-methode-4.jsp">ersten Beitrag</a> habe ich die <strong>Chicken-Little-Methode</strong>, eine Vorgehensweise für die schrittweise Migration von <em>Legacy-Systemen</em>, vorgestellt.
+Darauf aufbauend soll in diesem Beitrag nun demonstriert werden, wie sich diese Methode auf eine <em>Frontend-Migration</em> im Kontext einer Webanwendung anwenden lässt.
+Dazu wird eine existierende Webanwendung betrachtet und gezeigt wie sich eine, auf den <em>Server-Side Rendering Technologien</em> <strong>JSF</strong> und <strong>Facelets</strong> basierende Komponente dieser Anwendung, in eine andere Technologie transformieren lässt und im Anschluss daran wieder in das Altsystem integriert wird.
+Als Zieltechnologie für die Migration dient in diesem Beispiel das <strong>Single-Page-Application</strong>-Framework <a href="https://reactjs.org/"><strong>ReactJS</strong></a>.</p>
+
+<p>Wichtig hierbei anzumerken ist, dass der Fokus hier ganz klar auf der Beschreibung des Vorgehens liegt. Die hierbei verwendete Technologie dient lediglich der Veranschaulichung und kann beliebig ausgetauscht werden.
+Daher werden hier auch Quellcode-Beispiele nur in reduzierter Form und auch nur da eingesetzt, wo sie für das Verständnis dienlich sind.</p>
+
+<h4 id="die-legacy-anwendung">Die Legacy Anwendung</h4>
+
+<p>Bei der zuvor erwähnten Webanwendung handelt es sich konkret um eine Portal-Lösung für Versicherungsmakler.
+ Der jeweilige Makler hat hier die Möglichkeit, seine Mandanten und deren Stammdaten, sowie deren aktuelle Versicherungsverträge zu erfassen und zu verwalten.
+Darüber hinaus besteht unter anderem die Möglichkeit, bestehende Versicherungsverträge mit Tarifen anderer oder auch des selben Versicherers zu vergleichen und neu abzuschließen.</p>
+
+<h5 id="technischer-hintergrund">Technischer Hintergrund</h5>
+<p>Das Versicherungsportal basiert maßgeblich auf den Technologien <em>Java EE 6</em> sowie dem Webframework <a href="http://www.seamframework.org/"><em>Seam</em></a> in der Version 2.
+Bereit gestellt wird die Anwendung auf einem <strong>JBoss Application Server</strong> in der <em>Version 5</em>.</p>
+
+<p>Die Entwicklung von <em>Seam</em> wurde bereits im Jahr 2012 vollständig eingestellt.
+Dieser Umstand führt unter anderem dazu, dass in der Weiterentwicklung des Projekts der Einsatz neuerer Technologien dadurch limitiert wird, dass die Kompatibilität zu <em>Seam</em> immer gewährleistet sein muss.
+Davon betroffen sind sowohl die eingesetzte Java-Version, damit einhergehend auch der Applikationsserver, als auch schlussendlich die verwendeten <em>Libraries</em>.
+Damit qualifiziert sich dieses Projekt, um im Kontext der <strong>Softwaremigration</strong> näher betrachtet zu werden.</p>
+
+<p>Das in diesem Artikel betrachtete Beispiel entstammt einer Abschlussarbeit, die durch die <em>adesso SE</em> betreut wurde.<br />
+Daher wurde auch die Entscheidung getroffen, eine <em>Frontend-Migration</em> durchzuführen, um die Komplexität überschaubar zu halten und gleichzeitig den Rahmen der erwähnten Arbeit nicht zu sprengen.
+Schlussendlich demonstriert dieses Beispiel aber auch das breite Einsatzgebiet dieser Methode. Sie lässt sich flexibel für entweder nur eine Migrationsart (Programm-, Benutzerschnittstellen- und/oder Datenmigration) oder eine Kombination dieser einsetzen. Eine vollständige Systemmigration, die sämtliche Bereiche umfasst, ist aber auch möglich.</p>
+
+<h4 id="die-migration">Die Migration</h4>
+<p>In diesem Abschnitt erfolgt die Migration der zuvor beschriebenen Anwendung.
+Da sich das Migrationsvorhaben in diesem Beispiel auf das Frontend beschränkt, reduziert sich in der Folge auch die Anzahl der durchzuführenden Migrations-Schritte der <strong>Chicken-Little-Methode</strong>.
+So entfallen sämtliche Punkte, die sich auf die Migration der <strong>Programme und Anwendungen</strong> sowie der <strong>Datenbank</strong> beziehen.</p>
+
+<p>Übrig bleiben also nur noch die im Folgenden aufgeführten Schritte:</p>
+
+<ul>
+  <li><strong>Analyse</strong> <em>(Schritt 1)</em> sowie die <strong>Strukturierung</strong> <em>(Schritt 2)</em> des Altsystems,</li>
+  <li>der <strong>Entwurf</strong> und die <strong>Installation der Zielumgebung</strong> <em>(Schritt 3 + 6)</em>,</li>
+  <li>die <strong>Installation der benötigten Schnittstellen</strong> <em>(Schritt 7)</em></li>
+  <li>sowie die abschließende <strong>Migration und Umstellung</strong> auf die Neuentwicklung <em>(Schritt 10 + 11)</em>.</li>
+</ul>
+
+<h5 id="analyse-und-strukturierung">Analyse und Strukturierung</h5>
+
+<p>Im ersten Schritt gilt es eine geeignete Komponente für den ersten Durchlauf der Migration auszuwählen.
+Empfohlen ist es hierbei, möglichst kleinschrittig vorzugehen, also einen in puncto Komplexität überschaubaren Bestandteil der Anwendung zu wählen.
+Existieren starke Verwebungen zwischen den unterschiedlichen Schichten (wie z.B. Frontend und Programmlogik), so sind diese bereits im Vorfeld der Migration aufzulösen.</p>
+
+<h6 id="die-vertragsliste-der-makler-anwendung">Die Vertragsliste der Makler-Anwendung</h6>
+<p>Für den ersten Migrationsschritt des Versicherungsmakler-Portals wurde die <em>Vertragsliste</em> ausgewählt, mit Hilfe welcher sich ein Makler sämtliche (Vor-)Verträge seines jeweils ausgewählten Mandanten anzeigen lassen kann.
+Die Ausgabe erfolgt dabei in tabellarischer Form und enthält pro Zeile die Details wie bspw. die Versicherungsnummer, die Vertragsart oder den jeweiligen Versicherer.
+Darüber hinaus besteht für jeden Vertrag die Möglichkeit mittels eines Buttons, diesen Vertrag zu <em>löschen</em> oder zu <em>bearbeiten</em>.
+Außerdem kann über einen weiteren Button unterhalb der Tabelle eine Tarif-Berechnung für sämtliche Verträge in der Tabelle angestoßen werden.</p>
+
+<p>Der unten stehende, stark vereinfachte Quellcode-Auszug zeigt das grundsätzliche <em>JSF-Markup</em> der <em>Vertragsliste</em>:</p>
+
+<pre><code class="language-xml">&lt;ui:define name="content"&gt;
+    ...
+    &lt;rich:dataTable id="vertragsliste" var="_vertrag"
+        value="#{vertragslisteController.vertragsliste}"
+        rendered="#{vertragslisteController.liste.size &gt; 0}"&gt;
+        ...
+        &lt;rich:column&gt;
+            &lt;f:facet name="header"&gt;Versicherungsart&lt;/f:facet&gt;
+            &lt;h:outputText value="#{_vertrag.vertragsArt()}" /&gt;
+        &lt;/rich:column&gt;
+
+        &lt;rich:column&gt;
+            &lt;f:facet name="header"&gt;Vers.-Nr.&lt;/f:facet&gt;
+            &lt;h:outputText value="#{_vertrag.versicherungsNr()}" /&gt;
+        &lt;/rich:column&gt;
+
+        &lt;rich:column&gt;
+            &lt;f:facet name="header"&gt;Versicherer&lt;/f:facet&gt;
+            &lt;h:outputText value="#{_vertrag.versicherer()}" /&gt;
+        &lt;/rich:column&gt;
+        ...
+    &lt;/rich:dataTable&gt;
+    ...
+    &lt;h:commandButton id="berechnenButton"
+        action="#{vertragslisteController.berechneVertraege()}"
+        value="Berechnen" /&gt;
+
+&lt;/ui:define&gt;
+</code></pre>
+
+<h6 id="involvierte-java-klassen">Involvierte Java-Klassen</h6>
+<p>Aus dem oben stehenden <em>JSF-Template</em> lassen sich bereits die beteiligten <em>Java-Klassen</em> ablesen.
+Die zentralen Elemente sind hierbei der Controller <code>VertragslisteController</code>, der das Datenhandling übernimmt, sowie die Entität <code>Vertrag</code>, die den jeweiligen Versicherungsvertrag repräsentiert und dessen Details bereitstellt.</p>
+
+<h5 id="entwurf-und-entwicklung-der-neuen-benutzeroberfläche">Entwurf und Entwicklung der neuen Benutzeroberfläche</h5>
+
+<p>Die Darstellung der <em>Vertragsliste</em> innerhalb der <em>React App</em> soll auch hier wieder in tabellarischer Form erfolgen.</p>
+
+<p>Sowohl die <em>Vertragsliste</em> als auch der <em>Vertrag</em> werden dazu jeweils als eigenständige <em>React Komponente</em> innerhalb der <em>React App</em> implementiert.
+Bei einer <em>React Komponente</em> handelt es sich knapp zusammengefasst um einen wiederverwendbaren Teil einer Benutzeroberfläche, der die Funktionalität sowie die Eigenschaften der Komponente (<code>props</code>) innerhalb einer <em>React App</em> bündelt.</p>
+
+<p>Weitere Details dazu finden sich <a href="https://reactjs.org/docs/components-and-props.html">in der React-Dokumentation</a>.</p>
+
+<h6 id="vertragsliste">Vertragsliste</h6>
+
+<p>Der folgende Quelltext zeigt den grundsätzlichen Aufbau der neuen Komponente <code>Vertragsliste</code>:</p>
+<pre><code class="language-jsx">import React from "react";
+
+class Vertragsliste extends React.Component {
+
+    // Initialisierung
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            error: null,
+            requestComplete: false,
+            vertraege: []
+        };
+
+        this.eachVertrag = this.eachVertrag.bind(this);
+        this.remove = this.remove.bind(this);
+        this.calculate = this.calculate.bind(this);
+    }
+
+    // Hier erfolgt der Abruf der Vertragsliste im Altsystem
+    // nachdem die Komponente der UI hinzugefügt wurde
+    componentDidMount() {}
+
+    // Vertrag im Altsystem löschen
+    remove(vertragsId) {}
+
+    // Berechnung der Tarife der i.d. Liste enthaltenen Verträge anstoßen
+    calculate() {}
+
+    // Verarbeitung der einzelnen Verträge ...
+    eachVertrag(vertrag, i) {}
+     // ... und anschließende Ausgabe der Vertragsliste im Frontend
+         render() {}
+}
+</code></pre>
+
+<p>Im <em>Konstruktor</em> erfolgt zunächst die Initialisierung des <em>Zustands</em> (<a href="https://reactjs.org/docs/state-and-lifecycle.html"><code>state</code></a>) der Vertragslisten-Komponente.</p>
+
+<p>Von wesentlicher Bedeutung ist hier das zunächst leere Array <code>vertrage</code>, in welchem die, über die Schnittstelle zum Altsystem abgefragten Versicherungsverträge für die jeweilige <em>View</em> gespeichert werden.
+Daneben gibt es noch zwei weitere Felder, die kennzeichnen, ob eine Anfrage an die Schnittstelle noch läuft oder erfolgreich abgeschlossen wurde (<code>requestComplete</code>).
+Scheitert der <em>Request</em>, so wird der aufgetretene Fehler in <code>error</code> gespeichert, um diesen im weiteren Verlauf behandeln zu können. <br />
+Des Weiteren erfolgt hier das <a href="https://reactjs.org/docs/faq-functions.html#why-is-binding-necessary-at-all"><em>Binding</em></a> der Methoden an den Wert <code>this</code>.</p>
+
+<p>Die initiale Abfrage der <em>Vertragsliste</em> aus dem Altsystem erfolgt später über eine noch zu implementierende Schnittstelle mittels der Methode <a href="https://reactjs.org/docs/react-component.html#componentdidmount"><code>componentDidMount()</code></a>.
+ Hierbei handelt es sich um eine sogenannte <a href="https://reactjs.org/docs/state-and-lifecycle.html#adding-lifecycle-methods-to-a-class"><em>Lifecycle-Methode</em></a> von <em>React</em>, die ausgeführt wird, sobald die Komponente der Benutzeroberfläche hinzugefügt wurde.</p>
+
+<p>Weitere Methoden in dieser Komponente sind hier <code>remove()</code> für das Löschen von Verträgen, sowie <code>calculate()</code> zum Anstoßen der Berechnung sämtlicher Tarife.</p>
+
+<p>Das <em>Rendering</em> der Liste im Frontend sowie der darin enthaltenen Verträge erfolgt in der Methode <code>render()</code> der Komponente.
+Dazu wird mittels der Funktion <code>eachVertrag()</code> über die aktuelle Liste in <code>this.state.vertraege</code> iteriert.
+ Dort folgt die Instantiierung der jeweiligen Vertrags-Komponenten und ihrer <code>props</code>.</p>
+
+<pre><code class="language-jsx">    eachVertrag(vertrag, i) {
+        return (
+            &lt;Vertrag
+                key={i}
+                index={i}
+                vertragsId={vertrag.spartenberatungId}
+                href={vertrag.href}
+                onRemove={this.remove}&gt;
+                &lt;td&gt;{vertrag.versicherungsnummer}&lt;/td&gt;
+                &lt;td&gt;...&lt;/td&gt;
+            &lt;/Vertrag&gt;
+        );
+    }
+        render() {
+            const {error, requestComplete, vertraege} = this.state;
+            if (error) { 
+                {/*Fehlerbehandlung hier, falls Request scheitert*/}
+            } else if (!requestComplete) {
+                return &lt;div&gt;Lade Verträge...&lt;/div&gt;
+            } else {
+                return (
+                    &lt;div id="vertragsliste"&gt;
+                        {vertraege &amp;&amp; vertraege.length &gt; 0 ? (
+                            &lt;table&gt;
+                                &lt;colgroup span="8"&gt;&lt;/colgroup&gt;
+                                &lt;thead&gt;{!-- Tabellenkopf --&gt;}&lt;/thead&gt;
+                                &lt;tbody&gt;{vertraege.map(this.eachVertrag)}&lt;/tbody&gt;
+                            &lt;/table&gt;
+                        ) : (
+                            &lt;div&gt;Keine Verträge gefunden&lt;/div&gt;
+                        )}
+
+                        {vertraege &amp;&amp; vertraege.length &gt; 0 &amp;&amp;
+                        &lt;div className="actionButtons"&gt;
+                            &lt;input id="calculate"
+                                   type="submit"
+                                   name="calculate"
+                                   value="Berechnen"
+                                   onClick={this.calculate}/&gt;
+                        &lt;/div&gt;
+                        }
+                    &lt;/div&gt;
+                )
+            }
+        }
+}
+</code></pre>
+
+<p><strong>Randbemerkung:</strong> Das, was im obigen Beispiel wie <code>HTML-Markup</code> anmutet ist in Wirklichkeit <code>JavaScript-Code</code> in Form von <code>JSX</code>.
+Der <code>JSX-Code</code> wird durch einen <em>Transpiler</em> in <em>JavaScript</em> übersetzt.
+Entworfen wurde das ganze von Facebook als Erweiterung des <strong>ES6-Standards</strong>.  Weitere Informationen zu <code>JSX</code> und was dahinter steckt, findet Ihr <a href="https://reactjs.org/docs/jsx-in-depth.html">in der React-Dokumentation</a> und <a href="https://facebook.github.io/jsx/">der JSX-Spezifikation</a>.</p>
+
+<h6 id="die-vertragskomponente">Die Vertragskomponente.</h6>
+
+<p>Das folgende Quellcodebeispiel zeigt den Aufbau der Komponente <code>Vertrag</code>.
+Die Repräsentation des einzelnen Vertrags im Frontend erfolgt jeweils als Tabellenzeile in der Komponente <code>Vertragsliste</code>.</p>
+
+<pre><code class="language-jsx">import React from "react";
+
+class Vertrag extends React.Component {
+    constructor(props) {
+        super(props);
+        this.remove = this.remove.bind(this);
+    }
+
+    remove() {
+        this.props.onRemove(this.props.vertragsId);
+    }
+
+    render() {
+        return (
+            &lt;tr&gt;
+                {this.props.children}
+                &lt;td&gt;
+                    &lt;a href="#" id="edit" target="_parent"&gt;Bearbeiten&lt;/a&gt;
+                    &lt;a href="#" id="remove"
+                       onClick={e =&gt;
+                           window.confirm("Soll der Vertrag wirklich gelöscht werden?") &amp;&amp;
+                           this.remove()
+                       }&gt;Löschen&lt;/a&gt;
+                &lt;/td&gt;
+            &lt;/tr&gt;
+        );
+    }
+}
+
+export default Vertrag;
+</code></pre>
+
+<p>Die Ausgabe der jeweiligen Tabellenzeile erfolgt in der <code>render()</code>-Methode.
+Die jeweiligen Vertragsdetails wurden bei der Initialisierung der Komponente <code>Vertrag</code> innerhalb der <code>Vertragsliste</code>, in Form von <code>JSX</code> übergeben.
+Auf diese kann nun über das Objekt <code>this.props.children</code> zugegriffen werden.
+Daneben erfolgt hier außerdem noch die Definition der Buttons, die für das <em>Löschen</em> sowie das <em>Bearbeiten</em> des jeweiligen Vertrages verantwortlich sind.</p>
+
+<p>Mit der Entwicklung der beiden Komponenten für die <em>Vertragsliste</em> und den <em>Vertrag</em> ist die neue Benutzeroberfläche fertiggestellt.</p>
+
+<p>Im nächsten Schritt müssen nun noch die <strong>Schnittstellen</strong> im Altsystem implementiert werden, damit die hier entwickelte <em>React App</em> und das Altsystem miteinander kommunizieren können.</p>
+
+<h5 id="entwicklung-einer-rest-api-als-schnittstelle-zwischen-alt-und-neu">Entwicklung einer REST-API als Schnittstelle zwischen Alt und Neu</h5>
+<p>Die Implementierung der Schnittstelle erfolgt in diesem Beispiel in Form einer kleinen <a href="https://de.wikipedia.org/wiki/Representational_State_Transfer"><strong>REST-API</strong></a>. 
+Die <strong>API</strong> soll hierbei als <strong>Reverse Gateway</strong> dienen, der die eingehenden <strong>Requests</strong> an die ursprüngliche Methode des <strong>Vertragslisten Controller</strong> delegiert und mögliche Rückgaben wieder an den Aufrufer weiterleitet.</p>
+
+<p>Folgende Funktionalität muss die <strong>API</strong> für das Beispiel der <em>Vertragsliste</em> bereitstellen:</p>
+<ul>
+  <li>Gesamtliste aller Verträge des aktuell ausgewählten Mandanten abrufen</li>
+  <li>Berechnung der Tarife aller Verträge in der Liste anstoßen</li>
+  <li>Einen Vertrag aus der Liste löschen</li>
+</ul>
+
+<p>Im Altsystem wird die <strong>Vertragsliste</strong> als <strong>Ressource</strong> im REST-Kontext angelegt. 
+Dazu wird eine neue Klasse mit dem Namen <code>VertragslisteResource</code> und folgendem Inhalt erzeugt:</p>
+
+<pre><code class="language-java">@Name("vertragslisteResource")
+@Path("/vertragsliste")
+@Produces({ "application/json", "text/json" })
+public class VertragslisteResource {
+
+    @In(create = true, required = true, value = "vertragListe")
+    private VertragslisteController vertragslisteController;
+
+    private List&lt;Vertrag&gt; vertragsliste;
+
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getVertragsliste() {
+
+        vertragsliste = vertragslisteController.getVertragsliste();
+        return Response.ok(vertragsListe).build();
+    }
+
+    @POST
+    public Response berechneAngebote(@QueryParam("cid") String cid) {
+        try {
+            vertragslisteController.berechneAngebote();
+        } catch (Exception e) {
+            log.error(e);
+            return Response.serverError().build();
+        }
+
+        return Response.ok().build();
+    }
+
+    @DELETE
+    @Path("/{vertragsId}")
+    public Response removeVertrag(@PathParam("vertragsId") int vertragsId) {
+
+        vertragslisteController.removeVertrag(vertragsId);
+        return Response.noContent().build();
+
+    }
+}
+</code></pre>
+
+<p>Für die Umsetzung wird sich der Library <strong>RESTEasy</strong> bedient, die den <strong>JAX-RS</strong>-Standard implementiert und die Definition und Konfiguration von <em>REST-Ressourcen</em> über Annotationen der <em>Java-Klassen</em> erlaubt.</p>
+
+<p>Über dem Klassennamen erfolgt zunächst die Definition der URI <code>/vertragsliste</code> per Annotation.
+Darüber lässt sich die Ressource in der <strong>REST-API</strong> adressieren.
+Daneben wird außerdem festgelegt, dass die Kommunikation via <code>JSON</code> erfolgen soll.</p>
+
+<p>Die folgende Auflistung zeigt die beteiligten <strong>Ressourcen</strong>, die jeweilige <strong>URI</strong>, die dabei verwendete <strong>HTTP-Methode</strong> sowie die jeweils korrespondierende <strong>Java-Methode</strong> auf.</p>
+
+<ul>
+  <li><strong>Liste abfragen</strong>: <code>GET /vertragsliste</code> -&gt; <code>getVertragsliste()</code></li>
+  <li><strong>Verträge berechnen</strong>: <code>POST /vertragsliste</code> -&gt; <code>berechneAngebote()</code></li>
+  <li><strong>Vertrag löschen</strong>: <code>DELETE /vertragsliste/{vertragsId}</code> -&gt; <code>removeVetrag()</code></li>
+</ul>
+
+<p>Sowohl für das <strong>Abfragen</strong> der Liste als auch die <strong>Berechnung</strong> der Verträge zeichnet sich die Ressource <code>Vertragsliste</code> verantwortlich.<br />
+Welche Aktion ausgeführt werden soll, wird maßgeblich über die beim <strong>Request</strong> verwendete <strong>HTTP-Methode</strong> bestimmt.
+Die Abfrage der List erfolgt dabei mittels eines <strong>GET-</strong>, die Berechnung der Verträge hingegen mittels eines <strong>POST-Requests</strong>. 
+Ein Vertrag kann mittels einem <strong>DELETE-Request</strong> gelöscht werden, in dem man der Basis-URI <code>/vertragsliste</code> noch die jeweilige <strong>Vertrags-Id</strong> als Parameter übergibt.</p>
+
+<h6 id="anbindung-der-react-app-an-die-api">Anbindung der React App an die API</h6>
+<p>Nachdem die API erfolgreich auf Funktionalität getestet wurde, muss die <strong>React App</strong> noch an diese angebunden werden. 
+Dies geschieht mittels der <em>JavaScript-API</em> <a href="https://developer.mozilla.org/de/docs/Web/API/Fetch_API"><code>fetch</code></a>.</p>
+
+<p>Für die Abfrage der Vertragsliste über die API in der Methode <code>componentDidMount()</code> sieht das folgendermaßen aus:</p>
+
+<pre><code class="language-js">componentDidMount() {
+        // reset errors
+        this.setState({error: null})
+
+        fetch("https://makler.portal/api/vertragsliste")
+            .then(res =&gt; res.json())
+            .then(
+                (result) =&gt; {
+                    this.setState({
+                        requestComplete: true,
+                        vertraege: this.state.vertraege
+                            .concat(result.vertragsliste.vertraege)
+                    });
+                },
+                (error) =&gt; {
+                    this.setState({requestComplete: true, error})
+                }
+            )
+    }
+</code></pre>
+
+<p>Zunächst werden alle Fehler, die möglicherweise bei einem vorangegangenen Request aufgetreten sind, wieder zurückgesetzt. 
+Anschließend wird die Vertragsliste über die <strong>REST API</strong> abgefragt und festgelegt, dass der <strong>Response</strong> als <code>JSON String</code> erwartet wird. 
+Konnte der <strong>Request</strong> erfolgreich durchgeführt werden, so werden die zurückgegebenen Verträge im <code>state</code> der Vertragsliste innerhalb der <em>React App</em> abgelegt. 
+Scheitert der <strong>Request</strong> hingegen, so wird dieser Fehler für die weitere Behandlung in <code>this.state.error</code> gespeichert.</p>
+
+<h5 id="migration-und-umstellung-des-frontends">Migration und Umstellung des Frontends</h5>
+
+<p>Damit die neu entwickelte Vertragsliste nun ihre Arbeit im Altsystem aufnehmen kann, wird diese im letzten Teil dieses Artikels im System integriert.</p>
+
+<p>Dazu wird zunächst sämtliches Markup des <strong>JSF-Templates</strong> der alten Vertragsliste entfernt. 
+Stattdessen wird hier nun die neue <strong>React App</strong> mittels eines <code>Iframes</code> eingebettet. 
+So kann sichergestellt werden, dass das unterschiedliche <em>Markup</em> und die auf beiden Seiten eingesetzten <em>JavaScript-Libraries</em> nicht in Konflikt miteinander treten.</p>
+
+<p>Iframes passen sich standardmäßig nicht der Größe ihres Inhalts an. 
+Das führt zu unschönen Effekten wie beispielsweise doppelten Scrollbars, einmal für die Seite selbst und dann nochmal für den Iframe-Inhalt.</p>
+
+<p>Um diesem Problem zu begegnen und den Einsatz von Iframes für den Benutzer zu kaschieren, gibt es verschiedene <em>JavaScript Libraries</em> (wie bspw. <a href="https://github.com/travist/seamless.js">Seamless.js</a> oder <a href="https://github.com/davidjbradshaw/iframe-resizer">IframeResizer</a>), die diese Dynamik für Iframes nachrüsten.</p>
+
+<p>In diesem Beispiel wurde die Librarie <code>IframeResizer</code> verwendet. 
+Das unten stehende Quellcode-Beispiel zeigt die Integration:</p>
+
+<pre><code class="language-xml">&lt;ui:define name="content"&gt;
+    &lt;iframe id="vertragsliste-react" src="https://makler.portal/api/vertragsliste"&gt;&lt;/iframe&gt;
+    
+    &lt;script&gt;
+        // IframeResizer
+        iFrameResize({ inPageLinks: true }, "#vertragsliste-react");
+    &lt;/script&gt;
+&lt;/ui:define&gt;
+</code></pre>
+
+<p>Mit diesem letzten Schritt ist die Migration der Vertragsliste abgeschlossen und kann im Altsystem nun verwendet werden.</p>
+
+<h4 id="zusammenfassung">Zusammenfassung</h4>
+
+<p>Dieser Artikel hat gezeigt, wie sich die <strong>Chicken-Little-Methode</strong> für eine Frontend-Migration anwenden lässt. Dazu wurde das Beispiel der <strong>Vertragsliste</strong> für die erste Iteration dieses inkrementellen Verfahrens ausgewählt. 
+Im Anschluss an die Analyse des Altsystems, wo die zu migrierenden Bestandteile und betroffenen <em>Java-Klassen</em> identifiziert wurden, erfolgte zunächst die Entwicklung dieser Vertragsliste in Form einer <strong>React App</strong>. 
+Anschließend wurde eine Schnittstelle in Form einer <strong>REST API</strong> entwickelt, um die Kommunikation zwischen dem Altsystem und der migrierten Komponente herzustellen. 
+Mit der Anbindung der <strong>React App</strong> an die Schnittstelle und dem Austausch der alten Komponente durch die neue <em>React App</em> wurde der erste Migrationsschritt erfolgreich abgeschlossen.</p>
+
+<p>Das in diesem Artikel demonstrierte Prozedere ist für jede weitere Komponente des Frontends zu wiederholen, bis das Frontend mit der letzten Komponente vollständig migriert wurde.</p>
+
+
+</div>
+</div>
+</div>
+</div>]]></field>
+    </document>
+</documents>

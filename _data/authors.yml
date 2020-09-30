@@ -85,7 +85,7 @@ maximAtanasov:
   github_username: maximAtanasov
   email: Maksim.Atanasov@adesso.de
   bio: "Maksim Atanasov ist Werkstudent bei adesso in Dortmund und entwickelt Software im Open Source Bereich."
-  avatar_url: /assets/images/avatars/maximAtanasov.png
+  avatar_url: /assets/images/avatars/maximAtanasov.jpg
   github: https://github.com/maximAtanasov
 
 nils-a:
@@ -147,7 +147,7 @@ swindisch:
   last_name: Windisch
   github_username: swindisch
   email: sascha.windisch@adesso.de
-  bio: "Sascha Windisch ist Lösungs-Architekt bei adesso in Essen. Er plant und modelliert Software-Systeme in verschiedenen Branchen."
+  bio: "Sascha Windisch ist Teamleiter und Lösungs-Architekt bei adesso in Essen. Er plant und modelliert Software-Systeme in unterschiedlichen Branchen."
   avatar_url: /assets/images/avatars/swindisch.png
   github: https://github.com/swindisch
 
@@ -195,7 +195,7 @@ jo2:
   bio: "Johannes Teklote ist Werkstudent bei adesso in Dortmund und entwickelt Software im Open Source Bereich."
   avatar_url: /assets/images/avatars/johannesteklote.jpg
   github: https://github.com/jo2
-  
+
 frederikschlemmer:
   first_name: Frederik
   last_name: Schlemmer
@@ -210,7 +210,7 @@ vincentmathis:
   last_name: Mathis
   github_username: vincentmathis
   email: vincent.mathis@adesso.de
-  bio: "Vincent Mathis ist Praktikant in der Software-Entwicklung. Er arbeitet in Frankfurt im Insurance Bereich."
+  bio: "Vincent Mathis ist Werkstudent in der Software-Entwicklung. Er arbeitet in Frankfurt im Insurance Bereich."
   avatar_url: /assets/images/avatars/vincentmathis.jpg
   github: https://github.com/vincentmathis
 
@@ -232,6 +232,15 @@ czarnecki:
   avatar_url: /assets/images/avatars/czarnecki.jpg
   github: https://github.com/czarnecki
 
+pschild:
+  first_name: Philippe
+  last_name: Schild
+  github_username: pschild
+  email: philippe.schild@adesso.de
+  bio: "Philippe Schild ist Software Engineer bei adesso in Essen. Er ist begeisterter Fan von JavaScript-Technologien und entwickelt u.a. Webanwendungen mit Angular."
+  avatar_url: /assets/images/avatars/pschild.jpg
+  github: https://github.com/pschild
+
 smsnheck:
   first_name: Sebastian
   last_name: Heckmann
@@ -240,3 +249,112 @@ smsnheck:
   bio: "Sebastian ist Teamleiter bei adesso und beschäftigt sich gerne mit Themen aus dem Umfeld der agilen Softwareentwicklung."
   avatar_url: /assets/images/avatars/smsnheck.jpg
   github: https://github.com/smsnheck
+
+c-bachmann:
+  first_name: Christian
+  last_name: Bachmann
+  github_username: c-bachmann
+  email: bachmann@adesso-mobile.de
+  bio: "Christian Bachmann ist Softwarearchitekt bei adesso mobile solutions in Dortmund. Er interessiert sich für effiziente Architekturen und Cloud-native Anwendungen."
+  avatar_url: /assets/images/avatars/c-bachmann.jpg
+  github: https://github.com/c-bachmann
+
+frenzel:
+  first_name: Daniel
+  last_name: Frenzel
+  github_username: fwshgtn
+  email: daniel.frenzel@adesso.de
+  bio: "Daniel Frenzel ist Senior Software Engineer bei adesso in Dortmund und entwickelt seit mehreren Jahren Java- und Webanwendungen."
+  avatar_url: /assets/images/avatars/fwshngtn.jpg
+  github: https://github.com/fwshngtn
+
+muhannaddarraj:
+  first_name: Muhannad
+  last_name: Darraj
+  github_username: muhannaddarraj
+  email: muhannad.darraj@adesso.de
+  bio: "Muhannad Darraj ist als studentischer Mitarbeiter in der Line of Business Insurance bei adesso tätig. Sein Arbeitsschwerpunkt liegt in der Softwareentwicklung. Er recherchiert gerne in seiner Freizeit nach alternativen Technologien, um die bestmögliche Software zu erschaffen und sein Wissen zu erweitern."
+  avatar_url: /assets/images/avatars/dar.jpg
+  github: https://github.com/muhannaddarraj
+
+Flo4l:
+  first_name: Florian
+  last_name: Albers
+  github_username: Flo4l
+  email: florian.albers@adesso.de
+  bio: "Florian Albers ist als dualer Student im Open-Source-Team bei adesso in Essen tätig"
+  avatar_url: /assets/images/avatars/falbers.jpg
+  github: https://github.com/Flo4l
+
+janschneider1:
+  first_name: Jan
+  last_name: Schneider
+  github_username: JanSchneider1
+  email: jan.schneider@adesso.de
+  bio: "Jan Schneider ist angehender Softwareentwickler bei adesso und im Open-Source-Team als dualer Student tätig."
+  avatar_url: /assets/images/avatars/jschneider.jpg
+  github: https://github.com/JanSchneider1
+
+stefanmueller:
+  first_name: Stefan
+  last_name: Müller
+  github_username: stefanAdesso
+  email: stefan.mueller3@adesso.de
+  bio: "Stefan Müller arbeitet als Software Engineer bei der adesso AG. Sein Fokus liegt auf Java-Technologien. Daneben beschäftigt er sich mit Software-Patterns und Software-Architekturen."
+  avatar_url: /assets/images/avatars/mueller_stefan_foto.png
+  github: https://github.com/stefanAdesso
+
+dsorna:
+  first_name: Daniel
+  last_name: Sorna
+  github_username: dsorna
+  email: daniel.sorna@adesso.de
+  bio: "Daniel Sorna ist als Werkstudent im Bereich IT-Consulting Insurance bei adesso tätig. Zu seinen Schwerpunkten gehören agile Methoden und Webentwicklung. "
+  avatar_url: /assets/images/avatars/dsorna.jpg
+  github: https://github.com/dsorna
+
+DanielKraft:
+  first_name: Daniel
+  last_name: Kraft
+  github_username: DanielKraft
+  email: daniel.kraft@adesso.de
+  bio: "Daniel ist als Werkstudent im Versicherungsbereich bei adesso in Frankfurt am Main tätig."
+  avatar_url: /assets/images/avatars/DanielKraft.jpg
+  github: https://github.com/DanielKraft
+
+mschick:
+  first_name: Michael
+  last_name: Schick
+  github_username: mschick
+  email: michael.schick@adesso.de
+  bio: "Michael studiert Informatik an der Fachhochschule Dortmund und schreibt seine Bachelor-Thesis bei adesso zum Thema Softwaremigration. Neben seinem Studium ist er zudem als freiberuflicher Webentwickler tätig."
+  avatar_url: /assets/images/avatars/mschick.jpg
+  github: https://github.com/mschick
+  
+kiliankrause:
+  first_name: Kilian
+  last_name: Krause
+  github_username: KilianKrause
+  email: Kilian.Krause@adesso.de
+  bio: "Kilian Krause ist als Werkstudent im Open-Source-Team bei adesso in Dortmund tätig."
+  avatar_url: /assets/images/avatars/kiliankrause.jpg
+  github: https://github.com/KilianKrause
+
+klausSchnaithmann:
+  first_name: Klaus
+  last_name: Schnaithmann
+  github_username: klausSchnaithmann
+  email: Klaus.Schnaithmann@adesso.de
+  bio: "Klaus Schnaithmann arbeitet als Senior Software Engineer bei adesso in Frankfurt. Er interessiert sich für Software Architektur und hat einen breiten Erfahrungsschatz im Banking Umfeld."
+  avatar_url: /assets/images/avatars/klausSchnaithmann.jpg
+  github: https://github.com/klausSchnaithmann
+
+viktor-mucha:
+  first_name: Viktor
+  last_name: Mucha
+  github_username: viktor-mucha
+  email: Viktor.Mucha@adesso.de
+  bio: "Viktor Mucha ist Senior Software Engineer und arbeitet seit 8 Jahren bei adesso in der LOB Lottery. Sein Schwerpunkt liegt in der Konzeption und Entwicklung von Change Requests der Software-Lösung in|FOCUS in Java."
+  avatar_url: /assets/images/avatars/viktor-mucha.jpg
+  github: https://github.com/viktor-mucha
+  
