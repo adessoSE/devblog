@@ -1,8 +1,8 @@
 ---
 layout: [post, post-xml]
 title: "Mobile Cross Platform Entwicklung"
-date: 2020-08-19-09:00
-modified_date: 2020-08-19-09:00
+date: 2020-10-07 17:00
+modified_date: 2020-10-07 17:00
 author: vincentlipschinski
 categories: [Architektur]
 tags: [Mobile, Cross Platform, React Native, Xamarin, Flutter, Ionic]
@@ -85,13 +85,8 @@ Eine Auswahl von UI-Komponenten wurden vom Flutter-Team nachgebaut, um das typis
 
 Flutter liefert ein eigenes SDK, mit dem der Dart-Quellcode auf zwei verschiedene Arten kompiliert werden kann:
 
-**JIT (Just in Time)**
-
-- Die Dart-VM hat einen JIT-Compiler der im Development Mode verwendet wird. Es ermöglicht Hot-Reloading, was die Entwicklung komfortabler macht.
-
-**AOT (Ahead of Time)**
-
-- AOT-Kompilierung wird im Production Mode verwendet. Der Quellcode wird in nativen x86 bzw ARM Maschinencode kompiliert und kann dann in einer Dart-Laufzeitumgebung ausgeführt werden.
+- Die Dart-VM hat einen *JIT-Compiler* ("Just in Time") der im Development Mode verwendet wird. Es ermöglicht Hot-Reloading, was die Entwicklung komfortabler macht.
+- *AOT-Kompilierung* ("Ahead of Time") wird im Production Mode verwendet. Der Quellcode wird in nativen x86 bzw ARM Maschinencode kompiliert und kann dann in einer Dart-Laufzeitumgebung ausgeführt werden.
 
 Flutter erreicht durch die Kompilierung in Maschinencode, eine hohe Performanz. Die große Anzahl vorgefertigter UI-Komponenten (Widgets) beschleunigt die Entwicklung und erleichtert es Entwicklern, das plattformtypische Look-and-Feel zu erreichen.
 
@@ -120,7 +115,7 @@ Jedoch gibt es eine große Community, die sehr viele Komponenten bereitstellt.
 
 Alle hier genannten Technologien haben je nach Anwendungsfall ihre Vor- und Nachteile.
 Dabei solltet ihr Apps nativ entwickeln, wenn ihr die höchste Leistungsfähigkeit aus den jeweiligen Endgeräten herausholen möchtet.
-Cross-Platform-Entwicklung hingegen kann sich lohnen, wenn Zeit und Kosten wichtig sind, weil die Entwicklungszeiten reduziert werden können.
+Cross-Platform-Entwicklung hingegen kann sich lohnen, wenn Zeit und Kosten wichtig sind, weil die Entwicklungszeiten reduziert werden kann.
 Weiterhin solltet ihr dann überlegen, ob ihr ein Framework für eine hybrid oder hybrid-native App verwenden wollt.
 Die hybrid-native Apps haben tendentiell eine bessere Performanz als hybrid Apps, was für die User jedoch selten wirklich spürbar ist.
 PWAs haben hingegen den Vorteil, dass die Nutzer die App nicht installieren zu müssen.
