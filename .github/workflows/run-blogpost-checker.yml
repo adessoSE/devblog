@@ -13,4 +13,4 @@ jobs:
         run: docker pull jekyll2cms/blogpost-checker
 
       - name: Run Docker image
-        run: docker run --env REPOSITORY_REMOTE_URL='${{ secrets.REPOSITORY_REMOTE_URL }}' --env REPOSITORY_BRANCH_NAME='${{ github.head_ref }}' jekyll2cms/blogpost-checker
+        run: docker run --env REPOSITORY_REMOTE_URL='${{ secrets.REPOSITORY_REMOTE_URL }}' --env REPOSITORY_BRANCH_NAME='${{ github.head_ref }}' jekyll2cms/blogpost-checker:1.0.0
