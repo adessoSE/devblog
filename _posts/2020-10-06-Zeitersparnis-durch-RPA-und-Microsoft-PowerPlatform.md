@@ -63,6 +63,7 @@ In der Regel sieht der Prozess wie folgt aus:
 
 
 Prozessschritte im Detail
+
 MA schickt Rechnung per Email an Rechnungs-Mailbox
 
 ![Logo der adesso AG](/assets/images/posts/Zeitersparnis-durch-RPA-und-Microsoft-PowerPlatform/Rechnungsversand.png)
@@ -72,16 +73,18 @@ FK bekommt automatisch im Teams eine Kachel mit wesentlichen Informationen
 ![Logo der adesso AG](/assets/images/posts/Zeitersparnis-durch-RPA-und-Microsoft-PowerPlatform/Teamskachel.png)
 
 Rechnung wird automatisiert im ERP System eingetragen
-Bilder können es schlecht beweisen, aber es hat funktioniert ;)
 
 Rechnung kommt beim MA an...
+
 Vorher:
 ![Logo der adesso AG](/assets/images/posts/Zeitersparnis-durch-RPA-und-Microsoft-PowerPlatform/Vorher.png)
 
 MA verschickt Rechnung an Postfach...und dann wird automatisch die lokale Applikationen mit den Daten aus dem Rechnungsdokument gefüllt.
+
 Nachher:
 ![Logo der adesso AG](/assets/images/posts/Zeitersparnis-durch-RPA-und-Microsoft-PowerPlatform/Nachher.png)
 
+Bilder können es schlecht beweisen, aber es funktioniert ;)
 
 
 ## Technische Basis
