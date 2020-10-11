@@ -72,7 +72,7 @@ Switching-Zeit / Verlust des Fokus: Viel niedriger, da u.a.wichtige Informatione
 
 Prozessschritte im Detail
 MA schickt Rechnung per Email an Rechnungs-Mailbox
-![Logo der adesso AG](/assets/images/posts/Zeitersparnis-durch-RPA-und-Microsoft-PowerPlatform/Rechnungsversand.png)
+(/assets/images/posts/Zeitersparnis-durch-RPA-und-Microsoft-PowerPlatform/Rechnungsversand.png)
 
 
 FK bekommt automatisch im Teams eine Kachel mit wesentlichen Informationen
