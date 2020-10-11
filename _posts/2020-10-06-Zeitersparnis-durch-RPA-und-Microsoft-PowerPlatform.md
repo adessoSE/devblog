@@ -143,7 +143,7 @@ Mit dem AI-Builder kann ich dem Modell sagen, welche Felder relevant sind auf de
 
 Nach dem Training stehen mir die extrahierten Felder in meinem PowerAutomate zur Verfügung. Hier zu erkennen in der Teamchat-Nachricht "Meldung"
 
-(/assets/images/posts/Zeitersparnis-durch-RPA-und-Microsoft-PowerPlatform/PowerAutomateWerte.png
+![Logo der adesso AG](/assets/images/posts/Zeitersparnis-durch-RPA-und-Microsoft-PowerPlatform/PowerAutomateWerte.png
 
 
 ## Automatisierte Eingabe von Daten durch RPA
@@ -167,8 +167,6 @@ PowerAutomate Desktop bietet mir eine Vielzahl von Operation u.a. das Recordern 
 Die Einbindung des Benutzeroberflächen Flow erfolgt im eigentlichen PowerAutomate
 
 ![Logo der adesso AG](/assets/images/posts/Zeitersparnis-durch-RPA-und-Microsoft-PowerPlatform/PowerAutomateUiFlow.png)
-
-
 
 
 
