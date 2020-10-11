@@ -72,7 +72,7 @@ Switching-Zeit / Verlust des Fokus: Viel niedriger, da u.a.wichtige Informatione
 
 Prozessschritte im Detail
 MA schickt Rechnung per Email an Rechnungs-Mailbox
-/assets/images/posts/Zeitersparnis-durch-RPA-und-Microsoft-PowerPlatform/Rechnungsversand.png
+![Logo der adesso AG](/assets/images/posts/Zeitersparnis-durch-RPA-und-Microsoft-PowerPlatform/Rechnungsversand.png)
 
 
 FK bekommt automatisch im Teams eine Kachel mit wesentlichen Informationen
@@ -119,7 +119,7 @@ Schritte:
 
 Ich möchte die spannenden Schritte des PowerAutomates jetzt näher erläutern
 
-## Extrahiert automatisiert relevante Rechnungsdaten aus der PDFAutomatische Analyse von Dokumenten durch KI
+## Extrahiert automatisiert relevante Rechnungsdaten aus der PDF
 Der AI Builder ist eine Komponente der PowerPlatform, die ich nutze, um die Rechnungen zu analysieren. 
 
 Dabei ist stellt "Formularverarbeitung" die benötigte Funktion dar
