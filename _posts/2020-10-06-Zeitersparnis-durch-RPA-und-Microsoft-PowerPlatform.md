@@ -1,7 +1,7 @@
 ---
 layout: [post, post-xml]              # Pflichtfeld. Nicht ändern!
 title:  "Zeitersparnis durch RPA, AI und der Microsoft PowerPlatform"         # Pflichtfeld. Bitte einen Titel für den Blog Post angeben.
-date:   2020-10-06 10:25              # Pflichtfeld. Format "YYYY-MM-DD HH:MM". Muss für Veröffentlichung in der Vergangenheit liegen. (Für Preview egal)
+date:   2020-10-11 10:25              # Pflichtfeld. Format "YYYY-MM-DD HH:MM". Muss für Veröffentlichung in der Vergangenheit liegen. (Für Preview egal)
 modified_date: 2020-10-11             # Optional. Muss angegeben werden, wenn eine bestehende Datei geändert wird.
 author: mschulz-adesso                       # Pflichtfeld. Es muss in der "authors.yml" einen Eintrag mit diesem Namen geben.
 categories: [Microsoft]                    # Pflichtfeld. Maximal eine der angegebenen Kategorien verwenden.
@@ -45,9 +45,9 @@ In der Regel sieht der Prozess wie folgt aus:
 * MA erhält Email und liest die Freigabe -> Zeitaufwand: 5 Min
 * MA öffnet sein ERP Programm und gibt alle Daten der Rechnung ein -> Zeitaufwand: 10 Min
 
-Investierte Nettoarbeitszeit: ca. 25 Min pro Rechnung
+**Investierte Nettoarbeitszeit:** ca. 25 Min pro Rechnung
 
-Switching-Zeit / Verlust des Fokus: Viel höher
+**Switching-Zeit / Verlust des Fokus:** Viel höher
 
 
 ## Der optimierte Prozess
@@ -57,16 +57,15 @@ Switching-Zeit / Verlust des Fokus: Viel höher
 * FK sieht neue Nachricht in Teams und klickt den "Approved"-Button -> 5 Min
 * Rechnung wird automatisiert im ERP System eingetragen -> 0 Min
 
-Investierte Nettoarbeitszeit: ca. 10 Min pro Rechnung
+**Investierte Nettoarbeitszeit:** ca. 10 Min pro Rechnung
 
-Switching-Zeit / Verlust des Fokus: Viel niedriger, da u.a. wichtige Informationen hervorgehen werden
+**Switching-Zeit / Verlust des Fokus:** Viel niedriger, da u.a. wichtige Informationen hervorgehen werden
 
 
 Prozessschritte im Detail
 MA schickt Rechnung per Email an Rechnungs-Mailbox
 
 ![Logo der adesso AG](/assets/images/posts/Zeitersparnis-durch-RPA-und-Microsoft-PowerPlatform/Rechnungsversand.png)
-
 
 FK bekommt automatisch im Teams eine Kachel mit wesentlichen Informationen
 
@@ -101,7 +100,7 @@ PowerAutomate bietet per se Konrektoren zu Outlook und Teams, so dass ich sofort
 
 Im Grunde genommen sind es zwei Schritte, die benötigt werden, um die komplette Logik auszuführen.
 1. Der Trigger
-2. Die Entscheidung, was unsoll passieren
+2. Die Entscheidung, was soll passieren
 
 ![Logo der adesso AG](/assets/images/posts/Zeitersparnis-durch-RPA-und-Microsoft-PowerPlatform/PowerAutomate.png)
 
@@ -167,7 +166,6 @@ PowerAutomate Desktop bietet mir eine Vielzahl von Operation u.a. das Recordern 
 Die Einbindung des Benutzeroberflächen Flow erfolgt im eigentlichen PowerAutomate
 
 ![Logo der adesso AG](/assets/images/posts/Zeitersparnis-durch-RPA-und-Microsoft-PowerPlatform/PowerAutomateUiFlow.png)
-
 
 
 # Fazit
