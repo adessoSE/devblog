@@ -72,11 +72,13 @@ Switching-Zeit / Verlust des Fokus: Viel niedriger, da u.a.wichtige Informatione
 
 Prozessschritte im Detail
 MA schickt Rechnung per Email an Rechnungs-Mailbox
+
 (/assets/images/posts/Zeitersparnis-durch-RPA-und-Microsoft-PowerPlatform/Rechnungsversand.png)
 
 
 FK bekommt automatisch im Teams eine Kachel mit wesentlichen Informationen
-/assets/images/posts/Zeitersparnis-durch-RPA-und-Microsoft-PowerPlatform/Teamskachel.png
+
+(/assets/images/posts/Zeitersparnis-durch-RPA-und-Microsoft-PowerPlatform/Teamskachel.png)
 
 Rechnung wird automatisiert im ERP System eingetragen
 Hier bietet sich ein Video definitiv besser an ;)
@@ -100,7 +102,8 @@ PowerAutomate bietet per se Konrektoren zu Outlook und Teams, so dass ich sofort
 Im Grunde genommen sind es zwei Schritte, die benötigt werden, um die komplette Logik auszuführen.
 1. Der Trigger
 2. Die Entscheidung, was unsoll passieren
-/assets/images/posts/Zeitersparnis-durch-RPA-und-Microsoft-PowerPlatform/PowerAutomate.png
+
+(/assets/images/posts/Zeitersparnis-durch-RPA-und-Microsoft-PowerPlatform/PowerAutomate.png)
 
 
 Der Trigger ist in meinem Fall der Empfang einer Email in der dedizierter Mailbox "Rechnungen". Über Standardkonnektoren zu Office365 Mailboxes war das schnell für mich gemacht.
@@ -114,7 +117,8 @@ Schritte:
 * Nimmt die Daten und erstellt eine Optionsauswahl-Post in einem ausgewählten Bot-Teams-Chat
 * JETZT muss die Führungskraft im Teams-Chat entscheiden - in diesem Beispiel gibt die FK die Rechnung frei
 * Der Prozess geht jetzt weiter, öffnet automatisch die ERP-Seite und gibt die relevanten Daten ein
-/assets/images/posts/Zeitersparnis-durch-RPA-und-Microsoft-PowerPlatform/PowerAutomateDetail.png
+
+(/assets/images/posts/Zeitersparnis-durch-RPA-und-Microsoft-PowerPlatform/PowerAutomateDetail.png)
 
 
 Ich möchte die spannenden Schritte des PowerAutomates jetzt näher erläutern
@@ -123,38 +127,46 @@ Ich möchte die spannenden Schritte des PowerAutomates jetzt näher erläutern
 Der AI Builder ist eine Komponente der PowerPlatform, die ich nutze, um die Rechnungen zu analysieren. 
 
 Dabei ist stellt "Formularverarbeitung" die benötigte Funktion dar
-/assets/images/posts/Zeitersparnis-durch-RPA-und-Microsoft-PowerPlatform/AiBuilder.png
+
+(/assets/images/posts/Zeitersparnis-durch-RPA-und-Microsoft-PowerPlatform/AiBuilder.png)
 
 
 Hierbei habe musste ich mindestens fünf Beispiel-Rechnungen erstellt und hochladen damit der AI Builder die relevanten Informationen wie Datum, Betrag etc. automatisch "erlernt".
-/assets/images/posts/Zeitersparnis-durch-RPA-und-Microsoft-PowerPlatform/AiBuilderUpload.png
+
+(/assets/images/posts/Zeitersparnis-durch-RPA-und-Microsoft-PowerPlatform/AiBuilderUpload.png)
 
 In der Vergangenheit musste ich hierfür komplexere Logiken implementieren, die ich bspw. Mit Azure Machine Learning implementiert habe.
 
 Mit dem AI-Builder kann ich dem Modell sagen, welche Felder relevant sind auf den Rechnungen, damit es selbständig "trainieren" kann
-/assets/images/posts/Zeitersparnis-durch-RPA-und-Microsoft-PowerPlatform/AiBuilderWerte.png
+
+(/assets/images/posts/Zeitersparnis-durch-RPA-und-Microsoft-PowerPlatform/AiBuilderWerte.png)
 
 Nach dem Training stehen mir die extrahierten Felder in meinem PowerAutomate zur Verfügung. Hier zu erkennen in der Teamchat-Nachricht "Meldung"
-/assets/images/posts/Zeitersparnis-durch-RPA-und-Microsoft-PowerPlatform/PowerAutomateWerte.png
+
+(/assets/images/posts/Zeitersparnis-durch-RPA-und-Microsoft-PowerPlatform/PowerAutomateWerte.png
 
 
 ## Automatisierte Eingabe von Daten durch RPA
 Um Eingaben ermöglichen zu automatisieren, muss ich vorab die Eingabe "recorden", damit der Benutzeroberflächen Flow diese Schritte automatisieren kann. Hierbei werden ein paar kostenlose Tools von Microsoft und Selenium benötigt.
-/assets/images/posts/Zeitersparnis-durch-RPA-und-Microsoft-PowerPlatform/RPAEinrichtung.png
+
+(/assets/images/posts/Zeitersparnis-durch-RPA-und-Microsoft-PowerPlatform/RPAEinrichtung.png)
 
 
 In den nächsten Schritte sage ich dem Benutzeroberflächen Flow in welcher Form ich die Eingaben "recorden" möchte:
-/assets/images/posts/Zeitersparnis-durch-RPA-und-Microsoft-PowerPlatform/RPARecorder.png
+
+(/assets/images/posts/Zeitersparnis-durch-RPA-und-Microsoft-PowerPlatform/RPARecorder.png)
 
 Ich nutze die Vorschauversion vom PowerAutomate Desktop. Als Alternative könnte ich die Selenium-IDE nutzen, die ein Open-Source-Tool ist, mit dem ich Interaktionen auf Websites aufzeichnen und wiedergeben kann. Dieses Tool wird auch oft bei Tests genutzt.
 
 
 PowerAutomate Desktop bietet mir eine Vielzahl von Operation u.a. das Recordern von WebSeiten von Desktop-Applikationen. In meinem Fall möchte ich, dass automatisch eine Excel geöffnet wird und die "Input"-Variablen aus meinen Rechnungen automatisch eingetragen werden:
-/assets/images/posts/Zeitersparnis-durch-RPA-und-Microsoft-PowerPlatform/PADFlow.png
+
+(/assets/images/posts/Zeitersparnis-durch-RPA-und-Microsoft-PowerPlatform/PADFlow.png)
 
 
 Die Einbindung des Benutzeroberflächen Flow erfolgt im eigentlichen PowerAutomate
-/assets/images/posts/Zeitersparnis-durch-RPA-und-Microsoft-PowerPlatform/PowerAutomateUiFlow.png
+
+(/assets/images/posts/Zeitersparnis-durch-RPA-und-Microsoft-PowerPlatform/PowerAutomateUiFlow.png)
 
 
 
@@ -162,10 +174,12 @@ Die Einbindung des Benutzeroberflächen Flow erfolgt im eigentlichen PowerAutoma
 Bilder können es schlecht beweisen, aber es hat funktioniert ;)
 
 Rechnung kommt beim MA an...
-/assets/images/posts/Zeitersparnis-durch-RPA-und-Microsoft-PowerPlatform/Vorher.png
+
+(/assets/images/posts/Zeitersparnis-durch-RPA-und-Microsoft-PowerPlatform/Vorher.png)
 
 MA verschickt Rechnung an Postfach...und dann wird automatisch die lokale Applikationen mit den Daten aus dem Rechnungsdokument gefüllt.
-/assets/images/posts/Zeitersparnis-durch-RPA-und-Microsoft-PowerPlatform/Nachher.png
+
+(/assets/images/posts/Zeitersparnis-durch-RPA-und-Microsoft-PowerPlatform/Nachher.png)
 
 
 
