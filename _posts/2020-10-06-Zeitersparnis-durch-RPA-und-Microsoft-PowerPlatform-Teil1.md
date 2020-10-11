@@ -25,9 +25,11 @@ Ich werde diesem Thema zwei Blogeinträge widmen, um im ersten Teil das Grundger
 
 Als Prozessgrundlage hat mich u.a. dieses Microsoft Tutorial inspiriert [Robotic Process Automation with Microsoft Power Automate, UI flows and AI Builder] (https://www.youtube.com/watch?v=NxJ2Zch7M2o), bei dem ich selbst die Umsetzung testen will. 
 
-Hierbei haben sich die Features etwas geändert und ich möchte eine WebApplikationen per RPA befüllen.
+Hierbei haben sich die Features etwas geändert.
 
-Als Beispiel-Prozess nehme ich das Freigeben von Rechnungen und die dazugehörige Pflege in ein ERP-System. 
+
+Als Beispiel-Prozess nehme ich das Freigeben von Rechnungen und die dazugehörige Pflege in eine lokale Excel-Datei, die ein ERP-System simulieren soll.
+
 
 Dabei werde ich auch den AI-Builder der Microsoft PowerPlatform nutzen, um KI-gesteuert Informationen aus Dokumenten zu extrahieren.
 
@@ -138,13 +140,14 @@ Nach dem Training stehen mir die extrahierten Felder in meinem PowerAutomate zur
 
 
 ## Automatisierte Eingabe von Daten durch RPA
-Um Eingaben in ein webbasierten ERP System zu ermöglichen, muss ich vorab die Eingabe "recorden", damit der Benutzeroberflächen Flow diese Schritte automatisieren kann. Hierbei werden ein paar kostenlose Tools von Microsoft und Selenium benötigt.
+Um Eingaben ermöglichen zu automatisieren, muss ich vorab die Eingabe "recorden", damit der Benutzeroberflächen Flow diese Schritte automatisieren kann. Hierbei werden ein paar kostenlose Tools von Microsoft und Selenium benötigt.
 /assets/images/posts/Zeitersparnis-durch-RPA-und-Microsoft-PowerPlatform/RPAEinrichtung.png
 
 
-In den nächsten Schritte sage ich dem Benutzeroberflächen Flow in welcher Form ich die Eingaben "recorden" möchte und gegen welche Webapplikation das geschehen soll
-/assets/images/posts/Zeitersparnis-durch-RPA-und-Microsoft-PowerPlatform/RPASelenium.png
+In den nächsten Schritte sage ich dem Benutzeroberflächen Flow in welcher Form ich die Eingaben "recorden" möchte:
 /assets/images/posts/Zeitersparnis-durch-RPA-und-Microsoft-PowerPlatform/RPARecorder.png
+
+Ich nutze die Vorschauversion vom PowerAutomate Desktop. Als Alternative könnte ich die Selenium-IDE nutzen, die ein Open-Source-Tool ist, mit dem ich Interaktionen auf Websites aufzeichnen und wiedergeben kann. Dieses Tool wird auch oft bei Tests genutzt.
 
 
 Cliffhanger...;)
