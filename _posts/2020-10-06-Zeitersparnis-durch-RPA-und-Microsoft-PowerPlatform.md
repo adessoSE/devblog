@@ -21,7 +21,7 @@ Die neuen technischen Möglichkeiten der Microsoft PowerPlatform ermöglichen au
 
 # Mein Szenario
 
-Als Prozessgrundlage hat mich u.a. dieses Microsoft Tutorial inspiriert [Robotic Process Automation with Microsoft PowerAutomate, UI flows and AI Builder] (https://www.youtube.com/watch?v=NxJ2Zch7M2o), bei dem ich selbst die Umsetzung testen will. 
+Als Prozessgrundlage hat mich u.a. dieses Microsoft Tutorial inspiriert [Robotic Process Automation with Microsoft PowerAutomate, UI flows and AI Builder](https://www.youtube.com/watch?v=NxJ2Zch7M2o), bei dem ich selbst die Umsetzung testen will. 
 
 Hierbei haben sich die Features etwas geändert, das neue Tool PowerAutomate Desktop ist da und das möchte ich testen.
 
@@ -40,13 +40,9 @@ Dieses Beispiel benötigt in der täglichen Praxis viele manuelle Schritte, die 
 In der Regel sieht der Prozess wie folgt aus:
 
 * Mitarbeiter (MA) hat eine Rechnung
-
 * MA schickt Rechnung per Email an FK (Führungskraft) und bittet um Freigabe -> 5 Min
-
 * FK liest Rechnung, gibt Rechnung frei als Prosatext in der Email und sendet Email zurück -> 5 Min
-
 * MA erhält Email und liest die Freigabe -> Zeitaufwand: 5 Min
-
 * MA öffnet sein ERP Programm und gibt alle Daten der Rechnung ein -> Zeitaufwand: 10 Min
 
 Investierte Nettoarbeitszeit: ca. 25 Min pro Rechnung
@@ -56,13 +52,9 @@ Switching-Zeit / Verlust des Fokus: Viel höher
 
 ## Der optimierte Prozess
 * MA hat eine Rechnung
-
 * MA schickt Rechnung per Email an Rechnungs-Mailbox -> 5 Min
-
 * FK bekommt automatisch im Teams eine Kachel mit wesentlichen Informationen -> 0 Min
-
 * FK sieht neue Nachricht in Teams und klickt den "Approved"-Button -> 5 Min
-
 * Rechnung wird automatisiert im ERP System eingetragen -> 0 Min
 
 Investierte Nettoarbeitszeit: ca. 10 Min pro Rechnung
@@ -81,7 +73,15 @@ FK bekommt automatisch im Teams eine Kachel mit wesentlichen Informationen
 ![Logo der adesso AG](/assets/images/posts/Zeitersparnis-durch-RPA-und-Microsoft-PowerPlatform/Teamskachel.png)
 
 Rechnung wird automatisiert im ERP System eingetragen
-Hier bietet sich ein Video definitiv besser an ;)
+Bilder können es schlecht beweisen, aber es hat funktioniert ;)
+
+Rechnung kommt beim MA an...
+Vorher:
+![Logo der adesso AG](/assets/images/posts/Zeitersparnis-durch-RPA-und-Microsoft-PowerPlatform/Vorher.png)
+
+MA verschickt Rechnung an Postfach...und dann wird automatisch die lokale Applikationen mit den Daten aus dem Rechnungsdokument gefüllt.
+Nachher:
+![Logo der adesso AG](/assets/images/posts/Zeitersparnis-durch-RPA-und-Microsoft-PowerPlatform/Nachher.png)
 
 
 
@@ -169,17 +169,6 @@ Die Einbindung des Benutzeroberflächen Flow erfolgt im eigentlichen PowerAutoma
 ![Logo der adesso AG](/assets/images/posts/Zeitersparnis-durch-RPA-und-Microsoft-PowerPlatform/PowerAutomateUiFlow.png)
 
 
-
-
-Bilder können es schlecht beweisen, aber es hat funktioniert ;)
-
-Rechnung kommt beim MA an...
-
-![Logo der adesso AG](/assets/images/posts/Zeitersparnis-durch-RPA-und-Microsoft-PowerPlatform/Vorher.png)
-
-MA verschickt Rechnung an Postfach...und dann wird automatisch die lokale Applikationen mit den Daten aus dem Rechnungsdokument gefüllt.
-
-![Logo der adesso AG](/assets/images/posts/Zeitersparnis-durch-RPA-und-Microsoft-PowerPlatform/Nachher.png)
 
 
 
