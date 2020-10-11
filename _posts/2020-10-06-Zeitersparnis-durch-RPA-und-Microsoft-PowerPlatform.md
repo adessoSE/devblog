@@ -1,31 +1,29 @@
 ---
 layout: [post, post-xml]              # Pflichtfeld. Nicht ändern!
-title:  "Zeitersparnis durch RPA und Microsoft PowerPlatform Teil 1"         # Pflichtfeld. Bitte einen Titel für den Blog Post angeben.
+title:  "Zeitersparnis durch RPA, AI und der Microsoft PowerPlatform"         # Pflichtfeld. Bitte einen Titel für den Blog Post angeben.
 date:   2020-10-06 10:25              # Pflichtfeld. Format "YYYY-MM-DD HH:MM". Muss für Veröffentlichung in der Vergangenheit liegen. (Für Preview egal)
-modified_date: 2020-10-08             # Optional. Muss angegeben werden, wenn eine bestehende Datei geändert wird.
+modified_date: 2020-10-11             # Optional. Muss angegeben werden, wenn eine bestehende Datei geändert wird.
 author: mschulz-adesso                       # Pflichtfeld. Es muss in der "authors.yml" einen Eintrag mit diesem Namen geben.
 categories: [Microsoft]                    # Pflichtfeld. Maximal eine der angegebenen Kategorien verwenden.
-tags: [RPA, PowerAutomate, PowerPlatform, AI, UI Flow, Microsoft]         # Bitte auf Großschreibung achten.
+tags: [RPA, PowerAutomate, PowerPlatform, AI, UI Flow, PowerAutomate Desktop, Teams Microsoft]         # Bitte auf Großschreibung achten.
 ---
 
 Jeder kennt es, bestimmte IT-Arbeitsschritte, die sich von den Eingaben unterscheiden jedoch nicht von den Klicks - Hier gibt es ein enormes Optimierungspotential, wenn diese Tätigkeiten automatisiert werden können...bei jedem. 
 
-Es geht mir dabei nicht nur um die Optimierung der Netto-Arbeitszeit, die häufige Tätigkeiten benötigen, sondern auch um die Switching-Zeit, also die Zeit, die uns immer wieder aus unseren Themen rausreißt und uns somit ablenkt.
+Es geht mir dabei nicht nur um die Optimierung der Netto-Arbeitszeit, die häufige Tätigkeiten benötigen, sondern auch um die Switching-Zeit - also die Zeit, die uns immer wieder aus unseren Themen rausreißt und uns somit ablenkt.
 
 Speziell „Robotic Process Automation“ (RPA) kann uns hier unterstützen und ermöglicht die automatisierte Ausführung von manuellen Eingaben.
 
-Das perfekte und spannende Beispiel für mich sind Applikationen, die entweder keine Schnittstellen wie Konrektoren, API etc. bereitstellen oder bei denen die Schnittstellenbereitstellungen zu komplex sind.
+Das perfekte und spannende Beispiel für mich sind Applikationen, die entweder keine Schnittstellen wie Konrektoren, API etc. bereitstellen oder bei denen die Schnittstellenbereitstellungen zu komplex sind. 
 
 Die neuen technischen Möglichkeiten der Microsoft PowerPlatform ermöglichen auch PowerUsern solche UseCases schnell und einfach umzusetzen.
-
-Ich werde diesem Thema zwei Blogeinträge widmen, um im ersten Teil das Grundgerüst zu erläutern und dann im zweiten Teil detailliert auf die RPA-Funktionen mit PowerAutomate eingehen.
 
 
 # Mein Szenario
 
-Als Prozessgrundlage hat mich u.a. dieses Microsoft Tutorial inspiriert [Robotic Process Automation with Microsoft Power Automate, UI flows and AI Builder] (https://www.youtube.com/watch?v=NxJ2Zch7M2o), bei dem ich selbst die Umsetzung testen will. 
+Als Prozessgrundlage hat mich u.a. dieses Microsoft Tutorial inspiriert [Robotic Process Automation with Microsoft PowerAutomate, UI flows and AI Builder] (https://www.youtube.com/watch?v=NxJ2Zch7M2o), bei dem ich selbst die Umsetzung testen will. 
 
-Hierbei haben sich die Features etwas geändert.
+Hierbei haben sich die Features etwas geändert, das neue Tool PowerAutomate Desktop ist da und das möchte ich testen.
 
 
 Als Beispiel-Prozess nehme ich das Freigeben von Rechnungen und die dazugehörige Pflege in eine lokale Excel-Datei, die ein ERP-System simulieren soll.
@@ -34,10 +32,11 @@ Als Beispiel-Prozess nehme ich das Freigeben von Rechnungen und die dazugehörig
 Dabei werde ich auch den AI-Builder der Microsoft PowerPlatform nutzen, um KI-gesteuert Informationen aus Dokumenten zu extrahieren.
 
 
-Dieses Beispiel benötigt in der täglichen Praxis viele manuelle Schritte, die sich optimieren lassen hinsichtlich Zeitaufwand, Fokus auf wichtigere Dinge stärkt und Fehler minimiert.
+Dieses Beispiel benötigt in der täglichen Praxis viele manuelle Schritte, die sich optimieren lassen hinsichtlich Zeitaufwand, den Fokus auf wichtigere Dinge stärkt und Fehler minimiert.
 
 
 ## Der gängige Prozess
+
 In der Regel sieht der Prozess wie folgt aus:
 
 * Mitarbeiter (MA) hat eine Rechnung
@@ -150,13 +149,27 @@ In den nächsten Schritte sage ich dem Benutzeroberflächen Flow in welcher Form
 Ich nutze die Vorschauversion vom PowerAutomate Desktop. Als Alternative könnte ich die Selenium-IDE nutzen, die ein Open-Source-Tool ist, mit dem ich Interaktionen auf Websites aufzeichnen und wiedergeben kann. Dieses Tool wird auch oft bei Tests genutzt.
 
 
-Cliffhanger...;)
-
-Alle weitere Schritte und die detaillierte Einbindung in PowerAutomate folgen in Teil 2.
-
+PowerAutomate Desktop bietet mir eine Vielzahl von Operation u.a. das Recordern von WebSeiten von Desktop-Applikationen. In meinem Fall möchte ich, dass automatisch eine Excel geöffnet wird und die "Input"-Variablen aus meinen Rechnungen automatisch eingetragen werden:
+/assets/images/posts/Zeitersparnis-durch-RPA-und-Microsoft-PowerPlatform/PADFlow.png
 
 
-# Fazit bisher
+Die Einbindung des Benutzeroberflächen Flow erfolgt im eigentlichen PowerAutomate
+/assets/images/posts/Zeitersparnis-durch-RPA-und-Microsoft-PowerPlatform/PowerAutomateUiFlow.png
+
+
+
+
+Bilder können es schlecht beweisen, aber es hat funktioniert ;)
+
+Rechnung kommt beim MA an...
+/assets/images/posts/Zeitersparnis-durch-RPA-und-Microsoft-PowerPlatform/Vorher.png
+
+MA verschickt Rechnung an Postfach...und dann wird automatisch die lokale Applikationen mit den Daten aus dem Rechnungsdokument gefüllt.
+/assets/images/posts/Zeitersparnis-durch-RPA-und-Microsoft-PowerPlatform/Nachher.png
+
+
+
+# Fazit
 
 Ich halte die Microsoft PowerPlatform seit Tag eins für eine sehr mächtige Entwicklungsumgebung, die auch Nicht-Entwickler die Möglichkeit gibt neue Lösungen zu kreieren. 
 
@@ -168,3 +181,7 @@ Herausforderungen auf die ich bewusst in diesem Blog nicht eingegangen bin und d
 * Authentifizierung und Autorisierung, u.a. wird bspw. Das OnPremise Datagateway benötigt
 * Lizenzierung bei der Nutzung von PowerAutomate und RPA
 * Deutsche Übersetzung sind teilweise gewöhnungsbedürftig "UI Flow" vs "Benutzeroberflächen Flow"
+* Teilweise noch die ein oder andere Schwierigkeit bspw. Exceptions bei ein paar PowerAutomate Desktop Funktionen
+
+
+Ein ganz wichtiger Faktor noch, es hat mir wieder Spaß gemacht einfach mit der PowerPlatform ein neues Szenario durchzuspielen.
