@@ -150,7 +150,7 @@ Als Alternative könnte ich die Selenium-IDE nutzen, die ein Open-Source-Tool is
 
 Dieses Tool wird auch oft bei Tests genutzt.
 
-PowerAutomate Desktop bietet mir eine Vielzahl von Operationen, u.a. das Recorden von Webseiten oder von Desktop-Applikationen. 
+PowerAutomate Desktop bietet mir eine Vielzahl von Operationen, u.a. das Recorden von Webseiten oder Desktop-Applikationen. 
 
 In meinem Fall möchte ich, dass automatisch eine Excel geöffnet wird und die "Input"-Variablen aus meinen Rechnungen automatisch eingetragen werden.
 
