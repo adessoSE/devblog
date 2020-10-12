@@ -1,6 +1,6 @@
 ---
 layout: [post, post-xml]              # Pflichtfeld. Nicht ändern!
-title:  "Zeitersparnis durch RPA, AI und der Microsoft PowerPlatform"         # Pflichtfeld. Bitte einen Titel für den Blog Post angeben.
+title:  "DRAFT Zeitersparnis durch RPA, AI und der Microsoft PowerPlatform"         # Pflichtfeld. Bitte einen Titel für den Blog Post angeben.
 date:   2020-10-11 10:25              # Pflichtfeld. Format "YYYY-MM-DD HH:MM". Muss für Veröffentlichung in der Vergangenheit liegen. (Für Preview egal)
 modified_date: 2020-10-11             # Optional. Muss angegeben werden, wenn eine bestehende Datei geändert wird.
 author: mschulz-adesso                       # Pflichtfeld. Es muss in der "authors.yml" einen Eintrag mit diesem Namen geben.
@@ -25,15 +25,11 @@ Als Prozessgrundlage hat mich u.a. dieses Microsoft Tutorial inspiriert [Robotic
 
 Hierbei haben sich die Features etwas geändert, das neue Tool PowerAutomate Desktop ist da und das möchte ich testen.
 
-
-Als Beispiel-Prozess nehme ich das Freigeben von Rechnungen und die dazugehörige Pflege in eine lokale Excel-Datei, die ein ERP-System simulieren soll.
-
+Als Beispiel-Prozess nehme ich das Freigeben von Rechnungen und die dazugehörige Pflege in eine lokale Excel-Datei, die ein lokales System wie bspw. ein ERP simulieren soll.
 
 Dabei werde ich auch den AI-Builder der Microsoft PowerPlatform nutzen, um KI-gesteuert Informationen aus Dokumenten zu extrahieren.
 
-
 Dieses Beispiel benötigt in der täglichen Praxis viele manuelle Schritte, die sich optimieren lassen hinsichtlich Zeitaufwand, den Fokus auf wichtigere Dinge stärkt und Fehler minimiert.
-
 
 ## Der gängige Prozess
 
@@ -51,6 +47,7 @@ In der Regel sieht der Prozess wie folgt aus:
 
 
 ## Der optimierte Prozess
+
 * MA hat eine Rechnung
 * MA schickt Rechnung per Email an Rechnungs-Mailbox -> 5 Min
 * FK bekommt automatisch im Teams eine Kachel mit wesentlichen Informationen -> 0 Min
@@ -62,7 +59,7 @@ In der Regel sieht der Prozess wie folgt aus:
 **Switching-Zeit / Verlust des Fokus:** Viel niedriger, da u.a. wichtige Informationen hervorgehen werden
 
 
-Prozessschritte im Detail
+### Prozessschritte im Detail
 
 MA schickt Rechnung per Email an Rechnungs-Mailbox
 
@@ -77,11 +74,13 @@ Rechnung wird automatisiert im ERP System eingetragen
 Rechnung kommt beim MA an...
 
 Vorher:
+
 ![Logo der adesso AG](/assets/images/posts/Zeitersparnis-durch-RPA-und-Microsoft-PowerPlatform/Vorher.png)
 
 MA verschickt Rechnung an Postfach...und dann wird automatisch die lokale Applikationen mit den Daten aus dem Rechnungsdokument gefüllt.
 
 Nachher:
+
 ![Logo der adesso AG](/assets/images/posts/Zeitersparnis-durch-RPA-und-Microsoft-PowerPlatform/Nachher.png)
 
 Bilder können es schlecht beweisen, aber es funktioniert ;)
@@ -99,7 +98,7 @@ PowerAutomate bietet per se Konrektoren zu Outlook und Teams, so dass ich sofort
  
 
 
-## Grundlage ist PowerAutomate aka Flow, um den Prozess zu automatisieren
+### Grundlage ist PowerAutomate aka Flow, um den Prozess zu automatisieren
 
 Im Grunde genommen sind es zwei Schritte, die benötigt werden, um die komplette Logik auszuführen.
 1. Der Trigger
@@ -161,29 +160,33 @@ In den nächsten Schritte sage ich dem Benutzeroberflächen Flow in welcher Form
 Ich nutze die Vorschauversion vom PowerAutomate Desktop. Als Alternative könnte ich die Selenium-IDE nutzen, die ein Open-Source-Tool ist, mit dem ich Interaktionen auf Websites aufzeichnen und wiedergeben kann. Dieses Tool wird auch oft bei Tests genutzt.
 
 
-PowerAutomate Desktop bietet mir eine Vielzahl von Operation u.a. das Recordern von WebSeiten von Desktop-Applikationen. In meinem Fall möchte ich, dass automatisch eine Excel geöffnet wird und die "Input"-Variablen aus meinen Rechnungen automatisch eingetragen werden:
+PowerAutomate Desktop bietet mir eine Vielzahl von Operationen u.a. das Recordern von WebSeiten oder von Desktop-Applikationen. 
+
+In meinem Fall möchte ich, dass automatisch eine Excel geöffnet wird und die "Input"-Variablen aus meinen Rechnungen automatisch eingetragen werden:
 
 ![Logo der adesso AG](/assets/images/posts/Zeitersparnis-durch-RPA-und-Microsoft-PowerPlatform/PADFlow.png)
 
 
-Die Einbindung des Benutzeroberflächen Flow erfolgt im eigentlichen PowerAutomate
+Letzer Schritt - Die Einbindung des Benutzeroberflächen Flow erfolgt im eigentlichen PowerAutomate.
+
+Wichtig hierbei ist, dass eine Verbindung zwischen dem PowerAutomate und der lokalen System / Excel hergestellt werden kann. Dies realisiere ich sehr schnell mit dem Microsoft OnPremise Datagateway.
 
 ![Logo der adesso AG](/assets/images/posts/Zeitersparnis-durch-RPA-und-Microsoft-PowerPlatform/PowerAutomateUiFlow.png)
 
 
 # Fazit
 
-Ich halte die Microsoft PowerPlatform seit Tag eins für eine sehr mächtige Entwicklungsumgebung, die auch Nicht-Entwickler die Möglichkeit gibt neue Lösungen zu kreieren. 
+Ich halte die Microsoft PowerPlatform seit Tag eins für eine sehr mächtige Entwicklungsumgebung, die auch Nicht-Entwicklern (aka PowerUsers aka Citizen Developer) die Möglichkeit gibt neue Lösungen zu kreieren. 
 
 KI, Workflows, Maschinelles Lernen waren früher nicht ohne eine hohe Komplexität oder Code-Kenntnisse möglich. 
 
-Das oben gezeigte Beispiel stellt einfach und klar dar, das der Business-Value im Vordergrund steht und nicht die Technologien dahinter.
+Das oben gezeigte Beispiel stellt dabei einfach und klar dar, dass der Business-Value im Vordergrund steht und nicht die Technologien dahinter.
 
-Herausforderungen auf die ich bewusst in diesem Blog nicht eingegangen bin und die mir in meiner täglichen Arbeit begegnen, um den Businessvalue hervorzuheben, sind u.a.:
+Herausforderungen, auf die ich bewusst in diesem Blog nicht eingegangen bin, um besonders den Business-Value hervorzuheben, sind u.a.:
 * Authentifizierung und Autorisierung, u.a. wird bspw. Das OnPremise Datagateway benötigt
 * Lizenzierung bei der Nutzung von PowerAutomate und RPA
 * Deutsche Übersetzung sind teilweise gewöhnungsbedürftig "UI Flow" vs "Benutzeroberflächen Flow"
 * Teilweise noch die ein oder andere Schwierigkeit bspw. Exceptions bei ein paar PowerAutomate Desktop Funktionen
 
 
-Ein ganz wichtiger Faktor noch, es hat mir wieder Spaß gemacht einfach mit der PowerPlatform ein neues Szenario durchzuspielen.
+Ein ganz wichtiger Faktor noch zum Schluss, es hat mir wieder Spaß gemacht einfach mit der PowerPlatform ein neues Szenario durchzuspielen.
