@@ -126,7 +126,7 @@ Hierbei habe ich mindestens fünf Beispiel-Rechnungen erstellt und hochgeladen d
 
 In der Vergangenheit musste ich hierfür komplexere Logiken implementieren, die ich bspw. mit Azure Machine Learning implementiert habe.
 
-Mit dem AI Builder kann ich dem Modell sagen, welche Felder relevant sind auf den Rechnungen, damit es selbständig "trainieren" kann.
+Mit dem AI Builder kann ich dem Modell sagen, welche Felder einer Rechnung relevant sind, damit es selbständig "trainieren" kann.
 
 ![Logo der adesso AG](/assets/images/posts/Zeitersparnis-durch-RPA-und-Microsoft-PowerPlatform/AiBuilderWerte.png)
 
