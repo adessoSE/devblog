@@ -85,7 +85,8 @@ In diesem konkreten Beispiel nutze ich die PowerPlatform als No-Code Plattform, 
 
 Hierbei wird Outlook und Microsoft Teams als Kommunikationsplattform genutzt.
 
-Ich nutze die Workflow-Engine PowerAutomate aka Flows, um die ganzen Prozessschritte auszuführen. Dabei wird die RPA Funktion über die Benutzeroberflächen Flows ausgeführt.
+Ich nutze die Workflow-Engine PowerAutomate aka Flows, um die Prozessschritte auszuführen.
+Dabei wird die RPA Funktion über Benutzeroberflächen Flows ausgeführt.
 
 PowerAutomate bietet per se Konrektoren zu Outlook und Teams, sodass ich sofort starten kann.
  
