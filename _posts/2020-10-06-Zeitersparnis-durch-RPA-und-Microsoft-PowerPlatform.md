@@ -111,7 +111,7 @@ Die Entscheidung, was passieren soll enthält jetzt spannenden Themen:
 
 Ich möchte die spannenden Schritte des PowerAutomates jetzt näher erläutern
 
-## Extrahiert automatisiert relevante Rechnungsdaten aus der PDF
+### Extrahiert automatisiert relevante Rechnungsdaten aus der PDF
 Der AI Builder ist eine Komponente der PowerPlatform, die ich nutze, um die Rechnungen zu analysieren. 
 
 Dabei ist stellt "Formularverarbeitung" die benötigte Funktion dar
@@ -130,15 +130,14 @@ Mit dem AI-Builder kann ich dem Modell sagen, welche Felder relevant sind auf de
 
 Nach dem Training stehen mir die extrahierten Felder in meinem PowerAutomate zur Verfügung. Hier zu erkennen in der Teamchat-Nachricht "Meldung"
 
-
 ![Logo der adesso AG](/assets/images/posts/Zeitersparnis-durch-RPA-und-Microsoft-PowerPlatform/PowerAutomateWerte.png)
 
-## Automatisierte Eingabe von Daten durch RPA
+### Automatisierte Eingabe von Daten durch RPA
 Um Eingaben ermöglichen zu automatisieren, muss ich vorab die Eingabe "recorden", damit der Benutzeroberflächen Flow diese Schritte automatisieren kann. Hierbei werden ein paar kostenlose Tools von Microsoft und Selenium benötigt.
 
 ![Logo der adesso AG](/assets/images/posts/Zeitersparnis-durch-RPA-und-Microsoft-PowerPlatform/RPAEinrichtung.png)
 
-In den nächsten Schritten sage ich dem Benutzeroberflächen Flow in welcher Form ich die Eingaben "recorden" möchte:
+In den nächsten Schritten sage ich dem Benutzeroberflächen Flow in welcher Form ich die Eingaben "recorden" möchte.
 
 ![Logo der adesso AG](/assets/images/posts/Zeitersparnis-durch-RPA-und-Microsoft-PowerPlatform/RPARecorder.png)
 
