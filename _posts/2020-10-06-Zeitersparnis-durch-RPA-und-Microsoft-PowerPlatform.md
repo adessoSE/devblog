@@ -26,7 +26,7 @@ Hierbei haben sich die Features etwas geändert, das neue Tool PowerAutomate Des
 
 Als Beispiel-Prozess nehme ich das Freigeben von Rechnungen und die dazugehörige Pflege in eine lokale Excel-Datei, die ein lokales System wie bspw. ein ERP simulieren soll.
 
-Dabei werde ich auch den AI-Builder der Microsoft PowerPlatform nutzen, um KI-gesteuert Informationen aus Dokumenten zu extrahieren.
+Dabei werde ich auch den AI Builder der Microsoft PowerPlatform nutzen, um KI-gesteuert Informationen aus Dokumenten zu extrahieren.
 
 Dieses Beispiel benötigt in der täglichen Praxis viele manuelle Schritte, die sich optimieren lassen hinsichtlich Zeitaufwandes, den Fokus auf wichtigere Dinge stärkt und Fehler minimiert.
 
@@ -84,7 +84,7 @@ In diesem konkreten Beispiel nutze ich die PowerPlatform als No-Code Plattform, 
 
 Hierbei wird Outlook und Microsoft Teams ein Kommunikationsplattform genutzt.
 
-Ich nutze einen normale Workflow-Engine PowerAutomate aka Flows, um die ganzen Prozessschritte auszuführen. Dabei wird die RPA Funktion über die Benutzeroberflächen-Flows ausgeführt.
+Ich nutze die Workflow-Engine PowerAutomate aka Flows, um die ganzen Prozessschritte auszuführen. Dabei wird die RPA Funktion über die Benutzeroberflächen-Flows ausgeführt.
 
 PowerAutomate bietet per se Konrektoren zu Outlook und Teams, so dass ich sofort starten kann.
  
@@ -92,7 +92,7 @@ PowerAutomate bietet per se Konrektoren zu Outlook und Teams, so dass ich sofort
 
 Im Grunde genommen sind es zwei Schritte, die benötigt werden, um die komplette Logik auszuführen.
 1. Der Trigger
-2. Die Entscheidung, was soll passieren
+2. Die Entscheidung, was dann passieren soll
 
 ![Logo der adesso AG](/assets/images/posts/Zeitersparnis-durch-RPA-und-Microsoft-PowerPlatform/PowerAutomate.png)
 
@@ -104,8 +104,8 @@ Die Entscheidung, was passieren soll enthält jetzt spannenden Themen:
 * Gibt diese an die KI-Komponente weiter
 * Extrahiert automatisiert relevante Rechnungsdaten aus der PDF
 * Nimmt die Daten und erstellt eine Optionsauswahl-Post in einem ausgewählten Bot-Teams-Chat
-* JETZT muss die Führungskraft im Teams-Chat entscheiden - in diesem Beispiel gibt die FK die Rechnung frei
-* Der Prozess geht jetzt weiter, öffnet automatisch die ERP-Seite und gibt die relevanten Daten ein
+* Jetzt muss die Führungskraft im Teams-Chat entscheiden - in diesem Beispiel gibt die FK die Rechnung frei
+* Der Prozess geht jetzt weiter, öffnet automatisch die ERP (Excel) Applikation und gibt die relevanten Daten ein
 
 ![Logo der adesso AG](/assets/images/posts/Zeitersparnis-durch-RPA-und-Microsoft-PowerPlatform/PowerAutomateDetail.png)
 
@@ -114,17 +114,17 @@ Ich möchte die spannenden Schritte des PowerAutomates jetzt näher erläutern
 ### Extrahiert automatisiert relevante Rechnungsdaten aus der PDF
 Der AI Builder ist eine Komponente der PowerPlatform, die ich nutze, um die Rechnungen zu analysieren. 
 
-Dabei ist stellt "Formularverarbeitung" die benötigte Funktion dar
+Dabei stellt "Formularverarbeitung" die benötigte Funktion dar.
 
 ![Logo der adesso AG](/assets/images/posts/Zeitersparnis-durch-RPA-und-Microsoft-PowerPlatform/AiBuilder.png)
 
-Hierbei habe musste ich mindestens fünf Beispiel-Rechnungen erstellt und hochladen damit der AI Builder die relevanten Informationen wie Datum, Betrag etc. automatisch "erlernt".
+Hierbei habe ich mindestens fünf Beispiel-Rechnungen erstellt und hochladen damit der AI Builder die relevanten Informationen wie Datum, Betrag etc. automatisch "erlernt".
 
 ![Logo der adesso AG](/assets/images/posts/Zeitersparnis-durch-RPA-und-Microsoft-PowerPlatform/AiBuilderUpload.png)
 
 In der Vergangenheit musste ich hierfür komplexere Logiken implementieren, die ich bspw. mit Azure Machine Learning implementiert habe.
 
-Mit dem AI-Builder kann ich dem Modell sagen, welche Felder relevant sind auf den Rechnungen, damit es selbständig "trainieren" kann
+Mit dem AI Builder kann ich dem Modell sagen, welche Felder relevant sind auf den Rechnungen, damit es selbständig "trainieren" kann
 
 ![Logo der adesso AG](/assets/images/posts/Zeitersparnis-durch-RPA-und-Microsoft-PowerPlatform/AiBuilderWerte.png)
 
@@ -133,7 +133,7 @@ Nach dem Training stehen mir die extrahierten Felder in meinem PowerAutomate zur
 ![Logo der adesso AG](/assets/images/posts/Zeitersparnis-durch-RPA-und-Microsoft-PowerPlatform/PowerAutomateWerte.png)
 
 ### Automatisierte Eingabe von Daten durch RPA
-Um Eingaben ermöglichen zu automatisieren, muss ich vorab die Eingabe "recorden", damit der Benutzeroberflächen Flow diese Schritte automatisieren kann. Hierbei werden ein paar kostenlose Tools von Microsoft und Selenium benötigt.
+Um Eingaben zu automatisieren, muss ich vorab die Eingabe "recorden", damit der Benutzeroberflächen Flow diese Schritte automatisieren kann. Hierbei werden ein paar kostenlose Tools von Microsoft und Selenium benötigt.
 
 ![Logo der adesso AG](/assets/images/posts/Zeitersparnis-durch-RPA-und-Microsoft-PowerPlatform/RPAEinrichtung.png)
 
@@ -141,7 +141,7 @@ In den nächsten Schritten sage ich dem Benutzeroberflächen Flow in welcher For
 
 ![Logo der adesso AG](/assets/images/posts/Zeitersparnis-durch-RPA-und-Microsoft-PowerPlatform/RPARecorder.png)
 
-Ich nutze die Vorschauversion vom PowerAutomate Desktop. Als Alternative könnte ich die Selenium-IDE nutzen, die ein Open-Source-Tool ist, mit dem ich Interaktionen auf Websites aufzeichnen und wiedergeben kann. Dieses Tool wird auch oft bei Tests genutzt.
+Ich nutze die Vorschauversion vom PowerAutomate Desktop, da dieses Tool für mich neu ist und viel verspricht.  Als Alternative könnte ich die Selenium-IDE nutzen, die ein Open-Source-Tool ist, mit dem ich Interaktionen auf Websites aufzeichnen und wiedergeben kann. Dieses Tool wird auch oft bei Tests genutzt.
 
 PowerAutomate Desktop bietet mir eine Vielzahl von Operationen u.a. das Recorden von Webseiten oder von Desktop-Applikationen. 
 
@@ -149,7 +149,7 @@ In meinem Fall möchte ich, dass automatisch eine Excel geöffnet wird und die "
 
 ![Logo der adesso AG](/assets/images/posts/Zeitersparnis-durch-RPA-und-Microsoft-PowerPlatform/PADFlow.png)
 
-Letzter Schritt - Die Einbindung des Benutzeroberflächen Flow erfolgt im eigentlichen PowerAutomate.
+### Letzter Schritt - Die Einbindung des Benutzeroberflächen Flow erfolgt im eigentlichen PowerAutomate.
 
 Wichtig hierbei ist, dass eine Verbindung zwischen dem PowerAutomate und dem lokalen System / Excel hergestellt werden kann. Dies realisiere ich sehr schnell mit dem Microsoft OnPremise Datagateway.
 
