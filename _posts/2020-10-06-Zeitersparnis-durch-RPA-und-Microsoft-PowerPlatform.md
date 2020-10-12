@@ -8,7 +8,8 @@ categories: [Microsoft]                    # Pflichtfeld. Maximal eine der angeg
 tags: [RPA, PowerAutomate, PowerPlatform, AI, UI Flow, PowerAutomate Desktop, Teams Microsoft]         # Bitte auf Großschreibung achten.
 ---
 
-Jeder kennt es, bestimmte IT-Arbeitsschritte, die sich von den Eingaben unterscheiden, jedoch nicht von den Klicks - Hier gibt es ein enormes Optimierungspotential, wenn diese Tätigkeiten automatisiert werden können...bei jedem. 
+Jeder kennt es, bestimmte IT-Arbeitsschritte, die sich von den Eingaben, aber nicht von den Klicks unterscheiden.
+Hier gibt es für jeden durch Automatisierung dieser Tätigkeiten ein enormes Optimierungspotential.
 
 Es geht mir dabei nicht nur um die Optimierung der Netto-Arbeitszeit, die häufige Tätigkeiten benötigen, sondern auch um die Switching-Zeit - also die Zeit, die uns immer wieder aus unseren Themen rausreißt und uns somit ablenkt.
 
