@@ -37,7 +37,7 @@ In der Regel sieht der Prozess wie folgt aus:
 
 * Mitarbeiter (MA) hat eine Rechnung
 * MA schickt Rechnung per Email an FK (Führungskraft) und bittet um Freigabe -> 5 Min
-* FK liest Rechnung, gibt Rechnung frei als Prosatext in der Email und sendet Email zurück -> 5 Min
+* FK liest Rechnung, gibt Rechnung in der Email als Prosatext frei und sendet E-Mail zurück -> 5 Min
 * MA erhält Email und liest die Freigabe -> Zeitaufwand: 5 Min
 * MA öffnet sein ERP Programm und gibt alle Daten der Rechnung ein -> Zeitaufwand: 10 Min
 
