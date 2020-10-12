@@ -83,7 +83,7 @@ Bilder können es schlecht beweisen, aber es funktioniert ;)
 
 In diesem konkreten Beispiel nutze ich die PowerPlatform als No-Code Plattform, um die Freigabe von Rechnungen zu erleichtern und die dazugehörige Pflege in einem ERP-System zu automatisieren.
 
-Hierbei wird Outlook und Microsoft Teams ein Kommunikationsplattform genutzt.
+Hierbei wird Outlook und Microsoft Teams als Kommunikationsplattform genutzt.
 
 Ich nutze die Workflow-Engine PowerAutomate aka Flows, um die ganzen Prozessschritte auszuführen. Dabei wird die RPA Funktion über die Benutzeroberflächen Flows ausgeführt.
 
