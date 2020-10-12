@@ -113,7 +113,7 @@ Die Entscheidung, was passieren soll, enthält die eigentlich spannende Logik:
 
 Ich möchte die spannenden Schritte des PowerAutomates jetzt näher erläutern.
 
-### Extrahiert automatisiert relevante Rechnungsdaten aus der PDF
+### Automatisierte Extraktion relevanter Rechnungsdaten aus der PDF
 Der AI Builder ist eine Komponente der PowerPlatform, die ich nutze, um die Rechnungen zu analysieren. 
 
 Dabei stellt "Formularverarbeitung" die benötigte Funktion dar.
