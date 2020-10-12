@@ -101,10 +101,10 @@ Der Trigger ist in meinem Fall der Empfang einer Email in der dedizierten Mailbo
 
 Die Entscheidung, was passieren soll, enthält jetzt spannenden Themen:
 
-* Der PowerAutomate benutzt die Anlage der empfangenen Email - in diesem Fall eine PDF
-* Gibt diese an die KI-Komponente weiter
-* Extrahiert automatisiert relevante Rechnungsdaten aus der PDF
-* Nimmt die Daten und erstellt eine Optionsauswahl-Post in einem ausgewählten Bot-Teams-Chat
+* PowerAutomate benutzt die Anlage der empfangenen Email - in diesem Fall eine PDF
+* Weitergabe des PDF an die KI-KI-Komponente
+* Automatische Extraktion relevanter Rechnungsdaten aus der PDF
+* Erstellen eines Optionsauswahl-Post in einem ausgewählten Bot-Teams-Chat
 * Jetzt muss die Führungskraft im Teams-Chat entscheiden - in diesem Beispiel gibt die FK die Rechnung frei
 * Der Prozess geht jetzt weiter, öffnet automatisch die ERP (Excel) Applikation und gibt die relevanten Daten ein
 
