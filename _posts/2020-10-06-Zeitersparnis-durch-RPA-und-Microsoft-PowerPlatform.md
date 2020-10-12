@@ -135,7 +135,8 @@ Nach dem Training stehen mir die extrahierten Felder in meinem PowerAutomate zur
 ![Logo der adesso AG](/assets/images/posts/Zeitersparnis-durch-RPA-und-Microsoft-PowerPlatform/PowerAutomateWerte.png)
 
 ### Automatisierte Eingabe von Daten durch RPA
-Um Eingaben zu automatisieren, muss ich vorab die Eingabe "recorden", damit der Benutzeroberflächen Flow diese Schritte automatisieren kann. Hierbei werden ein paar kostenlose Tools von Microsoft und Selenium benötigt.
+Um Eingaben zu automatisieren, muss ich vorab die Eingabe "recorden", damit der Benutzeroberflächen Flow diese Schritte automatisieren kann.
+Hierfür werden ein paar kostenlose Tools von Microsoft und Selenium benötigt.
 
 ![Logo der adesso AG](/assets/images/posts/Zeitersparnis-durch-RPA-und-Microsoft-PowerPlatform/RPAEinrichtung.png)
 
