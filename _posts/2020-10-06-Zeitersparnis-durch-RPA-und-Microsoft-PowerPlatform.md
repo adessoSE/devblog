@@ -8,11 +8,12 @@ categories: [Microsoft]                    # Pflichtfeld. Maximal eine der angeg
 tags: [RPA, PowerAutomate, PowerPlatform, AI, UI Flow, PowerAutomate Desktop, Teams Microsoft]         # Bitte auf Großschreibung achten.
 ---
 
-Jeder kennt es, bestimmte IT-Arbeitsschritte, die sich von den Eingaben unterscheiden, jedoch nicht von den Klicks - Hier gibt es ein enormes Optimierungspotential, wenn diese Tätigkeiten automatisiert werden können...bei jedem. 
+Jeder kennt es, bestimmte IT-Arbeitsschritte, die sich von den Eingaben, aber nicht von den Klicks unterscheiden.
+Hier gibt es für jeden durch Automatisierung dieser Tätigkeiten ein enormes Optimierungspotential.
 
 Es geht mir dabei nicht nur um die Optimierung der Netto-Arbeitszeit, die häufige Tätigkeiten benötigen, sondern auch um die Switching-Zeit - also die Zeit, die uns immer wieder aus unseren Themen rausreißt und uns somit ablenkt.
 
-Speziell „Robotic Process Automation“ (RPA) kann uns hier unterstützen und ermöglicht die automatisierte Ausführung von manuellen Eingaben.
+"Robotic Process Automation" (RPA) kann uns hier unterstützen und ermöglicht die automatisierte Ausführung von manuellen Eingaben.
 
 Das perfekte und spannende Beispiel für mich sind Applikationen, die entweder keine Schnittstellen wie Konnektoren, API(s) etc. bereitstellen oder bei denen die Schnittstellenbereitstellungen zu komplex sind. 
 
@@ -36,7 +37,7 @@ In der Regel sieht der Prozess wie folgt aus:
 
 * Mitarbeiter (MA) hat eine Rechnung
 * MA schickt Rechnung per Email an FK (Führungskraft) und bittet um Freigabe -> 5 Min
-* FK liest Rechnung, gibt Rechnung frei als Prosatext in der Email und sendet Email zurück -> 5 Min
+* FK liest Rechnung, gibt Rechnung in der Email als Prosatext frei und sendet E-Mail zurück -> 5 Min
 * MA erhält Email und liest die Freigabe -> Zeitaufwand: 5 Min
 * MA öffnet sein ERP Programm und gibt alle Daten der Rechnung ein -> Zeitaufwand: 10 Min
 
@@ -54,7 +55,7 @@ In der Regel sieht der Prozess wie folgt aus:
 
 **Investierte Nettoarbeitszeit:** ca. 10 Min pro Rechnung
 
-**Switching-Zeit / Verlust des Fokus:** Viel niedriger, da u.a. wichtige Informationen hervorgehen werden
+**Switching-Zeit / Verlust des Fokus:** Viel niedriger, da u.a. wichtige Informationen hervorgehoben werden
 
 ### Prozessschritte im Detail
 
@@ -68,7 +69,7 @@ In der Regel sieht der Prozess wie folgt aus:
 
 * Rechnung wird automatisiert im ERP System eingetragen
 
-Vorher
+Vorher:
 
 ![Logo der adesso AG](/assets/images/posts/Zeitersparnis-durch-RPA-und-Microsoft-PowerPlatform/Vorher.png)
 
@@ -82,9 +83,10 @@ Bilder können es schlecht beweisen, aber es funktioniert ;)
 
 In diesem konkreten Beispiel nutze ich die PowerPlatform als No-Code Plattform, um die Freigabe von Rechnungen zu erleichtern und die dazugehörige Pflege in einem ERP-System zu automatisieren.
 
-Hierbei wird Outlook und Microsoft Teams ein Kommunikationsplattform genutzt.
+Hierbei wird Outlook und Microsoft Teams als Kommunikationsplattform genutzt.
 
-Ich nutze die Workflow-Engine PowerAutomate aka Flows, um die ganzen Prozessschritte auszuführen. Dabei wird die RPA Funktion über die Benutzeroberflächen Flows ausgeführt.
+Ich nutze die Workflow-Engine PowerAutomate aka Flows, um die Prozessschritte auszuführen.
+Dabei wird die RPA Funktion über Benutzeroberflächen Flows ausgeführt.
 
 PowerAutomate bietet per se Konrektoren zu Outlook und Teams, sodass ich sofort starten kann.
  
@@ -98,12 +100,12 @@ Im Grunde genommen sind es zwei Schritte, die benötigt werden, um die komplette
 
 Der Trigger ist in meinem Fall der Empfang einer Email in der dedizierten Mailbox "Rechnungen". Über Standardkonnektoren zu Office365 Mailboxes war das schnell für mich gemacht.
 
-Die Entscheidung, was passieren soll, enthält jetzt spannenden Themen:
+Die Entscheidung, was passieren soll, enthält die eigentlich spannende Logik:
 
-* Der PowerAutomate benutzt die Anlage der empfangenen Email - in diesem Fall eine PDF
-* Gibt diese an die KI-Komponente weiter
-* Extrahiert automatisiert relevante Rechnungsdaten aus der PDF
-* Nimmt die Daten und erstellt eine Optionsauswahl-Post in einem ausgewählten Bot-Teams-Chat
+* PowerAutomate benutzt die Anlage der empfangenen Email - in diesem Fall eine PDF
+* Weitergabe des PDF an die KI-KI-Komponente
+* Automatische Extraktion relevanter Rechnungsdaten aus der PDF
+* Erstellen eines Optionsauswahl-Post in einem ausgewählten Bot-Teams-Chat
 * Jetzt muss die Führungskraft im Teams-Chat entscheiden - in diesem Beispiel gibt die FK die Rechnung frei
 * Der Prozess geht jetzt weiter, öffnet automatisch die ERP (Excel) Applikation und gibt die relevanten Daten ein
 
@@ -111,7 +113,7 @@ Die Entscheidung, was passieren soll, enthält jetzt spannenden Themen:
 
 Ich möchte die spannenden Schritte des PowerAutomates jetzt näher erläutern.
 
-### Extrahiert automatisiert relevante Rechnungsdaten aus der PDF
+### Automatisierte Extraktion relevanter Rechnungsdaten aus der PDF
 Der AI Builder ist eine Komponente der PowerPlatform, die ich nutze, um die Rechnungen zu analysieren. 
 
 Dabei stellt "Formularverarbeitung" die benötigte Funktion dar.
@@ -124,7 +126,7 @@ Hierbei habe ich mindestens fünf Beispiel-Rechnungen erstellt und hochgeladen d
 
 In der Vergangenheit musste ich hierfür komplexere Logiken implementieren, die ich bspw. mit Azure Machine Learning implementiert habe.
 
-Mit dem AI Builder kann ich dem Modell sagen, welche Felder relevant sind auf den Rechnungen, damit es selbständig "trainieren" kann.
+Mit dem AI Builder kann ich dem Modell sagen, welche Felder einer Rechnung relevant sind, damit es selbständig "trainieren" kann.
 
 ![Logo der adesso AG](/assets/images/posts/Zeitersparnis-durch-RPA-und-Microsoft-PowerPlatform/AiBuilderWerte.png)
 
@@ -133,7 +135,8 @@ Nach dem Training stehen mir die extrahierten Felder in meinem PowerAutomate zur
 ![Logo der adesso AG](/assets/images/posts/Zeitersparnis-durch-RPA-und-Microsoft-PowerPlatform/PowerAutomateWerte.png)
 
 ### Automatisierte Eingabe von Daten durch RPA
-Um Eingaben zu automatisieren, muss ich vorab die Eingabe "recorden", damit der Benutzeroberflächen Flow diese Schritte automatisieren kann. Hierbei werden ein paar kostenlose Tools von Microsoft und Selenium benötigt.
+Um Eingaben zu automatisieren, muss ich vorab die Eingabe "recorden", damit der Benutzeroberflächen Flow diese Schritte automatisieren kann.
+Hierfür werden ein paar kostenlose Tools von Microsoft und Selenium benötigt.
 
 ![Logo der adesso AG](/assets/images/posts/Zeitersparnis-durch-RPA-und-Microsoft-PowerPlatform/RPAEinrichtung.png)
 
@@ -147,7 +150,7 @@ Als Alternative könnte ich die Selenium-IDE nutzen, die ein Open-Source-Tool is
 
 Dieses Tool wird auch oft bei Tests genutzt.
 
-PowerAutomate Desktop bietet mir eine Vielzahl von Operationen, u.a. das Recorden von Webseiten oder von Desktop-Applikationen. 
+PowerAutomate Desktop bietet mir eine Vielzahl von Operationen, u.a. das Recorden von Webseiten oder Desktop-Applikationen. 
 
 In meinem Fall möchte ich, dass automatisch eine Excel geöffnet wird und die "Input"-Variablen aus meinen Rechnungen automatisch eingetragen werden.
 
