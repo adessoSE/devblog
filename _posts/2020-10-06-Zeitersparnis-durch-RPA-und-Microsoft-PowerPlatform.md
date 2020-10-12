@@ -8,7 +8,7 @@ categories: [Microsoft]                    # Pflichtfeld. Maximal eine der angeg
 tags: [RPA, PowerAutomate, PowerPlatform, AI, UI Flow, PowerAutomate Desktop, Teams Microsoft]         # Bitte auf Großschreibung achten.
 ---
 
-Jeder kennt es, bestimmte IT-Arbeitsschritte, die sich von den Eingaben unterscheiden jedoch nicht von den Klicks - Hier gibt es ein enormes Optimierungspotential, wenn diese Tätigkeiten automatisiert werden können...bei jedem. 
+Jeder kennt es, bestimmte IT-Arbeitsschritte, die sich von den Eingaben unterscheiden, jedoch nicht von den Klicks - Hier gibt es ein enormes Optimierungspotential, wenn diese Tätigkeiten automatisiert werden können...bei jedem. 
 
 Es geht mir dabei nicht nur um die Optimierung der Netto-Arbeitszeit, die häufige Tätigkeiten benötigen, sondern auch um die Switching-Zeit - also die Zeit, die uns immer wieder aus unseren Themen rausreißt und uns somit ablenkt.
 
@@ -24,7 +24,7 @@ Als Prozessgrundlage hat mich u.a. dieses Microsoft Tutorial inspiriert [Robotic
 
 Hierbei haben sich die Features etwas geändert, das neue Tool PowerAutomate Desktop ist da und das möchte ich testen.
 
-Als Beispiel-Prozess nehme ich das Freigeben von Rechnungen und die dazugehörige Pflege in eine lokale Excel-Datei, die ein lokales System wie bspw. ein ERP simulieren soll.
+Als Beispiel-Prozess nehme ich das Freigeben von Rechnungen und die dazugehörige Pflege in einer lokale Excel-Datei, die ein lokales System wie bspw. ein ERP simulieren soll.
 
 Dabei werde ich auch den AI Builder der Microsoft PowerPlatform nutzen, um KI-gesteuert Informationen aus Dokumenten zu extrahieren.
 
@@ -86,7 +86,7 @@ Hierbei wird Outlook und Microsoft Teams ein Kommunikationsplattform genutzt.
 
 Ich nutze die Workflow-Engine PowerAutomate aka Flows, um die ganzen Prozessschritte auszuführen. Dabei wird die RPA Funktion über die Benutzeroberflächen Flows ausgeführt.
 
-PowerAutomate bietet per se Konrektoren zu Outlook und Teams, so dass ich sofort starten kann.
+PowerAutomate bietet per se Konrektoren zu Outlook und Teams, sodass ich sofort starten kann.
  
 ### Grundlage ist PowerAutomate aka Flow, um den Prozess zu automatisieren
 
@@ -98,7 +98,7 @@ Im Grunde genommen sind es zwei Schritte, die benötigt werden, um die komplette
 
 Der Trigger ist in meinem Fall der Empfang einer Email in der dedizierten Mailbox "Rechnungen". Über Standardkonnektoren zu Office365 Mailboxes war das schnell für mich gemacht.
 
-Die Entscheidung, was passieren soll enthält jetzt spannenden Themen:
+Die Entscheidung, was passieren soll, enthält jetzt spannenden Themen:
 
 * Der PowerAutomate benutzt die Anlage der empfangenen Email - in diesem Fall eine PDF
 * Gibt diese an die KI-Komponente weiter
@@ -109,7 +109,7 @@ Die Entscheidung, was passieren soll enthält jetzt spannenden Themen:
 
 ![Logo der adesso AG](/assets/images/posts/Zeitersparnis-durch-RPA-und-Microsoft-PowerPlatform/PowerAutomateDetail.png)
 
-Ich möchte die spannenden Schritte des PowerAutomates jetzt näher erläutern
+Ich möchte die spannenden Schritte des PowerAutomates jetzt näher erläutern.
 
 ### Extrahiert automatisiert relevante Rechnungsdaten aus der PDF
 Der AI Builder ist eine Komponente der PowerPlatform, die ich nutze, um die Rechnungen zu analysieren. 
@@ -118,17 +118,17 @@ Dabei stellt "Formularverarbeitung" die benötigte Funktion dar.
 
 ![Logo der adesso AG](/assets/images/posts/Zeitersparnis-durch-RPA-und-Microsoft-PowerPlatform/AiBuilder.png)
 
-Hierbei habe ich mindestens fünf Beispiel-Rechnungen erstellt und hochladen damit der AI Builder die relevanten Informationen wie Datum, Betrag etc. automatisch "erlernt".
+Hierbei habe ich mindestens fünf Beispiel-Rechnungen erstellt und hochgeladen damit der AI Builder die relevanten Informationen wie Datum, Betrag etc. automatisch "erlernt".
 
 ![Logo der adesso AG](/assets/images/posts/Zeitersparnis-durch-RPA-und-Microsoft-PowerPlatform/AiBuilderUpload.png)
 
 In der Vergangenheit musste ich hierfür komplexere Logiken implementieren, die ich bspw. mit Azure Machine Learning implementiert habe.
 
-Mit dem AI Builder kann ich dem Modell sagen, welche Felder relevant sind auf den Rechnungen, damit es selbständig "trainieren" kann
+Mit dem AI Builder kann ich dem Modell sagen, welche Felder relevant sind auf den Rechnungen, damit es selbständig "trainieren" kann.
 
 ![Logo der adesso AG](/assets/images/posts/Zeitersparnis-durch-RPA-und-Microsoft-PowerPlatform/AiBuilderWerte.png)
 
-Nach dem Training stehen mir die extrahierten Felder in meinem PowerAutomate zur Verfügung. Hier zu erkennen in der Teamchat-Nachricht "Meldung"
+Nach dem Training stehen mir die extrahierten Felder in meinem PowerAutomate zur Verfügung. Hier zu erkennen in der Teamchat-Nachricht "Meldung".
 
 ![Logo der adesso AG](/assets/images/posts/Zeitersparnis-durch-RPA-und-Microsoft-PowerPlatform/PowerAutomateWerte.png)
 
@@ -147,7 +147,7 @@ Als Alternative könnte ich die Selenium-IDE nutzen, die ein Open-Source-Tool is
 
 Dieses Tool wird auch oft bei Tests genutzt.
 
-PowerAutomate Desktop bietet mir eine Vielzahl von Operationen u.a. das Recorden von Webseiten oder von Desktop-Applikationen. 
+PowerAutomate Desktop bietet mir eine Vielzahl von Operationen, u.a. das Recorden von Webseiten oder von Desktop-Applikationen. 
 
 In meinem Fall möchte ich, dass automatisch eine Excel geöffnet wird und die "Input"-Variablen aus meinen Rechnungen automatisch eingetragen werden.
 
@@ -161,7 +161,7 @@ Wichtig hierbei ist, dass eine Verbindung zwischen dem PowerAutomate und dem lok
 
 # Fazit
 
-Ich halte die Microsoft PowerPlatform seit Tag eins für eine sehr mächtige Entwicklungsumgebung, die auch Nicht-Entwicklern (aka PowerUsern aka Citizen Developer) die Möglichkeit gibt neue Lösungen zu kreieren. 
+Ich halte die Microsoft PowerPlatform seit Tag eins für eine sehr mächtige Entwicklungsumgebung, die auch Nicht-Entwicklern (aka PowerUsern aka Citizen Developer) die Möglichkeit gibt, neue Lösungen zu kreieren. 
 
 KI, Workflows, RPA oder maschinelles Lernen waren früher nicht ohne eine hohe Komplexität oder Code-Kenntnisse möglich. 
 
