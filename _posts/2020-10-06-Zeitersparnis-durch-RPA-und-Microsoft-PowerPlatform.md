@@ -14,7 +14,7 @@ Es geht mir dabei nicht nur um die Optimierung der Netto-Arbeitszeit, die häufi
 
 Speziell „Robotic Process Automation“ (RPA) kann uns hier unterstützen und ermöglicht die automatisierte Ausführung von manuellen Eingaben.
 
-Das perfekte und spannende Beispiel für mich sind Applikationen, die entweder keine Schnittstellen wie Konrektoren, API etc. bereitstellen oder bei denen die Schnittstellenbereitstellungen zu komplex sind. 
+Das perfekte und spannende Beispiel für mich sind Applikationen, die entweder keine Schnittstellen wie Konnektoren, API(s) etc. bereitstellen oder bei denen die Schnittstellenbereitstellungen zu komplex sind. 
 
 Die neuen technischen Möglichkeiten der Microsoft PowerPlatform ermöglichen auch PowerUsern solche UseCases schnell und einfach umzusetzen.
 
@@ -29,7 +29,7 @@ Als Beispiel-Prozess nehme ich das Freigeben von Rechnungen und die dazugehörig
 
 Dabei werde ich auch den AI-Builder der Microsoft PowerPlatform nutzen, um KI-gesteuert Informationen aus Dokumenten zu extrahieren.
 
-Dieses Beispiel benötigt in der täglichen Praxis viele manuelle Schritte, die sich optimieren lassen hinsichtlich Zeitaufwand, den Fokus auf wichtigere Dinge stärkt und Fehler minimiert.
+Dieses Beispiel benötigt in der täglichen Praxis viele manuelle Schritte, die sich optimieren lassen hinsichtlich Zeitaufwandes, den Fokus auf wichtigere Dinge stärkt und Fehler minimiert.
 
 ## Der gängige Prozess
 
@@ -77,7 +77,7 @@ Vorher:
 
 ![Logo der adesso AG](/assets/images/posts/Zeitersparnis-durch-RPA-und-Microsoft-PowerPlatform/Vorher.png)
 
-MA verschickt Rechnung an Postfach...und dann wird automatisch die lokale Applikationen mit den Daten aus dem Rechnungsdokument gefüllt.
+MA verschickt Rechnung an Postfach...und dann wird automatisch die lokale Applikation mit den Daten aus dem Rechnungsdokument gefüllt.
 
 Nachher:
 
@@ -107,12 +107,11 @@ Im Grunde genommen sind es zwei Schritte, die benötigt werden, um die komplette
 ![Logo der adesso AG](/assets/images/posts/Zeitersparnis-durch-RPA-und-Microsoft-PowerPlatform/PowerAutomate.png)
 
 
-Der Trigger ist in meinem Fall der Empfang einer Email in der dedizierter Mailbox "Rechnungen". Über Standardkonnektoren zu Office365 Mailboxes war das schnell für mich gemacht.
+Der Trigger ist in meinem Fall der Empfang einer Email in der dedizierten Mailbox "Rechnungen". Über Standardkonnektoren zu Office365 Mailboxes war das schnell für mich gemacht.
 
 Die Entscheidung, was passieren soll enthält jetzt spannenden Themen:
 
-Schritte:
-* Er nimmt die Anlage der empfangenen Email - in diesem Fall eine PDF
+* Der PowerAutomate benutzt die Anlage der empfangenen Email - in diesem Fall eine PDF
 * Gibt diese an die KI-Komponente weiter
 * Extrahiert automatisiert relevante Rechnungsdaten aus der PDF
 * Nimmt die Daten und erstellt eine Optionsauswahl-Post in einem ausgewählten Bot-Teams-Chat
@@ -153,23 +152,23 @@ Um Eingaben ermöglichen zu automatisieren, muss ich vorab die Eingabe "recorden
 ![Logo der adesso AG](/assets/images/posts/Zeitersparnis-durch-RPA-und-Microsoft-PowerPlatform/RPAEinrichtung.png)
 
 
-In den nächsten Schritte sage ich dem Benutzeroberflächen Flow in welcher Form ich die Eingaben "recorden" möchte:
+In den nächsten Schritten sage ich dem Benutzeroberflächen Flow in welcher Form ich die Eingaben "recorden" möchte:
 
 ![Logo der adesso AG](/assets/images/posts/Zeitersparnis-durch-RPA-und-Microsoft-PowerPlatform/RPARecorder.png)
 
 Ich nutze die Vorschauversion vom PowerAutomate Desktop. Als Alternative könnte ich die Selenium-IDE nutzen, die ein Open-Source-Tool ist, mit dem ich Interaktionen auf Websites aufzeichnen und wiedergeben kann. Dieses Tool wird auch oft bei Tests genutzt.
 
 
-PowerAutomate Desktop bietet mir eine Vielzahl von Operationen u.a. das Recordern von WebSeiten oder von Desktop-Applikationen. 
+PowerAutomate Desktop bietet mir eine Vielzahl von Operationen u.a. das Recorden von Webseiten oder von Desktop-Applikationen. 
 
 In meinem Fall möchte ich, dass automatisch eine Excel geöffnet wird und die "Input"-Variablen aus meinen Rechnungen automatisch eingetragen werden:
 
 ![Logo der adesso AG](/assets/images/posts/Zeitersparnis-durch-RPA-und-Microsoft-PowerPlatform/PADFlow.png)
 
 
-Letzer Schritt - Die Einbindung des Benutzeroberflächen Flow erfolgt im eigentlichen PowerAutomate.
+Letzter Schritt - Die Einbindung des Benutzeroberflächen Flow erfolgt im eigentlichen PowerAutomate.
 
-Wichtig hierbei ist, dass eine Verbindung zwischen dem PowerAutomate und der lokalen System / Excel hergestellt werden kann. Dies realisiere ich sehr schnell mit dem Microsoft OnPremise Datagateway.
+Wichtig hierbei ist, dass eine Verbindung zwischen dem PowerAutomate und dem lokalen System / Excel hergestellt werden kann. Dies realisiere ich sehr schnell mit dem Microsoft OnPremise Datagateway.
 
 ![Logo der adesso AG](/assets/images/posts/Zeitersparnis-durch-RPA-und-Microsoft-PowerPlatform/PowerAutomateUiFlow.png)
 
@@ -178,7 +177,7 @@ Wichtig hierbei ist, dass eine Verbindung zwischen dem PowerAutomate und der lok
 
 Ich halte die Microsoft PowerPlatform seit Tag eins für eine sehr mächtige Entwicklungsumgebung, die auch Nicht-Entwicklern (aka PowerUsers aka Citizen Developer) die Möglichkeit gibt neue Lösungen zu kreieren. 
 
-KI, Workflows, Maschinelles Lernen waren früher nicht ohne eine hohe Komplexität oder Code-Kenntnisse möglich. 
+KI, Workflows, RPA oder maschinelles Lernen waren früher nicht ohne eine hohe Komplexität oder Code-Kenntnisse möglich. 
 
 Das oben gezeigte Beispiel stellt dabei einfach und klar dar, dass der Business-Value im Vordergrund steht und nicht die Technologien dahinter.
 
