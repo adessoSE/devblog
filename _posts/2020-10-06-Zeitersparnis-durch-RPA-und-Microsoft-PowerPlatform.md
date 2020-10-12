@@ -28,7 +28,7 @@ Als Beispiel-Prozess nehme ich das Freigeben von Rechnungen und die dazugehörig
 
 Dabei werde ich auch den AI Builder der Microsoft PowerPlatform nutzen, um KI-gesteuert Informationen aus Dokumenten zu extrahieren.
 
-Dieses Beispiel benötigt in der täglichen Praxis viele manuelle Schritte, die sich optimieren lassen hinsichtlich Zeitaufwandes, den Fokus auf wichtigere Dinge stärkt und Fehler minimiert.
+Dieses Beispiel benötigt in der täglichen Praxis viele manuelle Schritte, die Zeit kosten und zudem fehleranfällig sind.
 
 ## Der gängige Prozess
 
