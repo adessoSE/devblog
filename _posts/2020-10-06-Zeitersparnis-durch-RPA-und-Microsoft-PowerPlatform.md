@@ -69,7 +69,7 @@ In der Regel sieht der Prozess wie folgt aus:
 
 * Rechnung wird automatisiert im ERP System eingetragen
 
-Vorher
+Vorher:
 
 ![Logo der adesso AG](/assets/images/posts/Zeitersparnis-durch-RPA-und-Microsoft-PowerPlatform/Vorher.png)
 
