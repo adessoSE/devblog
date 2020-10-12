@@ -100,7 +100,7 @@ Im Grunde genommen sind es zwei Schritte, die benötigt werden, um die komplette
 
 Der Trigger ist in meinem Fall der Empfang einer Email in der dedizierten Mailbox "Rechnungen". Über Standardkonnektoren zu Office365 Mailboxes war das schnell für mich gemacht.
 
-Die Entscheidung, was passieren soll, enthält jetzt spannenden Themen:
+Die Entscheidung, was passieren soll, enthält die eigentlich spannende Logik:
 
 * PowerAutomate benutzt die Anlage der empfangenen Email - in diesem Fall eine PDF
 * Weitergabe des PDF an die KI-KI-Komponente
