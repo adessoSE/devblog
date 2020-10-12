@@ -168,7 +168,7 @@ KI, Workflows, RPA oder maschinelles Lernen waren früher nicht ohne eine hohe K
 Das oben gezeigte Beispiel stellt dabei einfach und klar dar, dass der Business-Value im Vordergrund steht und nicht die Technologien dahinter.
 
 Herausforderungen, auf die ich bewusst in diesem Blog nicht eingegangen bin, um besonders den Business-Value hervorzuheben, sind u.a.:
-* Authentifizierung und Autorisierung, u.a. wird bspw. Das OnPremise Data Gateway benötigt
+* Authentifizierung und Autorisierung, u.a. wird bspw. das OnPremise Data Gateway benötigt
 * Lizenzierung bei der Nutzung von PowerAutomate und RPA
 * Deutsche Übersetzung sind teilweise gewöhnungsbedürftig "UI Flow" vs "Benutzeroberflächen Flow"
 * Teilweise noch die ein oder andere Schwierigkeit bspw. Exceptions bei ein paar PowerAutomate Desktop Funktionen
