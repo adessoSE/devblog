@@ -55,7 +55,7 @@ In der Regel sieht der Prozess wie folgt aus:
 
 **Investierte Nettoarbeitszeit:** ca. 10 Min pro Rechnung
 
-**Switching-Zeit / Verlust des Fokus:** Viel niedriger, da u.a. wichtige Informationen hervorgehen werden
+**Switching-Zeit / Verlust des Fokus:** Viel niedriger, da u.a. wichtige Informationen hervorgehoben werden
 
 ### Prozessschritte im Detail
 
