@@ -207,15 +207,23 @@ Beispielhaft sind hier einige mögliche Kennzahlen, Messpunkte und -werte aufgef
 * Laufzeit von Datenbank-Abfragen (Min, Max, Abhängigkeit von der Datenmenge)
 * …
 
-## Automatisierung der Testumgebungen 
+## Testumgebungen
 
-Die Erzeugung und Konfiguration der Test-Stages soll möglichst automatisiert erfolgen z.B. durch den Einsatz von Docker, Ansible etc..  
+Während Unit-Tests zum Build-Zeitpunkt auf dem aktuellen Code-Stand im Rahmen der Build-Umgebung ausgeführt werden, wird für die anderen Testarten (Integrations-, Schnittstellen-, Last- und Performance-Tests) die fertig gebaute Software auf einer eigens dafür konfigurierten Umgebung ausgerollt und diese konfiguriert.
+Dafür sind meist mehrere passende Testumgebungen (Test-Stage) bereitzustellen, die im besten Fall so konfiguriert sind, dass sie der späteren produktiven Umgebung in jedem Aspekt so nahe wie möglich kommen.
+Das betrifft zum Beispiel die folgenden Punkte:
 
-## Produktionsnahe Testumgebung 
+* Ressourcen (CPU, Arbeitsspeicher, Festplatte)
+* Software (Betriebssystem, Java…)
+* Laufzeit-Umgebung (Application- oder Web-Server)
+* Umsysteme (Schnittstellen, Test-Systeme des Kunden)
 
-Mindestens eine Testumgebung ist der geplanten bzw. bereits existierenden produktiven Umgebung so nah wie möglich nachempfunden. 
+Die Erzeugung und Konfiguration der Test-Stages sollte möglichst automatisiert erfolgen (z.B. durch Docker, Ansible…).
+Dazu kann im Rahmen der Continuous Integration durch einen der Testausführung vorgelagerten Schritt die benötigte Testumgebung sauber aufgebaut und konfiguriert werden.
+Dann liegt dem folgenden Testlauf nicht nur die aktuelle Version der Software zugrunde, es werden auch gleich aktuelle Testdaten und eine sich möglicherweise veränderte Konfiguration der Umgebung (z.B. Tomcat-Version) herangezogen.
 
-Auf dieser produktionsnahen Testumgebung führt das QS-Team den Test (spätestens zur Abnahme) der Software durch. 
+Eine der Testumgebungen kann explizit bereitgestellt werden, damit das QS-Team während der Entwicklung laufende manuelle Tests und spätestens zur Abnahme der Software den vollständigen Systemtest durchführen kann.
+Außerdem kann diese Umgebung dann regelmäßig zur Präsentation des aktuellen Entwicklungsstandes (z.B. Sprint Review) dienen und zusätzlich zur Reproduktion auftretender Fehler verwendet werden.
 
 # Code-Qualität
 
