@@ -116,7 +116,9 @@ Dabei stellt "Formularverarbeitung" die benötigte Funktion dar.
 
 ![AiBuilder.png](/assets/images/posts/Zeitersparnis-durch-RPA-und-Microsoft-PowerPlatform/AiBuilder.png)
 
-Hierbei habe ich mindestens fünf Beispiel-Rechnungen erstellt und hochgeladen damit der AI Builder die relevanten Informationen wie Datum, Betrag etc. automatisch "erlernt".
+Hierbei habe ich fünf Beispiel-Rechnungen erstellt und hochgeladen damit der AI Builder die relevanten Informationen wie Datum, Betrag etc. automatisch "erlernt".
+
+Der AI Builder benötigt mindestens fünf Dokumentbeispiele, um zu trainieren.
 
 ![AiBuilderUpload.png](/assets/images/posts/Zeitersparnis-durch-RPA-und-Microsoft-PowerPlatform/AiBuilderUpload.png)
 
