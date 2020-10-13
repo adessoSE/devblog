@@ -169,25 +169,43 @@ Im besten Fall passiert dies bereits automatisiert im Rahmen einer Continuous In
 
 ## Last- und Performancetests
 
-Um sicherzustellen, dass eine neu entwickelte Software im späteren produktiven Betrieb den geforderten, nichtfunktionalen Anforderungen genügt, sind Last- und Performance-Tests zu implementieren.
-Diese Tests sind so umzusetzen, dass sie einerseits das zu erwartende Nutzerverhalten (die zu erwartende Last) simulieren, andererseits aber auch eine Aussage über den zu erwarteten Ressourcen-Bedarf und die Skalierung treffen können.
+Um sicherzustellen, dass eine neu entwickelte Software im späteren produktiven Betrieb den geforderten, nichtfunktionalen Anforderungen genügt, sind entsprechende Last- und Performance-Tests zu implementieren.
+Diese Tests sind so umzusetzen, dass sie einerseits zumindest das zu erwartende Nutzerverhalten (die zu erwartende Last) simulieren und andererseits eine Aussage über den zu erwarteten Ressourcen-Bedarf und die notwendige Skalierung treffen können.
 
-Zur Durchführung eines Last- oder Performance-Tests kann ein entsprechendes Tool (z.B. Gatling, JMeter…) so konfiguriert werden, dass es automatisiert Anwendungsfälle in gewünschter Häufigkeit, Parallelität und Last-Veränderung (Erhöhung, Senkung) auf einem eigens dafür bereitgestellten Testsystem ausführt.
+Zur Durchführung der Last- oder Performance-Tests kann ein entsprechendes Tool (z.B. Gatling, JMeter…) so konfiguriert werden, dass es automatisiert Anwendungsfälle in gewünschter Häufigkeit, Parallelität und Last-Veränderung (Erhöhung, Senkung) ausführt… und zwar auf einem eigens dafür bereitgestellten Testsystem.
+Das Testsystem muss dabei dem späteren Produktivsystem so ähnlich wie möglich sein.
+Das betrifft nicht nur die verwendete Hardware und die Anbindung von Umsystemen, sondern auch die Menge und Qualität der auf dem Testsystem vorzubereitenden Testdaten.
+Hierzu sollten die in einer Mengenbetrachtung ermittelten Anzahlen der im Produktivbetrieb zu erwartenden Entitäten, Aggregate, Sessions, Nutzer usw. verwendet werden.
+Zusätzlich ist unbedingt auf fachliche Qualität, Stimmigkeit und Konsistenz der Testdaten zu achten.
 
-Aber welche Anwendungsfälle sind repräsentativ für einen Last- oder Performance-Test?
+Aber welche Anwendungsfälle sind für einen Last- oder Performance-Test auszuwählen?
 Erstens sind zumindest Kernanwendungsprozesse, die am häufigsten benutzt werden im Einzelnen zu prüfen.
-Zweitens sollte ein Test einen Mix aus unterschiedlichen Anwendungsfällen gleichzeitig durchführen.
-Und drittens sind diejenigen Prozesse zu prüfen, die mit hoher Wahrscheinlichkeit einen negativen Einfluss auf die Performance haben werden.
+Zweitens sollte ein Test implementiert werden, der einen Mix aus unterschiedlichen Anwendungsfällen gleichzeitig ausführt.
+Und drittens sind diejenigen Prozesse zu identifizieren und zu prüfen, die mit hoher Wahrscheinlichkeit einen negativen Einfluss auf die Performance haben werden.
 Dazu zählen unter anderem Prozesse, die auf vielen Daten arbeiten und/oder einen komplexen Algorithmus implementieren (z.B. lang laufende Reports).
 
-Vorab muss entsprechend Zeit und Budget bereitgestellt werden, die unterschiedlichen Tests zu planen und die zu ermittelnden Messwerte und das Performance-Ziel (Grenzen) zu definieren.
-Dann sind diese Tests umzusetzen und werden während der Entwicklung in regelmäßigen Abständen (z.B. 1-mal pro Sprint oder 1-mal im Monat) durchzuführen.
-Nach einem Test werden die Messwerte zusammengetragen, gegen das Performance-Ziel geprüft und der Test sollte fehlschlagen, wenn eine bestimmte Grenze (das Performance-Ziel) überschritten wird.
-Die folgenden Messwerte können je nach Art der Software ermittelt werden:
+Im Projekt muss vorab entsprechend Zeit und Budget bereitgestellt werden, um die unterschiedlichen Tests planen zu können und die zu ermittelnden Kennzahlen und das Performance-Ziel (Grenzen) zu definieren.
+Dann sind zu Projektbeginn das Testsystem aufzusetzen und zu konfigurieren, die Continuous Integration zu erweitern und natürlich die Tests so früh wie möglich umzusetzen.
 
-* Antwortzeit (Durchschnitt, Percentil, Max)
-* Maximale Anzahl gleichzeitiger Nutzer bzw. Anwendungsfälle pro Nutzer
-* Arbeitsspeicher-Bedarf (Min, Max, Durchsatz)
+Um eine Veränderung der Performance frühzeitig erkennen zu können, sind die Last- und Performance-Tests während der Entwicklungs-Phase in regelmäßigen Abständen (z.B. 1-mal pro Sprint oder 1-mal im Monat) auszuführen.
+Voraussetzung dafür ist jedoch, dass die funktionalen Tests (Unit-, Integrations- und Schnittstellentests) vorab erfolgreich durchgeführt wurden, also keine Fehler in den funktionalen Anforderungen bestehen.
+Nach der Testausführung müssen die ermittelten Kennzahlen zusammengetragen und gegen das Performance-Ziel geprüft werden.
+Ein Test sollte dann immer fehlschlagen, wenn eine der Kennzahlen die vorab definierten Grenzen (das Performance-Ziel) über- oder unter-schreitet.
+
+Aufgrund der regelmäßig durchzuführenden Tätigkeiten rund um die Last- und Performance-Tests, bietet es sich an, diese ebenfalls zu automatisieren und in eine Continious Integration Pipeline zu integrieren.
+Im besten Fall schlägt dann ein Pipeline-Build (Job) fehl, weil das Performance-Ziel für die aktuelle Version (Sprint) nicht erreicht wurde.
+
+In jedem Fall muss an zentraler Stelle dokumentiert werden, welche Last- und Performance-Tests es gibt, wie diese durchzuführen sind, welche Testdaten zu verwenden sind, welche Kennzahlen zugrunde liegen und wie das Performance-Ziel definiert ist.
+Außerdem sind die Testergebnisse der einzelnen Test-Läufe an geeigneter Stelle zu dokumentieren.
+
+Beispielhaft sind hier einige mögliche Kennzahlen, Messpunkte und -werte aufgeführt, die je nach Art der Software und Art der nichtfunktionalen Anforderungen zu ermitteln sein können:
+
+* Antwortzeit (Durchschnitt, Percentil, Min, Max)
+* Maximal erreichbare Anzahl gleichzeitiger Nutzer bzw. Anwendungsfälle pro Nutzer
+* Arbeitsspeicher-Bedarf (Min, Max, Durchsatz, Garbage-Collection)
+* CPU-Auslastung, Anzahl paralleler Threads
+* Laufzeit von Datenbank-Abfragen (Min, Max, Abhängigkeit von der Datenmenge)
+* …
 
 ## Automatisierung der Testumgebungen 
 
