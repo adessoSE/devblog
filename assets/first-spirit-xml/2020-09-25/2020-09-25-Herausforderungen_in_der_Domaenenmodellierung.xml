@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<documents>
+    <document uid="bb7c028f887d1410fd3aa8d8e522161e">
+        <field name="title"><![CDATA[Herausforderungen in der Domänenmodellierung]]></field>
+        <field name="subline"><![CDATA[]]></field>
+        <field name="teaser"><![CDATA[<p>Software dient dazu die tägliche Arbeit einer Anwenderdomäne zu unterstützen. 
+Trotz dieser grundlegenden Tatsache fällt es uns Entwicklern oft schwer, den Software-Entwicklungsprozess auf die Bedürfnisse der Domäne auszurichten. 
+In seinem Buch “Domain Driven Design - Tackling Complexity in the Heart of Software” hat Eric Evans die Notwendigkeit einer effizienten Ausrichtung der Software-Entwicklung auf die Domäne erkannt und Maßnahmen vorgestellt, dies zu erreichen. 
+Diese Sammlung von Werkzeugen ist seitdem unter dem Begriff Domain Driven Design, kurz DDD, bekannt.</p>
+
+]]></field>
+        <field name="language_multi_keyword"><![CDATA[de]]></field>
+        <field name="content_type_multi_keyword"><![CDATA[blog]]></field>
+        <field name="mime_type_multi_keyword"><![CDATA[text/html]]></field>
+        <field name="category_multi_keyword"><![CDATA[Softwareentwicklung]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Domain Driven Design]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Modellierung]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Architektur]]></field>
+        <field name="date_date"><![CDATA[2020-09-25T12:00:00+02:00]]></field>
+        <field name="date_l"><![CDATA[1601028000000]]></field>
+        <field name="change_date"><![CDATA[1601028000000]]></field>
+        <!--Picture-->
+        <!-- Not in use at the moment-->
+        <!--Author Information-->
+        <field name="author_first_name"><![CDATA[Viktor]]></field>
+        <field name="author_last_name"><![CDATA[Mucha]]></field>
+        <field name="author_id"><![CDATA[viktor-mucha]]></field>
+        <field name="author_picture_stored_only"><![CDATA[http://localhost:4000/assets/images/avatars/viktor-mucha.jpg]]></field>
+        <!--Postcontent-->
+        <field name="headlines"><![CDATA[Herausforderungen in der Domänenmodellierung]]></field>
+        <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
+            <p>Software dient dazu die tägliche Arbeit einer Anwenderdomäne zu unterstützen. 
+Trotz dieser grundlegenden Tatsache fällt es uns Entwicklern oft schwer, den Software-Entwicklungsprozess auf die Bedürfnisse der Domäne auszurichten. 
+In seinem Buch “Domain Driven Design - Tackling Complexity in the Heart of Software” hat Eric Evans die Notwendigkeit einer effizienten Ausrichtung der Software-Entwicklung auf die Domäne erkannt und Maßnahmen vorgestellt, dies zu erreichen. 
+Diese Sammlung von Werkzeugen ist seitdem unter dem Begriff Domain Driven Design, kurz DDD, bekannt.</p>
+
+</div>]]></field>
+        <field name="content"><![CDATA[<div class="adesso-text-formate">
+<div class="row p-t-2">
+<div class="adesso-container">
+<div class="col-xl-8 adesso-center p-b-1 p-l-0 p-r-0">
+    <p>Software dient dazu die tägliche Arbeit einer Anwenderdomäne zu unterstützen. 
+Trotz dieser grundlegenden Tatsache fällt es uns Entwicklern oft schwer, den Software-Entwicklungsprozess auf die Bedürfnisse der Domäne auszurichten. 
+In seinem Buch “Domain Driven Design - Tackling Complexity in the Heart of Software” hat Eric Evans die Notwendigkeit einer effizienten Ausrichtung der Software-Entwicklung auf die Domäne erkannt und Maßnahmen vorgestellt, dies zu erreichen. 
+Diese Sammlung von Werkzeugen ist seitdem unter dem Begriff Domain Driven Design, kurz DDD, bekannt.</p>
+
+<p>In der Modellierung der Anwenderdomäne stehen wir Entwickler häufig vor wiederkehrenden Herausforderungen, die durch die DDD-Werkzeuge adressiert werden. 
+Dieser Artikel stellt exemplarisch einige dieser Herausforderungen vor.
+Zur Verdeutlichung werden die Herausforderungen anhand eines fiktiven Beispiels erklärt.
+Es wird die Software zur Verwaltung von Reisebuchungen sowie der durch sie entstehenden Rechnungen betrachtet.</p>
+
+<h5 id="gemeinsames-verständnis-des-domänenmodells">Gemeinsames Verständnis des Domänenmodells</h5>
+
+<p>Die grundlegende Herausforderung, vor welcher wir Entwickler bei der Domänenmodellierung stehen, ist die Sicherstellung eines gemeinsamen Verständnisses der Fachlichkeit bei allen Projektbeteiligten.
+Das Verständnis über die Domäne kann als Domänensprache bezeichnet werden, die in DDD als Ubiqitous Language bekannt ist.
+Die gemeinsame Domänensprache sollte insbesondere von allen Entwicklern, aber generell auch von allen im Projekt involvierten Domänenexperten gesprochen werden.
+Die Domänenexperten sind Anwender der Software mit einem hohen fachlichen Wissen.
+Sie dienen als Kommunikationsschnittstelle zwischen dem Entwicklerteam und dem Fachbereich und helfen dabei, fachliche Fragen zu beantworten.
+Die Domänensprache ist unter anderem eine Sammlung der fachlichen Begriffe, die in der Software relevant sind.
+Die fachlichen Begriffe können sich dann im Code der Software wiederfinden.</p>
+
+<p>Wir müssen uns im Falle der Software zur Verwaltung von Reisebuchungen somit die Frage stellen, welche fachlichen Begriffe für diese Relevanz haben.
+Hierbei sind die Begriffe “Reisebuchung” und “Rechnung” selbst zu nennen. 
+Weitere relevante Begriffe sind “Kunde” und “Reise-Betrieb”.
+Der Begriff “Reise-Betrieb” repräsentiert die während einer Reise involvierten Betriebe wie beispielsweise Hotels und Gastronomien.
+Besonders herausfordernd ist es, den fachlichen Rahmen der Software entsprechend den fachlichen Bedürfnissen einzugrenzen.
+Es stellt sich beispielsweise die Frage, ob für die Verwaltung der Reisebuchungen eine Bewertung eines Reise-Betriebs unterstützt werden soll.</p>
+
+<h5 id="unterteilung-des-domänenmodells">Unterteilung des Domänenmodells</h5>
+
+<p>In vielen großen Software-Projekten ist eine Unterteilung des Domänenmodells notwendig, um die fachliche Komplexität für die einzelnen Teilbereiche zu reduzieren.
+Diese fachlichen Teilbereiche werden in DDD als Subdomains bezeichnet und haben jeweils einen fachlich abgegrenzten Kontext.
+Eine durch DDD adressierte Herausforderung ist nun die sinnvolle Festlegung dieser Subdomains.
+Als Entwickler stehen wir somit vor der Frage welche fachlichen Begriffe gemeinsam in einer Subdomain gruppiert werden sollten.
+Müssen die Subdomains untereinander durch definierte Schnittstellen interagieren?
+Wie sind diese Schnittstellen zwischen den Subdomains zu modellieren?</p>
+
+<p>Bei Betrachtung der Software zur Verwaltung der Reisebuchungen stehen wir beispielsweise vor der Frage, ob die “Reisebuchung” und die “Rechnung” dieser in einer gemeinsamen Subdomain zusammengefasst werden sollen. 
+Sollten wir zu dem Schluss kommen zwei getrennte Subdomains zu definieren, müssen wir die Interaktion dieser untereinander in Schnittstellen festlegen.
+Es ist beispielsweise zu erwarten, dass die Erstellung einer “Reisebuchung” zu der Erstellung einer entsprechenden “Rechnung” führt.
+Demenstprechend muss eine Schnittstelle zur Umsetzung dieser Funktion zwischen den Subdomains für die “Reisebuchung” und für die “Rechnung” bereitgestellt werden.</p>
+
+<h5 id="grundlegende-elemente-des-domänenmodells">Grundlegende Elemente des Domänenmodells</h5>
+
+<p>DDD bietet zudem Werkzeuge, um ein Domänenmodell im Detail zu erarbeiten. 
+Dies erfolgt auf Ebene eines fachlichen Teilbereichs, also einer Subdomain. 
+Wir Entwickler stehen hier vor der Herausforderung, welche grundlegenden Elemente der Domäne, also fachlichen Begriffe, relevant sind. 
+Die Herausfoderung zur Erkennung der relevanten Elemente ist oft, die Rolle der Begriffe innerhalb der fachlichen Prozesse zu verstehen.
+Es stellt sich ebenfalls die Frage, wie die identifizierten Elemente zu modellieren sind.
+Diese Herausforderung adressiert DDD mit der Zielsetzung, die Elemente in fachlich eindeutige Entitäten und Werteobjekte zu unterteilen, die als Entities und Values bezeichnet werden.
+Fachlich eindeutige Elemente benötigen ein eindeutiges Identifizierungsmerkmal innerhalb der Domäne.
+Werteobjekte sind hingegen fachlich relevante Elemente der Domäne ohne Notwendigkeit der eindeutigen Identifizierung.
+Sie werden somit allein durch ihre Attribute modelliert.</p>
+
+<p>In der Subdomain für die Reisebuchungen benötigen wir unter anderem die Elemente “Reisebuchung”, “Kunde” und “Reise-Betrieb”.
+Weitere Elemente können je nach fachlichem Prozess ergänzt werden.
+So kann der Begriff “Verkehrsmittel” im Falle einer Pauschalreise eine Rolle spielen.
+Eine entsprechende Modellierung muss in diesem Fall somit ergänzt werden.
+Die “Reisebuchung”, der “Kunde” und der “Reise-Betrieb” können wahrscheinlich als Entitäten modelliert werden, da sie vermutlich eine eindeutige Identifizierung innerhalb der Domäne benötigen.
+Es ist nun denkbar, dass das involvierte “Verkehrsmittel” lediglich durch die Attribute Verkehrsmittel-Typ, Start- und Ziel-Ort modelliert werden kann.
+In diesem Fall ist eine Modellierung als Werteobjekt ausreichend.</p>
+
+<h5 id="gruppierung-grundlegender-elemente">Gruppierung grundlegender Elemente</h5>
+
+<p>Um das Gestalten der Abhängigkeiten zwischen Modell-Elementen sinnvoll auf die Domäne auszurichten, bietet DDD das Konzept der Aggregates.
+Ein Aggregate ist eine Gruppierung von Elementen mit einer fachlichen Abgrenzung zu weiteren Elementen des Modells.
+Die hierbei adressierte Herausforderung ist somit, die zuvor identifizierten Entities und Values nach fachlichen Kriterien zu gruppieren.</p>
+
+<p>In der Subdomain für die Reisebuchungen ist beispielsweise eine Herausforderung, zu erkennen, ob die “Reisebuchung” und ein involvierter “Reise-Betrieb” nur gemeinsam eine fachliche Rolle spielen.
+Weiterhin kann es sein, dass ein “Reise-Betrieb” fachlich nur dann betrachtet wird, wenn die zugehörige “Reisebuchung” ebenfalls betrachtet wird.
+Dann ist eine Gruppierung der Elemente “Reisebuchung” und “Reise-Betrieb” in einem Aggregate sinnvoll, wobei die “Reisebuchung” in dem Aggregate eine übergeordnete Rolle spielt.</p>
+
+<h5 id="fazit">Fazit</h5>
+
+<p>Domain Driven Design bietet nützliche Werkzeuge, die häufig auftretende Herausforderungen in der Domänenmodellierung adressieren.
+Dieser Artikel hat einige der Herausforderungen und die durch sie adressierten DDD-Werkzeuge vorgestellt. 
+Es ist insbesondere zu erkennen, dass wir diese Herausforderung in der Domänenmodellierung systematisch und gezielt im Blick haben können, wenn wir ein Domänenmodell erstellen, das in einer Software resultieren soll.
+DDD bietet somit durch Anwendung der Werkzeuge die Möglichkeit, die Herausforderungen mit einer erhöhten Aufmerksamkeit zu betrachten.
+So können Schwierigkeiten der effizienten Ausrichtung der Software auf die Domäne frühzeitig unterbunden werden.</p>
+
+</div>
+</div>
+</div>
+</div>]]></field>
+    </document>
+</documents>

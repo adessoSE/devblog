@@ -56,8 +56,6 @@ johndoe:
   github: https://github.com/johndoe
 ```
 
-Das Autorenfoto muss aktuell noch manuell vor Veröffentlichung des Artikels an CCO geschickt werden, damit es im CMS eingefügt werden kann.
-
 ## Metadaten
 
 Jede Blog Post Markdown-Datei beginnt mit einem kurzen Abschnitt, in dem einige Metadaten enthalten
@@ -163,7 +161,6 @@ Vor der Freigabe leitet der Reviewer einige Infos an CCO weiter:
 
 * Titel des Blogs
 * das Kürzel des Autoren aus der `authors.yml`
-* das Autorenbild
 * die Kurz-Bio 
 
 Dann sollte noch ein Tag gewartet werden, damit CCO die Daten verarbeiten kann, bevor der Pull Request gemergt wird.
