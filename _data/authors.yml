@@ -348,30 +348,3 @@ sramathas:
   bio: "Sasisegaran Ramathas ist als Tester im Testforce-Team bei adesso in Dortmund tätig."
   avatar_url: /assets/images/avatars/sramathas.jpg
   github: https://github.com/segvr
-
-vincentlipschinski:
-  first_name: Vincent
-  last_name: Lipschinski
-  github_username: v1nc33
-  email: Vincent.Lipschinski@adesso.de
-  bio: "Vincent Lipschinski arbeitet als Software Engineer bei adesso. Sein Fokus liegt auf den JavaScript-Technologien und er entwickelt Anwendungen mit React und Angular."
-  avatar_url: /assets/images/avatars/vincentlipschinski.jpg
-  github: https://github.com/v1nc33
-
-klausSchnaithmann:
-  first_name: Klaus
-  last_name: Schnaithmann
-  github_username: klausSchnaithmann
-  email: Klaus.Schnaithmann@adesso.de
-  bio: "Klaus Schnaithmann arbeitet als Senior Software Engineer bei adesso in Frankfurt. Er interessiert sich für Software Architektur und hat einen breiten Erfahrungsschatz im Banking Umfeld."
-  avatar_url: /assets/images/avatars/klausSchnaithmann.jpg
-  github: https://github.com/klausSchnaithmann
-
-viktor-mucha:
-  first_name: Viktor
-  last_name: Mucha
-  github_username: viktor-mucha
-  email: Viktor.Mucha@adesso.de
-  bio: "Viktor Mucha ist Senior Software Engineer und arbeitet seit 8 Jahren bei adesso in der LOB Lottery. Sein Schwerpunkt liegt in der Konzeption und Entwicklung von Change Requests der Software-Lösung in|FOCUS in Java."
-  avatar_url: /assets/images/avatars/viktor-mucha.jpg
-  github: https://github.com/viktor-mucha
