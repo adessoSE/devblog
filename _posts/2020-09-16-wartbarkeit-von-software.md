@@ -243,29 +243,46 @@ Grundsätzlich muss das für das Projekt eingerichtete QualityGate eingehalten w
 
 # Continuous Integration und Deployment
 
-## Jenkins / SonarQube
+Es gibt gute Gründe, all diejenigen Prozesse, die in einem Entwicklungsprojekt regelmäßig durchzuführen sind und sich im Projektverlauf selten ändern, im Rahmen der Continuous Integration (CI) und des Continuous Deploymens (CD) zu automatisieren.
+Der Aufwand, regelmäßige Prozesse zu Beginn eines Entwicklungsprojektes einmalig zu automatisieren und dann bei Konfigurationsänderungen anzupassen, ist meist geringer, als der Aufwand diese Prozesse immer wieder manuell durchführen zu müssen.
+Zusätzlich senkt eine Automatisierung das Risiko, Fehler bei der manuellen Durchführung der Prozesse zu begehen und kann sicherstellen, dass die Prozesse immer auf derselben Umgebung und Konfiguration durchgeführt werden.
 
-Es wird empfohlen, Continuous Integration und Continous Deployment auf dem adesso Jenkins einzurichten und die Code-Analyse vom adesso SonarQube durchführen zu lassen.
-Dies mindert Reibungsverluste bei der Übergabe des Projektes an das Application Management Team, da der Umgang mit dem adesso Jenkins bekannt ist und bereits in vielen Projekten praktiziert wird.
-Wir empfehlen eine Konfiguration unter Verwendung von Jenkins Pipeline Skripten und dem Multibranch Feature, das auch vom Sonar-Qube unterstützt wird.
+Dabei ist auch zu bedenken, dass das Ende des initialen Entwicklungsprojektes nicht auch das Ende der Anpassungen an der entwickelten Software sind.
+In der anschließenden Wartungs- und Betriebsphase sind noch Fehler zu beheben und es wird nicht selten das Verhalten einer Applikation durch folgende Change Requests erweitert und/oder verändert.
+Das Wartungs-Team wird die etablierte Automatisierung übernehmen und weiterverwenden. Für eine reibungslose Übergabe ist an zentraler Stelle zu dokumentieren, welche Prozesse automatisiert wurden, wie sie konfiguriert sind und wie sie auszuführen sind.
 
-Es existiert ein Projekt auf dem adesso Jenkins, das regelmäßig die folgenden Aufgaben ausführt:
+Zur Unterstützung der Automatisierung gibt es Tools (z.B. Jenkins, GitLab oder Bamboo), die die Erstellung, Konfiguration, Verwaltung und Durchführung zeitgesteuerter oder auch anders getriggerter Prozesse (Jobs) erlauben.
+In Unternehmen mit mehreren Entwicklungsprojekten wird häufig ein zentrales Tool bereitgestellt… dieses sollte im besten Fall auch verwendet werden, um ansonsten anfallende Einarbeitungszeit bei der Übergabe an andere Teams oder Entwickler zu sparen.
+Zusätzlich entfallen bei Verwendung eines zentral bereitgestellten Tools immer auch die für ein eigens einzurichtendes Tool benötigten Aufwände und benötigte Ressourcen für Installation, Konfiguration, Aktualisierungen, Berechtigungs-Management und Backup.
 
-**Bei jedem Push auf einem Branch:**
-* Build der Software
-* Ausführung von Unit Tests
-* Code-Analyse mit z.B. SonarQube
+Aber welche Prozesse aus Entwicklung, Build, Test und Deployment sind zu automatisieren?
+Wie eingangs bereits erwähnt, bieten sich hierfür alle regelmäßig durchzuführenden, sich selten ändernden Prozesse an, die grundsätzlich auch automatisierbar sind.
+Im Folgenden zeigen wir eine Konfiguration mehrerer Jobs für eine Automatisierung der Prozesse eines Beispiel-Projekts:
 
-**Täglich bis wöchentlich:**
-* Deployment auf Teststages
-* Security-Check der verwendeten Bibliotheken und Frameworks (z.B. OWASP)
-* Ausführung der Integrationstests
+## Build Branch
+Nach jedem Push eines Entwicklers muss der Quelltext des zugehörigen Branches von einem Build-Job automatisch kompiliert werden.
+Basierend darauf werden dann die Komponententests (z.B. JUnit) und zusätzliche statische Code-Analysen (z.B. SonarQube, SpotBugs, Checkstyle) durchgeführt.
+Arbeitet das Entwicklungsteam mit dem empfohlenen Branch-Modell nach Git-flow lässt sich hierfür im CD/CI-Tool ein Job einrichten, der die unterschiedlichen Branches (feature, bugfix, release…) erkennen kann.
+Im Jenkins gibt es dafür z.B. das Job-Element Multibranch Pipeline, andere CI/CD-Tools bieten mittlerweile ähnlich funktionierende Features an.
+Der aktuelle Build-Status für einen Branch sollte sich im SCM (BitBucket) widerspiegeln, dazu sollte der Build-Job im CI/CD-Tool zumindest bei Start, Abbruch und erfolgreichen Durchlauf den Build-Status im SCM-Tool aktualisieren.
+Das SCM-Tool wiederum kann dann so eingestellt werden, dass ein Merge des Feature-Branches in erst dann erlaubt ist, wenn mindestens ein erfolgreicher Build durchgeführt wurde.
 
-**Wöchentlich bis monatlich:**
-* Ausführung der Last-Tests
-* Ausführung der Performance- uns/oder Massendaten-Tests
+## Build Version
 
-## Artefakt-Repository
+Täglich bis wöchentlich, im besten Fall schon nach jeder Änderung des Branches mit dem aktuellen Entwicklungsstand (z.B. development) sollte zusätzlich zu den oben genannten Aufgaben ein weiterer Job eine aktuelle Version der Software zusammenstellen (assemble).
+Das Ergebnis dieses Prozesses sind ein oder mehrere Artefakte, die auf dieselbe Art gebaut und zusammengestellt wurden, wie die späteren Release-Artefakte auch.
+Diese Version kann dabei automatisiert abgelegt werden (z.B. im Nexus oder Artifactory), um weiteren nachgelagerten Prozessen den Zugriff darauf zu ermöglichen.
+In diesem Schritt können bereits weitere Checks wie z.B. Security- (OWASP) und/oder License-Checks automatisiert durchgeführt werden.
+Außerdem kann die Version im SCM mit einem entsprechenden Tag markiert werden.
+Im besten Fall können die mit dieser Version erstellten Artefakte als Release Candidate bezeichnet werden und nach erfolgreichen Tests direkt als Release ausgeliefert werden.
 
-Die Auslieferungsartefakte von Releases und Release Candidates sind nachvollziehbar versioniert und in einem Artefakt-Repository archiviert.
-Wir empfehlen, die Releases durch einen Jenkins Job erstellen zu lassen und von dort autmoatisiert auf das adesso Artifactory (oder Nexus) übertragen zu lassen.
+## Deploy
+Täglich bis wöchentlich sollte ein Job den aktuellen Entwicklungsstand auf einer Testumgebung ausrollen, um darauf manuelle Tests durchführen zu können, Fehler zu reproduzieren oder den Arbeitsfortschritt z.B. in einem Sprint Review präsentieren zu können.
+Dazu wird durch einen Job die Testumgebung (z.B. mit Docker oder Ansible) mit der zuvor gebauten aktuellen Version der Software vorbereitet oder komplett neu erstellt, dann konfiguriert und gestartet.
+Zusätzlich kann ein weiterer Job eine regelmäßig nach jedem Release eine Umgebung mit der aktuell in Produktion ausgerollten Version bereitstellen, um hierauf jederzeit gemeldete Fehler nachstellen zu können und Hotfixes zu bearbeiten.
+
+## Run Tests
+Wöchentlich bis monatlich, zumindest jedoch vor jedem Release führen ein oder mehrere Jobs Integrations- und Schnittstellentests (z.B. Selenium) sowie Last- und Performance-Tests durch.
+Dazu wird durch einen Job automatisiert eine Testumgebung (z.B. mit Docker oder Ansible) mit der zuvor gebauten Version vorbereitet oder komplett neu erstellt, konfiguriert und gestartet.
+Dann werden die dem Test zugrundeliegenden Testdaten darauf importiert oder generiert, der Test durchgeführt und abschließend die Testergebnisse gesammelt und abgelegt.
+Diese Test-Jobs können dann z.B. so konfiguriert werden, dass sie direkt nach einem erfolgreichen Build einer neuen Version ausgeführt werden.
