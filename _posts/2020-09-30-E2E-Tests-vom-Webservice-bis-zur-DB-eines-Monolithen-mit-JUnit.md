@@ -60,7 +60,7 @@ Alternativ kann ein eigener Dockercontainer mit einer fertig eingerichteten Date
 
 Mithilfe des *rest-assured*-Frameworks wird schließlich ein Rest-Client erzeugt, der die Restendpoints des Webservice anspricht und direkt Assertions für die Responses mitbringt.
 
-Zahlreiche weitere anwendungsspezifische Konfigurationen werden mit den Hausmitteln von JUnit eingerichtet, sodass am Anfang eines jeden JUnit-Tests eine fertige Laufzeit des Monolithen und ein Rest-Client zur Verfügung stehen.
+Zahlreiche weitere anwendungsspezifische Konfigurationen werden mit den Hausmitteln von JUnit eingerichtet, sodass am Anfang eines jeden JUnit-Tests eine fertige Laufzeitumgebung des Monolithen und ein Rest-Client zur Verfügung stehen.
 
 Von hier an ist das Implementieren der Tests kaum mehr als ein üblicher JUnit-Test.
 
