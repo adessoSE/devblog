@@ -3,7 +3,7 @@ layout: [post, post-xml]
 title:  "Phishing Kampagne bei adesso"        
 date:   2020-10-16 09:00              # Pflichtfeld. Format "YYYY-MM-DD HH:MM". Muss für Veröffentlichung in der Vergangenheit liegen. (Für Preview egal)
 author: vschiller                     
-categories: [Business & People]       
+categories: [People]       
 tags: [Security Awareness]     
 ---
 
