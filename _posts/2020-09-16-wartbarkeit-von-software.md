@@ -24,59 +24,91 @@ Wie immer gilt bei adesso der gesunde Menschenverstand und nicht in jedem Projek
 Und wenn am Ende dieses Prozesses, dann nur ein kleiner Teil der Anforderungen umgesetzt ist, so sollte man nochmal über seinen eigenen Anspruch an die Soft-wareentwicklung nachdenken – die Liste besteht nämlich eigentlich aus Selbstver-ständlichkeiten und die einzelnen Punkte sind „state-of-the-art“ in professioneller Softwareentwicklung. 
 
 # Dokumentation
+Der erste Schritt in der Transition einer Software von der Entwicklung in die Wartung erfolgt in den meisten Fällen über die bereitgestellte Dokumentation der Software und der Prozesse. Auch in der Wartung spielt die Dokumentation eine wichtige Rolle bei der Analyse von Fehlern. Daher wollen wir uns im ersten Teil dieser Serie mit der Dokumentation von Softwareprojekten beschäftigen.
+Die meisten Dokumente, die dem Wartungsteam bei der Transition und in der Wartung helfen, sind heutzutage „state-of-the-art“ in der professioneller Softwareentwick-lung, so dass entweder gar kein oder nur wenig zusätzlicher Aufwand für die Bereitstellung für das Wartungsteam anfällt.
+Für eine schnelle Übersicht haben wir am Ende des Artikels die in diesem Artikel ge-nannten Punkte als übersichtliche Checkliste zusammengefasst.
+
 
 ## Anforderungen
 
-Die funktionalen und nicht-funktionalen Anforderungen an die Software sind spezifi-ziert.
-Die Spezifikation enthält mindestens die folgenden Artefakte:
+###Funktionale Anforderungen 
+Als ersten Schritt benötigt das Wartungsteam einen Überblick über die fachlichen Funktionen der Anwendung. Im einfachsten Fall reicht hierfür eine Liste der umgesetzten Anwendungsfälle mit je 2-3 Sätzen Beschreibung. Im besten Fall gibt es eine ausführliche fachliche Spezifikation der Anwendung, die idealerweise auch vom Kunden abgenommen wurde. Eine ausführliche Spezifikation kann dem Wartungsteams vor allem bei der Analyse von fachlichen Fehlern helfen und bei der Unterscheidung zwischen Fehler und Change Request unterstützen.
+Falls während der Entwicklung die Anforderungen in einem Ticketsystem gepflegt wurden, ist es hilfreich, wenn diese zur Übergabe an das Wartungsteam in einem zentralen Dokument zusammengefasst werden. Auch wenn während der Entwick-lung die Arbeit mit Tickets sehr hilfreich sein kann, erschwert es jedoch dem Wartungsteam im Nachhinein die Arbeit. Vor allem wenn das gleiche Ticketsystem für die Qualitätssicherung und das Fehlerreporting verwendet wird bzw. wurde, geht so sehr schnell die Übersicht über die umgesetzten Funktionen verloren. Das Dokument muss nicht sehr formal gestaltet sein. Es reicht z.B. eine Liste in einem Word-Dokument, eine Excel-Tabelle oder Collaboration-Raum (z.B. Confluence).
 
-* Liste der Anwendungsfälle inkl. mindestens je 2-3 Sätzen Beschreibung.
+###Nicht funktionale Anforderungen
+Neben den funktionalen Anforderungen spielen vor allem die nicht funktionalen Anforderungen eine große Rolle, da diese sich auf die Architektur der Anwendung auswirken und deren Erfüllung einen großen Einfluss auf die Akzeptanz der Software durch den Kunden hat.
+Nicht funktionale Anforderungen, die auf jeden Fall betrachtet und dokumentiert sein sollten, sind das zu erwartende Nutzeraufkommen, die einzuhaltenden Antwortzeiten und das zu erwartende Datenaufkommen im produktiven Betrieb. Hierbei sind die durchschnittlichen und maximalen Werte mit dem Kunden abzustimmen und vom Kunden abzunehmen. Wichtig ist dabei auch, dass diese Werte/Annahmen im Hinblick auf die geplante Lebenszeit der Software erhoben werden. Nutzeraufkommen und Datenvolumen steigen typischerweise im Laufe der Zeit, die die Software im Einsatz ist. Dem Wartungsteam dienen diese dokumentierten und abgenommenen Werte als Abgrenzung zwischen Fehler und Change Request.
+Für die Dokumentation der nicht funktionalen Anforderungen reicht im einfachsten Fall ebenfalls eine Liste mit einer knappen Beschreibung je Anforderung.
 
-Hinweis: Wenn die Anwendungsfälle nur als Tickets vorliegen, sollte trotzdem eine Liste als Dokument (z.B. Word, Excel oder im Confluence) gepflegt sein.
+###Standards
+Wenn die Anwendung bestimmte Standards oder Verordnungen einhalten muss, wie z.B. BITV 2.0 für Barrierefreiheit oder BSI IT-Grundschutz, sollte dies entsprechend dokumentiert sein. Eine Dokumentation, wie die geforderten Standards in der Software umgesetzt wurden ist ebenfalls hilfreich.
 
-* Erwartetes Nutzeraufkommen im produktiven Betrieb
-* Einzuhaltende Antwortzeiten
-* Erwartetes Datenaufkommen im produktiven Betrieb (Mengenbetrachtung)
-* Liste der einzuhaltenden Standards/Verordnungen etc. (z.B. BITV 2.0 für Bar-rierefreiheit)
 
 ## Architektur
 
-Die Architektur der Software ist klar und verständlich dokumentiert und aktuell.
-In der Architekturdokumentation sind mindestens die folgenden Artefakte vorhanden:
+Damit das Wartungsteam den Aufbau der Software schnell erfassen und verstehen kann, muss die Architektur der Software klar und verständlich dokumentiert sein. Im besten Fall wird hierfür eine Dokumentationsvorlage wie z.B. arc42 (https://arc42.org/download) verwendet. Nicht benötigte Abschnitte der Vorlage soll-ten dabei nicht gelöscht, sondern mit einem kurzen Hinweis versehen werden, warum sie nicht benötigt werden.
 
-* Kontextdiagramm
-* Bausteinsicht(en)
-* Erläuterung des verwendeten Architekturmusters
-* Liste der verwendeten Technologien
-* Architekturentscheidungen; insbesondere, wenn kein Standard-Stack ver-wendet wird (siehe adesso Technologie-Radar)
-* Liste der technischen Schulden
-* Liste aller vorgenommenen Modifikationen von eingesetzten Bibliotheken und Frameworks
+Falls eine ausführliche Architekturdokumentation, aus welchen Gründen auch immer, nicht möglich sein sollte, sollten doch zumindest die folgenden Artefakte vorhanden sein:
+* Ein **Kontextdiagram**, zur Darstellung der Schnittstellen bzw. Grenzen zu den Nutzer(gruppen) und externen Systemen.
+* Mindestens eine **Bausteinsicht** der wichtigsten Komponenten und deren Beziehungen untereinander.
+* Eine kurze Erläuterung des verwendeten **Architekturmuster**s.
+* Eine Liste der **Architekturentscheidungen** inkl. der Problembeschreibung, der berücksichtigten Alternativen und einer Begründung für die getroffene Entscheidung. Architekturentscheidungen sind insbesondere dann zu dokumentieren, wenn kein firmen- und branchentypischer Standard-Stack verwendet wird.
+* Eine zentrale Liste der **verwendeten Technologien**, erleichtert dem War-tungsteam vor allem in Microservice-Architekturen oder Multi-Modul Anwendungen die Übersicht und den Einstieg in das Projekt. In kleinen Projekten kann hierauf ggf. verzichtet werden, wenn die verwendeten Abhängigkeiten durch ein geeignetes Build-Tool zentral verwaltet werden (z.B. Maven pom-Datei oder Gradle build-Datei). 
+* Die Liste der **technischen Schulden** ist besonders wichtig für das Wartungs-team. Anhand dieser Liste können zukünftige Probleme frühzeitig erkannt und ggf. noch vor dem Auftreten gemindert oder beseitigt werden. 
+* Falls an den eingesetzten Bibliotheken und Frameworks **Modifikationen** vorgenommen wurden, müssen diese unbedingt dokumentiert werden, um böse Überraschungen bei der nächsten Aktualisierung eben jener zu vermeiden. 
+
+Für die Übergabe an das Wartungsteam ist es wichtig, dass die Dokumentation der Architektur aktuell ist. Wenn sich während der Entwicklung Änderungen an der Architektur ergeben, müssen diese in die Dokumentation eingepflegt werden.
 
 ## Entwicklerdokumentation
 
-Das Entwicklungsvorgehen ist dokumentiert.
-Die Entwicklerdokumentation enthält mindestens die folgenden Artefakte:
+Um dem Wartungsteam einen möglichst schnellen Einstieg in die Wartung und Wei-terentwicklung der Software zu ermöglichen, sollte das Entwicklungsvorgehen do-kumentiert sein. Zu den folgenden Themen sollte entsprechende Dokumentation vor-handen.
 
-* Anleitung zur Einrichtung der Entwicklungsumgebung (Docker, IDE, VMs …)
-* Liste der verwendeten Entwicklungswerkzeuge (Tools, Plugins etc.)
-* Entwicklungsvorgaben
-* Code Conventions
-* Definition of Done
-* Erläuterung des verwendeten Brachmodells und -prozesses
-* Reviewprozess
-* Workflows
-* Anleitungen für Build, Deployment und Release der Software
-* Beschreibung der Testumgebungen (-Stages) inkl. Konfiguration
+###Entwicklungsumgebung
+Als erster Schritt wird hierbei eine Anleitung für die Einrichtung der Entwicklungsum-gebung benötigt. Im einfachsten Fall ist diese bereits fertig vorkonfiguriert als Docker-Image oder Virtuelle Maschine vorhanden, die die Entwickler nur noch kopieren und starten müssen. Ist dies nicht vorhanden, ist eine Anleitung zur korrekten Einrichtung der IDE sowie der sonstigen genutzten Entwicklungswerkzeuge und Plugins notwen-dig.
+
+###Vorgaben
+Falls Entwicklungsvorgaben vorhanden sind, müssen diese ebenfalls dokumentiert und an das Wartungsteam übergeben werden, damit diese Vorgaben auch in der Wartung und Weiterentwicklung weiterhin eingehalten werden können. Dazu gehören z.B. Code Conventions, Guidelines oder ähnliches.
+
+###Versionsverwaltung
+Unabhängig davon, wie viele Entwickler an der Software arbeiten, muss eine Versi-onsverwaltung wie z.B. Git eingesetzt werden. Dabei sollten mindestens zwei Bran-ches erstellt und verwendet werden. Einen Masterbranch, der die aktuellste ausgelie-ferte Version der Software beinhaltet und einen Entwicklungsbranch, in dem neue Features für das nächste Release entwickelt und getestet werden. Das konkret ver-wendete Branchmodell (z.B. ein Branch pro Feature, zentrale Entwicklung im Ent-wicklungsbranch oder sonstiges) und die damit verbundenen Prozesse sollten doku-mentiert sein.
+
+###Definition of Done
+Im Entwicklungsprojekt muss eine „Definition of Done“ definiert sein, die von allen Entwicklern eingehalten wird. Ein Beispiel für eine solche Definition ist in Abbildung x dargestellt.
+
+###Reviewprozess
+Um die Qualität der Anwendung zu erhöhen sollte der Entwicklungsprozess ein Codereview der entwickelten Features durch mindestens eine zweite Person beinhalten. Der Reviewprozess sollte in diesem Fall zentral für alle Entwickler und Reviewer dokumentiert sein. Durch die Verwendung einer Checkliste kann sichergestellt werden, dass jeder Reviewer ein Mindestsatz an Prüfungen durchführt. Eine solche Checkliste kann z.B. folgenden Punkte beinhalten:
+
+* Der Lösungsweg ist im Pull Request oder im zugehörigen Ticket beschrieben.
+* Der Code ist ausreichend dokumentiert und kommentiert.
+* Die vorgegebenen Guidelines wurden eingehalten.
+* Texte für Masken, E-Mails usw. entsprechen den Vorgaben der Spezifikation (falls vorhanden) und enthalten keine Rechtschreib- bzw. Grammatikfehler.
+* Es sind UnitTests vorhanden und die Code-Abdeckung entspricht dem vorgegebenen Ziel.
+* Es sind ggf. Integrationstests vorhanden.
+* Die „Definition of Done“ ist erfüllt.
+* Die konfigurierten Codequalitätsziele werden eingehalten.
+
+###Testumgebungen
+Während der Entwicklungsphase wird die Software üblicherweise auf eine oder mehrere Testumgebungen deployt und getestet. Da diese Testumgebungen auch vom Wartungsteam verwendet werden, müssen dokumentiert und beschrieben sein. Dazu gehören der Zweck der Umgebung, die Konfiguration, die URL(s) und ggf. die Zugänge. Passwörter sind dabei natürlich in entsprechenden Passwortverwaltungstools zu sichern.
+Üblicherweise kommen drei verschiedene Arten von Testumgebungen zum Einsatz: 
+
+* **Entwicklung**: Auf dieser Testumgebung befindet sich immer der aktuellste Entwicklungsstand der Anwendung. Üblicherweise wird diese Umgebung durch ein CI-Werkzeug automatisch, nach jedem Push in den Entwicklungsbranch und anschließendem erfolgreichen Build, aktualisiert. Dort können die Entwickler den aktuellen Stand der Software einsehen und ihre Features außerhalb ihrer lokalen Entwicklungsumgebung testen.
+* **Qualitätssicherung**: Auf dieser Testumgebung führt das Qualitätssiche-rungsteam den internen Abnahmetest durch, bevor die Softwareversion an den Kunden ausgeliefert wird. 
+* **Test**: Diese Testumgebung wird für automatisierte Tests, wie z.B. Integrati-onstests, Massendatentests sowie Last- und Performancetests verwendet.
+
+###Build und Auslieferung
+Um Bugfixes oder neue Releases ausliefern zu können benötigt das Wartungsteam Anleitungen für den Build, das Deployment und die Auslieferung der Software. Im besten Fall erfolgt der Großteil dieser Schritte automatisiert auf Knopfdruck durch ein CI Werkzeug wie, z.B. Jenkins oder GitLab. Ist dies nicht möglich oder wenn zusätzliche Schritte notwendig sind, muss eine Anleitung mit allen notwendigen Schritten erstellt und dem Wartungsteam übergeben werden. Neben den technischen Aspekten muss die Anleitung auch die organisatorischen Aufgaben beinhalten. Dazu gehört z.B. die Liste zu pflegenden Dokumente oder an wen und auf welchem Weg die Auslieferung auf Kundenseite zu erfolgen hat. 
+
 
 ## Betriebshandbuch
 
-Für den Betrieb der Software ist eine entsprechende Dokumentation vorhanden.
-Das Betriebshandbuch beinhaltet mindestens die folgenden Artefakte:
+Neben der Wartung und der Weiterentwicklung unterstützt das Wartungsteam auch den langjährlichen Betrieb der entwickelten Anwendung. Entweder, indem es selbst für den Betrieb der Anwendung verantwortliche ist oder indem es den Kunden bei Betriebsfragen unterstützt.
+Um dem Wartungsteam den Einstieg in den Betrieb zu erleichtern sollte das Be-triebshandbuch mindestens die folgenden Themen beinhalten.
+*	Eine Beschreibung der benötigten Server und Komponenten inklusive der Mindestvoraussetzungen.
+*	Eine Anleitung zu Installation der kompletten Anwendung inkl. der benötigten Komponenten (Datenbank, Identity Provider, Loggingverwaltung, usw.). Dies kann ggf. auch in einem separaten Installationshandbuch erfolgen. 
+*	Eine Anleitung zum Deployment der Anwendung.
+*	Eine Liste der anwendungsspezifischen Konfigurationsparameter inkl. einer kurzen Beschreibung und der erlaubten Werte.
+*	Eine Beschreibung, wie das Monitoring der Software erfolgt. Dies umfasst sowohl das technische, als auch das fachliche Monitoring der Anwendung.
 
-* Anleitung zu Installation und/oder Deployment neuer Releases (Updates) 
-* Beschreibung der einzelnen Server/Komponenten inkl. Mindestvoraussetzun-gen
-* Liste der anwendungsspezifischen Konfigurationsparameter inkl. Beschrei-bung und erlaubter Werte
-* Beschreibung, wie das Monitoring der Software erfolgt (technisch & fachlich)
 
 # Tests
 
@@ -227,19 +259,24 @@ Außerdem kann diese Umgebung dann regelmäßig zur Präsentation des aktuellen 
 
 # Code-Qualität
 
-## SonarQube
+Bei der Übergabe der entwickelten Anwendung erwartet das Wartungsteam eine entsprechende Codequalität.
 
-Die Software wird regelmäßig bei jedem Push in das Repository mit SonarQube ana-lysiert.
-Es müssen die folgenden Grenzwerte eingehalten werden.
+Um die Codequalität im Projekt sicherzustellen muss diese werkzeuggestützt geprüft werden. Hierzu gibt es unterschiedliche Open-Source Werkzeuge für unterschiedliche Programmiersprachen, die zu diesem Zweck eingesetzt werden können.
+Die Konfiguration des eingesetzten Werkzeuges sollte zu Beginn des Projektes zent-ral erstellt und an die Entwickler verteilt werden, so dass der gesamte Code immer auf die gleichen Qualitätsziele geprüft wird. Abweichungen von der Standardkonfiguration, wie z.B. der Ausschluss von bestimmten Prüfregeln, sollten mit einer kurzen Begründung dokumentiert werden.
 
-* Bugs = 0
-* Vulnerabilities = 0
-* Code Smells Blocker = 0
-* Code Smells Critical = 0
-* Code Duplication < 5%
+Im besten Fall erfolgt die Prüfung der Codequalität zentral durch die Integration in ein CI-Tool, z.B. mit SonarQube im Jenkins oder GitLab. Der Buildprozess sollte dabei so konfiguriert werden, das der Build automatisch scheitert, sobald die vorgegebenen Qualitätsziele nicht eingehalten werden. Somit wird sichergestellt, dass die definierten Qualitätsziele stets erfüllt werden.
 
-Ausnahmen müssen im SonarQube nachvollziehbar begründet sein!
-Grundsätzlich muss das für das Projekt eingerichtete QualityGate eingehalten wer-den.
+Falls die automatisierte Prüfung durch ein CI-Tool nicht möglich sein sollte, muss darauf geachtet werden, dass die Entwickler die Werkzeuge selbst einsetzen. Die gefundenen Mängel müssen korrigiert werden, bevor der Quellcode in die Versions-verwaltung eingecheckt wird. Die Prüfung der Codequalität sollte in diesem Fall als separater Schritt in die Definition of Done und in die Review-Checkliste aufgenommen werden, um diese fest in den Entwicklungsprozess zu verankern.
+Bei der Übergabe an das Wartungsteam sollten die folgenden Grenzwerte eingehalten sein (Beispiel SonarQube):
+
+*	Keine offenen Bugs
+*	Keine offenen Vulnerabilities
+*	Keine Code Smells vom Typ “Blocker”
+*	Keine Code Smells vom Typ “Critical“
+*	Die Code Duplizierung liegt unter 5%
+
+Wenn Ausnahmen doch einmal notwendig sein sollten, müssen diese entweder im Quellcode oder im Werkzeug nachvollziehbar begründet sein!
+
 
 # Continuous Integration und Deployment
 
