@@ -1,7 +1,7 @@
 ---
 layout: [post, post-xml]                          
 title:  "Cloud native Migration mit der Rearchitecting Strategie"         
-date:   2020-08-24 08:00                   
+date:   2020-10-19 08:00                   
 author: c-bachmann                                  
 categories: [Architektur]                        
 tags: [Architektur, Serverless, FaaS, AWS, Cloud Computing]       
@@ -183,7 +183,7 @@ Außerdem haben die Cloud Anbieter weitere Sicherheitsdienste im Portfolio, die 
 Dazu zählen Web Application Firewalls, aber auch Werkzeuge zur statischen Codeprüfung oder Sicherheitsratgeber.
 
 # Hat die Rearchitecting Strategie auch Nachteile?
-Durch den Einsatz von Cloud native Services verstärkt sich der Vendor Lockin. 
+Durch den Einsatz von Cloud native Services verstärkt sich der Vendor Lock-in. 
 Die Anwendung ist nach der Refactoring Strategie stärker abhängig vom jeweiligen Cloud Anbieter.
 
 Für die lokale Entwicklung benötigt jeder Entwickler Zugriff auf die Cloud Dienste. Alternativ dazu, gibt es auch Werkzeuge, die die Cloud Umgebung lokal simulieren wie beispielsweise [Localstack](https://github.com/localstack/localstack).
