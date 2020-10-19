@@ -8,7 +8,7 @@ tags: [Security Awareness]
 ---
 
 Phishing ist eine Kunst der Manipulation, die sowohl technisches als auch menschliches Wissen erfordert. 
-Wird eine Phishing E-Mail nicht durch technische Maßnahmen daran gehindert, vom Empfangenden aufgerufen zu werden, liegt es am diesem, richtig zu handeln. 
+Wird eine Phishing E-Mail nicht durch technische Maßnahmen daran gehindert, vom Empfangenden aufgerufen zu werden, liegt es an diesem, richtig zu handeln. 
 Handelt das Opfer nicht korrekt, ist der Klick auf den Link oder Anhang die einzige notwendige Aktion des Opfers für einen erfolgreichen Phishing-Betrug. 
 
 
