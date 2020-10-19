@@ -54,7 +54,7 @@ Weniger relevante Randsysteme sind mit Mocks ersetzt worden.
 
 Die Datenbank wird mit dem Framework *TestContainers* zur Laufzeit aus einer Docker-Registry bezogen und das Schema der Anwendung über die Flyway-Migrationsskripte aus dem produktiven Code erzeugt.
 
-Dieser Schritt wird zu jeder Laufzeit neu erledigt und ist recht zeitintensiv.
+Dieser Schritt wird für jeden Testdurchlauf neu erledigt und ist recht zeitintensiv.
 
 Alternativ kann ein eigener Dockercontainer mit einer fertig eingerichteten Datenbank erzeugt und in einer Registry abgelegt werden, welche anstelle der leeren Standard-Container geladen wird.
 
