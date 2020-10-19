@@ -58,7 +58,7 @@ Dieser Schritt wird für jeden Testdurchlauf neu erledigt und ist recht zeitinte
 
 Alternativ kann ein eigener Dockercontainer mit einer fertig eingerichteten Datenbank erzeugt und in einer Registry abgelegt werden, welche anstelle der leeren Standard-Container geladen wird.
 
-Mithilfe des *rest-assured*-Frameworks wird schließlich ein Rest-Client erzeugt, der die Restendpoints des Webservices anspricht und direkt Assertions für die Responses mitbringt.
+Mithilfe des *rest-assured*-Frameworks wird schließlich ein Rest-Client erzeugt, der die Restendpoints des Webservice anspricht und direkt Assertions für die Responses mitbringt.
 
 Zahlreiche weitere anwendungsspezifische Konfigurationen werden mit den Hausmitteln von JUnit eingerichtet, sodass am Anfang eines jeden JUnit-Tests eine fertige Laufzeit des Monolithen und ein Rest-Client zur Verfügung stehen.
 
