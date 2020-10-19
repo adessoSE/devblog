@@ -80,7 +80,7 @@ Von hier an ist das Implementieren der Tests kaum mehr als ein üblicher JUnit-T
 # Die Vorteile
 
 - Die E2E-Tests laufen vollkommen automatisiert
-- Ausführung der Tests in CI-Pipeline und damit frühzeitige Erkennung von Fehlern in der Geschäftslogik des Monolithen
+- Ausführung der Tests in der CI-Pipeline und damit frühzeitige Erkennung von Fehlern in der Geschäftslogik des Monolithen
 - "As-Code" erleichtert Entwicklern das Schreiben fachlicher Testszenarios.
 - Tests erodieren nicht, da sie bei Änderungen direkt mit angepasst werden müssen (spätestens, wenn die nächste Ausführung fehlschlägt)
 - Once-Written-Never-Forgotten; Testszenarios müssen nur einmalig als Test implementiert werden und werden bei jeder zukünftigen Ausführung abgetestet.
