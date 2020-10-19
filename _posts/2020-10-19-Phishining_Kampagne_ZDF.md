@@ -9,17 +9,17 @@ tags: [Security Awareness]
 
 Phishing ist eine Kunst der Manipulation, die sowohl technisches als auch menschliches Wissen erfordert. 
 Wird eine Phishing E-Mail nicht durch technische Maßnahmen daran gehindert, vom Empfangenden aufgerufen zu werden, liegt es an diesem, richtig zu handeln. 
-Handelt das Opfer nicht korrekt, ist der Klick auf den Link oder Anhang die einzige notwendige Aktion des Opfers für einen erfolgreichen Phishing-Betrug. 
+Handelt das Opfer nicht korrekt, ist der Klick auf den Link oder Anhang die einzige notwendige Aktion des Opfers für einen erfolgreichen Phishing Betrug. 
 
 
 # Phishing Awareness durch Phishing
 
 Opfer eines Phishing Angriffs in Deutschland zu werden, ist nicht unwahrscheinlich. 
-Phishing-Angriffe sind im Cybercrime Report 2018 nach wie vor ein wichtiges Thema. 
+Phishing Angriffe sind im Cybercrime Report 2018 nach wie vor ein wichtiges Thema. 
 Darüber hinaus wurde vom BSI eine Umfrage zur Cybersicherheit durchgeführt, die zeigt, dass im Jahr 2018 43 % der befragten Großunternehmen von Cybersicherheitsvorfällen betroffen waren, wobei die Hälfte dieser Angriffe erfolgreich waren. 
 Von den gemeldeten Sicherheitsvorfällen wurde mehr als die Hälfte durch Malware verursacht, wobei 90 % als Anhang oder Link in einer E-Mail verbreitet wurden. 
 In dem Report wird weiter beschrieben, dass in der Hälfte der erfolgreich abgewehrten Fälle technische Maßnahmen eine Infektion verhindern konnten, in den anderen Fällen soll das Bewusstsein der Mitarbeitenden der Erfolgsfaktor gewesen sein. 
-Um genau dieses Bewusstsein zu erlangen und die menschliche Firewall zu aktivieren, können Unternehmen heute simulierte Phishing-Schulungen bei Dienstleistern erwerben. 
+Um genau dieses Bewusstsein zu erlangen und die menschliche Firewall zu aktivieren, können Unternehmen heute simulierte Phishing Schulungen bei Dienstleistern erwerben. 
 
 
 ## Phishing Simulation bei adesso
@@ -94,8 +94,8 @@ Dies war genau der Effekt, den wir erzielen wollten.
 
 ### Fazit 
 
-Wie immer zeigt sich: Je besser die Phishing-E-Mail in den Kontext der empfangenden Person passt und je weniger Fehler sie aufweist, umso höher ist die Wahrscheinlichkeit, dass die Person auf die E-Mail eingeht und den Betrug nicht bemerkt. 
-Um einen Schaden zu verhindern und präventiv vorzugehen, sind Phishing-Simulationen ein hilfreiches Werkzeug. 
+Wie immer zeigt sich: Je besser die Phishing E-Mail in den Kontext der empfangenden Person passt und je weniger Fehler sie aufweist, umso höher ist die Wahrscheinlichkeit, dass die Person auf die E-Mail eingeht und den Betrug nicht bemerkt. 
+Um einen Schaden zu verhindern und präventiv vorzugehen, sind Phishing Simulationen ein hilfreiches Werkzeug. 
 Die Klickraten der Kampagne zeigen zudem die Notwendigkeit solcher Security Awareness Maßnahmen.
 Bei dieser Maßnahme waren wir, als Nutzende von E-Mail Programmen im Fokus. 
 Lasst uns im nächsten Schritt die Nutzenden unserer Software in den Fokus nehmen, um auch sie vor Phishing zu schützen.
