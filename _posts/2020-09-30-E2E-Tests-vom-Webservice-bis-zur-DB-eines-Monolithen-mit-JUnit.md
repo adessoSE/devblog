@@ -24,7 +24,7 @@ Natürlich kommen hierbei die üblichen Verdächtigen auf:
 - einen rudimentären Client (evtl. mit Benutzeroberfläche) nebenher entwickeln, mit dem die einzelnen Endpoints angesprochen werden können
 - etablierte Tools zur Erstellung von REST-Calls verwenden
 
-Beide Möglichkeiten erfordern allerdings einen relativ großen Pflege Aufwand und vor allem erodieren sie schnell, wenn die Schnittstelle sich mit der Zeit ändert.
+Beide Möglichkeiten erfordern allerdings einen relativ großen Pflegeaufwand und vor allem erodieren sie schnell, wenn die Schnittstelle sich mit der Zeit ändert.
 
 # Die Grundidee
 
