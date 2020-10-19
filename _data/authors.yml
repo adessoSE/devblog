@@ -147,7 +147,7 @@ swindisch:
   last_name: Windisch
   github_username: swindisch
   email: sascha.windisch@adesso.de
-  bio: "Sascha Windisch ist Teamleiter und Lösungs-Architekt bei adesso in Essen. Er plant und modelliert Software-Systeme in unterschiedlichen Branchen."
+  bio: "Sascha Windisch ist Lösungs-Architekt bei adesso in Essen. Er plant und modelliert Software-Systeme in verschiedenen Branchen."
   avatar_url: /assets/images/avatars/swindisch.png
   github: https://github.com/swindisch
 
@@ -210,7 +210,7 @@ vincentmathis:
   last_name: Mathis
   github_username: vincentmathis
   email: vincent.mathis@adesso.de
-  bio: "Vincent Mathis ist Werkstudent in der Software-Entwicklung. Er arbeitet in Frankfurt im Insurance Bereich."
+  bio: "Vincent Mathis ist Praktikant in der Software-Entwicklung. Er arbeitet in Frankfurt im Insurance Bereich."
   avatar_url: /assets/images/avatars/vincentmathis.jpg
   github: https://github.com/vincentmathis
 
@@ -267,15 +267,6 @@ frenzel:
   bio: "Daniel Frenzel ist Senior Software Engineer bei adesso in Dortmund und entwickelt seit mehreren Jahren Java- und Webanwendungen."
   avatar_url: /assets/images/avatars/fwshngtn.jpg
   github: https://github.com/fwshngtn
-
-muhannaddarraj:
-  first_name: Muhannad
-  last_name: Darraj
-  github_username: muhannaddarraj
-  email: muhannad.darraj@adesso.de
-  bio: "Muhannad Darraj ist als studentischer Mitarbeiter in der Line of Business Insurance bei adesso tätig. Sein Arbeitsschwerpunkt liegt in der Softwareentwicklung. Er recherchiert gerne in seiner Freizeit nach alternativen Technologien, um die bestmögliche Software zu erschaffen und sein Wissen zu erweitern."
-  avatar_url: /assets/images/avatars/dar.jpg
-  github: https://github.com/muhannaddarraj
 
 Flo4l:
   first_name: Florian
