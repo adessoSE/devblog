@@ -31,7 +31,7 @@ Die folgenden Abschnitte beziehen sich auf den Ablauf der Phishing Kampagne und 
 
 ### Der Plan 
 
-"Einmal mit der Brechstange eine Phishing Simulation durchführen", beschreibt die geplanten zwei Wochen dauernde Phishing Simulation recht gut. 
+"Einmal mit der Brechstange eine Phishing Simulation durchführen", beschreibt die geplante zwei Wochen dauernde Phishing Simulation recht gut. 
 Es war geplant, an jeden der 2495 adessi in Deutschland vier verschiedene Phishing E-Mails zu versenden, sodass insgesamt etwa 9980 E-Mails versendet werden sollten. 
 Die vier E-Mails waren unterteilt in eine CEO-Fraud, eine Kandidatenempfehlung über LinkedIn, eine Anwalts-E-Mail bezüglich eines illegalen Datei Downloads und eine E-Mail von einem Voicemail-Service. 
 Die E-Mails unterschieden sich somit in ihrem Schwierigkeitsgrad, in ihrem geschäftlichen oder privaten Kontext, in ihren psychologischen Taktiken und ob es sich um einen Link oder einen Anhang handelte.
