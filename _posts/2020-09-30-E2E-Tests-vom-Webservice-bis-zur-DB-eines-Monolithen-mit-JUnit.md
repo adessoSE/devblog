@@ -38,7 +38,7 @@ Während der Ideenfindung zum Problem der Ausgangslage wuchs schnell der Gedanke
 
 Ein solcher ist oft entweder leichtgewichtig, aber unflexibel oder flexibel, aber dafür komplex.
 
-Aus dem "As-Code" Gedanken, entsprang die Idee, ob das nicht in leicht ausführbaren Tests wie Unit-Tests zu lösen sei.
+Aus dem "As-Code" Gedanken entsprang die Idee, ob das nicht in leicht ausführbaren Tests wie Unit-Tests zu lösen sei.
 
 Alle möglichen Komplexitäten der Schnittstelle müssten ja nur einmal in einem solchen Test implementiert werden und wären beliebig wiederholbar ausführbar.
 
