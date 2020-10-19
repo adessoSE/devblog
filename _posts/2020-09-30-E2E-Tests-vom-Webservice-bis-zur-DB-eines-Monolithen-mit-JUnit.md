@@ -11,7 +11,7 @@ tags:           [Test, JUnit, E2E, Webservice, Monolith]
 
 In diesem Artikel geht es um automatisierte, in die CI-Pipeline integrierbare, Tests, die die gesamte Geschäftslogik eines Monolithen von der obersten Schicht (einem Webservice) bis zur untersten Schicht (der Datenbank) abdecken können.
 
-Dieser Artikel richtet sich an Projektleiter, Architekten oder interessierte Entwickler, die sich bei der Entwicklung eines Webservices (oder danach) fragen, wie man diesen dauerhaft testet und qualitätssichern kann.
+Dieser Artikel richtet sich an Projektleiter, Architekten oder interessierte Entwickler, die sich bei der Entwicklung eines Webservice (oder danach) fragen, wie man diesen dauerhaft testen und qualitätssichern kann.
 
 # Die Ausgangslage
 
