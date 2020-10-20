@@ -72,7 +72,7 @@ Nachher:
 
 ![Nachher.png](/assets/images/posts/Zeitersparnis-durch-RPA-und-Microsoft-PowerPlatform/Nachher.png)
 
-Bilder können es schlecht beweisen, aber es funktioniert ;)
+Bilder können es schlecht beweisen, aber es funktioniert. ;)
 
 ## Technische Basis
 
@@ -169,8 +169,8 @@ Das oben gezeigte Beispiel stellt dabei einfach und klar dar, dass der Business-
 Herausforderungen, auf die ich bewusst in diesem Blog nicht eingegangen bin, um besonders den Business-Value hervorzuheben, sind u.a.:
 
 * Authentifizierung und Autorisierung, u.a. wird bspw. das OnPremise Data Gateway benötigt
-* Lizenzierung bei der Nutzung von PowerAutomate und RPA
+* Lizenzierung für die Nutzung von PowerAutomate und RPA
 * Deutsche Übersetzung sind teilweise gewöhnungsbedürftig "UI Flow" vs "Benutzeroberflächen Flow"
-* Teilweise noch die ein oder andere Schwierigkeit bspw. Exceptions bei ein paar PowerAutomate Desktop Funktionen
+* Teilweise noch die ein oder andere Schwierigkeit bspw. Fehlerbehandlung bei den Funktionen von PowerAutomate Desktop 
 
-Ein ganz wichtiger Faktor noch zum Schluss, es hat mir wieder Spaß gemacht einfach mit der PowerPlatform ein neues Szenario durchzuspielen.
+Ein ganz wichtiger Faktor noch zum Schluss: es hat mir wieder Spaß gemacht einfach mit der PowerPlatform ein neues Szenario durchzuspielen.
