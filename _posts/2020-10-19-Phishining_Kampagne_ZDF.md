@@ -33,13 +33,13 @@ Die folgenden Abschnitte beziehen sich auf den Ablauf der Phishing Kampagne und 
 
 "Einmal mit der Brechstange eine Phishing Simulation durchführen", beschreibt die geplante zwei Wochen dauernde Phishing Simulation recht gut. 
 Es war geplant, an jeden der 2495 adessi in Deutschland vier verschiedene Phishing E-Mails zu versenden, sodass insgesamt etwa 9980 E-Mails versendet werden sollten. 
-Die vier E-Mails waren unterteilt in eine CEO-Fraud, eine Kandidatenempfehlung über LinkedIn, eine Anwalts-E-Mail bezüglich eines illegalen Datei Downloads und eine E-Mail von einem Voicemail-Service. 
+Die vier E-Mails waren unterteilt in eine CEO Fraud, eine Kandidatenempfehlung über LinkedIn, eine Anwalts E-Mail bezüglich eines illegalen Datei Downloads und eine E-Mail von einem Voicemail Service. 
 Die E-Mails unterschieden sich somit in ihrem Schwierigkeitsgrad, in ihrem geschäftlichen oder privaten Kontext, in ihren psychologischen Taktiken und ob es sich um einen Link oder einen Anhang handelte.
 
-Die Phishing Kampagne umfasste nicht nur die vorbereiteten Phishing E-Mails, sondern auch eine kurze Online-Schulung. 
+Die Phishing Kampagne umfasste nicht nur die vorbereiteten Phishing E-Mails, sondern auch eine kurze Online Schulung. 
 Diese Schulungsseite wurde ebenfalls von SoSafe bereitgestellt. 
-Sobald jemand dem Link oder dem Anhang in der CEO-Fraud, der Anwalts-E-Mail oder dem Voicemail-Service folgte, wurde er auf eine Online-Schulungsseite von SoSafe weitergeleitet, die zur besseren Identifizierung mit dem adesso Firmenlogo versehen wurde. 
-Bei der LinkedIn-E-Mail musste man nicht nur auf den Link klicken, sondern auch in das Passwortfeld der gefälschten Anmeldeseite, um auf die Schulungsseite zu gelangen. 
+Sobald jemand dem Link oder dem Anhang in der CEO Fraud, der Anwalts E-Mail oder dem Voicemail Service folgte, wurde er auf eine Online Schulungsseite von SoSafe weitergeleitet, die zur besseren Identifizierung mit dem adesso Firmenlogo versehen wurde. 
+Bei der LinkedIn E-Mail musste man nicht nur auf den Link klicken, sondern auch in das Passwortfeld der gefälschten Anmeldeseite, um auf die Schulungsseite zu gelangen. 
 Alternativ führt auch die Schaltfläche "Registrieren" zur Schulungsseite. 
 Auf diese Weise wurde sichergestellt, dass keine echten Anmeldedaten von LinkedIn abgegriffen wurden.
 
@@ -55,20 +55,20 @@ Der Bericht über die Statistiken wurde elf Tage nach dem Ende der Kampagne gezo
 Die Klickraten für alle versandten Phishing E-Mails betrug insgesamt 26,4%. 
 Von 903 E-Mails, bei denen ein Link oder ein Anhang geöffnet wurde, wurden 35,5% auf dem Smartphone geöffnet. 
 Von den Teilnehmenden, die auf eine Phishing E-Mail klickten, klickten sich 23,5% Schritt für Schritt bis zum Ende durch das eLearning durch. 
-Darüber hinaus interagierten 29,5% auf der falschen LinkedIn-Anmeldeseite, d.h. diejenigen, die eine LinkedIn-E-Mail erhielten und daraufklickten, klickten entweder auf das Passwort-Feld oder auf den Registrierungs-Button. 
+Darüber hinaus interagierten 29,5% auf der falschen LinkedIn Anmeldeseite, d.h. diejenigen, die eine LinkedIn E-Mail erhielten und daraufklickten, klickten entweder auf das Passwortfeld oder auf den Registrierungsbutton. 
 In Bezug auf alle versandten simulierten Phishing E-Mails öffneten 44,1% die E-Mail in einem E-Mail Programm und sogar 1,5% antworteten auf die E-Mail. 
 
 
 ![Phishing Statistik](/assets/images/posts/Phishing-Kampagne-2019/AlleRatenPhishing.png) 
 
 
-Die Klickraten der einzelnen E-Mail-Vorlagen betrugen am Ende der Kampagne 31% für die CEO-Fraud, 29,9% für die LinkedIn E-Mail, 33,4% für den Voicemail Service und 11,2% für die Anwalts E-Mail. 
+Die Klickraten der einzelnen E-Mail Vorlagen betrugen am Ende der Kampagne 31% für die CEO Fraud, 29,9% für die LinkedIn E-Mail, 33,4% für den Voicemail Service und 11,2% für die Anwalts E-Mail. 
 Besonders bemerkenswert ist, dass am Ende des ersten Tages die Klickrate der CEO Fraud mit 194 versandten E-Mails und 102 Klicks bei 52,6% lag. 
 
 Die Verteilung der einzelnen Phishing Templates und deren Klickraten pro Tag könnt ihr den folgenden Grafiken entnehmen: 
 
 
-![CEO-Fraud](/assets/images/posts/Phishing-Kampagne-2019/CEOFraudKlickraten.png) 
+![CEO Fraud](/assets/images/posts/Phishing-Kampagne-2019/CEOFraudKlickraten.png) 
 
 
 ![LinkedIn Bewerbung](/assets/images/posts/Phishing-Kampagne-2019/LinkedInKlickraten.png)
