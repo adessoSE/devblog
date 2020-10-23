@@ -8,7 +8,7 @@ Wenn du einen Pull-Request stellst, teile uns bitte deine Änderungen mit, indem
   - [ ] [Metadaten gepflegt:](https://github.com/adessoAG/devblog/blob/master/examples/2017-08-10-blog-post-guide.md#metadaten)
     - [ ] "title" vergeben
     - [ ] "author" angegeben
-    - [ ] "categories" enthält maximal eine der Hauptkategorien (Java, Microsoft, Methodik, Architekturen, Softwareentwicklung, Business & People)
+    - [ ] "categories" enthält maximal eine der Hauptkategorien (Java, Microsoft, Methodik, Architekturen, Softwareentwicklung, Branchen, Inside adesso)
     - [ ] "tags" enthält (beliebige) passende Tags
 - **Text** (abzuhaken durch den Autor)
   - [ ] [Teaser entspricht den Vorgaben](https://github.com/adessoAG/devblog/blob/master/examples/2017-08-10-blog-post-guide.md#einleitung--teaser)
