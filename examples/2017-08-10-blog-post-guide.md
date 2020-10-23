@@ -206,3 +206,14 @@ du dir das Projekt [jekyll2cms](https://github.com/adessoAG/jekyll2cms) anschaue
 liest das Blog-Repository regelmäßig aus, prüft es auf Änderungen, transformiert die Markdown-Dateien
 in ein XML-Format und legt diese XML wieder ab. Die XML-Dateien werden dann von einem Job im adesso
 CMS ausgelesen und in den Blog integriert.
+
+# Known Issues:
+
+## Teaser beinhaltet ganzen Post
+Die Zeilenumbrüche im Markdown-File sind wahrscheinlich im falschen Format. Als Zeilenumbruch wird `\n` erwartet. `\r\n` führt dazu, dass der Teaser nicht extrahiert werden kann. Um das Problem zu lösen, kann das Markdown-File mit einem Editor wie Notepad++ geöffnet werden. Mit "Ansicht -> Symbole anzeigen -> Alle anzeigen" werden die Steuerzeichen aktiviert. Als Nächstes kann man mit "Suchen und Ersetzen" in der aktuellen Datei alle `\r` durch einen blanken String ersetzen. Die Änderungen wernde anschließend committed.
+
+## Leere Commit-Nachricht
+Es kann passieren, dass die Nachricht eines Commits ein leerer String ist. Dies ist der Fall, wenn keine Dateien in dem Commit durch jekyll2cms entfernt oder hinzugefügt wurden.
+
+## jekyll2cms pusht nicht auf den master
+In diesem Fall ist jekyll2cms wahrscheinlich nicht als Contributor mit Admin-Rechten in dem Repository. In den Settings kann der GitHub-Account jekyll2cms als Contributor hinzugefügt werden. Anschließend muss dieser die Einladung noch annehmen.
