@@ -210,7 +210,7 @@ CMS ausgelesen und in den Blog integriert.
 # Known Issues:
 
 ## Teaser beinhaltet ganzen Post
-Die Zeilenumbrüche im Markdown-File sind wahrscheinlich im falschen Format. Als Zeilenumbruch wird `\n` erwartet. `\r\n` führt dazu, dass der Teaser nicht extrahiert werden kann. Um das Problem zu lösen, kann das Markdown-File mit einem Editor wie Notepad++ geöffnet werden. Mit "Ansicht -> Symbole anzeigen -> Alle anzeigen" werden die Steuerzeichen aktiviert. Als Nächstes kann man mit "Suchen und Ersetzen" in der aktuellen Datei alle `\r` durch einen blanken String ersetzen. Die Änderungen wernde anschließend committed.
+Die Zeilenumbrüche im Markdown-File sind wahrscheinlich im falschen Format. Als Zeilenumbruch wird `\n` erwartet. `\r\n` führt dazu, dass der Teaser nicht extrahiert werden kann. Um das Problem zu lösen, kann das Markdown-File mit einem Editor wie Notepad++ geöffnet werden. Mit "Ansicht -> Symbole anzeigen -> Alle anzeigen" werden die Steuerzeichen aktiviert. Als Nächstes kann man mit "Suchen und Ersetzen" in der aktuellen Datei alle `\r` durch einen blanken String ersetzen. Die Änderungen werden anschließend committed.
 
 ## Leere Commit-Nachricht
 Es kann passieren, dass die Nachricht eines Commits ein leerer String ist. Dies ist der Fall, wenn keine Dateien in dem Commit durch jekyll2cms entfernt oder hinzugefügt wurden.
