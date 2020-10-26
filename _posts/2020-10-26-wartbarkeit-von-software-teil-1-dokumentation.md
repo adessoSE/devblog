@@ -179,10 +179,16 @@ Dies kann ggf. auch in einem separaten Installationshandbuch erfolgen.
 Dies umfasst sowohl das technische, als auch das fachliche Monitoring der Anwendung.
 * Eine Beschreibung der Backup-Strategie zum Wiederherstellen der Systeme.
 
+![Beispiel einer Verteilungssicht](/assets/images/posts/wartbarkeit-von-software-teil-1-dokumentation/grafik-verteilungssicht.png)
+
 
 # Fazit
 
-TODO
+Die meisten der hier erwähnten Dokumente sind heutzutage fester Bestandteil der professionellen Softwareentwicklung. 
+Somit sind sie nicht nur für das Wartungsteam nützlich, sondern sorgen grundsätzlich für eine hohe Qualität der Software.
+
+Für die Erstellung und Pflege der Softwaredokumentation muss natürlich Zeit und Budget vorhanden sein. 
+Daher müssen diese Punkte bereits in der Angebotserstellung und Kalkulation berücksichtigt werden.
 
 Um die wichtigsten Themen beim nächsten Angebot bzw. Projektstart schnell zur Hand zu haben, haben wir eine kompakte Checkliste zum Thema Wartbarkeit erstellt, die ihr euch [hier](TODO:Link ergänzen) als PDF-Datei herunterladen könnt.
 
