@@ -179,7 +179,7 @@ Dies kann ggf. auch in einem separaten Installationshandbuch erfolgen.
 Dies umfasst sowohl das technische, als auch das fachliche Monitoring der Anwendung.
 * Eine Beschreibung der Backup-Strategie zum Wiederherstellen der Systeme.
 
-![Beispiel einer Verteilungssicht](/assets/images/posts/wartbarkeit-von-software-teil-1-dokumentation/grafik-verteilungssicht.png)
+![Beispiel einer Verteilungssicht](/assets/images/posts/wartbarkeit-von-software-teil-1-dokumentation/grafik-Verteilungssicht.png)
 
 
 # Fazit
