@@ -18,9 +18,11 @@ Wenn du einen Pull-Request stellst, teile uns bitte deine Änderungen mit, indem
   - [ ] [Überschriften entsprechen den Vorgaben](https://github.com/adessoAG/devblog/blob/master/examples/2017-08-10-blog-post-guide.md#%C3%9Cberschriften)
   - [ ] Code-Snippets wurden mit [Syntax Highlighting](https://github.com/adessoAG/devblog/blob/master/examples/2017-08-10-blog-post-guide.md#syntax-highlighting) versehen
   - [ ] Der Artikel wurde in der [Vorschau](https://github.com/adessoAG/devblog/blob/master/examples/2017-08-10-blog-post-guide.md#online-preview) geprüft 
+  - [ ] Auf gendergerechte Formulierungen wurde geachtet
 - **Review** (abzuhaken durch den Reviewer)
   - [ ] Rechtschreibung korrigiert
   - [ ] Der Artikel wurde in der [Vorschau](https://github.com/adessoAG/devblog/blob/master/examples/2017-08-10-blog-post-guide.md#online-preview) geprüft 
+  - [ ] Auf gendergerechte Formulierungen wurde geachtet
   - [ ] Der Autor ist bei CCO hinterlegt
   - [ ] CCO wurde über neuen Artikel informiert
   - [ ] Date-Angaben 
