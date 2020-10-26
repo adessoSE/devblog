@@ -28,7 +28,7 @@ Viele der angesprochenen Themen, die die spätere Pflege der Anwendung massiv er
 Für eine schnelle Übersicht haben wir am Ende jedes Artikels die einzelnen Themen in einer kompakten Check-liste als PDF zum Download zur Verfügung gestellt.
 
 
-#Dokumentation
+# Dokumentation
 
 Der erste Schritt in der Transition einer Software von der Entwicklung in die Wartung erfolgt in den meisten Fällen über die bereitgestellte Dokumentation der Software und der Prozesse. 
 Bei der Analyse von Fehlern in der Wartung spielt die Dokumentation ebenfalls eine wichtige Rolle. 
@@ -36,9 +36,9 @@ Daher wollen wir uns im ersten Teil dieser Serie mit der Dokumentation von Softw
 
 Die meisten Dokumente, die dem Wartungsteam bei der Transition und in der Wartung helfen, sind heutzutage „state-of-the-art“ in der professionellen Softwareentwicklung, so dass entweder gar kein oder nur wenig zusätzlicher Aufwand für die Bereitstellung für das Wartungsteam anfällt.
 
-#Anforderungen
+# Anforderungen
 
-##Funktionale Anforderungen
+## Funktionale Anforderungen
 
 Als ersten Schritt benötigt das Wartungsteam einen Überblick über die fachlichen Funktionen der Anwendung. 
 Im einfachsten Fall reicht hierfür eine Liste der umgesetzten Anwendungsfälle mit je 2-3 Sätzen Beschreibung. 
@@ -51,7 +51,7 @@ Vor allem wenn das gleiche Ticketsystem für die Qualitätssicherung und das Feh
 Das zusammfassende Dokument muss nicht sehr formal gestaltet sein. 
 Es reicht z.B. eine Liste in einem Word-Dokument, eine Excel-Tabelle oder eine Auflistung in einem Collaboration-Raum (z.B. Confluence).
 
-##Nicht funktionale Anforderungen
+## Nicht funktionale Anforderungen
 
 Neben den funktionalen Anforderungen spielen vor allem die nicht funktionalen Anforderungen eine große Rolle, da diese sich auf die Architektur der Anwendung auswirken und deren Erfüllung einen großen Einfluss auf die Akzeptanz der Software durch den Kunden hat.
 
@@ -62,12 +62,12 @@ Nutzeraufkommen und Datenvolumen steigen typischerweise im Laufe der Zeit, die d
 Dem Wartungsteam dienen diese dokumentierten und abgenommenen Werte als Abgrenzung zwischen Fehler und Change Request.
 Für die Dokumentation der nicht funktionalen Anforderungen reicht im einfachsten Fall eine Liste mit einer knappen Beschreibung je Anforderung.
 
-##Standards
+## Standards
 
 Wenn die Anwendung bestimmte Standards oder Verordnungen einhalten muss, wie z.B. BITV 2.0 für Barrierefreiheit oder den BSI IT-Grundschutz, sollte dies entsprechend dokumentiert sein. 
 Eine Dokumentation, wie die geforderten Standards in der Software technisch umgesetzt wurden ist ebenfalls hilfreich.
 
-#Architektur
+# Architektur
 
 Damit das Wartungsteam den Aufbau der Software schnell erfassen und verstehen kann, muss die Architektur der Software klar und verständlich dokumentiert sein. 
 Im besten Fall wird hierfür eine Dokumentationsvorlage wie z.B. [arc42](https://arc42.org/download) verwendet. 
@@ -90,18 +90,18 @@ Anhand dieser Liste können zukünftige Probleme frühzeitig erkannt und ggf. no
 Für die Übergabe an das Wartungsteam ist es wichtig, dass die Dokumentation der Architektur aktuell ist. 
 Wenn sich während der Entwicklung Änderungen an der Architektur ergeben, müssen diese in die Dokumentation eingepflegt werden.
 
-#Entwicklerdokumentation
+# Entwicklerdokumentation
 
 Um dem Wartungsteam einen möglichst schnellen Einstieg in die Wartung und Weiterentwicklung der Software zu ermöglichen, sollte das Entwicklungsvorgehen dokumentiert sein. 
 Zu den folgenden Themen sollte entsprechende Dokumentation vorhanden.
 
-##Entwicklungsumgebung
+## Entwicklungsumgebung
 
 Als erster Schritt wird eine Anleitung für die Einrichtung der Entwicklungsumgebung benötigt. 
 Im einfachsten Fall ist diese bereits fertig vorkonfiguriert als Docker-Image oder Virtuelle Maschine vorhanden, die die Entwickler nur noch kopieren und starten müssen. 
 Ist dies nicht vorhanden, ist eine Anleitung zur korrekten Einrichtung der IDE sowie der sonstigen genutzten Entwicklungswerkzeuge und Plugins notwendig.
 
-##Vorgaben
+## Vorgaben
 
 Falls Entwicklungsvorgaben vorhanden sind, müssen diese ebenfalls dokumentiert und an das Wartungsteam übergeben werden, damit diese Vorgaben auch in der Wartung und Weiterentwicklung weiterhin eingehalten werden können. 
 Dazu gehören z.B. Coding Conventions, Guidelines, Styleguides, Umsetzungsrichtlinien für einzuhaltende Standards oder ähnliches. 
@@ -109,21 +109,21 @@ Eine Vorgabe für die Umsetzung der Barrierefreiheit kann z.B. wie folgt aussehe
 
 ![Beispiel für die technischen Vorgaben zur Umsetzung der Barrierefreiheit](/assets/images/posts/wartbarkeit-von-software-teil-1-dokumentation/grafik-doku-barrierefreiheit.png)
 
-##Versionsverwaltung
+## Versionsverwaltung
 
 Unabhängig davon, wie viele Entwickler an der Software arbeiten, muss eine Versionsverwaltung wie z.B. Git eingesetzt werden. 
 Dabei sollten mindestens zwei Branhes erstellt und verwendet werden. 
 Einen Masterbranch, der die aktuellste ausgelieferte Version der Software beinhaltet und einen Entwicklungsbranch, in dem neue Features für das nächste Release entwickelt und getestet werden. 
 Das konkret verwendete Branchmodell (z.B. ein Branch pro Feature, zentrale Entwicklung im Entwicklungsbranch oder sonstiges) und die damit verbundenen Prozesse sollten dokumentiert sein.
 
-##Definition of Done
+## Definition of Done
 
 Um sicherzustellen, dass alle entwickelten Features den gleichen Qualitätskriterien genügen, muss im Entwicklungsprojekt eine „Definition of Done“ definiert sein, die von allen Entwicklern eingehalten wird. 
 Eine solche Definition of Done kann zum Beispiel wie folgt aussehen:
 
 ![Bild ergänzen]
 
-##Reviewprozess
+## Reviewprozess
 
 Um die Qualität der Anwendung zu erhöhen sollte der Entwicklungsprozess ein Codereview der entwickelten Features durch mindestens eine zweite Person beinhalten. 
 Der Reviewprozess sollte in diesem Fall zentral für alle Entwickler und Reviewer dokumentiert sein. 
@@ -139,7 +139,7 @@ Eine solche Checkliste kann z.B. folgende Punkte beinhalten:
 * Die „Definition of Done“ ist erfüllt.
 * Die konfigurierten Codequalitätsziele werden eingehalten.
 
-##Testumgebungen
+## Testumgebungen
 
 Während der Entwicklungsphase wird die Software üblicherweise auf eine oder mehrere Testumgebungen deployt und getestet. 
 Da diese Testumgebungen auch vom Wartungsteam verwendet werden, müssen sie dokumentiert und beschrieben sein. 
@@ -153,7 +153,7 @@ Dort können die Entwickler den aktuellen Stand der Software einsehen und ihre F
 * Qualitätssicherung: Auf dieser Testumgebung führt das Qualitätssicherungsteam den internen Abnahmetest durch, bevor die Softwareversion an den Kunden ausgeliefert wird.
 * Test: Diese Testumgebung wird für automatisierte Tests, wie z.B. Integrationstests, Massendatentests sowie Last- und Performancetests verwendet.
 
-##Build und Auslieferung
+## Build und Auslieferung
 
 Um Bugfixes oder neue Releases ausliefern zu können benötigt das Wartungsteam Anleitungen für den Build, das Deployment und die Auslieferung der Software. 
 Im besten Fall erfolgt der Großteil dieser Schritte automatisiert auf Knopfdruck durch ein CI Werkzeug wie, z.B. Jenkins oder GitLab. 
@@ -163,7 +163,7 @@ Ist eine Automatisierung nicht möglich oder wenn zusätzliche Schritte notwendi
 Neben den technischen Aspekten muss die Anleitung auch die organisatorischen Aufgaben beinhalten. 
 Dazu gehört z.B. die Liste der zu pflegenden Dokumente oder an wen und auf welchem Weg die Auslieferung auf Kundenseite zu erfolgen hat.
 
-#Betriebshandbuch
+# Betriebshandbuch
 
 Neben der Wartung und der Weiterentwicklung unterstützt das Wartungsteam auch den langjährlichen Betrieb der entwickelten Anwendung. Entweder, indem es selbst für den Betrieb der Anwendung verantwortlich ist oder indem es den Kunden bei Betriebsfragen unterstützt.
 
@@ -180,13 +180,13 @@ Dies umfasst sowohl das technische, als auch das fachliche Monitoring der Anwend
 * Eine Beschreibung der Backup-Strategie zum Wiederherstellen der Systeme.
 
 
-#Fazit
+# Fazit
 
 TODO
 
 Um die wichtigsten Themen beim nächsten Angebot bzw. Projektstart schnell zur Hand zu haben, haben wir eine kompakte Checkliste zum Thema Wartbarkeit erstellt, die ihr euch [hier](TODO:Link ergänzen) als PDF-Datei herunterladen könnt.
 
-#Ausblick
+# Ausblick
 
 Im nächsten Teil dieser Serien werfen wir einen Blick auf den Test von Softwareprojekten. 
 Welche Tests helfen dem Wartungsteam bei ihrer Arbeit und welche Abdeckung ist sinnvoll und nützlich?
