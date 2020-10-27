@@ -85,7 +85,7 @@ Von hier an ist das Implementieren der Tests kaum mehr als ein üblicher JUnit-T
 - Tests erodieren nicht, da sie bei Änderungen direkt mit angepasst werden müssen (spätestens, wenn die nächste Ausführung fehlschlägt)
 - Once-Written-Never-Forgotten; Testszenarios müssen nur einmalig als Test implementiert werden und werden bei jeder zukünftigen Ausführung abgetestet.
 
-# Die Sclaimer ("Disclaimer" wäre ein Kombobreaker gewesen:)
+# Die Sclaimer ("Disclaimer" wäre ein Kombobreaker gewesen)
 
 Mir ist bewusst, dass JUnit ein Framework ist, welches darauf abzielt, so leichtgewichtige Tests wie nur möglich zu schreiben und dass unsere Verwendung des Frameworks diesem Grundgedanken zutiefst widerspricht.
 
