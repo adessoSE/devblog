@@ -1,11 +1,11 @@
 ---
 layout: 		[post, post-xml]             								# Pflichtfeld. Nicht ändern!
 title:  		"Wartbarkeit von Software – Teil 1: Dokumentation"         	# Pflichtfeld. Bitte einen Titel für den Blog Post angeben.
-date:   		2020-10-23 10:25              								# Pflichtfeld. Format "YYYY-MM-DD HH:MM". Muss für Veröffentlichung in der Vergangenheit liegen. (Für Preview egal)
-modified_date: 	2020-10-23             										# Optional. Muss angegeben werden, wenn eine bestehende Datei geändert wird.
+date:   		2020-10-26 10:25              								# Pflichtfeld. Format "YYYY-MM-DD HH:MM". Muss für Veröffentlichung in der Vergangenheit liegen. (Für Preview egal)
+modified_date: 	2020-10-26             										# Optional. Muss angegeben werden, wenn eine bestehende Datei geändert wird.
 author: 		abetla                       								# Pflichtfeld. Es muss in der "authors.yml" einen Eintrag mit diesem Namen geben.
 categories: 	[Softwareentwicklung]                    					# Pflichtfeld. Maximal eine der angegebenen Kategorien verwenden.
-tags: 			[Wartbarkeit, Dokumentation]         						# Bitte auf Großschreibung achten.
+tags: 			[Wartbarkeit, Softwaredokumentation]         						# Bitte auf Großschreibung achten.
 ---
 
 
@@ -121,7 +121,7 @@ Das konkret verwendete Branchmodell (z.B. ein Branch pro Feature, zentrale Entwi
 Um sicherzustellen, dass alle entwickelten Features den gleichen Qualitätskriterien genügen, muss im Entwicklungsprojekt eine „Definition of Done“ definiert sein, die von allen Entwicklern eingehalten wird. 
 Eine solche Definition of Done kann zum Beispiel wie folgt aussehen:
 
-![Bild ergänzen]
+![Beispiel für eine Definition of Done](/assets/images/posts/wartbarkeit-von-software-teil-1-dokumentation/grafik-dod.png)
 
 ## Reviewprozess
 
@@ -178,6 +178,7 @@ Dies kann ggf. auch in einem separaten Installationshandbuch erfolgen.
 * Eine Beschreibung, wie das Monitoring der Software erfolgt. 
 Dies umfasst sowohl das technische, als auch das fachliche Monitoring der Anwendung.
 * Eine Beschreibung der Backup-Strategie zum Wiederherstellen der Systeme.
+
 
 ![Beispiel einer Verteilungssicht](/assets/images/posts/wartbarkeit-von-software-teil-1-dokumentation/grafik-verteilungssicht.png)
 
