@@ -4,7 +4,7 @@ title: "Produktiver mit Firebase"
 date: 2020-09-05 18:00
 author: daklassen
 categories: [Softwareentwicklung]
-tags: [Angular, Firebase]
+tags: [Angular, Firebase, Cloud Hosting]
 ---
 
 Während sich Googles Frontend Framework Angular mittlerweile deutlich etabliert hat, begegne ich Googles "Backend Lösung" Firebase eher selten im Projektalltag.
@@ -34,7 +34,7 @@ Da ich zu dieser Zeit bereits auf Firebase gestoßen war, hatte ich mich kurzerh
 Firebase lässt sich schwer in wenigen Sätzen zusammenfassen, da es (typisch für eine Plattform) eine ganze Reihe sehr unterschiedlicher Produkte bereitstellt.
 Im Wesentlichen geht es aber darum, die komplette Infrastruktur für eine Anwendung zur Verfügung zu stellen, die automatisch mit der Menge der Benutzer skaliert.
 
-Um Firebase zu nutzen, muss man sich im ersten Schritt über die Firebase Konsole (https://console.firebase.google.com/) mit einem Google Account einloggen und dort ein neues Projekt anlegen.
+Um Firebase zu nutzen, muss man sich im ersten Schritt über die [Firebase Konsole](https://console.firebase.google.com/) mit einem Google Account einloggen und dort ein neues Projekt anlegen.
 Anschließend landet man auf einer sehr übersichtlich gestalteten Admin-Oberfläche.
 
 Für meine Anwendung hat die Migration Anpassungen in allen vier oben genannten Hauptkomponenten bedeutet.
