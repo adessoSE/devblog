@@ -9,7 +9,7 @@ tags:           [Test, JUnit, E2E, Webservice, Monolith]
 
 
 
-In diesem Artikel geht es um automatisierte, in die CI-Pipeline integrierbare, Tests, die die gesamte Geschäftslogik eines Monolithen von der obersten Schicht (einem Webservice) bis zur untersten Schicht (der Datenbank) abdecken können.
+In diesem Artikel geht es um automatisierte, in die CI-Pipeline integrierbare Tests, die die gesamte Geschäftslogik eines Monolithen von der obersten Schicht (einem Webservice) bis zur untersten Schicht (der Datenbank) abdecken können.
 Dieser Artikel richtet sich an Projektleiter, Architekten oder interessierte Entwickler, die sich bei der Entwicklung eines Webservice (oder danach) fragen, wie man diesen dauerhaft testen und qualitätssichern kann.
 
 # Die Ausgangslage
@@ -39,7 +39,7 @@ In einer abstrakten Testklasse, von welcher alle E2E-Tests erben, wird der gesam
 Weniger relevante Randsysteme sind mit Mocks ersetzt worden. 
 Die Datenbank wird mit dem Framework *TestContainers* zur Laufzeit aus einer Docker-Registry bezogen und das Schema der Anwendung über die Flyway-Migrationsskripte aus dem produktiven Code erzeugt.
 Dieser Schritt wird für jeden Testdurchlauf neu erledigt und ist recht zeitintensiv.
-Alternativ kann ein eigener Dockercontainer mit einer fertig eingerichteten Datenbank erzeugt und in einer Registry abgelegt werden, welche anstelle der leeren Standard-Container geladen wird.
+Alternativ kann ein eigener Dockercontainer mit einer fertig eingerichteten Datenbank erzeugt und in einer Registry abgelegt werden, welcher anstelle der leeren Standard-Container geladen wird.
 Mithilfe des *rest-assured*-Frameworks wird schließlich ein Rest-Client erzeugt, der die Restendpoints des Webservice anspricht und direkt Assertions für die Responses mitbringt.
 Zahlreiche weitere anwendungsspezifische Konfigurationen werden mit den Hausmitteln von JUnit eingerichtet, sodass am Anfang eines jeden JUnit-Tests eine fertige Laufzeitumgebung des Monolithen und ein Rest-Client zur Verfügung stehen.
 Von hier an ist das Implementieren der Tests kaum mehr als ein üblicher JUnit-Test.
