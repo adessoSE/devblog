@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <documents>
     <document uid="3c098f61879e1e1a6ef00c6253ead019">
-        <field name="title"><![CDATA[Zeitersparnis durch RPA, AI und der Microsoft PowerPlatform]]></field>
+        <field name="title"><![CDATA[Zeitersparnis durch RPA, AI und der Microsoft Power Platform]]></field>
         <field name="subline"><![CDATA[]]></field>
         <field name="teaser"><![CDATA[<p>Jeder kennt es, bestimmte IT-Arbeitsschritte, die sich von den Eingaben, aber nicht von den Klicks unterscheiden.
 Hier gibt es für jeden durch Automatisierung dieser Tätigkeiten ein enormes Optimierungspotential.
-Es geht mir dabei nicht nur um die Optimierung der Netto-Arbeitszeit, die häufige Tätigkeiten benötigen, sondern auch um die Switching-Zeit - also die Zeit, die uns immer wieder aus unseren Themen rausreißt und uns somit ablenkt.
+Es geht mir dabei nicht nur um die Optimierung der Netto-Arbeitszeit, die häufige Tätigkeiten benötigen, sondern auch um die Switch-Zeit - also die Zeit, die uns immer wieder aus unseren Themen rausreißt und uns somit ablenkt.
 “Robotic Process Automation” (RPA) kann uns hier unterstützen und ermöglicht die automatisierte Ausführung von manuellen Eingaben.</p>
 
 ]]></field>
@@ -14,15 +14,18 @@ Es geht mir dabei nicht nur um die Optimierung der Netto-Arbeitszeit, die häufi
         <field name="mime_type_multi_keyword"><![CDATA[text/html]]></field>
         <field name="category_multi_keyword"><![CDATA[Microsoft]]></field>
         <field name="tag_multi_keyword"><![CDATA[RPA]]></field>
-        <field name="tag_multi_keyword"><![CDATA[PowerAutomate]]></field>
-        <field name="tag_multi_keyword"><![CDATA[PowerPlatform]]></field>
-        <field name="tag_multi_keyword"><![CDATA[AI]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Power Automate]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Power Platform]]></field>
+        <field name="tag_multi_keyword"><![CDATA[KI]]></field>
         <field name="tag_multi_keyword"><![CDATA[UI Flow]]></field>
-        <field name="tag_multi_keyword"><![CDATA[PowerAutomate Desktop]]></field>
-        <field name="tag_multi_keyword"><![CDATA[Teams Microsoft]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Power Automate Desktop]]></field>
+        <field name="tag_multi_keyword"><![CDATA[AI Builder]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Switch-Zeit]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Teams]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Microsoft]]></field>
         <field name="date_date"><![CDATA[2020-10-23T12:00:00+02:00]]></field>
         <field name="date_l"><![CDATA[1603447200000]]></field>
-        <field name="change_date"><![CDATA[1603447200000]]></field>
+        <field name="change_date"><![CDATA[1605178800000]]></field>
         <!--Picture-->
         <!-- Not in use at the moment-->
         <!--Author Information-->
@@ -31,11 +34,11 @@ Es geht mir dabei nicht nur um die Optimierung der Netto-Arbeitszeit, die häufi
         <field name="author_id"><![CDATA[mschulz-adesso]]></field>
         <field name="author_picture_stored_only"><![CDATA[http://localhost:4000/assets/images/avatars/mschulz.jpg]]></field>
         <!--Postcontent-->
-        <field name="headlines"><![CDATA[Zeitersparnis durch RPA, AI und der Microsoft PowerPlatform]]></field>
+        <field name="headlines"><![CDATA[Zeitersparnis durch RPA, AI und der Microsoft Power Platform]]></field>
         <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
             <p>Jeder kennt es, bestimmte IT-Arbeitsschritte, die sich von den Eingaben, aber nicht von den Klicks unterscheiden.
 Hier gibt es für jeden durch Automatisierung dieser Tätigkeiten ein enormes Optimierungspotential.
-Es geht mir dabei nicht nur um die Optimierung der Netto-Arbeitszeit, die häufige Tätigkeiten benötigen, sondern auch um die Switching-Zeit - also die Zeit, die uns immer wieder aus unseren Themen rausreißt und uns somit ablenkt.
+Es geht mir dabei nicht nur um die Optimierung der Netto-Arbeitszeit, die häufige Tätigkeiten benötigen, sondern auch um die Switch-Zeit - also die Zeit, die uns immer wieder aus unseren Themen rausreißt und uns somit ablenkt.
 “Robotic Process Automation” (RPA) kann uns hier unterstützen und ermöglicht die automatisierte Ausführung von manuellen Eingaben.</p>
 
 </div>]]></field>
@@ -45,19 +48,19 @@ Es geht mir dabei nicht nur um die Optimierung der Netto-Arbeitszeit, die häufi
 <div class="col-xl-8 adesso-center p-b-1 p-l-0 p-r-0">
     <p>Jeder kennt es, bestimmte IT-Arbeitsschritte, die sich von den Eingaben, aber nicht von den Klicks unterscheiden.
 Hier gibt es für jeden durch Automatisierung dieser Tätigkeiten ein enormes Optimierungspotential.
-Es geht mir dabei nicht nur um die Optimierung der Netto-Arbeitszeit, die häufige Tätigkeiten benötigen, sondern auch um die Switching-Zeit - also die Zeit, die uns immer wieder aus unseren Themen rausreißt und uns somit ablenkt.
+Es geht mir dabei nicht nur um die Optimierung der Netto-Arbeitszeit, die häufige Tätigkeiten benötigen, sondern auch um die Switch-Zeit - also die Zeit, die uns immer wieder aus unseren Themen rausreißt und uns somit ablenkt.
 “Robotic Process Automation” (RPA) kann uns hier unterstützen und ermöglicht die automatisierte Ausführung von manuellen Eingaben.</p>
 
 <p>Das perfekte und spannende Beispiel für mich sind Applikationen, die entweder keine Schnittstellen wie Konnektoren, API(s) etc. bereitstellen oder bei denen die Schnittstellenbereitstellungen zu komplex sind. 
-Die neuen technischen Möglichkeiten der Microsoft PowerPlatform ermöglichen auch PowerUsern solche UseCases schnell und einfach umzusetzen.</p>
+Die neuen technischen Möglichkeiten der Microsoft Power Platform ermöglichen auch Power-Usern solche UseCases schnell und einfach umzusetzen.</p>
 
 <h4 id="mein-szenario">Mein Szenario</h4>
 
-<p>Als Prozessgrundlage hat mich u.a. dieses Microsoft Tutorial inspiriert <a href="https://www.youtube.com/watch?v=NxJ2Zch7M2o">Robotic Process Automation with Microsoft PowerAutomate, UI flows and AI Builder</a>, bei dem ich selbst die Umsetzung testen will. 
-Hierbei haben sich die Features etwas geändert, das neue Tool PowerAutomate Desktop ist da und das möchte ich testen.</p>
+<p>Als Prozessgrundlage hat mich u.a. dieses Microsoft Tutorial inspiriert <a href="https://www.youtube.com/watch?v=NxJ2Zch7M2o">Robotic Process Automation with Microsoft Power Automate, UI flows and AI Builder</a>, bei dem ich selbst die Umsetzung testen will. 
+Hierbei haben sich die Features etwas geändert, das neue Tool Power Automate Desktop ist da und das möchte ich testen.</p>
 
 <p>Als Beispiel-Prozess nehme ich das Freigeben von Rechnungen und die dazugehörige Pflege in einer lokale Excel-Datei, die ein lokales System wie bspw. ein ERP simulieren soll.
-Dabei werde ich auch den AI Builder der Microsoft PowerPlatform nutzen, um KI-gesteuert Informationen aus Dokumenten zu extrahieren.
+Dabei werde ich auch den AI Builder der Microsoft Power Platform nutzen, um KI-gesteuert Informationen aus Dokumenten zu extrahieren.
 Dieses Beispiel benötigt in der täglichen Praxis viele manuelle Schritte, die Zeit kosten und zudem fehleranfällig sind.</p>
 
 <h5 id="der-gängige-prozess">Der gängige Prozess</h5>
@@ -74,7 +77,7 @@ Dieses Beispiel benötigt in der täglichen Praxis viele manuelle Schritte, die 
 
 <p><strong>Investierte Nettoarbeitszeit:</strong> ca. 25 Min pro Rechnung</p>
 
-<p><strong>Switching-Zeit / Verlust des Fokus:</strong> Viel höher</p>
+<p><strong>Switch-Zeit / Verlust des Fokus:</strong> Viel höher</p>
 
 <h5 id="der-optimierte-prozess">Der optimierte Prozess</h5>
 
@@ -88,7 +91,7 @@ Dieses Beispiel benötigt in der täglichen Praxis viele manuelle Schritte, die 
 
 <p><strong>Investierte Nettoarbeitszeit:</strong> ca. 10 Min pro Rechnung</p>
 
-<p><strong>Switching-Zeit / Verlust des Fokus:</strong> Viel niedriger, da u.a. wichtige Informationen hervorgehoben werden</p>
+<p><strong>Switch-Zeit / Verlust des Fokus:</strong> Viel niedriger, da u.a. wichtige Informationen hervorgehoben werden</p>
 
 <h6 id="prozessschritte-im-detail">Prozessschritte im Detail</h6>
 
@@ -120,15 +123,15 @@ Dieses Beispiel benötigt in der täglichen Praxis viele manuelle Schritte, die 
 
 <h5 id="technische-basis">Technische Basis</h5>
 
-<p>In diesem konkreten Beispiel nutze ich die PowerPlatform als No-Code Plattform, um die Freigabe von Rechnungen zu erleichtern und die dazugehörige Pflege in einem ERP-System zu automatisieren.</p>
+<p>In diesem konkreten Beispiel nutze ich die Power Platform als No-Code Plattform, um die Freigabe von Rechnungen zu erleichtern und die dazugehörige Pflege in einem ERP-System zu automatisieren.</p>
 
 <p>Hierbei wird Outlook und Microsoft Teams als Kommunikationsplattform genutzt.</p>
 
-<p>Ich nutze die Workflow-Engine PowerAutomate aka Flows, um die Prozessschritte auszuführen.
-Dabei wird die RPA Funktion über den PowerAutomate Typ “Benutzeroberflächen Flow” ausgeführt.
-PowerAutomate bietet per se Konrektoren zu Outlook und Teams, sodass ich sofort starten kann.</p>
+<p>Ich nutze die Workflow-Engine Power Automate aka Flows, um die Prozessschritte auszuführen.
+Dabei wird die RPA Funktion über den Power Automate Typ “Benutzeroberflächen Flow” ausgeführt.
+Power Automate bietet per se Konrektoren zu Outlook und Teams, sodass ich sofort starten kann.</p>
 
-<h6 id="grundlage-ist-powerautomate-aka-flow-um-den-prozess-zu-automatisieren">Grundlage ist PowerAutomate aka Flow, um den Prozess zu automatisieren</h6>
+<h6 id="grundlage-ist-power-automate-aka-flow-um-den-prozess-zu-automatisieren">Grundlage ist Power Automate aka Flow, um den Prozess zu automatisieren</h6>
 
 <p>Im Grunde genommen sind es zwei Schritte, die benötigt werden, um die komplette Logik auszuführen.</p>
 <ol>
@@ -144,7 +147,7 @@ PowerAutomate bietet per se Konrektoren zu Outlook und Teams, sodass ich sofort 
 <p>Die Entscheidung, was passieren soll, enthält die eigentlich spannende Logik:</p>
 
 <ul>
-  <li>PowerAutomate benutzt die Anlage der empfangenen E-Mail - in diesem Fall eine PDF</li>
+  <li>Power Automate benutzt die Anlage der empfangenen E-Mail - in diesem Fall eine PDF</li>
   <li>Weitergabe des PDF an die KI-KI-Komponente</li>
   <li>Automatische Extraktion relevanter Rechnungsdaten aus der PDF</li>
   <li>Erstellen eines Optionsauswahl-Post in einem ausgewählten Bot-Teams-Chat</li>
@@ -154,11 +157,11 @@ PowerAutomate bietet per se Konrektoren zu Outlook und Teams, sodass ich sofort 
 
 <p><img src="/assets/images/posts/Zeitersparnis-durch-RPA-und-Microsoft-PowerPlatform/PowerAutomateDetail.png" alt="PowerAutomateDetail.png" /></p>
 
-<p>Ich möchte die spannenden Schritte des PowerAutomates jetzt näher erläutern.</p>
+<p>Ich möchte die spannenden Schritte des Power Automates jetzt näher erläutern.</p>
 
 <h6 id="automatisierte-extraktion-relevanter-rechnungsdaten-aus-der-pdf">Automatisierte Extraktion relevanter Rechnungsdaten aus der PDF</h6>
 
-<p>Der AI Builder ist eine Komponente der PowerPlatform, die ich nutze, um die Rechnungen zu analysieren.</p>
+<p>Der AI Builder ist eine Komponente der Power Platform, die ich nutze, um die Rechnungen zu analysieren.</p>
 
 <p>Dabei stellt “Formularverarbeitung” die benötigte Funktion dar.</p>
 
@@ -176,7 +179,7 @@ PowerAutomate bietet per se Konrektoren zu Outlook und Teams, sodass ich sofort 
 
 <p><img src="/assets/images/posts/Zeitersparnis-durch-RPA-und-Microsoft-PowerPlatform/AiBuilderWerte.png" alt="AiBuilderWerte.png" /></p>
 
-<p>Nach dem Training stehen mir die extrahierten Felder in meinem PowerAutomate zur Verfügung. Hier zu erkennen in der Teamchat-Nachricht “Meldung”.</p>
+<p>Nach dem Training stehen mir die extrahierten Felder in meinem Power Automate zur Verfügung. Hier zu erkennen in der Teamchat-Nachricht “Meldung”.</p>
 
 <p><img src="/assets/images/posts/Zeitersparnis-durch-RPA-und-Microsoft-PowerPlatform/PowerAutomateWerte.png" alt="PowerAutomateWerte.png" /></p>
 
@@ -190,26 +193,26 @@ Hierfür werden ein paar kostenlose Tools von Microsoft und Selenium benötigt.<
 
 <p><img src="/assets/images/posts/Zeitersparnis-durch-RPA-und-Microsoft-PowerPlatform/RPARecorder.png" alt="RPARecorder.png" /></p>
 
-<p>Ich nutze die Vorschauversion vom PowerAutomate Desktop, da dieses Tool für mich neu ist und viel verspricht.</p>
+<p>Ich nutze die Vorschauversion vom Power Automate Desktop, da dieses Tool für mich neu ist und viel verspricht.</p>
 
 <p>Als Alternative könnte ich die Selenium-IDE nutzen, die ein Open-Source-Tool ist, mit dem ich Interaktionen auf Websites aufzeichnen und wiedergeben kann. 
 Dieses Tool wird auch oft bei Tests genutzt.</p>
 
-<p>PowerAutomate Desktop bietet mir eine Vielzahl von Operationen, u.a. das Recorden von Webseiten oder Desktop-Applikationen.</p>
+<p>Power Automate Desktop bietet mir eine Vielzahl von Operationen, u.a. das Recorden von Webseiten oder Desktop-Applikationen.</p>
 
 <p>In meinem Fall möchte ich, dass automatisch eine Excel geöffnet wird und die “Input”-Variablen aus meinen Rechnungen automatisch eingetragen werden.</p>
 
 <p><img src="/assets/images/posts/Zeitersparnis-durch-RPA-und-Microsoft-PowerPlatform/PADFlow.png" alt="PADFlow.png" /></p>
 
-<h6 id="letzter-schritt---die-einbindung-des-benutzeroberflächen-flow-erfolgt-im-eigentlichen-powerautomate">Letzter Schritt - Die Einbindung des Benutzeroberflächen Flow erfolgt im eigentlichen PowerAutomate.</h6>
+<h6 id="letzter-schritt---die-einbindung-des-benutzeroberflächen-flow-erfolgt-im-eigentlichen-power-automate">Letzter Schritt - Die Einbindung des Benutzeroberflächen Flow erfolgt im eigentlichen Power Automate.</h6>
 
-<p>Wichtig hierbei ist, dass eine Verbindung zwischen dem PowerAutomate und dem lokalen System / Excel hergestellt werden kann. Dies realisiere ich sehr schnell mit dem Microsoft OnPremise Data Gateway.</p>
+<p>Wichtig hierbei ist, dass eine Verbindung zwischen dem Power Automate und dem lokalen System / Excel hergestellt werden kann. Dies realisiere ich sehr schnell mit dem Microsoft OnPremise Data Gateway.</p>
 
 <p><img src="/assets/images/posts/Zeitersparnis-durch-RPA-und-Microsoft-PowerPlatform/PowerAutomateUiFlow.png" alt="PowerAutomateUiFlow.png" /></p>
 
 <h4 id="fazit">Fazit</h4>
 
-<p>Ich halte die Microsoft PowerPlatform seit Tag eins für eine sehr mächtige Entwicklungsumgebung, die auch Nicht-Entwicklern (aka PowerUsern aka Citizen Developer) die Möglichkeit gibt, neue Lösungen zu kreieren. 
+<p>Ich halte die Microsoft Power Platform seit Tag eins für eine sehr mächtige Entwicklungsumgebung, die auch Nicht-Entwicklern (aka Power-Usern aka Citizen Developer) die Möglichkeit gibt, neue Lösungen zu kreieren. 
 KI, Workflows, RPA oder maschinelles Lernen waren früher nicht ohne eine hohe Komplexität oder Code-Kenntnisse möglich.</p>
 
 <p>Das oben gezeigte Beispiel stellt dabei einfach und klar dar, dass der Business-Value im Vordergrund steht und nicht die Technologien dahinter.</p>
@@ -218,12 +221,12 @@ KI, Workflows, RPA oder maschinelles Lernen waren früher nicht ohne eine hohe K
 
 <ul>
   <li>Authentifizierung und Autorisierung, u.a. wird bspw. das OnPremise Data Gateway benötigt</li>
-  <li>Lizenzierung für die Nutzung von PowerAutomate und RPA</li>
+  <li>Lizenzierung für die Nutzung von Power Automate und RPA</li>
   <li>Deutsche Übersetzung sind teilweise gewöhnungsbedürftig “UI Flow” vs “Benutzeroberflächen Flow”</li>
-  <li>Teilweise noch die ein oder andere Schwierigkeit bspw. Fehlerbehandlung bei den Funktionen von PowerAutomate Desktop</li>
+  <li>Teilweise noch die ein oder andere Schwierigkeit bspw. Fehlerbehandlung bei den Funktionen von Power Automate Desktop</li>
 </ul>
 
-<p>Ein ganz wichtiger Faktor noch zum Schluss: es hat mir wieder Spaß gemacht einfach mit der PowerPlatform ein neues Szenario durchzuspielen.</p>
+<p>Ein ganz wichtiger Faktor noch zum Schluss: es hat mir wieder Spaß gemacht einfach mit der Power Platform ein neues Szenario durchzuspielen.</p>
 
 </div>
 </div>
