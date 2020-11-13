@@ -3,8 +3,8 @@ layout: [post, post-xml]
 title:  "Phishing Kampagne bei adesso"        
 date:   2020-11-13 09:00              # Pflichtfeld. Format "YYYY-MM-DD HH:MM". Muss für Veröffentlichung in der Vergangenheit liegen. (Für Preview egal)
 author: vschiller                     
-categories: [People]       
-tags: [Security Awareness]     
+categories: [Inside adesso]       
+tags: [Security Awareness, Phising]     
 ---
 
 Phishing ist eine Kunst der Manipulation, die sowohl technisches als auch menschliches Wissen erfordert. 
