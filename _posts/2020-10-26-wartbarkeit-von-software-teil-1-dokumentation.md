@@ -1,11 +1,11 @@
 ---
 layout: 		[post, post-xml]             								# Pflichtfeld. Nicht ändern!
 title:  		"Wartbarkeit von Software – Teil 1: Dokumentation"         	# Pflichtfeld. Bitte einen Titel für den Blog Post angeben.
-date:   		2020-11-16 12:00              								# Pflichtfeld. Format "YYYY-MM-DD HH:MM". Muss für Veröffentlichung in der Vergangenheit liegen. (Für Preview egal)
-modified_date: 	2020-11-16             										# Optional. Muss angegeben werden, wenn eine bestehende Datei geändert wird.
+date:   		2020-11-16 12:05              								# Pflichtfeld. Format "YYYY-MM-DD HH:MM". Muss für Veröffentlichung in der Vergangenheit liegen. (Für Preview egal)
+modified_date: 	2020-11-16 12:05       										# Optional. Muss angegeben werden, wenn eine bestehende Datei geändert wird.
 author: 		abetla                       								# Pflichtfeld. Es muss in der "authors.yml" einen Eintrag mit diesem Namen geben.
 categories: 	[Softwareentwicklung]                    					# Pflichtfeld. Maximal eine der angegebenen Kategorien verwenden.
-tags: 			[Wartbarkeit, Softwaredokumentation]         						# Bitte auf Großschreibung achten.
+tags: 			[Wartbarkeit, Softwaredokumentation]         				# Bitte auf Großschreibung achten.
 ---
 
 
@@ -49,7 +49,7 @@ Eine ausführliche Spezifikation kann dem Wartungsteam vor allem bei der Analyse
 Falls während der Entwicklung die Anforderungen in einem Ticketsystem gepflegt wurden, ist es hilfreich, wenn diese zur Übergabe an das Wartungsteam in einem zentralen Dokument als Überblick zusammengefasst werden. 
 Auch wenn während der Entwicklung die Arbeit mit Tickets sehr hilfreich sein kann, erschwert es jedoch dem Wartungsteam im Nachhinein die Arbeit. 
 Vor allem wenn das gleiche Ticketsystem für die Qualitätssicherung und das Fehlerreporting verwendet wird, geht sehr schnell die Übersicht über die umgesetzten Funktionen verloren. 
-Das zusammfassende Dokument muss nicht sehr formal gestaltet sein. 
+Das zusammenfassende Dokument muss nicht sehr formal gestaltet sein. 
 Es reicht z.B. eine Liste in einem Word-Dokument, eine Excel-Tabelle oder eine Auflistung in einem Collaboration-Raum (z.B. Confluence).
 
 ## Nicht funktionale Anforderungen
@@ -113,7 +113,7 @@ Eine Vorgabe für die Umsetzung der Barrierefreiheit kann z.B. wie folgt aussehe
 ## Versionsverwaltung
 
 Unabhängig davon, wie viele Entwickler an der Software arbeiten, muss eine Versionsverwaltung wie z.B. Git eingesetzt werden. 
-Dabei sollten mindestens zwei Branhes erstellt und verwendet werden. 
+Dabei sollten mindestens zwei Branches erstellt und verwendet werden. 
 Einen Masterbranch, der die aktuellste ausgelieferte Version der Software beinhaltet und einen Entwicklungsbranch, in dem neue Features für das nächste Release entwickelt und getestet werden. 
 Das konkret verwendete Branchmodell (z.B. ein Branch pro Feature, zentrale Entwicklung im Entwicklungsbranch oder sonstiges) und die damit verbundenen Prozesse sollten dokumentiert sein.
 
@@ -181,7 +181,7 @@ Dies umfasst sowohl das technische, als auch das fachliche Monitoring der Anwend
 * Eine Beschreibung der Backup-Strategie zum Wiederherstellen der Systeme.
 
 
-Ein Beipiel für eine Verteilungssicht kann z.B. wie folgt aussehen:
+Ein Beispiel für eine Verteilungssicht kann z.B. wie folgt aussehen:
 
 ![Beispiel einer Verteilungssicht](/assets/images/posts/wartbarkeit-von-software-teil-1-dokumentation/grafik-verteilungssicht.png)
 
@@ -198,8 +198,5 @@ Daher müssen diese Punkte bereits in der Angebotserstellung und Kalkulation ber
 
 Im nächsten Teil dieser Serien werfen wir einen Blick auf den Test von Softwareprojekten. 
 Welche Tests helfen dem Wartungsteam bei ihrer Arbeit und welche Abdeckung ist sinnvoll und nützlich?
-
-
-
 
 
