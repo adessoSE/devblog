@@ -66,7 +66,7 @@ Für die Dokumentation der nicht funktionalen Anforderungen reicht im einfachste
 ## Standards
 
 Wenn die Anwendung bestimmte Standards oder Verordnungen einhalten muss, wie z.B. BITV 2.0 für Barrierefreiheit oder den BSI IT-Grundschutz, sollte dies entsprechend dokumentiert sein. 
-Eine Dokumentation, wie die geforderten Standards in der Software technisch umgesetzt wurden ist ebenfalls hilfreich.
+Eine Dokumentation, wie die geforderten Standards in der Software technisch umgesetzt wurden, ist ebenfalls hilfreich.
 
 # Architektur
 
@@ -126,7 +126,7 @@ Eine solche Definition of Done kann zum Beispiel wie folgt aussehen:
 
 ## Reviewprozess
 
-Um die Qualität der Anwendung zu erhöhen sollte der Entwicklungsprozess ein Codereview der entwickelten Features durch mindestens eine zweite Person beinhalten. 
+Um die Qualität der Anwendung zu erhöhen, sollte der Entwicklungsprozess ein Codereview der entwickelten Features durch mindestens eine zweite Person beinhalten. 
 Der Reviewprozess sollte in diesem Fall zentral für alle Entwickler und Reviewer dokumentiert sein. 
 Durch die Verwendung einer Checkliste kann sichergestellt werden, dass jeder Reviewer ein Mindestsatz an Prüfungen durchführt. 
 Eine solche Checkliste kann z.B. folgende Punkte beinhalten:
@@ -152,12 +152,12 @@ Passwörter sind dabei natürlich in entsprechenden Passwortverwaltungstools zu 
 Üblicherweise wird diese Umgebung durch ein CI-Werkzeug automatisch, nach jedem Push in den Entwicklungsbranch und anschließendem erfolgreichen Build, aktualisiert. 
 Dort können die Entwickler den aktuellen Stand der Software einsehen und ihre Features außerhalb ihrer lokalen Entwicklungsumgebung testen.
 * Qualitätssicherung: Auf dieser Testumgebung führt das Qualitätssicherungsteam den internen Abnahmetest durch, bevor die Softwareversion an den Kunden ausgeliefert wird.
-* Test: Diese Testumgebung wird für automatisierte Tests, wie z.B. Integrationstests, Massendatentests sowie Last- und Performancetests verwendet.
+* Test: Diese Testumgebung wird für automatisierte Tests wie z.B. Integrationstests, Massendatentests sowie Last- und Performancetests verwendet.
 
 ## Build und Auslieferung
 
-Um Bugfixes oder neue Releases ausliefern zu können benötigt das Wartungsteam Anleitungen für den Build, das Deployment und die Auslieferung der Software. 
-Im besten Fall erfolgt der Großteil dieser Schritte automatisiert auf Knopfdruck durch ein CI Werkzeug wie, z.B. Jenkins oder GitLab. 
+Um Bugfixes oder neue Releases ausliefern zu können, benötigt das Wartungsteam Anleitungen für den Build, das Deployment und die Auslieferung der Software. 
+Im besten Fall erfolgt der Großteil dieser Schritte automatisiert auf Knopfdruck durch ein CI Werkzeug wie z.B. Jenkins oder GitLab. 
 Werden dabei sehr komplexe Pipelines oder selbstgeschriebene Skripte verwendet, sollten diese (am besten inline) dokumentiert sein, damit das Wartungsteam die Prozesse schnell erfassen und nachvollziehen kann.
 
 Ist eine Automatisierung nicht möglich oder wenn zusätzliche Schritte notwendig sind, muss eine Anleitung mit allen notwendigen Schritten erstellt und dem Wartungsteam übergeben werden. 
@@ -166,9 +166,9 @@ Dazu gehört z.B. die Liste der zu pflegenden Dokumente oder an wen und auf welc
 
 # Betriebshandbuch
 
-Neben der Wartung und der Weiterentwicklung unterstützt das Wartungsteam auch den langjährlichen Betrieb der entwickelten Anwendung. Entweder, indem es selbst für den Betrieb der Anwendung verantwortlich ist oder indem es den Kunden bei Betriebsfragen unterstützt.
+Neben der Wartung und der Weiterentwicklung unterstützt das Wartungsteam auch den langjährigen Betrieb der entwickelten Anwendung. Entweder, indem es selbst für den Betrieb der Anwendung verantwortlich ist oder indem es den Kunden bei Betriebsfragen unterstützt.
 
-Um dem Wartungsteam den Einstieg in den Betrieb zu erleichtern sollte das Betriebshandbuch mindestens die folgenden Themen beinhalten.
+Um dem Wartungsteam den Einstieg in den Betrieb zu erleichtern, sollte das Betriebshandbuch mindestens die folgenden Themen beinhalten.
 
 * Eine Verteilungssicht der Server und Komponenten.
 * Eine Beschreibung der benötigten Server und Komponenten inklusive der Mindestvoraussetzungen.
