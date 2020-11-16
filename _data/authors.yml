@@ -348,3 +348,21 @@ tlange:
   bio: "Thilo Lange ist Software Architect am Standort Stralsund"
   avatar_url: /assets/images/avatars/tlange.jpg
   github: https://github.com/ThiloLange
+
+anbeth:
+  first_name: Anja
+  last_name: Bethge
+  github_username: anbeth
+  email: anja.bethge@adesso.de
+  bio: "Anja Bethge ist Software Architektin am Standort Stralsund. Seit über fünf Jahren ist sie im Bereich Wartung und Applikation Management tätig und hat schon viele gute und auch nicht so gute Beispiele für wartbare Software gesehen."
+  avatar_url: /assets/images/avatars/anbeth.jpg
+  github: https://github.com/anbeth
+
+abetla:
+  first_name: Anja Bethge und 
+  last_name: Thilo Lange
+  github_username: ThiloLange, anbeth
+  email: thilo.lange@adesso.de, anja.bethge@adesso.de
+  bio: "Anja Bethge und Thilo Lange sind Software Architekten am Standort Stralsund. Seit über fünf Jahren sind beide im Bereich Wartung und Applikation Management tätig und haben schon viele gute und auch nicht so gute Beispiele für wartbare Software gesehen."
+  avatar_url: 
+  github: https://github.com/ThiloLange, https://github.com/anbeth
