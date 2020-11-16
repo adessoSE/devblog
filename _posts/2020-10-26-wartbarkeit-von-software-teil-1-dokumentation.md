@@ -1,8 +1,8 @@
 ---
 layout: 		[post, post-xml]             								# Pflichtfeld. Nicht ändern!
 title:  		"Wartbarkeit von Software – Teil 1: Dokumentation"         	# Pflichtfeld. Bitte einen Titel für den Blog Post angeben.
-date:   		2020-10-26 10:25              								# Pflichtfeld. Format "YYYY-MM-DD HH:MM". Muss für Veröffentlichung in der Vergangenheit liegen. (Für Preview egal)
-modified_date: 	2020-10-26             										# Optional. Muss angegeben werden, wenn eine bestehende Datei geändert wird.
+date:   		2020-11-16 12:00              								# Pflichtfeld. Format "YYYY-MM-DD HH:MM". Muss für Veröffentlichung in der Vergangenheit liegen. (Für Preview egal)
+modified_date: 	2020-11-16             										# Optional. Muss angegeben werden, wenn eine bestehende Datei geändert wird.
 author: 		abetla                       								# Pflichtfeld. Es muss in der "authors.yml" einen Eintrag mit diesem Namen geben.
 categories: 	[Softwareentwicklung]                    					# Pflichtfeld. Maximal eine der angegebenen Kategorien verwenden.
 tags: 			[Wartbarkeit, Softwaredokumentation]         						# Bitte auf Großschreibung achten.
@@ -21,17 +21,18 @@ Manchmal fällt diese Aufgabe auch einem ganz anderen Dienstleister zu.
 Um die Transition von der Entwicklung in die Wartung möglichst einfach und effizient zu gestalten und dem Wartungsteam anschließend die Arbeit zu erleichtern, ist eine gute Wartbarkeit der Software die wichtigste Voraussetzung.
 
 Aber was zeichnet gute Wartbarkeit aus und wie können wir diese erreichen? 
-In dieser dreiteiligen Serie wollen wir auf unterschiedliche Themen eingehen, die die Wartbarkeit von Software beeinflussen.
+Im Rahmen der Wartung und dem Applikation Management unterschiedlichster Projekte sind uns schon viele gute aber auch nicht so gute Beispiele für wartbare Software begegnet.
+In dieser dreiteiligen Serie wollen wir daher auf unterschiedliche Themen eingehen, die die Wartbarkeit von Software stark beeinflussen: Dokumentation, Tests, Codequalität und Automatisierung.
 
-Viele der angesprochenen Themen, die die spätere Pflege der Anwendung massiv erleichtern, lassen sich ohne großen Mehraufwand im Projekt umsetzen und lohnen sich schon in der Projektumsetzung, da sie zu einer hohen Qualität der Software führen und somit einige Nerven bei der Entwicklung und beim Go-Live sparen.
+Viele der angesprochenen Themen, die die spätere Pflege der Anwendung massiv erleichtern, lassen sich ohne großen Mehraufwand im Projekt umsetzen. Sie lohnen sich bereits in der Projektumsetzung, da sie zu einer hohen Qualität der Software führen und somit einige Nerven bei der Entwicklung und beim Go-Live sparen.
 
-Für eine schnelle Übersicht haben wir am Ende jedes Artikels die einzelnen Themen in einer kompakten Check-liste als PDF zum Download zur Verfügung gestellt.
+Um die wichtigsten Themen beim nächsten Angebot bzw. Projektstart schnell zur Hand zu haben, haben wir eine kompakte Checkliste zum Thema Wartbarkeit erstellt, die ihr euch im letzten Artikel der Serie als PDF-Datei herunterladen könnt.
 
 
 # Dokumentation
 
-Der erste Schritt in der Transition einer Software von der Entwicklung in die Wartung erfolgt in den meisten Fällen über die bereitgestellte Dokumentation der Software und der Prozesse. 
-Bei der Analyse von Fehlern in der Wartung spielt die Dokumentation ebenfalls eine wichtige Rolle. 
+Der erste Schritt in der Transition eines Softwareprojektes von der Entwicklung in die Wartung erfolgt in den meisten Fällen über die bereitgestellte Dokumentation der Software und Prozesse. 
+Bei der Analyse von Fehlern im Rahmen der Wartung spielt die Dokumentation ebenfalls eine wichtige Rolle. 
 Daher wollen wir uns im ersten Teil dieser Serie mit der Dokumentation von Softwareprojekten beschäftigen.
 
 Die meisten Dokumente, die dem Wartungsteam bei der Transition und in der Wartung helfen, sind heutzutage „state-of-the-art“ in der professionellen Softwareentwicklung, so dass entweder gar kein oder nur wenig zusätzlicher Aufwand für die Bereitstellung für das Wartungsteam anfällt.
@@ -180,18 +181,18 @@ Dies umfasst sowohl das technische, als auch das fachliche Monitoring der Anwend
 * Eine Beschreibung der Backup-Strategie zum Wiederherstellen der Systeme.
 
 
+Ein Beipiel für eine Verteilungssicht kann z.B. wie folgt aussehen:
+
 ![Beispiel einer Verteilungssicht](/assets/images/posts/wartbarkeit-von-software-teil-1-dokumentation/grafik-verteilungssicht.png)
 
 
 # Fazit
 
-Die meisten der hier erwähnten Dokumente sind heutzutage fester Bestandteil der professionellen Softwareentwicklung. 
+Die meisten der hier erwähnten Dokumente sind heutzutage fester Bestandteil der professionellen Softwareentwicklung.
 Somit sind sie nicht nur für das Wartungsteam nützlich, sondern sorgen grundsätzlich für eine hohe Qualität der Software.
 
 Für die Erstellung und Pflege der Softwaredokumentation muss natürlich Zeit und Budget vorhanden sein. 
 Daher müssen diese Punkte bereits in der Angebotserstellung und Kalkulation berücksichtigt werden.
-
-Um die wichtigsten Themen beim nächsten Angebot bzw. Projektstart schnell zur Hand zu haben, haben wir eine kompakte Checkliste zum Thema Wartbarkeit erstellt, die ihr euch [hier](TODO:Link ergänzen) als PDF-Datei herunterladen könnt.
 
 # Ausblick
 
