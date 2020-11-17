@@ -161,7 +161,7 @@ Im besten Fall erfolgt der Großteil dieser Schritte automatisiert auf Knopfdruc
 Werden dabei sehr komplexe Pipelines oder selbstgeschriebene Skripte verwendet, sollten diese (am besten inline) dokumentiert sein, damit das Wartungsteam die Prozesse schnell erfassen und nachvollziehen kann.
 
 Ist eine Automatisierung nicht möglich oder wenn zusätzliche Schritte notwendig sind, muss eine Anleitung mit allen notwendigen Schritten erstellt und dem Wartungsteam übergeben werden. 
-Neben den technischen Aspekten muss die Anleitung auch die organisatorischen Aufgaben beinhalten, wie z.B. die Liste der zu pflegenden Dokumente oder an wen und auf welchem Weg die Auslieferung auf Kundenseite zu erfolgen hat.
+Neben den technischen Aspekten muss die Anleitung auch die organisatorischen Aufgaben wie z.B. die Liste der zu pflegenden Dokumente oder an wen und auf welchem Weg die Auslieferung auf Kundenseite zu erfolgen hat beinhalten.
 
 # Betriebshandbuch
 
