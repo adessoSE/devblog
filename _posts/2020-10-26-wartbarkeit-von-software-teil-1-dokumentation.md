@@ -119,7 +119,7 @@ Das konkret verwendete Branchmodell (z.B. ein Branch pro Feature, zentrale Entwi
 
 ## Definition of Done
 
-Um sicherzustellen, dass alle entwickelten Features den gleichen Qualitätskriterien genügen, muss im Entwicklungsprojekt eine „Definition of Done“ definiert sein, die von allen Entwicklern eingehalten wird. 
+Um sicherzustellen, dass alle entwickelten Features den gleichen Qualitätskriterien genügen, muss im Entwicklungsprojekt eine „Definition of Done“ definiert sein, die von allen Entwickelnden eingehalten wird. 
 Eine solche Definition of Done kann zum Beispiel wie folgt aussehen:
 
 ![Beispiel für eine Definition of Done](/assets/images/posts/wartbarkeit-von-software-teil-1-dokumentation/grafik-dod.png)
