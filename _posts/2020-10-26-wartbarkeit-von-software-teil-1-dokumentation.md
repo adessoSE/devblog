@@ -77,7 +77,7 @@ Nicht benötigte Abschnitte der Vorlage sollten dabei nicht gelöscht, sondern m
 ![Aufbau des Arc42 Templates](/assets/images/posts/wartbarkeit-von-software-teil-1-dokumentation/grafik-arc42.png)
 
 Falls eine ausführliche Architekturdokumentation, aus welchen Gründen auch immer, nicht möglich sein sollte, sollten doch zumindest die folgenden Artefakte vorhanden sein:
-* Ein **Kontextdiagramm**, zur Darstellung der Schnittstellen bzw. Grenzen zu den Nutzer(gruppen) und externen Systemen.
+* Ein **Kontextdiagramm**, zur Darstellung der Schnittstellen bzw. Grenzen zu den Personen(gruppen) und externen Systemen.
 * Mindestens eine **Bausteinsicht** der wichtigsten Komponenten und deren Beziehungen untereinander.
 * Eine kurze Erläuterung des verwendeten **Architekturmusters**.
 * Eine Liste der **Architekturentscheidungen** inkl. der Problembeschreibung, der berücksichtigten Alternativen und einer Begründung für die getroffene Entscheidung. 
@@ -198,4 +198,3 @@ Daher müssen diese Punkte bereits in der Angebotserstellung und Kalkulation ber
 
 Im nächsten Teil dieser Serien werfen wir einen Blick auf den Test von Softwareprojekten. 
 Welche Tests helfen dem Wartungsteam bei ihrer Arbeit und welche Abdeckung ist sinnvoll und nützlich?
-
