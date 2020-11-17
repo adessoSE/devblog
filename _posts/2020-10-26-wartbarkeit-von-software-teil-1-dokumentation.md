@@ -94,7 +94,7 @@ Wenn sich während der Entwicklung Änderungen an der Architektur ergeben, müss
 # Entwicklungsdokumentation
 
 Um dem Wartungsteam einen möglichst schnellen Einstieg in die Wartung und Weiterentwicklung der Software zu ermöglichen, sollte das Entwicklungsvorgehen dokumentiert sein. 
-Zu den folgenden Themen sollte entsprechende Dokumentation vorhanden.
+Zu den folgenden Themen sollte entsprechende Dokumentation vorhanden sein.
 
 ## Entwicklungsumgebung
 
