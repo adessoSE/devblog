@@ -91,7 +91,7 @@ Anhand dieser Liste können zukünftige Probleme frühzeitig erkannt und ggf. no
 Für die Übergabe an das Wartungsteam ist es wichtig, dass die Dokumentation der Architektur aktuell ist. 
 Wenn sich während der Entwicklung Änderungen an der Architektur ergeben, müssen diese in die Dokumentation eingepflegt werden.
 
-# Entwicklerdokumentation
+# Entwicklungsdokumentation
 
 Um dem Wartungsteam einen möglichst schnellen Einstieg in die Wartung und Weiterentwicklung der Software zu ermöglichen, sollte das Entwicklungsvorgehen dokumentiert sein. 
 Zu den folgenden Themen sollte entsprechende Dokumentation vorhanden.
