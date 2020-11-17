@@ -127,7 +127,7 @@ Eine solche Definition of Done kann zum Beispiel wie folgt aussehen:
 ## Reviewprozess
 
 Um die Qualität der Anwendung zu erhöhen, sollte der Entwicklungsprozess ein Codereview der entwickelten Features durch mindestens eine zweite Person beinhalten. 
-Der Reviewprozess sollte in diesem Fall zentral für alle Entwickler und Reviewer dokumentiert sein. 
+Der Reviewprozess sollte in diesem Fall zentral für alle Entwickelnden und Reviewenden dokumentiert sein. 
 Durch die Verwendung einer Checkliste kann sichergestellt werden, dass jeder Reviewer ein Mindestsatz an Prüfungen durchführt. 
 Eine solche Checkliste kann z.B. folgende Punkte beinhalten:
 
