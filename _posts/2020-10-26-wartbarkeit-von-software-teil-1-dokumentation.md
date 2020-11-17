@@ -46,7 +46,7 @@ Im einfachsten Fall reicht hierfür eine Liste der umgesetzten Anwendungsfälle 
 Im besten Fall gibt es eine ausführliche fachliche Spezifikation der Anwendung, die idealerweise auch vom Kunden abgenommen wurde. 
 Eine ausführliche Spezifikation kann dem Wartungsteam vor allem bei der Analyse von fachlichen Fehlern helfen und bei der Unterscheidung zwischen Fehler und Change Request unterstützen.
 
-Falls während der Entwicklung die Anforderungen in einem Ticketsystem gepflegt wurden, ist es hilfreich, wenn diese zur Übergabe an das Wartungsteam in einem zentralen Dokument als Überblick zusammengefasst werden. 
+Falls während der Entwicklung die Anforderungen in einem Ticketsystem gepflegt wurden, ist es hilfreich, wenn diese Tickets zur Übergabe an das Wartungsteam in einem zentralen Dokument als Überblick zusammengefasst werden. 
 Auch wenn während der Entwicklung die Arbeit mit Tickets sehr hilfreich sein kann, erschwert es jedoch dem Wartungsteam im Nachhinein die Arbeit. 
 Vor allem wenn das gleiche Ticketsystem für die Qualitätssicherung und das Fehlerreporting verwendet wird, geht sehr schnell die Übersicht über die umgesetzten Funktionen verloren. 
 Das zusammenfassende Dokument muss nicht sehr formal gestaltet sein. 
@@ -198,5 +198,4 @@ Daher müssen diese Punkte bereits in der Angebotserstellung und Kalkulation ber
 
 Im nächsten Teil dieser Serien werfen wir einen Blick auf den Test von Softwareprojekten. 
 Welche Tests helfen dem Wartungsteam bei ihrer Arbeit und welche Abdeckung ist sinnvoll und nützlich?
-
 
