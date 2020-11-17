@@ -21,7 +21,7 @@ Manchmal fällt diese Aufgabe auch einem ganz anderen Dienstleister zu.
 Um die Transition von der Entwicklung in die Wartung möglichst einfach und effizient zu gestalten und dem Wartungsteam anschließend die Arbeit zu erleichtern, ist eine gute Wartbarkeit der Software die wichtigste Voraussetzung.
 
 Aber was zeichnet gute Wartbarkeit aus und wie können wir diese erreichen? 
-Im Rahmen der Wartung und dem Applikation Management unterschiedlichster Projekte sind uns schon viele gute aber auch nicht so gute Beispiele für wartbare Software begegnet.
+Im Rahmen der Wartung und dem Application Management unterschiedlichster Projekte sind uns schon viele gute aber auch nicht so gute Beispiele für wartbare Software begegnet.
 In dieser dreiteiligen Serie wollen wir daher auf unterschiedliche Themen eingehen, die die Wartbarkeit von Software stark beeinflussen: Dokumentation, Tests, Codequalität und Automatisierung.
 
 Viele der angesprochenen Themen, die die spätere Pflege der Anwendung massiv erleichtern, lassen sich ohne großen Mehraufwand im Projekt umsetzen. Sie lohnen sich bereits in der Projektumsetzung, da sie zu einer hohen Qualität der Software führen und somit einige Nerven bei der Entwicklung und beim Go-Live sparen.
@@ -35,7 +35,7 @@ Der erste Schritt in der Transition eines Softwareprojektes von der Entwicklung 
 Bei der Analyse von Fehlern im Rahmen der Wartung spielt die Dokumentation ebenfalls eine wichtige Rolle. 
 Daher wollen wir uns im ersten Teil dieser Serie mit der Dokumentation von Softwareprojekten beschäftigen.
 
-Die meisten Dokumente, die dem Wartungsteam bei der Transition und in der Wartung helfen, sind heutzutage „state-of-the-art“ in der professionellen Softwareentwicklung, so dass entweder gar kein oder nur wenig zusätzlicher Aufwand für die Bereitstellung für das Wartungsteam anfällt.
+Die meisten Dokumente, die dem Wartungsteam bei der Transition und in der Wartung helfen, gehören heutzutage zum Standard in der professionellen Softwareentwicklung, so dass entweder gar kein oder nur wenig zusätzlicher Aufwand für die Bereitstellung für das Wartungsteam anfällt.
 
 # Anforderungen
 
@@ -81,7 +81,7 @@ Falls eine ausführliche Architekturdokumentation, aus welchen Gründen auch imm
 * Mindestens eine **Bausteinsicht** der wichtigsten Komponenten und deren Beziehungen untereinander.
 * Eine kurze Erläuterung des verwendeten **Architekturmusters**.
 * Eine Liste der **Architekturentscheidungen** inkl. der Problembeschreibung, der berücksichtigten Alternativen und einer Begründung für die getroffene Entscheidung. 
-Architekturentscheidungen sind insbesondere dann zu dokumentieren, wenn kein firmen- und branchentypischer Standard-Stack verwendet wird.
+Architekturentscheidungen sind insbesondere dann zu dokumentieren, wenn kein firmen- oder branchentypischer Standard-Stack verwendet wird.
 * Eine zentrale Liste der **verwendeten Technologien** erleichtert dem Wartungsteam vor allem in Microservice-Architekturen oder Multi-Modul Anwendungen die Übersicht und den Einstieg in das Projekt. 
 In kleinen Projekten kann hierauf ggf. verzichtet werden, wenn die verwendeten Abhängigkeiten durch ein geeignetes Build-Tool zentral verwaltet werden (z.B. Maven pom-Datei oder Gradle build-Datei).
 * Die Liste der **technischen Schulden** ist besonders wichtig für das Wartungsteam. 
@@ -99,27 +99,27 @@ Zu den folgenden Themen sollte entsprechende Dokumentation vorhanden sein.
 ## Entwicklungsumgebung
 
 Als erster Schritt wird eine Anleitung für die Einrichtung der Entwicklungsumgebung benötigt. 
-Im einfachsten Fall ist diese bereits fertig vorkonfiguriert als Docker-Image oder Virtuelle Maschine vorhanden, die die Entwickelnden nur noch kopieren und starten müssen. 
+Im einfachsten Fall ist diese bereits fertig vorkonfiguriert als Docker-Image oder Virtuelle Maschine vorhanden, die die Mitglieder des Entwicklungsteams nur noch kopieren und starten müssen. 
 Ist dies nicht vorhanden, ist eine Anleitung zur korrekten Einrichtung der IDE sowie der sonstigen genutzten Entwicklungswerkzeuge und Plugins notwendig.
 
 ## Vorgaben
 
 Falls Entwicklungsvorgaben vorhanden sind, müssen diese ebenfalls dokumentiert und an das Wartungsteam übergeben werden, damit diese Vorgaben auch in der Wartung und Weiterentwicklung weiterhin eingehalten werden können. 
-Dazu gehören z.B. Coding Conventions, Guidelines, Styleguides, Umsetzungsrichtlinien für einzuhaltende Standards oder ähnliches. 
-Eine Vorgabe für die Umsetzung der Barrierefreiheit kann z.B. wie folgt aussehen.
+Beispiele für Vorgaben sind Coding Conventions, Guidelines, Styleguides, Umsetzungsrichtlinien für einzuhaltende Standards oder ähnliches. 
+Eine Vorgabe für die Umsetzung der Barrierefreiheit kann z.B. wie folgt aussehen:
 
 ![Beispiel für die technischen Vorgaben zur Umsetzung der Barrierefreiheit](/assets/images/posts/wartbarkeit-von-software-teil-1-dokumentation/grafik-doku-barrierefreiheit.png)
 
 ## Versionsverwaltung
 
-Unabhängig davon, wie viele Entwickelnden an der Software arbeiten, muss eine Versionsverwaltung wie z.B. Git eingesetzt werden. 
+Unabhängig davon, ob das Entwicklungsteam aus einer oder aus mehreren Personen besteht, muss eine Versionsverwaltung wie z.B. Git eingesetzt werden. 
 Dabei sollten mindestens zwei Branches erstellt und verwendet werden. 
 Einen Masterbranch, der die aktuellste ausgelieferte Version der Software beinhaltet und einen Entwicklungsbranch, in dem neue Features für das nächste Release entwickelt und getestet werden. 
 Das konkret verwendete Branchmodell (z.B. ein Branch pro Feature, zentrale Entwicklung im Entwicklungsbranch oder sonstiges) und die damit verbundenen Prozesse sollten dokumentiert sein.
 
 ## Definition of Done
 
-Um sicherzustellen, dass alle entwickelten Features den gleichen Qualitätskriterien genügen, muss im Entwicklungsprojekt eine „Definition of Done“ definiert sein, die von allen Entwickelnden eingehalten wird. 
+Um sicherzustellen, dass alle entwickelten Features den gleichen Qualitätskriterien genügen, muss im Entwicklungsprojekt eine "Definition of Done" definiert sein, die von allen Mitgliedern des Entwicklungsteams eingehalten wird. 
 Eine solche Definition of Done kann zum Beispiel wie folgt aussehen:
 
 ![Beispiel für eine Definition of Done](/assets/images/posts/wartbarkeit-von-software-teil-1-dokumentation/grafik-dod.png)
@@ -128,7 +128,7 @@ Eine solche Definition of Done kann zum Beispiel wie folgt aussehen:
 
 Um die Qualität der Anwendung zu erhöhen, sollte der Entwicklungsprozess ein Codereview der entwickelten Features durch mindestens eine zweite Person beinhalten. 
 Der Reviewprozess sollte in diesem Fall zentral für alle Entwickelnden und Reviewenden dokumentiert sein. 
-Durch die Verwendung einer Checkliste kann sichergestellt werden, dass alle Reviewenden ein Mindestsatz an Prüfungen durchführt. 
+Durch die Verwendung einer Checkliste kann sichergestellt werden, dass bei allen Reviews ein Mindestsatz an Prüfungen durchführt wird. 
 Eine solche Checkliste kann z.B. folgende Punkte beinhalten:
 
 * Der Lösungsweg ist im Pull Request oder im zugehörigen Ticket beschrieben.
@@ -137,14 +137,14 @@ Eine solche Checkliste kann z.B. folgende Punkte beinhalten:
 * Texte für Masken, E-Mails usw. entsprechen den Vorgaben der Spezifikation (falls vorhanden) und enthalten keine Rechtschreib- bzw. Grammatikfehler.
 * Es sind Unit-Tests vorhanden und die Code-Abdeckung entspricht dem vorgegebenen Ziel.
 * Es sind ggf. Integrationstests vorhanden.
-* Die „Definition of Done“ ist erfüllt.
+* Die "Definition of Done" ist erfüllt.
 * Die konfigurierten Codequalitätsziele werden eingehalten.
 
 ## Testumgebungen
 
 Während der Entwicklungsphase wird die Software üblicherweise auf eine oder mehrere Testumgebungen deployt und getestet. 
 Da diese Testumgebungen auch vom Wartungsteam verwendet werden, müssen sie dokumentiert und beschrieben sein. 
-Dazu gehören der Zweck der Umgebung, die Konfiguration, die zugehörigen URL(s) und ggf. die Zugänge. 
+In der Dokumentation sollten mindestens der Zweck der Umgebung, die Konfiguration, die zugehörigen URL(s) und ggf. die Zugänge angegeben sein. 
 Passwörter sind dabei natürlich in entsprechenden Passwortverwaltungstools zu sichern.
 
 Üblicherweise kommen drei verschiedene Arten von Testumgebungen zum Einsatz:
@@ -157,12 +157,11 @@ Dort können die Entwickelnden den aktuellen Stand der Software einsehen und ihr
 ## Build und Auslieferung
 
 Um Bugfixes oder neue Releases ausliefern zu können, benötigt das Wartungsteam Anleitungen für den Build, das Deployment und die Auslieferung der Software. 
-Im besten Fall erfolgt der Großteil dieser Schritte automatisiert auf Knopfdruck durch ein CI Werkzeug wie z.B. Jenkins oder GitLab. 
+Im besten Fall erfolgt der Großteil dieser Schritte automatisiert auf Knopfdruck durch ein CI Werkzeug wie z.B. Jenkins, GitLab oder Bamboo. 
 Werden dabei sehr komplexe Pipelines oder selbstgeschriebene Skripte verwendet, sollten diese (am besten inline) dokumentiert sein, damit das Wartungsteam die Prozesse schnell erfassen und nachvollziehen kann.
 
 Ist eine Automatisierung nicht möglich oder wenn zusätzliche Schritte notwendig sind, muss eine Anleitung mit allen notwendigen Schritten erstellt und dem Wartungsteam übergeben werden. 
-Neben den technischen Aspekten muss die Anleitung auch die organisatorischen Aufgaben beinhalten. 
-Dazu gehört z.B. die Liste der zu pflegenden Dokumente oder an wen und auf welchem Weg die Auslieferung auf Kundenseite zu erfolgen hat.
+Neben den technischen Aspekten muss die Anleitung auch die organisatorischen Aufgaben beinhalten, wie z.B. die Liste der zu pflegenden Dokumente oder an wen und auf welchem Weg die Auslieferung auf Kundenseite zu erfolgen hat.
 
 # Betriebshandbuch
 
