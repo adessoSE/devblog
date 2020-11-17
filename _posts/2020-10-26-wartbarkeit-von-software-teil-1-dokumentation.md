@@ -99,7 +99,7 @@ Zu den folgenden Themen sollte entsprechende Dokumentation vorhanden sein.
 ## Entwicklungsumgebung
 
 Als erster Schritt wird eine Anleitung für die Einrichtung der Entwicklungsumgebung benötigt. 
-Im einfachsten Fall ist diese bereits fertig vorkonfiguriert als Docker-Image oder Virtuelle Maschine vorhanden, die die Entwickler nur noch kopieren und starten müssen. 
+Im einfachsten Fall ist diese bereits fertig vorkonfiguriert als Docker-Image oder Virtuelle Maschine vorhanden, die die Entwickelnden nur noch kopieren und starten müssen. 
 Ist dies nicht vorhanden, ist eine Anleitung zur korrekten Einrichtung der IDE sowie der sonstigen genutzten Entwicklungswerkzeuge und Plugins notwendig.
 
 ## Vorgaben
