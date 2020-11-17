@@ -150,7 +150,7 @@ Passwörter sind dabei natürlich in entsprechenden Passwortverwaltungstools zu 
 Üblicherweise kommen drei verschiedene Arten von Testumgebungen zum Einsatz:
 * Entwicklung: Auf dieser Testumgebung befindet sich immer der aktuellste Entwicklungsstand der Anwendung. 
 Üblicherweise wird diese Umgebung durch ein CI-Werkzeug automatisch, nach jedem Push in den Entwicklungsbranch und anschließendem erfolgreichen Build, aktualisiert. 
-Dort können die Entwickler den aktuellen Stand der Software einsehen und ihre Features außerhalb ihrer lokalen Entwicklungsumgebung testen.
+Dort können die Entwickelnden den aktuellen Stand der Software einsehen und ihre Features außerhalb ihrer lokalen Entwicklungsumgebung testen.
 * Qualitätssicherung: Auf dieser Testumgebung führt das Qualitätssicherungsteam den internen Abnahmetest durch, bevor die Softwareversion an den Kunden ausgeliefert wird.
 * Test: Diese Testumgebung wird für automatisierte Tests wie z.B. Integrationstests, Massendatentests sowie Last- und Performancetests verwendet.
 
