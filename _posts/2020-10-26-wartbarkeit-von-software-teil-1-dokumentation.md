@@ -112,7 +112,7 @@ Eine Vorgabe für die Umsetzung der Barrierefreiheit kann z.B. wie folgt aussehe
 
 ## Versionsverwaltung
 
-Unabhängig davon, wie viele Entwickler an der Software arbeiten, muss eine Versionsverwaltung wie z.B. Git eingesetzt werden. 
+Unabhängig davon, wie viele Entwickelnden an der Software arbeiten, muss eine Versionsverwaltung wie z.B. Git eingesetzt werden. 
 Dabei sollten mindestens zwei Branches erstellt und verwendet werden. 
 Einen Masterbranch, der die aktuellste ausgelieferte Version der Software beinhaltet und einen Entwicklungsbranch, in dem neue Features für das nächste Release entwickelt und getestet werden. 
 Das konkret verwendete Branchmodell (z.B. ein Branch pro Feature, zentrale Entwicklung im Entwicklungsbranch oder sonstiges) und die damit verbundenen Prozesse sollten dokumentiert sein.
