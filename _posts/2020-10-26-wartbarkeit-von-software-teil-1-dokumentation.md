@@ -196,5 +196,5 @@ Daher müssen diese Punkte bereits in der Angebotserstellung und Kalkulation ber
 
 # Ausblick
 
-Im nächsten Teil dieser Serien werfen wir einen Blick auf den Test von Softwareprojekten. 
+Im nächsten Teil dieser Serien werfen wir einen Blick auf das Testen von Softwareprojekten. 
 Welche Tests helfen dem Wartungsteam bei ihrer Arbeit und welche Abdeckung ist sinnvoll und nützlich?
