@@ -19,6 +19,7 @@ Diese Liste kann auch gut als Checkliste verwendet werden, damit du sicher gehen
 - Nutze lieber eine **aktive Schreibweise statt einer passiven Schreibweise**: "In diesem Artikel diskutieren wir..." statt "In diesem Artikel wird diskutiert..."
 - Schreibe lieber in Form eines **Dialogs mit dem Leser** als unpersönlich formell: "Schauen wir uns mal an, wie..." statt "Hier kann man sehen, wie...".
 - Sei **konsistent im Sprachgebrauch**. Nutze durchgehend dieselbe Zeitform. Nutze durchgehend dieselbe Leser-Ansprache ("wir" vs. "du")
+- Achte auf gendergerechte Formulierungen. Mehr dazu findest Du in unserem [Leitfaden für gendergerechtes Formulieren](https://intranet.adesso.de/marketing-pr/Lists/OeffentlicheDokumente/GenderBroschuer_wickelfalz_DIN_A5_hoch_6-seiter_25012019_WEB.pdf).
 - Du kannst auch gerne auf **Englisch** schreiben, musst dir aber bewusst sein, dass der Artikel dann auch nur auf Englisch verfügbar ist (es sei denn, du übersetzt ihn).
 
 # Formales

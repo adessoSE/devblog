@@ -56,8 +56,6 @@ johndoe:
   github: https://github.com/johndoe
 ```
 
-Das Autorenfoto muss aktuell noch manuell vor Veröffentlichung des Artikels an CCO geschickt werden, damit es im CMS eingefügt werden kann.
-
 ## Metadaten
 
 Jede Blog Post Markdown-Datei beginnt mit einem kurzen Abschnitt, in dem einige Metadaten enthalten
@@ -124,7 +122,7 @@ verlinke sie dann in der Markdown-Datei wie in diesem Beispiel:
 ![Logo der adesso AG](https://github.com/adessoAG/devblog/raw/master/assets/images/blog-post-guide/logo.png)
 
 **Hinweis:** im Gegensatz zum Beispiel-Bild oben muss der Pfad zum Bild in einem Blog Post erst bei "assets" beginnen,
-müsste also so aussehen: "/assets/images/posts/titel-deines-blog-posts/bild.png". Wichtig dabei ist, dass der Pfad mit einem **"/"** beginnt, ansonsten funktionieren die Bilder zwar in der Vorschau, allerdings nicht im eigentlichen Blog.
+müsste also so aussehen: "/assets/images/posts/titel-deines-blog-posts/bild.png". Wichtig dabei ist, dass der Pfad mit einem **"/"** beginnt, ansonsten funktionieren die Bilder zwar in der Vorschau, allerdings nicht im eigentlichen Blog. Wichtig ist auch, dass ihr bei den Bildern auf die Groß- und Kleinschriebung der Dateiendung achtet. In der Preview funktioniert beides, im eigentlichen Blog ist die Dateiendung case-sensitiv.
 
 # GitHub Fork & Pull Workflow
 
@@ -137,10 +135,9 @@ die Änderungen am Source Code. Die geänderten Dateien checkst du dann wieder i
 Navigierst du im Browser in der GitHub Weboberfläche dann zu deinem Fork, wird dir ein Button angeboten, mit dem du einen Pull
 Request erstellen kannst.
 
-Die Änderungen in deinem Pull Request werden dann von einem Entwickler/Architekten-Kollegen gereviewed (wer das zentral macht
-wird noch geklärt). Ggf. werden Korrekturwünsche als Kommentare
-im Pull Request ergänzt, die du dann vornehmen und ebenfalls auf den Fork pushen kannst. Letztendlich
-wird der Pull Request dann vom Reviewer in den Haupt-Branch gemergt und dann automatisch veröffentlicht.
+Die Änderungen in deinem Pull Request werden dann von einem Entwickler/Architekten-Kollegen gereviewed.
+Ggf. werden Korrekturwünsche als Kommentare im Pull Request ergänzt, die du dann vornehmen und ebenfalls auf den Fork pushen kannst.
+Letztendlich wird der Pull Request dann vom Reviewer in den Haupt-Branch gemergt und dann automatisch veröffentlicht.
 
 Detailliertere Informationen zu diesem Workflow sind hier zu finden:
 
@@ -163,7 +160,6 @@ Vor der Freigabe leitet der Reviewer einige Infos an CCO weiter:
 
 * Titel des Blogs
 * das Kürzel des Autoren aus der `authors.yml`
-* das Autorenbild
 * die Kurz-Bio 
 
 Dann sollte noch ein Tag gewartet werden, damit CCO die Daten verarbeiten kann, bevor der Pull Request gemergt wird.
@@ -177,6 +173,8 @@ Diese ist auch in die Pull-Request-Template eingebunden, sodass Du dort deine Ä
 
 ## Publish Checkliste
 
+
+
 1. Wurde der [Github Fork- und Pullprozess](https://reflectoring.io/github-fork-and-pull/) beachtet?
 2. Dateien eingebunden
   * [Artikeldatei einbinden](https://github.com/adessoAG/devblog/blob/master/examples/2017-08-10-blog-post-guide.md#dateiname-und-ablageort)
@@ -185,22 +183,10 @@ Diese ist auch in die Pull-Request-Template eingebunden, sodass Du dort deine Ä
 3. Dateien angepasst:
   * [Autorinfo gepflegt](https://github.com/adessoAG/devblog/blob/master/examples/2017-08-10-blog-post-guide.md#autoren-informationen)
 4. Artikel überprüfen:
-  * Metadaten
-    * "title" vergeben
-		* "date" liegt in der Vergangenheit
-	  * "author" angegeben
-		* "categories [Java]" enthält maximal eine der Hauptkategorien (Java, Microsoft, Methodik, Architekturen, Softwareentwicklung, Business & People)
-		* "tags [Spring, Microservices]" gesetzt
-	* [Einleitung/Teaser geschrieben](https://github.com/adessoAG/devblog/blob/master/examples/2017-08-10-blog-post-guide.md#einleitung--teaser)
-	* Rechtschreibung korrigiert
-	* Ein Satz pro Zeile
-	* [Bilder korrekt in den Artikel eingebunden](https://github.com/adessoAG/devblog/blob/master/examples/2017-08-10-blog-post-guide.md#bilder)
-	* Reviewer angegeben (Liste mit Reviewern?)
-  * Online-Preview angesehen
-
+  Du musst alle Anforderungen aus dem [Pull-Request-Template](https://github.com/adessoAG/devblog/blob/master/.github/pull_request_template.md) erfüllen. Dieses Template wird automatisch in deinen PR eingebunden, so kannst du die einzelnen Punkte ganz einfach abhaken.
+  
 # Nachträgliche Änderungen am Post
 Es können auch nach Veröffentlichung nachträglich Änderungen an einem Post durchgeführt werden, wenn beispielsweise Bilder nicht korrekt dargestellt werden oder sich ein Fehler im Text eingeschlichen hat, der vorher nicht aufgefallen ist.
-**Damit die Änderungen auch im adesso Blog landen, muss dazu das `modified_date` im Kopf der Datei hinzugefügt bzw. aktualisiert werden**. Ansonsten wird der Post nicht vom Freigabeprozess aufgegriffen.
 
 # Technischer Hintergrund
 
@@ -209,3 +195,14 @@ du dir das Projekt [jekyll2cms](https://github.com/adessoAG/jekyll2cms) anschaue
 liest das Blog-Repository regelmäßig aus, prüft es auf Änderungen, transformiert die Markdown-Dateien
 in ein XML-Format und legt diese XML wieder ab. Die XML-Dateien werden dann von einem Job im adesso
 CMS ausgelesen und in den Blog integriert.
+
+# Known Issues:
+
+## Teaser beinhaltet ganzen Post
+Die Zeilenumbrüche im Markdown-File sind wahrscheinlich im falschen Format. Als Zeilenumbruch wird `\n` erwartet. `\r\n` führt dazu, dass der Teaser nicht extrahiert werden kann. Um das Problem zu lösen, kann das Markdown-File mit einem Editor wie Notepad++ geöffnet werden. Mit "Ansicht -> Symbole anzeigen -> Alle anzeigen" werden die Steuerzeichen aktiviert. Als Nächstes kann man mit "Suchen und Ersetzen" in der aktuellen Datei alle `\r` durch einen blanken String ersetzen. Die Änderungen werden anschließend committed.
+
+## Leere Commit-Nachricht
+Es kann passieren, dass die Nachricht eines Commits ein leerer String ist. Dies ist der Fall, wenn keine Dateien in dem Commit durch jekyll2cms entfernt oder hinzugefügt wurden.
+
+## jekyll2cms pusht nicht auf den master
+In diesem Fall ist jekyll2cms wahrscheinlich nicht als Contributor mit Admin-Rechten in dem Repository. In den Settings kann der GitHub-Account jekyll2cms als Contributor hinzugefügt werden. Anschließend muss dieser die Einladung noch annehmen.
