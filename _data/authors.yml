@@ -384,4 +384,14 @@ vschiller:
   bio: "Vivien Schiller ist als Senior Software Engineer bei adesso in Dortmund tätig und ist dort auf die Sicherheit von Webanwendungen spezialisiert. Ihr Fokus liegt dabei auf User Centered Security."
   avatar_url: /assets/images/avatars/vschiller.jpg
   github: https://github.com/VivienEmily
+
+vschiller:
+  first_name: Ivan
+  last_name: Kablar
+  github_username: IvanKablar
+  email: ivan.kablar@adesso.de
+  bio: "Ivan Kablar ist Senior Software Engineer im Banking-Bereich bei adesso in Frankfurt und arbeitet an verschiedenen Projekten im Java-Umfeld. Ihn interessieren Software-Architekturen, IT-Security und Geschäftsprozesse. 
+  avatar_url: /assets/images/avatars/ivankablar.jpg
+  github: https://github.com/IvanKablar
+  
   
