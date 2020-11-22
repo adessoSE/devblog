@@ -10,9 +10,6 @@ tags: [Java, IT_Security, Kryptographie, SSH, Apache MINA]
 In der Fortsetzung meines Blogs-Beitrags werden wir die Authentifizierung über öffentliche Schlüssel mit dem Apache MINA Framework genauer untersuchen.
 Ich beginne mit einem Überblick über die für uns relevanten kryptographischen Verfahren und Methoden. 
 Anschließend schauen wir und die Implementierung der Authentifizierung über öffentliche Schlüssel mit einem Prototyp und einem vom Framework abgeleiteten Konzept für die Authentifizierung an.
-Den vorkonfigurierten Prototyp könnt Ihr aus dem adesso GitHub herunterladen: [SFTP-Pub-Auth-MINA](Muss noch hochgeladen werden!).
-Das Erstellen der öffentlichen und privaten Schlüssel in diesem Beitrag können als optional angesehen werden. 
-Falls Ihr trotzdem Eure eigenen Schlüssel erstellen und im Prototyp konfigurieren wollt, könnt Ihr das gerne machen.
 
 # Asymmetrische Verschlüsselung
 Die asymmetrische Verschlüsselung verwendet zwei sich ergänzende Schlüssel: den öffentlichen Schlüssel für das Verschlüsseln der Nachricht und den privaten Schlüssel für das Entschlüsselnd der Nachricht. 
@@ -38,7 +35,9 @@ Während der Prozedur generieren der Client und der Server Schlüssel, die für 
 Erst nach erfolgreicher Verschlüsselung des Kommunikationskanals kann mit dem Authentifizierungsvorgang begonnen werden.
 
 # Prototyp
-Schauen wir uns die Implementierung des Prototyps genauer an:
+Im adesso GitHub habe ich einen Prototyp hinterlegt. 
+Ihr könnt ihn unter [SFTP-Pub-Auth-MINA](Muss noch hochgeladen werden!) herunterladen.
+Schauen wir uns die Konfiguration des Servers und der öffentlichen Schlüssel genauer an:
 
 ```java
 @Component
@@ -61,7 +60,6 @@ public class SftpServerConfig {
         SftpSubsystemFactory factory = new SftpSubsystemFactory.Builder().build();
         sshd = SshServer.setUpDefaultServer();
         sshd.setPort(9922);
-        sshd.setHost("0.0.0.0");
         sshd.setKeyPairProvider(new SimpleGeneratorHostKeyProvider(new File(hostKey).toPath()));
         sshd.setPublickeyAuthenticator(sftpPublicKeyAuthenticator);
         sshd.setSubsystemFactories(Collections.singletonList(factory));
@@ -73,17 +71,19 @@ public class SftpServerConfig {
 
 Eine kurze Erklärung zur Implementierung:
 
-Der SFTP-Server wird in der "init"-Methode konfiguriert und gestartet.
+Der SFTP-Server wird in der „init“-Methode konfiguriert.
 Bevor der Server gestartet werden kann, muss eine Instanz des Typs „KeyPairProvider“ bekannt gemacht werden. 
-Hierfür erzeugen wir eine Datei mit einem privaten Schlüssel: 
+Die an den Konstruktor der Klasse „SimpleGeneratorHostKeyProvider" übergebene Schlüsseldatei wird für die Identifikation des Servers verwendet.
+Falls Ihr den Prototyp heruntergeladen habt, ist das Erstellen der nun im Beitrag folgenden öffentlichen bzw. privaten Schlüssel optional.
+Falls Ihr trotzdem Eure eigenen Schlüssel erstellen und im Prototyp konfigurieren wollt, könnt Ihr das gerne machen.
+Der Schlüssel für den „SimpleGeneratorHostKeyProvider" kann folgendermaßen erstellt werden: 
 
 ```git
 ssh-keygen -t rsa -m PEM
 ```
 
-Die Datei mit dem privaten Schlüssel kopieren wir in das Resource-Verzeichnis des Server.
-Mit dem privaten Schlüssel steht auch der öffentliche Schlüssel zur Verfügung, der wiederum für die Identifikation des Servers verwendet wird. 
-Mit dem öffentlichen Schlüssel wird der sogenannte der „Fingerprint“, ein MD5-Hash Wert, berechnet und dem Client beim Anmeldeversuch zugesendet. 
+Die Datei kopieren wir in das Resource-Verzeichnis des Server.
+Mit dem öffentlichen Schlüssel der Datei wird der sogenannte der „Fingerprint“, ein MD5-Hash Wert, berechnet und dem Client beim Anmeldeversuch zugesendet. 
 Der Client sollte beim Anmelden Änderungen am „Fingerprint“ immer genau hinterfragen. 
 Zwar ist es wahrscheinlich, dass der Server-Admin den öffentlichen Schlüssels und damit den „Fingerprint“ geändert hat, aber es könnte sich auch um eine „Man-in-the-Middel Attack“ handeln. 
 Nach einer erfolgreichen Authentifizierung ermöglicht die Klasse „SftpSubsystemFactory” den Zugriff auf das Dateisystem des Servers. 
