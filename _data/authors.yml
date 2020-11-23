@@ -384,4 +384,29 @@ vschiller:
   bio: "Vivien Schiller ist als Senior Software Engineer bei adesso in Dortmund tätig und ist dort auf die Sicherheit von Webanwendungen spezialisiert. Ihr Fokus liegt dabei auf User Centered Security."
   avatar_url: /assets/images/avatars/vschiller.jpg
   github: https://github.com/VivienEmily
-  
+
+axelSchirmer:
+  first_name: Axel
+  last_name: Schirmer
+  github_username: axelSchirmer
+  email: axel.schirmer@adesso.de
+  bio: "Axel Schirmer ist Software Engineer und seit dem 01.07.2019 bei adesso SE im öffentlichen Bereich (Public) tätig. Als Java Entwickler hat er bereits in der Versicherungsbranche, Telekommunikation, Banken Umfeld als Business Analyst gearbeitet, bevor er im öffentlichen Umfeld in einem von Cobol nach Java transformierten Projekt als Java Entwickler gearbeitet hat." 
+
+peterUrbanik:
+  first_name: Peter
+  last_name: Urbanik
+  email: peter.urbanik@adesso.de
+  bio: "Peter Urbanik ist Associate Consultant und im Juni 2018 bei der adesso SE als Trainee im Bereich Digitalisierung gestartet. Fachlich liegen seine Schwerpunkte in der Erhebung und Dokumentation von komplexen Softwareanforderungen im Rahmen des agilen Requirements Engineerings und im Bereich des Projekt- und Testmanagements, die er in diversen Projekten und Workshops unterstützend einsetzen konnte."
+
+tonyEggert:
+  first_name: Tony
+  last_name: Eggert
+  email: tony.eggert@adesso.de
+  bio: "Tony Eggert ist Senior Consultant (DvD) und seit Mai 2019 bei adesso tätig. Im Umfeld der Beratung ist er bereits in verschiedenen Rollen (Requirement Engineering, Business Analyst, Product Owner, Testanalyst oder Projektkoordinator) bei namhaften Finanzdienstleistern tätig gewesen u.a. als Folge seines Studiums im Bereich der Volkswirtschaftslehre. Darüber hinaus beschäftigt er sich intensiv mit den Aspekten des Team-Coaching und agilem Leadership. "
+
+axPeTo:
+  first_name: Axel Schirmer, Peter Urbanik
+  last_name: und Tony Eggert
+  email: axel.schirmer@adesso.de, peter.urbanik@adesso.de, tony.eggert@adesso.de
+
+
