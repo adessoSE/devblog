@@ -7,6 +7,7 @@ author: IvanKablar
 categories: [Java]
 tags: [Java, IT_Security, Kryptographie, SSH, Apache MINA]     
 ---
+
 In der Fortsetzung meines Blogs-Beitrags werden wir die Authentifizierung über öffentliche Schlüssel mit dem Apache MINA Framework genauer untersuchen.
 Ich beginne mit einem Überblick über die für uns relevanten kryptographischen Verfahren und Methoden. 
 Anschließend schauen wir und die Implementierung der Authentifizierung über öffentliche Schlüssel mit einem Prototyp und einem vom Framework abgeleiteten Konzept für die Authentifizierung an.
@@ -102,7 +103,6 @@ Aus diesem kann der Schlüssel beim Erstellen der Benutzerinformationen gelesen 
 In einer produktiven Anwendung würde wahrscheinlich ein anderes Konzept hinter der Schlüsselverwaltung stehen. 
 Beispielsweise könnte der öffentliche Schlüssel in einem LDAP-Verzeichnis hinterlegt werden.
 
-
 Aus organisatorischer Sicht kann es sinnvoll sein, dass der Client die Schlüssel selbst erzeugt. 
 Die Datei mit dem öffentlichen Schlüssel sendet er über einen beliebigen, möglicherweise unsicheren Kanal, an den Server-Admin und den privaten Schlüssel behält er im Geheimen.
 
@@ -112,7 +112,6 @@ Als Nächstes versuchen wir uns mit dem privaten Schlüssel am Server zu authent
 ```git
 sftp -P 9924 -i /home/ivan/id_rsa ivan@localhost  
 ``` 
-
 Der private Schlüssel enthält die notwendigen Informationen für das Berechnen des öffentlichen Schlüssels. 
 Der vom Client geschickte öffentliche Schlüssel kann nun mit dem für den Benutzer auf dem Server konfigurierten öffentlichen Schlüssel verglichen werden. 
 Außerdem überprüft das Framwork die Signatur des privaten Schlüssels. 
@@ -134,9 +133,7 @@ Anschließend finden die Analyse und der Vergleich der öffentlichen Schlüssel 
         return publicKeyService.isPublicKeyValid(user, PublicKeyEntry.toString(publicKey), serverSession);
     }
 ```
-
 Die Methode „isPublicKeyValid“ der Klasse „PublicKeyService“ enthält die Logik für die Validierung und den Vergleich der öffentlichen Schlüssel. 
-
 ```java
  public boolean isPublicKeyValid(String serverConfPublicKey, String clientSentPublicKey, ServerSession serverSession) {
         PublicKey clientPublicKey = null;
@@ -183,9 +180,7 @@ private PublicKey generatePublicKey(String publicKey, ServerSession serverSessio
        return publicKeyEntry.resolvePublicKey(serverSession, null, PublicKeyEntryResolver.IGNORING);
     }
 ```
-
 Konnten beide öffentliche Schlüssel in der Methode „generatePublicKey“ fehlerfrei analysieren werden, prüft die Methode „compareKeys“, ob der auf dem Server konfigurierte öffentliche Schlüssel mit dem öffentlichen Schlüssel des Clients übereinstimmt. 
-
 ```java
     private boolean compareKeys(PublicKey clientPublicKey, PublicKey serverConfigPublicKey) {
        if(!KeyUtils.compareKeys(clientPublicKey, serverConfigPublicKey)) {
@@ -196,7 +191,6 @@ Konnten beide öffentliche Schlüssel in der Methode „generatePublicKey“ feh
         return true;
     }
 ```
-
 Stimmen die Schlüssel nicht übereinstimmen, bricht die Authentifizierung an dieser Stelle ab. 
 Handelt es sich um die gleichen Schlüssel, überprüft anschließend die Implementierung des Frameworks die Signatur des privaten Schlüssels. 
 Ist die Signatur ebenfalls valide, gilt der Client als authentifiziert.
@@ -204,6 +198,4 @@ Ist die Signatur ebenfalls valide, gilt der Client als authentifiziert.
 # Fazit
 Mit dem Prototyp und dem Beispiel oben haben wir die Implementierung eines Konzepts für die Authentifizierung über öffentliche Schlüssel mit dem Apache MINA Framework untersucht. 
 
-
 Mir hat es Spaß gemacht den SFTP-Server zu entwickeln und ich hoffe, Euch hat mein Blog-Beitrag gefallen. Bleibt gesund und bis bald.
-
