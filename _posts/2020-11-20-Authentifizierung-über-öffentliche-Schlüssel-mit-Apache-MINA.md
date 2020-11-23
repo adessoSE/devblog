@@ -36,7 +36,7 @@ Erst nach erfolgreicher Verschlüsselung des Kommunikationskanals kann mit dem A
 
 # Prototyp
 Im adesso GitHub habe ich einen Prototyp hinterlegt. 
-Ihr könnt ihn unter [SFTP-Pub-Auth-MINA](Muss noch hochgeladen werden!) herunterladen.
+Ihr könnt ihn unter [MINA-sftp-pub-auth](https://github.com/IvanKablar/MINA-sftp-pub-auth) herunterladen.
 Schauen wir uns die Konfiguration des Servers und der öffentlichen Schlüssel genauer an:
 
 ```java
