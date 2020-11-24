@@ -8,20 +8,20 @@ categories: [Java]
 tags: [Java, IT_Security, Kryptographie, SSH, Apache MINA]     
 ---
 
-In der Fortsetzung meines Blogs-Beitrags werden wir die Authentifizierung über öffentliche Schlüssel mit dem Apache MINA Framework genauer untersuchen.
+In der Fortsetzung meines Blogs-Beitrags werden wir die Authentifizierung über öffentliche Schlüssel mit dem Apache MINA Framework untersuchen.
 Ich beginne mit einem Überblick über die für uns relevanten kryptographischen Verfahren und Methoden. 
-Anschließend schauen wir und die Implementierung der Authentifizierung über öffentliche Schlüssel mit einem Prototyp und einem vom Framework abgeleiteten Konzept für die Authentifizierung an.
+Anschließend schauen wir uns die Implementierung der Authentifizierung über öffentliche Schlüssel in einem Prototyp und einem vom Framework abgeleiteten Konzept für die Authentifizierung an.
 
 # Asymmetrische Verschlüsselung
 Die asymmetrische Verschlüsselung verwendet zwei sich ergänzende Schlüssel: den öffentlichen Schlüssel für das Verschlüsseln der Nachricht und den privaten Schlüssel für das Entschlüsselnd der Nachricht. 
 Wie die Bezeichnung bereits darauf hindeutet, kann der öffentliche Schlüssel öffentlich zugänglich gemacht werden. 
 Theoretisch kann jeder mit dem öffentlichen Schlüssel Nachrichten verschlüsseln, da diese nur mit dem privaten Schlüssel entschlüsselt werden können. 
-Maßgeblich ist hierbei, dass der private Schlüssel nicht mit dem öffentlichen Schlüssels berechnet werden kann.
-Umgekehrt kann aber der öffentliche Schlüssel mit dem privaten Schlüssel berechnet werden.
+Maßgeblich ist hierbei, dass der private Schlüssel nicht mit dem öffentlichen Schlüssel berechnet werden kann.
+Der öffentliche Schlüssel wiederum kann mit dem privaten Schlüssel berechnet werden.
 
 # Authentifizierung über öffentliche Schlüssel
-Bevor sich der Benutzer über einen öffentlichen Schlüssel am SFTP-Server authentifizieren kann, muss für den Benutzernamen, der öffentliche Schlüssel auf dem SFTP-Server konfiguriert sein. 
-Die eigentliche Authentifizierung erfolgt dann wie in [RFC4252](https://tools.ietf.org/html/rfc4252/) spezifiziert über den privaten Schlüssel des Clients. 
+Bevor sich der Benutzer über einen öffentlichen Schlüssel am SFTP-Server authentifizieren kann, muss der öffentliche Schlüssel für den Benutzernamen auf dem SFTP-Server konfiguriert sein. 
+Die Authentifizierung erfolgt dann wie in [RFC4252](https://tools.ietf.org/html/rfc4252/) spezifiziert über den privaten Schlüssel des Clients. 
 Während des Authentifizierungsvorgangs überprüft der SFTP-Server den öffentlichen Schlüssel des Clients und die Signatur des privaten Schlüssels. 
 Erst wenn beide gültig sind, gilt der Client als authentifiziert.
 
@@ -36,9 +36,9 @@ Während der Prozedur generieren der Client und der Server Schlüssel, die für 
 Erst nach erfolgreicher Verschlüsselung des Kommunikationskanals kann mit dem Authentifizierungsvorgang begonnen werden.
 
 # Prototyp
-Im adesso GitHub habe ich einen Prototyp hinterlegt. 
+Im GitHub habe ich einen Prototyp hinterlegt. 
 Ihr könnt ihn unter [MINA-sftp-pub-auth](https://github.com/IvanKablar/MINA-sftp-pub-auth) herunterladen.
-Schauen wir uns die Konfiguration des Servers und der öffentlichen Schlüssel genauer an:
+Schauen wir uns die Konfiguration des SFTP-Servers und der Schlüssel genauer an:
 
 ```java
 @Component
@@ -84,9 +84,9 @@ ssh-keygen -t rsa -m PEM
 ```
 
 Die Datei kopieren wir in das Resource-Verzeichnis des Server.
-Mit dem öffentlichen Schlüssel der Datei wird der sogenannte der „Fingerprint“, ein MD5-Hash Wert, berechnet und dem Client beim Anmeldeversuch zugesendet. 
+Mit dem öffentlichen Schlüssel der Datei wird der sogenannte „Fingerprint“, ein MD5-Hash Wert, berechnet und dem Client beim Anmeldeversuch zugesendet. 
 Der Client sollte beim Anmelden Änderungen am „Fingerprint“ immer genau hinterfragen. 
-Zwar ist es wahrscheinlich, dass der Server-Admin den öffentlichen Schlüssels und damit den „Fingerprint“ geändert hat, aber es könnte sich auch um eine „Man-in-the-Middel Attack“ handeln. 
+Zwar ist es wahrscheinlich, dass der Server-Admin den öffentlichen Schlüssel und somit den „Fingerprint“ geändert hat, aber es könnte sich auch um eine „Man-in-the-Middel Attack“ handeln. 
 Nach einer erfolgreichen Authentifizierung ermöglicht die Klasse „SftpSubsystemFactory” den Zugriff auf das Dateisystem des Servers. 
 Die Implementierung des Interfaces „PublickeyAuthenticator” schauen wir uns weiter unten im Beitrag genauer an.
 
@@ -120,33 +120,34 @@ Erst wenn der Vergleich der öffentlichen Schlüssel gelingt und das Framework d
 # Implementierung der Authentifizierung
 Mit der Bereitstellung von Interfaces für die Authentifizierung durch das Framwork wird dem Entwickler die Überprüfung von zusätzlichen Authentifizierungskriterien ermöglicht, darunter auch der Vergleich der öffentlichen Schlüssel.
 In unserem Beispiel implementiert die Klasse “SftpPublickeyAuthenticator” eine solche Schnittstelle. 
-Die Authentifizierung beginnt mit dem Überprüfen des Benutzernamens. 
+Die Authentifizierung beginnt mit der Überprüfung des Benutzernamens. 
 Anschließend finden die Analyse und der Vergleich der öffentlichen Schlüssel statt. 
 
 ```java
     @Override
     public boolean authenticate(String username, PublicKey publicKey, ServerSession serverSession) throws AsyncAuthException {
-        User user = retrieveUser(username);
+        User user =  userService.getUser(username);
         if(user== null) {
+            log.warn("Kein Benutzer mit Namen '{}' konfiguriert", username);
             return false;
         }
-        return publicKeyService.isPublicKeyValid(user, PublicKeyEntry.toString(publicKey), serverSession);
+        return publicKeyService.isPublicKeyValid(userService.getUserKey(user), PublicKeyEntry.toString(publicKey), serverSession);
     }
 ```
 Die Methode „isPublicKeyValid“ der Klasse „PublicKeyService“ enthält die Logik für die Validierung und den Vergleich der öffentlichen Schlüssel. 
 ```java
- public boolean isPublicKeyValid(String serverConfPublicKey, String clientSentPublicKey, ServerSession serverSession) {
+    public boolean isPublicKeyValid(String serverConfPublicKey, String clientSentPublicKey, ServerSession serverSession) {
         PublicKey clientPublicKey = null;
         PublicKey serverPublicKey = null;
         try {
             serverPublicKey = generatePublicKey(serverConfPublicKey, serverSession);
         }
-        catch(IllegalArgumentException e) {
-            log.warn("Der serverseitige Public-Key besitzt kein gültiges Format", e);
-            return false;
-        }
         catch(IOException e) {
             log.warn("Fehler beim Dekodieren des serverseitigen Public-Keys", e);
+            return false;
+        }
+        catch(IllegalArgumentException e) {
+            log.warn("Der serverseitige Public-Key besitzt kein gültiges Format", e);
             return false;
         }
         catch(GeneralSecurityException e) {
@@ -157,12 +158,12 @@ Die Methode „isPublicKeyValid“ der Klasse „PublicKeyService“ enthält di
         try {
             clientPublicKey = generatePublicKey(clientSentPublicKey, serverSession);
         }
-        catch(IllegalArgumentException e) {
-            log.warn("Der clientseitige Public-Key besitzt kein gültiges Format", e);
-            return false;
-        }
         catch(IOException e) {
             log.warn("Fehler beim Dekodieren des clientseitigen Public-Keys", e);
+            return false;
+        }
+        catch(IllegalArgumentException e) {
+            log.warn("Der clientseitige Public-Key besitzt kein gültiges Format", e);
             return false;
         }
         catch(GeneralSecurityException e) {
@@ -172,7 +173,7 @@ Die Methode „isPublicKeyValid“ der Klasse „PublicKeyService“ enthält di
         return compareKeys(clientPublicKey, serverPublicKey);
     }
     
-private PublicKey generatePublicKey(String publicKey, ServerSession serverSession) throws IOException, GeneralSecurityException {
+    private PublicKey generatePublicKey(String publicKey, ServerSession serverSession) throws IOException, GeneralSecurityException {
         if(publicKey == null || publicKey.isEmpty()) {
             return null;
         }
