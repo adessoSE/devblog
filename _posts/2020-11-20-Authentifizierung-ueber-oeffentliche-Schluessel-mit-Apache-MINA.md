@@ -13,7 +13,7 @@ Anschließend schauen wir uns die Implementierung der Authentifizierung über ö
 
 # Asymmetrische Verschlüsselung
 Die asymmetrische Verschlüsselung verwendet zwei sich ergänzende Schlüssel: den öffentlichen Schlüssel für das Verschlüsseln der Nachricht und den privaten Schlüssel für das Entschlüsseln der Nachricht. 
-Wie die Bezeichnung bereits darauf hindeutet, kann der öffentliche Schlüssel öffentlich zugänglich gemacht werden. 
+Wie der Name schon sagt, kann der öffentliche Schlüssel öffentlich zugänglich gemacht werden. 
 Theoretisch kann jeder mit dem öffentlichen Schlüssel Nachrichten verschlüsseln, da diese nur mit dem privaten Schlüssel entschlüsselt werden können. 
 Maßgeblich ist hierbei, dass der private Schlüssel nicht mit dem öffentlichen Schlüssel berechnet werden kann.
 Der öffentliche Schlüssel wiederum kann mit dem privaten Schlüssel berechnet werden.
