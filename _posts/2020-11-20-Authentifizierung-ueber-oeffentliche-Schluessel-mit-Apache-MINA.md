@@ -7,12 +7,12 @@ categories: [Java]
 tags: [Java, IT_Security, Kryptographie, SSH, Apache MINA]     
 ---
 
-In der Fortsetzung meines Blogs-Beitrags werden wir die Authentifizierung über öffentliche Schlüssel mit dem Apache MINA Framework untersuchen.
+In der Fortsetzung meines Blog-Beitrags werden wir die Authentifizierung über öffentliche Schlüssel mit dem Apache MINA Framework untersuchen.
 Ich beginne mit einem Überblick über die für uns relevanten kryptographischen Verfahren und Methoden. 
 Anschließend schauen wir uns die Implementierung der Authentifizierung über öffentliche Schlüssel in einem Prototyp und einem vom Framework abgeleiteten Konzept für die Authentifizierung an.
 
 # Asymmetrische Verschlüsselung
-Die asymmetrische Verschlüsselung verwendet zwei sich ergänzende Schlüssel: den öffentlichen Schlüssel für das Verschlüsseln der Nachricht und den privaten Schlüssel für das Entschlüsselnd der Nachricht. 
+Die asymmetrische Verschlüsselung verwendet zwei sich ergänzende Schlüssel: den öffentlichen Schlüssel für das Verschlüsseln der Nachricht und den privaten Schlüssel für das Entschlüsseln der Nachricht. 
 Wie die Bezeichnung bereits darauf hindeutet, kann der öffentliche Schlüssel öffentlich zugänglich gemacht werden. 
 Theoretisch kann jeder mit dem öffentlichen Schlüssel Nachrichten verschlüsseln, da diese nur mit dem privaten Schlüssel entschlüsselt werden können. 
 Maßgeblich ist hierbei, dass der private Schlüssel nicht mit dem öffentlichen Schlüssel berechnet werden kann.
@@ -20,11 +20,11 @@ Der öffentliche Schlüssel wiederum kann mit dem privaten Schlüssel berechnet 
 
 # Authentifizierung über öffentliche Schlüssel
 Bevor sich der Benutzer über einen öffentlichen Schlüssel am SFTP-Server authentifizieren kann, muss der öffentliche Schlüssel für den Benutzernamen auf dem SFTP-Server konfiguriert sein. 
-Die Authentifizierung erfolgt dann wie in [RFC4252](https://tools.ietf.org/html/rfc4252/) spezifiziert über den privaten Schlüssel des Clients. 
+Die Authentifizierung erfolgt dann, wie in [RFC4252](https://tools.ietf.org/html/rfc4252/) spezifiziert, über den privaten Schlüssel des Clients. 
 Während des Authentifizierungsvorgangs überprüft der SFTP-Server den öffentlichen Schlüssel des Clients und die Signatur des privaten Schlüssels. 
 Erst wenn beide gültig sind, gilt der Client als authentifiziert.
 
-Da private Schlüssel in der Regel sehr lang sind, ist es nahezu unmöglich sie mit „Brute-Force“ Angriffen zu knacken. 
+Da private Schlüssel in der Regel sehr lang sind, ist es nahezu unmöglich, sie mit „Brute-Force“ Angriffen zu knacken. 
 Aus diesem Grund ist die Authentifizierung über öffentliche Schlüssel sicherer als die Authentifizierung über Passwörter und sollte letzterer vorgezogen werden. 
 Wichtig ist, dass der private Schlüssel immer geheim bleibt, denn andererseits wäre die Sicherheit des Verfahrens nicht mehr gegeben.
 
@@ -43,7 +43,7 @@ Schauen wir uns die Konfiguration des SFTP-Servers und der Schlüssel genauer an
 @Component
 public class SftpServerConfig {
 
-   private SshServer sshd;
+    private SshServer sshd;
     @Value("${hostkey}")
     private String hostKey;
     private ResourceLoader resourceLoader;
@@ -82,15 +82,15 @@ Der Schlüssel für den „SimpleGeneratorHostKeyProvider" kann folgendermaßen 
 ssh-keygen -t rsa -m PEM
 ```
 
-Die Datei kopieren wir in das Resource-Verzeichnis des Server.
+Die Datei kopieren wir in das Resource-Verzeichnis des Servers.
 Mit dem öffentlichen Schlüssel der Datei wird der sogenannte „Fingerprint“, ein MD5-Hash Wert, berechnet und dem Client beim Anmeldeversuch zugesendet. 
 Der Client sollte beim Anmelden Änderungen am „Fingerprint“ immer genau hinterfragen. 
-Zwar ist es wahrscheinlich, dass der Server-Admin den öffentlichen Schlüssel und somit den „Fingerprint“ geändert hat, aber es könnte sich auch um eine „Man-in-the-Middel Attack“ handeln. 
+Zwar ist es wahrscheinlich, dass der Server-Admin den öffentlichen Schlüssel und somit den „Fingerprint“ geändert hat, aber es könnte sich auch um eine „Man-in-the-Middle Attack“ handeln. 
 Nach einer erfolgreichen Authentifizierung ermöglicht die Klasse „SftpSubsystemFactory” den Zugriff auf das Dateisystem des Servers. 
-Die Implementierung des Interfaces „PublickeyAuthenticator” schauen wir uns weiter unten im Beitrag genauer an.
+Die Implementierung des Interface „PublickeyAuthenticator” schauen wir uns weiter unten im Beitrag genauer an.
 
 # Konfiguration des öffentlichen Schlüssels
-Um uns am SFTP-Server authentifizieren zu können, erzeugen wir ein Schlüsselpaar bestehend aus einem öffentlichen und einem privaten Schlüssel:
+Um uns am SFTP-Server authentifizieren zu können, erzeugen wir ein Schlüsselpaar, bestehend aus einem öffentlichen und einem privaten Schlüssel:
 
 ```git
 ssh-keygen -t rsa -b 4096
@@ -106,15 +106,16 @@ Aus organisatorischer Sicht kann es sinnvoll sein, dass der Client die Schlüsse
 Die Datei mit dem öffentlichen Schlüssel sendet er über einen beliebigen, möglicherweise unsicheren Kanal, an den Server-Admin und den privaten Schlüssel behält er im Geheimen.
 
 # Anmeldung
-Als Nächstes versuchen wir uns mit dem privaten Schlüssel am Server zu authentifizieren:
+Als Nächstes versuchen wir, uns mit dem privaten Schlüssel am Server zu authentifizieren:
 
 ```git
 sftp -P 9924 -i /home/ivan/id_rsa ivan@localhost  
 ``` 
+
 Der private Schlüssel enthält die notwendigen Informationen für das Berechnen des öffentlichen Schlüssels. 
 Der vom Client geschickte öffentliche Schlüssel kann nun mit dem für den Benutzer auf dem Server konfigurierten öffentlichen Schlüssel verglichen werden. 
 Außerdem überprüft das Framwork die Signatur des privaten Schlüssels. 
-Erst wenn der Vergleich der öffentlichen Schlüssel gelingt und das Framework die Signatur als gültig anerkannt hat, gilt der Client als authentifiziert.
+Erst, wenn der Vergleich der öffentlichen Schlüssel gelingt und das Framework die Signatur als gültig anerkannt hat, gilt der Client als authentifiziert.
 
 # Implementierung der Authentifizierung
 Mit der Bereitstellung von Interfaces für die Authentifizierung durch das Framwork wird dem Entwickler die Überprüfung von zusätzlichen Authentifizierungskriterien ermöglicht, darunter auch der Vergleich der öffentlichen Schlüssel.
@@ -133,6 +134,7 @@ Anschließend finden die Analyse und der Vergleich der öffentlichen Schlüssel 
         return publicKeyService.isPublicKeyValid(userService.getUserKey(user), PublicKeyEntry.toString(publicKey), serverSession);
     }
 ```
+
 Die Methode „isPublicKeyValid“ der Klasse „PublicKeyService“ enthält die Logik für die Validierung und den Vergleich der öffentlichen Schlüssel. 
 ```java
     public boolean isPublicKeyValid(String serverConfPublicKey, String clientSentPublicKey, ServerSession serverSession) {
@@ -180,7 +182,8 @@ Die Methode „isPublicKeyValid“ der Klasse „PublicKeyService“ enthält di
        return publicKeyEntry.resolvePublicKey(serverSession, null, PublicKeyEntryResolver.IGNORING);
     }
 ```
-Konnten beide öffentliche Schlüssel in der Methode „generatePublicKey“ fehlerfrei analysieren werden, prüft die Methode „compareKeys“, ob der auf dem Server konfigurierte öffentliche Schlüssel mit dem öffentlichen Schlüssel des Clients übereinstimmt. 
+
+Konnten beide öffentliche Schlüssel in der Methode „generatePublicKey“ fehlerfrei analysiert werden, prüft die Methode „compareKeys“, ob der auf dem Server konfigurierte öffentliche Schlüssel mit dem öffentlichen Schlüssel des Clients übereinstimmt. 
 ```java
     private boolean compareKeys(PublicKey clientPublicKey, PublicKey serverConfigPublicKey) {
        if(!KeyUtils.compareKeys(clientPublicKey, serverConfigPublicKey)) {
@@ -191,6 +194,7 @@ Konnten beide öffentliche Schlüssel in der Methode „generatePublicKey“ feh
         return true;
     }
 ```
+
 Stimmen die Schlüssel nicht übereinstimmen, bricht die Authentifizierung an dieser Stelle ab. 
 Handelt es sich um die gleichen Schlüssel, überprüft anschließend die Implementierung des Frameworks die Signatur des privaten Schlüssels. 
 Ist die Signatur ebenfalls valide, gilt der Client als authentifiziert.
