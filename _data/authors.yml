@@ -385,3 +385,12 @@ vschiller:
   avatar_url: /assets/images/avatars/vschiller.jpg
   github: https://github.com/VivienEmily
   
+tboettinger:
+  first_name: Torsten
+  last_name: Böttinger
+  github_username: html04
+  email: torsten.boettinger@adesso.de
+  bio: "Torsten ist als Software Engineer bei adesso und ist im IT-Security Umfeld unterwegs. Besonders interessiert ist er dabei für die Kryptographie, sowie Deep-Learning gestützte Cyber Angriffe."
+  avatar_url: /assets/images/avatars/tboettinger.jpg
+  github: https://github.com/html04/
+  
