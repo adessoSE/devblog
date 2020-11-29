@@ -18,6 +18,12 @@ Theoretisch kann jeder mit dem öffentlichen Schlüssel Nachrichten verschlüsse
 Maßgeblich ist hierbei, dass der private Schlüssel nicht mit dem öffentlichen Schlüssel berechnet werden kann.
 Der öffentliche Schlüssel wiederum kann mit dem privaten Schlüssel berechnet werden.
 
+# Diffie-Hellmann-Schlüsselaustausch
+Anders als vielleicht angenommen, kommen die Schlüssel, die für die Authentifizierung verwendet werden, nicht für die Verschlüsselung der Datenübertagung zum Einsatz. 
+Bevor der Authentifizierungsvorgang beginnen kann, findet zwischen dem Client und dem Server der sogenannte "Diffie-Hellmann-Schlüsselaustausch" statt. 
+Während der Prozedur generieren der Client und der Server Schlüssel, die für die Verschlüsselung der Kommunikation verwendet werden. 
+Erst nach erfolgreicher Verschlüsselung des Kommunikationskanals kann mit dem Authentifizierungsvorgang begonnen werden.
+
 # Authentifizierung über öffentliche Schlüssel
 Bevor sich der Benutzer über einen öffentlichen Schlüssel am SFTP-Server authentifizieren kann, muss der öffentliche Schlüssel für den Benutzernamen auf dem SFTP-Server konfiguriert sein. 
 Die Authentifizierung erfolgt dann, wie in [RFC4252](https://tools.ietf.org/html/rfc4252/) spezifiziert, über den privaten Schlüssel des Clients. 
@@ -28,21 +34,22 @@ Da private Schlüssel in der Regel sehr lang sind, ist es nahezu unmöglich, sie
 Aus diesem Grund ist die Authentifizierung über öffentliche Schlüssel sicherer als die Authentifizierung über Passwörter und sollte letzterer vorgezogen werden. 
 Wichtig ist, dass der private Schlüssel immer geheim bleibt, denn andererseits wäre die Sicherheit des Verfahrens nicht mehr gegeben.
 
-# Diffie-Hellmann-Schlüsselaustausch
-Anders als vielleicht angenommen, kommen die Schlüssel, die für die Authentifizierung verwendet werden, nicht für die Verschlüsselung der Datenübertagung zum Einsatz. 
-Bevor der Authentifizierungsvorgang beginnen kann, findet zwischen dem Client und dem Server der sogenannte "Diffie-Hellmann-Schlüsselaustausch" statt. 
-Während der Prozedur generieren der Client und der Server Schlüssel, die für die Verschlüsselung der Kommunikation verwendet werden. 
-Erst nach erfolgreicher Verschlüsselung des Kommunikationskanals kann mit dem Authentifizierungsvorgang begonnen werden.
+# Digitale Signatur
+Die digitale Signatur kann beispielsweise verwendet werden, um Dokumente digital und rechtssicher zu unterzeichnen, die Identität des Unterzeichners und die Integrität von Nachrichten zu bestätigen.
+In der Anwendung wird die zu signierende Nachricht zunächst zu einem eindeutigen nicht umkehrbarer Hashwert kodiert und anschließend mit dem privaten Schlüssel verschlüsselt.
+Der Prüfer erstellt einen Hashwert aus der zu signierenenden Nachricht. 
+Anschließend entschlüsselt er die Signatur mit dem öffentlichen Schlüssel und merkt sich den resultierenden Hashwert.
+Stimmen beide Hashwerte überein, ist die Signatur und damit die Identität des Unterzeichners und die Integrität der Nachricht bestätigt.
 
 # Prototyp
-Im GitHub habe ich einen Prototyp hinterlegt. 
+Schauen wir uns den Authentifizierungsvorgang genauer an.
+Hierfür habe ich im GitHub einen Prototyp hinterlegt. 
 Ihr könnt ihn unter [MINA-sftp-pub-auth](https://github.com/IvanKablar/MINA-sftp-pub-auth) herunterladen.
-Schauen wir uns die Konfiguration des SFTP-Servers und der Schlüssel genauer an:
+Zuerst werfen wir einen Blick auf die Konfiguration des SFTP-Servers und schauen uns die Konfiguration der Schlüssel an:
 
 ```java
 @Component
 public class SftpServerConfig {
-
     private SshServer sshd;
     @Value("${hostkey}")
     private String hostKey;
@@ -83,10 +90,10 @@ ssh-keygen -t rsa -m PEM
 ```
 
 Die Datei kopieren wir in das Resource-Verzeichnis des Servers.
-Mit dem öffentlichen Schlüssel der Datei wird der sogenannte "Fingerprint", ein kodierter SHA256 Hash-Wert, berechnet und dem Client beim Anmeldeversuch zugesendet. 
+Mit dem öffentlichen Schlüssel der Datei wird der sogenannte "Fingerprint", ein kodierter SHA256 Hashwert, berechnet und dem Client beim Anmeldeversuch zugesendet. 
 Der Client sollte beim Anmelden Änderungen am "Fingerprint" immer genau hinterfragen. 
 Zwar ist es wahrscheinlich, dass der Server-Admin den öffentlichen Schlüssel und somit den "Fingerprint" geändert hat, aber es könnte sich auch um eine "Man-in-the-Middle Attack" handeln. 
-Nach einer erfolgreichen Authentifizierung ermöglicht die Klasse „SftpSubsystemFactory” den Zugriff auf das Dateisystem des Servers. 
+Nach einer erfolgreichen Authentifizierung ermöglicht die Klasse "SftpSubsystemFactory” den Zugriff auf das Dateisystem des Servers. 
 Die Implementierung des Interface "PublickeyAuthenticator" schauen wir uns weiter unten im Beitrag genauer an.
 
 # Konfiguration des öffentlichen Schlüssels
@@ -126,7 +133,6 @@ Anschließend findet der Vergleich der öffentlichen Schlüssel statt.
 ```java
 @Override
 public boolean authenticate(String username, PublicKey publicKey, ServerSession serverSession) throws AsyncAuthException {
-    
     User user =  userService.getUser(username);
     if(user== null) {
         log.warn("Kein Benutzer mit Namen '{}' konfiguriert", username);
@@ -136,10 +142,9 @@ public boolean authenticate(String username, PublicKey publicKey, ServerSession 
 }
 ```
 
-Die Methode „isPublicKeyValid“ der Klasse „PublicKeyService“ enthält die Logik für die Validierung und den Vergleich der öffentlichen Schlüssel. 
+Die Methode "isPublicKeyValid“ der Klasse "PublicKeyService“ enthält die Logik für die Validierung und den Vergleich der öffentlichen Schlüssel. 
 ```java
 public boolean isPublicKeyValid(String serverConfPublicKey, String clientSentPublicKey, ServerSession serverSession) {
-    
     PublicKey clientPublicKey = null;
     PublicKey serverPublicKey = null;
     try {
@@ -197,13 +202,14 @@ private boolean compareKeys(PublicKey clientPublicKey, PublicKey serverConfigPub
 }
 ```
 
-Stimmen die Schlüssel nicht übereinstimmen, bricht die Authentifizierung an dieser Stelle ab. 
-Handelt es sich um die gleichen Schlüssel, überprüft der Server die digitale Signatur einer Nachricht, die der Client mit dem privaten Schlüssel berechnet hat. 
-Der Client signiert hierfür mit dem privaten Schlüssel eine Klartextnachricht und sendet die signierte Nachricht an den Server.
-Der Server überprüft die digitale Signatur mit dem öffentlichen Schlüssel und der Klartextnachricht.
-Ist die digitale Signatur valide, gilt der Client als authentifiziert.
+Stimmen die Schlüssel nicht überein, bricht die Authentifizierung an dieser Stelle ab. 
+Handelt es sich um die gleichen Schlüssel, weiß der Server, dass der Client in Besitz des richtigen öffentlichen Schlüssels ist. 
+Anschließend signiert der Client eine Nachricht, die er an den Server schickt. 
+Die unverschlüsselte Nachricht ist auch dem Server bekannt. 
+Der Server überprüft anschließend die digitale Signatur der verschlüsselten Nachricht. 
+Ist die digitale Signatur korrekt, gilt der Client als authentifiziert.
 
-# Fazit
+# Ergebnis
 Mit dem Prototyp und dem Beispiel oben haben wir die Implementierung eines Konzepts für die Authentifizierung über öffentliche Schlüssel mit dem Apache MINA Framework untersucht. 
 
 Mir hat es Spaß gemacht den SFTP-Server zu entwickeln und ich hoffe, Euch hat mein Blog-Beitrag gefallen. Bleibt gesund und bis bald.
