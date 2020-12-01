@@ -12,7 +12,7 @@ Ich beginne mit einem Überblick über die für uns relevanten kryptographischen
 Anschließend schauen wir uns die Implementierung der Authentifizierung über öffentliche Schlüssel in einem Prototyp und einem vom Framework abgeleiteten Konzept für die Authentifizierung an.
 
 # Asymmetrische Verschlüsselung
-Die asymmetrische Verschlüsselung verwendet zwei sich ergänzende Schlüssel: den öffentlichen Schlüssel für das Verschlüsseln der Nachricht und den privaten Schlüssel für das Entschlüsseln der Nachricht. 
+Die asymmetrische Verschlüsselung verwendet zwei sich ergänzende Schlüssel: den öffentlichen Schlüssel für das Verschlüsseln und den privaten Schlüssel für das Entschlüsseln der Nachricht. 
 Wie der Name schon sagt, kann der öffentliche Schlüssel öffentlich zugänglich gemacht werden. 
 Theoretisch kann jeder mit dem öffentlichen Schlüssel Nachrichten verschlüsseln, da diese nur mit dem privaten Schlüssel entschlüsselt werden können. 
 Maßgeblich ist hierbei, dass der private Schlüssel nicht mit dem öffentlichen Schlüssel berechnet werden kann.
