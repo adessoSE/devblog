@@ -93,7 +93,7 @@ Die Datei kopieren wir in das Resource-Verzeichnis des Servers.
 Mit dem öffentlichen Schlüssel der Datei wird der sogenannte "Fingerprint", ein kodierter SHA256 Hashwert, berechnet und dem Client beim Anmeldeversuch zugesendet. 
 Der Client sollte beim Anmelden Änderungen am "Fingerprint" immer genau hinterfragen. 
 Zwar ist es wahrscheinlich, dass der Server-Admin den öffentlichen Schlüssel und somit den "Fingerprint" geändert hat, aber es könnte sich auch um eine "Man-in-the-Middle Attack" handeln. 
-Nach einer erfolgreichen Authentifizierung ermöglicht die Klasse "SftpSubsystemFactory” den Zugriff auf das Dateisystem des Servers. 
+Nach einer erfolgreichen Authentifizierung ermöglicht die Klasse "SftpSubsystemFactory" den Zugriff auf das Dateisystem des Servers. 
 Die Implementierung des Interface "PublickeyAuthenticator" schauen wir uns weiter unten im Beitrag genauer an.
 
 # Konfiguration des öffentlichen Schlüssels
