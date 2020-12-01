@@ -10,8 +10,8 @@ tags: [Testautomatisierung, Webdriver IO, Cucumber, Chai, GUI-Testautomatisierun
 Als Berater für den Aufbau eines geeigneten Testumfeldes im Public Umfeld, wollen wir Euch in unserem mehrteiligen Erfahrungsbericht einladen, die verschiedenen Höhen und Tiefen in der Umsetzung zu begleiten.
 In diesem Teil geht es weiter mit der Testautomatisierung, speziell im Bereich des GUI-Tests.
 
-#Testautomatisierung in der Praxis
-##Erfahrungen mit GUI-Oberflächentests im Public Umfeld
+# Testautomatisierung in der Praxis
+## Erfahrungen mit GUI-Oberflächentests im Public Umfeld
 Wie bereits in unserem [letzten Blogbeitrag](https://www.adesso.de/de/news/blog/testautomatisierung-in-der-praxis-erfahrungen-mit-soapui-im-public-umfeld.jsp) angeteasert, handelt es sich hierbei um die Fortsetzung des gleichnamigen Blogbeitrages. 
 Die beiden Blogbeiträge bilden eine zusammenhängende Serie, jedoch sind die Themeninhalte voneinander abgetrennt. 
 Daher ist auch eine Einzelbetrachtung der angesprochenen Themenbereiche durchaus sinnvoll.
@@ -25,7 +25,7 @@ Folgende Fragestellungen wollen wir beleuchten: Warum wollen wir, neben automati
 Wie lassen sich automatisierte GUI-Tests sinnvoll einsetzen und welche Probleme tauchen dabei auf? 
 Können wir aus den Erfahrungen der vorangegangenen Testautomatisierung und dem dort angesprochenen 4-Phasen-Modell einen Nutzen für die Oberflächentests ziehen? Lassen sich die vorliegenden Ergebnisse der Testautomatisierung von Schnittstellen mit der Testautomatisierung von Oberflächentests sinnvoll miteinander verbinden bzw. ergänzen?
 
-###Testautomatisierung der GUI bzw. UI
+### Testautomatisierung der GUI bzw. UI
 Die Anwendungen zur GUI-Automatisierung basieren primär auf Internet-/Webtechnologien und sind die Grundlage für zahlreiche Testautomatisierungstechnologien wie **Webdriver IO**, Python, Tosca, Selenium oder Ranorex. 
 Diese können bei Bedarf mit anderen Tools zur (Schnittstellen-)Testautomatisierung, in unserem Fall SoapUI Pro, kombiniert werden, indem bspw. zwischen den Schnittstellen speziell angepasste Skripte ausgetauscht werden. 
 Die Einbindung und Ausführung der Testskripte wurde entsprechend übergreifend durch SOAP gesteuert/orchestriert und bietet somit u. a. die Möglichkeit, den Testablauf an einem beliebigen Punkt der automatisierten GUI-Ausführung zu starten. 
@@ -72,7 +72,7 @@ Dies würde entsprechend einen weiteren manuellen Aufbereitungsschritt obsolet m
 Dazu mehr in einem möglicherweise kommenden **Teil 3** unserer Serie zur Testautomatisierung im Public Umfeld.
 
 
-##Unser Fazit
+## Unser Fazit
 Nach Inbetriebnahme eines Release der von uns betreuten Fachanwendung traten unerwartet und für uns völlig überraschend Fehler in den Eingabemasken auf. 
 Aufgrund der Kritikalität wurde das Release zurückgezogen, gefixed und ein Test aller Masken der Anwendung mit höchster Priorität angeordnet. 
 Dies verursachte enormen manuellen Aufwand und eine hohen Frustration, da sich monotone Tätigkeiten häuften. 
