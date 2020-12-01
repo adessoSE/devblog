@@ -2,9 +2,9 @@
 layout: [post, post-xml]              
 title:  "Testautomatisierung in der Praxis "        
 date:   2020-11-30 15:00                    
-author: axPeTo                    
-categories: [Inside adesso]             
-tags: [Testautomatisierung, Webdriver IO, Cucumber, Chai, GUI-Testautomatisierung]
+author: schirmer_urbanik_eggert                    
+categories: [Branchen]             
+tags: [Testautomatisierung, Webdriver IO, Cucumber, Chai]
 ---
 
 Als Berater für den Aufbau eines geeigneten Testumfeldes im Public Umfeld, wollen wir Euch in unserem mehrteiligen Erfahrungsbericht einladen, die verschiedenen Höhen und Tiefen in der Umsetzung zu begleiten.
