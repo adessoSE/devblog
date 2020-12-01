@@ -126,7 +126,7 @@ Erst, wenn der Vergleich der öffentlichen Schlüssel gelingt und das Framework 
 
 # Implementierung der Authentifizierung
 Mit der Bereitstellung von Interfaces für die Authentifizierung durch das Framwork wird dem Entwickler die Überprüfung von zusätzlichen Authentifizierungskriterien ermöglicht, darunter auch der Vergleich der öffentlichen Schlüssel.
-In unserem Beispiel implementiert die Klasse “SftpPublickeyAuthenticator” eine solche Schnittstelle. 
+In unserem Beispiel implementiert die Klasse "SftpPublickeyAuthenticator" eine solche Schnittstelle. 
 Die Authentifizierung beginnt mit der Überprüfung des Benutzernamens. 
 Anschließend findet der Vergleich der öffentlichen Schlüssel statt. 
 
