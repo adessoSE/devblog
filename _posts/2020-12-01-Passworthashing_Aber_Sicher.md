@@ -7,7 +7,7 @@ categories: [Inside adesso]
 tags: [Security, Kryptographie]      
 ---
 
-Passwörter dürfen nicht im Klartext in der Datenbank gespeichert werden, daher hashen wir sie, das weiß jeder Entwickler. 
+Passwörter dürfen nicht im Klartext in der Datenbank gespeichert werden, daher hashen wir sie, das weiß jeder Entwickler und Entwicklerin. 
 Die Gefahr, dass der Datenbankinhalt abgegriffen wird und so an Klartextpasswörter, die evtl. auch in anderen Onlinediensten Verwendung finden, gekommen werden, kann ist einfach zu groß.
 Trotzdem findesn sich bei konkreten Umsetzung häufig Fehler, sodass immer wieder Passwort Leaks öffentlich werden, die auf eine unsachgemäße Speicherung von besagten Passwörtern zurückzuführen sind. 
 Aus der Vergangenheit gibt es einige prominente Bespiele wie Dropbox in 2012, LinkedIn 2016 oder dem Farmville Macher Zynga 2019, deren Nutzerdaten samt schwacher Passworthashes veröffentlicht wurden. 
@@ -29,7 +29,7 @@ Sind zwei Hashes gleich so muss der Eingabewert auch gleich sein oder andersheru
 Die Überprüfung, ob das Passwort den gleichen Hash ergibt wie abgespeichert, soll schnell gehen. 
 Diese Eigenschaft wird uns im Folgenden allerdings Probleme bereiten.
 
-Die Angabe, welche Hashfunktionen als sicher gelten, muss ständig überprüft werden, da mögliche Angreifer und Sicherheitsforscher regelmäßig Angriffe auf bekannte Verfahren untersuchen. 
+Die Angabe, welche Hashfunktionen als sicher gelten, muss ständig überprüft werden, da mögliche AngreiferInnen und Sicherheitsforschende regelmäßig Angriffe auf bekannte Verfahren untersuchen. 
 Angriff heißt in diesem Zusammenhang vor allem, dass effizient Kollisionen berechnet werden können oder aus der Ausgabe die assoziierte Eingabe berechnet werden können. 
 So gelten beispielsweise MD5 und SHA-1 nicht mehr als sicher, während SHA-256 und SHA-512 Stand 2020 sicher sind.
 
@@ -45,7 +45,7 @@ Man kann sich also vorstellen, dass, bei Brute-Forcing der meistverwendeten Pass
 
 # Sicheres Passworthashing
 Zwei Maßnahmen sollen diese Angriffe deutlich erschweren. 
-Um das Erstellen von Wörterbüchern für Angreifer unpraktikabel zu machen, wird das Passwort mit einem öffentlichen Zufallswert, dem Salt, kombiniert.
+Um das Erstellen von Wörterbüchern für AngreiferInnen unpraktikabel zu machen, wird das Passwort mit einem öffentlichen Zufallswert, dem Salt, kombiniert.
 Üblich ist es z.B. den Wert einfach an den Passwort-String anzuhängen.
 Um einen Wörterbuchangriff durchzuführen, müsste es nun für jedes mögliche Salt jeweils ein Wörterbuch mit allen möglichen Passwörtern erstellt werden. 
 Bei Verwendung eines Salts mit _n_-Bit Länge würden so 2 hoch _n_ verschiedene Wörterbücher benötigt.
@@ -68,7 +68,7 @@ Zusätzlich besitzt die Funktion einen _Iteration Count_.
 Dieser bestimmt, wie oft dieses Verfahren wiederholt wird. 
 Je größer dieser wird, umso ressourcenaufwändiger ist die Ausführung und somit werden Brute-Force Angriffe schwieriger. 
 Je größer der _Iteration Count_ umso aufwändiger ist auch die Verifikation eines Passworts bei jeder Anmeldung. 
-Die Parametrisierung macht es möglich diesen Wert je nach Anwendungsfall, aber auch bei einer Weiterentwicklung der verfügbaren Rechenleistung für Angreifer diesen Wert anzupassen. 
+Die Parametrisierung macht es möglich diesen Wert je nach Anwendungsfall, aber auch bei einer Weiterentwicklung der verfügbaren Rechenleistung für AngreiferInnen diesen Wert anzupassen. 
 Der Original-RFC 2898 aus dem Jahre 2000 empfahl noch mindestens einen _Iteration Count_ von 1.000 während aktuell das Minimum laut einer NIST Guideline von 2016 bei 10.000 liegt. 
 Der Defaultwert in Spring-Security liegt sogar bei 185.000 Iterationen. 
 
