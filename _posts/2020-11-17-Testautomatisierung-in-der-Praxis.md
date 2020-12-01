@@ -1,7 +1,7 @@
 ---
 layout: [post, post-xml]              
 title:  "Testautomatisierung in der Praxis "        
-date:   2020-11-71 15:00                    
+date:   2020-11-30 15:00                    
 author: axPeTo                    
 categories: [Inside adesso]             
 tags: [Testautomatisierung, Webdriver IO, Cucumber, Chai, GUI-Testautomatisierung]
