@@ -190,7 +190,7 @@ private PublicKey generatePublicKey(String publicKey, ServerSession serverSessio
 }
 ```
 
-Konnten beide öffentliche Schlüssel in der Methode "generatePublicKey“ fehlerfrei analysiert werden, prüft die Methode "compareKeys“, ob der auf dem Server konfigurierte öffentliche Schlüssel mit dem öffentlichen Schlüssel des Clients übereinstimmt. 
+Konnten beide öffentlichen Schlüssel in der Methode "generatePublicKey" fehlerfrei eingelesen werden, prüft die Methode "compareKeys", ob der auf dem Server konfigurierte öffentliche Schlüssel mit dem öffentlichen Schlüssel des Clients übereinstimmt. 
 ```java
 private boolean compareKeys(PublicKey clientPublicKey, PublicKey serverConfigPublicKey) {
     if(!KeyUtils.compareKeys(clientPublicKey, serverConfigPublicKey)) {
