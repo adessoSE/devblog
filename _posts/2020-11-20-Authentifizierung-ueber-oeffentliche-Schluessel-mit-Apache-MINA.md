@@ -21,7 +21,7 @@ Der öffentliche Schlüssel wiederum kann mit dem privaten Schlüssel berechnet 
 # Diffie-Hellmann-Schlüsselaustausch
 Anders als vielleicht angenommen, kommen die Schlüssel, die für die Authentifizierung verwendet werden, nicht für die Verschlüsselung der Datenübertagung zum Einsatz. 
 Bevor der Authentifizierungsvorgang beginnen kann, findet zwischen dem Client und dem Server der sogenannte "Diffie-Hellmann-Schlüsselaustausch" statt. 
-Während der Prozedur generieren der Client und der Server Schlüssel, die für die Verschlüsselung der Kommunikation verwendet werden. 
+Während der Prozedur generieren der Client und der Server Schlüsselteile, die, zusammengesetzt, einen symmetrischen Schlüssel für die Verschlüssellung der Kommunikation ergeben. 
 Erst nach erfolgreicher Verschlüsselung des Kommunikationskanals kann mit dem Authentifizierungsvorgang begonnen werden.
 
 # Authentifizierung über öffentliche Schlüssel
