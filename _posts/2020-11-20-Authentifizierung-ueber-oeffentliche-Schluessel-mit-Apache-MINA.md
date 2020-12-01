@@ -142,7 +142,7 @@ public boolean authenticate(String username, PublicKey publicKey, ServerSession 
 }
 ```
 
-Die Methode "isPublicKeyValid“ der Klasse "PublicKeyService“ enthält die Logik für die Validierung und den Vergleich der öffentlichen Schlüssel. 
+Die Methode "isPublicKeyValid" der Klasse "PublicKeyService" enthält die Logik für die Validierung und den Vergleich der öffentlichen Schlüssel. 
 ```java
 public boolean isPublicKeyValid(String serverConfPublicKey, String clientSentPublicKey, ServerSession serverSession) {
     PublicKey clientPublicKey = null;
