@@ -37,7 +37,7 @@ Wichtig ist, dass der private Schlüssel immer geheim bleibt, denn andererseits 
 # Digitale Signatur
 Die digitale Signatur kann beispielsweise verwendet werden, um Dokumente digital und rechtssicher zu unterzeichnen, die Identität des Unterzeichners und die Integrität von Nachrichten zu bestätigen.
 In der Anwendung wird die zu signierende Nachricht zunächst zu einem eindeutigen nicht umkehrbarer Hashwert kodiert und anschließend mit dem privaten Schlüssel verschlüsselt.
-Der Prüfer erstellt einen Hashwert aus der zu signierenenden Nachricht. 
+Der Server erstellt einen Hashwert aus der zu signierenenden Nachricht. 
 Anschließend entschlüsselt er die Signatur mit dem öffentlichen Schlüssel und merkt sich den resultierenden Hashwert.
 Stimmen beide Hashwerte überein, ist die Signatur und damit die Identität des Unterzeichners und die Integrität der Nachricht bestätigt.
 
