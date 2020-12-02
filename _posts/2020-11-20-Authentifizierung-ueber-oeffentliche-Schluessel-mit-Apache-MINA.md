@@ -125,7 +125,7 @@ Außerdem überprüft das Framwork die Signatur des privaten Schlüssels.
 Erst, wenn der Vergleich der öffentlichen Schlüssel gelingt und das Framework die Signatur als gültig anerkannt hat, gilt der Client als authentifiziert.
 
 # Implementierung der Authentifizierung
-Mit der Bereitstellung von Interfaces für die Authentifizierung durch das Framwork wird dem Entwickler die Überprüfung von zusätzlichen Authentifizierungskriterien ermöglicht, darunter auch der Vergleich der öffentlichen Schlüssel.
+Mit der Bereitstellung von Interfaces für die Authentifizierung durch das Framwork wird bei der Entwicklung die Überprüfung von zusätzlichen Authentifizierungskriterien ermöglicht, darunter auch der Vergleich der öffentlichen Schlüssel.
 In unserem Beispiel implementiert die Klasse "SftpPublickeyAuthenticator" eine solche Schnittstelle. 
 Die Authentifizierung beginnt mit der Überprüfung des Benutzernamens. 
 Anschließend findet der Vergleich der öffentlichen Schlüssel statt. 
