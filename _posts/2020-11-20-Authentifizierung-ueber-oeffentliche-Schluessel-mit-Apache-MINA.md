@@ -39,7 +39,7 @@ Die digitale Signatur kann beispielsweise verwendet werden, um Dokumente digital
 In der Anwendung wird die zu signierende Nachricht zunächst zu einem eindeutigen nicht umkehrbarer Hashwert kodiert und anschließend mit dem privaten Schlüssel verschlüsselt.
 Der Server erstellt einen Hashwert aus der zu signierenenden Nachricht. 
 Anschließend entschlüsselt er die Signatur mit dem öffentlichen Schlüssel und merkt sich den resultierenden Hashwert.
-Stimmen beide Hashwerte überein, ist die Signatur und damit die Identität des Unterzeichners und die Integrität der Nachricht bestätigt.
+Stimmen beide Hashwerte überein, ist die Signatur und damit die Identität des Clients und die Integrität der Nachricht bestätigt.
 
 # Prototyp
 Schauen wir uns den Authentifizierungsvorgang genauer an.
