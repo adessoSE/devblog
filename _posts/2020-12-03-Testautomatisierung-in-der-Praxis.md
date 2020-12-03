@@ -1,7 +1,7 @@
 ---
 layout: [post, post-xml]              
 title:  "Testautomatisierung in der Praxis "        
-date:   2020-11-30 15:00                    
+date:   2020-12-03 10:00                    
 author: schirmer_urbanik_eggert                    
 categories: [Branchen]             
 tags: [Testautomatisierung, Webdriver IO, Cucumber, Chai]
