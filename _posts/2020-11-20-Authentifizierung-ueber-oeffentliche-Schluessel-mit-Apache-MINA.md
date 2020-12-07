@@ -35,12 +35,14 @@ Aus diesem Grund ist die Authentifizierung über öffentliche Schlüssel sichere
 Wichtig ist, dass der private Schlüssel immer geheim bleibt, denn andererseits wäre die Sicherheit des Verfahrens nicht mehr gegeben.
 
 # Digitale Signatur
-Die digitale Signatur kann beispielsweise verwendet werden, um Dokumente digital und rechtssicher zu unterzeichnen, die Identität des Unterzeichners und die Integrität von Nachrichten zu bestätigen.
-In der Anwendung wird aus der zu signierenden Nachricht zunächst ein Hashwert ermittelt und anschließend mit dem privaten Schlüssel verschlüsselt.
+Die digitale Signatur kann verwendet werden, um Dokumente digital und rechtssicher zu unterzeichnen, die Identität des Unterzeichners und die Integrität von Nachrichten zu bestätigen.
+Betrachtet man einen konkreten Anwendungsfall, so einigen sich der Unterzeichner und der Prüfer zunächst auf die zu signierende Nachricht und berechnen jeweils aus dieser einen Hashwert. 
 Das Hashen macht aus einer Nachricht flexibeler Länge eine Nachricht fester Länge und es ist nicht möglich, aus dem Hashwert die ursprüngliche Nachricht zu berechnen.
-Der Server erstellt einen Hashwert aus der zu signierenenden Nachricht. 
-Anschließend entschlüsselt er die Signatur mit dem öffentlichen Schlüssel und merkt sich den resultierenden Hashwert.
-Stimmen beide Hashwerte überein, ist die Signatur und damit die Identität des Clients und die Integrität der Nachricht bestätigt.
+Der Unterzeichner verschlüsselt (signiert) den von ihm erstellten Hashwert mit dem privaten Schlüssel und schickt die verschlüsselte Nachricht an den Prüfer. 
+Der Prüfer entschlüsselt die Nachricht mit dem öffentlichen Schlüssel und vergleicht den erhaltenen Hashwert mit dem zuvor berechneten Hashwert.
+Stimmen beide überein, ist die Signatur und damit die Identität des Unterzeichners und die Echtheit der Nachricht bestätigt.
+
+![Prüfung der digitalen Signatur](/assets/images/posts/Authentifizierung-ueber-oeffentliche-Schluessel-mit-Apache-MINA/DigitaleSignatur.png)
 
 # Prototyp
 Schauen wir uns den Authentifizierungsvorgang genauer an.
@@ -64,7 +66,7 @@ public class SftpServerConfig {
     }
 
     @PostConstruct
-    public void init() throws IOException, CertificateException, NoSuchAlgorithmException, KeyStoreException, UnrecoverableKeyException {
+    public void init() throws IOException {
         SftpSubsystemFactory factory = new SftpSubsystemFactory.Builder().build();
         sshd = SshServer.setUpDefaultServer();
         sshd.setPort(9922);
@@ -204,11 +206,9 @@ private boolean compareKeys(PublicKey clientPublicKey, PublicKey serverConfigPub
 ```
 
 Stimmen die Schlüssel nicht überein, bricht die Authentifizierung an dieser Stelle ab. 
-Handelt es sich um die gleichen Schlüssel, weiß der Server, dass der Client in Besitz des richtigen öffentlichen Schlüssels ist. 
-Anschließend signiert der Client eine Nachricht, die er an den Server schickt. 
-Die unverschlüsselte Nachricht ist auch dem Server bekannt. 
-Der Server überprüft anschließend die digitale Signatur der verschlüsselten Nachricht. 
-Ist die digitale Signatur korrekt, gilt der Client als authentifiziert.
+Handelt es sich um die gleichen Schlüssel, weiß der Server, dass der Client im Besitz des öffentlichen Schlüssels ist. 
+Der Server überprüft nun nur noch die digitale Signatur der Nachricht, die der Client an den Server geschickt hat.
+Ist die digitale Signatur korrekt, hat sich der Client erfolgreich authentifiziert.
 
 # Ergebnis
 Mit dem Prototyp und dem Beispiel oben haben wir die Implementierung eines Konzepts für die Authentifizierung über öffentliche Schlüssel mit dem Apache MINA Framework untersucht. 
