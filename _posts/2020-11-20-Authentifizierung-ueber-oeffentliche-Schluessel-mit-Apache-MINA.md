@@ -119,7 +119,7 @@ Die Datei mit dem öffentlichen Schlüssel sendet er über einen beliebigen, mö
 Als Nächstes versuchen wir, uns mit dem privaten Schlüssel am Server zu authentifizieren:
 
 ```git
-sftp -P 9924 -i /home/ivan/id_rsa ivan@localhost  
+sftp -P 9922 -i /home/ivan/id_rsa ivan@localhost  
 ``` 
 
 Der private Schlüssel enthält die notwendigen Informationen für das Berechnen des öffentlichen Schlüssels. 
@@ -207,7 +207,7 @@ private boolean compareKeys(PublicKey clientPublicKey, PublicKey serverConfigPub
 
 Stimmen die Schlüssel nicht überein, bricht die Authentifizierung an dieser Stelle ab. 
 Handelt es sich um die gleichen Schlüssel, weiß der Server, dass der Client im Besitz des öffentlichen Schlüssels ist. 
-Der Server überprüft nun nur noch die digitale Signatur der Nachricht, die der Client an den Server geschickt hat.
+Der Server überprüft nun noch die digitale Signatur der Nachricht, die der Client an den Server geschickt hat.
 Ist die digitale Signatur korrekt, hat sich der Client erfolgreich authentifiziert.
 
 # Ergebnis
