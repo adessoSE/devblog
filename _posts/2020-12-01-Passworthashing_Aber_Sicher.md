@@ -10,7 +10,7 @@ tags: [Security, Kryptographie]
 Passwörter dürfen nicht im Klartext in der Datenbank gespeichert werden, daher hashen wir sie, das weiß jede Entwicklerin und jeder Entwickler. 
 Die Gefahr, dass der Datenbankinhalt und somit auch Passwörter, die evtl. auch anderswo Verwendung finden, abgegriffen werden, ist einfach zu groß.
 Trotzdem finden sich bei konkreten Umsetzungen häufig Fehler, sodass immer wieder Passwort Leaks öffentlich werden, die auf eine unsachgemäße Speicherung von besagten Passwörtern zurückzuführen sind. 
-Um nicht selbst ein Eintrag in dieser Liste zu werden, soll dieser Blogartikel bei der Wahl des sicheren Verfahrens unterstützen, sowie Hinweise für die richtige Parametrisierung geben.
+Um nicht selbst ein Eintrag in der Reihe der Passwort Leaks zu werden, soll dieser Blogartikel bei der Wahl des sicheren Hashverfahrens unterstützen sowie Hinweise für die richtige Parametrisierung geben.
 Illustriert werden die Beispiele in Java und Spring-Security.
 
 # Hashfunktionen
@@ -31,11 +31,11 @@ So gelten beispielsweise MD5 und SHA-1 nicht mehr als sicher, während SHA-256 u
 
 Trotzdem ist der Einsatz dieser, als sicher geltenden Hashfunktionen allein keine sichere Technik, um Passwörter zu persistieren.
 Es gibt zwei relevante Angriffe auf diese Hashes, die uns Probleme bereiten. 
-Der erste Angriff ist die Wörterbuchattacke oder auch der sogenannte Rainbow-Table Angriff. 
+Der erste Angriff ist die Wörterbuchattacke, auch Rainbow-Table Angriff genannt. 
 Dabei werden für die anzugreifende Hashfunktion alle denkbaren Eingaben vorberechnet und in einem Wörterbuch bzw. effizienter in der Rainbow-Table abgespeichert. 
 Werden nun die Passworthashes geleakt, können Angreifer in diesem Wörterbuch nachschauen, welches Passwort jeweils verwendet wurde.
 Für die bekannten Verfahren gibt es im Netz bereits Wörterbücher, sodass wir nicht einmal ein Wörterbuch erstellen müssen.
-Der zweite Angriff ist ein einfacher Brute-Force Angriff, bei dem alle Eingaben durchprobiert werden.
+Der zweite Angriff ist ein einfacher Brute-Force Angriff, bei dem alle Eingaben durchprobiert werden, ohne vorher eine Datenbank anzulegen.
 Möglich macht das die angesprochene Effizienz der klassischen Hashfunktionen und die geringe Entropie, also die Verteilung, von nutzergenerierten Passwörtern. 
 Da bspw. GPUs sehr viele Berechnungen parallel ausführen können, können mit einer Hashcat-Implementierungen bis zu 23 Mrd. SHA-256 Hashes pro Sekunde (!) durchprobiert werden.
 Wir können uns also vorstellen, dass bei Brute-Forcing der meistverwendeten Passwörter in den meisten Fällen bereits in wenigen Sekunde das passende Klartextpasswort vorliegt.
@@ -49,7 +49,7 @@ Bei Verwendung eines Salts mit _n_ Bit Länge würden so 2 hoch _n_ mal mehr Wö
 Dadurch wird dieser Angriff unpraktikabel.
 Die Brute-Force Problematik wird behoben, indem Verfahren verwendet werden, die künstlich verlangsamt werden.
 Dadurch wird ein Ausprobieren sehr viel länger dauern und somit nicht mehr effizient durchführbar sein.
-Als Richtwert wie lange das Verfahren dauern soll und darf, gilt dabei, dass eine Anmeldung an einem Backend Server 0,5 - 1 Sekunde benötigen darf.
+Als Richtwert, wie lange das Verfahren dauern soll und kann, gilt dabei, dass eine Anmeldung an einem Backend Server 0,5 - 1 Sekunde benötigen darf.
 
 In den folgenden Abschnitten stelle ich nun drei verschiedene Verfahren vor, die diese Gegenmaßnahmen mitbringen, und veranschauliche sie anhand eines Java-Code-Schnipsels mit dem auf Bouncy-Castle basierenden Spring-Security.
 
@@ -58,14 +58,15 @@ Die Passwort-Based Key Derivation Function 2 wurde im Jahr 2000 von den RSA-Labo
 Diese Funktion ermöglicht es uns aus benutzergenerierten Passwörtern z.B. Schlüssel zu generieren, die für eine symmetrische Verschlüsselung dienen können. 
 
 Sie bietet aber auch die Eigenschaften, die wir für das Passworthashing benötigen.
-Um die obengenannten Angriffe zu vereiteln wird zunächst ein zufälliger Salt generiert und auf einen Zähler wird zusammen mit dem Salt ein HMAC (Keyed-Hash Message Authentication Code) mehrfach angewendet. 
+Um die obengenannten Angriffe zu vereiteln, wird zunächst ein zufälliger Salt generiert.
+Auf einen Zähler konkateniert mit diesem Salt wird dann ein HMAC (Keyed-Hash Message Authentication Code) mehrfach angewendet. 
 Ein HMAC generiert einen Hash, der mit einem Schlüssel authentifiziert ist, d.h. nur mit dem Wissen des Passworts kann der gleiche Hash berechnet werden.
 Früher wurde hier SHA-1 als interne Hashfunktion verwendet, heute ist mindestens SHA-256 üblich.
 Zusätzlich besitzt die Funktion einen _Iteration Count_. 
 Dieser bestimmt, wie oft dieses Verfahren wiederholt wird. 
 Je größer dieser wird, umso ressourcenaufwändiger ist die Ausführung und somit werden Brute-Force Angriffe schwieriger, allerdings dauert dann auch die Verifikation beim Login länger.
-Die Parametrisierung macht es möglich diesen Wert je nach Anwendungsfall bei einer Weiterentwicklung der verfügbaren Rechenleistung diesen Wert anzupassen. 
-Der Original-RFC 2898 aus dem Jahre 2000 empfahl noch mindestens einen Iteration Count von 1.000 während aktuell das Minimum laut einer NIST Guideline von 2016 bei 10.000 liegt. 
+Die Parametrisierung macht es möglich, diesen Wert je nach Anwendungsfall bei einer Weiterentwicklung der verfügbaren Rechenleistung anzupassen. 
+Der Original-RFC 2898 aus dem Jahre 2000 empfahl noch mindestens einen Iteration Count von 1.000, während aktuell das Minimum laut einer National Institute of Standards and Technology (NIST) Guideline von 2016 bei 10.000 liegt. 
 Der Defaultwert in Spring-Security liegt sogar bei 185.000 Iterationen. 
 
 In Spring-Security existiert das PBKDF2 seit Version 4.1 und wird folgendermaßen verwendet:
@@ -85,8 +86,8 @@ Das bedeutet, wir müssen uns keine Gedanken über die Salt-Speicherung mehr mac
 
 Auf einem Entwicklerlaptop mit einem Intel i9 benötigt die einmalige Ausführung ca. 700 ms, was gut zu unserer Vorbedingung von 0,5 - 1 Sekunde Ausführungszeit passt. 
 Brute-Force Angriffe auf das PBKDF2 gibt es vor allem mit spezialisierter Hardware wie GPUs und FPGAs, da die verwendeten Hashfunktionen keinen großen Speicherbedarf haben. 
-Das National Institute of Standards and Technology empfiehlt PBKDF2 trotzdem bei Nutzung eines hohen Iteration Counts. 
-Gerade im Bereich von Speichernutzung und Konfigurierbarkeit gibt es allerdings bessere Verfahren. 
+Das NIST empfiehlt PBKDF2 trotzdem bei Nutzung eines hohen Iteration Counts. 
+Verfahren mit höherem Speicherbedarf haben allerdings den Vorteil, dass man sie mit spezialisierter Hardware nicht so einfach brute-forcen kann, da bspw. FPGAs meist nur wenig Speicher besitzen.
 Diesen höheren Speicherbedarf hat z.B. Bcrypt.
 
 ## Bcrypt
@@ -109,19 +110,18 @@ Analog zu PBKDF2 wird Bcrypt dort so verwendet:
 ```java
 BCryptPasswordEncoder encoder = new BCryptPasswordEncoder(12);
 // erzeuge den Hash
-String encoded = encoder.encode(secret);
+String encoded = encoder.encode("geheim");
 // validiere ein Passwort anhand des Hashes
 boolean isValidPassword = encoder.matches("geheim", encoded);
 ```
-Der String den das Bcrypt erzeugt hat allerdings eine etwas andere Form als von PBKDF2 bekannt und sieht so aus:
+Der String, den Bcrypt erzeugt, hat allerdings eine etwas andere Form als von PBKDF2 bekannt und sieht so aus:
 
 `$2a$12$7Dj5dRTbzw/9YiaeJnGRrezIw4YcdoD2PTyE22xBIolQonzzPx02u`.
 
-Der String enthält jeweils $-separiert die Version 2a des verwendeten Bcrypts, den verwendeten Working Faktor und danach Base64 kodiert den Salt und den eigentlichen Hash.
+Der String enthält jeweils $-separiert die Version 2a des verwendeten Bcrypts, den verwendeten Working Faktor und danach Base64 kodiert das Salt und den eigentlichen Hash.
 Er enthält also alles, um ein Passwort anhand des Hashes verifizieren zu können, und kann auch so in der Datenbank abgelegt werden.
 
 Obwohl die Speichernutzung von 4KB größer ist als bei PBKDF2 ist sie immer noch verhältnismäßig gering.
-Die Speichernutzung ist wichtig, um vor allem optimierten Brute-Force Angriffen auf spezialiesierter Hardware, wie FPGAs und GPUs standhalten zu können.
 Ein Nachfolger von Bcrypt nahm an der Password Hashing Competion teil.
 Diesen Wettbewerb gewonnen hat allerdings Argon2.
 
@@ -130,7 +130,8 @@ Der Sieger der Password Hashing Competition aus dem Jahre 2015 war Argon2.
 Das Verfahren sorgt mit einer größeren Speichernutzung durch die Bildung eines großen internen Vektors dafür, dass Brute-Force Angriffe mit spezialisierter Hardware ein geringeres Optimierungspotenzial haben. 
 Intern kommt die Blake2b Hashfunktion zum Einsatz. 
 Es gibt verschiedene Versionen von Argon2:
-* Argon2d: Der Indexzugriff auf den internen Vektor erfolgt abhängig vom Passwort und Salt und so anfällig für Cache-Timing Side-Channel Angriffe. 
+* Argon2d: Der Indexzugriff auf den internen Vektor erfolgt abhängig vom Passwort bzw. Salt und ist somit anfällig für Cache-Timing Side-Channel Angriffe.
+Dabei wird anhand der mithilfe der Laufzeit gemessen, welche Einträge des Vektors gecacht werden konnten.
 (Anwendungen in Backendservern und Kryptowährungen).
 * Argon2i: der Indexzugriff erfolgt unabhängig von dem mitgegebenen Geheimnis und ist dadurch Side-Channel resistent, allerdings besser optimierbar auf spezialisierter Hardware
 (Anwendungen z.B. bei Festplattenverschlüsselung).
@@ -146,21 +147,24 @@ Das Originalpaper stellt keine konkrete Empfehlung für Parameter vor.
 Alle Parameterwerte sollen so hoch wie möglich gewählt werden. 
  
 Die Standardparameter von Argon2id (das einzige Argon2 Verfahren in Spring-Security) sorgen allerdings auf dem Entwicklerlaptop nur für eine Laufzeit von 80 ms.
-Daher habe ich den Paramter _t_ so stark erhöht, dass ca. 0,5 Sekunden Laufzeit erreicht wird (gewählte Parametrisierung: _m_ = 4096, _p_ = 2, _t_=90).
+Daher habe ich den Parameter _t_ so stark erhöht, dass ca. 0,5 Sekunden Laufzeit erreicht wird (gewählte Parametrisierung: _m_ = 4096, _p_ = 1, _t_ = 90).
 Damit liegt es mit den gewählten Parametern im Mittelfeld, was die Laufzeit angeht (PBKDF2: 700 ms, Bcrypt: 200 ms).
+Ein Hinweis noch zu dem Parallelisierungsparameter _p_.
+Da die Bouncy-Castle Implementierung die Parallelisierung aktuell nicht ausnutzt, lohnt es sich nicht diesen Parameter bei Spring-Security hochzusetzen.
+
 
 Die Verwendung in Spring-Security funktioniert analog zu den anderen beiden Verfahren für ein 32 byte Hash zusammen mit einem 16 Byte Salt:
 ```java
 Argon2PasswordEncoder encoder = new Argon2PasswordEncoder(16, 32, 1, 4_096, 90);
 // Erzeugen den Hash
-String encoded = encoder.encode(secret);
+String encoded = encoder.encode("geheim");
 // validiere eine Passwort mithilfe des Hashes
 boolean isValidPassword = encoder.matches("geheim", encoded);
 ```
 Der Hash des Passworts beinhaltet, wie bei Bcrypt, die Parameter, das Salt, die Argon2-Version und den Hash an sich:
 
 `
-$argon2id$v=19$m=4096,t=90,p=2$AGyqya19qixSfWIXiCNkWg$eqvMYr17qyvvOHeksMc0WNN7jgwphxt0ugiCzbxusVk
+$argon2id$v=19$m=4096,t=90,p=1$AGyqya19qixSfWIXiCNkWg$eqvMYr17qyvvOHeksMc0WNN7jgwphxt0ugiCzbxusVk
 `
 
 Den erhöhten Sicherheitslevel erreichen wir durch den größeren Ressourcenaufwand, da Brute-Force Angriffe durch den erhöhten Speicheraufwand erschwert werden. 
