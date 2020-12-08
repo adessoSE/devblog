@@ -152,8 +152,7 @@ Damit liegt es mit den gewählten Parametern im Mittelfeld, was die Laufzeit ang
 Ein Hinweis noch zu dem Parallelisierungsparameter _p_.
 Da die Bouncy-Castle Implementierung die Parallelisierung aktuell nicht ausnutzt, lohnt es sich nicht diesen Parameter bei Spring-Security hochzusetzen.
 
-
-Die Verwendung in Spring-Security funktioniert analog zu den anderen beiden Verfahren für ein 32 byte Hash zusammen mit einem 16 Byte Salt:
+Die Verwendung in Spring-Security funktioniert analog zu den anderen beiden Verfahren für ein 32 Byte Hash zusammen mit einem 16 Byte Salt:
 ```java
 Argon2PasswordEncoder encoder = new Argon2PasswordEncoder(16, 32, 1, 4_096, 90);
 // Erzeugen den Hash
