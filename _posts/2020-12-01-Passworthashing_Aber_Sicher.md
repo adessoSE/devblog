@@ -8,13 +8,13 @@ tags: [Security, Kryptographie]
 ---
 
 Passwörter dürfen nicht im Klartext in der Datenbank gespeichert werden, daher hashen wir sie, das weiß jede Entwicklerin und jeder Entwickler. 
-Die Gefahr, dass der Datenbankinhalt abgegriffen wird und so an Passwörter, die evtl. auch in anderen Onlinediensten Verwendung finden, gekommen wird, ist einfach zu groß.
-Trotzdem finden sich bei konkreten Umsetzungen häufig Fehler, sodass immer wieder Passwort Leaks öffentlich werden, die auf eine unsachgemäße Speicherung von besagten Passwörtern zurückzuführen ist. 
+Die Gefahr, dass der Datenbankinhalt und somit auch Passwörter, die evtl. auch anderswo Verwendung finden, abgegriffen werden, ist einfach zu groß.
+Trotzdem finden sich bei konkreten Umsetzungen häufig Fehler, sodass immer wieder Passwort Leaks öffentlich werden, die auf eine unsachgemäße Speicherung von besagten Passwörtern zurückzuführen sind. 
 Um nicht selbst ein Eintrag in dieser Liste zu werden, soll dieser Blogartikel bei der Wahl des sicheren Verfahrens unterstützen, sowie Hinweise für die richtige Parametrisierung geben.
-Illustriert werden die Beispiele in Java mithilfe von Spring-Security.
+Illustriert werden die Beispiele in Java und Spring-Security.
 
 # Hashfunktionen
-Um Passwörter in der Datenbank sicher abzuspeichern brauchen wir eine Lösung, die einen Wert erzeugt, über den immer noch die Korrektheit des Passworts überprüft, aber aus dem das Klartextpasswort nicht zurückgewonnen werden kann. 
+Um Passwörter in der Datenbank sicher abzuspeichern, brauchen wir eine Lösung, die einen Wert erzeugt, über den immer noch die Korrektheit des Passworts überprüft, aber aus dem das Klartextpasswort nicht zurückgewonnen werden kann. 
 Sichere Hashfunktionen bieten eigentlich genau diese Eigenschaften:
 
 * Einwegfunktion: 
@@ -25,8 +25,8 @@ Für verschiedene Eingaben berechnet eine sichere Hashfunktion also unterschiedl
 Die Überprüfung, ob das Passwort den gleichen Hash ergibt, wie abgespeichert ist, soll schnell gehen. 
 Diese Eigenschaft wird uns im Folgenden allerdings Probleme bereiten.
 
-Die Angabe, welche Hashfunktionen als sicher gelten, muss ständig überprüft werden, da mögliche AngreiferInnen und Sicherheitsforschende regelmäßig Angriffe auf bekannte Verfahren untersuchen. 
-Angriff heißt in diesem Zusammenhang vor allem, dass effizient Kollisionen berechnet werden können oder aus der Ausgabe die assoziierte Eingabe berechnet werden können. 
+Die Angabe, welche Hashfunktionen als sicher gelten, muss ständig überprüft werden, da mögliche angreifende Personen und Sicherheitsforschende regelmäßig Angriffe auf bekannte Verfahren untersuchen. 
+Angriff heißt in diesem Zusammenhang vor allem, dass effizient Kollisionen berechnet werden können oder aus der Ausgabe die assoziierte Eingabe berechnet werden kann. 
 So gelten beispielsweise MD5 und SHA-1 nicht mehr als sicher, während SHA-256 und SHA-512 Stand 2020 sicher sind.
 
 Trotzdem ist der Einsatz dieser, als sicher geltenden Hashfunktionen allein keine sichere Technik, um Passwörter zu persistieren.
@@ -42,16 +42,16 @@ Wir können uns also vorstellen, dass bei Brute-Forcing der meistverwendeten Pas
 
 # Sicheres Passworthashing
 Zwei Maßnahmen sollen diese Angriffe nun deutlich erschweren. 
-Um das Erstellen von Wörterbüchern für AngreiferInnen unpraktikabel zu machen, wird das Passwort mit einem öffentlichen Zufallswert, dem _Salt_, kombiniert.
+Um das Erstellen von Wörterbüchern für Angreifende unpraktikabel zu machen, wird das Passwort mit einem öffentlichen Zufallswert, dem _Salt_, kombiniert.
 Üblich ist es z.B. den Wert an den Passwort-String anzuhängen.
-Um einen Wörterbuchangriff durchzuführen, müsste es nun für jedes mögliche _Salt_ ein Wörterbuch mit allen möglichen Passwörtern erstellt werden. 
-Bei Verwendung eines Salts mit _n_-Bit Länge würden so 2 hoch _n_ mal mehr Wörterbücher benötigt, als ohne Verwendung eines Salts.
+Um einen Wörterbuchangriff durchzuführen, müsste nun für jedes mögliche Salt ein Wörterbuch mit allen möglichen Passwörtern erstellt werden. 
+Bei Verwendung eines Salts mit _n_ Bit Länge würden so 2 hoch _n_ mal mehr Wörterbücher benötigt, als ohne Verwendung eines Salts.
 Dadurch wird dieser Angriff unpraktikabel.
 Die Brute-Force Problematik wird behoben, indem Verfahren verwendet werden, die künstlich verlangsamt werden.
-Dadurch wird ein Ausprobieren sehr viel länger dauern aund seinerseits nicht mehr effizient durchführbar sein.
+Dadurch wird ein Ausprobieren sehr viel länger dauern und somit nicht mehr effizient durchführbar sein.
 Als Richtwert wie lange das Verfahren dauern soll und darf, gilt dabei, dass eine Anmeldung an einem Backend Server 0,5 - 1 Sekunde benötigen darf.
 
-In den folgenden Abschnitten stelle ich nun drei verschiedene Verfahren vor, die diese Gegenmaßnahmen mitbringen und veranschauliche sie anhand eines Java-Code-Schnipsels mit dem auf Bouncy-Castle basierenden Spring-Security.
+In den folgenden Abschnitten stelle ich nun drei verschiedene Verfahren vor, die diese Gegenmaßnahmen mitbringen, und veranschauliche sie anhand eines Java-Code-Schnipsels mit dem auf Bouncy-Castle basierenden Spring-Security.
 
 ## PBKDF2
 Die Passwort-Based Key Derivation Function 2 wurde im Jahr 2000 von den RSA-Laboratories im Rahmen der PKCS#5 Spezifikation veröffentlicht. 
@@ -76,14 +76,14 @@ String encoded = encoder.encode("geheim");
 // validiere den Hash
 boolean isValidPassword = encoder.matches("geheim", encoded);
 ```
-Dabei erzeugt es mit deim encode() im Default einen einen Hex-String in der Form 
+Mit encode() wird im Default ein Hex-String in folgender Form erstellt:
 
 `8d616f6522e36dff7627149c17f77ddc59efacedd22d47ffc95073f9f2159c23f27b1cc959ec7bf4`.
 
-Dieser enthält einen 64-Bit Salt, der automatisch jedes Mal generiert wird, sowie den eigentlichen Hashwert.
+Dieser enthält ein 64 Bit Salt, das jedes Mal automatisch generiert wird, sowie den eigentlichen Hashwert.
 Das bedeutet, wir müssen uns keine Gedanken über die Salt-Speicherung mehr machen, da es direkt mitgespeichert wird.
 
-Auf einem Entwicklerlaptop mit einem Intel i9 benötigt die einmalige Ausführung ca. 700 ms, was gut zu unseren Vorbedingen von 0,5 - 1 Sekunde Ausführungszeit passt. 
+Auf einem Entwicklerlaptop mit einem Intel i9 benötigt die einmalige Ausführung ca. 700 ms, was gut zu unserer Vorbedingung von 0,5 - 1 Sekunde Ausführungszeit passt. 
 Brute-Force Angriffe auf das PBKDF2 gibt es vor allem mit spezialisierter Hardware wie GPUs und FPGAs, da die verwendeten Hashfunktionen keinen großen Speicherbedarf haben. 
 Das National Institute of Standards and Technology empfiehlt PBKDF2 trotzdem bei Nutzung eines hohen Iteration Counts. 
 Gerade im Bereich von Speichernutzung und Konfigurierbarkeit gibt es allerdings bessere Verfahren. 
@@ -96,7 +96,7 @@ Dies ist ein symmetrisches Verschlüsselungsverfahren mit mehreren Runden.
 Für diese Runden wird jeweils ein neuer Schlüssel abgeleitet. 
 Bcrypt nutzt nun aus, dass diese Schlüsselableitung der Rundenschlüssel ressourcenintensiv ist. 
 Es verschlüsselt den festen Plaintext „OrpheanBeholderScryDoubt“ mit Rundenschlüsseln, die aus dem zu hashenden Passwort und dem _Salt_ abgeleitet werden. 
-Das zu hashende Passwort wird dafür vorher mit einem Salt von 128-Bit Länge konkateniert. 
+Das zu hashende Passwort wird dafür vorher mit einem Salt von 128 Bit Länge konkateniert. 
 Die Anzahl der Runden wird über einen Parameter _cost_ gesteuert, sodass auch hier auf eine Verbesserung der Rechenkapazität reagiert werden kann. 
 Das Verfahren wird dann 2 hoch _cost_ mal wiederholt.
 Zusätzlich wurde die Blowfish-Verschlüsselung so angepasst, dass mehr Speicher benötigt wird und Optimierungen auf GPU und FPGAs entsprechend schlechter anwendbar sind, was einen Vorteil gegenüber PBKDF2 darstellt.
@@ -118,15 +118,15 @@ Der String den das Bcrypt erzeugt hat allerdings eine etwas andere Form als von 
 `$2a$12$7Dj5dRTbzw/9YiaeJnGRrezIw4YcdoD2PTyE22xBIolQonzzPx02u`.
 
 Der String enthält jeweils $-separiert die Version 2a des verwendeten Bcrypts, den verwendeten Working Faktor und danach Base64 kodiert den Salt und den eigentlichen Hash.
-Er enthält also alles, um ein Passwort auf anhand des Hashes verifizieren zu können und kann auch so in der Datenbank abgelegt werden.
+Er enthält also alles, um ein Passwort anhand des Hashes verifizieren zu können, und kann auch so in der Datenbank abgelegt werden.
 
 Obwohl die Speichernutzung von 4KB größer ist als bei PBKDF2 ist sie immer noch verhältnismäßig gering.
 Die Speichernutzung ist wichtig, um vor allem optimierten Brute-Force Angriffen auf spezialiesierter Hardware, wie FPGAs und GPUs standhalten zu können.
-Ein Nachfolger von bcrypt nahm an der Password Hashing Competion teil.
+Ein Nachfolger von Bcrypt nahm an der Password Hashing Competion teil.
 Diesen Wettbewerb gewonnen hat allerdings Argon2.
 
 ## Argon2
-Als Sieger der Password Hashing Competition aus dem Jahre 2015 ging Argon2 hervor.
+Der Sieger der Password Hashing Competition aus dem Jahre 2015 war Argon2.
 Das Verfahren sorgt mit einer größeren Speichernutzung durch die Bildung eines großen internen Vektors dafür, dass durch spezialisierte Hardware getriebene Brute-Force Angriffe die Optimierungspotenziale geringer sind. 
 Intern kommt die Blake2b Hashfunktion zum Einsatz. 
 Es gibt verschiedene Versionen von Argon2:
@@ -136,7 +136,7 @@ Es gibt verschiedene Versionen von Argon2:
 (Anwendungen z.B. bei Festplattenverschlüsselung).
 * Argon2id: Hybride Version aus dem Jahr 2017, die weniger anfällig für Side-Channel Leakage als Argon2d ist und besser geschützt gegen Optimierung durch spezialisierte Hardware ist als Argon2i.
 
-Parametrisieren lassen sich alle Varianten in drei verschiedene Ausprägungen. 
+Alle Varianten bieten drei verschiedene Möglichkeiten zur Parameterisierung: 
 
 * Arbeitsspeicher _m_: der zu nutzende Arbeitsspeicher (in KB)
 * Parallelität _p_: Anzahl der parallel nutzbaren Threads
@@ -157,7 +157,7 @@ String encoded = encoder.encode(secret);
 // validiere eine Passwort mithilfe des Hashes
 boolean isValidPassword = encoder.matches("geheim", encoded);
 ```
-Der Hash des Passwort beinhaltet wie bei Bcrypt die Parameter, sowie den Salt, die Argon2-Version und den Hash an sich:
+Der Hash des Passworts beinhaltet, wie bei Bcrypt, die Parameter, das Salt, die Argon2-Version und den Hash an sich:
 
 `
 $argon2id$v=19$m=4096,t=90,p=2$AGyqya19qixSfWIXiCNkWg$eqvMYr17qyvvOHeksMc0WNN7jgwphxt0ugiCzbxusVk
@@ -167,13 +167,13 @@ Den erhöhten Sicherheitslevel erreichen wir durch den größeren Ressourcenaufw
 Seit 2020 empfiehlt das Bundesamt für Sicherheit in der Informationstechnik (BSI) Argon2id als Passworthashingmechanismus (verweist aber zur Parametrisierung weiter an "Experten").
 
 # Fazit
-Mit einfach mal hashen ist es bei der Persistierung von Passwörtern nicht getan. 
+Mit "einfach mal hashen" ist es bei der Persistierung von Passwörtern nicht getan. 
 Brute-Force und Wörterbuchangriffe sind effektive Angriffe gegen diese Hashes. 
-Durch den Einsatz eines _Salts_ zusammen mit einer künstlichen Verlangsamung des verwendeten Hashverfahrens lassen sich diese Angriffe vereiteln.
+Durch den Einsatz eines Salts zusammen mit einer künstlichen Verlangsamung des verwendeten Hashverfahrens lassen sich diese Angriffe vereiteln.
 Per Spring-Security lässt sich jedes der drei vorgestellten Verfahren einfach und schnell umsetzen.
-Die Implementierungen lösen dabei meistens auch schon die Frage nach der _Salt_- und die Parameterspeicherung. 
-Eine zusätzliche Versionierung, z.B. in einer extra Spalte, in der der Datenbank ist allerdings sinnvoll, um veraltete Hashes schneller zu finden.
+Die Implementierungen lösen dabei meistens auch schon die Frage nach der Salt- und Parameterspeicherung. 
+Eine zusätzliche Versionierung, z.B. in einer extra Spalte in der der Datenbank, ist allerdings sinnvoll, um veraltete Hashes schneller zu finden.
 Zusammenfassend lässt sich zu den Verfahren sagen: 
-* PBKDF2 wird aktuell noch vom NIST als sicher genug empfohlen, hat allerdings eine sehr geringe Speichernutzung, die es anfällig für Brute-force Angriffe macht. 
+* PBKDF2 wird aktuell noch vom NIST als sicher genug eingestuft, hat allerdings eine sehr geringe Speichernutzung, die es anfällig für Brute-force Angriffe macht. 
 * Bcrypts Parametrisierung ist einfach und relativ sicher.  
 * Argon2 ist durch seine anspruchsvolle Parametrisierbarkeit auch im Hinblick auf die Speicherauslastung das aktuell vom BSI empfohlene Verfahren.
