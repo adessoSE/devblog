@@ -37,13 +37,13 @@ Werden nun die Passworthashes geleakt, können Angreifer in diesem Wörterbuch n
 Für die bekannten Verfahren gibt es im Netz bereits Wörterbücher, sodass wir nicht einmal ein Wörterbuch erstellen müssen.
 Der zweite Angriff ist ein einfacher Brute-Force Angriff, bei dem alle Eingaben durchprobiert werden.
 Möglich macht das die angesprochene Effizienz der klassischen Hashfunktionen und die geringe Entropie, also die Verteilung, von nutzergenerierten Passwörtern. 
-Mit Unterstützung von spezialisierter Hardware wie GPUs gibt es z.B. Hashcat-Implementierungen, die 23 Mrd. SHA-256 Hashes pro Sekunde (!) durchprobieren können. 
+Da bspw. GPUs sehr viele Berechnungen parallel ausführen können, können mit einer Hashcat-Implementierungen bis zu 23 Mrd. SHA-256 Hashes pro Sekunde (!) durchprobiert werden.
 Wir können uns also vorstellen, dass bei Brute-Forcing der meistverwendeten Passwörter in den meisten Fällen bereits in wenigen Sekunde das passende Klartextpasswort vorliegt.
 
 # Sicheres Passworthashing
 Zwei Maßnahmen sollen diese Angriffe nun deutlich erschweren. 
 Um das Erstellen von Wörterbüchern für Angreifende unpraktikabel zu machen, wird das Passwort mit einem öffentlichen Zufallswert, dem _Salt_, kombiniert.
-Üblich ist es z.B. den Wert an den Passwort-String anzuhängen.
+Üblich ist es z.B., den Wert an den Passwort-String anzuhängen.
 Um einen Wörterbuchangriff durchzuführen, müsste nun für jedes mögliche Salt ein Wörterbuch mit allen möglichen Passwörtern erstellt werden. 
 Bei Verwendung eines Salts mit _n_ Bit Länge würden so 2 hoch _n_ mal mehr Wörterbücher benötigt, als ohne Verwendung eines Salts.
 Dadurch wird dieser Angriff unpraktikabel.
@@ -65,7 +65,7 @@ Zusätzlich besitzt die Funktion einen _Iteration Count_.
 Dieser bestimmt, wie oft dieses Verfahren wiederholt wird. 
 Je größer dieser wird, umso ressourcenaufwändiger ist die Ausführung und somit werden Brute-Force Angriffe schwieriger, allerdings dauert dann auch die Verifikation beim Login länger.
 Die Parametrisierung macht es möglich diesen Wert je nach Anwendungsfall bei einer Weiterentwicklung der verfügbaren Rechenleistung diesen Wert anzupassen. 
-Der Original-RFC 2898 aus dem Jahre 2000 empfahl noch mindestens einen _Iteration Count_ von 1.000 während aktuell das Minimum laut einer NIST Guideline von 2016 bei 10.000 liegt. 
+Der Original-RFC 2898 aus dem Jahre 2000 empfahl noch mindestens einen Iteration Count von 1.000 während aktuell das Minimum laut einer NIST Guideline von 2016 bei 10.000 liegt. 
 Der Defaultwert in Spring-Security liegt sogar bei 185.000 Iterationen. 
 
 In Spring-Security existiert das PBKDF2 seit Version 4.1 und wird folgendermaßen verwendet:
@@ -95,14 +95,14 @@ Es nutzt die Blowfish-Verschlüsselung.
 Dies ist ein symmetrisches Verschlüsselungsverfahren mit mehreren Runden. 
 Für diese Runden wird jeweils ein neuer Schlüssel abgeleitet. 
 Bcrypt nutzt nun aus, dass diese Schlüsselableitung der Rundenschlüssel ressourcenintensiv ist. 
-Es verschlüsselt den festen Plaintext „OrpheanBeholderScryDoubt“ mit Rundenschlüsseln, die aus dem zu hashenden Passwort und dem _Salt_ abgeleitet werden. 
+Es verschlüsselt den festen Plaintext "OrpheanBeholderScryDoubt" mit Rundenschlüsseln, die aus dem zu hashenden Passwort und dem Salt abgeleitet werden. 
 Das zu hashende Passwort wird dafür vorher mit einem Salt von 128 Bit Länge konkateniert. 
 Die Anzahl der Runden wird über einen Parameter _cost_ gesteuert, sodass auch hier auf eine Verbesserung der Rechenkapazität reagiert werden kann. 
 Das Verfahren wird dann 2 hoch _cost_ mal wiederholt.
 Zusätzlich wurde die Blowfish-Verschlüsselung so angepasst, dass mehr Speicher benötigt wird und Optimierungen auf GPU und FPGAs entsprechend schlechter anwendbar sind, was einen Vorteil gegenüber PBKDF2 darstellt.
 
 Die Parameterempfehlung im Jahre 1999 war ein Wert zwischen 6 und 8, während heute (Stand Ende 2020) der Default-Wert 10 ist und die OWASP Foundation eine Erhöhung auf 12 empfiehlt. 
-Diese einfache Parametrisierbarkeit mit klaren Empfehlungen macht Bcrypt zu einem empfehlenswerten und einfach anwendbaren Verfahren. 
+Diese einfache Parametrisierbarkeit mit klaren Empfehlungen macht Bcrypt zu einem empfehlenswerten und einfach anwendbarem Verfahren. 
 
 Auch in Spring-Security sollte der Working-Faktor standardmäßig erhöht werden. 
 Analog zu PBKDF2 wird Bcrypt dort so verwendet:
@@ -134,7 +134,7 @@ Es gibt verschiedene Versionen von Argon2:
 (Anwendungen in Backendservern und Kryptowährungen).
 * Argon2i: der Indexzugriff erfolgt unabhängig von dem mitgegebenen Geheimnis und ist dadurch Side-Channel resistent, allerdings besser optimierbar auf spezialisierter Hardware
 (Anwendungen z.B. bei Festplattenverschlüsselung).
-* Argon2id: Hybride Version aus dem Jahr 2017, die weniger anfällig für Side-Channel Leakage als Argon2d ist und besser geschützt gegen Optimierung durch spezialisierte Hardware ist als Argon2i.
+* Argon2id: Hybride Version aus dem Jahr 2017, die weniger anfällig für Side-Channel Leakage als Argon2d und besser gegen Optimierung durch spezialisierte Hardware geschützt ist als Argon2i.
 
 Alle Varianten bieten drei verschiedene Möglichkeiten zur Parameterisierung: 
 
