@@ -4,7 +4,7 @@ title: "Authentifizierung über öffentliche Schlüssel mit Apache MINA"
 date: 2020-12-07 22:24
 author: ivankablar                       
 categories: [Java]
-tags: [Java, IT_Security, Kryptographie, SSH, Apache MINA]     
+tags: [Java, IT-Security, Kryptographie, SSH, Apache MINA]     
 ---
 
 In der Fortsetzung meines [Blog-Beitrags](https://www.adesso.de/de/news/blog/migration-von-videomitschnitten-mit-apache-mina-teil-1.jsp) werden wir die Authentifizierung über öffentliche Schlüssel mit dem Apache MINA Framework untersuchen.
@@ -42,7 +42,7 @@ Der Unterzeichner verschlüsselt (signiert) den von ihm erstellten Hashwert mit 
 Der Prüfer entschlüsselt die Nachricht mit dem öffentlichen Schlüssel und vergleicht den erhaltenen Hashwert mit dem zuvor berechneten Hashwert.
 Stimmen beide überein, ist die Signatur und damit die Identität des Unterzeichners und die Echtheit der Nachricht bestätigt.
 
-![Prüfung der digitalen Signatur](/assets/images/posts/Authentifizierung-ueber-oeffentliche-Schluessel-mit-Apache-MINA/DigitaleSignatur.png)
+![Prüfung der digitalen Signatur](/assets/images/posts/Authentifizierung-ueber-oeffentliche-Schluessel-mit-Apache-MINA/DigitaleSignatur.jpg)
 
 # Prototyp
 Schauen wir uns den Authentifizierungsvorgang genauer an.
