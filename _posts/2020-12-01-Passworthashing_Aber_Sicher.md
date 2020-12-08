@@ -127,7 +127,7 @@ Diesen Wettbewerb gewonnen hat allerdings Argon2.
 
 ## Argon2
 Der Sieger der Password Hashing Competition aus dem Jahre 2015 war Argon2.
-Das Verfahren sorgt mit einer größeren Speichernutzung durch die Bildung eines großen internen Vektors dafür, dass durch spezialisierte Hardware getriebene Brute-Force Angriffe die Optimierungspotenziale geringer sind. 
+Das Verfahren sorgt mit einer größeren Speichernutzung durch die Bildung eines großen internen Vektors dafür, dass Brute-Force Angriffe mit spezialisierter Hardware ein geringeres Optimierungspotenzial haben. 
 Intern kommt die Blake2b Hashfunktion zum Einsatz. 
 Es gibt verschiedene Versionen von Argon2:
 * Argon2d: Der Indexzugriff auf den internen Vektor erfolgt abhängig vom Passwort und Salt und so anfällig für Cache-Timing Side-Channel Angriffe. 
