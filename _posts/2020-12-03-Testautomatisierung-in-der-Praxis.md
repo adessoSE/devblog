@@ -2,12 +2,13 @@
 layout: [post, post-xml]              
 title:  "Testautomatisierung in der Praxis "        
 date:   2020-12-03 10:00                    
+modified_date: 2020-12-10 10:00
 author: schirmer_urbanik_eggert                    
 categories: [Branchen]             
-tags: [Testautomatisierung, Webdriver IO, Cucumber, Chai]
+tags: [Testautomatisierung, Webdriver IO, Cucumber, Chai, Öffentliche Verwaltung, Public]
 ---
 
-Als Berater für den Aufbau eines geeigneten Testumfeldes im Public Umfeld, wollen wir Euch in unserem mehrteiligen Erfahrungsbericht einladen, die verschiedenen Höhen und Tiefen in der Umsetzung zu begleiten.
+Als Berater für den Aufbau eines geeigneten Testumfeldes im Public Umfeld, wollen wir euch in unserem mehrteiligen Erfahrungsbericht einladen, die verschiedenen Höhen und Tiefen in der Umsetzung zu begleiten.
 In diesem Teil geht es weiter mit der Testautomatisierung, speziell im Bereich des GUI-Tests.
 
 # Erfahrungen mit GUI-Oberflächentests im Public Umfeld
