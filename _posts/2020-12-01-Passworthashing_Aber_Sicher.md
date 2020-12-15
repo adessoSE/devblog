@@ -59,7 +59,7 @@ Diese Funktion ermöglicht es uns, aus benutzergenerierten Passwörtern z.B. Sch
 
 Sie bietet aber auch die Eigenschaften, die wir für das Passworthashing benötigen.
 Um die oben genannten Angriffe zu vereiteln, wird zunächst ein zufälliges Salt generiert.
-Dieses Salt wird mit einem Zähler konkateniert, anschließend wird ein HMAC (Keyed-Hash Message Authentication Code) mehrfach auf diesen String angewendet.
+Dieses Salt wird mit einem Zähler konkateniert, anschließend wird ein Keyed-Hash Message Authentication Code (HMAC) mehrfach auf diesen String angewendet.
 Ein HMAC generiert einen Hash, der mit einem Schlüssel authentifiziert ist, d.h. nur mit dem Wissen des Passworts kann der gleiche Hash berechnet werden.
 Früher wurde hier SHA-1 als interne Hashfunktion verwendet, heute ist mindestens SHA-256 üblich.
 Zusätzlich besitzt die Funktion einen _Iteration Count_. 
@@ -147,7 +147,7 @@ Das Originalpaper stellt keine konkrete Empfehlung für diese Parameter vor.
 Alle Parameterwerte sollen so hoch wie möglich gewählt werden. 
  
 Die Standardparameter von Argon2id (das einzige Argon2 Verfahren in Spring-Security) sorgen allerdings auf dem Entwicklerlaptop nur für eine Laufzeit von 80 ms.
-Daher habe ich den Parameter _t_ so stark erhöht, dass ca. 0,5 Sekunden Laufzeit erreicht wird (gewählte Parametrisierung: _m_ = 4096, _p_ = 1, _t_ = 90).
+Daher habe ich den Parameter _t_ so stark erhöht, dass eine Laufzeit von ungefähr 0,5 Sekunden erreicht wird (gewählte Parametrisierung: _m_ = 4096, _p_ = 1, _t_ = 90).
 Damit liegt es mit den gewählten Parametern im Mittelfeld, was die Laufzeit angeht (PBKDF2: 700 ms, Bcrypt: 200 ms).
 Ein Hinweis noch zu dem Parallelisierungsparameter _p_.
 Da die Bouncy-Castle Implementierung die Parallelisierung aktuell nicht ausnutzt, lohnt es sich nicht, diesen Parameter bei Spring-Security hochzusetzen.
