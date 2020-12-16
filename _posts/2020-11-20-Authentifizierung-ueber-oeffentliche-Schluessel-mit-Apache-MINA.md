@@ -35,7 +35,7 @@ Aus diesem Grund ist die Authentifizierung über öffentliche Schlüssel sichere
 Wichtig ist, dass der private Schlüssel immer geheim bleibt, denn andererseits wäre die Sicherheit des Verfahrens nicht mehr gegeben.
 
 # Digitale Signatur
-Die digitale Signatur kann verwendet werden, um Dokumente digital und rechtssicher zu unterzeichnen, die Identität des Unterzeichners und die Integrität von Nachrichten zu bestätigen.
+Die digitale Signatur kann verwendet werden, um Dokumente digital und rechtssicher zu unterzeichnen und die Identität des Unterzeichners und die Integrität von Nachrichten zu bestätigen.
 Betrachtet man einen konkreten Anwendungsfall, so einigen sich der Unterzeichner und der Prüfer zunächst auf die zu signierende Nachricht und berechnen jeweils aus dieser einen Hashwert. 
 Das Hashen macht aus einer Nachricht flexibeler Länge eine Nachricht fester Länge und es ist nicht möglich, aus dem Hashwert die ursprüngliche Nachricht zu berechnen.
 Der Unterzeichner verschlüsselt (signiert) den von ihm erstellten Hashwert mit dem privaten Schlüssel und schickt die verschlüsselte Nachricht an den Prüfer. 
