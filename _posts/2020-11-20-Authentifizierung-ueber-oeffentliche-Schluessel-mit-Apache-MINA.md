@@ -124,8 +124,8 @@ sftp -P 9922 -i /home/ivan/id_rsa ivan@localhost
 
 Der private Schlüssel enthält die notwendigen Informationen für das Berechnen des öffentlichen Schlüssels. 
 Der vom Client geschickte öffentliche Schlüssel kann nun mit dem für den Benutzer auf dem Server konfigurierten öffentlichen Schlüssel verglichen werden. 
-Außerdem überprüft das Framwork die Signatur des privaten Schlüssels. 
-Erst, wenn der Vergleich der öffentlichen Schlüssel gelingt und das Framework die Signatur als gültig anerkannt hat, gilt der Client als authentifiziert.
+Außerdem überprüft das Framwork die Signatur des privaten Schlüssels mit dem öffentlichen Schlüssel. 
+Erst, wenn der Vergleich der öffentlichen Schlüssel gelingt und die Signatur korrekt ist, hat sich der Client erfolgreich authentifiziert.
 
 # Implementierung der Authentifizierung
 Mit der Bereitstellung von Interfaces für die Authentifizierung durch das Framwork wird bei der Entwicklung die Überprüfung von zusätzlichen Authentifizierungskriterien ermöglicht, darunter auch der Vergleich der öffentlichen Schlüssel.
