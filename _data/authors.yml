@@ -410,4 +410,10 @@ schirmer_urbanik_eggert:
   email: axel.schirmer@adesso.de, peter.urbanik@adesso.de, tony.eggert@adesso.de
   github_username: schirmer_urbanik_eggert
 
-
+bianca-batsch:
+  first_name: Bianca
+  last_name: Batsch
+  github_username: BiancaBatsch
+  email: bianca.batsch@adesso.de
+  bio: "Bianca Batsch ist Senior Software Engineer im Bereich Lottery. Ihre Schwerpunkte sind Java-Technologien, speziell FirstSpirit."
+  avatar_url: /assets/images/avatars/batsch.jpg
