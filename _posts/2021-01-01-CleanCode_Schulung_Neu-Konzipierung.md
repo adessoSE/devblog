@@ -7,8 +7,6 @@ categories: [Softwareentwicklung]
 tags: [Qualität, CleanCode]
 ---
 
-Warum und wie ein Schulungskonzept überarbeitet wurde.
-
 Der Schulungskatalog (https://www.adesso.de/adesso/adesso-de/jobs-karriere/entwickeln/weiterbilden/schulungskatalog.pdf) von adesso ist seit Jahren eine Institution innerhalb des Unternehmens. 
 Viele adessi bieten für interessierte Kolleginnen und Kollegen Aus- und Weiterbildungen in ihren jeweiligen Fachdomänen an. 
 Die Inhalte und Konzepte der jeweiligen Schulung werden von den adesso-Mitarbeitenden neben der regulären Arbeit und in eigener Regie verfasst. 
