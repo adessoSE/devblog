@@ -12,37 +12,39 @@ Ich beginne mit einem Überblick über die für uns relevanten kryptographischen
 Anschließend schauen wir uns die Implementierung der Authentifizierung über öffentliche Schlüssel in einem Prototyp und einem vom Framework abgeleiteten Konzept für die Authentifizierung an.
 
 # Asymmetrische Verschlüsselung
-Die asymmetrische Verschlüsselung verwendet zwei sich ergänzende Schlüssel: den öffentlichen Schlüssel für das Verschlüsseln und den privaten Schlüssel für das Entschlüsseln der Nachricht. 
+Bei der asymmetrischen Verschlüsselung werden zwei sich ergänzende Schlüssel verwendet: Der private und der öffentliche Schlüssel.
+Mit dem privaten Schlüssel werden Nachrichten entschlüsselt und digitale Signaturen erzeugt.
+Mit dem öffentlichen Schlüssel werden Nachrichten verschlüsselt und digitale Signaturen auf ihre Authentizität überprüft.
 Wie der Name schon sagt, kann der öffentliche Schlüssel öffentlich zugänglich gemacht werden. 
 Theoretisch kann jeder mit dem öffentlichen Schlüssel Nachrichten verschlüsseln, da diese nur mit dem privaten Schlüssel entschlüsselt werden können. 
-Maßgeblich ist hierbei, dass der private Schlüssel nicht mit dem öffentlichen Schlüssel berechnet werden kann.
-Der öffentliche Schlüssel wiederum kann mit dem privaten Schlüssel berechnet werden.
+Maßgeblich ist hierbei, dass der private Schlüssel nicht aus dem öffentlichen Schlüssel berechnet werden kann.
+Der öffentliche Schlüssel wiederum kann aus dem privaten Schlüssel berechnet werden.
+
+# Digitale Signatur
+Die digitale Signatur kann verwendet werden, um Dokumente digital und rechtssicher zu unterzeichnen sowie die Identität des Unterzeichners und die Integrität von Nachrichten zu bestätigen.
+Betrachtet man einen konkreten Anwendungsfall, so einigen sich der Unterzeichner und der Prüfer zunächst auf die zu signierende Nachricht und berechnen jeweils aus dieser einen Hashwert. 
+Das Hashen macht aus einer Nachricht flexibeler Länge eine Nachricht fester Länge. Es ist grundsätzlich nicht möglich, aus dem Hashwert die ursprüngliche Nachricht zu berechnen.
+Der Unterzeichner verschlüsselt (signiert) den von ihm erstellten Hashwert mit dem privaten Schlüssel und schickt die verschlüsselte Nachricht an den Prüfer. 
+Der Prüfer entschlüsselt die Nachricht mit dem öffentlichen Schlüssel und vergleicht den erhaltenen Hashwert mit dem zuvor berechneten Hashwert.
+Stimmen beide Hashwerte überein, ist die Signatur und damit die Identität des Unterzeichners sowie die Echtheit der Nachricht bestätigt.
+
+![Prüfung der digitalen Signatur](/assets/images/posts/Authentifizierung-ueber-oeffentliche-Schluessel-mit-Apache-MINA/DigitaleSignatur.png)
+
+# Authentifizierung über öffentliche Schlüssel
+Bevor sich der Benutzer über einen öffentlichen Schlüssel am SFTP-Server authentifizieren kann, muss der öffentliche Schlüssel für den Benutzernamen auf dem SFTP-Server konfiguriert sein. 
+Die Authentifizierung erfolgt dann, wie in [RFC4252](https://tools.ietf.org/html/rfc4252/) spezifiziert, über den privaten Schlüssel des Clients. 
+Während des Authentifizierungsvorgangs überprüft der SFTP-Server den öffentlichen Schlüssel des Clients und die Signatur des privaten Schlüssels. 
+Erst wenn beide gültig sind, hat sich der Client erfolgreich authentifiziert.
+
+Da private Schlüssel in der Regel sehr lang sind, ist es nahezu unmöglich, sie mit "Brute-Force" Angriffen zu knacken. 
+Aus diesem Grund ist die Authentifizierung über öffentliche Schlüssel sicherer als die Authentifizierung über Passwörter und sollte letzterer vorgezogen werden. 
+Wichtig ist, dass der private Schlüssel immer geheim bleibt, denn andererseits wäre die Sicherheit des Verfahrens nicht mehr gegeben.
 
 # Diffie-Hellmann-Schlüsselaustausch
 Anders als vielleicht angenommen, kommen die Schlüssel, die für die Authentifizierung verwendet werden, nicht für die Verschlüsselung der Datenübertagung zum Einsatz. 
 Bevor der Authentifizierungsvorgang beginnen kann, findet zwischen dem Client und dem Server der sogenannte "Diffie-Hellmann-Schlüsselaustausch" statt. 
 Während der Prozedur generieren der Client und der Server Schlüsselteile, die, zusammengesetzt, einen symmetrischen Schlüssel für die Verschlüssellung der Kommunikation ergeben. 
 Erst nach erfolgreicher Verschlüsselung des Kommunikationskanals kann mit dem Authentifizierungsvorgang begonnen werden.
-
-# Authentifizierung über öffentliche Schlüssel
-Bevor sich der Benutzer über einen öffentlichen Schlüssel am SFTP-Server authentifizieren kann, muss der öffentliche Schlüssel für den Benutzernamen auf dem SFTP-Server konfiguriert sein. 
-Die Authentifizierung erfolgt dann, wie in [RFC4252](https://tools.ietf.org/html/rfc4252/) spezifiziert, über den privaten Schlüssel des Clients. 
-Während des Authentifizierungsvorgangs überprüft der SFTP-Server den öffentlichen Schlüssel des Clients und die Signatur des privaten Schlüssels. 
-Erst wenn beide gültig sind, gilt der Client als authentifiziert.
-
-Da private Schlüssel in der Regel sehr lang sind, ist es nahezu unmöglich, sie mit "Brute-Force" Angriffen zu knacken. 
-Aus diesem Grund ist die Authentifizierung über öffentliche Schlüssel sicherer als die Authentifizierung über Passwörter und sollte letzterer vorgezogen werden. 
-Wichtig ist, dass der private Schlüssel immer geheim bleibt, denn andererseits wäre die Sicherheit des Verfahrens nicht mehr gegeben.
-
-# Digitale Signatur
-Die digitale Signatur kann verwendet werden, um Dokumente digital und rechtssicher zu unterzeichnen und die Identität des Unterzeichners und die Integrität von Nachrichten zu bestätigen.
-Betrachtet man einen konkreten Anwendungsfall, so einigen sich der Unterzeichner und der Prüfer zunächst auf die zu signierende Nachricht und berechnen jeweils aus dieser einen Hashwert. 
-Das Hashen macht aus einer Nachricht flexibeler Länge eine Nachricht fester Länge und es ist nicht möglich, aus dem Hashwert die ursprüngliche Nachricht zu berechnen.
-Der Unterzeichner verschlüsselt (signiert) den von ihm erstellten Hashwert mit dem privaten Schlüssel und schickt die verschlüsselte Nachricht an den Prüfer. 
-Der Prüfer entschlüsselt die Nachricht mit dem öffentlichen Schlüssel und vergleicht den erhaltenen Hashwert mit dem zuvor berechneten Hashwert.
-Stimmen beide überein, ist die Signatur und damit die Identität des Unterzeichners und die Echtheit der Nachricht bestätigt.
-
-![Prüfung der digitalen Signatur](/assets/images/posts/Authentifizierung-ueber-oeffentliche-Schluessel-mit-Apache-MINA/DigitaleSignatur.png)
 
 # Prototyp
 Schauen wir uns den Authentifizierungsvorgang genauer an.
