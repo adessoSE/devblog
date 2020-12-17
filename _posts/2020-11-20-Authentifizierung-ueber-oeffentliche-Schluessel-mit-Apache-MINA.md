@@ -22,13 +22,14 @@ Der öffentliche Schlüssel wiederum kann aus dem privaten Schlüssel berechnet 
 
 # Digitale Signatur
 Die digitale Signatur kann verwendet werden, um Dokumente digital und rechtssicher zu unterzeichnen sowie die Identität des Unterzeichners und die Integrität von Nachrichten zu bestätigen.
-Betrachtet man einen konkreten Anwendungsfall, so einigen sich der Unterzeichner und der Prüfer zunächst auf die zu signierende Nachricht und berechnen jeweils aus dieser einen Hashwert. 
+Betrachtet man einen konkreten Anwendungsfall, so einigen sich der Unterzeichner und der Prüfer zunächst auf die zu verschlüsselnde Nachricht und berechnen jeweils aus dieser einen Hashwert. 
 Das Hashen macht aus einer Nachricht flexibeler Länge eine Nachricht fester Länge. Es ist grundsätzlich nicht möglich, aus dem Hashwert die ursprüngliche Nachricht zu berechnen.
 Der Unterzeichner verschlüsselt (signiert) den von ihm erstellten Hashwert mit dem privaten Schlüssel und schickt die verschlüsselte Nachricht an den Prüfer. 
 Der Prüfer entschlüsselt die Nachricht mit dem öffentlichen Schlüssel und vergleicht den erhaltenen Hashwert mit dem zuvor berechneten Hashwert.
 Stimmen beide Hashwerte überein, ist die Signatur und damit die Identität des Unterzeichners sowie die Echtheit der Nachricht bestätigt.
 
 ![Prüfung der digitalen Signatur](/assets/images/posts/Authentifizierung-ueber-oeffentliche-Schluessel-mit-Apache-MINA/DigitaleSignatur.png)
+
 
 # Authentifizierung über öffentliche Schlüssel
 Bevor sich der Benutzer über einen öffentlichen Schlüssel am SFTP-Server authentifizieren kann, muss der öffentliche Schlüssel für den Benutzernamen auf dem SFTP-Server konfiguriert sein. 
