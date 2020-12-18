@@ -17,8 +17,10 @@ Dieser Artikel richtet sich an Projektleiter, Architekten oder interessierte Ent
 Der Monolith in meinem aktuellen Projekt sollte um eine neue (REST-)Webservice-Schnittstelle erweitert werden.
 Unter anderem stellt sich bei der Konzeption zwangsläufig die Frage, wie man die Schnittstelle entwicklungsbegleitend testen kann. 
 Natürlich kommen hierbei die üblichen Verdächtigen auf:
+
 - einen rudimentären Client (evtl. mit Benutzeroberfläche) nebenher entwickeln, mit dem die einzelnen Endpoints angesprochen werden können
 - etablierte Tools zur Erstellung von REST-Calls verwenden
+
 Beide Möglichkeiten erfordern allerdings einen relativ großen Pflegeaufwand und vor allem erodieren sie schnell, wenn die Schnittstelle sich mit der Zeit ändert.
 
 # Die Grundidee
@@ -40,8 +42,8 @@ Weniger relevante Randsysteme sind mit Mocks ersetzt worden.
 Die Datenbank wird mit dem Framework *TestContainers* zur Laufzeit aus einer Docker-Registry bezogen und das Schema der Anwendung über die Flyway-Migrationsskripte aus dem produktiven Code erzeugt.
 Dieser Schritt wird für jeden Testdurchlauf neu erledigt und ist recht zeitintensiv.
 Alternativ kann ein eigener Dockercontainer mit einer fertig eingerichteten Datenbank erzeugt und in einer Registry abgelegt werden, welcher anstelle der leeren Standard-Container geladen wird.
-Mithilfe des *rest-assured*-Frameworks wird schließlich ein Rest-Client erzeugt, der die Restendpoints des Webservice anspricht und direkt Assertions für die Responses mitbringt.
-Zahlreiche weitere anwendungsspezifische Konfigurationen werden mit den Hausmitteln von JUnit eingerichtet, sodass am Anfang eines jeden JUnit-Tests eine fertige Laufzeitumgebung des Monolithen und ein Rest-Client zur Verfügung stehen.
+Mithilfe des *REST assured*-Frameworks wird schließlich ein REST-Client erzeugt, der die REST-Endpunkte des Webservice anspricht und direkt Assertions für die Responses mitbringt.
+Zahlreiche weitere anwendungsspezifische Konfigurationen werden mit den Hausmitteln von JUnit eingerichtet, sodass am Anfang eines jeden JUnit-Tests eine fertige Laufzeitumgebung des Monolithen und ein REST-Client zur Verfügung stehen.
 Von hier an ist das Implementieren der Tests kaum mehr als ein üblicher JUnit-Test.
 
 ## Die Tools
@@ -53,7 +55,7 @@ Von hier an ist das Implementieren der Tests kaum mehr als ein üblicher JUnit-T
 - Flyway (DB-Schema Migration)
   - https://flywaydb.org/
   - Framework zur Verwaltung von Datenbankmigrationen.
-- Rest-Assured (REST-Client)
+- REST assured (REST-Client)
   - http://rest-assured.io
   - Erzeugen von REST-Calls As-Code
 
@@ -65,7 +67,7 @@ Von hier an ist das Implementieren der Tests kaum mehr als ein üblicher JUnit-T
 - Tests erodieren nicht, da sie bei Änderungen direkt mit angepasst werden müssen (spätestens, wenn die nächste Ausführung fehlschlägt)
 - Once-Written-Never-Forgotten; Testszenarien müssen nur einmalig als Test implementiert werden und werden bei jeder zukünftigen Ausführung abgetestet
 
-# Die Sclaimer ("Disclaimer" wäre ein Kombobreaker gewesen)
+# Die Kehrseite
 
 Mir ist bewusst, dass JUnit ein Framework ist, welches darauf abzielt, so leichtgewichtige Tests wie nur möglich zu schreiben und dass unsere Verwendung des Frameworks diesem Grundgedanken zutiefst widerspricht.
 An manchen Stellen mussten wir daher etwas kreativ mit den gegebenen Möglichkeiten von JUnit umgehen. Wichtig ist, dass wir uns dessen bewusst sind und dass wir lediglich in diesem Kontext von den Best-Practices eines üblichen Unit-Tests abweichen.
