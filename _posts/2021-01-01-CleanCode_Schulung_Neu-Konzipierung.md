@@ -54,6 +54,7 @@ Das alles erfährt man direkt **live und in Farbe**, so dass hier gelebt was ges
 Nach diesen zwei Tagen der speziellen Train the Trainer-Edition stand ein von uns gemeinsam erarbeitets Konzept - eine enorme Leistung. 
 Nur damit waren wir noch lange nicht fertig mit dem Erstellen der neuen Schulung. 
 Ein Konzept allein zu haben reicht nicht. 
+![Grober Ablauf / veranschaulichtes Konzept](/assets/images/cleancodeschulung/konzept-pinwand.png)
 Es müssen die einzelnen Bestandteile / Lerneinheiten ausgearbeitet und Materialien erstellt werden. 
 Dies geschah außerhalb der Schulung und kostete zusätzlich insgesamt mindestens nochmal zwei Wochen Arbeit.
 
