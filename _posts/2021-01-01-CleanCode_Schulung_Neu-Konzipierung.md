@@ -9,14 +9,14 @@ tags: [Qualität, CleanCode, Schulungen]
 
 Wie Train the Trainer unsere adesso-internen ExpertInnen gute und nachhaltige Wissensvermittlung für Erwachsene lehrt und welche Möglichkeiten in einer gezielteren Durchführung für die TrainerInnen und Inhalte der Schulungen schlummern.
 
-Der Schulungskatalog (https://www.adesso.de/adesso/adesso-de/jobs-karriere/entwickeln/weiterbilden/schulungskatalog.pdf) von adesso ist seit Jahren eine Institution innerhalb des Unternehmens. 
+Der [Schulungskatalog](https://www.adesso.de/adesso/adesso-de/jobs-karriere/entwickeln/weiterbilden/schulungskatalog.pdf) von adesso ist seit Jahren eine Institution innerhalb des Unternehmens. 
 Viele adessi bieten für interessierte Kolleginnen und Kollegen Aus- und Weiterbildungen in ihren jeweiligen Fachdomänen an. 
 Die Inhalte und Konzepte der jeweiligen Schulung werden von den adesso-Mitarbeitenden neben den regulären Aufgaben und in eigener Regie verfasst. 
 Neben den von adesso-internen ExpertInnen durchgeführten Schulungen, existieren natürlich noch solche, die von externen TrainnerInnen angeboten und durchgeführt werden. Dies sind etwas solche rund um den Erwerb von Soft Skills.
 
-Jeder neue interne Schulungsleitende muss zunächst, die Schulung „Train the Trainer“ besuchen.
+Jeder neue interne Schulungsleitende muss zunächst, die Schulung **Train the Trainer** besuchen.
 Hier wird gelernt und erlebt, was die Besonderheiten der sogenannten suggestopädischen Wissensvermittlung sind. 
-Diese Schulung vermittelt auf ganzheitliche Art, frei nach dem Motto „Trainings statt Folienvortrag“ wie eine lebendige und erwachsenengerechte Methodik und Didaktik umgesetzt werden kann, ohne dabei einfach nur zwischen Vortag und Übung hin und her zu wechseln.
+Diese Schulung vermittelt auf ganzheitliche Art, frei nach dem Motto **Trainings statt Folienvortrag** wie eine lebendige und erwachsenengerechte Methodik und Didaktik umgesetzt werden kann, ohne dabei einfach nur zwischen Vortag und Übung hin und her zu wechseln.
 Sie zeigt des Weiteren, wie Trainings professionell konzipiert und die jeweils passenden Trainingsmaterialien dafür erstellt werden können.
 
 # Auch CleanCode war zunächst ein Folienvortrag 
@@ -42,7 +42,7 @@ Am Ende sollte ein vollständig ausgearbeitetes Konzept vorhanden sein, dass auc
 Mit der Freigabe zu diesem Vorhaben hatten wir nun zwei Termine, an denen wir gemeinsam arbeiten konnten. 
 Den Startschuss gab eine 1tägige Train the Trainer-Einheit, da einigen Trainern die didaktische Basis noch fehlte und die anderen so ihr Wissen auffrischen konnten.
 Der zweite Termin diente dazu, das Vorgehen und Konzept der Schulung komplett neu aufzubauen und umzugestalten. 
-Dazu war auch Anke Haberland, die Trainerin des Train the Trainer-Seminars, eine große Hilfe. 
+Dazu war auch **Anke Haberland**, die Trainerin des Train the Trainer-Seminars, eine große Hilfe. 
 Sie konnte uns durch ihren Erfahrungsschatz viele Tipps und Anregungen geben, um das neue CleanCode-Schulungskonzept zu erarbeiten. 
 Vor allem für die didaktische Aufbereitung der Themen war dies eine enorme Hilfe.
 
@@ -63,5 +63,5 @@ Auch wenn es sein kann, dass es aufgrund der aktuellen Lage länger dauert, wir 
 Mit insgesamt fünf Trainern an drei verschiedenen Standorten sind wir technisch auch schon recht gut aufgestellt.
 
 Ihr möchtet erfahren, was adesso sonst noch im Bereich der Weiterbildung bietet? 
-Dann werft auch einen Blick auf unsere Website. (https://www.adesso.de/de/jobs-karriere/entwicklung/index.jsp) 
-Wenn ihr mehr zu spannenden Themen aus der adesso-Welt lesen möchtet, schaut in unsere bisher erschienenen Blog-Beiträge. (https://www.adesso.de/de/news/blog/index.jsp)
+Dann werft auch einen Blick auf unsere [Website](https://www.adesso.de/de/jobs-karriere/entwicklung/index.jsp). 
+Wenn ihr mehr zu spannenden Themen aus der adesso-Welt lesen möchtet, schaut in unsere bisher erschienenen [Blog-Beiträge](https://www.adesso.de/de/news/blog/index.jsp).
