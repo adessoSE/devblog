@@ -4,7 +4,7 @@ title:  "Unsere CleanCode-Schulung in neuem Gewand"
 date:   2021-01-31 10:00                    
 author: bianca-batsch                   
 categories: [Softwareentwicklung]             
-tags: [Qualität, CleanCode]
+tags: [Qualität, CleanCode, Schulungen]
 ---
 
 Wie Train the Trainer unsere adesso-internen ExpertInnen gute und nachhaltige Wissensvermittlung für Erwachsene lehrt und welche Möglichkeiten in einer gezielteren Durchführung für die TrainerInnen und Inhalte der Schulungen schlummern.
