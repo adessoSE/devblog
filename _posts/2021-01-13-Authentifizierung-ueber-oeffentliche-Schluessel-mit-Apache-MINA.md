@@ -1,7 +1,7 @@
 ---
 layout: [post, post-xml]              
 title: "Authentifizierung über öffentliche Schlüssel mit Apache MINA"            
-date: 2020-12-07 22:24
+date: 2021-01-13 09:00
 author: ivankablar                       
 categories: [Java]
 tags: [Java, IT-Security, Kryptographie, SSH, Apache MINA]     
@@ -24,8 +24,8 @@ Der öffentliche Schlüssel wiederum kann aus dem privaten Schlüssel berechnet 
 Die digitale Signatur kann verwendet werden, um Dokumente digital und rechtssicher zu unterzeichnen sowie die Identität des Unterzeichners und die Integrität von Nachrichten zu bestätigen.
 Betrachtet man einen konkreten Anwendungsfall, so einigen sich der Unterzeichner und der Prüfer zunächst auf die zu verschlüsselnde Nachricht und berechnen jeweils aus dieser einen Hashwert. 
 Das Hashen macht aus einer Nachricht flexibeler Länge eine Nachricht fester Länge. Es ist grundsätzlich nicht möglich, aus dem Hashwert die ursprüngliche Nachricht zu berechnen.
-Der Unterzeichner verschlüsselt (signiert) den von ihm erstellten Hashwert mit dem privaten Schlüssel und schickt die verschlüsselte Nachricht an den Prüfer. 
-Der Prüfer entschlüsselt die Nachricht mit dem öffentlichen Schlüssel und vergleicht den erhaltenen Hashwert mit dem zuvor berechneten Hashwert.
+Der Unterzeichner verschlüsselt den von ihm erstellten Hashwert mit seinem privaten Schlüssel (was eine Signatur der Nachricht darstellt) und schickt die Nachricht samt Signatur an den Prüfer. 
+Der Prüfer validiert die Signatur, indem er den Hashwert entschlüsselt und vergleicht den erhaltenen Hashwert mit dem zuvor berechneten Hashwert.
 Stimmen beide Hashwerte überein, ist die Signatur und damit die Identität des Unterzeichners sowie die Echtheit der Nachricht bestätigt.
 
 ![Prüfung der digitalen Signatur](/assets/images/posts/Authentifizierung-ueber-oeffentliche-Schluessel-mit-Apache-MINA/DigitaleSignatur.png)
@@ -81,8 +81,6 @@ public class SftpServerConfig {
     ...
 }
 ```
-
-Eine kurze Erklärung zur Implementierung:
 
 Der SFTP-Server wird in der "init"-Methode konfiguriert.
 Bevor der Server gestartet werden kann, muss eine Instanz des Typs "KeyPairProvider" bekannt gemacht werden. 
