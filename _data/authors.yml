@@ -1,3 +1,12 @@
+mschulz-adesso:
+  first_name: Martin
+  last_name: Schulz
+  github_username: mschulz-adesso
+  email: martin.schulz@adesso.de
+  bio: "Martin Schulz ist Solution Architekt im Bereich Microsoft. Seine Schwerpunkte sind rund um die Themen Dynamics 365, PowerPlatform und Azure."
+  avatar_url: /assets/images/avatars/mschulz.jpg
+  github: https://github.com/mschulz-adesso
+
 shsanayei:
   first_name: Shahin
   last_name: Sanayei
@@ -7,12 +16,12 @@ shsanayei:
   avatar_url: /assets/images/avatars/shsanayei.png
   github: https://github.com/shsanayei
 
-david:
+daklassen:
   first_name: David
   last_name: Klassen
   github_username: daklassen
-  email: daviddd.kl@gmail.com
-  bio:
+  email: david.klassen@adesso.de
+  bio: "David Klassen ist Fullstack Software Engineer bei adesso. Neben seiner Arbeit in Kundenprojekten beschäftigt er sich gerne mit Open Source Software und neuen Technologien oder Patterns."
   avatar_url: /assets/images/avatars/david.png
   github: https://github.com/daklassen
 
@@ -366,4 +375,64 @@ viktor-mucha:
   bio: "Viktor Mucha ist Senior Software Engineer und arbeitet seit 8 Jahren bei adesso in der LOB Lottery. Sein Schwerpunkt liegt in der Konzeption und Entwicklung von Change Requests der Software-Lösung in|FOCUS in Java."
   avatar_url: /assets/images/avatars/viktor-mucha.jpg
   github: https://github.com/viktor-mucha
-  
+
+vschiller:
+  first_name: Vivien Emily
+  last_name: Schiller
+  github_username: VivienEmily
+  email: vivien.schiller@adesso.de
+  bio: "Vivien Schiller ist als Senior Software Engineer bei adesso in Dortmund tätig und ist dort auf die Sicherheit von Webanwendungen spezialisiert. Ihr Fokus liegt dabei auf User Centered Security."
+  avatar_url: /assets/images/avatars/vschiller.jpg
+  github: https://github.com/VivienEmily
+
+tlange:
+  first_name: Thilo
+  last_name: Lange
+  github_username: ThiloLange
+  email: thilo.lange@adesso.de
+  bio: "Thilo Lange ist Software Architekt am Standort Stralsund"
+  avatar_url: /assets/images/avatars/tlange.jpg
+  github: https://github.com/ThiloLange
+
+anbeth:
+  first_name: Anja
+  last_name: Bethge
+  github_username: anbeth
+  email: anja.bethge@adesso.de
+  bio: "Anja Bethge ist Software Architektin am Standort Stralsund. Seit über fünf Jahren ist sie im Bereich Wartung und Application Management tätig und hat schon viele gute und auch nicht so gute Beispiele für wartbare Software gesehen."
+  avatar_url: /assets/images/avatars/anbeth.jpg
+  github: https://github.com/anbeth
+
+bethge_lange:
+  first_name: Anja Bethge und 
+  last_name: Thilo Lange
+  github_username: bethge_lange
+  email: thilo.lange@adesso.de, anja.bethge@adesso.de
+  bio: "Anja Bethge und Thilo Lange sind Software Architekten am Standort Stralsund. Seit über fünf Jahren sind beide im Bereich Wartung und Application Management tätig und haben schon viele gute und auch nicht so gute Beispiele für wartbare Software gesehen."
+  avatar_url: 
+  github: https://github.com/ThiloLange, https://github.com/anbeth
+
+axelSchirmer:
+  first_name: Axel
+  last_name: Schirmer
+  github_username: axelSchirmer
+  email: axel.schirmer@adesso.de
+  bio: "Axel Schirmer ist Software Engineer und seit dem 01.07.2019 bei adesso SE im öffentlichen Bereich (Public) tätig. Als Java Entwickler hat er bereits in der Versicherungsbranche, der Telekommunikation und im Bankenumfeld als Business Analyst gearbeitet, bevor er im öffentlichen Umfeld in einem von Cobol nach Java transformierten Projekt als Java Entwickler gearbeitet hat." 
+
+peterUrbanik:
+  first_name: Peter
+  last_name: Urbanik
+  email: peter.urbanik@adesso.de
+  bio: "Peter Urbanik ist Associate Consultant und hat im Juni 2018 bei der adesso SE als Trainee im Bereich Digitalisierung begonnen. Fachlich liegen seine Schwerpunkte in der Erhebung und Dokumentation von komplexen Softwareanforderungen im Rahmen des agilen Requirements Engineerings und im Bereich des Projekt- und Testmanagements, die er in diversen Projekten und Workshops unterstützend einsetzen konnte."
+
+tonyEggert:
+  first_name: Tony
+  last_name: Eggert
+  email: tony.eggert@adesso.de
+  bio: "Tony Eggert ist Senior Consultant und seit Mai 2019 bei adesso tätig. Im Umfeld der Beratung ist er bereits in verschiedenen Rollen, u.a. als Folge seines Studiums im Bereich der Volkswirtschaftslehre, bei namhaften Finanzdienstleistern tätig gewesen. Er war dort beispielsweise als Requirements Engineer, Business Analyst, Product Owner, Testanalyst oder Projektkoordinator tätig . Darüber hinaus beschäftigt er sich intensiv mit den Aspekten im Bereich Team-Coaching und agilen Leadership."
+
+schirmer_urbanik_eggert:
+  first_name: Axel Schirmer, Peter Urbanik
+  last_name: und Tony Eggert
+  email: axel.schirmer@adesso.de, peter.urbanik@adesso.de, tony.eggert@adesso.de
+  github_username: schirmer_urbanik_eggert
