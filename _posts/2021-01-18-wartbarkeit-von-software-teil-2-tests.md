@@ -1,0 +1,184 @@
+---
+layout:			[post, post-xml]											# Pflichtfeld. Nicht ändern!
+title:			"Wartbarkeit von Software – Teil 2: Tests"					# Pflichtfeld. Bitte einen Titel für den Blog Post angeben.
+date:			2021-01-18 00:00											# Pflichtfeld. Format "YYYY-MM-DD HH:MM". Muss für Veröffentlichung in der Vergangenheit liegen. (Für Preview egal)
+modified_date: 	2021-01-18 00:00											# Optional. Muss angegeben werden, wenn eine bestehende Datei geändert wird.
+author:			bethge_lange												# Pflichtfeld. Es muss in der "authors.yml" einen Eintrag mit diesem Namen geben.
+categories: 	[Softwareentwicklung]										# Pflichtfeld. Maximal eine der angegebenen Kategorien verwenden.
+tags:			[Wartbarkeit, Softwaredokumentation]						# Bitte auf Großschreibung achten.
+---
+
+
+Eine gut wartbare Software minimiert den Aufwand für Fehlerbehebung, adaptive Wartung und folgende Change Requests deutlich.
+Aber was zeichnet gute Wartbarkeit aus und wie können wir diese erreichen?
+Nachdem wir uns im ersten Teil der Reihe "Wartbarkeit von Software" mit der Dokumentation beschäftigt haben, wollen wir nun in Teil 2 näher auf die Tests eingehen.
+Dazu gehen wir auf die unterschiedlichen Testarten, auf Automatisierung und Testumgebungen ein und verdeutlichen die Notwendigkeit einer hohen Testabdeckung.
+
+# Einleitung
+
+Das Wartungs-Team wird die Aufgabe haben, vom Kunden gemeldetes Fehlverhalten möglichst schnell in einer dem Produktivsystem ähnlichen Umgebung (Integrations- oder Test-Stage) zu reproduzieren.
+Basierend auf der folgenden Fehleranalyse wird dann der Quell-Code korrigiert werden müssen.
+Auch für fachliche Änderungen (Change Requests), die in der Wartungs- und Betriebs-Phase umzusetzen sind, wird der Quell-Code angepasst werden.
+Aber Code-Anpassungen können Seiteneffekte haben, vor allem, wenn Sie an zentraler Stelle vorgenommen werden.
+
+Es ist häufig so, dass ein Wartungs-Team aus weniger Mitarbeitern besteht als das für die Neuentwicklung verantwortliche Entwicklungs-Team.
+In gleichem Maße ist auch die zur Verfügung stehende Zeit (und das Budget) häufig deutlich kleiner.
+Trotzdem wird vom Kunden zurecht erwartet, dass die komplexe Fachlichkeit und Technik der Software schon bei der ersten Fehlerbehebung verstanden wird und weitere Code-Anpassungen dann mit ebenso hoher Qualität wie bereits der vorherigen Neuentwicklung erfolgen.
+
+__Um dem Wartungs-Team Sicherheit zu geben, dass die vorgenommenen Änderungen keine unerwünschten Seiteneffekte auf andere Anwendungsfälle haben, ist eine möglichst hohe Testabdeckung durch die unterschiedlichen automatisierten Testmethoden unerlässlich.__
+
+Wäre die Testabdeckung fachlicher Anwendungsfälle gering oder schlimmstenfalls gar nicht vorhanden, müsste das Wartungs-Team bei der Behebung eines Fehlers die gesamte Fachlichkeit kennen.
+Zusätzlich müsste nach der Änderung ein vollständiger manueller Systemtest wiederholt werden, in gleichem Umfang wie er zur Abnahme durchgeführt wurde.
+Nur so wäre sichergestellt, dass die Änderung korrekt, vollumfänglich und frei von Seiteneffekten ist.
+
+Während der Neuentwicklung wurden bereits umfängliche Unit Tests geschrieben, automatisierte Integrations-Tests erstellt und regelmäßige Last- und Performance-Tests durchgeführt.
+Diese sind zur Erhaltung der Qualität für das Wartungs-Team sehr wertvoll.
+Damit das Wartungs-Team diese Tests auch bestmöglich und schnell nutzen kann, müssen sie in einer Test-Umgebung automatisiert und Inhalt und Durchführung gut dokumentiert sein.
+
+# Unit Tests
+
+Wie schon vielerorts beschrieben, ist es unerlässlich, dass Unit Tests (Modul- bzw. Komponententests) überhaupt vorhanden sind.
+Diese Anforderung gilt dabei nicht nur für Backend-Code (z.B. Java) sondern gleichermaßen auch für den im Webumfeld in den letzten Jahren wieder wachsenden Anteil an Frontend-Code (z.B. Javascript, Angular).
+
+Der Quelltext der Unit Tests sollte in Bezug auf Lesbarkeit und Robustheit von gleicher Qualität wie der Anwendungs-Code selbst sein.
+Der Unit Test sollte wenn möglich so geschrieben sein, dass der in der Komponente umgesetzte fachliche Anwendungsfall nicht nur technisch geprüft wird sondern auch das gewünschte Verhalten der Komponente aus dem Quelltext abgelesen werden kann.
+
+Alle vorhandenen Unit Tests müssen im Rahmen der Continuous Integration so automatisiert sein, dass sie nach jeder Änderung (nach jedem Push) schnellstmöglich ein Ergebnis liefern.
+Das bedeutet, dass ein Werkzeug zur Code Analyse (z.B. SonarQube) bereitgestellt und konfiguriert wird, das die Metriken zur Testabdeckung direkt nach einem Push erhebt, diese durch ein für das Projekt definiertes Qualitätsziel (Quality Gate) prüft und die Entwickler und Entwicklerinnen dann per E-Mail zeitnah informiert.
+
+Aber wie hoch sollte die Testabdeckung durch Unit Tests denn nun sein?
+Diese Frage ist viel diskutiert und dieser BLOG ist nicht dazu gedacht, eine abschließende Antwort für jedes Projekt zu finden.
+Jedoch zeigt die Erfahrung aus Projekten, die bereits erfolgreich in Wartung übernommenen wurden, dass mit einer guten Planung, einem hohen Stellenwert für die Tests und entsprechender Konfiguration des Code Analyse Werkzeugs (z.B. Ignorieren von durch Lombok generiertem Code) eine hohe Testabdeckung von jenseits der 80% mit vertretbarem Aufwand durchaus erreichbar ist.
+
+Es ist wichtig, dass für das Einrichten, die Verwaltung, das Konfigurieren und das regelmäßige Nachjustieren der automatisierten Code Analyse entsprechende Zeit und Budget bereitgestellt werden.
+Die dafür benötigten Arbeitspakete müssen bereits rechtzeitig in der Angebotserstellung und Kalkulation für das neue Entwicklungsprojekt eingeplant werden.
+
+Es ist zu klären, welches Werkzeug und welche Metriken der Code Analyse für ein Projekt zugrunde liegen sollen.
+In einem größeren Unternehmen, das ein solches Werkzeug bereits zentral bereitstellt, bietet es sich in jedem Fall an, dieses auch zu verwenden und mit einem Standard-Set an Metriken (z.B. Condition-Coverage) zu beginnen.
+Eine Abweichung vom Standard-Werkzeug und -Set ist dann in der Projektdokumentation nachvollziehbar zu dokumentieren.
+
+![Darstellung der Code Coverage in eclipse mit EclEmma](/assets/images/posts/wartbarkeit-von-software-teil-2-tests/grafik-eclemma.png)
+
+Bei all den hier beschriebenen Tätigkeiten, sollte jedoch nie vergessen werden, was  einen guten Unit Test eigentlich auszeichnet.
+Zu sagen, der Test ist grün und hat eine Code Coverage von über 80% erfüllt zwar auf den ersten Blick die Anforderung, wäre jedoch bei weitem nicht ausreichend.
+Ein guter Unit Test prüft die fachliche Anforderung in allen Aspekten, also auch die Grenzfälle, und ist für Dritte gut lesbar und verständlich.
+Zur Bewertung der Qualität eines Unit Tests hilft häufig auch die Antwort auf die folgende Frage:
+
+__Schlägt der Test fehl, sobald der zu testende Anwendungs-Code so geändert wird, dass danach die fachliche Anforderung nicht mehr korrekt umgesetzt ist?__
+
+# Integrations- und Schnittstellentests
+
+Während Unit Tests die korrekte Funktionalität der kleinsten Einheiten, nämlich einzelner, in sich geschlossener Komponenten der Software sicherstellen, prüfen Integrationstests die Funktionalität, wenn mehrere solcher Komponenten zusammen arbeiten.
+Zusätzlich prüfen Schnittstellentests die Korrektheit der zwischen den Komponenten ausgetauschten Daten.
+Auch hierfür gilt aus Sicht der Wartung die Anforderung, dass entsprechende Tests während der Neuentwicklung der Software bereits mit hoher Testabdeckung umgesetzt und möglichst automatisiert und regelmäßig durchgeführt werden.
+
+## Testaufbau
+
+Für einen Integrationstest werden einige, bereits durch Unit Tests getestete Einzel-Komponenten zu einer neuen Komponente zusammengefügt und deren Zusammenwirken getestet.
+Die dabei entstandene neue „größere“ Komponente kann dann wiederum in Kombination mit weiteren Komponenten getestet werden.
+Im Ergebnis wird somit das gesamte System in Komponenten zerlegt.
+Zusätzlich gilt es dann noch, die Daten, die über die Schnittstellen zwischen den Komponenten ausgetauscht werden, durch geeignete Schnittstellentests zu prüfen.
+
+Beispielhaft besteht eine einfache Webanwendung aus einer Frontend- und einer Backend-Komponente, deren fachliches Zusammenwirken (z.B. mit Selenium) getestet wird.
+Frontend und Backend bestehen wiederum aus unterschiedlichen Einzel-Komponenten, deren Fachlichkeit bereits durch entsprechende Unit-Test geprüft wurde.
+Zwischen Frontend und Backend existiert dann noch eine Schnittstelle für die ein Schnittstellentest (z.B. mit SoapUI oder Postman) umzusetzen ist.
+
+## Testabdeckung
+
+Nun zur Frage, wie hoch die Testabdeckung durch fachliche Integrationstests sein muss.
+Zumindest alle Kernfunktionalitäten sollten abgedeckt sein.
+Da für den Rest jedoch auch immer eine Betrachtung von Kosten und Nutzen sinnvoll ist, kann die Liste aller Anwendungsfälle durch eine Gewichtung in 3 Kategorien eingeteilt werden:
+
+* Kategorie A umfasst alle geschäftskritischen Kernprozesse der Anwendung.
+Sie sind dauerhaft in Verwendung und dürfen nicht ausfallen.
+Mindestens 80% sollten mit einem Test für den Positivfall und zwei Tests für Negativfälle abgedeckt sein.
+
+* Kategorie B umfasst alle Standardprozesse der Anwendung.
+Sie werden regelmäßig verwendet und führen zu einer starken Beeinträchtigung, wenn sie ausfallen.
+Mindestens 70% sollten mit einem Test für den Positivfall und einem Test für Negativfälle abgedeckt sein.
+
+* Kategorie C umfasst alle sonstigen Prozesse der Anwendung.
+Sie werden selten verwendet und/oder führen nur zu einer geringen Beeinträchtigung, wenn sie ausfallen.
+Mindestens 50% sollten jeweils mit einem Test für den Positivfall abgedeckt sein.
+
+## Mocks
+
+Häufig ist es für einen Integrationstest notwendig, Schnittstellen zu Komponenten, die in diesem Test nicht direkt getestet aber benötigt werden, zu simulieren.
+Gleiches gilt für Schnittstellen zu Umsystemen, die manchmal nicht in einer Testumgebung zur Verfügung gestellt werden können.
+Dazu können Mock-Services (z.B. mit SoapUI) implementiert werden.
+Deren Konfiguration, Funktionsweise und fachliches Verhalten sind so zu dokumentieren, dass das Wartungsteam diese verstehen, aufsetzen und ggf. an geänderte Anforderungen anpassen kann.
+
+## Testdaten
+
+Für Integrations- und Schnittstellentests werden während der Neuentwicklung der Software Testdaten erstellt oder manchmal auch echte Daten anonymisiert vom Kunden bereitgestellt.
+Diese sollten so aufgebaut sein, dass sie der Fachlichkeit so nah wie möglich kommen.
+Es ist zu dokumentieren, wie die Testdaten aufgebaut sind und welche Schritte notwendig sind, sie zum Zeitpunkt eines Testlaufs korrekt in der Datenbank einzuspielen.
+Im besten Fall erfolgt dies automatisiert im Rahmen einer Continuous Integration (z.B. in eine DB im Docker Container).
+
+# Last- und Performancetests
+
+Um sicherzustellen, dass eine neu entwickelte Software im produktiven Betrieb den geforderten, nichtfunktionalen Anforderungen genügt, sind entsprechende Last- und Performance-Tests zu implementieren.
+Diese Tests sind so umzusetzen, dass sie einerseits zumindest das zu erwartende Nutzerverhalten (die zu erwartende Last) simulieren und andererseits eine Aussage über den zu erwarteten Ressourcen-Bedarf und die notwendige Skalierung treffen können.
+
+Zur Durchführung der Last- oder Performance-Tests kann ein entsprechendes Werkzeug (z.B. Gatling, JMeter, JavaMelody…) so konfiguriert werden, dass es automatisiert Anwendungsfälle in gewünschter Häufigkeit, Parallelität und Last-Veränderung (Erhöhung, Senkung) ausführt und zwar auf einem eigens dafür bereitgestellten Testsystem.
+Das Testsystem muss dabei dem späteren Produktivsystem so ähnlich wie möglich sein.
+Das betrifft nicht nur die verwendete Hardware und die Anbindung von Umsystemen, sondern auch die Menge und Qualität der auf dem Testsystem vorzubereitenden Testdaten.
+Hierzu sollten die in einer Mengenbetrachtung ermittelten Anzahlen der im Produktivbetrieb zu erwartenden Entitäten, Aggregate, Sessions, Nutzer usw. verwendet werden.
+Zusätzlich ist unbedingt auf fachliche Qualität, Stimmigkeit und Konsistenz der Testdaten zu achten.
+
+Aber welche Anwendungsfälle sind für einen Last- oder Performance-Test auszuwählen?
+Erstens sind zumindest Kernanwendungsprozesse, die am häufigsten benutzt werden im Einzelnen zu prüfen.
+Zweitens sollte ein Test implementiert werden, der einen Mix aus unterschiedlichen Anwendungsfällen gleichzeitig ausführt.
+Und drittens sind diejenigen Prozesse zu identifizieren und zu prüfen, die mit hoher Wahrscheinlichkeit einen negativen Einfluss auf die Performance haben werden.
+Dazu zählen unter anderem Prozesse, die auf vielen Daten arbeiten und/oder einen komplexen Algorithmus implementieren (z.B. lang laufende Reports).
+
+Im Projekt muss vorab entsprechend Zeit und Budget bereitgestellt werden, um die unterschiedlichen Tests planen zu können und die zu ermittelnden Kennzahlen und das Performance-Ziel (Grenzen) zu definieren.
+Dann sind zu Projektbeginn das Testsystem aufzusetzen und zu konfigurieren, die Continuous Integration zu erweitern und natürlich die Tests so früh wie möglich umzusetzen.
+
+![Speicherbedarf unter Last](/assets/images/posts/wartbarkeit-von-software-teil-2-tests/grafik-lasttest-speicher.png)
+
+Um eine Veränderung der Performance frühzeitig erkennen zu können, sind die Last- und Performance-Tests während der Entwicklungs-Phase in regelmäßigen Abständen (z.B. 1-mal pro Sprint oder 1-mal im Monat) auszuführen.
+Voraussetzung dafür ist jedoch, dass die funktionalen Tests (Unit-, Integrations- und Schnittstellentests) vorab erfolgreich durchgeführt wurden, also keine Fehler in den funktionalen Anforderungen bestehen.
+Nach der Testausführung müssen die ermittelten Kennzahlen zusammengetragen und gegen das Performance-Ziel geprüft werden.
+Ein Test sollte immer dann fehlschlagen, wenn eine der Kennzahlen die vorab definierten Grenzen (das Performance-Ziel) über- oder unterschreitet.
+
+Aufgrund der regelmäßig durchzuführenden Tätigkeiten rund um die Last- und Performance-Tests, bietet es sich an, diese ebenfalls zu automatisieren und in eine Continious Integration Pipeline zu integrieren.
+Im besten Fall schlägt dann ein Pipeline-Build (Job) fehl, weil das Performance-Ziel für die aktuelle Version (Sprint) nicht erreicht wurde.
+
+In jedem Fall muss an zentraler Stelle dokumentiert werden, welche Last- und Performance-Tests es gibt, wie diese durchzuführen sind, welche Testdaten zu verwenden sind, welche Kennzahlen zugrunde liegen und wie das Performance-Ziel definiert ist. Außerdem sind die Testergebnisse der einzelnen Testläufe an geeigneter Stelle zu dokumentieren.
+
+Beispielhaft sind hier einige mögliche Messpunkte und -werte aufgeführt, die sich als Kennzahlen je nach Art der Software und Art der nichtfunktionalen Anforderungen ermitteln lassen:
+
+* Antwortzeit (Durchschnitt, Percentil, Min, Max)
+* Maximal erreichbare Anzahl gleichzeitiger Nutzer bzw. Anwendungsfälle pro Nutzer
+* Arbeitsspeicher-Bedarf (Min, Max, Durchsatz, Garbage-Collection)
+* CPU-Auslastung, Anzahl paralleler Threads
+* Laufzeit von Datenbank-Abfragen (Min, Max, Abhängigkeit von der Datenmenge)
+
+# Testumgebungen
+
+Während Unit-Tests zum Build-Zeitpunkt auf dem aktuellen Code-Stand im Rahmen der Build-Umgebung ausgeführt werden, wird für die anderen Testarten (Integrations-, Schnittstellen-, Last- und Performance-Tests) die fertig gebaute Software auf einer eigens dafür konfigurierten Umgebung ausgerollt und diese konfiguriert.
+Dafür sind meist mehrere passende Testumgebungen (Test-Stage) bereitzustellen, die im besten Fall so konfiguriert sind, dass sie der späteren produktiven Umgebung in jedem Aspekt so nahe wie möglich kommen.
+Das betrifft zum Beispiel die folgenden Punkte:
+
+* Ressourcen (CPU, Arbeitsspeicher, Festplatte)
+* Software (Betriebssystem, Java…)
+* Laufzeit-Umgebung (Application- oder Web-Server)
+* Umsysteme (Schnittstellen, Test-Systeme des Kunden)
+
+Die Erzeugung und Konfiguration der Test-Stages sollte möglichst automatisiert erfolgen (z.B. durch Docker, Ansible…).
+Dazu kann im Rahmen der Continuous Integration durch einen der Testausführung vorgelagerten Schritt die benötigte Testumgebung sauber aufgebaut und konfiguriert werden.
+Dann liegt dem folgenden Testlauf nicht nur die aktuelle Version der Software zugrunde, es werden auch gleich aktuelle Testdaten und eine sich möglicherweise veränderte Konfiguration der Umgebung (z.B. Tomcat-Version) herangezogen.
+
+Eine der Testumgebungen kann explizit bereitgestellt werden, damit das QS-Team während der Entwicklung laufende manuelle Tests und spätestens zur Abnahme der Software den vollständigen Systemtest durchführen kann.
+Außerdem kann diese Umgebung dann regelmäßig zur Präsentation des aktuellen Entwicklungsstandes (z.B. im Sprint Review) dienen und zusätzlich zur Reproduktion auftretender Fehler verwendet werden.
+
+# Fazit
+
+Durch automatisierte Tests unterschiedlicher Art, Granularität und Abdeckung sollen Sicherheit und Schnelligkeit für nach Go-Live umzusetzende Code-Anpassungen erhöht werden.
+Wir haben dazu Kriterien vorgestellt, die als Grundlage für die spätere Übergabe einer Software in das Application Management, in die Wartung, zu beachten sind.
+Wichtig ist, dass zur Erfüllung dieser Kriterien Tätigkeiten notwendig sind, die bereits in den ersten Phasen eines Software Entwicklungs-Projektes einzuplanen sind!
+
+# Ausblick
+
+Im dritten und letzten Teil dieser Serien werden wir uns abschließend mit Code-Qualität und Continuous Integration und Deployment beschäftigen.
