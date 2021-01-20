@@ -70,6 +70,10 @@ For this purpose I have developed a completely identical website in Blazor, as w
 
 The repositories for the two applications and the associated API can be found here
 
+- [Blazor App](https://github.com/xXanth0s/wasm_comparison_blazor-app)
+- [Vue.js App](https://github.com/xXanth0s/wasm_comparison_vue_app)
+- [API](https://github.com/xXanth0s/wasm_comparison_api)
+
 # Results
 
 The final sites could be created without any problems in both frameworks and development took about the same time.
