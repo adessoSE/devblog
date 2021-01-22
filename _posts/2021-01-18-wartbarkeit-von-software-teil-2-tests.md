@@ -91,18 +91,14 @@ Nun zur Frage, wie hoch die Testabdeckung durch fachliche Integrationstests sein
 Zumindest alle Kernfunktionalitäten sollten abgedeckt sein.
 Da für den Rest jedoch auch immer eine Betrachtung von Kosten und Nutzen sinnvoll ist, kann die Liste aller Anwendungsfälle durch eine Gewichtung in 3 Kategorien eingeteilt werden:
 
-* Kategorie A umfasst alle geschäftskritischen Kernprozesse der Anwendung. Sie sind dauerhaft in Verwendung und dürfen nicht ausfallen.
-Mindestens 80% sollten mit einem Test für den Positivfall und zwei Tests für Negativfälle abgedeckt sein.
+* Kategorie A umfasst alle geschäftskritischen Kernprozesse der Anwendung. Sie sind dauerhaft in Verwendung und dürfen nicht ausfallen. Mindestens 80% sollten mit einem Test für den Positivfall und zwei Tests für Negativfälle abgedeckt sein.
 
 
-* Kategorie B umfasst alle Standardprozesse der Anwendung.
-Sie werden regelmäßig verwendet und führen zu einer starken Beeinträchtigung, wenn sie ausfallen.
+* Kategorie B umfasst alle Standardprozesse der Anwendung. Sie werden regelmäßig verwendet und führen zu einer starken Beeinträchtigung, wenn sie ausfallen.
 Mindestens 70% sollten mit einem Test für den Positivfall und einem Test für Negativfälle abgedeckt sein.
 
 
-* Kategorie C umfasst alle sonstigen Prozesse der Anwendung.
-Sie werden selten verwendet und/oder führen nur zu einer geringen Beeinträchtigung, wenn sie ausfallen.
-Mindestens 50% sollten jeweils mit einem Test für den Positivfall abgedeckt sein.
+* Kategorie C umfasst alle sonstigen Prozesse der Anwendung. Sie werden selten verwendet und/oder führen nur zu einer geringen Beeinträchtigung, wenn sie ausfallen. Mindestens 50% sollten jeweils mit einem Test für den Positivfall abgedeckt sein.
 
 ## Mocks
 
