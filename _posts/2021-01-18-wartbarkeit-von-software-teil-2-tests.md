@@ -39,15 +39,17 @@ Damit das Wartungs-Team diese Tests bestmöglich und schnell nutzen kann, müsse
 Wie schon häufig beschrieben, ist es unerlässlich, dass Unit Tests (Modul- bzw. Komponententests) überhaupt vorhanden sind.
 Diese Anforderung gilt dabei nicht nur für Backend-Code (z.B. Java) sondern gleichermaßen auch für den im Webumfeld in den letzten Jahren wieder wachsenden Anteil an Frontend-Code (z.B. Javascript, Angular).
 
-Der Quelltext der Unit Tests sollte in Bezug auf Lesbarkeit und Robustheit von gleicher Qualität wie der Anwendungs-Code selbst sein.
-Der Unit Test sollte so geschrieben sein, dass der in der Komponente umgesetzte fachliche Anwendungsfall nicht nur technisch geprüft wird, sondern auch das gewünschte Verhalten der Komponente aus dem Quelltext abgelesen werden kann.
+Der Quell-Code der Unit Tests sollte in Bezug auf Lesbarkeit und Robustheit von gleicher Qualität wie der Anwendungs-Code selbst sein.
+Der Unit Test sollte so geschrieben sein, dass der in der Komponente umgesetzte fachliche Anwendungsfall nicht nur technisch geprüft wird, sondern auch das gewünschte Verhalten der Komponente aus dem Quell-Code abgelesen werden kann.
 
 Alle vorhandenen Unit Tests müssen im Rahmen der Continuous Integration so automatisiert sein, dass sie nach jeder Änderung (jedem Push) schnellstmöglich ein Ergebnis liefern.
-Das bedeutet, dass ein Werkzeug zur Code Analyse (z.B. SonarQube) bereitgestellt und konfiguriert wird, das die Metriken zur Testabdeckung direkt nach einem Push erhebt, diese durch ein für das Projekt definiertes Qualitätsziel (Quality Gate) prüft und die Entwickler und Entwicklerinnen per E-Mail zeitnah informiert, wenn dieses nicht eingehalten wurde.
+Das bedeutet, dass ein Werkzeug zur Code Analyse (z.B. SonarQube) bereitgestellt und konfiguriert wird.
+Dieses kann die Metriken zur Testabdeckung direkt nach einem Push erheben und diese gegen ein für das Projekt definiertes Qualitätsziel (Quality Gate) prüfen.
+Sollte die Prüfung fehlschlagen kann das Entwicklungsteam automatisch und zeitnah durch eine E-Mail informiert werden.
 
 Aber wie hoch sollte die Testabdeckung durch Unit Tests denn nun sein?
 Diese Frage ist viel diskutiert und dieser Artikel ist nicht dazu gedacht, eine abschließende Antwort für jedes Projekt zu finden.
-Jedoch zeigt die Erfahrung aus Projekten, die bereits erfolgreich in Wartung übernommenen wurden, dass mit einer guten Planung, einem hohen Stellenwert für die Tests und entsprechender Konfiguration des Code Analyse Werkzeugs (z.B. Ignorieren von automatisch generiertem Code) eine hohe Testabdeckung von jenseits der 80% mit vertretbarem Aufwand durchaus erreichbar ist.
+Jedoch zeigt die Erfahrung aus Projekten, die bereits erfolgreich in Wartung übernommenen wurden, dass mit einer guten Planung, einem hohen Stellenwert für die Tests und entsprechender Konfiguration des Code Analyse Werkzeugs (z.B. Ignorieren von automatisch generiertem Code) eine hohe Testabdeckung jenseits der 80% mit vertretbarem Aufwand durchaus erreichbar ist.
 
 Es ist wichtig, dass für das Einrichten, die Verwaltung, das Konfigurieren und das regelmäßige Nachjustieren der automatisierten Code Analyse entsprechend Zeit und Budget bereitgestellt werden.
 Die dafür benötigten Arbeitspakete müssen bereits in der Angebotserstellung und Kalkulation für das neue Entwicklungsprojekt eingeplant werden.
@@ -56,11 +58,11 @@ Direkt zu Projektbeginn ist zu klären, welches Werkzeug und welche Metriken der
 Wird im eigenen Unternehmen ein solches Werkzeug bereits zentral bereitstellt, sollte dieses auch zusammen mit einem Standard-Set an Metriken (z.B. Condition-Coverage) verwendet werden, da dies Aufwand und Budget im Projekt spart und eine weitestgehend einheitliche Qualität der Tests im Unternehmen fördert.
 Eine Abweichung vom Standard-Werkzeug und -Set ist in der Projektdokumentation nachvollziehbar zu dokumentieren.
 
-Die folgende Grafik zeigt beispielhaft die mit dem Werkzeug EclEmma in der Entwicklungsumgebung eclipse ermittelte Code-Coverage (Abdeckung) eines Unit-Tests:
+Die folgende Grafik zeigt beispielhaft die mit dem Werkzeug [EclEmma](https://www.eclemma.org) in der Entwicklungsumgebung Eclipse ermittelte Code-Coverage (Abdeckung) eines Unit-Tests:
 
-![Darstellung der Code Coverage in eclipse mit EclEmma](/assets/images/posts/wartbarkeit-von-software-teil-2-tests/grafik-eclemma.png)
+![Darstellung der Code Coverage in Eclipse mit EclEmma](/assets/images/posts/wartbarkeit-von-software-teil-2-tests/grafik-eclemma.png)
 
-Bei all den hier beschriebenen Tätigkeiten, sollte jedoch nie vergessen werden, was einen guten Unit Test eigentlich auszeichnet.
+Bei all den hier beschriebenen Tätigkeiten sollte jedoch nie vergessen werden, was einen guten Unit Test eigentlich auszeichnet.
 Zu sagen, der Test ist grün und hat eine Code Coverage von über 80%, erfüllt zwar auf den ersten Blick die Anforderung, wäre jedoch bei weitem nicht ausreichend.
 Ein guter Unit Test prüft die fachliche Anforderung in allen Aspekten, also auch die Grenzfälle, und ist für Dritte gut lesbar und verständlich.
 Zur Bewertung der Qualität eines Unit Tests hilft häufig auch die Antwort auf die folgende Frage:
@@ -69,14 +71,14 @@ __Schlägt der Test fehl, sobald der zu testende Anwendungs-Code so geändert wi
 
 # Integrations- und Schnittstellentests
 
-Während Unit Tests die korrekte Funktionalität der kleinsten Einheiten, nämlich einzelner, in sich geschlossener Komponenten der Software sicherstellen, prüfen Integrationstests die Funktionalität, wenn mehrere solcher Komponenten zusammenarbeiten.
+Während Unit Tests die korrekte Funktionalität der kleinsten Einheiten, nämlich einzelner, in sich geschlossener Komponenten der Software, sicherstellen, prüfen Integrationstests die Funktionalität, wenn mehrere solcher Komponenten zusammenarbeiten.
 Zusätzlich prüfen Schnittstellentests die Korrektheit der zwischen den Komponenten ausgetauschten Daten.
 Auch hierfür gilt aus Sicht der Wartung die Anforderung, dass entsprechende Tests während der Neuentwicklung der Software bereits mit hoher Testabdeckung umgesetzt und möglichst automatisiert und regelmäßig durchgeführt werden.
 
 ## Testaufbau
 
-Für einen Integrationstest werden einige, bereits durch Unit Tests getestete Einzel-Komponenten zu einer neuen Komponente zusammengefügt und deren Zusammenwirken getestet.
-Die dabei entstandene neue „größere“ Komponente kann dann wiederum in Kombination mit weiteren Komponenten getestet werden.
+Für einen Integrationstest werden einige, bereits durch Unit Tests getestete Einzelkomponenten zu einer neuen Komponente zusammengefügt und das Zusammenwirken der Einzelkomponenten getestet.
+Die dabei entstandene neue "größere" Komponente kann dann wiederum in Kombination mit weiteren Komponenten getestet werden.
 Im Ergebnis wird somit das gesamte System in Komponenten zerlegt.
 Zusätzlich gilt es dann noch, die Daten, die über die Schnittstellen zwischen den Komponenten ausgetauscht werden, durch geeignete Schnittstellentests zu prüfen.
 
@@ -115,7 +117,7 @@ Deren Konfiguration, Funktionsweise und fachliches Verhalten sind so zu dokument
 Für Integrations- und Schnittstellentests werden während der Neuentwicklung der Software Testdaten erstellt.
 Manchmal werden auch echte Daten anonymisiert als Testdaten vom Kunden bereitgestellt.
 Diese sollten so aufgebaut sein, dass sie der Fachlichkeit so nah wie möglich kommen.
-Es ist zu dokumentieren, wie die Testdaten aufgebaut sind und welche Schritte notwendig sind, sie zum Zeitpunkt eines Testlaufs korrekt in der Datenbank einzuspielen.
+Es ist zu dokumentieren, wie die Testdaten aufgebaut sind und welche Schritte notwendig sind, um sie zum Zeitpunkt eines Testlaufs korrekt in die Datenbank einzuspielen.
 Im besten Fall erfolgt dies automatisiert im Rahmen einer Continuous Integration (z.B. in einer Datenbank im Docker Container).
 
 # Last- und Performancetests
@@ -142,12 +144,12 @@ Die folgende Grafik zeigt an einem Beispiel den zeitlichen Verlauf des Speicher-
 
 ![Speicherbedarf unter Last](/assets/images/posts/wartbarkeit-von-software-teil-2-tests/grafik-lasttest-speicher.png)
 
-Um eine Veränderung der Performance frühzeitig erkennen zu können, sind die Last- und Performance-Tests während der Entwicklungs-Phase in regelmäßigen Abständen (z.B. 1-mal pro Sprint oder 1-mal im Monat) auszuführen.
+Um eine Veränderung der Performance frühzeitig erkennen zu können, sind die Last- und Performance-Tests während der Entwicklungs-Phase in regelmäßigen Abständen (z.B. ein mal pro Sprint oder ein mal im Monat) auszuführen.
 Voraussetzung dafür ist jedoch, dass die funktionalen Tests (Unit-, Integrations- und Schnittstellentests) vorab erfolgreich durchgeführt wurden, also keine Fehler in den funktionalen Anforderungen bestehen.
 Nach der Testausführung müssen die ermittelten Kennzahlen zusammengetragen und gegen das Performance-Ziel geprüft werden.
 Ein Test sollte immer dann fehlschlagen, wenn eine der Kennzahlen die vorab definierten Grenzen (das Performance-Ziel) über- oder unterschreitet.
 
-Aufgrund der regelmäßig durchzuführenden Tätigkeiten rund um die Last- und Performance-Tests, bietet es sich an, diese ebenfalls zu automatisieren und in eine Continuous Integration Pipeline zu integrieren.
+Aufgrund der regelmäßig durchzuführenden Tätigkeiten rund um die Last- und Performance-Tests bietet es sich an, diese ebenfalls zu automatisieren und in eine Continuous Integration Pipeline zu integrieren.
 Im besten Fall schlägt dann ein Pipeline-Build (Job) fehl, weil das Performance-Ziel für die aktuelle Version (Sprint) nicht erreicht wurde.
 
 In jedem Fall muss an zentraler Stelle dokumentiert werden, welche Last- und Performance-Tests es gibt, wie diese durchzuführen sind, welche Testdaten zu verwenden sind, welche Kennzahlen zugrunde liegen und wie das Performance-Ziel definiert ist.
@@ -164,7 +166,7 @@ Beispielhaft sind hier einige mögliche Messpunkte und -werte aufgeführt, die s
 # Testumgebungen
 
 Während Unit-Tests zum Build-Zeitpunkt auf dem aktuellen Code-Stand im Rahmen der Build-Umgebung ausgeführt werden, wird für die anderen Testarten (Integrations-, Schnittstellen-, Last- und Performance-Tests) die fertig gebaute Software auf einer eigens dafür konfigurierten Umgebung ausgerollt und diese konfiguriert.
-Dafür sind meist mehrere passende Testumgebungen (Test-Stage) bereitzustellen, die im besten Fall so konfiguriert sind, dass sie der späteren produktiven Umgebung in jedem Aspekt so nahe wie möglich kommen.
+Dafür sind meist mehrere passende Testumgebungen (Test-Stages) bereitzustellen, die im besten Fall so konfiguriert sind, dass sie der späteren produktiven Umgebung in jedem Aspekt so nahe wie möglich kommen.
 Das betrifft zum Beispiel die folgenden Punkte:
 
 * Ressourcen (CPU, Arbeitsspeicher, Festplatte)
@@ -182,8 +184,8 @@ Außerdem kann diese Umgebung regelmäßig zur Präsentation des aktuellen Entwi
 # Fazit
 
 Durch automatisierte Tests unterschiedlicher Art, Granularität und Abdeckung sollen Sicherheit und Schnelligkeit für nach Go-Live umzusetzende Code-Anpassungen erhöht werden.
-Wir haben dazu Kriterien vorgestellt, die als Grundlage für die spätere Übergabe einer Software in das Application Management, in die Wartung, zu beachten sind.
-Wichtig ist, dass zur Erfüllung dieser Kriterien Tätigkeiten notwendig sind, die bereits in den ersten Phasen eines Software Entwicklungs-Projektes einzuplanen sind!
+Wir haben dazu Kriterien vorgestellt, die als Grundlage für die spätere Übergabe einer Software in das Application Management (die Wartung) zu beachten sind.
+Wichtig ist, dass zur Erfüllung dieser Kriterien Tätigkeiten notwendig sind, die bereits in den ersten Phasen eines Softwareentwicklungsprojektes einzuplanen sind!
 
 # Ausblick
 
