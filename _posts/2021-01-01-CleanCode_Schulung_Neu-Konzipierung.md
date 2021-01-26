@@ -58,7 +58,7 @@ Nur damit waren wir noch lange nicht fertig mit dem Erstellen der neuen Schulung
 Ein Konzept zu haben alleine reicht nicht. 
 ![Grober Ablauf / veranschaulichtes Konzept](/assets/images/cleancodeschulung/konzept-pinwand.png)
 Es müssen die einzelnen Bestandteile / Lerneinheiten ausgearbeitet und Materialien erstellt werden. 
-Dies geschah außerhalb der Schulung und kostete nochmal mindestens nochmal zwei Wochen Arbeit.
+Dies geschah außerhalb der Schulung und kostete nochmal mindestens zwei Wochen Arbeit.
 
 # Wie geht’s nun weiter?
 Mittlerweile ist alles ausgearbeitet, alle benötigten Materialien wurden bestellt und die nächste Präsenzschulung kann kommen. 
