@@ -45,7 +45,7 @@ Der Unit Test sollte so geschrieben sein, dass der in der Komponente umgesetzte 
 Alle vorhandenen Unit Tests müssen im Rahmen der Continuous Integration so automatisiert sein, dass sie nach jeder Änderung (jedem Push) schnellstmöglich ein Ergebnis liefern.
 Das bedeutet, dass ein Werkzeug zur Code Analyse (z.B. SonarQube) bereitgestellt und konfiguriert wird.
 Dieses kann die Metriken zur Testabdeckung direkt nach einem Push erheben und diese gegen ein für das Projekt definiertes Qualitätsziel (Quality Gate) prüfen.
-Sollte die Prüfung fehlschlagen kann das Entwicklungsteam automatisch und zeitnah durch eine E-Mail informiert werden.
+Sollte die Prüfung fehlschlagen, kann das Entwicklungsteam automatisch und zeitnah durch eine E-Mail informiert werden.
 
 Aber wie hoch sollte die Testabdeckung durch Unit Tests denn nun sein?
 Diese Frage ist viel diskutiert und dieser Artikel ist nicht dazu gedacht, eine abschließende Antwort für jedes Projekt zu finden.
