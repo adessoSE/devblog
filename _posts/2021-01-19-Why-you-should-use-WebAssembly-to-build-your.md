@@ -7,7 +7,6 @@ categories: [Softwareentwicklung]
 tags: [JavaScript, WebAssembly, Blazor, Vue.js, Lighthouse]     
 ---
 
-### Teaser
 WebAssembly is the latest hit in web development and also has the potential to completely change the internet as we know it today, but is it already mature enough for single page applications?
 In this article, two identical applications are programmed in WebAssembly and JavaScript and then compared using Google Lighthouse.
 
