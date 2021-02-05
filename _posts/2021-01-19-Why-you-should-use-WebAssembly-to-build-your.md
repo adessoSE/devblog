@@ -24,20 +24,20 @@ But what exactly is WebAssembly, how does it work and how does it compare to Jav
 
 The following but rather abstract formulation describes WebAssembly on the official web site
 
-***WebAssembly (abbreviated wasm) is a binary instruction format for a stack-based virtual machine. wasm is designed as a portable compilation target for programming languages, enabling deployment on the web for client and server applications.&quot;.***
+***WebAssembly (abbreviated wasm) is a binary instruction format for a stack-based virtual machine. wasm is designed as a portable compilation target for programming languages, enabling deployment on the web for client and server applications.".***
 
-To better understand this, let&#39;s take a look at how native code works.
+To better understand this, let's take a look at how native code works.
 
 A computer is a very logical machine, but with the alphabet [1,0] it has a somewhat limited input option. 
 Implementing logic with this is a rather inefficient and frustrating way of wasting ones time. 
-That&#39;s why smart engineers have developed a way to make this task more enjoyable, and the birth of Assembler Code has struck. 
+That's why smart engineers have developed a way to make this task more enjoyable, and the birth of Assembler Code has struck. 
 However, this code is still quite complicated and differentiates for each CPU architecture. 
-Thus, another abstraction was developed, which are also known as today&#39;s programming languages and which are way more powerful and easier to use, than Assembler or Binary.
+Thus, another abstraction was developed, which are also known as today's programming languages and which are way more powerful and easier to use, than Assembler or Binary.
 
-These programming languages will be transformed into assembler code of the underlying system and then converted to a sequence of &quot;1&quot; and &quot;0&quot;. 
+These programming languages will be transformed into assembler code of the underlying system and then converted to a sequence of "1" and "0". 
 This conversion process, which also includes other steps such as optimization, Tree Shaking, etc., is also called compilation. 
 This can take several minutes in complex programs and is therefore completely unsuitable for the web. 
-Let&#39;s face it, who waits more than 5 seconds to load a website in our days.
+Let's face it, who waits more than 5 seconds to load a website in our days.
 
 In the world of JavaScript, we ship the uncompiled source code to the customer, and the browser always translates only the sub-area, which is currently necessary.
 This results in an immediate response for the user.
@@ -45,7 +45,7 @@ The concept of interpretation can only be applied to a few other programming lan
 
 Also the delivery of the finished assembler or binary code is not possible, because on the one hand we do not know the CPU architecture of the user and on the other hand, we would have to compile the source code into all existing and future processor architectures.
 
-And that&#39;s where WebAssembly comes in.
+And that's where WebAssembly comes in.
 WebAssembly is a virtual CPU architecture that is always the same and can be used as a compilation target. 
 The compiled code is similar to a commercially available assembler code and can then be translated in near real time for the actual CPU architecture in the target system.
 So in the end, we can compile our code to WebAssembly and ship the final artifact to the customer.
@@ -96,7 +96,7 @@ This is most likely due to the fact that the entire .NET Framework is required t
 ![Size comparison](/assets/images/posts/Why-you-should-not-use-WebAssembly-to-build-your-spa/Size_Comparison.png)
 
 This factor is particularly important in the mobile sector.
-With the value &quot;Time To Interactivity&quot; you can see that the website always needs more than 70 seconds to load.
+With the value "Time To Interactivity" you can see that the website always needs more than 70 seconds to load.
 
 WebAssembly also performs worse than JavaScript in all areas. 
 The only exception is First Contentful Paint. However, this is a mismeasurement of Lighthouse because it only measures when the first HTML elements are available. 
