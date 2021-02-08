@@ -14,7 +14,7 @@ Dabei werden die einzelnen Stadien der Softwareentwicklung betrachtet und erläu
 Wenn wir von Softwarequalität sprechen, müssen unterschiedliche Betrachtungsweisen berücksichtigt werden.
 Aus der Sicht eines Entwicklers ist Softwarequalität die eigentliche Codequalität.
 Aus der Sicht eines UX-Designers (Link zum Artikel von Lisa, 18.01.21) richtet sich die Qualität des Produktes nach der Bedienbarkeit.
-Ein Tester kann die Qualität anhand der durchgeführten Tests einschätzen. 
+Ein Tester kann die Qualität anhand der durchgeführten Tests einschätzen (link eventuell zum Artikel von valentin, 08.02.21). 
 
 #Wo beginnt Software, wo hört sie auf?
 Der Software-Begriff wird mitunter nicht einheitlich verwendet.
@@ -25,3 +25,6 @@ Alle Bestandteile dieses Umfangs können auch qualitativ bewertet und dementspre
 Wer glaubt, auf Basis einer qualitativ schlechten Anforderungsanalyse einen mit dem Softwareprodukt zufriedenen Nutzer zu erhalten, unterschätzt die Probleme, die so am Anfang bereits geschaffen werden.
 
 #Was man nicht messen kann, kann man nicht beherrschen - Tom DeMarco
+
+
+wartung + doku - verlinkung zu anja + thilo - 07.01.2021
