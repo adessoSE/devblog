@@ -19,7 +19,9 @@ Ein Tester kann die Qualität anhand der durchgeführten Tests einschätzen (lin
 #Wo beginnt Software, wo hört sie auf?
 Der Software-Begriff wird mitunter nicht einheitlich verwendet.
 Durch unterschiedliche Betrachtungsweisen / Aufgaben entstehen unterschiedliche Ansätze, Software zu definieren. 
-Wolfgang Lassmann definierte 2006 den Begriff folgendermaßen: 'Software ist ein Sammelbegriff für die Gesamtheit der Programme, die zugehörigen Daten und die notwendige Dokumentation, die es erlauben, mit Hilfe eines Computers Aufgaben zu erledigen.' (Wolfgang Lassmann: Wirtschaftsinformatik : Nachschlagewerk für Studium und Praxis. Gabler, Wiesbaden 2006, ISBN 3-409-12725-9, Kap. 4.1 Grundlagen - Zitat noch korrekt einbinden)
+Wolfgang Lassmann definierte 2006 den Begriff folgendermaßen: 
+>'Software ist ein Sammelbegriff für die Gesamtheit der Programme, die zugehörigen Daten und die notwendige Dokumentation, die es erlauben, mit Hilfe eines Computers Aufgaben zu erledigen.' 
+(Wolfgang Lassmann: Wirtschaftsinformatik : Nachschlagewerk für Studium und Praxis. Gabler, Wiesbaden 2006, ISBN 3-409-12725-9, Kap. 4.1 Grundlagen - Zitat noch korrekt einbinden)
 Wenn man nach dieser Definition geht, fängt Software schon bei der Anforderungsanalyse an und endet beim User, der diese - mit Hilfe eines Computers - benutzen muss um ihm gestellte Aufgaben zu erledigen.
 Alle Bestandteile dieses Umfangs können auch qualitativ bewertet und dementsprechend eingeschätzt werden.
 Wer glaubt, auf Basis einer qualitativ schlechten Anforderungsanalyse einen mit dem Softwareprodukt zufriedenen Nutzer zu erhalten, unterschätzt die Probleme, die so am Anfang bereits geschaffen werden.
