@@ -7,7 +7,7 @@ categories: [Softwareentwicklung]
 tags: [Softwarequalität]
 ---
 
-Softwarequalität ist nicht nur aufgrund der verschiedenen Sichtweisen unterschiedlich interpretierbar, einige werden mitunter sogar vernachlässigt, bzw. gar nicht erst zur Beurteilung herangezogen.
+Softwarequalität ist nicht nur aufgrund der verschiedenen Sichtweisen unterschiedlich interpretierbar, einige Bestandteile von Software werden mitunter sogar vernachlässigt, bzw. gar nicht erst zur Beurteilung herangezogen.
 Dieser Artikel versucht einen ganzheitlichen Blick auf Software und deren Qualität.
 Dabei werden die einzelnen Stadien der Softwareentwicklung betrachtet und erläutert, welche Qualitätsansätze möglich sind.
 
