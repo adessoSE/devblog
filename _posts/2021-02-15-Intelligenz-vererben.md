@@ -64,7 +64,7 @@ Ein neuronales Netz besteht dabei aus vielen Neuronen, auch Perzeptron, genannt,
 Jedes Neuron jeder Schicht ist mit seinen Vorgängern und Nachfolgern verbunden.
 Die Verbindung wird über Gewichte unterschiedlich stark ausgeprägt.
 Jedes Neuron fasst alle eingehenden Verbindung zusammen und entscheidet anhand der Aktivierungsfunktion, ob es ein Ergebnis an seine Nachfolger schickt.
-Dazu gibt es noch einen Schwellwert (Bias) der die Berechnung des Ergebnisses noch anpassen kann.
+Dazu gibt es noch einen Schwellwert (Bias), der die Berechnung des Ergebnisses noch anpassen kann.
 Neuronale Netze existieren heute in den unterschiedlichsten Architekturen und sind auf bestimmte Anwendungsfälle spezialisiert.
 Sie definieren eine Beziehung zwischen Eingabedaten und dem passenden Ergebnis.
 Wird beispielsweise ein unbekanntes Katzenbild an ein Bilderkennungsnetz übergeben, so sollte es vorhersagen, dass es sich um eine Katze handelt.
