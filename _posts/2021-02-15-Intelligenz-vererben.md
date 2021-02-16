@@ -95,7 +95,7 @@ Beispielsweise versucht das stärkste Männchen das hübscheste Weibchen (gerne 
 
 Genetische Algorithmen basieren auf diesen Ansätzen und dienen der Optimierung von statistischen bzw. mathematischen Modellen.
 Durch die Selektion der besten Ergebnisse und deren zufälliger Kombination und Mutation können im Laufe der Zeit sehr gute Vorhersagen getroffen werden.
-Der genutzte Zufall umgeht hiermit das Problem der lokalen Optima aus dem Backpropagation-Algorithmus der Neuronalen Netze.
+Der genutzte Zufall umgeht hiermit das Problem der lokalen Optima aus dem Backpropagation-Algorithmus der neuronalen Netze.
 
 ## Bestandteile Genetischer Algorithmen
 
@@ -154,9 +154,9 @@ Dies kann bei manchen Mutanten zu einem besseren Ergebnis führen.
 
 # Genetisches Training der Neuronalen Netze
 
-Was wird unter dem genetischen Training der Neuronalen Netze verstanden?
+Was wird unter dem genetischen Training der neuronalen Netze verstanden?
 
-Die Gewichte eines Neuronalen Netzes werden als Gene definiert.
+Die Gewichte eines neuronalen Netzes werden als Gene definiert.
 Dabei werden die einzelnen Gewichte eines Neurons einer jeden Schicht wie eine langgezogene DNA-Kette aneinander gereiht.
 Jedes Individuum erhält ein eigenes neuronales Netz mit einer eigenen DNA-Kette.
 Bei einer Population von 500 Individuen sind das 500 neuronale Netze.
@@ -171,7 +171,7 @@ Einzig und allein die ständige Veränderung der Gene führt im Laufe der Zeit z
 # GeneticSnake
 
 GenetikSnake ist ein guter Anwendungsfall der als Beispiel für unsere beschriebenen Ansätze genutzt werden kann.
-Anstatt im Vorfeld tausende Spiele aufzuzeichnen und damit ein klassisches neuronales Netz zu trainieren, wird das neuronale Netz beim Spielen ununterbrochen mit Daten versorgt und kann sich durch die Genetik langsam verbessern.
+Anstatt im Vorfeld tausende Spiele aufzuzeichnen und damit ein klassisches neuronales Netz zu trainieren, wird das Netz beim Spielen ununterbrochen mit Daten versorgt und kann sich durch die Genetik langsam verbessern.
 
 ![GeneticSnake](/assets/images/posts/Intelligenz vererben/GeneticSnake.png)
 
@@ -197,7 +197,7 @@ Als Ergebnis sagt uns das Netz in welche Richtung sich die Schlange bewegen soll
 Mittlerweile gibt es viele Frameworks und Bibliotheken am Markt, die jahrelange Praxiserfahrungen sammeln konnten und extrem auf Laufzeit optimiert wurden.
 Gerade für die Programmiersprache Python gibt es mit Keras/Tensorflow (Google) und PyTorch (Facebook) zwei Systeme, mit denen der Anwender schnelle Erfolge erzielen kann.
 Für ein Grundlegendes Verständnis der eingesetzten Algorithmen, wird aber bei GeneticSnake auf diese Hilfe verzichtet.
-Für die Anwendung wurde ein eigenes Neuronales Netz entwickelt, dass den FeedForward-Teil für die Vorhersage anbietet.
+Für die Anwendung wurde ein eigenes neuronales Netz entwickelt, dass den FeedForward-Teil für die Vorhersage anbietet.
 Die genetischen Algorithmen sind ebenfalls handgeschrieben, damit hier jeder Veränderung des Codes getestet werden kann.
 
 * Der Code für das neuronale Netz ist auf [GitHub](https://github.com/swindisch/ArtificialNeuralNetwork) verfügbar.*
@@ -228,7 +228,7 @@ Nach etlichen Versuchen und Rückschlägen wurde für GeneticSnake eine Netz-Arc
 
 Mit dem Beispiel von GeneticSnake wird gezeigt, dass mit der geschickten Auswahl von Umgebungsdaten als Eingabewerte für das neuronale Netz und Genen, die dem neuronalen Netz als Gewichte dienen, in kürzester Zeit bemerkenswerte Ergebnisse erzielt werden können.
 Während beim "klassischen" Training neuronaler Netze ganze Bildschirm-Szenen als lange Eingabevektoren in komplexe Netze genutzt werden, und diese dann stundenlang rechnen und trainieren, reichen hier 30 Eingabewerte aus.
-Auf der anderen Seite muss aber im Vorfeld und bei der Entwicklung der Algorithmen und des Modells genau überlegt werden, welche Informationen bereitgestellt werden müssen, damit sich die Gene und damit das Neuronale Netz verbessert.
+Auf der anderen Seite muss aber im Vorfeld und bei der Entwicklung der Algorithmen und des Modells genau überlegt werden, welche Informationen bereitgestellt werden müssen, damit sich die Gene und damit das neuronale Netz verbessert.
 Dazu gehört auch die Fitness-Funktion, die angibt, welche die "beste" Schlange der aktuellen Generation ist.
 Diese experimentierfreudige Phase hat einiges an Zeit beansprucht, bis ein erster Erfolg erkennbar war.
 
