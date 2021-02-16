@@ -84,7 +84,7 @@ Bei diesem Verfahren kann es jedoch leider passieren, dass nicht die beste Genau
 Dadurch verbessert sich das neuronale Netz nicht mehr, obwohl bessere Ergebnisse berechenbar wären.
 
 Das so trainierte neuronale Netz wird am Ende der Trainings-Phase als Modell betitelt und für die spätere Nutzung gespeichert.
-Das Modell wird in einem Anwendungsfall in einer Produktionsumgebung eingebunden und für Vorhersagen unbekannter Eingabe-Daten genutzt.
+Das Modell wird in einem Anwendungsfall in eine Produktionsumgebung eingebunden und für Vorhersagen unbekannter Eingabe-Daten genutzt.
 
 # Genetische Algorithmen
 
