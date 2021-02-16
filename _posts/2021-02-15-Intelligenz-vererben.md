@@ -31,7 +31,7 @@ Der folgende Blogpost beschreibt
 
 Unter Künstlicher Intelligenz (KI) – Artificial Intelligence (AI) – wird ein Teilgebiet der Informatik verstanden, bei dem versucht wird, menschliches Lernen und Verhalten auf Computer zu übertragen.
 Damit sollen Computer eine ausreichende Intelligenz entwickeln, um eigenständige Vorhersagen bzw. eigene Entscheidungen zu treffen.
-Starke künstliche Intelligenz hat das Ziel die intellektuellen Fähigkeiten von Mensch nachzuahmen oder sogar zu übertreffen.
+Starke künstliche Intelligenz hat das Ziel, die intellektuellen Fähigkeiten von Mensch nachzuahmen oder sogar zu übertreffen.
 Aktuell sind wir noch sehr weit davon entfernt. 
 Schwache künstliche Intelligenz hat das Ziel sich auf eine konkrete Lösung zu fokussieren und hier durch Rechenpower bessere Ergebnisse zu liefern als vergleichbare menschliche Leistung.
 Dazu zählen beispielsweise Bild- und Spracherkennung, Werbung oder aber auch die Krebserkennung.
