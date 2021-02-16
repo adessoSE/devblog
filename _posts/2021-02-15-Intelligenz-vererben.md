@@ -213,7 +213,7 @@ Wenn nicht exakt definiert wird, was eine gute Generation ausmacht, ist kaum ein
 Wenn Beispielsweise nur die Schritte gezählt würden, sind Schlangen, die unendlich im Kreis rennen, die besten.
 Die Schlangen bekommen als Eingabe nur das mit, was sie sehen und kennen.
 Das sind die Entfernungen zum Rand, zum Apfel und zum eigenen Körper sowie die Richtung aus der sie kommen und ihre Lebensenergie.
-Sonst nichts, keine Spielregeln und Hinweise, was eine Sinnvolle Aktion wäre.
+Sie erhalten keine Spielregeln und Hinweise, was eine Sinnvolle Aktion wäre.
 Das muss alles selbst erlernt werden, bis dass das neuronales Netz sinnvoll entscheiden kann, wohin es gehen soll.
 Im Laufe der Evolutionen und Generation passen sich die Netze immer besser dem Spiel an und generalisieren ihr Handeln.
 Dies bedeutet, dass ein gut trainiertes Netz auch in einer anderen Umgebung funktionieren kann.
