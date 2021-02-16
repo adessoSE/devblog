@@ -103,7 +103,7 @@ Der genutzte Zufall umgeht hiermit das Problem der lokalen Optima aus dem Backpr
 
 Der Begriff Genetik ist hier sehr abstrakt zu sehen.
 Als Gene werden Daten bezeichnet, die verwendet werden, um die Generationen in jeder Evolution zu verbessern.
-Das können Größe und Gewicht sein oder aber Eigenschaften sein, die das Verhalten definieren.
+Das können Größe und Gewicht sein oder aber Eigenschaften, die das Verhalten definieren.
 Bei GeneticSnake werden die Gewichte des neuronalen Netzes als Gene benutzt.
 
 ### Individuum
