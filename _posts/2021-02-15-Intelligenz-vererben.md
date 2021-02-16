@@ -215,7 +215,7 @@ Die Schlangen bekommen als Eingabe nur das mit, was sie sehen und kennen.
 Das sind die Entfernungen zum Rand, zum Apfel und zum eigenen Körper sowie die Richtung aus der sie kommen und ihre Lebensenergie.
 Sie erhalten keine Spielregeln und Hinweise, was eine Sinnvolle Aktion wäre.
 Das muss alles selbst erlernt werden, bis dass das neuronales Netz sinnvoll entscheiden kann, wohin es gehen soll.
-Im Laufe der Evolutionen und Generation passen sich die Netze immer besser dem Spiel an und generalisieren ihr Handeln.
+Im Laufe der Evolutionen und Generationen passen sich die Netze immer besser dem Spiel an und generalisieren ihr Handeln.
 Dies bedeutet, dass ein gut trainiertes Netz auch in einer anderen Umgebung funktionieren kann.
 Beispielsweise könnte die beste Schlange auch in einem Raster von 50x500 Kästchen überleben, obwohl sie nur in 10x10 trainiert wurde.
 
