@@ -235,7 +235,7 @@ Diese experimentierfreudige Phase hat einiges an Zeit beansprucht, bis ein erste
 # Ausblick
 
 GeneticSnake befindet sich gerade in der Post-Modell Phase.
-Dies bedeutet, dass der grundlegende Algorithmus und das gewählte Model Erfolge erziehlen, aber durch die Optimierung des Sourcecode die Geschwindigkeit der Anwendung erhöht und beim sogenannten Hyperparameter-Tuning die Lernerfolge des Models verbessert werden können.
+Dies bedeutet, dass der grundlegende Algorithmus und das gewählte Modell Erfolge erzielen, aber durch die Optimierung des Sourcecode die Geschwindigkeit der Anwendung erhöht und beim sogenannten Hyperparameter-Tuning die Lernerfolge des Models verbessert werden können.
 Von einem neuronalen Netz, das das Spiel vollständig durchspielt ist GeneticSnake noch ein wenig entfernt.
 So ein Training kann viele weitere Stunden erfordern.
 
