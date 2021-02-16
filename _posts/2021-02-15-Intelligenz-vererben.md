@@ -77,7 +77,7 @@ Das "klassische" Training eines neuronalen Netzes wird als Backpropagation bezei
 Dabei wird zunächst ein neuronales Netz auf Basis einer passenden Architektur definiert, in einem Computer-System angelegt und mit zufälligen Gewichten initialisiert.
 Nun wird das Netz mit tausenden, wenn nicht Millionen Daten gefüttert und für jeden Datensatz die Abweichung von errechneter Vorhersage und Trainings-Ergebnis berechnet.
 Diese Schritte werden als Feed-Forward bezeichnet.
-Nun wird basierend auf komplexen verschiedenen mathematischen Verfahren versucht, die Abweichung zu minimieren, in dem rückwärts durch das Netz, vom Ende zum Anfang, gewandert wird und dabei jedes Gewicht eines jeden Neurons minimal angepasst wird.
+Nun wird basierend auf komplexen verschiedenen mathematischen Verfahren versucht, die Abweichung zu minimieren, indem rückwärts durch das Netz gewandert wird und dabei jedes Gewicht eines jeden Neurons minimal angepasst wird.
 Beim nächsten Durchlauf werden so die Abweichungen geringer ausfallen.
 Dies wird so oft wiederholt, bis eine gewünschte Genauigkeit bzw. akzeptable Abweichung erreicht wird.
 Bei diesem Verfahren kann es jedoch leider passieren, dass nicht die beste Genauigkeit, sondern nur eine lokale Genauigkeit (lokales Optimum) gefunden werden kann.
