@@ -108,7 +108,7 @@ Bei GeneticSnake werden die Gewichte des neuronalen Netzes als Gene benutzt.
 
 ### Individuum
 
-Ein Individuum stellt einen eigenständigen Teilnehmer dar, der durch seine Genetik und sein Handeln, seine Fähigkeit unter Beweis stellen muss.
+Ein Individuum stellt einen eigenständigen Teilnehmer dar, der durch seine Genetik und sein Handeln seine Fähigkeit unter Beweis stellen muss.
 Bei GeneticSnake stellt jeder Schlange ein Individuum dar.
 Die Schlange definiert sich aus der Position auf dem Spielfeld, der Länge des Körpers und einem eigenen neuronalen Netz.
 
