@@ -157,7 +157,7 @@ Dies kann bei manchen Mutanten zu einem besseren Ergebnis führen.
 Was wird unter dem genetischen Training der Neuronalen Netze verstanden?
 
 Die Gewichte eines Neuronalen Netzes werden als Gene definiert.
-Dabei werden die einzelnen Gewichte eines Neurons einer jeden Schicht aneinander gereiht, wie eine langgezogene DNA-Kette.
+Dabei werden die einzelnen Gewichte eines Neurons einer jeden Schicht wie eine langgezogene DNA-Kette aneinander gereiht.
 Jedes Individuum erhält ein eigenes neuronales Netz mit einer eigenen DNA-Kette.
 Bei einer Population von 500 Individuen sind das 500 neuronale Netze.
 Diese DNA-Kette wird als Genetik bezeichnet und mit dem oben beschriebenen Verfahren verbessert.
