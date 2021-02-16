@@ -15,7 +15,7 @@ Falls ausreichende Testdaten nicht zur Verfügung stehen oder aber diese erst zu
 
 Die Wörter Künstliche Intelligenz (KI) und neuronale Netze sind in aller Munde.
 KI erlebte in den letzten Jahrzenten Höhen und Tiefen und befindet sich aktuell in einer seiner spannendsten Phasen.
-Durch Hardware, beispielsweise Grafikkarten, die eigentlich für aufwändige 3D-Computerspiele genutzt werden, oder aber große Cloud-Rechenzentren, gibt es momentan unfassbar starke Rechenleistungen, um die komplexe Mathematik hinter den Algorithmen in überschaubarer Zeit zu berechnen.
+Durch Hardware, beispielsweise Grafikkarten, die eigentlich für aufwändige 3D-Computerspiele genutzt werden, oder aber große Cloud-Rechenzentren, steht es momentan unfassbar viel Rechenleistung zur Verfügung, um die komplexe Mathematik hinter den Algorithmen in überschaubarer Zeit zu berechnen.
 
 Doch was wird unter all den Begriffen verstanden und wie werden diese eingeordnet?
 Was bedeuten genetische Algorithmen und wie können sie neuronalen Netzen beim Training helfen?
