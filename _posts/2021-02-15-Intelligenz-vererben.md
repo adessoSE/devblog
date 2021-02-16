@@ -83,7 +83,7 @@ Dies wird so oft wiederholt, bis eine gewünschte Genauigkeit bzw. akzeptable Ab
 Bei diesem Verfahren kann es jedoch leider passieren, dass nicht die beste Genauigkeit, sondern nur eine lokale Genauigkeit (lokales Optimum) gefunden werden kann.
 Dadurch verbessert sich das neuronale Netz nicht mehr, obwohl bessere Ergebnisse berechenbar wären.
 
-Das so trainierte neuronale Netz wird am Ende der Trainings-Phase als Model betitelt und für die spätere Nutzung gespeichert.
+Das so trainierte neuronale Netz wird am Ende der Trainings-Phase als Modell betitelt und für die spätere Nutzung gespeichert.
 Das Modell wird in einem Anwendungsfall in einer Produktionsumgebung eingebunden und für Vorhersagen unbekannter Eingabe-Daten genutzt.
 
 # Genetische Algorithmen
