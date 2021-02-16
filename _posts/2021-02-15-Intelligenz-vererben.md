@@ -202,7 +202,7 @@ Die genetischen Algorithmen sind ebenfalls handgeschrieben, damit hier jeder Ver
 
 * Der Code für das neuronale Netz ist auf [GitHub](https://github.com/swindisch/ArtificialNeuralNetwork) verfügbar.*
 
-Damit die Anwendung dennoch überschaubar bleibt und dem Leser für eigene Studien angeboten werden kann, wurde die Anwendung als native Java-Anwendung mit einer simplen Swing-Oberfläche (Fat-Client) entwickelt.
+Damit die Anwendung dennoch überschaubar und verständlich bleibt, wurde die Anwendung als native Java-Anwendung mit einer simplen Swing-Oberfläche (Fat-Client) entwickelt.
 Dabei werden aus Performance-Gründen nur die ersten 20 Spielfelder angezeigt, während im Hintergrund der Rest berechnet wird.
 
 * Der Code für GeneticSnake ist auf [GitHub](https://github.com/swindisch/GeneticSnake) verfügbar.*
