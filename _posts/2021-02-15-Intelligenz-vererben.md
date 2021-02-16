@@ -54,7 +54,8 @@ Aus diesen Gründen kann zwischen den drei folgenden Kategorien des maschinellen
 * **Reinforcement Learning** – Auch scherzhaft Training durch Schmerz genannt.
 Hier wird anhand von Belohnungen das Handeln eines Agenten bestimmt.
 
-Für das überwachte Lernen haben in den letzten Jahren, dank der Rechenpower aktueller Computer-Systeme, neuronale Netze verschiedenster Architekturen eine Renaissance erfahren. Sobald ein Netz aus einer komplexeren Architektur besteht sprechen wir von **tiefem Lernen (Deep Learning)**.
+Für das überwachte Lernen haben in den letzten Jahren, dank der Rechenpower aktueller Computer-Systeme, neuronale Netze verschiedenster Architekturen eine Renaissance erfahren.
+Sobald ein Netz aus einer komplexeren Architektur besteht, sprechen wir von **tiefem Lernen (Deep Learning)**.
 
 ![Neuron](/assets/images/posts/Intelligenz vererben/Neuron.png)
 
