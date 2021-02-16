@@ -75,7 +75,7 @@ Beispielsweise "Hund oder Katze", "Betrugsfall ja/nein" oder aber auch der morgi
 
 Das "klassische" Training eines neuronalen Netzes wird als Backpropagation bezeichnet.
 Dabei wird zunächst ein neuronales Netz auf Basis einer passenden Architektur definiert, in einem Computer-System angelegt und mit zufälligen Gewichten initialisiert.
-Nun wird das Netz mit tausenden, wenn nicht Millionen Daten, gefüttert und für jeden Datensatz die Abweichung von errechneter Vorhersage und Trainings-Ergebnis berechnet.
+Nun wird das Netz mit tausenden, wenn nicht Millionen Daten gefüttert und für jeden Datensatz die Abweichung von errechneter Vorhersage und Trainings-Ergebnis berechnet.
 Diese Schritte werden als Feed-Forward bezeichnet.
 Nun wird basierend auf komplexen verschiedenen mathematischen Verfahren versucht, die Abweichung zu minimieren, in dem rückwärts durch das Netz, vom Ende zum Anfang, gewandert wird und dabei jedes Gewicht eines jeden Neurons minimal angepasst wird.
 Beim nächsten Durchlauf werden so die Abweichungen geringer ausfallen.
