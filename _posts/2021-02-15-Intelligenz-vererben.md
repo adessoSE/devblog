@@ -89,7 +89,7 @@ Das Modell wird in einem Anwendungsfall in einer Produktionsumgebung eingebunden
 # Genetische Algorithmen
 
 Genetische Algorithmen sind ein weiterer Bereich der Informatik, der ebenfalls der Natur nachempfunden wurde.
-Mit der Evolutionstheorie verstehen wir vereinfacht beschrieben, die Entstehung und Anpassung von Lebewesen an ihre Umgebung.
+Mit der Evolutionstheorie verstehen wir, vereinfacht beschrieben, die Entstehung und Anpassung von Lebewesen an ihre Umgebung.
 Dabei versuchen aktuelle Generation die "besten" oder auch "stärksten" Gene an ihre Nachfolger zu vererben, damit diese eine größtmögliche Überlebens-Chance erhalten.
 Beispielsweise versucht das stärkste Männchen das hübscheste Weibchen (gerne auch anders herum) zu bezirzen und sich zu vermehren, um den Fortbestand der eigenen Art zu sichern.
 
