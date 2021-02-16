@@ -44,7 +44,7 @@ Anhand der Trainingsdaten wird ein Modell entworfen, das am Ende Beziehungen zwi
 
 Eine große Unterscheidung gibt es bei den Trainings-Daten:
 * Es gibt Trainings-Daten, die bereits das richtige Ergebnis, auch Label (Klassen, Ziele) genannt, mitliefern.
-Beispielsweise Datensätze von Millionen von Bildern, die angeben, um was es sich handelt (Lebewesen, Dinge des Alltags, Zahlen oder Buchstaben).
+Dazu gehören beispielsweise Datensätze von Millionen von Bildern, die angeben, was auf den Bildern zu sehen ist (Lebewesen, Dinge des Alltags, Zahlen oder Buchstaben).
 *Es gibt Trainings-Daten, die keine Ergebnisse mitliefern.
 Hier müssen andere Modelle genutzt werden.
 Beispielsweise Kreditkarten-Transaktionen, bei denen nicht bekannt ist, ob Betrugsfälle vorhanden sind.
