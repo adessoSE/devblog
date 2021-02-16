@@ -49,7 +49,7 @@ Dazu gehören beispielsweise Datensätze von Millionen von Bildern, die angeben,
 Hier müssen andere Modelle genutzt werden.
 
 Aus diesen Gründen kann zwischen den drei folgenden Kategorien des maschinellen Lernens unterschieden werden:
-* **Un-Überwachtes Training (Unsupervised Training)** – Hier liegen keine Ergebnisse vor, die Modelle können Daten gruppieren oder Ausnahmen erkennen.
+* **Unüberwachtes Training (Unsupervised Training)** – Hier liegen keine Ergebnisse vor, die Modelle können Daten gruppieren oder Ausnahmen erkennen.
 * **Überwachtes Training (Supervised Training)** – Hier liegen Ergebnisse vor, die Modelle können trainiert werden, um aus unbekannten Eingaben Ergebnisse vorherzusagen.
 * **Reinforcement Learning** – Auch scherzhaft Training durch Schmerz genannt.
 Hier wird anhand von Belohnungen das Handeln eines Agenten bestimmt.
