@@ -240,6 +240,6 @@ Von einem neuronalen Netz, das das Spiel vollständig durchspielt ist GeneticSna
 So ein Training kann viele weitere Stunden erfordern.
 
 Bei adesso wird seit 2020 das Studentenprojekt "KI-Plattform" realisiert.
-Die KI-Plattform stellt Benutzern unterschiedliche Anwendungsfälle der KI in einer benutzerfreundlichen nicht technischen Web-Anwendung dar.
+Die KI-Plattform stellt Benutzern unterschiedliche Anwendungsfälle der KI in einer benutzerfreundlichen, nicht technischen Web-Anwendung dar.
 Neben der Erkennung von Bildern, der Analyse von Betrugsfällen und dem Auswertung von Satellitenbildern wird aktuell das Thema Genetik mit einem recht komplexen Anwendungsfall umgesetzt.
 Eine moderne Web-Repräsentation von GeneticSnake wird sicherlich in dem Projekt noch Platz finden.
