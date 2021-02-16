@@ -179,7 +179,8 @@ GenetikSnake basiert auf dem recht einfachen Spiel Snake.
 Die Welt besteht aus einem Raster bestehend aus Quadraten.
 In diesem Raster lebt eine Schlange, die sich ununterbrochen fortbewegt.
 Dabei kann sie sich nur in die vier Himmelsrichtungen bewegen.
-Frisst die Schlange einen Apfel erhält sie einen Punkt und neue Lebensenergie.
+Nach und nach tauchen in der Welt Äpfel auf.
+Frisst die Schlange einen dieser Äpfel, erhält sie einen Punkt und neue Lebensenergie.
 Dabei wächst ihr Körper um eine Einheit, sie wird länger.
 Berührt die Schlange den Rand, stirbt sie.
 Frisst sie sich selbst stirbt sie.
