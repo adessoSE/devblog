@@ -229,7 +229,7 @@ Nach etlichen Versuchen und Rückschlägen wurde für GeneticSnake eine Netz-Arc
 Mit dem Beispiel von GeneticSnake wird gezeigt, dass mit der geschickten Auswahl von Umgebungsdaten als Eingabewerte für das neuronale Netz und Genen, die dem neuronalen Netz als Gewichte dienen, in kürzester Zeit bemerkenswerte Ergebnisse erzielt werden können.
 Während beim "klassischen" Training neuronaler Netze ganze Bildschirm-Szenen als lange Eingabevektoren in komplexe Netze genutzt werden, und diese dann stundenlang rechnen und trainieren, reichen hier 30 Eingabewerte aus.
 Auf der anderen Seite muss aber im Vorfeld und bei der Entwicklung der Algorithmen und des Modells genau überlegt werden, welche Informationen bereitgestellt werden müssen, damit sich die Gene und damit das Neuronale Netz verbessert.
-Dazu gehört auch die Fitness-Funktion, die angibt welche die "beste" Schlange der aktuellen Generation ist.
+Dazu gehört auch die Fitness-Funktion, die angibt, welche die "beste" Schlange der aktuellen Generation ist.
 Diese experimentierfreudige Phase hat einiges an Zeit beansprucht, bis ein erster Erfolg erkennbar war.
 
 # Ausblick
