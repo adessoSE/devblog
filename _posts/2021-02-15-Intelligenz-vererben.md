@@ -219,7 +219,7 @@ Im Laufe der Evolutionen und Generationen passen sich die Netze immer besser dem
 Dies bedeutet, dass ein gut trainiertes Netz auch in einer anderen Umgebung funktionieren kann.
 Beispielsweise könnte die beste Schlange auch in einem Raster von 50x500 Kästchen überleben, obwohl sie nur in 10x10 trainiert wurde.
 
-In vielen KI-Projekten ist die Post-Modell Phase einer der längsten Phasen.
+In vielen KI-Projekten ist die Post-Modell Phase eine der längsten Phasen.
 Hier werden Hyperparameter angepasst und Kleinigkeiten immer wieder verbessert.
 Im Anschluss wird die Simulation immer und immer wieder getestet.
 Nach etlichen Versuchen und Rückschlägen wurde für GeneticSnake eine Netz-Architektur samt passender genetischer Algorithmen gefunden, so dass Verbesserungen erkennbar waren. Nach einigen Minuten und ca. 3000 Generationen mit jeweils 100 Schlangen wurden bereits 60 und mehr Äpfel in einem Durchlauf gefressen!
