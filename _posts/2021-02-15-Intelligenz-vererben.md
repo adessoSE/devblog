@@ -171,7 +171,7 @@ Einzig und allein die ständige Veränderung der Gene führt im Laufe der Zeit z
 # GeneticSnake
 
 GenetikSnake ist ein guter Anwendungsfall der als Beispiel für unsere beschriebenen Ansätze genutzt werden kann.
-Anstatt im Vorfeld tausende von Spiele aufzuzeichnen, und damit ein klassisches neuronales Netz zu trainieren, wird das neuronale Netz beim Spielen ununterbrochen mit Daten versorgt und kann sich durch die Genetik langsam verbessern.
+Anstatt im Vorfeld tausende Spiele aufzuzeichnen und damit ein klassisches neuronales Netz zu trainieren, wird das neuronale Netz beim Spielen ununterbrochen mit Daten versorgt und kann sich durch die Genetik langsam verbessern.
 
 ![GeneticSnake](/assets/images/posts/Intelligenz vererben/GeneticSnake.png)
 
