@@ -69,7 +69,7 @@ Neuronale Netze existieren heute in den unterschiedlichsten Architekturen und si
 Sie definieren eine Beziehung zwischen Eingabedaten und dem passenden Ergebnis.
 Wird beispielsweise ein unbekanntes Katzenbild an ein Bilderkennungsnetz übergeben, so sollte es vorhersagen, dass es sich um eine Katze handelt.
 Grundlegend bestehen neuronale Netze aus einer Eingabe-Schicht (Input-Layer), die die Daten entgegennimmt, einer oder vielen versteckten Schichten (Hidden-Layer), in denen die "Intelligenz" stattfindet und einer Ausgabeschicht (Output-Layer), die die Vorhersage liefert.
-Beispielsweise "Hund oder Katze", "Betrugsfall ja/nein" oder aber auch der morgige Aktienkurs.
+Diese Vorhersage ist dann beispielsweise "Hund oder Katze", "Betrugsfall ja/nein" oder aber auch der morgige Aktienkurs.
 
 ![NeuronalesNetz](/assets/images/posts/Intelligenz vererben/NeuronalesNetz.png)
 
