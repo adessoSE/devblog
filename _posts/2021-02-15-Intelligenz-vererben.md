@@ -120,7 +120,7 @@ Bei GeneticSnake besteht die Population aus mehreren hundert Schlangen, die jewe
 
 ### Generation
 
-Eine Generation stellt die aktuelle Population dar.
+Eine Generation stellt die Population zu einem bestimmten Zeitpunk dar.
 In einer Generation werden Handlungen solange ausgeführt, bis ein bestimmter Schwellwert erreicht wurde, oder die aktuelle Population "verstorben" ist.
 Bei GeneticSnake besteht die Handlung aus dem jeweils nächsten Schritt im Spielfeld.
 Es gibt keinen Schwellwert, die Generation läuft solange, bis die Population vollständig "verstorben" ist.
