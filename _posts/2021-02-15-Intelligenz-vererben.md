@@ -188,7 +188,7 @@ Frisst sie sich selbst stirbt sie.
 Ziel ist es nun, solange es möglich ist, die Schlange zu bewegen ohne das sie stirbt.
 Das Spiel ist theoretisch gewonnen, wenn die Schlange so groß geworden ist, dass sie das gesamte Spielfeld einnimmt.
 
-Ein Spieler kann nun die Schlange beispielsweise mit der Tastatur steuern, die Richtung bestimmten und Punkte sammeln.
+Ein Spieler kann nun die Schlange beispielsweise mit der Tastatur steuern, die Richtung bestimmen und Punkte sammeln.
 
 Das Ziel unserer Anwendung ist es, eine KI zu erschaffen, die das Spiel ohne menschlichen Einfluss selbständig spielt.
 Dazu wird ein neuronales Netz modelliert, das als Eingabe die sichtbare Umgebung der Schlange zum Rand, zum Apfel und zum eigenen Körper bekommt.
