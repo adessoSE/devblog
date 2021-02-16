@@ -37,7 +37,7 @@ Schwache künstliche Intelligenz hat das Ziel, sich auf eine konkrete Lösung zu
 Dazu zählen beispielsweise Bild- und Spracherkennung, Werbung oder aber auch die Krebserkennung.
 
 Ein weiterer Bestandteil der KI ist maschinelles Lernen (Machine Learning).
-Beim maschinellen Lernen wird versucht Wissen aus Daten zu gewinnen.
+Beim maschinellem Lernen wird versucht, Wissen aus Daten zu gewinnen.
 Dies können bestimmte Informationen oder aber auch Muster sein.
 Dazu werden mathematische Modelle entworfen und mit Unmengen von Daten trainiert, um bestimmte Ergebnisse in einer geforderten Qualität vorherzusagen.
 Anhand der Trainingsdaten wird ein Modell entworfen, das am Ende Beziehungen zwischen Eingabedaten und Ergebnissen generalisiert vorhersagen kann.
