@@ -1,10 +1,10 @@
 ---
 layout: [post, post-xml]              
 title:  "Passworthashing - Aber sicher!"        
-date:   2020-12-01 09:00              # Pflichtfeld. Format "YYYY-MM-DD HH:MM". Muss für Veröffentlichung in der Vergangenheit liegen. (Für Preview egal)
+date:   2021-03-01 11:00              # Pflichtfeld. Format "YYYY-MM-DD HH:MM". Muss für Veröffentlichung in der Vergangenheit liegen. (Für Preview egal)
 author: tboettinger                     
 categories: [Softwareentwicklung]       
-tags: [Security, Kryptographie]      
+tags: [Security, Kryptographie, Java]      
 ---
 
 Passwörter dürfen nicht im Klartext in der Datenbank gespeichert werden, daher hashen wir sie, das weiß jede Entwicklerin und jeder Entwickler. 
