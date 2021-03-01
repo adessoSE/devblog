@@ -2,9 +2,9 @@
 layout: [post, post-xml]              
 title: "GitHub Actions im Java Projekt"            
 date: 2020-08-17 13:00              
-modified_date: 2020-08-17 13:00
+modified_date: 2020-12-10 10:00
 author: ccaylak                       
-categories: [Softwareentwicklung]
+categories: [Java]
 tags: [Java, Gradle, CI, GitHub, Open Source]     
 ---
 In diesem Blogpost wirst du lernen, wie ein Java Projekt mit GitHub Actions ausgestattet wird.
