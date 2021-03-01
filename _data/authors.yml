@@ -394,6 +394,15 @@ ivankablar:
   avatar_url: /assets/images/avatars/ivankablar_.jpg
   github: https://github.com/IvanKablar
   
+tboettinger:
+  first_name: Torsten
+  last_name: Böttinger
+  github_username: html04
+  email: torsten.boettinger@adesso.de
+  bio: "Torsten ist Software Engineer bei adesso und im IT-Security Umfeld unterwegs. Besonders interessiert ist er dabei an der Kryptographie sowie Deep-Learning gestützten Cyber Angriffen."
+  avatar_url: /assets/images/avatars/tboettinger.jpg
+  github: https://github.com/html04/
+  
 tlange:
   first_name: Thilo
   last_name: Lange
@@ -445,3 +454,4 @@ schirmer_urbanik_eggert:
   last_name: und Tony Eggert
   email: axel.schirmer@adesso.de, peter.urbanik@adesso.de, tony.eggert@adesso.de
   github_username: schirmer_urbanik_eggert
+
