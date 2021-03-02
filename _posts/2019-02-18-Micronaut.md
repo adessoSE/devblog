@@ -4,8 +4,8 @@ title:          "Micronaut - Eine Alternative zu Spring"
 date:           2019-02-18 09:00
 modified_date:  2019-05-09 09:00
 author:         t-buss
-categories:     [Java]
-tags:           [Microservices, Micronaut]
+categories:     [Softwareentwicklung]
+tags:           [Microservices, Micronaut, Java]
 ---
 Ja, richtig gelesen, es gibt Alternativen!
 Obwohl der Platzhirsch Spring sich bei Java-Anwendungen großer Beliebtheit erfreut, sollte man nicht vergessen, dass es daneben auch noch andere Frameworks gibt, die einen Blick wert sind.

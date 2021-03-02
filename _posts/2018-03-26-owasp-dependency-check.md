@@ -4,8 +4,8 @@ title:          "Sicherheitslücken mit dem OWASP Dependency Check erkennen"
 date:           2018-03-26 12:01
 modified_date: 
 author:         saschagrebe 
-categories:     [Java]
-tags:           [OWASP, Security, Build]
+categories:     [Softwareentwicklung]
+tags:           [OWASP, Security, Build, Java]
 ---
 
 Moderne Software-Systeme basieren auf einer Vielzahl von Bibliotheken und Frameworks, die das Leben der 

@@ -4,8 +4,8 @@ title:          "Frank'n Java und die Nacht der Tentakel"
 date:           2018-10-19 16:29
 modified_date: 
 author:         Franknjava
-categories:     [Java]
-tags:           [ASM, GOTO, Spaghetti-Code]
+categories:     [Softwareentwicklung]
+tags:           [ASM, GOTO, Spaghetti-Code, Java]
 ---
 
 Wie ich in einer sturmdurchpeitschten Nacht Java hart auf die Werkbank schnallte um ihr cthulhuoide Tentakel anzunähen, auf dass sie von nun an und für immerdar in der Lage sei, echte italienische Pasta zu bereiten.<br/><br/>

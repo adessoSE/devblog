@@ -4,7 +4,7 @@ title:          "Wicked Charts - JavaScript Charts mit Apache Wicket"
 date:           2018-07-16 08:50
 modified_date:  2018-07-16 08:50
 author:         maximAtanasov
-categories:     [Java]
+categories:     [Softwareentwicklung]
 tags:           [Java, Wicket]
 ---
 

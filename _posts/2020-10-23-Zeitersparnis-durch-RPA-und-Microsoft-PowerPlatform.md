@@ -4,7 +4,7 @@ title:  "Zeitersparnis durch RPA, AI und der Microsoft Power Platform"         #
 date:   2020-10-23 12:00              # Pflichtfeld. Format "YYYY-MM-DD HH:MM". Muss für Veröffentlichung in der Vergangenheit liegen. (Für Preview egal)
 modified_date: 2020-11-12 12:00             # Optional. Muss angegeben werden, wenn eine bestehende Datei geändert wird.
 author: mschulz-adesso                       # Pflichtfeld. Es muss in der "authors.yml" einen Eintrag mit diesem Namen geben.
-categories: [Microsoft]                    # Pflichtfeld. Maximal eine der angegebenen Kategorien verwenden.
+categories: [Softwareentwicklung]                    # Pflichtfeld. Maximal eine der angegebenen Kategorien verwenden.
 tags: [RPA, Power Automate, Power Platform, KI, UI Flow, Power Automate Desktop, AI Builder, Switch-Zeit, Teams, Microsoft]         # Bitte auf Großschreibung achten.
 ---
 

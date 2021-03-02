@@ -4,8 +4,8 @@ title:  "NodeJS als Auskunftswebservice einer JEE-Applikation"
 date:   2018-03-06 12:00
 modified_date: 2018-02-20
 author: AdessoMaDa
-categories: [Java, Architektur]
-tags: []
+categories: [Softwareentwicklung]
+tags: [Java, Architektur]
 ---
 
 Seit über zehn Jahren sind JEE-Applikationen etabliert, um unternehmenskritische Verfahren auf einer vereinheitlichten IT-Infrastruktur zu entwickeln.

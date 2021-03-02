@@ -4,8 +4,8 @@ title:          "Tracing in verteilten Systemen mit Spring Cloud Sleuth"
 date:           2018-01-25 12:01
 modified_date: 
 author:         thombergs 
-categories:     [Java, Architektur]
-tags:           [Spring, Microservices]
+categories:     [Softwareentwicklung]
+tags:           [Spring, Microservices, Java, Architektur]
 ---
 
 In verteilten Systemen ist es selbstverständlich, dass viele verteilte Komponenten
