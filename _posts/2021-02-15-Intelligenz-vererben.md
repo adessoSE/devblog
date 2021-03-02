@@ -57,7 +57,7 @@ Hier wird anhand von Belohnungen das Handeln eines Agenten bestimmt.
 Für das überwachte Lernen haben in den letzten Jahren, dank der Rechenpower aktueller Computer-Systeme, neuronale Netze verschiedenster Architekturen eine Renaissance erfahren.
 Sobald ein Netz aus einer komplexeren Architektur besteht, sprechen wir von **tiefem Lernen (Deep Learning)**.
 
-![Neuron](/assets/images/posts/Intelligenz vererben/Neuron.png)
+![Neuron](/assets/images/posts/Intelligenz_vererben/Neuron.png)
 
 Neuronale Netze sind der Struktur des menschlichen Gehirns nachempfunden.
 Ein neuronales Netz besteht dabei aus vielen Neuronen, auch Perzeptron, genannt, die in Schichten (Layern) zusammengefasst werden.
@@ -71,7 +71,7 @@ Wird beispielsweise ein unbekanntes Katzenbild an ein Bilderkennungsnetz überge
 Grundlegend bestehen neuronale Netze aus einer Eingabe-Schicht (Input-Layer), die die Daten entgegennimmt, einer oder vielen versteckten Schichten (Hidden-Layer), in denen die "Intelligenz" stattfindet und einer Ausgabeschicht (Output-Layer), die die Vorhersage liefert.
 Diese Vorhersage ist dann beispielsweise "Hund oder Katze", "Betrugsfall ja/nein" oder aber auch der morgige Aktienkurs.
 
-![NeuronalesNetz](/assets/images/posts/Intelligenz vererben/NeuronalesNetz.png)
+![NeuronalesNetz](/assets/images/posts/Intelligenz_vererben/NeuronalesNetz.png)
 
 Das "klassische" Training eines neuronalen Netzes wird als Backpropagation bezeichnet.
 Dabei wird zunächst ein neuronales Netz auf Basis einer passenden Architektur definiert, in einem Computer-System angelegt und mit zufälligen Gewichten initialisiert.
@@ -173,7 +173,7 @@ Einzig und allein die ständige Veränderung der Gene führt im Laufe der Zeit z
 GenetikSnake ist ein guter Anwendungsfall der als Beispiel für unsere beschriebenen Ansätze genutzt werden kann.
 Anstatt im Vorfeld tausende Spiele aufzuzeichnen und damit ein klassisches neuronales Netz zu trainieren, wird das Netz beim Spielen ununterbrochen mit Daten versorgt und kann sich durch die Genetik langsam verbessern.
 
-![GeneticSnake](/assets/images/posts/Intelligenz vererben/GeneticSnake.png)
+![GeneticSnake](/assets/images/posts/Intelligenz_vererben/GeneticSnake.png)
 
 GenetikSnake basiert auf dem recht einfachen Spiel Snake.
 Die Welt besteht aus einem Raster bestehend aus Quadraten.
