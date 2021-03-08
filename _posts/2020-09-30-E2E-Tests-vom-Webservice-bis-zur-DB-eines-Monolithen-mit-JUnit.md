@@ -51,13 +51,30 @@ Von hier an ist das Implementieren der Tests kaum mehr als ein üblicher JUnit-T
 - TestContainers (DB)
   - https://www.testcontainers.org
   - Erzeugung leerer Datenbanken verschiedener Hersteller zur Laufzeit. Voraussetzung ist eine erreichbare Docker-Registry für die Testlaufzeitumgebung
-
 - Flyway (DB-Schema Migration)
   - https://flywaydb.org/
   - Framework zur Verwaltung von Datenbankmigrationen.
+- Springboot
+  - Konfigurieren der Springkontexte des Monolithen und zum Hochfahren der Laufzeitumgebung für die Tests
 - REST assured (REST-Client)
   - http://rest-assured.io
   - Erzeugen von REST-Calls As-Code
+
+## Der Ablauf
+
+Da die Tests mit JUnit implementiert werden, ist der Ablauf anhand des Livecycles eines JUnit-Tests zu beschreiben. Diese Gliederung stellt nur eine sehr grobe Beschreibung, da die Details den Rahmen sprengen würden. 
+
+- **@BeforeClass**
+  - Konfigurationen und das Herstellen von Bedingungen, die vor dem Hochfahren der Anwendung bestehen müssen. Beispiele: Das Setzen von Umgebungsvariablen und das Hochfahren der Datenbank mit TestContainers
+
+- **@SpringbootApplication und @Configuration**
+  - Eine Konfigurationsklasse, mit diesen Annotationen, in der alle Springkontexte des Monolithen hochgefahren werden. Hier können auch beliebige Komponenten gemockt werden.
+- **@Before**
+  - Bedingungen, die erst nach dem Hochfahren des Monolithen erfüllt werden können, aber vor den Tests geschaffen sein müssen.
+- **@Test** - es empfiehlt sich Tests mit ein paar Regeln nach given-when-then zu unterteilen
+  - //given: Herstellen aller fachlichen Testvorbedingungen. Dafür werden sehr wahrscheinlich bereits fachliche Schritte durchgeführt, die in anderen Tests ebenfalls verwendet werden. Es empfiehlt sich daher, diese fachlichen Schritte jeweils in Services und einzelne Methoden auszulagern, sodass Sie wiederverwendet können. Dadurch steigt nebenbei die Lesbarkeit deutlich, da anhand der Mthodenaufrufe der fachlichen Kontext später leichter aus dem Code hervorgeht.
+  - //when: Ein einziger REST-Call mit REST assured der den tatsächlich durchzuführenden fachlichen Testfall darstellt.
+  - //then: Assertions auf dem Response-Objekt des REST-Calls oder die Prüfung von Nachbedingungen im System, die nicht anhand der Response ersichtlich sind.
 
 # Die Vorteile
 
@@ -71,5 +88,5 @@ Von hier an ist das Implementieren der Tests kaum mehr als ein üblicher JUnit-T
 
 Mir ist bewusst, dass JUnit ein Framework ist, welches darauf abzielt, so leichtgewichtige Tests wie nur möglich zu schreiben und dass unsere Verwendung des Frameworks diesem Grundgedanken zutiefst widerspricht.
 An manchen Stellen mussten wir daher etwas kreativ mit den gegebenen Möglichkeiten von JUnit umgehen. Wichtig ist, dass wir uns dessen bewusst sind und dass wir lediglich in diesem Kontext von den Best-Practices eines üblichen Unit-Tests abweichen.
-Das Resultat ist zumindest in unserem Kontext jedoch über jeden Zweifel erhaben und legitimiert dazu, auch mal out-of-the-box zu denken.
+Das Resultat ist allerdings, zumindest in unserem Kontext, über jeden Zweifel erhaben und legitimiert dazu, auch mal out-of-the-box zu denken.
 Bei Fragen zu technischen Details stehe ich euch gerne zur Verfügung: thorben.schiller@adesso.de
