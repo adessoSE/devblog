@@ -2,7 +2,7 @@
 layout:         [post, post-xml]              
 title:          "Wie sich Business-Strategien in Software umsetzen lassen"
 date:           2018-06-04 17:01
-modified_date: 
+modified_date:  2021-03-08 14:50
 author:         ceverke 
 categories:     [Softwareentwicklung]
 tags:           [BRMS, Business Rules, Geschäftsregeln, Drools, Java]

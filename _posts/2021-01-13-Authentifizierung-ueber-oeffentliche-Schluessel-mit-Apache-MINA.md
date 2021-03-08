@@ -2,6 +2,7 @@
 layout: [post, post-xml]              
 title: "Authentifizierung über öffentliche Schlüssel mit Apache MINA"            
 date: 2021-01-13 09:00
+modified_date: 2021-03-08 14:50
 author: ivankablar                       
 categories: [Softwareentwicklung]
 tags: [Java, IT-Security, Kryptographie, SSH, Apache MINA]     

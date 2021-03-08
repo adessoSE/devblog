@@ -2,7 +2,7 @@
 layout:         [post, post-xml]
 title:          "Wicked Charts - JavaScript Charts mit Apache Wicket"
 date:           2018-07-16 08:50
-modified_date:  2018-07-16 08:50
+modified_date:  2021-03-08 14:50
 author:         maximAtanasov
 categories:     [Softwareentwicklung]
 tags:           [Java, Wicket]

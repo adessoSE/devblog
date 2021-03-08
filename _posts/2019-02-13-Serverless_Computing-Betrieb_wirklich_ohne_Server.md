@@ -2,7 +2,7 @@
 layout:         [post, post-xml]              
 title:          "Serverless Computing – Betrieb wirklich ohne Server"
 date:           2019-02-13 12:00
-modified_date: 
+modified_date:  2021-03-08 14:50
 author:         hartmann42 
 categories:     [Softwareentwicklung]
 tags:           [Spring, FaaS, Architektur, Java]

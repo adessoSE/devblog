@@ -2,7 +2,7 @@
 layout:         [post, post-xml]              
 title:          "Systemüberwachung mit den Spring Boot Health Checks"
 date:           2018-08-22 13:57
-modified_date: 
+modified_date:  2021-03-08 14:50
 author:         roland 
 categories:     [Softwareentwicklung]
 tags:           [Spring, Microservices, Java]
