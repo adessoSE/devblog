@@ -1,0 +1,38 @@
+# .gitattributes
+# Siehe auch:
+# https://git-scm.com/docs/gitattributes
+# https://adaptivepatchwork.com/2012/03/01/mind-the-end-of-your-line/
+
+# Für alle Dateien soll Git ermitteln, ob es sich um eine Binär oder Textdatei handelt.
+# Alle Dateien bekommen LF (bei Commit und Checkout).
+*           text=auto eol=lf
+
+# Für bestimmte Dateien, deren Typ wir kennen, überschreiben wir die Konfiguration.
+# Dies passiert auf Attributebene.
+
+# Diese Dateien sind definitiv Text, daher setzen wir das text-Attribut explizit. Damit müssen wir uns nicht auf die
+# automatische Erkennung von Textdateien von Git verlassen, welche mal daneben liegen kann.
+# Das eol=lf wird hier nicht überschrieben.
+*.yml       text
+*.xml       text
+*.xsd       text
+*.xslt      text
+*.xsl       text
+*.html      text
+*.css       text
+*.scss      text
+*.js        text
+*.sh        text
+*.txt       text
+*.sql       text
+
+# Diese Dateien sind Text und bekommen ein eigenes eol.
+*.bat       text eol=crlf
+*.cmd       text eol=crlf
+
+# Diese Dateien sind binär.
+*.bin       binary
+*.png       binary
+*.jpg       binary
+*.jpeg      binary
+*.pdf       binary
