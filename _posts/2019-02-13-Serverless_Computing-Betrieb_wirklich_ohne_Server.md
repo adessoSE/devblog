@@ -2,10 +2,10 @@
 layout:         [post, post-xml]              
 title:          "Serverless Computing – Betrieb wirklich ohne Server"
 date:           2019-02-13 12:00
-modified_date: 
+modified_date:  2021-03-08 14:50
 author:         hartmann42 
-categories:     [Java]
-tags:           [Spring, FaaS, Architektur]
+categories:     [Softwareentwicklung]
+tags:           [Spring, FaaS, Architektur, Java]
 ---
 
 Nachdem Microservice basierte Architekturen sich zunehmend als Architekturansatz der Wahl bei der Neuentwicklung von 

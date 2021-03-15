@@ -2,9 +2,10 @@
 layout: [post, post-xml]
 title:  "Word-Dokumente aus Templates Erzeugen mit DocxStamper"
 date:   2018-09-28 08:00
+modified_date: 2021-03-08 14:50
 author: thombergs
-categories: [Java]
-tags: [docx, word]
+categories: [Softwareentwicklung]
+tags: [docx, word, Java]
 ---
 
 Immer mal wieder stolpert man in Projekten über die Anforderung, Word-Dokumente programmatisch zu erzeugen.
