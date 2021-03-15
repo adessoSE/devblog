@@ -1,10 +1,10 @@
 ---
 layout: [post, post-xml]
 title:  "Intelligenz vererben – Mit genetischen Algorithmen künstliche neuronale Netze trainieren"
-date:   2021-02-15 12:00
+date:   2021-03-15 09:00
 author: swindisch
 categories: [Architektur]
-tags: [Künstliche Intelligenz, KI, Maschinelles Lernen, Genetische Algorithmen]
+tags: [Künstliche Intelligenz, Maschinelles Lernen, Genetische Algorithmen]
 ---
 Künstliche neuronale Netze werden häufig zur Bild- oder Spracherkennung, für Vorhersagen oder aber zur Erkennung von Betrugsfällen genutzt.
 In bestimmten Bereichen sind die Ergebnisse sogar besser als eine menschliche Vorhersage.
