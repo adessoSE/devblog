@@ -67,20 +67,25 @@ Vieles wurde in den Folien an mehreren Stellen wiederholt und die Lerninhalte / 
 So wurden aus den Code-Smell-Programmierbeispielen aus den Folien Piazzen entworfen, die mehr zur Diskusion und Austausch anregen, als der frontale Vortrag.
 ![alte Folien](/assets/images/cleancodeschulung/bezeichner_zusammen.png)
 Die einzelnen Stationen beinhalten die wichtigsten CodeSmells und können, je nach Gruppenstärke in der Anzahl der Stationen variiert werden.
-Die Piazzen sollen in Kleingruppen bis maximal 3 Teilnehmern untereinander besprochen werden.
+
 ![Beispiel Piazza-Station](/assets/images/cleancodeschulung/codesmells_zu_lange_klassen_methoden.jpg)
 Hierbei ist für die Gruppe zunächst immer erst nur ein Poster (das linke) zu sehen und das andere verdeckt.
-Diese Methode dient dem gemeinsamen Austausch und Diskusion untereinander, was das Poster zeigen könnte, welcher CodeSmell gemeint ist.
+Diese Methode dient dem gemeinsamen Austausch und Diskusion untereinander in Gruppen bis zu maximal 3 Teilnehmern
+Hier wird beprochen was das Poster zeigen könnte, bzw. welcher CodeSmell gemeint ist.
 Die Lösung (das rechte Poster, das zu Beginn verdeckt ist) wird zuerst in der Gruppe besprochen und anschließend aufgedeckt.
+
 ## Metriken
 Für die Metriken, die meist für die statische Code-Analyse genutzt werden gibt es ein Zuordnungs-Spiel.
 Hier können die Teilnehmer vorgefertigte / vorgeschriebe Kärtchen aus einer Auslage nehmen und diese entsprechend an einer Pinwand zuordnen, nachdem sie gemeinsam in der Gruppe erklärt und besprochen wurden.
+
 ## Prinzipien & Praktiken
 Die CleanCode Prinzipien und Praktiken, die im alten Konzept viel zu kurz kamen und maximal in einem Nebensatz hier und da erwähnt wurden, bekommen mit dem neuen Konzept die zentrale Aufmerksamkeit, die sie verdient haben.
 Durch ein Domino, was die Teilnehmer gemeinsam lösen und die Begriffe sich gegenseitig erklären müssen, werden die Prinzipien und Praktiken klar hervorgehoben und direkt besprochen.
-Zuerst wurde ein Prototyp gebastelt, der zum Testen auf Kollegen log gelassen werden konnte.
+
+Zuerst wurde ein Prototyp gebastelt, der zum Testen auf Kollegen los gelassen werden konnte.
 ![Domino Prototypn](/assets/images/cleancodeschulung/domino_prototyp.jpg)
 So konnten einige Unstimmigkeiten ausgeräumt werden, bevor das finale Spiel in Auftrag gegeben wurde.
+
 Für die Domino-Steine wurden extra Hartschaumplatten verwendet, denen es nichts ausmacht, wenn sie viel hin- und hergeschoben werden. 
 Das Ganze ist im adesso-Design gehalten und wirkt so auch sehr ansprechend.
 Das finale Domino wurde mit zwei verschiedenen Farben umgesetzt, da wir zwei Gruppen pro Training damit planen und so die Steine gut auseinander halten können.
