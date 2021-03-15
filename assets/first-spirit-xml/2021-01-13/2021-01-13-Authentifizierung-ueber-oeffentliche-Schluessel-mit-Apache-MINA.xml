@@ -11,7 +11,7 @@ Anschließend schauen wir uns die Implementierung der Authentifizierung über ö
         <field name="language_multi_keyword"><![CDATA[de]]></field>
         <field name="content_type_multi_keyword"><![CDATA[blog]]></field>
         <field name="mime_type_multi_keyword"><![CDATA[text/html]]></field>
-        <field name="category_multi_keyword"><![CDATA[Java]]></field>
+        <field name="category_multi_keyword"><![CDATA[Softwareentwicklung]]></field>
         <field name="tag_multi_keyword"><![CDATA[Java]]></field>
         <field name="tag_multi_keyword"><![CDATA[IT-Security]]></field>
         <field name="tag_multi_keyword"><![CDATA[Kryptographie]]></field>
@@ -19,7 +19,7 @@ Anschließend schauen wir uns die Implementierung der Authentifizierung über ö
         <field name="tag_multi_keyword"><![CDATA[Apache MINA]]></field>
         <field name="date_date"><![CDATA[2021-01-13T09:00:00+01:00]]></field>
         <field name="date_l"><![CDATA[1610524800000]]></field>
-        <field name="change_date"><![CDATA[1610524800000]]></field>
+        <field name="change_date"><![CDATA[1615211400000]]></field>
         <!--Picture-->
         <!-- Not in use at the moment-->
         <!--Author Information-->
