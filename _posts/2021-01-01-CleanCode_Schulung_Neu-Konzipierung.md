@@ -65,13 +65,13 @@ Die Umstellung der Folien und die Aufteilung in kleinere Lernhappen war nicht nu
 Vieles wurde in den Folien an mehreren Stellen wiederholt und die Lerninhalte / die Ziele waren nicht gut ersichtlich. 
 ## Code Smells
 So wurden aus den Code-Smell-Programmierbeispielen aus den Folien Piazzen entworfen, die mehr zur Diskusion und Austausch anregen, als der frontale Vortrag.
-Die einzelnen Stationen beinhalten die wichtigsten CodeSmells und können, je nach Gruppenstärke in der Anzahl variiert werden.
-Die Piazzen sollen in Kleingruppen bis maximal 3 Teilnehmern untereinander besprochen werden.
-Hierbei ist für die Gruppe zunächst immer erst nur ein Poster zusehen und das andere verdeckt.
 ![alte Folien](/assets/images/cleancodeschulung/bezeichner_zusammen.png)
+Die einzelnen Stationen beinhalten die wichtigsten CodeSmells und können, je nach Gruppenstärke in der Anzahl der Stationen variiert werden.
+Die Piazzen sollen in Kleingruppen bis maximal 3 Teilnehmern untereinander besprochen werden.
 ![Beispiel Piazza-Station](/assets/images/cleancodeschulung/codesmells_zu_lange_klassen_methoden.jpg)
+Hierbei ist für die Gruppe zunächst immer erst nur ein Poster (das linke) zu sehen und das andere verdeckt.
 Diese Methode dient dem gemeinsamen Austausch und Diskusion untereinander, was das Poster zeigen könnte, welcher CodeSmell gemeint ist.
-Die Lösung wird dann in der Gruppe besprochen und anschließend aufgedeckt.
+Die Lösung (das rechte Poster, das zu Beginn verdeckt ist) wird zuerst in der Gruppe besprochen und anschließend aufgedeckt.
 ## Metriken
 Für die Metriken, die meist für die statische Code-Analyse genutzt werden gibt es ein Zuordnungs-Spiel.
 Hier können die Teilnehmer vorgefertigte / vorgeschriebe Kärtchen aus einer Auslage nehmen und diese entsprechend an einer Pinwand zuordnen, nachdem sie gemeinsam in der Gruppe erklärt und besprochen wurden.
