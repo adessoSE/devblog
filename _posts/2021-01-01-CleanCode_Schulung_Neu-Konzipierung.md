@@ -1,7 +1,7 @@
 ---
 layout: [post, post-xml]              
 title:  "Unsere CleanCode-Schulung in neuem Gewand"        
-date:   2021-01-31 10:00                    
+date:   2021-04-30 10:00                    
 author: bianca-batsch                   
 categories: [Inside adesso]             
 tags: [Qualität, CleanCode, Schulungen, Softwareentwicklung]
@@ -35,9 +35,9 @@ Leider fehlten vor allem das Wissen und die Erfahrung in diesem Bereich, um ein 
 Das änderte sich, als die Anfrage an uns Trainer kam, ob wir uns nicht vorstellen könnten, die Schulung auch für externe Teilnehmende zu halten. 
 Diese Chance wollten wir natürlich nutzen!
 
-# Interne Schulung auch für extern?
+# Train the Trainer - Spezial
 Die Schulung in der existierenden Folienvortragsform extern zu halten war keine Option. 
-Mit einem neuen, konzeptionell angepassten Format wäre das aber kein Problem. 
+Mit einem neuen, konzeptionell für Erwachsenenbildung angepassten Format wäre dies aber kein Problem. 
 So ergriffen wir die Gelegenheit beim Schopf und fragten beim Organisations-Team der Schulungen an, ob es möglich wäre, eine Train the Trainer-Session nur für CleanCode-Trainer und das Konzept der CleanCode-Schulung zu bekommen. 
 Am Ende sollte ein vollständig ausgearbeitetes Konzept vorhanden sein, dass auch extern gut bestehen kann.
 
@@ -49,7 +49,7 @@ Sie konnte uns durch ihren Erfahrungsschatz viele Tipps und Anregungen geben, um
 Vor allem für die didaktische Aufbereitung der Themen war dies eine enorme Hilfe.
 
 Dieser zweite Train the Trainer-Workshop allein mit den Trainern eines Themas war besonders deshalb sehr produktiv und erfolgreich, weil wir uns von Anfang an auf ein Ziel konzentrieren, daran arbeiten und diskutieren konnten. 
-Das ist in der üblichen Train the Trainer-Schulung nicht möglich, da dort viele verschiedene Trainer zusammenkommen und ein eigenes Schulungskonzept nicht in den Zeitrahmen passt.
+Das ist in der üblichen Train the Trainer-Schulung nicht möglich, da dort viele verschiedene Trainer zusammen kommen und die Erarbeitung eines eigen Schulungskonzept nicht in den Zeitrahmen passt.
 Im Train the Trainer lernt man hingegen die wichtigen Basics des **ganzheitlichen erwachsenengerechten Lernens und Lehrens** kennen und was es beutet, zu trainieren statt zu dozieren.
 Das alles erfährt man direkt **live und in Farbe**, so dass hier gelebt was geschult wird.   
 
@@ -60,10 +60,37 @@ Ein Konzept zu haben alleine reicht nicht.
 Es müssen die einzelnen Bestandteile / Lerneinheiten ausgearbeitet und Materialien erstellt werden. 
 Dies geschah außerhalb der Schulung und kostete nochmal mindestens zwei Wochen Arbeit.
 
-# Wie geht’s nun weiter?
-Mittlerweile ist alles ausgearbeitet, alle benötigten Materialien wurden bestellt und die nächste Präsenzschulung kann kommen. 
-Auch wenn es sein kann, dass es aufgrund der aktuellen Lage länger dauert, wir freuen uns trotzdem, euch in der nächsten Trainingseinheit CleanCode begrüßen zu dürfen. 
-Mit insgesamt fünf Trainern an drei verschiedenen Standorten sind wir technisch auch schon recht gut aufgestellt.
+# Das neue Konzept
+Die Umstellung der Folien und die Aufteilung in kleinere Lernhappen war nicht nur strukturell für die bessere Wissenvermittlung wichtig, sondern auch inhaltlich. 
+Vieles wurde in den Folien an mehreren Stellen wiederholt und die Lerninhalte / die Ziele waren nicht gut ersichtlich. 
+## Code Smells
+So wurden aus den Code-Smell-Programmierbeispielen aus den Folien Piazzen entworfen, die mehr zur Diskusion und Austausch anregen, als der frontale Vortrag.
+Die einzelnen Stationen beinhalten die wichtigsten CodeSmells und können, je nach Gruppenstärke in der Anzahl variiert werden.
+Die Piazzen sollen in Kleingruppen bis maximal 3 Teilnehmern untereinander besprochen werden.
+Hierbei ist für die Gruppe zunächst immer erst nur ein Poster zusehen und das andere verdeckt.
+![alte Folien](/assets/images/cleancodeschulung/bezeichner_zusammen.png)
+![Beispiel Piazza-Station](/assets/images/cleancodeschulung/codesmells_zu_lange_klassen_methoden.jpg)
+Diese Methode dient dem gemeinsamen Austausch und Diskusion untereinander, was das Poster zeigen könnte, welcher CodeSmell gemeint ist.
+Die Lösung wird dann in der Gruppe besprochen und anschließend aufgedeckt.
+## Metriken
+Für die Metriken, die meist für die statische Code-Analyse genutzt werden gibt es ein Zuordnungs-Spiel.
+Hier können die Teilnehmer vorgefertigte / vorgeschriebe Kärtchen aus einer Auslage nehmen und diese entsprechend an einer Pinwand zuordnen, nachdem sie gemeinsam in der Gruppe erklärt und besprochen wurden.
+## Prinzipien & Praktiken
+Die CleanCode Prinzipien und Praktiken, die im alten Konzept viel zu kurz kamen und maximal in einem Nebensatz hier und da erwähnt wurden, bekommen mit dem neuen Konzept die zentrale Aufmerksamkeit, die sie verdient haben.
+Durch ein Domino, was die Teilnehmer gemeinsam lösen und die Begriffe sich gegenseitig erklären müssen, werden die Prinzipien und Praktiken klar hervorgehoben und direkt besprochen.
+Zuerst wurde ein Prototyp gebastelt, der zum Testen auf Kollegen log gelassen werden konnte.
+![Domino Prototypn](/assets/images/cleancodeschulung/domino_prototyp.jpg)
+So konnten einige Unstimmigkeiten ausgeräumt werden, bevor das finale Spiel in Auftrag gegeben wurde.
+Für die Domino-Steine wurden extra Hartschaumplatten verwendet, denen es nichts ausmacht, wenn sie viel hin- und hergeschoben werden. 
+Das Ganze ist im adesso-Design gehalten und wirkt so auch sehr ansprechend.
+Das finale Domino wurde mit zwei verschiedenen Farben umgesetzt, da wir zwei Gruppen pro Training damit planen und so die Steine gut auseinander halten können.
+![das finale Domino](/assets/images/cleancodeschulung/domino_final.jpg)
+
+# Es kann los gehen!
+Mittlerweile ist alles ausgearbeitet, alle benötigten Materialien wurden geliefert und die nächste Schulung kann kommen. 
+In dieser Form kann diese Schulung auch gerne für Externe angeboten werden.
+Mit dem neuen Konzept sind wir für eine adäquate Wissensvermittlung gut gerüstet.
+Die Piazzen, das Domino und die Kärtchen für die Metriken werden für Online-Schulung auf Miro-Boards gebracht und können da genauso gut, wie in der Präsenz, verwendet werden.
 
 Ihr möchtet erfahren, was adesso sonst noch im Bereich der Weiterbildung bietet? 
 Dann werft auch einen Blick auf unsere [Website](https://www.adesso.de/de/jobs-karriere/entwicklung/index.jsp). 
