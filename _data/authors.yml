@@ -394,6 +394,15 @@ ivankablar:
   avatar_url: /assets/images/avatars/ivankablar_.jpg
   github: https://github.com/IvanKablar
   
+tboettinger:
+  first_name: Torsten
+  last_name: Böttinger
+  github_username: html04
+  email: torsten.boettinger@adesso.de
+  bio: "Torsten ist Software Engineer bei adesso und im IT-Security Umfeld unterwegs. Besonders interessiert ist er dabei an der Kryptographie sowie Deep-Learning gestützten Cyber Angriffen."
+  avatar_url: /assets/images/avatars/tboettinger.jpg
+  github: https://github.com/html04/
+  
 tlange:
   first_name: Thilo
   last_name: Lange
@@ -445,3 +454,11 @@ schirmer_urbanik_eggert:
   last_name: und Tony Eggert
   email: axel.schirmer@adesso.de, peter.urbanik@adesso.de, tony.eggert@adesso.de
   github_username: schirmer_urbanik_eggert
+
+maximilian_Lang:
+  first_name: Maximilian
+  last_name: Lang
+  email: maximilian.lang@adesso.de
+  github_username: xXanth0s
+  avatar_url: /assets/images/avatars/langmaximilian.jpg
+  bio: "Maximilian has been an enthusiastic fullstack developer for several years, who has developed a special preference for JavaScript and TypeScript. His special focus is on Angular as well as Electron, which knowledge he also regularly passes on to other developers at workshops. In the last year, his enthusiasm for WebAssembly has also increased, which is why he is also trying to deal with this topic as much as possible."
