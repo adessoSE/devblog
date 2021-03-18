@@ -2,8 +2,8 @@
 layout: 		[post, post-xml]             								# Pflichtfeld. Nicht ändern!
 title:  		"Wartbarkeit von Software – Teil 1: Dokumentation"         	# Pflichtfeld. Bitte einen Titel für den Blog Post angeben.
 date:   		2021-01-07 13:00              								# Pflichtfeld. Format "YYYY-MM-DD HH:MM". Muss für Veröffentlichung in der Vergangenheit liegen. (Für Preview egal)
-modified_date: 	2021-01-07 13:00       										# Optional. Muss angegeben werden, wenn eine bestehende Datei geändert wird.
-author: 		bethge_lange                       								# Pflichtfeld. Es muss in der "authors.yml" einen Eintrag mit diesem Namen geben.
+modified_date: 	2021-03-17 12:00       										# Optional. Muss angegeben werden, wenn eine bestehende Datei geändert wird.
+author: 		bethge_lange                       							# Pflichtfeld. Es muss in der "authors.yml" einen Eintrag mit diesem Namen geben.
 categories: 	[Softwareentwicklung]                    					# Pflichtfeld. Maximal eine der angegebenen Kategorien verwenden.
 tags: 			[Wartbarkeit, Softwaredokumentation]         				# Bitte auf Großschreibung achten.
 ---
@@ -195,5 +195,10 @@ Daher müssen diese Punkte bereits in der Angebotserstellung und Kalkulation ber
 
 # Ausblick
 
-Im nächsten Teil dieser Serien werfen wir einen Blick auf das Testen von Softwareprojekten. 
+Im zweiten Teil dieser Serie werfen wir einen Blick auf das Testen von Softwareprojekten.
 Welche Tests helfen dem Wartungsteam bei ihrer Arbeit und welche Abdeckung ist sinnvoll und nützlich?
+Im dritten Teil gehen wir dann näher auf Code-Qualität ein und beschäftigen uns abschließend mit der Automatisierung von Prozessen im Rahmen von Continous Integration und Deployment.
+
+[Hier geht es zu Teil 2 - Tests](wartbarkeit-von-software-teil-2-tests.jsp)
+
+[Hier geht es zu Teil 3 - Qualität und Automatisierung](https://www.adesso.de/de/news/blog/wartbarkeit-von-software-teil-3.jsp)
