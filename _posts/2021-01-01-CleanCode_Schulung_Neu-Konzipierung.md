@@ -62,7 +62,7 @@ Dies geschah außerhalb der Schulung und kostete nochmal mindestens zwei Wochen 
 
 # Das neue Konzept
 Die Umstellung der Folien und die Aufteilung in kleinere Lernhappen war nicht nur strukturell für die bessere Wissenvermittlung wichtig, sondern auch inhaltlich. 
-Vieles wurde in den Folien an mehreren Stellen wiederholt und die Lerninhalte / die Ziele waren nicht gut ersichtlich. 
+Vieles wurde in den Folien an mehreren Stellen wiederholt und die Lerninhalte, bzw. die Ziele waren nicht gut ersichtlich. 
 ## Code Smells
 So wurden aus den Code-Smell-Programmierbeispielen aus den Folien Piazzen entworfen, die mehr zur Diskusion und Austausch anregen, als der frontale Vortrag.
 ![alte Folien](/assets/images/cleancodeschulung/bezeichner_zusammen.png)
@@ -76,13 +76,14 @@ Die Lösung (das rechte Poster, das zu Beginn verdeckt ist) wird zuerst in der G
 
 ## Metriken
 Für die Metriken, die meist für die statische Code-Analyse genutzt werden gibt es ein Zuordnungs-Spiel.
-Hier können die Teilnehmer vorgefertigte / vorgeschriebe Kärtchen aus einer Auslage nehmen und diese entsprechend an einer Pinwand zuordnen, nachdem sie gemeinsam in der Gruppe erklärt und besprochen wurden.
+Hier können die Teilnehmer vorgefertigte / vorgeschriebe Kärtchen aus einer Auslage nehmen und diese entsprechend an einer Pinwand zuordnen, nachdem diese gemeinsam in der Gruppe erklärt und besprochen wurden.
 
 ## Prinzipien & Praktiken
-Die CleanCode Prinzipien und Praktiken, die im alten Konzept viel zu kurz kamen und maximal in einem Nebensatz hier und da erwähnt wurden, bekommen mit dem neuen Konzept die zentrale Aufmerksamkeit, die sie verdient haben.
-Durch ein Domino, was die Teilnehmer gemeinsam lösen und die Begriffe sich gegenseitig erklären müssen, werden die Prinzipien und Praktiken klar hervorgehoben und direkt besprochen.
+Die CleanCode Prinzipien und Praktiken, die im alten Konzept viel zu kurz kamen und maximal in einem Nebensatz hier und da erwähnt wurden, bekommen mit dem neuen Konzept die zentrale Aufmerksamkeit, die sie verdienen.
+Durch ein Domino werden die Prinzipien und Praktiken klar hervorgehoben und direkt besprochen.
+Dies müssen die Teilnehmer beim Zuordnen gemeinsam lösen und sich die Begriffe sich gegenseitig erklären, wenn diese anderen nicht bekannt sind.
 
-Zuerst wurde ein Prototyp gebastelt, der zum Testen auf Kollegen los gelassen werden konnte.
+Als erstes wurde ein Prototyp erstellt, der zum Testen auf interessierte adessi los gelassen wurde.
 ![Domino Prototypn](/assets/images/cleancodeschulung/domino_prototyp.jpg)
 So konnten einige Unstimmigkeiten ausgeräumt werden, bevor das finale Spiel in Auftrag gegeben wurde.
 
