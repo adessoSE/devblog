@@ -61,7 +61,7 @@ Es müssen die einzelnen Bestandteile / Lerneinheiten ausgearbeitet und Material
 Dies geschah außerhalb der Schulung und kostete nochmal mindestens zwei Wochen Arbeit.
 
 # Das neue Konzept
-Die Umstellung der Folien und die Aufteilung in kleinere Lernhappen war nicht nur strukturell für die bessere Wissenvermittlung wichtig, sondern auch inhaltlich. 
+Die Umstellung der Folien und die Aufteilung in kleinere Lernhappen war nicht nur strukturell für die bessere Wissensvermittlung wichtig, sondern auch inhaltlich. 
 Vieles wurde in den Folien an mehreren Stellen wiederholt und die Lerninhalte, bzw. die Ziele waren nicht gut ersichtlich. 
 ## Code Smells
 So wurden aus den Code-Smell-Programmierbeispielen aus den Folien Piazzen entworfen, die mehr zur Diskusion und Austausch anregen, als der frontale Vortrag.
