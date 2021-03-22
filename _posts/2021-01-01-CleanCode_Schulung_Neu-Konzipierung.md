@@ -56,22 +56,22 @@ Das alles erfährt man direkt **live und in Farbe**, so dass hier gelebt was ges
 Nach diesen zwei Tagen der speziellen Train the Trainer-Edition stand ein von uns gemeinsam erarbeitets Konzept - eine enorme Leistung. 
 Nur damit waren wir noch lange nicht fertig mit dem Erstellen der neuen Schulung. 
 Ein Konzept zu haben alleine reicht nicht. 
-![Grober Ablauf / veranschaulichtes Konzept](/assets/images/cleancodeschulung/konzept-pinwand.png)
 Es müssen die einzelnen Bestandteile / Lerneinheiten ausgearbeitet und Materialien erstellt werden. 
 Dies geschah außerhalb der Schulung und kostete nochmal mindestens zwei Wochen Arbeit.
+![Grober Ablauf / veranschaulichtes Konzept](/assets/images/cleancodeschulung/konzept-pinwand.png)
 
 # Das neue Konzept
 Die Umstellung der Folien und die Aufteilung in kleinere Lernhappen war nicht nur strukturell für die bessere Wissensvermittlung wichtig, sondern auch inhaltlich. 
 Vieles wurde in den Folien an mehreren Stellen wiederholt und die Lerninhalte, bzw. die Ziele waren nicht gut ersichtlich. 
 ## Code Smells
 So wurden aus den Code-Smell-Programmierbeispielen aus den Folien Piazzen entworfen, die mehr zur Diskussion und Austausch anregen, als der frontale Vortrag.
+Die einzelnen Stationen beinhalten die wichtigsten Code Smells und können, je nach Gruppenstärke in der Anzahl der Stationen variiert werden.
 ![alte Folien](/assets/images/cleancodeschulung/bezeichner_zusammen.png)
-Die einzelnen Stationen beinhalten die wichtigsten CodeSmells und können, je nach Gruppenstärke in der Anzahl der Stationen variiert werden.
 
 ![Beispiel Piazza-Station](/assets/images/cleancodeschulung/codesmells_zu_lange_klassen_methoden.jpg)
 Hierbei ist für die Gruppe zunächst immer erst nur ein Poster (das linke) zu sehen und das andere verdeckt.
 Diese Methode dient dem gemeinsamen Austausch und Diskussion untereinander in Gruppen bis zu maximal 3 Personen.
-Hier wird beprochen was das Poster zeigen könnte, bzw. welcher CodeSmell gemeint ist.
+Hier wird beprochen was das Poster zeigen könnte, bzw. welcher Code Smell gemeint ist.
 Zunächst werden mögliche Lösungen besprochen, danach wird das rechte Poster mit der Lösung aufgedeckt.
 
 ## Metriken
