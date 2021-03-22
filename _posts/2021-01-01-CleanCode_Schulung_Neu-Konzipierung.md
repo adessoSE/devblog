@@ -96,7 +96,7 @@ Das finale Domino wurde mit zwei verschiedenen Farben umgesetzt, da so zwei Grup
 Mittlerweile ist alles ausgearbeitet, alle benötigten Materialien wurden geliefert und die nächste Schulung kann kommen. 
 In dieser Form kann diese Schulung auch gerne für Externe angeboten werden.
 Mit dem neuen Konzept sind wir für eine adäquate Wissensvermittlung gut gerüstet.
-Die Piazzen, das Domino und die Kärtchen für die Metriken werden für Online-Schulung auf Miro-Boards gebracht und können da genauso gut, wie in der Präsenz, verwendet werden.
+Die Piazzen, das Domino und die Kärtchen für die Metriken werden für Online-Schulung auf Miro-Boards gebracht und können da genauso gut wie in der Präsenz verwendet werden.
 
 Ihr möchtet erfahren, was adesso sonst noch im Bereich der Weiterbildung bietet? 
 Dann werft auch einen Blick auf unsere [Website](https://www.adesso.de/de/jobs-karriere/entwicklung/index.jsp). 
