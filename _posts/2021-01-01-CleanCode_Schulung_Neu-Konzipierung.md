@@ -89,7 +89,7 @@ So konnten einige Unstimmigkeiten ausgeräumt werden, bevor das finale Spiel in 
 
 Für die Domino-Steine wurden extra Hartschaumplatten verwendet, denen es nichts ausmacht, wenn sie viel hin- und hergeschoben werden. 
 Das Ganze ist im adesso-Design gehalten und wirkt so auch sehr ansprechend.
-Das finale Domino wurde mit zwei verschiedenen Farben umgesetzt, da wir zwei Gruppen pro Training damit planen und so die Steine gut auseinander halten können.
+Das finale Domino wurde mit zwei verschiedenen Farben umgesetzt, da so zwei Gruppen pro Training damit arbeiten und wir die Steine gut auseinander halten können.
 ![das finale Domino](/assets/images/cleancodeschulung/domino_final.jpg)
 
 # Es kann los gehen!
