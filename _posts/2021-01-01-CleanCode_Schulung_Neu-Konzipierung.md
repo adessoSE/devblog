@@ -49,7 +49,7 @@ Sie konnte uns durch ihren Erfahrungsschatz viele Tipps und Anregungen geben, um
 Vor allem für die didaktische Aufbereitung der Themen war dies eine enorme Hilfe.
 
 Dieser zweite Train the Trainer-Workshop allein mit den Trainern eines Themas war besonders deshalb sehr produktiv und erfolgreich, weil wir uns von Anfang an auf ein Ziel konzentrieren, daran arbeiten und diskutieren konnten. 
-Das ist in der üblichen Train the Trainer-Schulung nicht möglich, da dort viele verschiedene Trainer zusammen kommen und die Erarbeitung eines eigen Schulungskonzept nicht in den Zeitrahmen passt.
+Das ist in der üblichen Train the Trainer-Schulung nicht möglich, da dort viele verschiedene Trainer zusammenkommen und die Erarbeitung eines eigenen Schulungskonzept nicht in den Zeitrahmen passt.
 Im Train the Trainer lernt man hingegen die wichtigen Basics des **ganzheitlichen erwachsenengerechten Lernens und Lehrens** kennen und was es beutet, zu trainieren statt zu dozieren.
 Das alles erfährt man direkt **live und in Farbe**, so dass hier gelebt was geschult wird.   
 
