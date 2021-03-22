@@ -75,7 +75,7 @@ Hier wird beprochen was das Poster zeigen könnte, bzw. welcher CodeSmell gemein
 Zunächst werden mögliche Lösungen besprochen, danach wird das rechte Poster mit der Lösung aufgedeckt.
 
 ## Metriken
-Für die Metriken, die meist für die statische Code-Analyse genutzt werden gibt es ein Zuordnungs-Spiel.
+Für die Metriken, die meist für die statische Code-Analyse genutzt werden, gibt es ein Zuordnungs-Spiel.
 Hier können die Teilnehmenden vorgefertigte / vorgeschriebe Kärtchen aus einer Auslage nehmen und diese entsprechend an einer Pinwand zuordnen, nachdem diese gemeinsam in der Gruppe erklärt und besprochen wurden.
 
 ## Prinzipien & Praktiken
