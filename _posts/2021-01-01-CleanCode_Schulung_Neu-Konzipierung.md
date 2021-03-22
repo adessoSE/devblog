@@ -83,7 +83,7 @@ Die CleanCode Prinzipien und Praktiken, die im alten Konzept viel zu kurz kamen 
 Durch ein Domino werden die Prinzipien und Praktiken klar hervorgehoben und direkt besprochen.
 Dies müssen die Teilnehmer beim Zuordnen gemeinsam lösen und sich die Begriffe sich gegenseitig erklären, wenn diese anderen nicht bekannt sind.
 
-Als erstes wurde ein Prototyp erstellt, der zum Testen auf interessierte adessi los gelassen wurde.
+Als erstes wurde ein Prototyp erstellt, der zum Testen auf interessierte adessi losgelassen wurde.
 ![Domino Prototypn](/assets/images/cleancodeschulung/domino_prototyp.jpg)
 So konnten einige Unstimmigkeiten ausgeräumt werden, bevor das finale Spiel in Auftrag gegeben wurde.
 
