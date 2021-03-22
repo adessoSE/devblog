@@ -76,7 +76,7 @@ Zunächst werden mögliche Lösungen besprochen, danach wird das rechte Poster m
 
 ## Metriken
 Für die Metriken, die meist für die statische Code-Analyse genutzt werden gibt es ein Zuordnungs-Spiel.
-Hier können die Teilnehmer vorgefertigte / vorgeschriebe Kärtchen aus einer Auslage nehmen und diese entsprechend an einer Pinwand zuordnen, nachdem diese gemeinsam in der Gruppe erklärt und besprochen wurden.
+Hier können die Teilnehmenden vorgefertigte / vorgeschriebe Kärtchen aus einer Auslage nehmen und diese entsprechend an einer Pinwand zuordnen, nachdem diese gemeinsam in der Gruppe erklärt und besprochen wurden.
 
 ## Prinzipien & Praktiken
 Die CleanCode Prinzipien und Praktiken, die im alten Konzept viel zu kurz kamen und maximal in einem Nebensatz hier und da erwähnt wurden, bekommen mit dem neuen Konzept die zentrale Aufmerksamkeit, die sie verdienen.
