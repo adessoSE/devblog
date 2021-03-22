@@ -64,7 +64,7 @@ Dies geschah außerhalb der Schulung und kostete nochmal mindestens zwei Wochen 
 Die Umstellung der Folien und die Aufteilung in kleinere Lernhappen war nicht nur strukturell für die bessere Wissensvermittlung wichtig, sondern auch inhaltlich. 
 Vieles wurde in den Folien an mehreren Stellen wiederholt und die Lerninhalte, bzw. die Ziele waren nicht gut ersichtlich. 
 ## Code Smells
-So wurden aus den Code-Smell-Programmierbeispielen aus den Folien Piazzen entworfen, die mehr zur Diskusion und Austausch anregen, als der frontale Vortrag.
+So wurden aus den Code-Smell-Programmierbeispielen aus den Folien Piazzen entworfen, die mehr zur Diskussion und Austausch anregen, als der frontale Vortrag.
 ![alte Folien](/assets/images/cleancodeschulung/bezeichner_zusammen.png)
 Die einzelnen Stationen beinhalten die wichtigsten CodeSmells und können, je nach Gruppenstärke in der Anzahl der Stationen variiert werden.
 
