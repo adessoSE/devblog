@@ -70,7 +70,7 @@ Die einzelnen Stationen beinhalten die wichtigsten CodeSmells und können, je na
 
 ![Beispiel Piazza-Station](/assets/images/cleancodeschulung/codesmells_zu_lange_klassen_methoden.jpg)
 Hierbei ist für die Gruppe zunächst immer erst nur ein Poster (das linke) zu sehen und das andere verdeckt.
-Diese Methode dient dem gemeinsamen Austausch und Diskusion untereinander in Gruppen bis zu maximal 3 Teilnehmern
+Diese Methode dient dem gemeinsamen Austausch und Diskussion untereinander in Gruppen bis zu maximal 3 Personen.
 Hier wird beprochen was das Poster zeigen könnte, bzw. welcher CodeSmell gemeint ist.
 Die Lösung (das rechte Poster, das zu Beginn verdeckt ist) wird zuerst in der Gruppe besprochen und anschließend aufgedeckt.
 
