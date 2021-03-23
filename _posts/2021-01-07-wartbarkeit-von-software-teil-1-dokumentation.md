@@ -197,8 +197,9 @@ Daher müssen diese Punkte bereits in der Angebotserstellung und Kalkulation ber
 
 Im zweiten Teil dieser Serie werfen wir einen Blick auf das Testen von Softwareprojekten.
 Welche Tests helfen dem Wartungsteam bei ihrer Arbeit und welche Abdeckung ist sinnvoll und nützlich?
-Im dritten Teil gehen wir dann näher auf Code-Qualität ein und beschäftigen uns abschließend mit der Automatisierung von Prozessen im Rahmen von Continous Integration und Deployment.
 
 [Hier geht es zu Teil 2 - Tests](wartbarkeit-von-software-teil-2-tests.jsp)
+
+Im dritten Teil gehen wir dann näher auf Code-Qualität ein und beschäftigen uns abschließend mit der Automatisierung von Prozessen im Rahmen von Continous Integration und Deployment.
 
 [Hier geht es zu Teil 3 - Qualität und Automatisierung](https://www.adesso.de/de/news/blog/wartbarkeit-von-software-teil-3.jsp)

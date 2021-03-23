@@ -105,12 +105,14 @@ Diese Test-Jobs können z.B. so konfiguriert werden, dass sie direkt nach jedem 
 Im letzten Teil der Serie zur Wartbarkeit von Software haben wir uns mit Kriterien zur Messung von Code-Qualität beschäftigt.
 Außerdem haben wir anhand eines Beispiel-Projektes gezeigt, welche Prozesse automatisiert werden sollten, um die Produktivität bei der Entwicklung zu erhöhen und dabei Fehler zu vermeiden.
 
-Um zu prüfen, ob die in dieser Serie genannten Kriterien im Projekt umgesetzt wurden, könnt ihr hier eine Checkliste im PDF-Format herunterladen:
-
-[Checkliste](/assets/images/posts/wartbarkeit-von-software-teil-3/checkliste.pdf)
-
-Die folgenden Links führen noch einmal zum Nachlesen auf die ersten beiden Teile dieser Serie:
+Die beiden ersten Teile verpasst?
 
 [Hier geht es zu Teil 1 - Dokumentation](https://www.adesso.de/de/news/blog/wartbarkeit-von-software-teil-1-dokumentation.jsp)
 
 [Hier geht es zu Teil 2 - Tests](wartbarkeit-von-software-teil-2-tests.jsp)
+
+# Checkliste
+
+Zur Prüfung, ob alle in dieser Serie genannten Kriterien im Projekt umgesetzt wurden, könnt ihr hier eine Checkliste im PDF-Format herunterladen.
+
+[Checkliste](/assets/images/posts/wartbarkeit-von-software-teil-3/checkliste.pdf)

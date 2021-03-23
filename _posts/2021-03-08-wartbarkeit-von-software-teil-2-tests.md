@@ -193,4 +193,6 @@ Im dritten und letzten Teil dieser Serien werden wir uns abschließend mit Code-
 
 [Hier geht es zu Teil 3 - Qualität und Automatisierung](https://www.adesso.de/de/news/blog/wartbarkeit-von-software-teil-3.jsp)
 
+Der ersten Teil verpasst?
+
 [Hier geht es zu Teil 1 - Dokumentation](https://www.adesso.de/de/news/blog/wartbarkeit-von-software-teil-1-dokumentation.jsp)
