@@ -109,7 +109,7 @@ Die beiden ersten Teile verpasst?
 
 [Hier geht es zu Teil 1 - Dokumentation](https://www.adesso.de/de/news/blog/wartbarkeit-von-software-teil-1-dokumentation.jsp)
 
-[Hier geht es zu Teil 2 - Tests](wartbarkeit-von-software-teil-2-tests.jsp)
+[Hier geht es zu Teil 2 - Tests](https://www.adesso.de/de/news/blog/wartbarkeit-von-software-teil-2-tests.jsp)
 
 # Checkliste
 
