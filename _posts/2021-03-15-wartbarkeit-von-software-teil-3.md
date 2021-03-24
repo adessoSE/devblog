@@ -16,8 +16,8 @@ Nachdem wir uns in den ersten beiden Teilen der Reihe "Wartbarkeit von Software"
 # Code-Qualität
 
 Bei der Übergabe der entwickelten Anwendung erwartet das Wartungsteam eine entsprechende Codequalität.
-Um die Codequalität im Projekt sicherzustellen muss diese werkzeuggestützt geprüft werden.
-Hierzu gibt es unterschiedliche Open-Source Werkzeuge (z.B. Sonarqube, ESLint) für unterschiedliche Programmiersprachen, die zu diesem Zweck eingesetzt werden können.
+Um die Codequalität im Projekt sicherzustellen, muss diese werkzeuggestützt geprüft werden.
+Hierzu gibt es unterschiedliche Open-Source Werkzeuge (z.B. Sonarqube, ESLint) für verschiedene Programmiersprachen, die zu diesem Zweck eingesetzt werden können.
 
 Die Konfiguration des eingesetzten Werkzeuges sollte zu Beginn des Projektes zentral erstellt und an die Entwickler verteilt werden, so dass der gesamte Code immer auf die gleichen Qualitätsziele geprüft wird.
 Abweichungen von der Standardkonfiguration, wie z.B. der Ausschluss von bestimmten Prüfregeln, müssen dann mit einer kurzen Begründung dokumentiert werden.
@@ -43,9 +43,9 @@ __Wenn Ausnahmen doch einmal notwendig sein sollten, müssen diese entweder im Q
 # Continuous Integration und Deployment
 
 Es gibt gute Gründe, all diejenigen Prozesse, die in einem Entwicklungsprojekt regelmäßig durchzuführen sind und sich im Projektverlauf selten ändern, im Rahmen der Continuous Integration (CI) und des Continuous Deploymens (CD) zu automatisieren.
-Der Aufwand, diese Prozesse zu Beginn eines Entwicklungsprojektes einmalig zu automatisieren und dann bei Konfigurationsänderungen anzupassen, ist meist geringer, als der Aufwand diese Prozesse immer wieder manuell durchführen zu müssen. Zusätzlich senkt eine Automatisierung das Risiko, Fehler bei der manuellen Durchfüh-rung der Prozesse zu begehen und stellt sicher, dass die Prozesse immer auf derselben Umgebung und Konfiguration durchgeführt werden.
+Der Aufwand, diese Prozesse zu Beginn eines Entwicklungsprojektes einmalig zu automatisieren und dann bei Konfigurationsänderungen anzupassen, ist meist geringer, als der Aufwand diese Prozesse immer wieder manuell durchführen zu müssen. Zusätzlich senkt eine Automatisierung das Risiko, Fehler bei der manuellen Durchführung der Prozesse zu begehen und stellt sicher, dass die Prozesse immer auf derselben Umgebung und Konfiguration durchgeführt werden.
 
-Es ist zu bedenken, dass das Ende des initialen Entwicklungsprojektes nicht auch das Ende der Anpassungen an der entwickelten Software sind.
+Es ist zu bedenken, dass das Ende des initialen Entwicklungsprojektes nicht auch das Ende der Anpassungen an der entwickelten Software ist.
 In der anschließenden Wartungs- und Betriebsphase sind weiterhin Fehler zu beheben und es wird nicht selten das Verhalten einer Applikation durch folgende Change Requests erweitert und/oder verändert.
 Das Wartungsteam wird die bereits etablierte Automatisierung dann übernehmen und weiterverwenden.
 Für eine reibungslose Übergabe ist an zentraler Stelle zu dokumentieren, welche Prozesse automatisiert wurden, wie sie konfiguriert sind und wie diese auszuführen sind.
@@ -66,8 +66,8 @@ Im Folgenden zeigen wir eine Konfiguration mehrerer Jobs für eine Automatisieru
 ## Build Branch
 
 Nach jedem Push eines Entwicklers muss der Quelltext des zugehörigen Branches von einem Build-Job automatisch kompiliert werden.
-Basierend darauf werden dann die Komponententests (z.B. JUnit) und zusätzliche statische Code-Analysen (z.B. So-narQube, SpotBugs, Checkstyle) durchgeführt.
-Arbeitet das Entwicklungsteam mit dem empfohlenen Branch-Modell nach Git-flow lässt sich hierfür im CD/CI-Werkzeug ein Job einrichten, der die unterschiedlichen Branches (feature, bugfix, release…) erkennen kann.
+Basierend darauf werden dann die Komponententests (z.B. JUnit) und zusätzliche statische Code-Analysen (z.B. SonarQube, SpotBugs, Checkstyle) durchgeführt.
+Arbeitet das Entwicklungsteam mit dem empfohlenen Branch-Modell nach Gitflow lässt sich hierfür im CD/CI-Werkzeug ein Job einrichten, der die unterschiedlichen Branches (feature, bugfix, release…) erkennen kann.
 Im Jenkins gibt es dafür z.B. das Job-Element Multibranch Pipeline, andere CI/CD-Werkzeuge bieten mittlerweile ähnlich funktionierende Features an.
 
 Der aktuelle Build-Status für einen Branch sollte sich im SCM (z.B. BitBucket) widerspiegeln, dazu sollte der Build-Job im CI/CD-Werkzeug zumindest bei Start, Abbruch und erfolgreichen Durchlauf den Build-Status im SCM-Werkzeug aktualisieren.
@@ -97,7 +97,7 @@ Zusätzlich sollte ein weiterer Job regelmäßig nach jedem Release eine Umgebun
 
 Wöchentlich bis monatlich, zumindest jedoch vor jedem Release, führen ein oder mehrere Jobs Integrations- und Schnittstellentests (z.B. Selenium) sowie Last- und Performance-Tests durch.
 Dazu wird durch einen Job automatisiert eine Testumgebung (z.B. mit Docker oder Ansible) mit der zuvor gebauten Version vorbereitet oder komplett neu erstellt, konfiguriert und gestartet.
-Dann werden die dem Test zugrunde-liegenden Testdaten darauf importiert oder generiert, der Test durchgeführt und abschließend die Testergebnisse gesammelt und abgelegt.
+Dann werden die dem Test zugrundeliegenden Testdaten darauf importiert oder generiert, der Test durchgeführt und abschließend die Testergebnisse gesammelt und abgelegt.
 Diese Test-Jobs können z.B. so konfiguriert werden, dass sie direkt nach jedem erfolgreichen Build einer neuen Version ausgeführt werden.
 
 # Fazit
