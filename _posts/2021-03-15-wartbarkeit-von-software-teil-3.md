@@ -106,7 +106,7 @@ Diese Test-Jobs können z.B. so konfiguriert werden, dass sie direkt nach jedem 
 
 Im letzten Teil der Serie zur Wartbarkeit von Software haben wir uns mit verschiedenen Kriterien beschäftigt, die einen Einfluss auf die Code-Qualität haben und gezeigt, mit welchen Werkzeugen und Prozessen diese während der Entwicklung gemessen und überprüft werden können.
 Außerdem haben wir dargestellt, welche Prozesse im Entwicklungsprojekt werkzeuggestützt automatisiert werden sollten.
-Die Automatisierung hilft, eine Steigerung der Produktivität zu erreichen, Fehler rechtzeitig zu erkennen bzw. diese gar nicht erst zu machen.
+Die Automatisierung hilft, die Produktivität zu steigern, Fehler rechtzeitig zu erkennen bzw. gar nicht erst zu machen.
 
 Die beiden ersten Teile verpasst?
 
