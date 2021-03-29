@@ -11,39 +11,41 @@ tags:			[Wartbarkeit, Qualität, Continuous Integration]				# Bitte auf Großsch
 
 Eine gut wartbare Software minimiert den Aufwand für Fehlerbehebung, adaptive Wartung und folgende Change Requests deutlich.
 Aber was zeichnet gute Wartbarkeit aus und wie können wir diese erreichen?
-Nachdem wir uns in den ersten beiden Teilen der Reihe "Wartbarkeit von Software" mit der Dokumentation und den Tests beschäftigt haben, wollen wir uns nun im letzten Teil zuerst kurz mit der Code Qualität beschäftigen und dann näher auf das Automatisieren von Prozessen im Rahmen von Continuous Integration und Deployment eingehen.
+Nachdem wir uns in den ersten beiden Teilen der Reihe "Wartbarkeit von Software" mit der Dokumentation und den Tests beschäftigt haben, wollen wir uns nun im letzten Teil zuerst kurz mit der Code-Qualität beschäftigen und dann näher auf das Automatisieren von Prozessen im Rahmen von Continuous Integration und Deployment eingehen.
 
 # Code-Qualität
 
-Bei der Übergabe der entwickelten Anwendung erwartet das Wartungsteam eine entsprechende Codequalität.
-Um die Codequalität im Projekt sicherzustellen, muss diese werkzeuggestützt geprüft werden.
-Hierzu gibt es unterschiedliche Open-Source Werkzeuge (z.B. Sonarqube, ESLint) für verschiedene Programmiersprachen, die zu diesem Zweck eingesetzt werden können.
+Bei der Übergabe der entwickelten Anwendung erwartet das Wartungsteam eine entsprechende Code-Qualität.
+Um die Code-Qualität im Projekt sicherzustellen, muss diese werkzeuggestützt geprüft werden.
+Es gibt unterschiedliche Open-Source Werkzeuge (z.B. Sonarqube, ESLint) für verschiedene Programmiersprachen.
 
-Die Konfiguration des eingesetzten Werkzeuges sollte zu Beginn des Projektes zentral erstellt und an die Entwickler verteilt werden, so dass der gesamte Code immer auf die gleichen Qualitätsziele geprüft wird.
-Abweichungen von der Standardkonfiguration, wie z.B. der Ausschluss von bestimmten Prüfregeln, müssen dann mit einer kurzen Begründung dokumentiert werden.
+Die Konfiguration des eingesetzten Werkzeuges sollte zu Beginn des Projektes zentral erstellt und an das gesamte Entwicklungsteam verteilt werden, so dass der gesamte Code immer auf die gleichen Qualitätsziele geprüft wird.
+Abweichungen von der Standardkonfiguration wie z.B. der Ausschluss von bestimmten Prüfregeln müssen dann mit einer kurzen Begründung dokumentiert werden.
 
-Im besten Fall erfolgt die Prüfung der Codequalität zentral durch die Integration in ein CI-Tool, z.B. mit SonarQube im Jenkins oder GitLab.
+Im besten Fall erfolgt die Prüfung der Code-Qualität zentral durch die Integration in ein CI-Tool, z.B. mit SonarQube im Jenkins oder GitLab.
 Der Buildprozess sollte dabei so konfiguriert werden, das der Build automatisch scheitert, sobald die vorgegebenen Qualitätsziele nicht eingehalten werden.
 Somit wird sichergestellt, dass die definierten Qualitätsziele stets erfüllt werden.
 
-Falls die automatisierte Prüfung durch ein CI-Tool nicht möglich sein sollte, muss darauf geachtet werden, dass die Entwickler die Werkzeuge selbst einsetzen.
+Falls die automatisierte Prüfung durch ein CI-Tool nicht möglich sein sollte, muss darauf geachtet werden, dass das gesamte Entwicklungsteam die Werkzeuge selbst einsetzt.
 Die gefundenen Mängel müssen korrigiert werden, bevor der Quellcode in die Versionsverwaltung eingecheckt wird.
-Die Prüfung der Codequalität sollte in diesem Fall als separater Schritt in die Definition of Done und in die Review-Checkliste aufgenommen werden, um diese fest in den Entwicklungsprozess zu verankern.
+Die Prüfung der Code-Qualität sollte in diesem Fall als separater Schritt in die Definition of Done und in die Review-Checkliste aufgenommen werden, damit die Code-Qualität fest in den Entwicklungsprozess verankert wird.
 
 Bei der Übergabe an das Wartungsteam sollten die folgenden Grenzwerte eingehalten sein (Beispiel SonarQube):
 
 * Keine offenen Bugs
 * Keine offenen Vulnerabilities
-* Keine Code Smells vom Typ “Blocker”
-* Keine Code Smells vom Typ “Critical“
-* Die Code Duplizierung liegt unter 5%
+* Keine Code Smells vom Typ "Blocker"
+* Keine Code Smells vom Typ "Critical"
+* Der Anteil von doppeltem Code liegt unter 5%
 
 __Wenn Ausnahmen doch einmal notwendig sein sollten, müssen diese entweder im Quellcode oder im Werkzeug nachvollziehbar begründet sein!__
 
 # Continuous Integration und Deployment
 
 Es gibt gute Gründe, all diejenigen Prozesse, die in einem Entwicklungsprojekt regelmäßig durchzuführen sind und sich im Projektverlauf selten ändern, im Rahmen der Continuous Integration (CI) und des Continuous Deploymens (CD) zu automatisieren.
-Der Aufwand, diese Prozesse zu Beginn eines Entwicklungsprojektes einmalig zu automatisieren und dann bei Konfigurationsänderungen anzupassen, ist meist geringer, als der Aufwand diese Prozesse immer wieder manuell durchführen zu müssen. Zusätzlich senkt eine Automatisierung das Risiko, Fehler bei der manuellen Durchführung der Prozesse zu begehen und stellt sicher, dass die Prozesse immer auf derselben Umgebung und Konfiguration durchgeführt werden.
+Der Aufwand, diese Prozesse zu Beginn eines Entwicklungsprojektes einmalig zu automatisieren und dann bei Konfigurationsänderungen anzupassen, ist meist geringer, als der Aufwand, diese Prozesse immer wieder manuell durchführen zu müssen.
+
+Zusätzlich senkt eine Automatisierung das Risiko, Fehler bei der manuellen Durchführung der Prozesse zu begehen und stellt sicher, dass die Prozesse immer auf derselben Umgebung und Konfiguration durchgeführt werden.
 
 Es ist zu bedenken, dass das Ende des initialen Entwicklungsprojektes nicht auch das Ende der Anpassungen an der entwickelten Software ist.
 In der anschließenden Wartungs- und Betriebsphase sind weiterhin Fehler zu beheben und es wird nicht selten das Verhalten einer Applikation durch folgende Change Requests erweitert und/oder verändert.
@@ -60,14 +62,14 @@ Die folgende Grafik zeigt beispielhaft ein Jenkins-Projekt, in dem mehrere Proze
 ![Speicherbedarf unter Last](/assets/images/posts/wartbarkeit-von-software-teil-3/jenkins-job-list.png)
 
 Aber welche Prozesse aus Entwicklung, Build, Test und Deployment sind zu automatisieren?
-Wie eingangs bereits erwähnt, bieten sich hierfür alle regelmäßig durchzuführenden, sich selten ändernden Prozesse an, die grundsätzlich auch automatisierbar sind.
+Wie eingangs bereits erwähnt, bieten sich hierfür alle regelmäßig durchzuführenden, sich selten ändernden Prozesse an.
 Im Folgenden zeigen wir eine Konfiguration mehrerer Jobs für eine Automatisierung der Prozesse eines Beispiel-Projekts:
 
 ## Build Branch
 
-Nach jedem Push eines Entwicklers muss der Quelltext des zugehörigen Branches von einem Build-Job automatisch kompiliert werden.
+Nach jedem Push in der Entwicklung muss der Quelltext des zugehörigen Branches von einem Build-Job automatisch kompiliert werden.
 Basierend darauf werden dann die Komponententests (z.B. JUnit) und zusätzliche statische Code-Analysen (z.B. SonarQube, SpotBugs, Checkstyle) durchgeführt.
-Arbeitet das Entwicklungsteam mit dem empfohlenen Branch-Modell nach Gitflow lässt sich hierfür im CD/CI-Werkzeug ein Job einrichten, der die unterschiedlichen Branches (feature, bugfix, release…) erkennen kann.
+Arbeitet das Entwicklungsteam mit dem empfohlenen Branch-Modell nach Gitflow lässt sich hierfür im CI/CD-Werkzeug ein Job einrichten, der die unterschiedlichen Branches (feature, bugfix, release…) erkennen kann.
 Im Jenkins gibt es dafür z.B. das Job-Element Multibranch Pipeline, andere CI/CD-Werkzeuge bieten mittlerweile ähnlich funktionierende Features an.
 
 Der aktuelle Build-Status für einen Branch sollte sich im SCM (z.B. BitBucket) widerspiegeln, dazu sollte der Build-Job im CI/CD-Werkzeug zumindest bei Start, Abbruch und erfolgreichen Durchlauf den Build-Status im SCM-Werkzeug aktualisieren.
@@ -76,11 +78,11 @@ Das SCM-Werkzeug wiederum kann dann so eingestellt werden, dass ein Merge des Fe
 ##	Build Version
 
 Täglich bis wöchentlich, im besten Fall schon nach jeder Änderung des Branches mit dem aktuellen Entwicklungsstand (z.B. development) sollte zusätzlich zu den oben genannten Aufgaben ein weiterer Job eine aktuelle Version der Software zusammenstellen (assemble).
-Das Ergebnis dieses Prozesses sind ein oder mehrere Artefakte, die auf dieselbe Art gebaut und zusammengestellt werden, wie die Release-Artefakte für das Produktisystem.
-Diese Version sollte anschließend automatisiert abgelegt werden (z.B. im Nexus oder Artifactory), um weiteren nachgelagerten Prozessen den Zugriff darauf zu ermöglichen.
+Das Ergebnis dieses Prozesses sind ein oder mehrere Artefakte, die auf dieselbe Art gebaut und zusammengestellt werden, wie die Release-Artefakte für das Produktivsystem.
+Das erstellte Artefakt dieser Version sollte anschließend automatisiert abgelegt werden (z.B. im Nexus oder Artifactory), um weiteren nachgelagerten Prozessen den Zugriff darauf zu ermöglichen.
 Zusätzlich können bereits in diesem Schritt weitere Prüfungen wie z.B. Security- (OWASP) und/oder License-Checks automatisiert durchgeführt werden.
 Außerdem kann die Version im SCM mit einem entsprechenden Tag markiert werden.
-Im besten Fall können die mit dieser Version erstellten Artefakte als Release Candidate bezeichnet werden und nach erfolgreichen Tests direkt als Release ausgeliefert werden.
+Im besten Fall können die mit dieser Version erstellten Artefakte als Release Candidate bezeichnet und nach erfolgreichen Tests direkt als Release ausgeliefert werden.
 
 Die folgende Grafik zeigt beispielhaft ein Jenkins-Projekt, in dem mehrere Prozesse automatisiert wurden:
 
@@ -91,7 +93,7 @@ Die folgende Grafik zeigt beispielhaft ein Jenkins-Projekt, in dem mehrere Proze
 Täglich bis wöchentlich sollte ein Job den aktuellen Entwicklungsstand auf einer Testumgebung ausrollen, um darauf manuelle Tests durchführen zu können, Fehler reproduzieren zu können oder den Arbeitsfortschritt z.B. in einem Sprint Review präsentieren zu können.
 Dazu wird durch einen Job die Testumgebung (z.B. mit Docker oder Ansible) mit der zuvor gebauten aktuellen Version der Software vorbereitet oder komplett neu erstellt, dann konfiguriert und gestartet.
 
-Zusätzlich sollte ein weiterer Job regelmäßig nach jedem Release eine Umgebung mit der aktuell in Produktion ausgerollten Version bereitstellen, um hierauf jederzeit gemeldete Fehler nachstellen zu können und Hotfixes zu bearbeiten.
+Zusätzlich sollte ein weiterer Job regelmäßig nach jedem Release eine Umgebung mit der aktuell in Produktion ausgerollten Version bereitstellen, um hierauf jederzeit gemeldete Fehler nachstellen und Hotfixes bearbeiten zu können.
 
 ## Run Tests
 
@@ -102,8 +104,9 @@ Diese Test-Jobs können z.B. so konfiguriert werden, dass sie direkt nach jedem 
 
 # Fazit
 
-Im letzten Teil der Serie zur Wartbarkeit von Software haben wir uns mit Kriterien zur Messung von Code-Qualität beschäftigt.
-Außerdem haben wir anhand eines Beispiel-Projektes gezeigt, welche Prozesse automatisiert werden sollten, um die Produktivität bei der Entwicklung zu erhöhen und dabei Fehler zu vermeiden.
+Im letzten Teil der Serie zur Wartbarkeit von Software haben wir uns mit verschiedenen Kriterien beschäftigt, die einen Einfluss auf die Code-Qualität haben und gezeigt, mit welchen Werkzeugen und Prozessen diese während der Entwicklung gemessen und überprüft werden können.
+Außerdem haben wir dargestellt, welche Prozesse im Entwicklungsprojekt werkzeuggestützt automatisiert werden sollten.
+Die Automatisierung hilft, eine Steigerung der Produktivität zu erreichen, Fehler rechtzeitig zu erkennen bzw. diese gar nicht erst zu machen.
 
 Die beiden ersten Teile verpasst?
 
