@@ -2,10 +2,10 @@
 layout:         [post, post-xml]              
 title:          "Wie sich Business-Strategien in Software umsetzen lassen"
 date:           2018-06-04 17:01
-modified_date: 
+modified_date:  2021-03-08 14:50
 author:         ceverke 
-categories:     [Java]
-tags:           [BRMS, Business Rules, Geschäftsregeln, Drools]
+categories:     [Softwareentwicklung]
+tags:           [BRMS, Business Rules, Geschäftsregeln, Drools, Java]
 ---
 
 Als IT-Dienstleister verantwortet die adesso AG IT-Projekte von Kunden verschiedener Branchen. Dabei ist zum einen fundiertes Branchenwissen von Bedeutung, zum anderen aber auch Wissen über Softwaretechnologien, um die fachlichen Kundenanforderungen softwareseitig umzusetzen. Der heutige Blogbeitrag widmet sich der Fragestellung, wie man Business-Strategien, die in Form von Geschäftsregeln definiert werden, technologisch realisieren kann. Dabei steht insbesondere die Leichtigkeit und Wartbarkeit im Vordergrund.

@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<documents>
+    <document uid="de5255b7131a3383ecca60fde83bcda2">
+        <field name="title"><![CDATA[Why you should not use WebAssembly to build your SPA]]></field>
+        <field name="subline"><![CDATA[]]></field>
+        <field name="teaser"><![CDATA[<p>WebAssembly is the latest hit in web development and also has the potential to completely change the internet as we know it today, but is it already mature enough for single page applications?
+In this article, two identical applications are programmed in WebAssembly and JavaScript and then compared using Google Lighthouse.</p>
+
+]]></field>
+        <field name="language_multi_keyword"><![CDATA[de]]></field>
+        <field name="content_type_multi_keyword"><![CDATA[blog]]></field>
+        <field name="mime_type_multi_keyword"><![CDATA[text/html]]></field>
+        <field name="category_multi_keyword"><![CDATA[Softwareentwicklung]]></field>
+        <field name="tag_multi_keyword"><![CDATA[JavaScript]]></field>
+        <field name="tag_multi_keyword"><![CDATA[WebAssembly]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Blazor]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Vue.js]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Lighthouse]]></field>
+        <field name="date_date"><![CDATA[2021-03-04T09:00:00+01:00]]></field>
+        <field name="date_l"><![CDATA[1614844800000]]></field>
+        <field name="change_date"><![CDATA[1614844800000]]></field>
+        <!--Picture-->
+        <!-- Not in use at the moment-->
+        <!--Author Information-->
+        <field name="author_first_name"><![CDATA[Maximilian]]></field>
+        <field name="author_last_name"><![CDATA[Lang]]></field>
+        <field name="author_id"><![CDATA[xXanth0s]]></field>
+        <field name="author_picture_stored_only"><![CDATA[http://localhost:4000/assets/images/avatars/langmaximilian.jpg]]></field>
+        <!--Postcontent-->
+        <field name="headlines"><![CDATA[Why you should not use WebAssembly to build your SPA]]></field>
+        <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
+            <p>WebAssembly is the latest hit in web development and also has the potential to completely change the internet as we know it today, but is it already mature enough for single page applications?
+In this article, two identical applications are programmed in WebAssembly and JavaScript and then compared using Google Lighthouse.</p>
+
+</div>]]></field>
+        <field name="content"><![CDATA[<div class="adesso-text-formate">
+<div class="row p-t-2">
+<div class="adesso-container">
+<div class="col-xl-8 adesso-center p-b-1 p-l-0 p-r-0">
+    <p>WebAssembly is the latest hit in web development and also has the potential to completely change the internet as we know it today, but is it already mature enough for single page applications?
+In this article, two identical applications are programmed in WebAssembly and JavaScript and then compared using Google Lighthouse.</p>
+
+<h4 id="why-you-should-not-use-webassembly-to-build-your-spa">Why you should not use WebAssembly to build your SPA</h4>
+
+<p>When it comes to programming on the web, JavaScript has always been the only logical choice for software developers. 
+Unless you use the rather error-ridden flash player, use outdated Java applets or limit yourself to just a handful of browsers. 
+By 2017, a conglomerate of all major browser manufacturers released the MVP of WebAssembly and integrated it in a few months. 
+This technology is supposed to be the new sacred grail of web development and could also theoretically change everything. 
+But what exactly is WebAssembly, how does it work and how does it compare to JavaScript in terms of Single Page Applications?</p>
+
+<h5 id="a-brief-introduction-to-webassembly">A brief introduction to WebAssembly</h5>
+
+<p>The following but rather abstract formulation describes WebAssembly on the official web site</p>
+
+<p><strong><em>WebAssembly (abbreviated wasm) is a binary instruction format for a stack-based virtual machine. wasm is designed as a portable compilation target for programming languages, enabling deployment on the web for client and server applications.”.</em></strong></p>
+
+<p>To better understand this, let’s take a look at how native code works.</p>
+
+<p>A computer is a very logical machine, but with the alphabet [1,0] it has a somewhat limited input option. 
+Implementing logic with this is a rather inefficient and frustrating way of wasting ones time. 
+That’s why smart engineers have developed a way to make this task more enjoyable, and the birth of Assembler Code has struck. 
+However, this code is still quite complicated and differentiates for each CPU architecture. 
+Thus, another abstraction was developed, which are also known as today’s programming languages and which are way more powerful and easier to use, than Assembler or Binary.</p>
+
+<p>These programming languages will be transformed into assembler code of the underlying system and then converted to a sequence of “1” and “0”. 
+This conversion process, which also includes other steps such as optimization, Tree Shaking, etc., is also called compilation. 
+This can take several minutes in complex programs and is therefore completely unsuitable for the web. 
+Let’s face it, who waits more than 5 seconds to load a website in our days.</p>
+
+<p>In the world of JavaScript, we ship the uncompiled source code to the customer, and the browser always translates only the sub-area, which is currently necessary.
+This results in an immediate response for the user.
+The concept of interpretation can only be applied to a few other programming languages and also has many disadvantages, which is why JavaScript quickly reaches its limits.</p>
+
+<p>Also the delivery of the finished assembler or binary code is not possible, because on the one hand we do not know the CPU architecture of the user and on the other hand, we would have to compile the source code into all existing and future processor architectures.</p>
+
+<p>And that’s where WebAssembly comes in.
+WebAssembly is a virtual CPU architecture that is always the same and can be used as a compilation target. 
+The compiled code is similar to a commercially available assembler code and can then be translated in near real time for the actual CPU architecture in the target system.
+So in the end, we can compile our code to WebAssembly and ship the final artifact to the customer.</p>
+
+<p><img src="/assets/images/posts/Why-you-should-not-use-WebAssembly-to-build-your-spa/wasm_cpu_architecture.png" alt="WASM CPU Architecture" /></p>
+
+<h5 id="webassembly-und-single-page-applications">WebAssembly und Single Page Applications</h5>
+
+<p>Since WebAssembly saves us the unnecessary compilation of JavaScript in the browser and also low level languages has a higher performance than JavaScript, it would be ideal to implement single page applications in WebAssembly.</p>
+
+<p>However, since WebAssembly is still in its infancy, fundamental functions such as a garbage collection or multi-threading are still missing.</p>
+
+<p>Nevertheless, in recent years, Microsoft has developed a framework called Blazor, which is most advanced framework based on WebAssembly.
+It is developed in C# and is like all UI frameworks component based.
+In addition, it offers important functionalities such as routing, templating and dependency injection.</p>
+
+<h5 id="comparison-of-webassembly-and-javascript">Comparison of WebAssembly and JavaScript</h5>
+
+<p><img src="/assets/images/posts/Why-you-should-not-use-WebAssembly-to-build-your-spa/WASM_VS_JS.png" alt="Blazor vs. Vue.js" /></p>
+
+<p>To verify that WebAssembly is really suitable for use in SPA, a direct comparison of JavaScript and WebAssembly must be made. 
+For this purpose I have developed a completely identical website in Blazor, as well as in Vue.js which includes the following sections</p>
+
+<ul>
+  <li>Table with 1000 entries</li>
+  <li>To-Do Application for API Communication</li>
+  <li>Picture list for rendering images</li>
+  <li>Video page</li>
+</ul>
+
+<p>The repositories for the two applications and the associated API can be found here</p>
+
+<ul>
+  <li><a href="https://github.com/xXanth0s/wasm_comparison_blazor-app">Blazor App</a></li>
+  <li><a href="https://github.com/xXanth0s/wasm_comparison_vue_app">Vue.js App</a></li>
+  <li><a href="https://github.com/xXanth0s/wasm_comparison_api">API</a></li>
+</ul>
+
+<h4 id="results">Results</h4>
+
+<p>The final sites could be created without any problems in both frameworks and development took about the same time.</p>
+
+<p>In the final comparison with Lighthouse, however, it can be seen that Blazor performs significantly worse than Vue.js.</p>
+
+<p><img src="/assets/images/posts/Why-you-should-not-use-WebAssembly-to-build-your-spa/Lighthouse_Results.jpg" alt="Lighthouse result" /></p>
+
+<p>The main reason for this is the increased package size of Blazor. 
+At 13557 KB, the total volume of the WebAssembly application is 23 times that of Vue.js. 
+This is most likely due to the fact that the entire .NET Framework is required to be loaded for C#.</p>
+
+<p><img src="/assets/images/posts/Why-you-should-not-use-WebAssembly-to-build-your-spa/Size_Comparison.png" alt="Size comparison" /></p>
+
+<p>This factor is particularly important in the mobile sector.
+With the value “Time To Interactivity” you can see that the website always needs more than 70 seconds to load.</p>
+
+<p>WebAssembly also performs worse than JavaScript in all areas. 
+The only exception is First Contentful Paint. However, this is a mismeasurement of Lighthouse because it only measures when the first HTML elements are available. 
+In Blazor, this happens very quickly, but this root element has no visual properties. 
+When looking at the time-lapse, this mismeasurement clearly shows.</p>
+
+<p><img src="/assets/images/posts/Why-you-should-not-use-WebAssembly-to-build-your-spa/Fast_Motion.png" alt="Time-elaps of page loading" /></p>
+
+<p>The Blazor application was particularly unstable in the rendering of the table with 1000 entries. 
+With just over 80% of all calls, the application has crashed. 
+This phenomenon can be detected in all desktop browsers as well as on the smartphone. 
+In contrast, Vue.js also needed some time to load the table, but ran completely stable.</p>
+
+<p>This could be because in WebAssembly access to the DOM only works using glue code. 
+For this purpose, JavaScript code is implemented between WebAssembly and the DOM, which takes over the communication of the two parties. 
+Although a standard has been developed with the Reference Types, which makes this point superfluous, this does not seem to work fully yet.</p>
+
+<p>All lighthouse results:</p>
+
+<p><img src="/assets/images/posts/Why-you-should-not-use-WebAssembly-to-build-your-spa/First-Contentful-Paint.jpg" alt="Lighthouse Result: First Contentful Paint" />
+<img src="/assets/images/posts/Why-you-should-not-use-WebAssembly-to-build-your-spa/Speed-Index.jpg" alt="Lighthouse Result: Speed Index" />
+<img src="/assets/images/posts/Why-you-should-not-use-WebAssembly-to-build-your-spa/Largest-Contentful-Paint.jpg" alt="Lighthouse Result: Largest Contentful Paint" />
+<img src="/assets/images/posts/Why-you-should-not-use-WebAssembly-to-build-your-spa/Time-to-Interactivity.jpg" alt="Lighthouse Result: Time to Interactive" />
+<img src="/assets/images/posts/Why-you-should-not-use-WebAssembly-to-build-your-spa/Total-Blocking-Time.jpg" alt="Lighthouse Result: Total Blocking Time" />
+<img src="/assets/images/posts/Why-you-should-not-use-WebAssembly-to-build-your-spa/Cumulative-Layout-Shift.jpg" alt="Lighthouse Result: Cumulative Layout Shift" /></p>
+
+<h5 id="conclusion">Conclusion</h5>
+
+<p>WebAssembly is a great thing and offers many new possibilities. 
+However, in its current version, it cannot be used for Single Plage Applications.
+The biggest blemish, of course, is the endless loading time. 
+No user will ever wait over a minute for a website.</p>
+
+<p>The stability of complex websites also leaves something to be desired. 
+Thus, no table with 1000 entries could be rendered, which is a rather weak performance. 
+If the structure of a website grows over time, Blazor would be hopelessly overwhelmed with this task.</p>
+
+<p>Of course, it must also be said that a .NET Framework may not be the best choice for a website.
+Using Yew, a framework for SPA is currently being developed, which is completely based on RUST will have a much lower overhead than Blazor.</p>
+
+<p>But wasm is also not conceived with the idea of being a concurrent to JavaScript, but to enable new areas in web development. 
+Thus, WebAssembly may never be the first choice for developing single page applications. 
+Other applications would be much better suited for this purpose. 
+Autodesk has taken a great first step with its web implementation of AutoCAD. 
+In the future, all desktop applications can migrate to the browser, creating an enormous flexibility.</p>
+
+</div>
+</div>
+</div>
+</div>]]></field>
+    </document>
+</documents>

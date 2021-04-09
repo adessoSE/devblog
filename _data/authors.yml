@@ -385,6 +385,24 @@ vschiller:
   avatar_url: /assets/images/avatars/vschiller.jpg
   github: https://github.com/VivienEmily
 
+ivankablar:
+  first_name: Ivan
+  last_name: Kablar
+  github_username: IvanKablar
+  email: ivan.kablar@adesso.de
+  bio: "Ivan Kablar ist Senior Software Engineer im Banking-Bereich bei adesso in Frankfurt und arbeitet an verschiedenen Projekten im Java-Umfeld. Er befindet sich zur Zeit in der Ausbildung des ISAQB Advanced Level und interessiert sich für Software-Architekturen, Geschäftsprozesse und IT-Security."
+  avatar_url: /assets/images/avatars/ivankablar_.jpg
+  github: https://github.com/IvanKablar
+
+tboettinger:
+  first_name: Torsten
+  last_name: Böttinger
+  github_username: html04
+  email: torsten.boettinger@adesso.de
+  bio: "Torsten ist Software Engineer bei adesso und im IT-Security Umfeld unterwegs. Besonders interessiert ist er dabei an der Kryptographie sowie Deep-Learning gestützten Cyber Angriffen."
+  avatar_url: /assets/images/avatars/tboettinger.jpg
+  github: https://github.com/html04/
+
 tlange:
   first_name: Thilo
   last_name: Lange
@@ -404,12 +422,12 @@ anbeth:
   github: https://github.com/anbeth
 
 bethge_lange:
-  first_name: Anja Bethge und 
+  first_name: Anja Bethge und
   last_name: Thilo Lange
   github_username: bethge_lange
   email: thilo.lange@adesso.de, anja.bethge@adesso.de
   bio: "Anja Bethge und Thilo Lange sind Software Architekten am Standort Stralsund. Seit über fünf Jahren sind beide im Bereich Wartung und Application Management tätig und haben schon viele gute und auch nicht so gute Beispiele für wartbare Software gesehen."
-  avatar_url: 
+  avatar_url:
   github: https://github.com/ThiloLange, https://github.com/anbeth
 
 axelSchirmer:
@@ -417,7 +435,7 @@ axelSchirmer:
   last_name: Schirmer
   github_username: axelSchirmer
   email: axel.schirmer@adesso.de
-  bio: "Axel Schirmer ist Software Engineer und seit dem 01.07.2019 bei adesso SE im öffentlichen Bereich (Public) tätig. Als Java Entwickler hat er bereits in der Versicherungsbranche, der Telekommunikation und im Bankenumfeld als Business Analyst gearbeitet, bevor er im öffentlichen Umfeld in einem von Cobol nach Java transformierten Projekt als Java Entwickler gearbeitet hat." 
+  bio: "Axel Schirmer ist Software Engineer und seit dem 01.07.2019 bei adesso SE im öffentlichen Bereich (Public) tätig. Als Java Entwickler hat er bereits in der Versicherungsbranche, der Telekommunikation und im Bankenumfeld als Business Analyst gearbeitet, bevor er im öffentlichen Umfeld in einem von Cobol nach Java transformierten Projekt als Java Entwickler gearbeitet hat."
 
 peterUrbanik:
   first_name: Peter
@@ -444,3 +462,20 @@ bianca-batsch:
   email: bianca.batsch@adesso.de
   bio: "Bianca Batsch ist Senior Software Engineer im Bereich Lottery. Ihre Schwerpunkte sind Java-Technologien, speziell FirstSpirit."
   avatar_url: /assets/images/avatars/batsch.jpg
+
+maximilian_Lang:
+  first_name: Maximilian
+  last_name: Lang
+  email: maximilian.lang@adesso.de
+  github_username: xXanth0s
+  avatar_url: /assets/images/avatars/langmaximilian.jpg
+  bio: "Maximilian has been an enthusiastic fullstack developer for several years, who has developed a special preference for JavaScript and TypeScript. His special focus is on Angular as well as Electron, which knowledge he also regularly passes on to other developers at workshops. In the last year, his enthusiasm for WebAssembly has also increased, which is why he is also trying to deal with this topic as much as possible."
+
+thorbolo:
+  first_name: Thorben
+  last_name: Schiller
+  github_username: thorbolo
+  email: thorben.schiller@adesso.de
+  bio: "Thorben Schiller ist Senior Software Engineer und hat seit 2013 bei adesso den Weg vom Studenten zum angehenden Software Architekten gemacht. Sein Schwerpunkt liegt im Java-Backend."
+  avatar_url: /assets/images/avatars/thorbenschiller.jpg
+  github: https://github.com/thorbolo
