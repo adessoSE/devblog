@@ -11,11 +11,12 @@ Dieser Beitrag stellt dar, wie beide Technologien zusammenspielen können.</p>
         <field name="language_multi_keyword"><![CDATA[de]]></field>
         <field name="content_type_multi_keyword"><![CDATA[blog]]></field>
         <field name="mime_type_multi_keyword"><![CDATA[text/html]]></field>
-        <field name="category_multi_keyword"><![CDATA[Java]]></field>
-        <field name="category_multi_keyword"><![CDATA[Architektur]]></field>
+        <field name="category_multi_keyword"><![CDATA[Softwareentwicklung]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Java]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Architektur]]></field>
         <field name="date_date"><![CDATA[2018-03-06T12:00:00+01:00]]></field>
         <field name="date_l"><![CDATA[1520334000000]]></field>
-        <field name="change_date"><![CDATA[1519084800000]]></field>
+        <field name="change_date"><![CDATA[1615211400000]]></field>
         <!--Picture-->
         <!-- Not in use at the moment-->
         <!--Author Information-->
