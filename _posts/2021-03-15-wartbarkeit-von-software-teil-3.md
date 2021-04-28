@@ -23,7 +23,7 @@ Die Konfiguration des eingesetzten Werkzeuges sollte zu Beginn des Projektes zen
 Abweichungen von der Standardkonfiguration wie z.B. der Ausschluss von bestimmten Prüfregeln müssen dann mit einer kurzen Begründung dokumentiert werden.
 
 Im besten Fall erfolgt die Prüfung der Code-Qualität zentral durch die Integration in ein CI-Tool, z.B. mit SonarQube im Jenkins oder GitLab.
-Der Buildprozess sollte dabei so konfiguriert werden, das der Build automatisch scheitert, sobald die vorgegebenen Qualitätsziele nicht eingehalten werden.
+Nach unserer Erfahrung sollte der Buildprozess dabei so konfiguriert werden, das der Build automatisch scheitert, sobald die vorgegebenen Qualitätsziele nicht eingehalten werden.
 Somit wird sichergestellt, dass die definierten Qualitätsziele stets erfüllt werden.
 
 Falls die automatisierte Prüfung durch ein CI-Tool nicht möglich sein sollte, muss darauf geachtet werden, dass das gesamte Entwicklungsteam die Werkzeuge selbst einsetzt.
@@ -74,6 +74,10 @@ Im Jenkins gibt es dafür z.B. das Job-Element Multibranch Pipeline, andere CI/C
 
 Der aktuelle Build-Status für einen Branch sollte sich im SCM (z.B. BitBucket) widerspiegeln, dazu sollte der Build-Job im CI/CD-Werkzeug zumindest bei Start, Abbruch und erfolgreichen Durchlauf den Build-Status im SCM-Werkzeug aktualisieren.
 Das SCM-Werkzeug wiederum kann dann so eingestellt werden, dass ein Merge des Feature-Branches in den Haupt-Branch erst dann erlaubt ist, wenn mindestens ein erfolgreicher Build durchgeführt wurde.
+
+Die folgende Grafik zeigt beispielhaft einen Pull Request im Bitbucket, bei dem der letzte Build fehlgeschlagenen ist: 
+
+![Bitbucket PR fehlgeschlagen](/assets/images/posts/wartbarkeit-von-software-teil-3/bitbucket-pr-failed.png)
 
 ##	Build Version
 
