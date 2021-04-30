@@ -15,7 +15,7 @@ Im Gegenteil, nun muss sie sich im realen Einsatz bewähren.</p>
         <field name="tag_multi_keyword"><![CDATA[Softwaredokumentation]]></field>
         <field name="date_date"><![CDATA[2021-01-07T13:00:00+01:00]]></field>
         <field name="date_l"><![CDATA[1610020800000]]></field>
-        <field name="change_date"><![CDATA[1610020800000]]></field>
+        <field name="change_date"><![CDATA[1615978800000]]></field>
         <!--Picture-->
         <!-- Not in use at the moment-->
         <!--Author Information-->
@@ -225,8 +225,10 @@ Daher müssen diese Punkte bereits in der Angebotserstellung und Kalkulation ber
 
 <h4 id="ausblick">Ausblick</h4>
 
-<p>Im nächsten Teil dieser Serien werfen wir einen Blick auf das Testen von Softwareprojekten. 
+<p>Im zweiten Teil dieser Serie werfen wir einen Blick auf das Testen von Softwareprojekten.
 Welche Tests helfen dem Wartungsteam bei ihrer Arbeit und welche Abdeckung ist sinnvoll und nützlich?</p>
+
+<p><a href="https://www.adesso.de/de/news/blog/wartbarkeit-von-software-teil-2-tests.jsp">Hier geht es zu Teil 2 - Tests</a></p>
 
 </div>
 </div>

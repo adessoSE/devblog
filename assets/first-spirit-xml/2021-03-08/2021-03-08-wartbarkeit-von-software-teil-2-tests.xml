@@ -14,11 +14,10 @@ Dazu beschäftigen wir uns mit den unterschiedlichen Testarten, mit Automatisier
         <field name="mime_type_multi_keyword"><![CDATA[text/html]]></field>
         <field name="category_multi_keyword"><![CDATA[Softwareentwicklung]]></field>
         <field name="tag_multi_keyword"><![CDATA[Wartbarkeit]]></field>
-        <field name="tag_multi_keyword"><![CDATA[Softwaredokumentation]]></field>
         <field name="tag_multi_keyword"><![CDATA[Testing]]></field>
         <field name="date_date"><![CDATA[2021-03-08T09:00:00+01:00]]></field>
         <field name="date_l"><![CDATA[1615190400000]]></field>
-        <field name="change_date"><![CDATA[1615190400000]]></field>
+        <field name="change_date"><![CDATA[1615978800000]]></field>
         <!--Picture-->
         <!-- Not in use at the moment-->
         <!--Author Information-->
@@ -224,6 +223,10 @@ Wichtig ist, dass zur Erfüllung dieser Kriterien Tätigkeiten notwendig sind, d
 <h4 id="ausblick">Ausblick</h4>
 
 <p>Im dritten und letzten Teil dieser Serien werden wir uns abschließend mit Code-Qualität sowie Continuous Integration und Deployment beschäftigen.</p>
+
+<p>Den ersten Teil verpasst?</p>
+
+<p><a href="https://www.adesso.de/de/news/blog/wartbarkeit-von-software-teil-1-dokumentation.jsp">Hier geht es zu Teil 1 - Dokumentation</a></p>
 
 </div>
 </div>
