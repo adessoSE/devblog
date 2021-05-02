@@ -52,7 +52,7 @@ Die Entwickler greifen die Anforderungen auf und teilen ihr Verständnis hiervon
 Der Fachbereich überprüft und korrigiert das von den Entwicklern aufgenommene Verständnis.
 So kann sich im Verlaufe der Gespräche herausstellen, dass ein _Verkehrsmittel_ zu Planungszwecken relevant sein kann.
 
-/assets/images/posts/Adressierung-von-Herausforderungen-in-der-Domaenenmodellierung/bild_01_initiales_domaenenmodell.png
+![Initiales Domänenmodell](/assets/images/posts/Adressierung-von-Herausforderungen-in-der-Domaenenmodellierung/bild_01_initiales_domaenenmodell.png)
 
 Die Effekte durch Anwendung der _Ubiquitous Language_ sind nach DDD ein erhöhtes Verständnis der Entwickler für die Domäne.
 Dies wiederum reduziert das Risiko für Missverständnisse während der Entwicklung.
@@ -80,7 +80,7 @@ In DDD wurde für die Festlegung dieser Schnittstellen der Begriff _Context Map_
 Aus den Gesprächen mit den Domänenexperten wissen wir, dass die Erstellung einer _Reisebuchung_ zur Erstellung einer _Rechnung_ führt.
 Wir benötigen somit eine Schnittstelle in der _Subdomain_ _Abrechnung_, welche Daten der _Reisebuchung_ entgegen nimmt, die für die Erstellung der _Rechnung_ benötigt werden.
 
-/assets/images/posts/Adressierung-von-Herausforderungen-in-der-Domaenenmodellierung/bild_02_subdomains_und_context_map.png
+![Subdomains und Context Map](/assets/images/posts/Adressierung-von-Herausforderungen-in-der-Domaenenmodellierung/bild_02_subdomains_und_context_map.png)
 
 Die Unterteilung der Domäne in _Subdomains_ reduziert die Komplexität innerhalb eines Kontexts, da nicht direkt im Kontext beteiligte Domänen-Elemente ausgeklammert werden.
 
@@ -120,7 +120,7 @@ Wir fassen somit die _Entities_ _Reisebuchung_, _Kunde_, _Reise-Betrieb_ und _Ve
 Die _Reisebuchung_ modellieren wir hierbei als _Aggregate-Root_.
 Als fachliche Invarianten-Prüfung können wir uns beispielsweise vorstellen, dass das _Start-Datum_ einer _Reisebuchung_ vor dem _End-Datum_ liegen muss.
 
-/assets/images/posts/Adressierung-von-Herausforderungen-in-der-Domaenenmodellierung/bild_03_aggregate.png
+![Aggregate Reisebuchung](/assets/images/posts/Adressierung-von-Herausforderungen-in-der-Domaenenmodellierung/bild_03_aggregate_reisebuchung.png)
 
 Die Verwendung von _Aggregates_ ermöglicht eine fachliche Gruppierung der Domänen-Elemente, sowie eine lose Kopplung dieser innerhalb eines _Subdomains_.
 Die lose Kopplung wird dadurch erreicht, dass nur ein _Aggregate-Root_ für Abhängigkeiten außerhalb des _Aggregates_ verwendet wird.
