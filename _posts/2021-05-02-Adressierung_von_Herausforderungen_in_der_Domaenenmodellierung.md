@@ -92,7 +92,7 @@ DDD bietet hier das Konzept der _Entities_ und _Values_.
 Zunächst stellen sowohl _Entities_ als auch _Values_ fachliche Elemente mit bestimmten Eigenschaften dar.
 _Entities_ haben nun in der Fachlichkeit eine eindeutige Identität, deren Eigenschaften in der Regel veränderbar sind.
 _Values_ hingegen definieren sich ausschließlich über ihre Eigenschaften und besitzen keine eindeutige Identität.
-Tritt die Erfordernis nach geänderten Eigenschaften auf, wird das bestehende _Value_ durch ein neues _Values_ mit den geänderten Eigenschaften ersetzt.
+Tritt die Erfordernis nach geänderten Eigenschaften auf, wird das bestehende _Value_ durch ein neues _Value_ mit den geänderten Eigenschaften ersetzt.
 
 In unserem Beispiel sind die Elemente _Reisebuchung_, _Kunde_ und _Reise-Betrieb_ als _Entities_ zu modellieren.
 Ein _Kunde_ beispielsweise definiert sich nicht ausschließlich über seine Eigenschaften, wie Vor- und Nachname.
