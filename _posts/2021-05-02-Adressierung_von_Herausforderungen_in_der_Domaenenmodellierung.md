@@ -13,12 +13,12 @@ _Domain Driven Design_, kurz DDD, ist eine Sammlung von Werkzeugen, um die Model
 DDD wurde erstmalig durch Eric Evans in seinem Buch _Domain Driven Design - Tackling Complexity in the Heart of Software_ beschrieben.
 
 In dem adesso Blog _Herausforderungen in der Domänenmodellierung_ werden einige Herausforderungen in der Domänenmodellierung nach DDD beschrieben.
-Es wird die Notwendigkeit für ein gemeinsames Domänen-Verständnis bei den Projektbeteiligten aufgezeigt.
-Zudem wird auf eine mögliche hohe Domänen-Komplexität hingewiesen.
-In der Detail-Modellierung ist die Modellierung der Domänen-Elemente notwendig.
-Weiterhin ist das Gestalten der Abhängigkeiten zwischen den zuvor ermittelten Domänen-Elementen zu betrachten.
+Es wird die Notwendigkeit für ein gemeinsames Domänenverständnis bei den Projektbeteiligten aufgezeigt.
+Zudem wird auf eine mögliche hohe Domänenkomplexität hingewiesen.
+In der Detailmodellierung ist die Modellierung der Domänenelemente notwendig.
+Weiterhin ist das Gestalten der Abhängigkeiten zwischen den zuvor ermittelten Domänenelementen zu betrachten.
 
-In DDD stehen Werkzeuge zur Verfügung diese Herausforderungen zu adressieren.
+In DDD stehen Werkzeuge zur Verfügung, diese Herausforderungen zu adressieren.
 Dieser Artikel beschreibt diese Werkzeuge, sowie deren Anwendung, anhand eines fiktiven Beispiels.
 Es wird die Entwicklung einer Software zur Verwaltung und Abrechnung von Reisebuchungen betrachtet.
 Anhand des Beispiels wird beschrieben, welche Werkzeuge jeweils die beschriebenen Herausforderungen adressieren. 
@@ -26,13 +26,13 @@ Weiterhin wird am Beispiel dargelegt, wie die Werkzeuge angewendet werden könne
 
 ## Ubiquitous Language und Bounded Context
 
-Die Herausforderung für ein gemeinsames Domänen-Verständnis können wir in DDD durch Anwendung einer gemeinsamen Domänensprache adressieren.
+Die Herausforderung für ein gemeinsames Domänenverständnis können wir in DDD durch Anwendung einer gemeinsamen Domänensprache adressieren.
 Diese wird als _Ubiquitous Language_, also _allgegenwärtige Sprache_, bezeichnet. 
 Sie beinhaltet die in der Domäne wichtigen Begriffe und Funktionen, die in einem begrenzten fachlichen Kontext zu modellieren sind.
 In DDD wird für den Kontext der Begriff _Bounded Context_ verwendet.
-Die Begriffe und Funktionen können wir unter den Projektbeteiligten bekannt machen, die in der Software-Entwicklung beteiligt sind.
+Die Begriffe und Funktionen können wir unter den Projektbeteiligten bekannt machen, die in der Softwareentwicklung beteiligt sind.
 Dies sind insbesondere die Entwickler, die das fachliche Modell erstellen und die Domänenexperten, die zur Anforderungsanalyse zur Verfügung stehen.
-Das gemeinsame Domänen-Verständnis wird somit durch Anwendung der gemeinsamen Domänensprache erreicht.
+Das gemeinsame Domänenverständnis wird somit durch Anwendung der gemeinsamen Domänensprache erreicht.
 
 In dem Beispiel der Reisebuchungen sind mindestens die Begriffe _Reisebuchung_, _Rechnung_, _Kunde_ und _Reise-Betrieb_ relevant. 
 Wir betrachten zunächst den Begriff _Reisebuchung_.
@@ -69,7 +69,7 @@ In unserem Beispiel können wir zunächst die _Subdomain_ _Verwaltung Reisebuchu
 Wie wir weiterhin gesehen haben, ist unter anderem der Begriff _Rechnung_ relevant.
 Allerdings ist in den Gesprächen mit den Domänenexpertern erkennbar, dass die _Rechnung_ bei der Zusammenstellung einer Reisebuchung keine direkte Rolle spielt.
 Die _Rechnung_ ist in diesem einfachen Beispiel viel mehr eine Folge der Zusammenstellung einer Reisebuchung.
-Da die _Rechnung_ aber weiterhin Relevanz hat, ist es sinnvoll diese in einer eigenen _Subdomain_ _Abrechnung_ mit einem entsprechenden _Bounded Context_ zu legen.
+Da die _Rechnung_ aber weiterhin Relevanz hat, ist es sinnvoll, diese in eine eigene _Subdomain_ _Abrechnung_ mit einem entsprechenden _Bounded Context_ zu legen.
 Die Definition des _Bounded Context_ legt somit den Umfang der _Subdomains_ _Verwaltung Reisebuchung_ und _Abrechnung_ fest.
 Dies entspricht der geforderten Festlegung der Unterteilung von fachlichen Teilbereichen.
 
@@ -86,8 +86,8 @@ Die Unterteilung der Domäne in _Subdomains_ reduziert die Komplexität innerhal
 
 ## Entitites und Values
 
-Die Domänen-Elemente haben wir bereits implizit bei Erstellung der _Ubiquitous Language_ definiert.
-Die Herausforderung in der Detail-Modellierung ist nun, wie wir diese Elemente in einem fachlichen Kontext modellieren.
+Die Domänenelemente haben wir bereits implizit bei Erstellung der _Ubiquitous Language_ definiert.
+Die Herausforderung in der Detailmodellierung ist nun, wie wir diese Elemente in einem fachlichen Kontext modellieren.
 DDD bietet hier das Konzept der _Entities_ und _Values_.
 Zunächst stellen sowohl _Entities_ als auch _Values_ fachliche Elemente mit bestimmten Eigenschaften dar.
 _Entities_ haben nun in der Fachlichkeit eine eindeutige Identität, deren Eigenschaften in der Regel veränderbar sind.
@@ -100,29 +100,29 @@ Ein _Verkehrsmittel_ habe die Eigenschaften _Verkehrs-Typ_, _Start-Ziel_ und _En
 In unserem vereinfachten Beispiel dient das Element lediglich zu optionalen Planungszwecken für den Kunden.
 Die Fachabteilung benötigt keine eindeutige Identifikation und das _Verkehrsmittel_ kann als _Value_ modelliert werden.
 
-Durch die Modellierung in _Entities_ und _Values_ rückt der fachliche Zweck der einzelnen Domänen-Elemente in den Vordergrund.
+Durch die Modellierung in _Entities_ und _Values_ rückt der fachliche Zweck der einzelnen Domänenelemente in den Vordergrund.
 
 ## Aggregates
 
-Wir stehen weiterhin vor der Herausforderung, wie die Abhängigkeiten unter den zuvor modellierten Domänen-Elementen zu gestalten sind.
+Wir stehen weiterhin vor der Herausforderung, wie die Abhängigkeiten unter den zuvor modellierten Domänenelementen zu gestalten sind.
 DDD bietet hierzu das Konzept der _Aggregates_.
-Ein _Aggregate_ fasst ein oder mehrere Domänen-Elemente zusammen, die fachlich gemeinsam relevant sind.
+Ein _Aggregate_ fasst ein oder mehrere Domänenelemente zusammen, die fachlich gemeinsam relevant sind.
 Dies kann bedeuten, dass ein _Aggregate_ aus lediglich einer _Entity_ besteht, da diese separat betrachtet werden kann.
 Jedoch ist auch möglich, dass eine _Entity_ oder ein _Value_ nur dann fachlich relevant ist, wenn bereits eine andere _Entity_ betrachtet wird.
 In diesem Fall ist eine Zusammenfassung in einem _Aggregate_ sinnvoll.
 Die _Entity_, die hierbei vordergründig betrachtet wird, dient als Einstiegspunkt für das _Aggregate_ und wird als _Aggregate-Root_ bezeichnet.
 Dies bedeutet insbesondere, dass ein Zugriff auf ein anderes Element des _Aggregates_ nur über das _Aggregate-Root_ möglich ist.
-Weiterhin wird im _Aggregate-Root_ eine fachliche Invarianten-Prüfung der Eigenschaften aller _Aggregate_-Elemente durchgeführt.
+Weiterhin wird im _Aggregate-Root_ eine fachliche Invariantenprüfung der Eigenschaften aller _Aggregate_-Elemente durchgeführt.
 
 In unserem Beispiel sehen wir zunächst, dass die Domänenexperten eine _Reisebuchung_ ohne Notwendigkeit weiterer _Entities_ betrachten.
 Wir erkennen weiter, dass ein _Kunde_, ein _Reise-Betrieb_ und ein _Verkehrsmittel_ nur dann fachlich relevant sind, wenn eine _Reisebuchung_ gegeben ist.
 Wir fassen somit die _Entities_ _Reisebuchung_, _Kunde_, _Reise-Betrieb_ und _Verkehrsmittel_ in einem _Aggregate_ zusammen.
 Die _Reisebuchung_ modellieren wir hierbei als _Aggregate-Root_.
-Als fachliche Invarianten-Prüfung können wir uns beispielsweise vorstellen, dass das _Start-Datum_ einer _Reisebuchung_ vor dem _End-Datum_ liegen muss.
+Als fachliche Invariantenprüfung können wir uns beispielsweise vorstellen, dass das _Start-Datum_ einer _Reisebuchung_ vor dem _End-Datum_ liegen muss.
 
 ![Aggregate Reisebuchung](/assets/images/posts/Adressierung-von-Herausforderungen-in-der-Domaenenmodellierung/bild_03_aggregate_reisebuchung.png)
 
-Die Verwendung von _Aggregates_ ermöglicht eine fachliche Gruppierung der Domänen-Elemente, sowie eine lose Kopplung dieser innerhalb eines _Subdomains_.
+Die Verwendung von _Aggregates_ ermöglicht eine fachliche Gruppierung der Domänen-Elemente, sowie eine lose Kopplung dieser innerhalb einer _Subdomain_.
 Die lose Kopplung wird dadurch erreicht, dass nur ein _Aggregate-Root_ für Abhängigkeiten außerhalb des _Aggregates_ verwendet wird.
 Außerdem wird die fachliche Konsistenz erhöht, da eine Invarianten-Prüfung in den _Aggregates_ angewandt wird.
 
@@ -130,9 +130,9 @@ Außerdem wird die fachliche Konsistenz erhöht, da eine Invarianten-Prüfung in
 
 In diesem Blog wurden wiederkehrende Herausforderungen in der Domänenmodellierung nach DDD aufgegriffen.
 Es wurden Maßnahmen vorgestellt, die diese wiederkehrenden Herausforderungen adressieren.
-Die Herausforderung eines gemeinsamen Domänen-Verständnisses wird mit der _Ubiquitous Language_ und dem _Bounded Context_ adressiert.
-Eine mögliche hohe Domänen-Komplexität wird durch Verwendung mehrerer _Subdomains_ begegnet.
+Die Herausforderung eines gemeinsamen Domänenverständnisses wird mit der _Ubiquitous Language_ und dem _Bounded Context_ adressiert.
+Eine mögliche hohe Domänenkomplexität wird durch Verwendung mehrerer _Subdomains_ begegnet.
 Diese kommunizieren über Schnittstellen, die zusammengefasst als _Context Map_ bezeichnet werden.
-Die Detail-Modellierung in einer _Subdomain_ wird mit dem Konzept der _Entities_ und _Values_ adressiert.
+Die Detailmodellierung in einer _Subdomain_ wird mit dem Konzept der _Entities_ und _Values_ adressiert.
 Schließlich dienen _Aggregates_ zur Festlegung der Abhängigkeiten von _Entities_ und _Values_ in einer _Subdomain_.
 Anhand des Beispiels zur Verwaltung und Abrechnung von Reisebuchungen wurde dargelegt, wie die Konzepte angewendet werden können.
