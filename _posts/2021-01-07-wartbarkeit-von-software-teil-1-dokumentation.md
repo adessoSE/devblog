@@ -199,3 +199,5 @@ Im zweiten Teil dieser Serie werfen wir einen Blick auf das Testen von Softwarep
 Welche Tests helfen dem Wartungsteam bei ihrer Arbeit und welche Abdeckung ist sinnvoll und nützlich?
 
 [Hier geht es zu Teil 2 - Tests](https://www.adesso.de/de/news/blog/wartbarkeit-von-software-teil-2-tests.jsp)
+
+[Hier geht es zu Teil 3 - Qualität und Automatisierung](https://www.adesso.de/de/news/blog/wartbarkeit-von-software-teil-3-qualitaet-und-automatisierung.jsp)
