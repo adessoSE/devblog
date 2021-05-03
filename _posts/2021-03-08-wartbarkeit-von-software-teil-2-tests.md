@@ -2,7 +2,7 @@
 layout:			[post, post-xml]											# Pflichtfeld. Nicht ändern!
 title:			"Wartbarkeit von Software – Teil 2: Tests"					# Pflichtfeld. Bitte einen Titel für den Blog Post angeben.
 date:			2021-03-08 09:00											# Pflichtfeld. Format "YYYY-MM-DD HH:MM". Muss für Veröffentlichung in der Vergangenheit liegen. (Für Preview egal)
-modified_date: 	2021-03-17 12:00											# Optional. Muss angegeben werden, wenn eine bestehende Datei geändert wird.
+modified_date: 	2021-05-03 12:00											# Optional. Muss angegeben werden, wenn eine bestehende Datei geändert wird.
 author:			bethge_lange												# Pflichtfeld. Es muss in der "authors.yml" einen Eintrag mit diesem Namen geben.
 categories: 	[Softwareentwicklung]										# Pflichtfeld. Maximal eine der angegebenen Kategorien verwenden.
 tags:			[Wartbarkeit, Testing]										# Bitte auf Großschreibung achten.
