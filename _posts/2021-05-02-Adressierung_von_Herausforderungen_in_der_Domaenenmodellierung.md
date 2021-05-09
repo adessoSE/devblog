@@ -8,7 +8,7 @@ categories: [Softwareentwicklung]                    # Pflichtfeld. Maximal eine
 tags: [Domain Driven Design, Modellierung, Architektur]         # Bitte auf Großschreibung achten.
 ---
 
-Von zentraler Bedeutung für die Softwareentwicklung ist die Modellierung der Anwenderdomäne.
+Von zentraler Bedeutung für die Softwareentwicklung ist die Modellierung der Fachdomäne.
 _Domain Driven Design_, kurz DDD, ist eine Sammlung von Werkzeugen, um die Modellierung der Domäne zu unterstützen.
 DDD wurde erstmalig durch Eric Evans in seinem Buch _Domain Driven Design - Tackling Complexity in the Heart of Software_ beschrieben.
 
