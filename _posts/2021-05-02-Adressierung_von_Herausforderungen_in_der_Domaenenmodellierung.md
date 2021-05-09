@@ -12,7 +12,7 @@ Von zentraler Bedeutung für die Softwareentwicklung ist die Modellierung der An
 _Domain Driven Design_, kurz DDD, ist eine Sammlung von Werkzeugen, um die Modellierung der Domäne zu unterstützen.
 DDD wurde erstmalig durch Eric Evans in seinem Buch _Domain Driven Design - Tackling Complexity in the Heart of Software_ beschrieben.
 
-In dem adesso Blog _Herausforderungen in der Domänenmodellierung_ werden einige Herausforderungen in der Domänenmodellierung nach DDD beschrieben.
+In dem adesso Blog [Herausforderungen in der Domänenmodellierung](https://www.adesso.de/de/news/blog/herausforderungen-in-der-domaenenmodellierung.jsp) werden einige Herausforderungen in der Domänenmodellierung nach DDD beschrieben.
 Es wird die Notwendigkeit für ein gemeinsames Domänenverständnis bei den Projektbeteiligten aufgezeigt.
 Zudem wird auf eine mögliche hohe Domänenkomplexität hingewiesen.
 In der Detailmodellierung ist die Modellierung der Domänenelemente notwendig.
