@@ -21,8 +21,6 @@ Weiterhin ist das Gestalten der Abhängigkeiten zwischen den zuvor ermittelten D
 In DDD stehen Werkzeuge zur Verfügung, diese Herausforderungen zu adressieren.
 Dieser Artikel beschreibt diese Werkzeuge, sowie deren Anwendung, anhand eines fiktiven Beispiels.
 Es wird die Entwicklung einer Software zur Verwaltung und Abrechnung von Reisebuchungen betrachtet.
-Anhand des Beispiels wird beschrieben, welche Werkzeuge jeweils die beschriebenen Herausforderungen adressieren. 
-Weiterhin wird am Beispiel dargelegt, wie die Werkzeuge angewendet werden können.
 
 ## Ubiquitous Language und Bounded Context
 
