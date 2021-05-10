@@ -18,7 +18,7 @@ Hier stellt sich nun die Frage wie man diese Anforderung realisiert.
 Eine intuitive Herangehensweise wäre es für den Service die zwei Schnittstellen getrennt zu implementieren.
 Diese Lösung hat allerdings den Nachteil, dass die Schnittstellen sich durch die getrennte Implementierung unterschiedlich verhalten könnten.
 Außerdem müssen bei einer Änderung des Service beide Schnittstellen verändert werden.
-Damit ist zusätzlicher Arbeitsaufwand verbunden.
+Womit zusätzlicher Arbeitsaufwand verbunden wäre.
 
 Um die Probleme zu vermeiden, könnte man für den Service nur eine Schnittstelle implementieren.
 Zum Beispiel eine REST API, da diese heutzutage häufig verwendet wird.
@@ -36,7 +36,7 @@ Für den Fall, dass der Nutzer eine Anfrage über die REST Schnittstelle stellt,
 Für die Verarbeitung von SOAP Anfragen wird das Kong Plugin soap2rest verwendet.
 Das Plugin benötigt zur Konfiguration zwei Dateien.
 Damit das Plugin die SOAP Anfragen richtig verarbeiten kann, benötigt es die WSDL der SOAP Schnittstelle.
-Um die Konvertierung von SOAP zu REST Anfragen korrekt durchzuführen, wird zusätzlich die OpenAPI Spezifikation der REST API benötigt.
+Und um die Konvertierung von SOAP zu REST Anfragen korrekt durchzuführen, wird zusätzlich die OpenAPI Spezifikation der REST API benötigt.
 
 # Funktionsablauf des Plugins
 ![Funktionsablauf des Plugins](/assets/images/posts/Konvertierung-einer-REST-API-zu-einer-SOAP-Schnittstelle-mithilfe-von-Kong/Ablauf.png)
@@ -165,5 +165,4 @@ Der Kommunikationsaufwand in Verbindung mit den vielen gleichzeitigen Anfragen a
 Zusammenfassend lässt sich sagen, dass die Nutzung dieses Kong Plugins den Vorteil hat, dass nicht beide Schnittstellen implementiert werden müssen.
 Ein Nachteil ist die zusätzliche Wartezeit auf die Antwort der Schnittstelle, da sich hinter jeder SOAP Anfrage eine Anfrage auf die REST API verbirgt.
 Diese Verzögerung kann allerdings vernachlässigt werden, da erst bei vielen parallelen Anfragen ein deutlich längere Wartezeit entsteht.
-
 Im Großen und Ganzen überwiegen die Vorteile des Plugins die Nachteile.
