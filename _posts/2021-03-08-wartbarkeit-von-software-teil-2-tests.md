@@ -2,7 +2,7 @@
 layout:			[post, post-xml]											# Pflichtfeld. Nicht ändern!
 title:			"Wartbarkeit von Software – Teil 2: Tests"					# Pflichtfeld. Bitte einen Titel für den Blog Post angeben.
 date:			2021-03-08 09:00											# Pflichtfeld. Format "YYYY-MM-DD HH:MM". Muss für Veröffentlichung in der Vergangenheit liegen. (Für Preview egal)
-modified_date: 	2021-03-17 12:00											# Optional. Muss angegeben werden, wenn eine bestehende Datei geändert wird.
+modified_date: 	2021-05-03 12:00											# Optional. Muss angegeben werden, wenn eine bestehende Datei geändert wird.
 author:			bethge_lange												# Pflichtfeld. Es muss in der "authors.yml" einen Eintrag mit diesem Namen geben.
 categories: 	[Softwareentwicklung]										# Pflichtfeld. Maximal eine der angegebenen Kategorien verwenden.
 tags:			[Wartbarkeit, Testing]										# Bitte auf Großschreibung achten.
@@ -191,6 +191,8 @@ Wichtig ist, dass zur Erfüllung dieser Kriterien Tätigkeiten notwendig sind, d
 
 Im dritten und letzten Teil dieser Serien werden wir uns abschließend mit Code-Qualität sowie Continuous Integration und Deployment beschäftigen.
 
+[Teil 3 - Qualität und Automatisierung](https://www.adesso.de/de/news/blog/wartbarkeit-von-software-teil-3-qualitaet-und-automatisierung.jsp)
+
 Den ersten Teil verpasst?
 
-[Hier geht es zu Teil 1 - Dokumentation](https://www.adesso.de/de/news/blog/wartbarkeit-von-software-teil-1-dokumentation.jsp)
+[Teil 1 - Dokumentation](https://www.adesso.de/de/news/blog/wartbarkeit-von-software-teil-1-dokumentation.jsp)
