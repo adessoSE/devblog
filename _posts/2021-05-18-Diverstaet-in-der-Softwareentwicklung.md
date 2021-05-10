@@ -85,7 +85,7 @@ Solche Richtlinien und Guidelines können sich aus den verschiedenen Vielfältig
 Manche Fragestellungen ergeben sich bereits durch die Auftraggebenden und deren Anforderungen, andere wurden vielleicht noch gar nicht betrachtet. 
 Eine Richtlinie bietet die Möglichkeit ggf. nicht bewusste Anforderungen an Diversität sichtbar zu machen.
 
-Im Bereich der KI Entwicklung gibt es bereits konkrete Vorschläge für Richtlinien, die der Bund gemeinsam mit der [Plattform lernender Systeme](https://www.plattform-lernende-systeme.de/files/Downloads/Publikationen/AG3_Whitepaper_EB_200831.pdf)erarbeitet hat. 
+Im Bereich der KI Entwicklung gibt es bereits konkrete Vorschläge für Richtlinien, die der Bund gemeinsam mit der [Plattform lernender Systeme](https://www.plattform-lernende-systeme.de/files/Downloads/Publikationen/AG3_Whitepaper_EB_200831.pdf) erarbeitet hat. 
 
 # Gute Gründe für mehr Diversität in der Softwareentwicklung 
 
