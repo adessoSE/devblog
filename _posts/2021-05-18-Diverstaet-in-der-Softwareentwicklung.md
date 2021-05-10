@@ -53,7 +53,9 @@ Keiner möchte in der Presse landen, mit der Schlagzeile, dass die angebotene So
 Besonders in der heutigen Zeit, wo das Thema immer mehr an Bedeutung gewinnt, kommen die Fragen der Ethik und Rechte erhöht auf und werden kritischer unter die Lupe genommen als zuvor. 
 So greift die KI Strategie der Bundesregierung zusammen mit Forschungsgruppen der Gesellschaft der Informatik und der Plattform lernende Systeme das Prinzip der Gerechtigkeit (Diskriminierung, Gleichheit etc.) auf und bietet verschiedene Vorschläge zu Gegenmaßnahmen an. 
 Zunächst beschreiben sie die Diversität und Vielfalt im Bereich der KI wie folgt:  
+
 [Diversität und Vielfalt im Bereich der KI](https://www.plattform-lernende-systeme.de/files/Downloads/Publikationen/AG3_Whitepaper_EB_200831.pdf): Diversität und Vielfalt im Bereich der KI beziehen sich sowohl auf diverse Teams, bestehend aus Entwicklerinnen und Entwicklern mit unterschiedlichen Perspektiven und Erfahrungshintergründen als auch auf die Betrachtung der Zielgruppe als heterogene Gruppe. Auch die Einbindung von Perspektiven, die möglichst breit gesellschaftliche Strukturen abbilden, ist aus Perspektive der Diversität wichtig. Für das Training von KI-Systemen muss auf eine Repräsentierung der vielfältigen gesellschaftlichen Gruppen in den Trainingsdaten geachtet werden.
+
 Die Beschreibung bezieht sich auf die Entwicklung von KI, jedoch können einige Punkte auch auf Software ohne KI Einsatz angewandt werden. 
 Welche Möglichkeiten gibt es, damit Software diverser wird? 
 
