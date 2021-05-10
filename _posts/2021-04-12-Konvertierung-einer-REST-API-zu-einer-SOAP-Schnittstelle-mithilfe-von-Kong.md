@@ -2,15 +2,14 @@
 layout: [post, post-xml]
 title:  "Konvertierung einer REST API zu einer SOAP Schnittstelle mithilfe von Kong"
 date:   2021-04-12 14:45
+modified_date: 2021-05-10 12:10
 author: DanielKraft
 categories: [Softwareentwicklung]
 tags: [Kong, SOAP, REST, Lua]
 ---
 
 Welche Möglichkeiten hat man, wenn neben einer REST API auch eine SOAP Schnittstelle zur Verfügung stehen soll?
-Man könnte beide Schnittstellen getrennt voneinander implementieren.
-Aber dadurch kann es passieren, dass sich die Schnittstellen unterschiedlich verhalten.
-In diesem Artikel stelle ich eine weitere Methode vor wie man dieses Problem mithilfe von Kong umgehen kann.
+In diesem Artikel wird eine Methode vorgestellt wie man diese Anforderung mithilfe von Kong umsetzen kann.
 
 # Motivation
 Wie bereist beschrieben kann es manchmal gewollt sein, dass eine Schnittstelle über REST und SOAP erreichbar ist.
@@ -40,7 +39,6 @@ Damit das Plugin die SOAP Anfragen richtig verarbeiten kann, benötigt es die WS
 Um die Konvertierung von SOAP zu REST Anfragen korrekt durchzuführen, wird zusätzlich die OpenAPI Spezifikation der REST API benötigt.
 
 # Funktionsablauf des Plugins
-
 ![Funktionsablauf des Plugins](/assets/images/posts/Konvertierung-einer-REST-API-zu-einer-SOAP-Schnittstelle-mithilfe-von-Kong/Ablauf.png)
 
 Diese Abbildung zeigt den Fall, dass der Nutzer eine Anfrage über die SOAP Schnittstelle stellt.
@@ -132,7 +130,40 @@ Bei der Umwandlung der Antwort in XML wird besonders darauf geachtet, dass die R
 Dafür wird die automatisch generierte Konfiguration des Plugins verwendet.
 
 # Auswirkungen auf die Verfügbarkeit
+Damit der Einsatz des Plugins sich lohnt, sollte die Verfügbarkeit der Schnittstelle nicht unter dem Einsatz des Plugins leiden.
+Um die Auswirkungen des Plugins auf die Verfügbarkeit der Schnittstelle zu testen, wurde ein Performance- und ein Lasttest vorgenommen.
 
+## Durchführung eines Performancetests
+Der Performancetest besteht aus vier verschiedenen Anfragen, welche jeweils 10-mal wiederholt wurden.
+Zwei der vier Anfragen liefern nur einen HTTP Status Code von 200 und 300 zurück.
+Die dritte Anfrage sendet mit einem HTTP POST ein kleines JSON Objekt an die Schnittstelle.
+Und die vierte Anfrage versucht die Grenzen der Schnittstelle auszuloten, indem eine Datei an die Schnittstelle gesendet wird.
+
+Die nachfolgende Grafik zeigt links die Ergebnisse des Performancetests auf die REST API und rechts die Ergebnisse der SOAP Schnittstelle.
+
+![Vergleich der Anfragezeiten](/assets/images/posts/Konvertierung-einer-REST-API-zu-einer-SOAP-Schnittstelle-mithilfe-von-Kong/Performancetest.png)
+
+Im direkten Vergleich fällt auf, dass die Performance nur beim Senden von Dateien leidet.
+Die Performance aller andern Anfragen verändert sich nur geringfügig.
+
+Der Anstieg der Antwortzeit ist darauf zurückzuführen, dass bei SOAP Anfragen deutlich mehr Daten an die Schnittstelle gesendet werden müssen.
+
+## Durchführung eines Lasttests
+Für den Lasttest wurden die gleichen Anfragen wie beim zu vorigen Performancetest verwendet.
+Im Gegensatz zum Performancetest wurden die Anfragen 250-mal parallel ausgeführt.
+Um ein aussagekräftiges Ergebnis zu erhalten wurde dieser 10-mal wiederholt.
+
+Die folgende Grafik zeigt die Ergebnisse des Lasttests.
+
+![Lasttest](/assets/images/posts/Konvertierung-einer-REST-API-zu-einer-SOAP-Schnittstelle-mithilfe-von-Kong/Lasttest.png)
+
+Auf den ersten Blick fällt auf, dass bei vielen parallelen Anfragen die SOAP Schnittstelle stärker darunter leidet als die REST API.
+Vor allem das Senden von Dateien führt zu einem deutlichen Anstieg der Antwortzeit.
+Der Kommunikationsaufwand in Verbindung mit den vielen gleichzeitigen Anfragen auf die Schnittstelle ist für die langsamere Antwortzeit verantwortlich.
 
 # Fazit
+Zusammenfassend lässt sich sagen, dass die Nutzung dieses Kong Plugins den Vorteil hat, dass nicht beide Schnittstellen implementiert werden müssen.
+Ein Nachteil ist die zusätzliche Wartezeit auf die Antwort der Schnittstelle, da sich hinter jeder SOAP Anfrage eine Anfrage auf die REST API verbirgt.
+Diese Verzögerung kann allerdings vernachlässigt werden, da erst bei vielen parallelen Anfragen ein deutlich längere Wartezeit entsteht.
 
+Im Großen und Ganzen überwiegen die Vorteile des Plugins die Nachteile.
