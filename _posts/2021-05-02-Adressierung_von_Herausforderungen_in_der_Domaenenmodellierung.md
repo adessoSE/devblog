@@ -80,7 +80,7 @@ Wir benötigen somit eine Schnittstelle in der _Subdomain_ _Abrechnung_, welche 
 
 ![Subdomains und Context Map](/assets/images/posts/Adressierung-von-Herausforderungen-in-der-Domaenenmodellierung/bild_02_subdomains_und_context_map.png)
 
-Die Unterteilung der Domäne in _Subdomains_ reduziert die Komplexität innerhalb eines Kontexts, da nicht direkt im Kontext beteiligte Domänen-Elemente ausgeklammert werden.
+Die Unterteilung der Domäne in _Subdomains_ reduziert die Komplexität innerhalb eines Kontexts, da nicht direkt im Kontext beteiligte Domänenelemente ausgeklammert werden.
 
 ## Entitites und Values
 
@@ -121,7 +121,7 @@ Als fachliche Invariantenprüfung können wir uns beispielsweise vorstellen, das
 
 ![Aggregate Reisebuchung](/assets/images/posts/Adressierung-von-Herausforderungen-in-der-Domaenenmodellierung/bild_03_aggregate_reisebuchung.png)
 
-Die Verwendung von _Aggregates_ ermöglicht eine fachliche Gruppierung der Domänen-Elemente, sowie eine lose Kopplung dieser innerhalb einer _Subdomain_.
+Die Verwendung von _Aggregates_ ermöglicht eine fachliche Gruppierung der Domänenelemente, sowie eine lose Kopplung dieser innerhalb einer _Subdomain_.
 Die lose Kopplung wird dadurch erreicht, dass nur das _Aggregate-Root_ für Abhängigkeiten außerhalb des _Aggregates_ verwendet wird.
 Außerdem wird die fachliche Konsistenz erhöht, da eine Invarianten-Prüfung in den _Aggregates_ angewandt wird.
 
