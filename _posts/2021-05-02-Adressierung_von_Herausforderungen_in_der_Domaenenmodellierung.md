@@ -29,7 +29,7 @@ Diese wird als _Ubiquitous Language_, also _allgegenwärtige Sprache_, bezeichne
 Sie beinhaltet die in der Domäne wichtigen Begriffe und Funktionen, die in einem begrenzten fachlichen Kontext zu modellieren sind.
 In DDD wird für den Kontext der Begriff _Bounded Context_ verwendet.
 Die Begriffe und Funktionen können wir unter den Projektbeteiligten bekannt machen, die in der Softwareentwicklung beteiligt sind.
-Dies sind insbesondere die Teams aus der Entwicklung, die das fachliche Modell erstellen, und die Teams der Fachabteilung mit Domänenexpertise, die zur Anforderungsanalyse zur Verfügung stehen.
+Dies sind insbesondere die Teams aus der Entwicklung, die das fachliche Modell erstellen, und die Teams aus der Fachabteilung mit Domänenexpertise, die zur Anforderungsanalyse zur Verfügung stehen.
 Das gemeinsame Domänenverständnis wird somit durch Anwendung der gemeinsamen Domänensprache erreicht.
 
 In dem Beispiel der Reisebuchungen sind mindestens die Begriffe _Reisebuchung_, _Rechnung_, _Kunde_ und _Reise-Betrieb_ relevant. 
