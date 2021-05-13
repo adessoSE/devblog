@@ -14,7 +14,7 @@ DDD wurde erstmalig durch Eric Evans in seinem Buch _Domain Driven Design - Tack
 
 In dem adesso Blog [Herausforderungen in der Domänenmodellierung](https://www.adesso.de/de/news/blog/herausforderungen-in-der-domaenenmodellierung.jsp) werden einige Herausforderungen in der Domänenmodellierung nach DDD beschrieben.
 Es wird die Notwendigkeit für ein gemeinsames Domänenverständnis bei den Projektbeteiligten aufgezeigt.
-Zudem wird auf eine mögliche hohe Domänenkomplexität hingewiesen.
+Zudem wird auf die Möglichkeit einer hohen Domänenkomplexität hingewiesen.
 In der Detailmodellierung ist die Modellierung der Domänenelemente notwendig.
 Weiterhin ist das Gestalten der Abhängigkeiten zwischen den zuvor ermittelten Domänenelementen zu betrachten.
 
