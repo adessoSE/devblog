@@ -58,8 +58,8 @@ Demnach wird der _Ubiquitous Language_ eine zentrale Rolle bei der Entwicklung e
 
 ## Subdomains
 
-Die nächste Herausforderung ist nun gegeben, wenn eine Domäne eine hohe Komplexität aufweist.
-In DDD wird in diesem Fall die Unterteilung in einzelne Teilbereiche empfohlen, die als _Subdomains_ bezeichnet werden.
+Ab einer gewissen Größe und Komplexität der Domäne wird die Modellierung dieser zunehmend aufwändig.
+Für diesen Fall wird in DDD die Unterteilung in einzelne Teilbereiche empfohlen, die als _Subdomains_ bezeichnet werden.
 Die Unterteilung wird notwendig, wenn unterschiedliche Elemente der _Ubiquitous Language_ nicht in einen gemeinsamen _Bounded Context_ fallen.
 Die Herausforderung besteht dabei nicht nur in der Erkennung einer Unterteilung in Teilbereiche, sondern insbesondere in der Festlegung dieser.
 
