@@ -95,7 +95,7 @@ Tritt die Erfordernis nach geänderten Eigenschaften auf, wird das bestehende _V
 
 In unserem Beispiel sind die Elemente _Reisebuchung_, _Kunde_ und _Reise-Betrieb_ als _Entities_ zu modellieren.
 Ein _Kunde_ beispielsweise definiert sich nicht ausschließlich über seine Eigenschaften, wie Vor- und Nachname.
-Ein _Verkehrsmittel_ habe die Eigenschaften _Verkehrs-Typ_, _Start-Ziel_ und _End-Ziel_.
+Ein _Verkehrsmittel_ hat die Eigenschaften _Verkehrs-Typ_, _Start-Ziel_ und _End-Ziel_.
 In unserem vereinfachten Beispiel dient das Element lediglich zu optionalen Planungszwecken für den Kunden.
 Die Fachabteilung benötigt keine eindeutige Identifikation und das _Verkehrsmittel_ kann als _Value_ modelliert werden.
 
