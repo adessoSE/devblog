@@ -88,7 +88,8 @@ Die Domänenelemente haben wir bereits implizit bei Erstellung der _Ubiquitous L
 Die Herausforderung in der Detailmodellierung ist nun, wie wir diese Elemente in einem fachlichen Kontext modellieren.
 DDD bietet hier das Konzept der _Entities_ und _Values_.
 Zunächst stellen sowohl _Entities_ als auch _Values_ fachliche Elemente mit bestimmten Eigenschaften dar.
-_Entities_ haben nun in der Fachlichkeit eine eindeutige Identität, deren Eigenschaften in der Regel veränderbar sind.
+_Entities_ haben in der Fachlichkeit eine eindeutige Identität.
+Wenn Veränderungen einer _Entity_ erforderlich sind, erfolgen sie in den Eigenschaften dieser.
 _Values_ hingegen definieren sich ausschließlich über ihre Eigenschaften und besitzen keine eindeutige Identität.
 Tritt die Erfordernis nach geänderten Eigenschaften auf, wird das bestehende _Value_ durch ein neues _Value_ mit den geänderten Eigenschaften ersetzt.
 
