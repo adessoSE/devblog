@@ -130,7 +130,7 @@ Außerdem wird die fachliche Konsistenz erhöht, da eine Invarianten-Prüfung in
 In diesem Blog wurden wiederkehrende Herausforderungen in der Domänenmodellierung nach DDD aufgegriffen.
 Es wurden Maßnahmen vorgestellt, die diese wiederkehrenden Herausforderungen adressieren.
 Die Herausforderung eines gemeinsamen Domänenverständnisses wird mit der _Ubiquitous Language_ und dem _Bounded Context_ adressiert.
-Eine mögliche hohe Domänenkomplexität wird durch Verwendung mehrerer _Subdomains_ begegnet.
+Der Möglichkeit einer hohen Domänenkomplexität wird mit Verwendung mehrerer _Subdomains_ begegnet.
 Diese kommunizieren über Schnittstellen, die zusammengefasst als _Context Map_ bezeichnet werden.
 Die Detailmodellierung in einer _Subdomain_ wird mit dem Konzept der _Entities_ und _Values_ adressiert.
 Schließlich dienen _Aggregates_ zur Festlegung der Abhängigkeiten von _Entities_ und _Values_ in einer _Subdomain_.
