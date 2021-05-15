@@ -160,8 +160,8 @@ Im Gegensatz zu den beliebten JavaScript-Frameworks werden keine zusätzlichen C
 Durch die breite Browserkompatibilität und Möglichkeit in den beliebten Frameworks integriert zu werden, bietet sich Stencil als Tool an, um Design-Systeme bzw. Komponentenbibliotheken zu entwickeln.
 
 # Quellen
-Codebeispiel: https://github.com/parideis/stencil-hallo-welt 
+[Codebeispiel: https://github.com/parideis/stencil-hallo-welt ](https://github.com/parideis/stencil-hallo-welt)
 
-https://stenciljs.com/ 
+[https://stenciljs.com/](https://stenciljs.com/ )
 
-https://github.com/ionic-team/stencil 
+[https://github.com/ionic-team/stencil](https://github.com/ionic-team/stencil )
