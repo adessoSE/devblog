@@ -135,7 +135,7 @@ Ein slot ist ein Platzhalter bei dem die Kinderkomponenten eingebunden werden.
 Was in unserem Fall das h1-Element mit dem Inhalt “Willkommen” ist.
 
  ![Stencil Code: Überblick über den generierten Code](/assets/images/posts/Stencil-Einfuehrung/stencil-code-1.png)
-
+ 
  ## Die Komponente soll einen Namen ausgeben
 
  Als nächstes wollen wir, dass die Komponente uns mit einem Namen begrüßt, welchen wir als Attribut mitgeben. Dafür setzen wir in der Klasse **HalloWelt** einen *@Prop()*-Dekorator und vergeben den Namen **name** mit **string** als Typen. 
@@ -152,13 +152,15 @@ Was in unserem Fall das h1-Element mit dem Inhalt “Willkommen” ist.
 
 Im Browser sollte nun folgende Begrüßung angezeigt werden: 
  ![Stencil im Browser: Unser Komponente begrüßt uns mit den übergeben Namen](/assets/images/posts/Stencil-Einfuehrung/stencil-browser-3.png)
-
+ 
  # Zusammenfassung
+ 
  Im Vergleich zur direkten Verwendung von Custom Elements bietet Stencil zusätzliche APIs, die das Entwickeln schneller Komponenten vereinfachen. 
  Im Gegensatz zu den beliebten JavaScript-Frameworks werden keine zusätzlichen Codelasten zur Laufzeit eingebunden, da 100% Webkomponenten zur Kompilierzeit generiert werden, die nativ vom Browser genutzt werden können. 
  Durch die breite Browserkompatibilität und Möglichkeit in den beliebten Frameworks integriert zu werden, bietet sich Stencil als Tool an, um Design-Systeme bzw. Komponentenbibliotheken zu entwickeln.
 
- # Quellen
+# Quellen
+
 Codebeispiel: https://github.com/parideis/stencil-hallo-welt 
 
  https://stenciljs.com/ 
