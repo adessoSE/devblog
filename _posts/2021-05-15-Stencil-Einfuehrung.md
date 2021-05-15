@@ -69,7 +69,7 @@ Als nächstes gehen wir in unser soeben generiertes Projekt und erstellen unsere
 ```bash
 cd <Projektname>
 npm run generate
- ```
+```
 
 Bei den Namen der Komponenten muss ein Bindestrich vorhanden sein. 
 Das geht aus den Webkomponenten-Spezifikationen heraus, damit der Browser es als Custom Element erkennt. 
@@ -103,17 +103,17 @@ Nun werden wir die Komponente verwenden, indem wir in der **src/index.html** Dat
 
  ```
 
- Wir können mit dem Befehl *npm start* das Projekt starten und der Browser sollte automatisch [http://localhost:3333/](http://localhost:3333/) aufrufen:
+Wir können mit dem Befehl *npm start* das Projekt starten und der Browser sollte automatisch [http://localhost:3333/](http://localhost:3333/) aufrufen:
 
 ```bash
 npm start
 ```
 
- Nun sehen wir wie unser Projekt zum ersten Mal gebaut wird:
+Nun sehen wir wie unser Projekt zum ersten Mal gebaut wird:
 
- ![Stencil im Browser: Unser erster Build läuft](/assets/images/posts/Stencil-Einfuehrung/stencil-browser-1.png)
+![Stencil im Browser: Unser erster Build läuft](/assets/images/posts/Stencil-Einfuehrung/stencil-browser-1.png)
 
- Danach gibt es nichts zu sehen, da uns unsere Komponente noch gar nichts anzeigt. 
+Danach gibt es nichts zu sehen, da uns unsere Komponente noch gar nichts anzeigt. 
 Dies können wir ändern, indem wir in der HTML-Datei zwischen den <hallo-welt> Tags einen Inhalt schreiben, wie z.B. einen Titel: 
 
 ```html
@@ -122,47 +122,46 @@ Dies können wir ändern, indem wir in der HTML-Datei zwischen den <hallo-welt> 
 
 Sobald wir die Datei speichern, baut Stencil die Komponente neu und aktualisiert dann den Browser:
 
- ![Stencil im Browser: Unsere Komponente Zeigt was an](/assets/images/posts/Stencil-Einfuehrung/stencil-browser-2.png)
+![Stencil im Browser: Unsere Komponente Zeigt was an](/assets/images/posts/Stencil-Einfuehrung/stencil-browser-2.png)
 
 Werfen wir nun einen Blick in die **hallo-welt.tsx** Datei. 
 In der render()-Funktion wird die Ausgabe definiert, die bei uns ein slot enthält:
 
 ```html
 <!--- hallo-welt.tsx Zeile 12--->
- <slot></slot>
+<slot></slot>
 ```
 Ein slot ist ein Platzhalter bei dem die Kinderkomponenten eingebunden werden. 
 Was in unserem Fall das h1-Element mit dem Inhalt “Willkommen” ist.
 
- ![Stencil Code: Überblick über den generierten Code](/assets/images/posts/Stencil-Einfuehrung/stencil-code-1.png)
- 
- ## Die Komponente soll einen Namen ausgeben
+![Stencil Code: Überblick über den generierten Code](/assets/images/posts/Stencil-Einfuehrung/stencil-code-1.png)
 
- Als nächstes wollen wir, dass die Komponente uns mit einem Namen begrüßt, welchen wir als Attribut mitgeben. Dafür setzen wir in der Klasse **HalloWelt** einen *@Prop()*-Dekorator und vergeben den Namen **name** mit **string** als Typen. 
- Zusätzlich müssen wir *Prop* noch in der import Deklaration von Stencil hinzufügen. 
- Damit der Name auch angezeigt wird, fügen wir einen Paragraphen in der render()-Funktion unter dem **slot** ein, der mit {**this.name**} den Wert der Eigenschaft ausliest.
+## Die Komponente soll einen Namen ausgeben
 
- ![Stencil Code: Property Name mit den Typen String hinzufügen und auslesen](/assets/images/posts/Stencil-Einfuehrung/stencil-code-2.png)
+Als nächstes wollen wir, dass die Komponente uns mit einem Namen begrüßt, welchen wir als Attribut mitgeben. Dafür setzen wir in der Klasse **HalloWelt** einen *@Prop()*-Dekorator und vergeben den Namen **name** mit **string** als Typen. 
+Zusätzlich müssen wir *Prop* noch in der import Deklaration von Stencil hinzufügen. 
+Damit der Name auch angezeigt wird, fügen wir einen Paragraphen in der render()-Funktion unter dem **slot** ein, der mit *{this.name}* den Wert der Eigenschaft ausliest.
 
- Zum Schluss müssen wir im HTML unseren Custom-Element noch den Attribut *name* einfügen und einen Namen setzen:
+![Stencil Code: Property Name mit den Typen String hinzufügen und auslesen](/assets/images/posts/Stencil-Einfuehrung/stencil-code-2.png)
 
- ```html
+Zum Schluss müssen wir im HTML unseren Custom-Element noch den Attribut *name* einfügen und einen Namen setzen:
+
+```html
 <hallo-welt name="Anna">><h1>Willkommen</h1></hallo-welt>
 ```
 
 Im Browser sollte nun folgende Begrüßung angezeigt werden: 
- ![Stencil im Browser: Unser Komponente begrüßt uns mit den übergeben Namen](/assets/images/posts/Stencil-Einfuehrung/stencil-browser-3.png)
- 
- # Zusammenfassung
- 
- Im Vergleich zur direkten Verwendung von Custom Elements bietet Stencil zusätzliche APIs, die das Entwickeln schneller Komponenten vereinfachen. 
- Im Gegensatz zu den beliebten JavaScript-Frameworks werden keine zusätzlichen Codelasten zur Laufzeit eingebunden, da 100% Webkomponenten zur Kompilierzeit generiert werden, die nativ vom Browser genutzt werden können. 
- Durch die breite Browserkompatibilität und Möglichkeit in den beliebten Frameworks integriert zu werden, bietet sich Stencil als Tool an, um Design-Systeme bzw. Komponentenbibliotheken zu entwickeln.
+![Stencil im Browser: Unser Komponente begrüßt uns mit den übergeben Namen](/assets/images/posts/Stencil-Einfuehrung/stencil-browser-3.png)
+
+# Zusammenfassung
+
+Im Vergleich zur direkten Verwendung von Custom Elements bietet Stencil zusätzliche APIs, die das Entwickeln schneller Komponenten vereinfachen. 
+Im Gegensatz zu den beliebten JavaScript-Frameworks werden keine zusätzlichen Codelasten zur Laufzeit eingebunden, da 100% Webkomponenten zur Kompilierzeit generiert werden, die nativ vom Browser genutzt werden können. 
+Durch die breite Browserkompatibilität und Möglichkeit in den beliebten Frameworks integriert zu werden, bietet sich Stencil als Tool an, um Design-Systeme bzw. Komponentenbibliotheken zu entwickeln.
 
 # Quellen
-
 Codebeispiel: https://github.com/parideis/stencil-hallo-welt 
 
- https://stenciljs.com/ 
+https://stenciljs.com/ 
 
 https://github.com/ionic-team/stencil 
