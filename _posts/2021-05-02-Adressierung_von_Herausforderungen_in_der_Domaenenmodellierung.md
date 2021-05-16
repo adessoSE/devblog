@@ -35,7 +35,7 @@ Das gemeinsame Domänenverständnis wird somit durch Anwendung der gemeinsamen D
 In dem Beispiel der Reisebuchungen sind mindestens die Begriffe _Reisebuchung_, _Rechnung_, _Kunde_ und _Reise-Betrieb_ relevant. 
 Wir betrachten zunächst den Begriff _Reisebuchung_.
 Sowohl die Teams aus der Entwicklung als auch aus der Fachabteilung müssen ein gemeinsames Verständnis für die fachlichen Eigenschaften einer Reisebuchung haben.
-In unserem einfachen Beispiel beinhaltet eine _Reisebuchung_ ein _Start-Datum_ und _End-Datum_, ein _Reise-Start_ und _Reise-Ziel_, sowie optionale _Reise-Stationen_.
+In unserem einfachen Beispiel beinhaltet eine _Reisebuchung_ ein _Startdatum_ und _Enddatum_, ein _Startpunkt_ und _Endpunkt_, sowie optionale _Zwischenstationen_.
 Die weiteren Begriffe und die sie betreffenden Funktionen müssen wir ebenfalls definieren und modellieren.
 
 Der _Bounded Context_ legt nun für uns fest, welche fachlichen Funktionen in einem Kontext abgedeckt sind.
@@ -95,7 +95,7 @@ Tritt die Erfordernis nach geänderten Eigenschaften auf, wird das bestehende _V
 
 In unserem Beispiel sind die Elemente _Reisebuchung_, _Kunde_ und _Reise-Betrieb_ als _Entities_ zu modellieren.
 Ein _Kunde_ beispielsweise definiert sich nicht ausschließlich über seine Eigenschaften, wie Vor- und Nachname.
-Ein _Verkehrsmittel_ hat die Eigenschaften _Verkehrs-Typ_, _Start-Ziel_ und _End-Ziel_.
+Ein _Verkehrsmittel_ hat die Eigenschaften _Verkehrs-Typ_, _Startpunkt_ und _Endpunkt_.
 In unserem vereinfachten Beispiel dient das Element lediglich zu optionalen Planungszwecken für den Kunden.
 Die Fachabteilung benötigt keine eindeutige Identifikation und das _Verkehrsmittel_ kann als _Value_ modelliert werden.
 
@@ -117,7 +117,7 @@ In unserem Beispiel sehen wir zunächst, dass die Teams aus der Fachabteilung ei
 Wir erkennen weiter, dass ein _Kunde_, ein _Reise-Betrieb_ und ein _Verkehrsmittel_ nur dann fachlich relevant sind, wenn eine _Reisebuchung_ gegeben ist.
 Wir fassen somit die _Entities_ _Reisebuchung_, _Kunde_, _Reise-Betrieb_ und _Verkehrsmittel_ in einem _Aggregate_ zusammen.
 Die _Reisebuchung_ modellieren wir hierbei als _Aggregate-Root_.
-Als fachliche Invariantenprüfung können wir uns beispielsweise vorstellen, dass das _Start-Datum_ einer _Reisebuchung_ vor dem _End-Datum_ liegen muss.
+Als fachliche Invariantenprüfung können wir uns beispielsweise vorstellen, dass das _Startdatum_ einer _Reisebuchung_ vor dem _Enddatum_ liegen muss.
 
 ![Aggregate Reisebuchung](/assets/images/posts/Adressierung-von-Herausforderungen-in-der-Domaenenmodellierung/bild_03_aggregate_reisebuchung.png)
 
