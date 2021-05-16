@@ -13,7 +13,7 @@ _Domain Driven Design_, kurz DDD, ist eine Sammlung von Werkzeugen, um die Model
 DDD wurde erstmalig durch Eric Evans in seinem Buch _Domain Driven Design - Tackling Complexity in the Heart of Software_ beschrieben.
 
 In dem adesso Blog [Herausforderungen in der Domänenmodellierung](https://www.adesso.de/de/news/blog/herausforderungen-in-der-domaenenmodellierung.jsp) werden einige Herausforderungen in der Domänenmodellierung nach DDD beschrieben.
-Es wird die Notwendigkeit für ein gemeinsames Domänenverständnis bei den Beteiligten eines Projekts aufgezeigt.
+Es wird die Notwendigkeit für ein gemeinsames Domänenverständnis bei den Teilnehmerinnen und Teilnehmern eines Projekts aufgezeigt.
 Zudem wird auf die Möglichkeit einer hohen Domänenkomplexität hingewiesen.
 In der Detailmodellierung ist die Modellierung der Domänenelemente notwendig.
 Weiterhin ist das Gestalten der Abhängigkeiten zwischen den zuvor ermittelten Domänenelementen zu betrachten.
@@ -28,7 +28,7 @@ Die Herausforderung für ein gemeinsames Domänenverständnis können wir in DDD
 Diese wird als _Ubiquitous Language_, also _allgegenwärtige Sprache_, bezeichnet. 
 Sie beinhaltet die in der Domäne wichtigen Begriffe und Funktionen, die in einem begrenzten fachlichen Kontext zu modellieren sind.
 In DDD wird für den Kontext der Begriff _Bounded Context_ verwendet.
-Die Begriffe und Funktionen können wir unter den Projektbeteiligten bekannt machen, die in der Softwareentwicklung beteiligt sind.
+Die Begriffe und Funktionen können wir unter den Mitarbeiterinnen und Mitarbeitern bekannt machen, die in der Softwareentwicklung beteiligt sind.
 Dies sind insbesondere die Teams aus der Entwicklung, die das fachliche Modell erstellen, und die Teams aus der Fachabteilung mit Domänenexpertise, die zur Anforderungsanalyse zur Verfügung stehen.
 Das gemeinsame Domänenverständnis wird somit durch Anwendung der gemeinsamen Domänensprache erreicht.
 
@@ -40,19 +40,19 @@ Die weiteren Begriffe und die sie betreffenden Funktionen müssen wir ebenfalls 
 
 Der _Bounded Context_ legt nun für uns fest, welche fachlichen Funktionen in einem Kontext abgedeckt sind.
 In unserem Beispiel gibt es die Anforderungen _Reisebuchungen_ und _Rechnungen_ zu verwalten.
-Ein Mitarbeiter des Fachbereichs möchte eine _Reisebuchung_ erstellen, die von einem _Kunden_ in Auftrag gegeben wird.
-Er möchte weiterhin mindestens einen _Reise-Betrieb_ zur Durchführung der Reise festlegen.
+Eine Mitarbeiterin oder ein Mitarbeiter des Fachbereichs möchte eine _Reisebuchung_ erstellen, die von einem _Kunden_ in Auftrag gegeben wird.
+Weiterhin ist mindestens ein _Reise-Betrieb_ zur Durchführung der Reise festzulegen.
 Hat nun die _Rechnung_ in diesem Aufgabenfeld keine Relevanz, ist die _Rechnung_ nicht Teil des Kontexts zur Erstellung einer _Reisebuchung_.
 
-Die _Ubiquitous Language_ kann durch wiederkehrenden Meetings zwischen den Domänenexperten und den Entwicklern aufgebaut werden. 
-In den Meetings stellen die Domänenexperten die Anforderungen an das System durch Beschreibung der eigenen Aufgaben vor.
-Die Entwickler greifen die Anforderungen auf und teilen ihr Verständnis hiervon durch Modellierung der Domäne mit.
-Der Fachbereich überprüft und korrigiert das von den Entwicklern aufgenommene Verständnis.
+Die _Ubiquitous Language_ kann durch wiederkehrenden Meetings zwischen den Teams aus der Fachabteilung und den Teams aus der Entwicklung aufgebaut werden. 
+In den Meetings stellen die Mitarbeiterinnen und Mitarbeiter der Fachabteilung die Anforderungen an das System durch Beschreibung der eigenen Aufgaben vor.
+Die Entwicklerinnen und Entwickler greifen die Anforderungen auf und teilen ihr Verständnis hiervon durch Modellierung der Domäne mit.
+Der Fachbereich überprüft und korrigiert das von den Entwicklerinnen und Entwicklern aufgenommene Verständnis.
 So kann sich im Verlaufe der Gespräche herausstellen, dass ein _Verkehrsmittel_ zu Planungszwecken relevant sein kann.
 
 ![Initiales Domänenmodell](/assets/images/posts/Adressierung-von-Herausforderungen-in-der-Domaenenmodellierung/bild_01_initiales_domaenenmodell.png)
 
-Die Effekte durch Anwendung der _Ubiquitous Language_ sind nach DDD ein erhöhtes Verständnis der Entwickler für die Domäne.
+Die Effekte durch Anwendung der _Ubiquitous Language_ sind nach DDD ein erhöhtes Verständnis der Entwicklerinnen und Entwickler für die Domäne.
 Dies wiederum reduziert das Risiko für Missverständnisse während der Entwicklung.
 Demnach wird der _Ubiquitous Language_ eine zentrale Rolle bei der Entwicklung einer Software zugeschrieben.
 
@@ -65,7 +65,7 @@ Die Herausforderung besteht dabei nicht nur in der Erkennung einer Unterteilung 
 
 In unserem Beispiel können wir zunächst die _Subdomain_ _Verwaltung Reisebuchung_ definieren.
 Wie wir weiterhin gesehen haben, ist unter anderem der Begriff _Rechnung_ relevant.
-Allerdings ist in den Gesprächen mit den Domänenexpertern erkennbar, dass die _Rechnung_ bei der Zusammenstellung einer Reisebuchung keine direkte Rolle spielt.
+Allerdings ist in den Gesprächen mit den Teams aus der Fachabteilung erkennbar, dass die _Rechnung_ bei der Zusammenstellung einer Reisebuchung keine direkte Rolle spielt.
 Die _Rechnung_ ist in diesem einfachen Beispiel viel mehr eine Folge der Zusammenstellung einer Reisebuchung.
 Da die _Rechnung_ aber weiterhin Relevanz hat, ist es sinnvoll, diese in eine eigene _Subdomain_ _Abrechnung_ mit einem entsprechenden _Bounded Context_ zu legen.
 Die Definition des _Bounded Context_ legt somit den Umfang der _Subdomains_ _Verwaltung Reisebuchung_ und _Abrechnung_ fest.
@@ -75,7 +75,7 @@ DDD bietet neben der Adressierung einer sinnvollen Unterteilung auch ein Werkzeu
 Hierzu werden Schnittstellen einer _Subdomain_ definiert, welche von einer anderen _Subdomain_ verwendet werden.
 In DDD wurde für die Festlegung dieser Schnittstellen der Begriff _Context Map_ eingeführt.
 
-Aus den Gesprächen mit den Domänenexperten wissen wir, dass die Erstellung einer _Reisebuchung_ zur Erstellung einer _Rechnung_ führt.
+Aus den Gesprächen mit den Teams aus der Fachabteilung wissen wir, dass die Erstellung einer _Reisebuchung_ zur Erstellung einer _Rechnung_ führt.
 Wir benötigen somit eine Schnittstelle in der _Subdomain_ _Abrechnung_, welche Daten der _Reisebuchung_ entgegen nimmt, die für die Erstellung der _Rechnung_ benötigt werden.
 
 ![Subdomains und Context Map](/assets/images/posts/Adressierung-von-Herausforderungen-in-der-Domaenenmodellierung/bild_02_subdomains_und_context_map.png)
@@ -113,7 +113,7 @@ Die _Entity_, die hierbei vordergründig betrachtet wird, dient als Einstiegspun
 Dies bedeutet insbesondere, dass ein Zugriff auf ein anderes Element des _Aggregates_ nur über das _Aggregate-Root_ möglich ist.
 Weiterhin wird im _Aggregate-Root_ eine fachliche Invariantenprüfung der Eigenschaften aller _Aggregate_-Elemente durchgeführt.
 
-In unserem Beispiel sehen wir zunächst, dass die Domänenexperten eine _Reisebuchung_ ohne Notwendigkeit weiterer _Entities_ betrachten.
+In unserem Beispiel sehen wir zunächst, dass die Teams aus der Fachabteilung eine _Reisebuchung_ ohne Notwendigkeit weiterer _Entities_ betrachten.
 Wir erkennen weiter, dass ein _Kunde_, ein _Reise-Betrieb_ und ein _Verkehrsmittel_ nur dann fachlich relevant sind, wenn eine _Reisebuchung_ gegeben ist.
 Wir fassen somit die _Entities_ _Reisebuchung_, _Kunde_, _Reise-Betrieb_ und _Verkehrsmittel_ in einem _Aggregate_ zusammen.
 Die _Reisebuchung_ modellieren wir hierbei als _Aggregate-Root_.
