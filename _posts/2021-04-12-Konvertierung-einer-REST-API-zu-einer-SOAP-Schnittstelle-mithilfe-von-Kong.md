@@ -19,12 +19,11 @@ Eine intuitive Herangehensweise wäre es, für den Service die zwei Schnittstell
 Diese Lösung hat allerdings den Nachteil, dass die Schnittstellen sich durch die getrennte Implementierung unterschiedlich verhalten könnten.
 Außerdem müssen bei einer Änderung des Service beide Schnittstellen verändert werden, womit zusätzlicher Arbeitsaufwand verbunden wäre.
 
-Um die Probleme zu vermeiden, könnte man für den Service nur eine Schnittstelle implementieren.
-Zum Beispiel eine REST API, da diese heutzutage häufig verwendet wird.
+Um diese Probleme zu vermeiden, könnte man für den Service nur eine Schnittstelle implementieren, zum Beispiel eine REST API, da diese heutzutage häufig verwendet wird.
 Die SOAP Schnittstelle hingegen könnte man aus der REST API generieren.
 
 # Vorstellung der Architektur
-Für die Realisierung beider Schnittstellen wird eine [Kong API Gateway](https://konghq.com/kong/) Instanz mit dem Kong Plugin [soap2rest](https://github.com/adessoAG/kong-plugin-soap2rest) sowie ein REST Service benötigt.
+Für die Realisierung beider Schnittstellen wird ein [Kong API Gateway](https://konghq.com/kong/) mit dem Kong Plugin [soap2rest](https://github.com/adessoAG/kong-plugin-soap2rest) sowie ein REST Service benötigt.
 
 ![Architektur Skizze](/assets/images/posts/Konvertierung-einer-REST-API-zu-einer-SOAP-Schnittstelle-mithilfe-von-Kong/Architektur.png)
 
@@ -46,7 +45,7 @@ Das Plugin konvertiert die Anfrage in eine gültige REST Anfrage und sendet dies
 Nachdem der REST Service geantwortet hat, wird die Antwort in eine gültige SOAP Antwort übersetzt und an den Nutzer zurückgegeben.
 
 Anhand des folgenden Beispiels lässt sich der Ablauf näher verdeutlichen.
-Angenommen, die nutzende Person stellt an die SOAP Schnittstelle folgende Anfrage.
+Angenommen, folgende Anfrage wird an die SOAP Schnittstelle gestellt.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -79,8 +78,7 @@ Nachdem das Plugin die generierte Anfrage an die REST API gestellt hat, bekommt 
 }
 ```
 
-Anschließend wird diese Antwort vom Plugin in gültiges XML umgewandelt und in eine SOAP Antwort eingesetzt.
-Diese Antwort wird der nutzenden Person zurückgegeben.
+Anschließend wird diese Antwort vom Plugin in gültiges XML umgewandelt und in eine SOAP Antwort eingesetzt, welche anschließend zurückgegeben wird.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -113,8 +111,7 @@ Es wird besonders die Struktur der Rückgabetypen betrachtet, damit das Plugin s
 
 Nachdem die WSDL analysiert wurde, wird die Konfiguration des Plugins mit der OpenAPI Spezifikation der REST API vervollständigt.
 Dabei werden den SOAP Operationen die passenden Pfade der REST API zugeordnet.
-Außerdem werden jeder Operation die passenden Content-Types zugeordnet.
-Damit die HTTP-Header bei der Weiterleitung der Anfragen an die REST API korrekt gesetzt werden können.
+Außerdem werden jeder Operation die passenden Content-Types zugeordnet, damit die HTTP-Header bei der Weiterleitung der Anfragen an die REST API korrekt gesetzt werden können.
 
 ## Request und Response Konvertierung
 Bei der Konvertierung von eingehenden SOAP Anfragen, werden diese in den meisten Fällen direkt von XML in JSON überführt.
@@ -156,7 +153,7 @@ Die folgende Grafik zeigt die Ergebnisse des Lasttests.
 
 ![Lasttest](/assets/images/posts/Konvertierung-einer-REST-API-zu-einer-SOAP-Schnittstelle-mithilfe-von-Kong/Lasttest.png)
 
-Auf den ersten Blick fällt auf, dass bei vielen parallelen Anfragen die SOAP Schnittstelle stärker darunter leidet als die REST API.
+Auf den ersten Blick fällt auf, dass die SOAP Schnittstelle bei vielen parallelen Anfragen längere Antwortzeiten aufweist, als die REST API.
 Vor allem das Senden von Dateien führt zu einem deutlichen Anstieg der Antwortzeit.
 Der Kommunikationsaufwand in Verbindung mit den vielen gleichzeitigen Anfragen auf die Schnittstelle ist für die langsamere Antwortzeit verantwortlich.
 
