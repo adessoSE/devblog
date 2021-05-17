@@ -9,7 +9,7 @@ tags: [Diversity, Diversität, Qualität]   # Bitte auf Großschreibung achten.
 ---
 
 Wozu benötigen wir Diversität in der Softwareentwicklung? 
-Wir als IT-Dienstleister entwickeln maßgeschneiderte Software für unsere Kunden und erfüllen dahingehend ihre Wünsche und Anforderungen. 
+Wir als IT-Dienstleister entwickeln maßgeschneiderte Software für unsere Kundinnen und Kunden und erfüllen dahingehend ihre Wünsche und Anforderungen. 
 Diversität ist ein weiteres Anforderungskriterium, welches die Software verbessern und robuster machen kann und ein potenziell besseres Erlebnis für alle mit sich bringt. 
 Nicht immer ist es der Sachbearbeiter oder die Sachbearbeiterin, 30 Jahre alt, ohne Beeinträchtigung, technisch fit und deutschsprachig, die die Software bedient, sondern vielleicht auch ein Mensch mit einer Sehstörung, einem Hör- oder Sprachproblem. 
 Diese Merkmale beziehen sich vorwiegend auf die Barrierefreiheit, doch es gibt weitere Merkmale, die eine Software diskriminierend wirken lassen können, weil verschiedene Diversitätsmerkmale nicht betrachtet wurden. 
@@ -26,7 +26,7 @@ Zunächst ist es wichtig, die Vielfalt der Diversität zu kennen, um die Auswirk
 * Geschlecht und Geschlechterrollen
 * Kultur und Weltanschauung
 
-Diese Vielfalt lässt sich durch weitere Dimensionen ergänzen und aufteilen. Weitere Informationen bietet die Seite [Charta der Vielfalt](https://www.charta-der-vielfalt.de).
+Diese Vielfalt lässt sich durch weitere Dimensionen ergänzen und aufteilen.
 
 ![Charta der Vielfalt](/assets/images/posts/diversitaet-softwareentwicklung/Diversity-Dimensionen.png)
 
@@ -66,7 +66,7 @@ Im besten Fall ist das gesamte Team bereits divers aufgestellt, um verschiedene 
 
 Aktuell ist es leider kaum möglich, alle Diversitätsdimensionen in einem Team zusammenzustellen, dafür gibt es z.B. noch zu wenig Frauen in der Softwareentwicklung. 
 Dabei hört es aber natürlich nicht auf. 
-Wenn wir beispielsweise auch barrierefreie Software entwickeln möchten/müssen/wollen, wäre es ebenfalls eine Option, Menschen mit einer Sehbeeinträchtigung oder -behinderung als Tester zu beschäftigen, die tagtäglich solche Barrieren überwinden müssen und somit ebenfalls Teil des Teams sind. 
+Wenn wir beispielsweise auch barrierefreie Software entwickeln möchten/müssen/wollen, wäre es ebenfalls eine Option, Menschen mit einer Sehbeeinträchtigung oder -behinderung als Testerinnen und Tester zu beschäftigen, die tagtäglich solche Barrieren überwinden müssen und somit ebenfalls Teil des Teams sind. 
 
 ## Die Diversitätsexpertin, der Diversitätsexperte
 
@@ -101,7 +101,7 @@ Der ethische Wert des Schutzes der Privatheit und der Persönlichkeit sollte im 
 
 Zudem haben die Arbeitsgruppen lernender Systeme Umfragen in Unternehmen durchgeführt, bei denen herauskam, dass bereits heute viele Unternehmen Wert auf einen ethisch basierten Entwicklungs- und Anwendungsprozess von KI-Systemen legen. 
 Besonders Transparenz, Diskriminierungsfreiheit und Vielfalt sowie Verantwortung beziehungsweise Sicherheit seien als Kategorien hervorzuheben, die die Vertretenden der befragten Unternehmen häufig als wichtige Werte nannten.
-Zudem kamen viele zu dem Entschluss, dass die Umsetzung ethischer Werte für viele Unternehmen kein Wettbewerbshindernis ist, sondern vielmehr zum Verkaufsargument werden kann. 
+Zudem kamen viele Unternehmen zu dem Entschluss, dass die Umsetzung ethischer Werte für sie kein Wettbewerbshindernis ist, sondern vielmehr zum Verkaufsargument werden kann. 
 Gleichzeitig stehe für die befragten Unternehmen außer Frage, dass für die Umsetzung ethischer Werte eine echte Notwendigkeit besteht.
 
 # Weitere Empfehlungen
