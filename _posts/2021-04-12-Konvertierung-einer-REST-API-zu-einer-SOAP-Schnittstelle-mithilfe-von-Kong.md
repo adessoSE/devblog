@@ -39,7 +39,7 @@ Und um die Konvertierung von SOAP zu REST Anfragen korrekt durchzuführen, wird 
 # Funktionsablauf des Plugins
 ![Funktionsablauf des Plugins](/assets/images/posts/Konvertierung-einer-REST-API-zu-einer-SOAP-Schnittstelle-mithilfe-von-Kong/Ablauf.png)
 
-Diese Abbildung zeigt den Fall, dass eine Anfrage über die SOAP-Schnittstelle stellt wird.
+Diese Abbildung zeigt den Fall, dass eine Anfrage über die SOAP-Schnittstelle gestellt wird.
 Sobald Kong eine Anfrage über die Route der SOAP-Schnittstelle registriert, wird das Plugin soap2rest ausgeführt.
 Das Plugin konvertiert die Anfrage in eine gültige REST-Anfrage und sendet diese an den REST-Service.
 Nachdem der REST-Service geantwortet hat, wird die Antwort in eine gültige SOAP-Antwort übersetzt und zurückgegeben.
