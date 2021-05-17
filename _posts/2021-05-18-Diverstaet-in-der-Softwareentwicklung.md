@@ -32,15 +32,15 @@ Diese Vielfalt lässt sich durch weitere Dimensionen ergänzen und aufteilen. We
 
 Doch wozu die Diversitäten der Nutzenden näher betrachten? 
 Für ein besseres Erlebnis der Nutzenden, braucht man dafür Diversität? 
-Softwareentwicklung entwickelt sich ständig weiter und neue Technologien rücken in den Fokus, wie z.B Künstliche Intelligenz (KI). 
-Wo vorher in der Softwareentwicklung in diesem Ausmaß keine unbewussten kognitiven Verzerrungen (Unconscious Bias) erkennbar waren, wird sie gerade bei KI Software deutlich. 
+Softwareentwicklung entwickelt sich ständig weiter und neue Technologien rücken in den Fokus wie z.B. künstliche Intelligenz (KI). 
+Wo vorher in der Softwareentwicklung in diesem Ausmaß keine unbewussten kognitiven Verzerrungen (Unconscious Bias) erkennbar waren, werden sie gerade bei KI Software deutlich. 
 Unsere täglichen Helferlein wie Sprachassistenten oder Chatbots erleichtern unser aller Leben. Wenn aber eine Diversitätsdimension als Nutzende ausgeschlossen wurde, kann es schnell unangenehm werden, wie folgende Beispiele zeigen.
 
 # Wo Diversitätsdimensionen nicht betrachtet wurden
 
 * [Bilderkennungssoftware](https://algorithmwatch.org/en/google-vision-racism/), die rassistische Entscheidungen treffen und in schwarzen Händen eher eine Waffe als ein technisches Gerät identifizieren
 * [Sprachassistenten](https://www.stern.de/digital/technik/amazons--alexa---bundestags-gutachten-sieht-risiken-in-sprachassistent-8790900.html), die für Kinder Risiken bergen
-* Softwarelösungen, die nicht barrierefrei sind und z.B für Sehbehinderte nicht erreichbar
+* Softwarelösungen, die nicht barrierefrei und z.B. für Sehbehinderte nicht erreichbar sind
 * [Automatisierte Vorselektion](https://www.heise.de/newsticker/meldung/Amazon-KI-zur-Bewerbungspruefung-benachteiligte-Frauen-4189356.html) von weiblichen Bewerbungen bei gleichen Merkmalen wie männliche Bewerbungen
 * Weitere Beispiele finden sich unter: [Plattform lernender Systeme](https://www.plattform-lernende-systeme.de/publikationen-details/kuenstliche-intelligenz-und-diskriminierung-herausforderungen-und-loesungsansaetze.html?file=files/Downloads/Publikationen/AG3_Whitepaper_250619.pdf) oder unter [Algorithmwatch](https://algorithmwatch.org/de/)
  
@@ -48,15 +48,15 @@ Unsere täglichen Helferlein wie Sprachassistenten oder Chatbots erleichtern uns
 Meist liegt der Grund bei KI-Lösungen in den Trainingsdaten.
 Man darf allerdings nicht vergessen, dass die Ursache der biased Trainingsdaten Menschen sind, die diese Daten durch unbewusste Vorurteile geschaffen haben. 
 Bei Softwarelösungen, die keine KI im Einsatz haben, wurden Anforderungen wie die Barrierefreiheit evtl. übersehen, nicht als Anforderung erkannt oder es wurde sich bewusst dagegen entschieden. 
-Jedoch sollte ähnlich wie bei der IT-Sicherheit, die Anforderung der Sicherheit (der Daten) der Nutzenden, kein Luxusgut sein. 
-Keiner möchte in der Presse landen, mit der Schlagzeile, dass die angebotene Software, Webseite, etc. diskriminierend ist. 
+Jedoch sollte die Barrierefreiheit, ähnlich wie bei der IT-Sicherheit die Anforderung der Sicherheit (der Daten) der Nutzenden, kein Luxusgut sein. 
+Keiner möchte in der Presse landen, mit der Schlagzeile, dass die angebotene Software, Webseite etc. diskriminierend ist. 
 Besonders in der heutigen Zeit, wo das Thema immer mehr an Bedeutung gewinnt, kommen die Fragen der Ethik und Rechte erhöht auf und werden kritischer unter die Lupe genommen als zuvor. 
-So greift die KI Strategie der Bundesregierung zusammen mit Forschungsgruppen der Gesellschaft der Informatik und der Plattform lernende Systeme das Prinzip der Gerechtigkeit (Diskriminierung, Gleichheit etc.) auf und bietet verschiedene Vorschläge zu Gegenmaßnahmen an. 
+So greift die KI-Strategie der Bundesregierung zusammen mit Forschungsgruppen der Gesellschaft der Informatik und der Plattform lernende Systeme das Prinzip der Gerechtigkeit (Diskriminierung, Gleichheit etc.) auf und bietet verschiedene Vorschläge zu Gegenmaßnahmen an. 
 Zunächst beschreiben sie die Diversität und Vielfalt im Bereich der KI wie folgt:  
 
-[Diversität und Vielfalt im Bereich der KI](https://www.plattform-lernende-systeme.de/files/Downloads/Publikationen/AG3_Whitepaper_EB_200831.pdf): Diversität und Vielfalt im Bereich der KI beziehen sich sowohl auf diverse Teams, bestehend aus Entwicklerinnen und Entwicklern mit unterschiedlichen Perspektiven und Erfahrungshintergründen als auch auf die Betrachtung der Zielgruppe als heterogene Gruppe. Auch die Einbindung von Perspektiven, die möglichst breit gesellschaftliche Strukturen abbilden, ist aus Perspektive der Diversität wichtig. Für das Training von KI-Systemen muss auf eine Repräsentierung der vielfältigen gesellschaftlichen Gruppen in den Trainingsdaten geachtet werden.
+[Diversität und Vielfalt im Bereich der KI](https://www.plattform-lernende-systeme.de/files/Downloads/Publikationen/AG3_Whitepaper_EB_200831.pdf): Diversität und Vielfalt im Bereich der KI beziehen sich sowohl auf diverse Teams, bestehend aus Entwicklerinnen und Entwicklern mit unterschiedlichen Perspektiven und Erfahrungshintergründen, als auch auf die Betrachtung der Zielgruppe als heterogene Gruppe. Auch die Einbindung von Perspektiven, die möglichst breit gesellschaftliche Strukturen abbilden, ist aus Perspektive der Diversität wichtig. Für das Training von KI-Systemen muss auf eine Repräsentierung der vielfältigen gesellschaftlichen Gruppen in den Trainingsdaten geachtet werden.
 
-Die Beschreibung bezieht sich auf die Entwicklung von KI, jedoch können einige Punkte auch auf Software ohne KI Einsatz angewandt werden. 
+Die Beschreibung bezieht sich auf die Entwicklung von KI, jedoch können einige Punkte auch auf Software ohne KI-Einsatz angewandt werden. 
 Welche Möglichkeiten gibt es, damit Software diverser wird? 
 
 ## Das diverse Team
@@ -64,15 +64,15 @@ Welche Möglichkeiten gibt es, damit Software diverser wird?
 Das Wissen über die verschiedenen Diversitätsdimensionen sollte nicht nur auf eine Person begrenzt sein, sondern es wäre optimal, wenn jedes Projektmitglied sensibilisiert ist und bewusst auf diese achtet.
 Im besten Fall ist das gesamte Team bereits divers aufgestellt, um verschiedene Blickwinkel auf den Softwareentwicklungsprozess legen zu können. 
 
-Aktuell ist es leider kaum möglich, alle Diversitätsdimensionen in einem Team zusammenzustellen, dafür gibt es z.B noch zu wenig Frauen in der Softwareentwicklung. 
+Aktuell ist es leider kaum möglich, alle Diversitätsdimensionen in einem Team zusammenzustellen, dafür gibt es z.B. noch zu wenig Frauen in der Softwareentwicklung. 
 Dabei hört es aber natürlich nicht auf. 
 Wenn wir beispielsweise auch barrierefreie Software entwickeln möchten/müssen/wollen, wäre es ebenfalls eine Option, Menschen mit einer Sehbeeinträchtigung oder -behinderung als Tester zu beschäftigen, die tagtäglich solche Barrieren überwinden müssen und somit ebenfalls Teil des Teams sind. 
 
-## Die Diversitäts Expertin, der Diversitäts Experte
+## Die Diversitätsexpertin, der Diversitätsexperte
 
-Eine andere Möglichkeit wäre es, dass eine Diversitäts Expertin oder ein Experte, den Prozess der Softwareentwicklung begleitet. 
-Dafür ist eine Diversitäts Richtlinie oder Guideline hilfreich. 
-Diese kann Handlungsempfehlungen und Entscheidungsmöglichkeiten zu Beginn des Softwareentwicklungsprozess aufzeigen. 
+Eine andere Möglichkeit wäre es, dass eine Diversitätsexpertin oder -experte den Prozess der Softwareentwicklung begleitet. 
+Dafür ist eine Diversitätsrichtlinie oder -guideline hilfreich. 
+Diese kann Handlungsempfehlungen und Entscheidungsmöglichkeiten zu Beginn des Softwareentwicklungsprozesses aufzeigen. 
 Zudem kann diese Fachkraft den gesamten Software Developement Lifecycle begleiten durch:
 
 * die Identifikation und Behandlung von Diversity Aspekten in Anwendungen 
@@ -82,30 +82,30 @@ Zudem kann diese Fachkraft den gesamten Software Developement Lifecycle begleite
 * die Schaffung des notwendigen Diversity Bewusstseins
 * Sowie die Durchführung von Programmen zur Verbesserung der Diversity in Anwendungen 
 
-Solche Richtlinien und Guidelines können sich aus den verschiedenen Vielfältigkeitsdimensionen ableiten lassen und auch in Anforderungen einfließen. 
+Solche Richtlinien und Guidelines können sich aus den verschiedenen Vielfältigkeitsdimensionen ableiten lassen und auch in die Anforderungen einfließen. 
 Manche Fragestellungen ergeben sich bereits durch die Auftraggebenden und deren Anforderungen, andere wurden vielleicht noch gar nicht betrachtet. 
 Eine Richtlinie bietet die Möglichkeit ggf. nicht bewusste Anforderungen an Diversität sichtbar zu machen.
 
-Im Bereich der KI Entwicklung gibt es bereits konkrete Vorschläge für Richtlinien, die der Bund gemeinsam mit der [Plattform lernender Systeme](https://www.plattform-lernende-systeme.de/files/Downloads/Publikationen/AG3_Whitepaper_EB_200831.pdf) erarbeitet hat. 
+Im Bereich der KI-Entwicklung gibt es bereits konkrete Vorschläge für Richtlinien, die der Bund gemeinsam mit der [Plattform lernender Systeme](https://www.plattform-lernende-systeme.de/files/Downloads/Publikationen/AG3_Whitepaper_EB_200831.pdf) erarbeitet hat. 
 
 # Gute Gründe für mehr Diversität in der Softwareentwicklung 
 
 Viele Gründe sprechen für den vermehrten Fokus auf Diversität in der Softwareentwicklung. 
-Von Anfang an Diversitätsdimensionen in der Softwareentwicklung zu denken, reduziert auch Kosten, die für evtl. nachträgliche Änderungen in der Software aufkommen könnten. Eine Software nachträglich an die Barrierefreiheit anzupassen, ist mit höherem Aufwand verbunden. 
+Von Anfang an Diversitätsdimensionen in der Softwareentwicklung zu denken, reduziert auch Kosten, die für evtl. nachträgliche Änderungen in der Software aufkommen könnten. Eine Software nachträglich an die Barrierefreiheit anzupassen ist mit höherem Aufwand verbunden. 
 Ein Projektteam so divers wie möglich zu besetzen bringt ebenfalls weitere Vorteile mit sich.
 Es verbessert nicht nur die Arbeitsatmosphäre, auch steigt nachweislich die Produktivität des gesamten Teams. 
-Zudem werden durch verschiede Perspektiven und breiteres Wissen, sowie verschiedenen Lösungsvorschlägen ein besseres Verständnis für Zielgruppen erzielt und somit auch eine bessere Softwarelösung für die Kunden. 
+Zudem werden durch verschiede Perspektiven und breiteres Wissen sowie verschiedenen Lösungsvorschlägen ein besseres Verständnis für Zielgruppen erzielt und somit auch eine bessere Softwarelösung für die Kunden. 
 
 Zudem werden mit dem Einsatz neuer Technologien wie KI unbewusste Vorurteile präsenter und niemand möchte wegen ethischen Verstößen mit Negativbeispielen in der Presse landen. 
-Der ethische Wert des Schutzes der Privatheit und der Persönlichkeit sollte im Vordergrund stehen, daher arbeiten IT Sicherheitsarbeitsgruppen, Recht und Ethikrat in diesem Thema zusammen. 
+Der ethische Wert des Schutzes der Privatheit und der Persönlichkeit sollte im Vordergrund stehen, daher arbeiten IT-Sicherheitsarbeitsgruppen, Recht und Ethikrat in diesem Thema zusammen. 
 
-Zudem haben die Arbeitsgruppen lernender Systeme Umfragen in Unternehmen durchgeführt, bei denen bereits heute viele von ihnen Wert auf einen ethisch basierten Entwicklungs- und Anwendungsprozess von KI-Systemen legen. 
+Zudem haben die Arbeitsgruppen lernender Systeme Umfragen in Unternehmen durchgeführt, bei denen herauskam, dass bereits heute viele Unternehmen Wert auf einen ethisch basierten Entwicklungs- und Anwendungsprozess von KI-Systemen legen. 
 Besonders Transparenz, Diskriminierungsfreiheit und Vielfalt sowie Verantwortung beziehungsweise Sicherheit seien als Kategorien hervorzuheben, die die Vertretenden der befragten Unternehmen häufig als wichtige Werte nannten.
 Zudem kamen viele zu dem Entschluss, dass die Umsetzung ethischer Werte für viele Unternehmen kein Wettbewerbshindernis ist, sondern vielmehr zum Verkaufsargument werden kann. 
 Gleichzeitig stehe für die befragten Unternehmen außer Frage, dass für die Umsetzung ethischer Werte eine echte Notwendigkeit besteht.
 
 # Weitere Empfehlungen
 
-* Der Film „Coded Bias“ auf Netflix 
-* Das Buch „Keine Panik, ist nur Technik: Warum man auf Algorithmen super tanzen kann und wie wir ihnen den Takt vorgeben“ von Kenza Ait Si Abbou
-* Das Buch „Unsichtbare Frauen: Wie eine von Daten beherrschte Welt die Hälfte der Bevölkerung ignoriert“ von Caroline Criado-Perez
+* Der Film "Coded Bias" auf Netflix 
+* Das Buch "Keine Panik, ist nur Technik: Warum man auf Algorithmen super tanzen kann und wie wir ihnen den Takt vorgeben" von Kenza Ait Si Abbou
+* Das Buch "Unsichtbare Frauen: Wie eine von Daten beherrschte Welt die Hälfte der Bevölkerung ignoriert" von Caroline Criado-Perez
