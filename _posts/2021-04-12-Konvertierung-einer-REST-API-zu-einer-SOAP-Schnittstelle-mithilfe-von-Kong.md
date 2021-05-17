@@ -9,16 +9,15 @@ tags: [Kong, SOAP, REST, Lua]
 ---
 
 Welche Möglichkeiten hat man, wenn neben einer REST API auch eine SOAP Schnittstelle zur Verfügung stehen soll?
-In diesem Artikel wird eine Methode vorgestellt wie man diese Anforderung mithilfe von Kong umsetzen kann.
+In diesem Artikel wird eine Methode vorgestellt, wie man diese Anforderung mit Hilfe von Kong umsetzen kann.
 
 # Motivation
-Wie bereist beschrieben kann es manchmal gewollt sein, dass eine Schnittstelle über REST und SOAP erreichbar ist.
+Wie bereist beschrieben, kann es manchmal gewollt sein, dass eine Schnittstelle über REST und SOAP erreichbar ist.
 Hier stellt sich nun die Frage wie man diese Anforderung realisiert.
 
-Eine intuitive Herangehensweise wäre es für den Service die zwei Schnittstellen getrennt zu implementieren.
+Eine intuitive Herangehensweise wäre es, für den Service die zwei Schnittstellen getrennt zu implementieren.
 Diese Lösung hat allerdings den Nachteil, dass die Schnittstellen sich durch die getrennte Implementierung unterschiedlich verhalten könnten.
-Außerdem müssen bei einer Änderung des Service beide Schnittstellen verändert werden.
-Womit zusätzlicher Arbeitsaufwand verbunden wäre.
+Außerdem müssen bei einer Änderung des Service beide Schnittstellen verändert werden, womit zusätzlicher Arbeitsaufwand verbunden wäre.
 
 Um die Probleme zu vermeiden, könnte man für den Service nur eine Schnittstelle implementieren.
 Zum Beispiel eine REST API, da diese heutzutage häufig verwendet wird.
@@ -29,7 +28,7 @@ Für die Realisierung beider Schnittstellen wird eine [Kong API Gateway](https:/
 
 ![Architektur Skizze](/assets/images/posts/Konvertierung-einer-REST-API-zu-einer-SOAP-Schnittstelle-mithilfe-von-Kong/Architektur.png)
 
-Die Abbildung zeigt wie die einzelnen Komponenten miteinander verknüpft sind.
+Die Abbildung zeigt, wie die einzelnen Komponenten miteinander verknüpft sind.
 Das Kong API Gateway verwaltet den Zugriff auf den REST Service.
 Für den Fall, dass der Nutzer eine Anfrage über die REST Schnittstelle stellt, wird diese Anfrage an den Service weitergeleitet und bearbeitet.
 
@@ -47,7 +46,7 @@ Das Plugin konvertiert die Anfrage in eine gültige REST Anfrage und sendet dies
 Nachdem der REST Service geantwortet hat, wird die Antwort in eine gültige SOAP Antwort übersetzt und an den Nutzer zurückgegeben.
 
 Anhand des folgenden Beispiels lässt sich der Ablauf näher verdeutlichen.
-Angenommen die nutzende Person stellt an die SOAP Schnittstelle folgende Anfrage.
+Angenommen, die nutzende Person stellt an die SOAP Schnittstelle folgende Anfrage.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -106,7 +105,7 @@ Diese Antwort wird der nutzenden Person zurückgegeben.
 ## Analyse der Schnittstellen-Spezifikationen
 Die Analyse der WSDL und der OpenAPI ist ein wichtiger Bestandteil des Plugins.
 Sie wird nur einmal vor der ersten Anfrage an die SOAP Schnittstelle ausgeführt, um die Schnittstelle zu konfigurieren.
-Anschließend wird diese Konfiguration für Verarbeitung aller folgenden Anfragen verwendet.
+Anschließend wird diese Konfiguration für die Verarbeitung aller folgenden Anfragen verwendet.
 
 Bei der Analyse der WSDL werden wichtige Merkmale der SOAP Schnittstelle ausgelesen.
 Dazu gehören zum Beispiel das Auslesen der verschiedenen Operationen und ihrer zugehörigen Rückgabetypen und Faults.
@@ -114,17 +113,17 @@ Es wird besonders die Struktur der Rückgabetypen betrachtet, damit das Plugin s
 
 Nachdem die WSDL analysiert wurde, wird die Konfiguration des Plugins mit der OpenAPI Spezifikation der REST API vervollständigt.
 Dabei werden den SOAP Operationen die passenden Pfade der REST API zugeordnet.
-Außerdem wird jeder Operation die passenden Content-Types zugeordnet.
+Außerdem werden jeder Operation die passenden Content-Types zugeordnet.
 Damit die HTTP-Header bei der Weiterleitung der Anfragen an die REST API korrekt gesetzt werden können.
 
 ## Request und Response Konvertierung
 Bei der Konvertierung von eingehenden SOAP Anfragen, werden diese in den meisten Fällen direkt von XML in JSON überführt.
 Manchmal müssen davor aber noch andere Verarbeitungsschritte durchgeführt werden.
 Zum Beispiel werden sämtliche SOAP-Header in HTTP-Header überführt.
-Außerdem werden Dateiuploads in Multipart Bodys überführt und den Dateien wird mithilfe einer Mime Type Analyse der richtige Content-Type zugeordnet.
+Außerdem werden Dateiuploads in Multipart Bodys überführt und den Dateien wird mit Hilfe einer Mime Type Analyse der richtige Content-Type zugeordnet.
 
 Auch bei der Konvertierung der REST Antworten werden verschiedene Zwischenschritte benötigt.
-Wenn die REST API nicht den Statuscode 200 zurückgibt, wird die Antwort in eine gültiges SOAP Fault umgewandelt.
+Wenn die REST API nicht den Statuscode 200 zurückgibt, wird die Antwort in ein gültiges SOAP Fault umgewandelt.
 
 Bei der Umwandlung der Antwort in XML wird besonders darauf geachtet, dass die Reihenfolge der Attribute des Rückgabetyps mit der Reihenfolge in der WSDL übereinstimmen.
 Dafür wird die automatisch generierte Konfiguration des Plugins verwendet.
