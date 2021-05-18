@@ -1,32 +1,30 @@
 ---
 layout: 		[post, post-xml]     
-title:  		"A Series of Rust Blog Posts: Exploring Rust for AWS Lambda - Part 1"
+title:  		"A Series of Rust: Exploring Rust for AWS Lambda - Part 1"
 date:   		2021-05-17 16:15
 modified_date: 	2021-05-17 16:15
 author: 		felix_marezki
 categories: 	[Softwareentwicklung]
-tags: 			[AWS, AWS Lambda, Cloud, Rust]
+tags: 			[AWS, AWS Lambda, Cloud, Rust, A Series of Rust]
 ---
 
 The demand for a high performance, yet secure programming language is increasing.
 Evidence for that claim is found not only in statistics about security bugs but also in the ground and momentum in general that Rust has been able gain, lately. 
 I take that as well as a bit of my own curiosity as cause for a series of blog posts about Rust and how to apply it in real world scenarios.
 
-# A Series of Rust Blog Posts
-
-## Exploring Rust for AWS Lambda - Part 1
+# A Series of Rust: Exploring Rust for AWS Lambda - Part 1
 
 With all the arguments around Rust considering safety, usability and performance already being established, I would like to take the opportunity here to show the current state of effort around Rust that has or is being made to make Rust a suitable candidate for cloud development.
 Since Amazon seems to have taken Rusts proposal very seriously and are pursuing Rust already in a variety of their own services as well as offerings to their cloud customers, projects like [lambda-runtime](https://github.com/awslabs/aws-lambda-rust-runtime) or [aws-rust-sdk](https://github.com/awslabs/aws-sdk-rust) have caught my attention.
 
 This Post is therefore the first of what I plan to be three of this kind.
 
-### The Contents
+## The Contents
 
 In this post we will develop a function that will run on AWS lambda using Rust.
 The end result of this blog post is a working implementation of a lambda function to run on AWS services.
 
-### The Groundwork
+## The Groundwork
 
 This is what I'm gonna be using:
 
@@ -55,7 +53,7 @@ mkdir .cargo
 echo $'[target.x86_64-unknown-linux-musl]\nlinker = "x86_64-linux-musl-gcc"' > .cargo/config
 ```
 
-### The Account
+## The Account
 
 To try this we need an AWS Account and configure it as described below.
 
@@ -64,7 +62,7 @@ Also, define it to be used programmatically and generate an `access key` for it.
 For the permissions part I chose to attach an `AWS Managed Policy` to to my user, which you can find by the name `AWSLambda_FullAccess`. 
 I also did not attach the policy to my user directly but to a group that I put my user in.
 
-### The Project
+## The Project
 
 To start with our project we can use cargo for us to generate an initial crate:
 
@@ -78,7 +76,7 @@ Now, we can open the folder that cargo created in Visual Code:
 code adesso-echo
 ```
 
-### The Code
+## The Code
 
 There are already several projects in place that ease some of the typical things we would like to do with rust in an AWS context. 
 We are going to leverage the lambda_runtime crate to easily integrate our code into the lambda infrastructure.
@@ -116,7 +114,7 @@ async fn func(event: Value, _: Context) -> Result<Value, Error> {
 }
 ```
 
-### The Build
+## The Build
 
 We can now build and create our function, assuming you have your aws CLI configured locally with correct permissions and everything.
 
@@ -142,7 +140,7 @@ zip lambda.zip ./bootstrap
 rm ./bootstrap
 ```
 
-### The Deployment
+## The Deployment
 
 To get our function going on `AWS` we need to do one last thing:
 
@@ -157,7 +155,7 @@ aws lambda create-function --function-name adesso-echo --handler doesnt.matter -
 
 This will upload our function to `AWS`.
 
-### The Test
+## The Test
 
 We can now test our function using the `AWS CLI`. To do so run the following command:
 
@@ -172,7 +170,7 @@ cat out.txt
 ```
 Output: {"firstName": "bla"}
 
-### The End
+## The End
 
 So we have seen how to build and deploy lambda functions written in rust to AWS. 
 In the next post I wanna see if we can test our experiments locally so we can spare us the roundtrip to AWS every time we want to try something new.
