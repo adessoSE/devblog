@@ -26,21 +26,22 @@ This Post is therefore the first of what I plan to be three of this kind.
 In this post we will develop a function that will run on AWS lambda using Rust.
 The end result of this blog post is a working implementation of a lambda function to run on AWS services.
 
-This is what I'm gonna be using:
 
 - Rust (Up)
 - Visual Code
 - AWS CLI
 
-(Probably ¯\\\_(ツ)\_/¯)
-
 ### The Groundwork
 
-As mentioned above I will use the following things. For Instructions on how to install them follow the links below:
+This is what I'm gonna be using:
 
-- Rust: https://www.rust-lang.org/learn/get-started\
-- VS Code: https://code.visualstudio.com
-- AWS CLI: https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html
+- Rust (Up) <https://www.rust-lang.org/learn/get-started>
+- Visual Code: <https://code.visualstudio.com>
+- AWS CLI: <https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html>
+
+(Probably ¯\\\_(ツ)\_/¯)
+
+Just follow the links for installation instructions.
 
 The musl target is required for our rust installation:
 
