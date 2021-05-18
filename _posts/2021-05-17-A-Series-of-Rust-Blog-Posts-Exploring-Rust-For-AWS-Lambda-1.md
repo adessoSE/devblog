@@ -12,7 +12,7 @@ The demand for a high performance, yet secure programming language is increasing
 Evidence for that claim is found not only in statistics about security bugs but also in the ground and momentum in general that Rust has been able to gain, lately. 
 I take that as well as a bit of my own curiosity as cause for a series of blog posts about Rust and applications in real world scenarios.
 
-# A Series of Rust: Exploring Rust for AWS Lambda - Part 1
+# The Intro
 
 With all the arguments around Rust considering safety, usability and performance already being established, I would like to take the opportunity here to show the current state of effort around Rust that has or is being made to make Rust a suitable candidate for cloud development.
 Since Amazon seems to have taken Rusts proposal very seriously and are pursuing Rust already in a variety of their own services as well as offerings to their cloud customers, projects like [lambda-runtime](https://github.com/awslabs/aws-lambda-rust-runtime) or [aws-rust-sdk](https://github.com/awslabs/aws-sdk-rust) have caught my attention.
