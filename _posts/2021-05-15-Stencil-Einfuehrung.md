@@ -9,35 +9,35 @@ tags:			[JavaScript, Stencil, WebComponents]				# Bitte auf Großschreibung acht
 ---
 
 
-In diesem Artikel werfen wir gemeinsam einen Blick auf Stencil und vergleichen welche Vorteile diese Compiler-Lösung zu den gängigen Laufzeit-JavaScript-Frameworks bietet. 
-Anschließend werden wir eine Stencil-Umgebung aufsetzen und eine passende Komponente erstellen. Stencil stammt von den Ionic-Framework-EntwicklerInnen und auch große Unternehmen wie Apple, Amazon und Microsoft nutzen Stencil in ihren Produkten.  
-Dieser Artikel richtet sich an WebentwicklerInnen, die schon erste Erfahrungen mit JavaScript-Frameworks wie Angular und Vue oder der Bibliothek React gemacht haben.
+In diesem Artikel werfen wir gemeinsam einen Blick auf Stencil und vergleichen, welche Vorteile diese Compiler-Lösung zu den gängigen Laufzeit-JavaScript-Frameworks bietet. 
+Anschließend werden wir eine Stencil-Umgebung aufsetzen und eine passende Komponente erstellen. Stencil stammt aus dem Hause Ionic und auch große Unternehmen wie Apple, Amazon und Microsoft nutzen Stencil in ihren Produkten.  
+Dieser Artikel richtet sich an alle, die schon erste Erfahrungen mit JavaScript-Frameworks wie Angular und Vue oder der Bibliothek React gemacht haben.
 
 # Einführung in Stencil
 
-Mit Stencil lassen sich plattformunabhängige Web-Components generieren, die in allen [gängigen Frameworks eingebunden](https://stenciljs.com/docs/overview) werden können, sowie auf allen [aktuellen Browsern](https://stenciljs.com/docs/browser-support) laufen.
+Mit Stencil lassen sich plattformunabhängige Web-Components generieren, die in allen [gängigen Frameworks eingebunden](https://stenciljs.com/docs/overview) werden können, sowie in allen [aktuellen Browsern](https://stenciljs.com/docs/browser-support) laufen.
 
-Somit bietet Stencil eine neue Herangehensweise an eine beliebte Idee: die Erstellung schneller und funktionsreicher Anwendungen im Browser. Dabei machen sich die AnwenderInnen die Vorteile wichtiger neuer Funktionen zu Nutzen, die nativ im Browser zur Verfügung stehen ( z.B. [Custom Elements v1](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Custom_Elements)). 
-Hierdurch können EntwicklerInnen weitaus weniger Code ausliefern und schnellere Anwendungen erstellen, die mit allen Frameworks kompatibel sind. 
+Somit bietet Stencil eine neue Herangehensweise an eine beliebte Idee: die Erstellung schneller und funktionsreicher Anwendungen im Browser. Dabei machen wir uns bei der Entwicklung die Vorteile wichtiger neuer Funktionen zu Nutzen, die nativ im Browser zur Verfügung stehen ( z.B. [Custom Elements v1](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Custom_Elements)). 
+Hierdurch können wir weitaus weniger Code ausliefern und schnellere Anwendungen erstellen, die mit allen Frameworks kompatibel sind. 
 Custom Elements sind ein Bestandteil von der [Web-Components Definition](https://developer.mozilla.org/de/docs/Web/Web_Components).
 
-Die gängigen Frameworks wie Angular oder Bibliotheken wie React, brauchen zusätzlichen clientseitiges JavaScript, welches von Nutzende heruntergeladen und geparst werden muss, damit die Applikation funktioniert. 
+Die gängigen Frameworks wie Angular oder Bibliotheken wie React brauchen zusätzliches clientseitiges JavaScript, welches von im Browser heruntergeladen und geparst werden muss, damit die Applikation funktioniert. 
 Dies ist bei Stencil nicht notwendig, weil vollständig auf Web Standards gesetzt wird.
 
-Dennoch verzichtet Stencil nicht auf die beliebten Funktionen, die wir als EntwicklerInnen von den Frameworks gewöhnt sind. 
+Dennoch verzichtet Stencil nicht auf die beliebten Funktionen, die wir von den Frameworks gewöhnt sind. 
 Diese Funktionen werden wir im nächsten Abschnitt erläutern.
 
 ## Funktionen von Stencil
 
-Im folgenden Abschnitt werden wir uns die einzelnen Funktionalitäten anschauen die Stencil bietet.
+Im folgenden Abschnitt werden wir uns die einzelnen Funktionalitäten, die Stencil bietet, anschauen.
 
 Der **virtuelle DOM** ist, ähnlich wie bei React und Vue, eine Abbildung des tatsächlichen DOM, worüber eine schnellere Veränderung möglich ist. 
-Durch **asynchrones Rendering** wird außerdem eine Möglichkeit geboten einen Platzhalter anzuzeigen, bis die Komponente eingebunden werden kann. 
-Diese Funktion ist stark angelehnt an der Implementation von React-„Fiber“. 
-Stencil bietet des weiteren ein **reaktives Data-Binding** ein, sodass die Daten zwischen der Komponente und im DOM selbst reaktiv miteinander gebunden werden. 
+Durch **asynchrones Rendering** wird außerdem eine Möglichkeit geboten, einen Platzhalter anzuzeigen, bis die Komponente eingebunden werden kann. 
+Diese Funktion ist stark angelehnt an der Implementation von React-"Fiber". 
+Stencil bietet des weiteren ein **reaktives Data-Binding** an, sodass die Daten zwischen der Komponente und dem DOM reaktiv miteinander verbunden werden. 
 Durch TypeScript wird JavaScript mit Typen erweitert. 
 
-Ein weiteres für React-EntwicklerInnen bekanntes Feature ist **JSX**, welches eine XML-artige Syntax anbietet, die JavaScript-Code erstellt und von Typescript unterstützt wird.  
+Ein weiteres aus React bekanntes Feature ist **JSX**, welches eine XML-artige Syntax anbietet, die JavaScript-Code erstellt und von Typescript unterstützt wird.  
 Die statische Seitengenerierung (**SSG**) bezeichnet das Erstellen und Rendern der Komponenten und Routen zur Build-Time, welches auch als Prerendering bekannt ist.  
 Durch **Lazy-Loading** ist es darüber hinaus auch möglich, die Komponenten bei Gebrauch dynamisch zur Laufzeit nachzuladen.
 
@@ -109,7 +109,7 @@ Wir können mit dem Befehl *npm start* das Projekt starten und der Browser sollt
 npm start
 ```
 
-Nun sehen wir wie unser Projekt zum ersten Mal gebaut wird:
+Nun sehen wir, wie unser Projekt zum ersten Mal gebaut wird:
 
 ![Stencil im Browser: Unser erster Build läuft](/assets/images/posts/Stencil-Einfuehrung/stencil-browser-1.png)
 
@@ -132,7 +132,7 @@ In der render()-Funktion wird die Ausgabe definiert, die bei uns ein slot enthä
 <slot></slot>
 ```
 Ein slot ist ein Platzhalter bei dem die Kinderkomponenten eingebunden werden. 
-Was in unserem Fall das h1-Element mit dem Inhalt “Willkommen” ist.
+Was in unserem Fall das h1-Element mit dem Inhalt "Willkommen" ist.
 
 ![Stencil Code: Überblick über den generierten Code](/assets/images/posts/Stencil-Einfuehrung/stencil-code-1.png)
 
@@ -144,7 +144,7 @@ Damit der Name auch angezeigt wird, fügen wir einen Paragraphen in der render()
 
 ![Stencil Code: Property Name mit den Typen String hinzufügen und auslesen](/assets/images/posts/Stencil-Einfuehrung/stencil-code-2.png)
 
-Zum Schluss müssen wir im HTML unseren Custom-Element noch den Attribut *name* einfügen und einen Namen setzen:
+Zum Schluss müssen wir im HTML unserem Custom Element noch das Attribut *name* hinzufügen und dessen Wert setzen:
 
 ```html
 <hallo-welt name="Anna">><h1>Willkommen</h1></hallo-welt>
