@@ -19,12 +19,12 @@ Since Amazon seems to have taken Rusts proposal very seriously and are pursuing 
 
 This Post is therefore the first of what I plan to be three of this kind.
 
-## The Contents
+# The Contents
 
 In this post we will develop a function that will run on AWS lambda using Rust.
 The end result of this blog post is a working implementation of a lambda function to run on AWS services.
 
-## The Groundwork
+# The Groundwork
 
 This is what I'm gonna be using:
 
@@ -53,7 +53,7 @@ mkdir .cargo
 echo $'[target.x86_64-unknown-linux-musl]\nlinker = "x86_64-linux-musl-gcc"' > .cargo/config
 ```
 
-## The Account
+#  The Account
 
 To try this we need an AWS Account and configure it as described below.
 
@@ -62,7 +62,7 @@ Also, define it to be used programmatically and generate an `access key` for it.
 For the permissions part I chose to attach an `AWS Managed Policy` to to my user, which you can find by the name `AWSLambda_FullAccess`. 
 I also did not attach the policy to my user directly but to a group that I put my user in.
 
-## The Project
+# The Project
 
 To start with our project we can use cargo for us to generate an initial crate:
 
@@ -76,7 +76,7 @@ Now, we can open the folder that cargo created in Visual Code:
 code adesso-echo
 ```
 
-## The Code
+# The Code
 
 There are already several projects in place that ease some of the typical things we would like to do with rust in an AWS context. 
 We are going to leverage the lambda_runtime crate to easily integrate our code into the lambda infrastructure.
@@ -114,7 +114,7 @@ async fn func(event: Value, _: Context) -> Result<Value, Error> {
 }
 ```
 
-## The Build
+# The Build
 
 We can now build and create our function, assuming you have your aws CLI configured locally with correct permissions and everything.
 
@@ -140,7 +140,7 @@ zip lambda.zip ./bootstrap
 rm ./bootstrap
 ```
 
-## The Deployment
+# The Deployment
 
 To get our function going on `AWS` we need to do one last thing:
 
@@ -155,7 +155,7 @@ aws lambda create-function --function-name adesso-echo --handler doesnt.matter -
 
 This will upload our function to `AWS`.
 
-## The Test
+# The Test
 
 We can now test our function using the `AWS CLI`. To do so run the following command:
 
@@ -170,7 +170,7 @@ cat out.txt
 ```
 Output: {"firstName": "bla"}
 
-## The End
+# The End
 
 So we have seen how to build and deploy lambda functions written in rust to AWS. 
 In the next post I wanna see if we can test our experiments locally so we can spare us the roundtrip to AWS every time we want to try something new.
