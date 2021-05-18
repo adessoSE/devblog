@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<documents>
+    <document uid="0f5c4c1940b2f4e6142e24f9d200f965">
+        <field name="title"><![CDATA[Diversität und die Softwareentwicklung]]></field>
+        <field name="subline"><![CDATA[]]></field>
+        <field name="teaser"><![CDATA[<p>Wozu benötigen wir Diversität in der Softwareentwicklung? 
+Wir als IT-Dienstleister entwickeln maßgeschneiderte Software für unsere Kundinnen und Kunden und erfüllen dahingehend ihre Wünsche und Anforderungen. 
+Diversität ist ein weiteres Anforderungskriterium, welches die Software verbessern und robuster machen kann und ein potenziell besseres Erlebnis für alle mit sich bringt. 
+Nicht immer ist es der Sachbearbeiter oder die Sachbearbeiterin, 30 Jahre alt, ohne Beeinträchtigung, technisch fit und deutschsprachig, die die Software bedient, sondern vielleicht auch ein Mensch mit einer Sehstörung, einem Hör- oder Sprachproblem. 
+Diese Merkmale beziehen sich vorwiegend auf die Barrierefreiheit, doch es gibt weitere Merkmale, die eine Software diskriminierend wirken lassen können, weil verschiedene Diversitätsmerkmale nicht betrachtet wurden. 
+Wie könnte also der vermehrte Einsatz von diesen verschiedenen Merkmalen in Software in Zukunft aussehen?</p>
+
+]]></field>
+        <field name="language_multi_keyword"><![CDATA[de]]></field>
+        <field name="content_type_multi_keyword"><![CDATA[blog]]></field>
+        <field name="mime_type_multi_keyword"><![CDATA[text/html]]></field>
+        <field name="category_multi_keyword"><![CDATA[Softwareentwicklung]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Diversität]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Qualität]]></field>
+        <field name="date_date"><![CDATA[2021-05-18T08:05:00+02:00]]></field>
+        <field name="date_l"><![CDATA[1621317900000]]></field>
+        <field name="change_date"><![CDATA[1621317900000]]></field>
+        <!--Picture-->
+        <!-- Not in use at the moment-->
+        <!--Author Information-->
+        <field name="author_first_name"><![CDATA[Vivien Emily]]></field>
+        <field name="author_last_name"><![CDATA[Schiller]]></field>
+        <field name="author_id"><![CDATA[VivienEmily]]></field>
+        <field name="author_picture_stored_only"><![CDATA[http://localhost:4000/assets/images/avatars/vschiller.jpg]]></field>
+        <!--Postcontent-->
+        <field name="headlines"><![CDATA[Diversität und die Softwareentwicklung]]></field>
+        <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
+            <p>Wozu benötigen wir Diversität in der Softwareentwicklung? 
+Wir als IT-Dienstleister entwickeln maßgeschneiderte Software für unsere Kundinnen und Kunden und erfüllen dahingehend ihre Wünsche und Anforderungen. 
+Diversität ist ein weiteres Anforderungskriterium, welches die Software verbessern und robuster machen kann und ein potenziell besseres Erlebnis für alle mit sich bringt. 
+Nicht immer ist es der Sachbearbeiter oder die Sachbearbeiterin, 30 Jahre alt, ohne Beeinträchtigung, technisch fit und deutschsprachig, die die Software bedient, sondern vielleicht auch ein Mensch mit einer Sehstörung, einem Hör- oder Sprachproblem. 
+Diese Merkmale beziehen sich vorwiegend auf die Barrierefreiheit, doch es gibt weitere Merkmale, die eine Software diskriminierend wirken lassen können, weil verschiedene Diversitätsmerkmale nicht betrachtet wurden. 
+Wie könnte also der vermehrte Einsatz von diesen verschiedenen Merkmalen in Software in Zukunft aussehen?</p>
+
+</div>]]></field>
+        <field name="content"><![CDATA[<div class="adesso-text-formate">
+<div class="row p-t-2">
+<div class="adesso-container">
+<div class="col-xl-8 adesso-center p-b-1 p-l-0 p-r-0">
+    <p>Wozu benötigen wir Diversität in der Softwareentwicklung? 
+Wir als IT-Dienstleister entwickeln maßgeschneiderte Software für unsere Kundinnen und Kunden und erfüllen dahingehend ihre Wünsche und Anforderungen. 
+Diversität ist ein weiteres Anforderungskriterium, welches die Software verbessern und robuster machen kann und ein potenziell besseres Erlebnis für alle mit sich bringt. 
+Nicht immer ist es der Sachbearbeiter oder die Sachbearbeiterin, 30 Jahre alt, ohne Beeinträchtigung, technisch fit und deutschsprachig, die die Software bedient, sondern vielleicht auch ein Mensch mit einer Sehstörung, einem Hör- oder Sprachproblem. 
+Diese Merkmale beziehen sich vorwiegend auf die Barrierefreiheit, doch es gibt weitere Merkmale, die eine Software diskriminierend wirken lassen können, weil verschiedene Diversitätsmerkmale nicht betrachtet wurden. 
+Wie könnte also der vermehrte Einsatz von diesen verschiedenen Merkmalen in Software in Zukunft aussehen?</p>
+
+<h4 id="die-vielfalt-der-diversität">Die Vielfalt der Diversität</h4>
+
+<p>Zunächst ist es wichtig, die Vielfalt der Diversität zu kennen, um die Auswirkung auf eine Software einschätzen zu können. So kann sich Diversität unter anderem aufteilen in</p>
+
+<ul>
+  <li>Alter und Generation</li>
+  <li>Lebensentwürfe</li>
+  <li>Körperliche und geistige Fähigkeiten</li>
+  <li>Sexuelle Orientierung</li>
+  <li>Geschlecht und Geschlechterrollen</li>
+  <li>Kultur und Weltanschauung</li>
+</ul>
+
+<p>Diese Vielfalt lässt sich durch weitere Dimensionen ergänzen und aufteilen.</p>
+
+<p><img src="/assets/images/posts/diversitaet-softwareentwicklung/Diversity-Dimensionen.png" alt="Charta der Vielfalt" /></p>
+
+<p>Doch wozu die Diversitäten der Nutzenden näher betrachten? 
+Für ein besseres Erlebnis der Nutzenden, braucht man dafür Diversität? 
+Softwareentwicklung entwickelt sich ständig weiter und neue Technologien rücken in den Fokus wie z.B. künstliche Intelligenz (KI). 
+Wo vorher in der Softwareentwicklung in diesem Ausmaß keine unbewussten kognitiven Verzerrungen (Unconscious Bias) erkennbar waren, werden sie gerade bei KI Software deutlich. 
+Unsere täglichen Helferlein wie Sprachassistenten oder Chatbots erleichtern unser aller Leben. Wenn aber eine Diversitätsdimension als Nutzende ausgeschlossen wurde, kann es schnell unangenehm werden, wie folgende Beispiele zeigen.</p>
+
+<h4 id="wo-diversitätsdimensionen-nicht-betrachtet-wurden">Wo Diversitätsdimensionen nicht betrachtet wurden</h4>
+
+<ul>
+  <li><a href="https://algorithmwatch.org/en/google-vision-racism/">Bilderkennungssoftware</a>, die rassistische Entscheidungen treffen und in schwarzen Händen eher eine Waffe als ein technisches Gerät identifizieren</li>
+  <li><a href="https://www.stern.de/digital/technik/amazons--alexa---bundestags-gutachten-sieht-risiken-in-sprachassistent-8790900.html">Sprachassistenten</a>, die für Kinder Risiken bergen</li>
+  <li>Softwarelösungen, die nicht barrierefrei und z.B. für Sehbehinderte nicht erreichbar sind</li>
+  <li><a href="https://www.heise.de/newsticker/meldung/Amazon-KI-zur-Bewerbungspruefung-benachteiligte-Frauen-4189356.html">Automatisierte Vorselektion</a> von weiblichen Bewerbungen bei gleichen Merkmalen wie männliche Bewerbungen</li>
+  <li>Weitere Beispiele finden sich unter: <a href="https://www.plattform-lernende-systeme.de/publikationen-details/kuenstliche-intelligenz-und-diskriminierung-herausforderungen-und-loesungsansaetze.html?file=files/Downloads/Publikationen/AG3_Whitepaper_250619.pdf">Plattform lernender Systeme</a> oder unter <a href="https://algorithmwatch.org/de/">Algorithmwatch</a></li>
+</ul>
+
+<p>Meist liegt der Grund bei KI-Lösungen in den Trainingsdaten.
+Man darf allerdings nicht vergessen, dass die Ursache der biased Trainingsdaten Menschen sind, die diese Daten durch unbewusste Vorurteile geschaffen haben. 
+Bei Softwarelösungen, die keine KI im Einsatz haben, wurden Anforderungen wie die Barrierefreiheit evtl. übersehen, nicht als Anforderung erkannt oder es wurde sich bewusst dagegen entschieden. 
+Jedoch sollte die Barrierefreiheit, ähnlich wie bei der IT-Sicherheit die Anforderung der Sicherheit (der Daten) der Nutzenden, kein Luxusgut sein. 
+Keiner möchte in der Presse landen, mit der Schlagzeile, dass die angebotene Software, Webseite etc. diskriminierend ist. 
+Besonders in der heutigen Zeit, wo das Thema immer mehr an Bedeutung gewinnt, kommen die Fragen der Ethik und Rechte erhöht auf und werden kritischer unter die Lupe genommen als zuvor. 
+So greift die KI-Strategie der Bundesregierung zusammen mit Forschungsgruppen der Gesellschaft der Informatik und der Plattform lernende Systeme das Prinzip der Gerechtigkeit (Diskriminierung, Gleichheit etc.) auf und bietet verschiedene Vorschläge zu Gegenmaßnahmen an. 
+Zunächst beschreiben sie die Diversität und Vielfalt im Bereich der KI wie folgt:</p>
+
+<p><a href="https://www.plattform-lernende-systeme.de/files/Downloads/Publikationen/AG3_Whitepaper_EB_200831.pdf">Diversität und Vielfalt im Bereich der KI</a>: Diversität und Vielfalt im Bereich der KI beziehen sich sowohl auf diverse Teams, bestehend aus Entwicklerinnen und Entwicklern mit unterschiedlichen Perspektiven und Erfahrungshintergründen, als auch auf die Betrachtung der Zielgruppe als heterogene Gruppe. Auch die Einbindung von Perspektiven, die möglichst breit gesellschaftliche Strukturen abbilden, ist aus Perspektive der Diversität wichtig. Für das Training von KI-Systemen muss auf eine Repräsentierung der vielfältigen gesellschaftlichen Gruppen in den Trainingsdaten geachtet werden.</p>
+
+<p>Die Beschreibung bezieht sich auf die Entwicklung von KI, jedoch können einige Punkte auch auf Software ohne KI-Einsatz angewandt werden. 
+Welche Möglichkeiten gibt es, damit Software diverser wird?</p>
+
+<h5 id="das-diverse-team">Das diverse Team</h5>
+
+<p>Das Wissen über die verschiedenen Diversitätsdimensionen sollte nicht nur auf eine Person begrenzt sein, sondern es wäre optimal, wenn jedes Projektmitglied sensibilisiert ist und bewusst auf diese achtet.
+Im besten Fall ist das gesamte Team bereits divers aufgestellt, um verschiedene Blickwinkel auf den Softwareentwicklungsprozess legen zu können.</p>
+
+<p>Aktuell ist es leider kaum möglich, alle Diversitätsdimensionen in einem Team zusammenzustellen, dafür gibt es z.B. noch zu wenig Frauen in der Softwareentwicklung. 
+Dabei hört es aber natürlich nicht auf. 
+Wenn wir beispielsweise auch barrierefreie Software entwickeln möchten/müssen/wollen, wäre es ebenfalls eine Option, Menschen mit einer Sehbeeinträchtigung oder -behinderung als Testerinnen und Tester zu beschäftigen, die tagtäglich solche Barrieren überwinden müssen und somit ebenfalls Teil des Teams sind.</p>
+
+<h5 id="die-diversitätsexpertin-der-diversitätsexperte">Die Diversitätsexpertin, der Diversitätsexperte</h5>
+
+<p>Eine andere Möglichkeit wäre es, dass eine Diversitätsexpertin oder -experte den Prozess der Softwareentwicklung begleitet. 
+Dafür ist eine Diversitätsrichtlinie oder -guideline hilfreich. 
+Diese kann Handlungsempfehlungen und Entscheidungsmöglichkeiten zu Beginn des Softwareentwicklungsprozesses aufzeigen. 
+Zudem kann diese Fachkraft den gesamten Software Developement Lifecycle begleiten durch:</p>
+
+<ul>
+  <li>die Identifikation und Behandlung von Diversity Aspekten in Anwendungen</li>
+  <li>die Etablierung von Diversity Richtlinien, Standards und Guidelines für Diversity in der Entwicklung, dem Betrieb und der Qualitätssicherung</li>
+  <li>die Kontrolle von Einhaltung von Richtlinien</li>
+  <li>die Unterstützung von Entwicklungsprojekten</li>
+  <li>die Schaffung des notwendigen Diversity Bewusstseins</li>
+  <li>Sowie die Durchführung von Programmen zur Verbesserung der Diversity in Anwendungen</li>
+</ul>
+
+<p>Solche Richtlinien und Guidelines können sich aus den verschiedenen Vielfältigkeitsdimensionen ableiten lassen und auch in die Anforderungen einfließen. 
+Manche Fragestellungen ergeben sich bereits durch die Auftraggebenden und deren Anforderungen, andere wurden vielleicht noch gar nicht betrachtet. 
+Eine Richtlinie bietet die Möglichkeit ggf. nicht bewusste Anforderungen an Diversität sichtbar zu machen.</p>
+
+<p>Im Bereich der KI-Entwicklung gibt es bereits konkrete Vorschläge für Richtlinien, die der Bund gemeinsam mit der <a href="https://www.plattform-lernende-systeme.de/files/Downloads/Publikationen/AG3_Whitepaper_EB_200831.pdf">Plattform lernender Systeme</a> erarbeitet hat.</p>
+
+<h4 id="gute-gründe-für-mehr-diversität-in-der-softwareentwicklung">Gute Gründe für mehr Diversität in der Softwareentwicklung</h4>
+
+<p>Viele Gründe sprechen für den vermehrten Fokus auf Diversität in der Softwareentwicklung. 
+Von Anfang an Diversitätsdimensionen in der Softwareentwicklung zu denken, reduziert auch Kosten, die für evtl. nachträgliche Änderungen in der Software aufkommen könnten. Eine Software nachträglich an die Barrierefreiheit anzupassen ist mit höherem Aufwand verbunden. 
+Ein Projektteam so divers wie möglich zu besetzen bringt ebenfalls weitere Vorteile mit sich.
+Es verbessert nicht nur die Arbeitsatmosphäre, auch steigt nachweislich die Produktivität des gesamten Teams. 
+Zudem werden durch verschiede Perspektiven und breiteres Wissen sowie verschiedenen Lösungsvorschlägen ein besseres Verständnis für Zielgruppen erzielt und somit auch eine bessere Softwarelösung für die Kunden.</p>
+
+<p>Zudem werden mit dem Einsatz neuer Technologien wie KI unbewusste Vorurteile präsenter und niemand möchte wegen ethischen Verstößen mit Negativbeispielen in der Presse landen. 
+Der ethische Wert des Schutzes der Privatheit und der Persönlichkeit sollte im Vordergrund stehen, daher arbeiten IT-Sicherheitsarbeitsgruppen, Recht und Ethikrat in diesem Thema zusammen.</p>
+
+<p>Zudem haben die Arbeitsgruppen lernender Systeme Umfragen in Unternehmen durchgeführt, bei denen herauskam, dass bereits heute viele Unternehmen Wert auf einen ethisch basierten Entwicklungs- und Anwendungsprozess von KI-Systemen legen. 
+Besonders Transparenz, Diskriminierungsfreiheit und Vielfalt sowie Verantwortung beziehungsweise Sicherheit seien als Kategorien hervorzuheben, die die Vertretenden der befragten Unternehmen häufig als wichtige Werte nannten.
+Zudem kamen viele Unternehmen zu dem Entschluss, dass die Umsetzung ethischer Werte für sie kein Wettbewerbshindernis ist, sondern vielmehr zum Verkaufsargument werden kann. 
+Gleichzeitig stehe für die befragten Unternehmen außer Frage, dass für die Umsetzung ethischer Werte eine echte Notwendigkeit besteht.</p>
+
+<h4 id="weitere-empfehlungen">Weitere Empfehlungen</h4>
+
+<ul>
+  <li>Der Film “Coded Bias” auf Netflix</li>
+  <li>Das Buch “Keine Panik, ist nur Technik: Warum man auf Algorithmen super tanzen kann und wie wir ihnen den Takt vorgeben” von Kenza Ait Si Abbou</li>
+  <li>Das Buch “Unsichtbare Frauen: Wie eine von Daten beherrschte Welt die Hälfte der Bevölkerung ignoriert” von Caroline Criado-Perez</li>
+</ul>
+
+</div>
+</div>
+</div>
+</div>]]></field>
+    </document>
+</documents>
