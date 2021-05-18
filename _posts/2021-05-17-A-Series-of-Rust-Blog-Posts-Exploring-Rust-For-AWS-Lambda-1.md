@@ -9,8 +9,8 @@ tags: 			[AWS, AWS Lambda, Cloud, Rust, A Series of Rust]
 ---
 
 The demand for a high performance, yet secure programming language is increasing.
-Evidence for that claim is found not only in statistics about security bugs but also in the ground and momentum in general that Rust has been able gain, lately. 
-I take that as well as a bit of my own curiosity as cause for a series of blog posts about Rust and how to apply it in real world scenarios.
+Evidence for that claim is found not only in statistics about security bugs but also in the ground and momentum in general that Rust has been able to gain, lately. 
+I take that as well as a bit of my own curiosity as cause for a series of blog posts about Rust and applications in real world scenarios.
 
 # A Series of Rust: Exploring Rust for AWS Lambda - Part 1
 
