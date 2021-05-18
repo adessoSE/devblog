@@ -26,11 +26,6 @@ This Post is therefore the first of what I plan to be three of this kind.
 In this post we will develop a function that will run on AWS lambda using Rust.
 The end result of this blog post is a working implementation of a lambda function to run on AWS services.
 
-
-- Rust (Up)
-- Visual Code
-- AWS CLI
-
 ### The Groundwork
 
 This is what I'm gonna be using:
