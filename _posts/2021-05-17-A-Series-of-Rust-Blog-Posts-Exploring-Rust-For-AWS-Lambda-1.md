@@ -118,7 +118,7 @@ async fn func(event: Value, _: Context) -> Result<Value, Error> {
 
 We can now build and create our function, assuming you have your aws CLI configured locally with correct permissions and everything.
 
-Lets build first:
+Lets build our application:
 
 ```bash
 cargo build --release --target x86_64-unknown-linux-musl
