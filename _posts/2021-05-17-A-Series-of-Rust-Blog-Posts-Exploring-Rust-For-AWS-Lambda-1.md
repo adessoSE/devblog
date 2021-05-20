@@ -64,7 +64,7 @@ I also did not attach the policy to my user directly but to a group that I put m
 
 # The Project
 
-To start with our project we can use cargo for us to generate an initial crate:
+To start with our project we can use cargo to generate an initial crate:
 
 ```bash
 cargo new adesso-echo
