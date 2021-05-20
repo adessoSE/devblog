@@ -7,16 +7,16 @@ author: tgraefenstein                                                           
 categories: [Softwareentwicklung]                                                       # Pflichtfeld. Maximal eine der angegebenen Kategorien verwenden.
 tags: [Spring, Cloud, Contract Driven Development, Microservices, Java]                 # Bitte auf Großschreibung achten.
 ---
-In modernen Softwaresystemen kommt man mittlerweile kaum noch daran vorbei mit anderen Systemen zu kommunizieren. 
+In modernen Softwaresystemen kommt man mittlerweile kaum noch daran vorbei, mit anderen Systemen zu kommunizieren. 
 Je mehr Parteien beteiligt sind, desto mehr Schnittstellen müssen abgestimmt und angebunden werden.
 Doch wie können wir die korrekte Integration von Schnittstellen zu jeder Zeit sicherstellen?
 Dazu bietet sich Contract-Driven Development an, welches wir uns mittels Spring Cloud Contract näher anschauen wollen.
 
 # Spring Cloud Contract
 Führt eine Partei eine nicht kompatible Änderung einer angebotenen Schnittstelle durch, so führt dies zwangsweise zu Fehlern, im schlimmsten Falle sogar zum Gesamtausfall des Gesamtsystems.
-Um dem entgegenzuwirken, bietet es sich an Schnittstellenverträge (Contracts) zwischen den beteiligten Systemen auszuhandeln.
+Um dem entgegenzuwirken, bietet es sich an, Schnittstellenverträge (Contracts) zwischen den beteiligten Systemen auszuhandeln.
 Daraus ergibt sich die Möglichkeit für Nutzer (Consumer) und Anbieter (Provider) Contract Tests zu entwickeln, um die korrekte Anbindung und Funktionalität von Schnittstellen sicherzustellen.
-Spring Cloud Contract ist ein Spring Cloud Projekt, welches eine einfache und strukturierte Möglichkeit bietet Contract Tests umzusetzen.
+Spring Cloud Contract ist ein Spring Cloud Projekt, welches eine einfache und strukturierte Möglichkeit bietet, Contract Tests umzusetzen.
 Contracts lassen sich über eine domänenspezifische Sprache (DSL) in Form von Groovy oder YAML definieren.
 Im Folgenden schauen wir uns einmal an, wie Contracts in auf Spring basierenden Services mittels Kommunikation über HTTP umgesetzt werden können.
 
@@ -104,7 +104,7 @@ contracts {
 
 Die generierten Stubs müssen allen potenziellen Consumern zur Verfügung gestellt werden.
 In realen Umgebungen würde man die Stubs üblicherweise in ein Artifactory o. ä. hochladen.
-Es gibt auch die Möglichkeit in Form von Docker-Containern auszuliefern (siehe auch [Spring Cloud Contract - Docker Project](https://cloud.spring.io/spring-cloud-contract/reference/html/docker-project.html)).
+Es gibt auch die Möglichkeit, sie in Form von Docker-Containern auszuliefern (siehe auch [Spring Cloud Contract - Docker Project](https://cloud.spring.io/spring-cloud-contract/reference/html/docker-project.html)).
 Wir verwenden jedoch für die Generierung der Stubs der Einfachheit halber das lokale Maven Repository:
 
 ```yaml
@@ -235,7 +235,7 @@ public class LeapYearControllerTest extends BaseTestClass {
 
 Auf Producer-Seite haben wir nun sichergestellt, dass die angebotene Schnittstelle gemäß dem Contract funktioniert.
 Ganz wichtig zu verstehen ist, dass der Test nicht sicherstellt, dass die Schnittstelle fachlich korrekt arbeitet, also dass 2020 tatsächlich ein Schaltjahr ist.
-Es geht stattdessen darum sicherzustellen, dass das Antwortformat sichergestellt ist.
+Es geht stattdessen darum, sicherzustellen, dass das Antwortformat sichergestellt ist.
 
 Außerdem werden Stubs in Form einer Jar-Datei generiert.
 Die Stubs können nun von Consumern verwendet werden, um ihrerseits gegen den Contract zu implementieren.
@@ -365,7 +365,7 @@ Nun können wir die Consumer Tests ausführen:
 gradle clean test
 ```
 
-Wie man sieht, benötigen wir kein händisches Mocking des Producer-Services.
+Wie man sieht, benötigen wir kein händisches Mocking des Producer-Service.
 Im Build-Prozess werden automatisch die Producer-Stubs integriert.
 Dadurch fällt nun jede Änderung aufseiten des Producers bei Ausführung der Consumer-Tests auf.
 Dies ist natürlich nur der Fall, sofern der Contract gebrochen wurde.
