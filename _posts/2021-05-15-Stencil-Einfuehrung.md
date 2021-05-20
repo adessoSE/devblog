@@ -21,13 +21,13 @@ Somit bietet Stencil eine neue Herangehensweise an eine beliebte Idee: die Erste
 Hierdurch können wir weitaus weniger Code ausliefern und schnellere Anwendungen erstellen, die mit allen Frameworks kompatibel sind. 
 Custom Elements sind ein Bestandteil von der [Web-Components Definition](https://developer.mozilla.org/de/docs/Web/Web_Components).
 
-Die gängigen Frameworks wie Angular oder Bibliotheken wie React brauchen zusätzliches clientseitiges JavaScript, welches im Browser heruntergeladen und geparst werden muss, damit die Applikation funktioniert, als bei Stencil. 
+Die gängigen Frameworks wie Angular oder Bibliotheken wie React brauchen, anders als Stencil, zusätzliches clientseitiges JavaScript, welches im Browser heruntergeladen und geparst werden muss, damit die Applikation funktioniert. 
 Das wird deutlich beim konkreten Vergleich, wie viel Code (nur minified) benötigt wird, um eine Webkomponente zu liefern.
 
 ![Stencil im Vergleich zu Angular, React und Vue](/assets/images/posts/Stencil-Einfuehrung/stencil-vergleich.png)
 
 Mit Stencil hat die Komponente nur 12,75kb Speicherplatz gekostet. 
-Die React Lösung ist mit 128kb zehn mal so groß, wie die mit Stencil und die Angular 11 Elements ist mit 176kb noch größer, als beide zusammen.
+Die React Lösung ist mit 128kb zehnmal so groß, wie die Stencil-Komponente, die Komponente von Angular 11 Elements ist mit 176kb sogar noch deutlich größer.
 Vue kommt auf ungefähr 75kb und ist fast sechs mal so groß wie die Webkomponente, die mit Stencil generiert wurde.
 
 Obwohl Stencil eine viel kleinere Paketgröße hat, verzichtet Stencil nicht auf die beliebten Funktionen, die wir als EntwicklerInnen von den Frameworks gewöhnt sind. 
@@ -172,4 +172,4 @@ Durch die breite Browserkompatibilität und Möglichkeit in den beliebten Framew
 
 [https://github.com/ionic-team/stencil](https://github.com/ionic-team/stencil )
 
-[Vergleich von Codierungsstil, Paketgröße und Leistung: https://webcomponents.dev/blog/all-the-ways-to-make-a-web-component/](https://webcomponents.dev/blog/all-the-ways-to-make-a-web-component/)
+[Vergleich von Codierungsstil, Paketgröße und Leistung](https://webcomponents.dev/blog/all-the-ways-to-make-a-web-component/)
