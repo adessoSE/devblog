@@ -105,7 +105,7 @@ In our `main.rs` we are going to do the following:
 
 ```rust
 use lambda_runtime::{handler_fn, Context, Error};
-use serde_json::Value;
+use serde_json::{Value, json};
 
 #[tokio::main]
 async fn main() -> Result<(), Error> {
@@ -115,7 +115,9 @@ async fn main() -> Result<(), Error> {
 }
 
 async fn func(event: Value, _: Context) -> Result<Value, Error> {
-    Ok(event)
+    Ok(json!({ 
+        "message": format!("Hello, {}!", event["name"].as_str().unwrap_or("world"))
+    }))
 }
 ```
 
@@ -165,7 +167,7 @@ This will upload our function to `AWS`.
 We can now test our function using the `AWS CLI`. To do so run the following command:
 
 ```bash
-aws lambda invoke --function-name adesso-echo --payload '{"firstName": "bla"}' --cli-binary-format raw-in-base64-out out.txt
+aws lambda invoke --function-name adesso-echo --payload '{"name": "Felix"}' --cli-binary-format raw-in-base64-out out.txt
 ```
 
 and
@@ -173,7 +175,7 @@ and
 ```bash
 cat out.txt
 ```
-Output: {"firstName": "bla"}
+Output: {"message": "Hello, Felix!"}
 
 # The End
 
