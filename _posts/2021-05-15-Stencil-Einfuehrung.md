@@ -17,14 +17,20 @@ Dieser Artikel richtet sich an alle, die schon erste Erfahrungen mit JavaScript-
 
 Mit Stencil lassen sich plattformunabhängige Web-Components generieren, die in allen [gängigen Frameworks eingebunden](https://stenciljs.com/docs/overview) werden können, sowie in allen [aktuellen Browsern](https://stenciljs.com/docs/browser-support) laufen.
 
-Somit bietet Stencil eine neue Herangehensweise an eine beliebte Idee: die Erstellung schneller und funktionsreicher Anwendungen im Browser. Dabei machen wir uns bei der Entwicklung die Vorteile wichtiger neuer Funktionen zu Nutzen, die nativ im Browser zur Verfügung stehen ( z.B. [Custom Elements v1](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Custom_Elements)). 
+Somit bietet Stencil eine neue Herangehensweise an eine beliebte Idee: die Erstellung schneller und funktionsreicher Anwendungen im Browser. Dabei machen wir uns bei der Entwicklung die Vorteile wichtiger neuer Funktionen zu Nutzen, die nativ im Browser zur Verfügung stehen (z.B. [Custom Elements v1](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Custom_Elements)). 
 Hierdurch können wir weitaus weniger Code ausliefern und schnellere Anwendungen erstellen, die mit allen Frameworks kompatibel sind. 
 Custom Elements sind ein Bestandteil von der [Web-Components Definition](https://developer.mozilla.org/de/docs/Web/Web_Components).
 
-Die gängigen Frameworks wie Angular oder Bibliotheken wie React brauchen zusätzliches clientseitiges JavaScript, welches von im Browser heruntergeladen und geparst werden muss, damit die Applikation funktioniert. 
-Dies ist bei Stencil nicht notwendig, weil vollständig auf Web Standards gesetzt wird.
+Die gängigen Frameworks wie Angular oder Bibliotheken wie React brauchen zusätzliches clientseitiges JavaScript, welches im Browser heruntergeladen und geparst werden muss, damit die Applikation funktioniert, als bei Stencil. 
+Das wird deutlich beim konkreten Vergleich, wie viel Code (nur minified) benötigt wird, um eine Webkomponente zu liefern.
 
-Dennoch verzichtet Stencil nicht auf die beliebten Funktionen, die wir von den Frameworks gewöhnt sind. 
+![Stencil im Vergleich zu Angular, React und Vue](/assets/images/posts/Stencil-Einfuehrung/stencil-vergleich.png)
+
+Mit Stencil hat die Komponente nur 12,75kb Speicherplatz gekostet. 
+Die React Lösung ist mit 128kb zehn mal so groß, wie die mit Stencil und die Angular 11 Elements ist mit 176kb noch größer, als beide zusammen.
+Vue kommt auf ungefähr 75kb und ist fast sechs mal so groß wie die Webkomponente, die mit Stencil generiert wurde.
+
+Obwohl Stencil eine viel kleinere Paketgröße hat, verzichtet Stencil nicht auf die beliebten Funktionen, die wir als EntwicklerInnen von den Frameworks gewöhnt sind. 
 Diese Funktionen werden wir im nächsten Abschnitt erläutern.
 
 ## Funktionen von Stencil
@@ -165,3 +171,5 @@ Durch die breite Browserkompatibilität und Möglichkeit in den beliebten Framew
 [https://stenciljs.com/](https://stenciljs.com/ )
 
 [https://github.com/ionic-team/stencil](https://github.com/ionic-team/stencil )
+
+[Vergleich von Codierungsstil, Paketgröße und Leistung: https://webcomponents.dev/blog/all-the-ways-to-make-a-web-component/](https://webcomponents.dev/blog/all-the-ways-to-make-a-web-component/)
