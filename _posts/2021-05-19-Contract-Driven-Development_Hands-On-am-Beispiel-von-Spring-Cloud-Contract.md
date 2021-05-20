@@ -13,7 +13,7 @@ Doch wie können wir die korrekte Integration von Schnittstellen zu jeder Zeit s
 Dazu bietet sich Contract-Driven Development an, welches wir uns mittels Spring Cloud Contract näher anschauen wollen.
 
 # Spring Cloud Contract
-Führt eine Partei eine nicht kompatible Änderung einer angebotenen Schnittstelle durch, so führt dies zwangsweise zu Fehlern, im schlimmsten Falle sogar zum Gesamtausfall des Gesamtsystems.
+Führt eine Partei eine nicht kompatible Änderung einer angebotenen Schnittstelle durch, so führt dies zwangsweise zu Fehlern, im schlimmsten Falle sogar zum Ausfall des Gesamtsystems.
 Um dem entgegenzuwirken, bietet es sich an, Schnittstellenverträge (Contracts) zwischen den beteiligten Systemen auszuhandeln.
 Daraus ergibt sich die Möglichkeit für Nutzer (Consumer) und Anbieter (Provider) Contract Tests zu entwickeln, um die korrekte Anbindung und Funktionalität von Schnittstellen sicherzustellen.
 Spring Cloud Contract ist ein Spring Cloud Projekt, welches eine einfache und strukturierte Möglichkeit bietet, Contract Tests umzusetzen.
@@ -21,11 +21,11 @@ Contracts lassen sich über eine domänenspezifische Sprache (DSL) in Form von G
 Im Folgenden schauen wir uns einmal an, wie Contracts in auf Spring basierenden Services mittels Kommunikation über HTTP umgesetzt werden können.
 
 ## Ausgangsszenario
-Ein Service benötigt in seinem Kontext die Information, ein bestimmtes Jahr ein Schaltjahr ist.
+Ein Service benötigt in seinem Kontext die Information, dass ein bestimmtes Jahr ein Schaltjahr ist.
 Dazu bietet ein anderer Service eine Schnittstelle an, welche das Jahr entgegennimmt und prüft, ob es ein Schaltjahr ist.
 Wir bezeichnen den anfragenden Service daher als Consumer und den Service, der die Schnittstelle anbietet, als Producer. 
 Der Consumer konsumiert also die Schnittstelle des Producers. 
-Zu Demonstrationszwecken bietet der Consumer auch eine Schnittstelle an, die lediglich das Ergebnis der Anfrage an den Producer zurückgibt.
+Zu Demonstrationszwecken bietet der Consumer auch eine Schnittstelle an, die lediglich das Ergebnis der Anfrage an den Client zurückgibt.
 Im Folgenden schauen wir uns eine mögliche Umsetzung von Contracts mittels Spring Cloud Contract an.
 
 ## Producer Setup
@@ -131,7 +131,7 @@ publishing {
 Da nun das Setup auf Producer Seite steht, können wir den Contract definieren.
 Der Contract sollte alle relevanten Aspekte enthalten, die zur Kommunikation relevant sind wie z.B. HTTP-Methode oder verpflichtende Parameter.
 All jene Aspekte, die jedoch irrelevant sind, sollten auch nicht Teil des Contracts sein (z.B. nicht ausgewertete Header), da diese zu unerwarteten Vertragsbrüchen führen können.
-Man sollte immer im Hinterkopf behalten, dass ein Contract nicht nur das Schema, sondern eher den Anwendungsfall abbilden soll.
+Man sollte immer im Hinterkopf behalten, dass ein Contract nicht das Schema, sondern eher den Anwendungsfall abbilden soll.
 Die relevanten Aspekte hatten wir ja bereits bei Betrachtung der GET-Schnittstelle ermittelt.
 Daher definieren nun folgenden Contract:
 
@@ -165,7 +165,7 @@ response:
 
 Mit diesem Contract wird die folgende Vereinbarung geschlossen:
 
-*Für eine **GET-Anfrage** unter der URL`/leap-year` mit dem Parameter `year` Parameter, welcher eine Ganzzahl sein muss, besteht die **Antwort** aus dem HTTP-Status 200 und einem JSON, welches das Attribut `leap` mit einem booleschen Wert enthalten muss.*
+*Für eine **GET-Anfrage** unter der URL`/leap-year` mit dem Parameter `year`, welcher eine Ganzzahl sein muss, besteht die **Antwort** aus dem HTTP-Status 200 und einem JSON, welches das Attribut `leap` mit einem booleschen Wert enthalten muss.*
 
 Zu Beachten ist hierbei, dass wir mit den expliziten Angaben (z.B. `year: 2020` oder `leap: true`) konkrete Beispiele und mit `matchers` die erlaubten Datenformate von Request- oder Response-Parametern angeben können. 
 
@@ -319,7 +319,7 @@ dependencies {
 Nun wollen wir sicherstellen, dass der Producer-Service korrekt angebunden wurde.
 Üblicherweise würde man nun für den Producer Service händisch Mocks anlegen.
 Stattdessen verwenden wir für die Mocks aber die generierten Stubs des Producers.
-Dazu bietet Spring Cloud Contract die Möglichkeit von sogenannten [Contract Stub Runner](https://cloud.spring.io/spring-cloud-contract/2.1.x/multi/multi__spring_cloud_contract_stub_runner.html).
+Dazu bietet Spring Cloud Contract die Möglichkeit von sogenannten [Contract Stub Runnern](https://cloud.spring.io/spring-cloud-contract/2.1.x/multi/multi__spring_cloud_contract_stub_runner.html).
 Diese vereinfachen die Integration von extern generierten Stubs in die Testumgebung.
 Dies erfolgt, indem die benötigten Stubs automatisch zur Test-Laufzeit heruntergeladen und ausgeführt werden.
 Bei der Quelle der Stubs hat man unterschiedliche Auswahlmöglichkeiten:
