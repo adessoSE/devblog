@@ -3,9 +3,9 @@ layout: [post, post-xml]                                                        
 title:  "Contract-Driven Development: Hands-On am Beispiel von Spring Cloud Contract"   # Pflichtfeld. Bitte einen Titel für den Blog Post angeben.
 date:   2021-05-19 08:00                                                                # Pflichtfeld. Format "YYYY-MM-DD HH:MM". Muss für Veröffentlichung in der Vergangenheit liegen. (Für Preview egal)
 modified_date:                                                                          # Optional. Muss angegeben werden, wenn eine bestehende Datei geändert wird.
-author: tgraefenstein                                                                    # Pflichtfeld. Es muss in der "authors.yml" einen Eintrag mit diesem Namen geben.
+author: tgraefenstein                                                                   # Pflichtfeld. Es muss in der "authors.yml" einen Eintrag mit diesem Namen geben.
 categories: [Softwareentwicklung]                                                       # Pflichtfeld. Maximal eine der angegebenen Kategorien verwenden.
-tags: [Spring, Cloud, Contract Driven Development, Microservices, Java]                 # Bitte auf Großschreibung achten.
+tags: [Spring, Cloud, Contract-Driven Development, Microservices, Java]                 # Bitte auf Großschreibung achten.
 ---
 In modernen Softwaresystemen kommt man mittlerweile kaum noch daran vorbei, mit anderen Systemen zu kommunizieren. 
 Je mehr Parteien beteiligt sind, desto mehr Schnittstellen müssen abgestimmt und angebunden werden.
@@ -15,8 +15,8 @@ Dazu bietet sich Contract-Driven Development an, welches wir uns mittels Spring 
 # Spring Cloud Contract
 Führt eine Partei eine nicht kompatible Änderung einer angebotenen Schnittstelle durch, so führt dies zwangsweise zu Fehlern, im schlimmsten Falle sogar zum Ausfall des Gesamtsystems.
 Um dem entgegenzuwirken, bietet es sich an, Schnittstellenverträge (Contracts) zwischen den beteiligten Systemen auszuhandeln.
-Daraus ergibt sich die Möglichkeit für Nutzer (Consumer) und Anbieter (Provider) Contract Tests zu entwickeln, um die korrekte Anbindung und Funktionalität von Schnittstellen sicherzustellen.
-Spring Cloud Contract ist ein Spring Cloud Projekt, welches eine einfache und strukturierte Möglichkeit bietet, Contract Tests umzusetzen.
+Daraus ergibt sich die Möglichkeit für Nutzende (Consumer) und Anbietende (Producer) Contract-Tests zu entwickeln, um die korrekte Anbindung und Funktionalität von Schnittstellen sicherzustellen.
+Spring Cloud Contract ist ein Spring Cloud Projekt, welches eine einfache und strukturierte Möglichkeit bietet, Contract-Tests umzusetzen.
 Contracts lassen sich über eine domänenspezifische Sprache (DSL) in Form von Groovy oder YAML definieren.
 Im Folgenden schauen wir uns einmal an, wie Contracts in auf Spring basierenden Services mittels Kommunikation über HTTP umgesetzt werden können.
 
@@ -53,13 +53,13 @@ public class LeapYearController {
 Anhand dieser Schnittstelle können wir unterschiedliche Aspekte ermitteln, die für die Nutzung dieser Schnittstelle relevant sind.
 Diese Aspekte werden wir im weiteren Verlauf zur Definition der Contracts verwenden:
 1. Die Schnittstelle wird mit der HTTP-Methode `GET` angefragt.
-2. Die Schnittstelle erwartet den Pflicht-Parameter `year` als Zahl.
+2. Die Schnittstelle erwartet den Pflichtparameter `year` als Zahl.
 3. Die Schnittstelle antwortet im JSON-Format. 
 4. Das Response-JSON enthält das Feld `leap` vom Typ `boolean`.
 
-### Test-Basisklasse
+### Basisklasse für Tests
 Um nun Contracts zu definieren, müssen wir zunächst das Setup dafür aufbauen. 
-Dazu definieren wir eine Test-Basisklasse, um den Spring Kontext zu laden.
+Dazu definieren wir eine Basisklasse für Tests, um den Spring Kontext zu laden.
 Die aus den Contracts automatisch generierten Tests werden von dieser Klasse erben.
 
 ```java
@@ -78,7 +78,7 @@ public class BaseTestClass {
 ```
 
 ### Gradle Setup 
-Auf Producer Seite benötigen wir das Plugin [spring-cloud-contract-gradle-plugin](https://plugins.gradle.org/plugin/org.springframework.cloud.contract).
+Im Producer-Service benötigen wir das Plugin [spring-cloud-contract-gradle-plugin](https://plugins.gradle.org/plugin/org.springframework.cloud.contract).
 Das Plugin wird sich um die Generierung der Tests und Stubs kümmern:
 
 ```yaml
@@ -93,7 +93,7 @@ plugins {
 }
 ```
 
-Anschließend müssen wir das Plugin konfigurieren, indem das zu verwendende Testframework und die zuvor definierte Test-Basisklasse angegeben wird:
+Anschließend müssen wir das Plugin konfigurieren, indem das zu verwendende Testframework und die zuvor definierte Testbasisklasse angegeben wird:
 
 ```yaml
 contracts {
@@ -102,10 +102,10 @@ contracts {
 }
 ```
 
-Die generierten Stubs müssen allen potenziellen Consumern zur Verfügung gestellt werden.
+Die generierten Stubs müssen allen potenziellen Consumer-Services zur Verfügung gestellt werden.
 In realen Umgebungen würde man die Stubs üblicherweise in ein Artifactory o. ä. hochladen.
 Es gibt auch die Möglichkeit, sie in Form von Docker-Containern auszuliefern (siehe auch [Spring Cloud Contract - Docker Project](https://cloud.spring.io/spring-cloud-contract/reference/html/docker-project.html)).
-Wir verwenden jedoch für die Generierung der Stubs der Einfachheit halber das lokale Maven Repository:
+Wir verwenden jedoch für die Generierung der Stubs der Einfachheit halber das lokale Maven-Repository:
 
 ```yaml
 plugins {
@@ -128,12 +128,12 @@ publishing {
 ```
 
 ### Producer Contract
-Da nun das Setup auf Producer Seite steht, können wir den Contract definieren.
+Da nun das Setup im Producer-Service steht, können wir den Contract definieren.
 Der Contract sollte alle relevanten Aspekte enthalten, die zur Kommunikation relevant sind wie z.B. HTTP-Methode oder verpflichtende Parameter.
 All jene Aspekte, die jedoch irrelevant sind, sollten auch nicht Teil des Contracts sein (z.B. nicht ausgewertete Header), da diese zu unerwarteten Vertragsbrüchen führen können.
 Man sollte immer im Hinterkopf behalten, dass ein Contract nicht das Schema, sondern eher den Anwendungsfall abbilden soll.
 Die relevanten Aspekte hatten wir ja bereits bei Betrachtung der GET-Schnittstelle ermittelt.
-Daher definieren nun folgenden Contract:
+Daher definieren wir nun folgenden Contract:
 
 ```yaml
 description: Given a year it returns the leap year information for that year
@@ -233,19 +233,19 @@ public class LeapYearControllerTest extends BaseTestClass {
 }
 ```
 
-Auf Producer-Seite haben wir nun sichergestellt, dass die angebotene Schnittstelle gemäß dem Contract funktioniert.
+Im Producer-Service haben wir nun sichergestellt, dass die angebotene Schnittstelle gemäß dem Contract funktioniert.
 Ganz wichtig zu verstehen ist, dass der Test nicht sicherstellt, dass die Schnittstelle fachlich korrekt arbeitet, also dass 2020 tatsächlich ein Schaltjahr ist.
-Es geht stattdessen darum, sicherzustellen, dass das Antwortformat sichergestellt ist.
+Es geht stattdessen darum, dass das Antwortformat sichergestellt ist.
 
 Außerdem werden Stubs in Form einer Jar-Datei generiert.
-Die Stubs können nun von Consumern verwendet werden, um ihrerseits gegen den Contract zu implementieren.
+Die Stubs können nun in Consumer-Services verwendet werden, in welchen wiederum gegen den Contract implementiert werden kann.
 
 ## Consumer Setup
-Schauen wir uns daher die Perspektive des Consumers an.
-Der Consumer soll nun die Schnittstelle des Producers konsumieren und die generierten Stubs in seine Tests integrieren.
+Schauen wir uns daher die Perspektive im Consumer-Service an.
+Der Consumer-Service soll nun die Schnittstelle des Producer-Services konsumieren und die generierten Stubs in Tests integrieren.
 
 ### Consumer-Schnittstelle
-Wir implementieren nun zu Demonstrationszwecken eine GET-Schnittstelle, welche die Schnittstelle des Producers konsumiert: 
+Wir implementieren nun zu Demonstrationszwecken eine GET-Schnittstelle, welche die Schnittstelle des Producer-Services konsumiert: 
 ```java
 @RestController
 public class YearCheckerController {
@@ -285,11 +285,11 @@ public class YearCheckerController {
 }
 ```
 
-Die Schnittstelle nimmt einen optionalen `year` Parameter entgegen und fragt damit den Producer an.
+Die Schnittstelle nimmt einen optionalen `year` Parameter entgegen und fragt damit den Producer-Service an.
 Bei einer erfolgreichen Antwort wird diese an den anfragenden Client durchgestellt oder bei Fehlern mit einem `500 Internal Server Error` geantwortet.
 
 ### Gradle Setup
-Im Gradle Setup des Consumers ergänzen wir das lokale Maven Repository als Quelle:
+Im Gradle Setup des Consume-Service ergänzen wir das lokale Maven-Repository als Quelle:
 
 ```yaml
 buildscript {
@@ -304,7 +304,7 @@ repositories {
 }
 ```
 
-Außerdem benötigen wir noch die Abhängigkeiten zum [spring-cloud-contract-stub-runner](https://cloud.spring.io/spring-cloud-contract/2.1.x/multi/multi__spring_cloud_contract_stub_runner.html) und zu den Stubs des Producers:
+Außerdem benötigen wir noch die Abhängigkeiten zum [spring-cloud-contract-stub-runner](https://cloud.spring.io/spring-cloud-contract/2.1.x/multi/multi__spring_cloud_contract_stub_runner.html) und zu den Stubs des Producer-Services:
 
 ```yaml
 dependencies {
@@ -317,17 +317,17 @@ dependencies {
 
 ### Test Setup
 Nun wollen wir sicherstellen, dass der Producer-Service korrekt angebunden wurde.
-Üblicherweise würde man nun für den Producer Service händisch Mocks anlegen.
-Stattdessen verwenden wir für die Mocks aber die generierten Stubs des Producers.
+Üblicherweise würde man nun für den Producer-Service händisch Mocks anlegen.
+Stattdessen verwenden wir für die Mocks aber die generierten Stubs des Producer-Services.
 Dazu bietet Spring Cloud Contract die Möglichkeit von sogenannten [Contract Stub Runnern](https://cloud.spring.io/spring-cloud-contract/2.1.x/multi/multi__spring_cloud_contract_stub_runner.html).
 Diese vereinfachen die Integration von extern generierten Stubs in die Testumgebung.
-Dies erfolgt, indem die benötigten Stubs automatisch zur Test-Laufzeit heruntergeladen und ausgeführt werden.
+Dies erfolgt, indem die benötigten Stubs automatisch zur Testlaufzeit heruntergeladen und ausgeführt werden.
 Bei der Quelle der Stubs hat man unterschiedliche Auswahlmöglichkeiten:
 * `CLASSPATH`: Die Stubs werden vom Java-Klassenpfad geladen.
-* `LOCAL`: Die Stubs werden von dem lokalen Maven Repository (.m2 Verzeichnis) geladen.
+* `LOCAL`: Die Stubs werden von dem lokalen Maven-Repository (.m2 Verzeichnis) geladen.
 * `REMOTE`: Die Stubs werden von einer externen Quelle geladen (z.B. Artifactory)
 
-Der Einfachheit halber verwenden wir das lokale Maven Verzeichnis.
+Der Einfachheit halber verwenden wir das lokale Maven-Repository.
 Die Testklasse sieht daher wie folgt aus:
 
 ```java
@@ -360,25 +360,25 @@ class YearCheckerControllerTest {
 }
 ```
 
-Nun können wir die Consumer Tests ausführen:
+Nun können wir die Consumer-Tests ausführen:
 ```console
 gradle clean test
 ```
 
-Wie man sieht, benötigen wir kein händisches Mocking des Producer-Service.
+Wie man sieht, benötigen wir kein händisches Mocking des Producer-Services.
 Im Build-Prozess werden automatisch die Producer-Stubs integriert.
-Dadurch fällt nun jede Änderung aufseiten des Producers bei Ausführung der Consumer-Tests auf.
+Dadurch fällt nun jede Änderung aufseiten des Producer-Services bei Ausführung der Consumer-Tests auf.
 Dies ist natürlich nur der Fall, sofern der Contract gebrochen wurde.
-Das hier beschriebene Setup lässt sich als Producer-Driven Contract Testing beschreiben.
-Denn die Contracts sind ausgehend vom Producer definiert und Stubs angeboten worden.
-Ebenso könnte man das Verfahren umkehren, sodass der Consumer seine Anforderungen in Form von Contracts an den Producer mitteilt.
-Dies nennt man Consumer-Driven Contract Testing.
+Das hier beschriebene Setup lässt sich als *Producer-Driven Contract Testing* beschreiben.
+Denn die Contracts sind ausgehend vom Producer-Service definiert und Stubs angeboten worden.
+Ebenso könnte man das Verfahren umkehren, sodass der Consumer-Service seine Anforderungen in Form von Contracts an den Producer-Service mitteilt.
+Dies nennt man *Consumer-Driven Contract Testing*.
 Die technische Umsetzung dazu wäre analog zu dem hier gezeigten.
 
 ## Fazit
 Wir haben nach ein wenig Konfigurationsaufwand gesehen, dass das Contract-Driven Development mit Spring Cloud Contract recht unkompliziert möglich ist.
-Contracts bieten den Vorteil im laufenden Entwicklungsprozess Breaking Changes früher (oder überhaupt) erkennen zu können.
-Spring Cloud Contract bietet die technische Möglichkeit sowohl den Consumer-Driven als auch den Producer-Driven Contract Testing Ansatz umzusetzen.
+Contracts bieten den Vorteil im laufenden Entwicklungsprozess Breaking-Changes früher (oder überhaupt) erkennen zu können.
+Spring Cloud Contract bietet die technische Möglichkeit sowohl den Ansatz des Consumer-Driven als auch des Producer-Driven Contract Testings umzusetzen.
 Für welchen der beiden Wege man sich letztlich entscheidet, sollte im jeweiligen Projektkontext mit den beteiligten Parteien abgestimmt werden.
 
 Das vollständige Beispielprojekt steht in [Github](https://github.com/g-stone7/spring-cloud-contract-showroom) zur Verfügung.
