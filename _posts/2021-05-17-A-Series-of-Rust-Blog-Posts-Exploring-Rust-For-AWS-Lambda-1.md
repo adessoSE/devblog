@@ -21,7 +21,7 @@ This Post is therefore the first of what I plan to be three of this kind.
 
 # The Contents
 
-In this post we will develop a function for AWS lambda using Rust that we will be able to then upload and test on AWS.
+In this post we will develop a function for AWS lambda using Rust that we will be able upload and test on AWS.
 
 I presume you are somewhat familiar with one AWS service or the other but just in case you have not come across lambda or the AWS CLI yet you can find links for further information on both these topics below:
 
