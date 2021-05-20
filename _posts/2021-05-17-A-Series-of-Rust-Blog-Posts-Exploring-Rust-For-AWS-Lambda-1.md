@@ -25,16 +25,16 @@ In this post we will develop a function for AWS lambda using Rust that we will b
 
 I presume you are somewhat familiar with one AWS service or the other but just in case you have not come across lambda or the AWS CLI yet you can find links for further information on both these topics below:
 
-* (AWS Lambda)[https://docs.aws.amazon.com/lambda/latest/dg/welcome.html]
-* (AWS CLI)[https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html]
+* [AWS Lambda](https://docs.aws.amazon.com/lambda/latest/dg/welcome.html)
+* [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html)
 
 # The Groundwork
 
 This is what I'm gonna be using:
 
-- Rust (Up) <https://www.rust-lang.org/learn/get-started>
-- Visual Studio Code: <https://code.visualstudio.com>
-- AWS CLI: <https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html>
+- [Rust (Up)](https://www.rust-lang.org/learn/get-started)
+- [Visual Studio Code](https://code.visualstudio.com)
+- [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html)
 
 Just follow the links for installation instructions.
 
