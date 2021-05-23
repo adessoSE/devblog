@@ -44,7 +44,7 @@ Eine Mitarbeiterin oder ein Mitarbeiter des Fachbereichs möchte eine _Reisebuch
 Weiterhin ist mindestens ein _Reise-Betrieb_ zur Durchführung der Reise festzulegen.
 Hat nun die _Rechnung_ in diesem Aufgabenfeld keine Relevanz, ist die _Rechnung_ nicht Teil des Kontexts zur Erstellung einer _Reisebuchung_.
 
-Die _Ubiquitous Language_ kann durch wiederkehrenden Meetings zwischen den Teams aus der Fachabteilung und den Teams aus der Entwicklung aufgebaut werden. 
+Die _Ubiquitous Language_ kann durch wiederkehrenden Meetings zwischen den Teams aus der Fachabteilung und der Entwicklung aufgebaut werden. 
 In den Meetings stellen die Mitarbeiterinnen und Mitarbeiter der Fachabteilung die Anforderungen an das System durch Beschreibung der eigenen Aufgaben vor.
 Die Entwicklerinnen und Entwickler greifen die Anforderungen auf und teilen ihr Verständnis hiervon durch Modellierung der Domäne mit.
 Der Fachbereich überprüft und korrigiert das von den Entwicklerinnen und Entwicklern aufgenommene Verständnis.
