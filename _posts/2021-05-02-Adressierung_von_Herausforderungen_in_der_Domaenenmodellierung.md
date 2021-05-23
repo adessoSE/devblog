@@ -123,7 +123,7 @@ Als fachliche Invariantenprüfung können wir uns beispielsweise vorstellen, das
 
 Die Verwendung von _Aggregates_ ermöglicht eine fachliche Gruppierung der Domänenelemente sowie eine lose Kopplung dieser innerhalb einer _Subdomain_.
 Die lose Kopplung wird dadurch erreicht, dass nur das _Aggregate-Root_ für Abhängigkeiten außerhalb des _Aggregates_ verwendet wird.
-Außerdem wird die fachliche Konsistenz erhöht, da eine Invarianten-Prüfung in den _Aggregates_ angewandt wird.
+Außerdem wird die fachliche Konsistenz erhöht, da eine Invariantenprüfung in den _Aggregates_ angewandt wird.
 
 ## Fazit
 
