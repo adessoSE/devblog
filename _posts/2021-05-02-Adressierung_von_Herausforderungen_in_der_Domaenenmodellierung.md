@@ -107,7 +107,7 @@ Wir stehen weiterhin vor der Herausforderung, wie die Abhängigkeiten unter den 
 DDD bietet hierzu das Konzept der _Aggregates_.
 Ein _Aggregate_ fasst ein oder mehrere Domänenelemente zusammen, die fachlich gemeinsam relevant sind.
 Dies kann bedeuten, dass ein _Aggregate_ aus lediglich einer _Entity_ besteht, da diese separat betrachtet werden kann.
-Jedoch ist auch möglich, dass eine _Entity_ oder ein _Value_ nur dann fachlich relevant ist, wenn bereits eine andere _Entity_ betrachtet wird.
+Jedoch ist es auch möglich, dass eine _Entity_ oder ein _Value_ nur dann fachlich relevant ist, wenn bereits eine andere _Entity_ betrachtet wird.
 In diesem Fall ist eine Zusammenfassung in einem _Aggregate_ sinnvoll.
 Die _Entity_, die hierbei vordergründig betrachtet wird, dient als Einstiegspunkt für das _Aggregate_ und wird als _Aggregate-Root_ bezeichnet.
 Dies bedeutet insbesondere, dass ein Zugriff auf ein anderes Element des _Aggregates_ nur über das _Aggregate-Root_ möglich ist.
