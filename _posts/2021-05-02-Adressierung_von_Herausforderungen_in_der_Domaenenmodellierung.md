@@ -13,7 +13,7 @@ _Domain Driven Design_, kurz DDD, ist eine Sammlung von Werkzeugen, um die Model
 DDD wurde erstmalig durch Eric Evans in seinem Buch _Domain Driven Design - Tackling Complexity in the Heart of Software_ beschrieben.
 
 In dem adesso Blog [Herausforderungen in der Domänenmodellierung](https://www.adesso.de/de/news/blog/herausforderungen-in-der-domaenenmodellierung.jsp) werden einige Herausforderungen in der Domänenmodellierung nach DDD beschrieben.
-Es wird die Notwendigkeit für ein gemeinsames Domänenverständnis innerhalb des Projektteams aufgezeigt.
+Es wird die Notwendigkeit für ein gemeinsames Domänenverständnis innerhalb der Projektteams aufgezeigt.
 Zudem wird auf die Möglichkeit einer hohen Domänenkomplexität hingewiesen.
 In der Detailmodellierung ist die Modellierung der Domänenelemente notwendig.
 Weiterhin ist das Gestalten der Abhängigkeiten zwischen den zuvor ermittelten Domänenelementen zu betrachten.
@@ -28,7 +28,7 @@ Die Herausforderung für ein gemeinsames Domänenverständnis können wir in DDD
 Diese wird als _Ubiquitous Language_, also _allgegenwärtige Sprache_, bezeichnet. 
 Sie beinhaltet die in der Domäne wichtigen Begriffe und Funktionen, die in einem begrenzten fachlichen Kontext zu modellieren sind.
 In DDD wird für den Kontext der Begriff _Bounded Context_ verwendet.
-Die Begriffe und Funktionen können wir unter den Mitarbeiterinnen und Mitarbeitern bekannt machen, die in der Softwareentwicklung beteiligt sind.
+Die Begriffe und Funktionen können wir unter den Teams bekannt machen, die an dem Projekt beteiligt sind.
 Dies sind insbesondere die Teams aus der Entwicklung, die das fachliche Modell erstellen, und die Teams aus der Fachabteilung mit Domänenexpertise, die zur Anforderungsanalyse zur Verfügung stehen.
 Das gemeinsame Domänenverständnis wird somit durch Anwendung der gemeinsamen Domänensprache erreicht.
 
