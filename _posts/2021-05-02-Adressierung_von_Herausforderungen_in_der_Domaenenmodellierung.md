@@ -127,7 +127,7 @@ Außerdem wird die fachliche Konsistenz erhöht, da eine Invariantenprüfung in 
 
 ## Fazit
 
-In diesem Blog wurden wiederkehrende Herausforderungen in der Domänenmodellierung nach DDD aufgegriffen.
+In diesem Blogartikel wurden wiederkehrende Herausforderungen in der Domänenmodellierung nach DDD aufgegriffen.
 Es wurden Maßnahmen vorgestellt, die diese wiederkehrenden Herausforderungen adressieren.
 Die Herausforderung eines gemeinsamen Domänenverständnisses wird mit der _Ubiquitous Language_ und dem _Bounded Context_ adressiert.
 Der Möglichkeit einer hohen Domänenkomplexität wird mit Verwendung mehrerer _Subdomains_ begegnet.
