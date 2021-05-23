@@ -97,7 +97,7 @@ In unserem Beispiel sind die Elemente _Reisebuchung_, _Kunde_ und _Reise-Betrieb
 Ein _Kunde_ beispielsweise definiert sich nicht ausschließlich über seine Eigenschaften, wie Vor- und Nachname.
 Ein _Verkehrsmittel_ hat die Eigenschaften _Verkehrs-Typ_, _Startpunkt_ und _Endpunkt_.
 In unserem vereinfachten Beispiel dient das Element lediglich zu optionalen Planungszwecken in der Endanwendung.
-Die Fachabteilung benötigt keine eindeutige Identifikation und das _Verkehrsmittel_ kann als _Value_ modelliert werden.
+Die Fachabteilung benötigt hier keine eindeutige Identifikation und das _Verkehrsmittel_ kann als _Value_ modelliert werden.
 
 Durch die Modellierung in _Entities_ und _Values_ rückt der fachliche Zweck der einzelnen Domänenelemente in den Vordergrund.
 
