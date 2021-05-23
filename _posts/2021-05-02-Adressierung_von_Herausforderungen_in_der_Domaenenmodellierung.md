@@ -44,11 +44,13 @@ Eine Mitarbeiterin oder ein Mitarbeiter des Fachbereichs möchte eine _Reisebuch
 Weiterhin ist mindestens ein _Reise-Betrieb_ zur Durchführung der Reise festzulegen.
 Hat nun die _Rechnung_ in diesem Aufgabenfeld keine Relevanz, ist die _Rechnung_ nicht Teil des Kontexts zur Erstellung einer _Reisebuchung_.
 
-Die _Ubiquitous Language_ kann durch wiederkehrenden Meetings zwischen den Teams aus der Fachabteilung und der Entwicklung aufgebaut werden. 
+Die _Ubiquitous Language_ kann durch wiederkehrende Meetings zwischen den Teams aus der Fachabteilung und der Entwicklung aufgebaut werden. 
 In den Meetings stellen die Mitarbeiterinnen und Mitarbeiter der Fachabteilung die Anforderungen an das System durch Beschreibung der eigenen Aufgaben vor.
-Die Entwicklerinnen und Entwickler greifen die Anforderungen auf und teilen ihr Verständnis hiervon durch Modellierung der Domäne mit.
+Die Entwicklerinnen und Entwickler greifen die in den Anforderungen erwähnten Fachbegriffe und Funktionen auf und teilen ihr Verständnis hiervon durch Modellierung der Domäne mit.
 Der Fachbereich überprüft und korrigiert das von den Entwicklerinnen und Entwicklern aufgenommene Verständnis.
-So kann sich im Verlaufe der Gespräche herausstellen, dass ein _Verkehrsmittel_ zu Planungszwecken relevant sein kann.
+Die Korrekturen können sich auf die fachliche Bedeutung der aufgegriffenen Fachbegriffe und Funktionen beziehen.
+Es kann aber auch zu Ergänzungen neuer Fachbegriffe und Funktionen kommen.
+So kann sich im Verlaufe der Gespräche unseres Beispiels herausstellen, dass ein _Verkehrsmittel_ zu Planungszwecken relevant sein kann.
 
 ![Initiales Domänenmodell](/assets/images/posts/Adressierung-von-Herausforderungen-in-der-Domaenenmodellierung/bild_01_initiales_domaenenmodell.png)
 
