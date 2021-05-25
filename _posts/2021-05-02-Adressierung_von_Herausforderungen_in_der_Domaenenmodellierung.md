@@ -49,8 +49,8 @@ In den Meetings stellen die Mitarbeiterinnen und Mitarbeiter der Fachabteilung d
 Die Entwicklerinnen und Entwickler greifen die in den Anforderungen erwähnten fachlichen Begriffe und Funktionen auf und teilen ihr Verständnis hiervon durch Modellierung der Domäne mit.
 Der Fachbereich überprüft und korrigiert das von den Entwicklerinnen und Entwicklern aufgenommene Verständnis.
 Die Korrekturen können sich auf die fachliche Bedeutung der aufgegriffenen Begriffe und Funktionen beziehen.
-Es kann aber auch zu Ergänzungen neuer Begriffe und Funktionen kommen.
-So kann sich im Verlaufe der Gespräche unseres Beispiels herausstellen, dass ein _Verkehrsmittel_ zu Planungszwecken relevant sein kann.
+Es kann aber auch zur Ergänzung neuer Begriffe und Funktionen kommen.
+So kann sich im Verlauf der Gespräche unseres Beispiels herausstellen, dass ein _Verkehrsmittel_ zu Planungszwecken relevant sein kann.
 
 ![Initiales Domänenmodell](/assets/images/posts/Adressierung-von-Herausforderungen-in-der-Domaenenmodellierung/bild_01_initiales_domaenenmodell.png)
 
