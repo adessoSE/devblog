@@ -242,10 +242,10 @@ Die Stubs können nun in Consumer-Services verwendet werden, in welchen wiederum
 
 ## Consumer Setup
 Schauen wir uns daher die Perspektive im Consumer-Service an.
-Der Consumer-Service soll nun die Schnittstelle des Producer-Services konsumieren und die generierten Stubs in Tests integrieren.
+Der Consumer-Service soll nun die Schnittstelle des Producer-Service konsumieren und die generierten Stubs in Tests integrieren.
 
 ### Consumer-Schnittstelle
-Wir implementieren nun zu Demonstrationszwecken eine GET-Schnittstelle, welche die Schnittstelle des Producer-Services konsumiert: 
+Wir implementieren nun zu Demonstrationszwecken eine GET-Schnittstelle, welche die Schnittstelle des Producer-Service konsumiert: 
 ```java
 @RestController
 public class YearCheckerController {
@@ -304,7 +304,7 @@ repositories {
 }
 ```
 
-Außerdem benötigen wir noch die Abhängigkeiten zum [spring-cloud-contract-stub-runner](https://cloud.spring.io/spring-cloud-contract/2.1.x/multi/multi__spring_cloud_contract_stub_runner.html) und zu den Stubs des Producer-Services:
+Außerdem benötigen wir noch die Abhängigkeiten zum [spring-cloud-contract-stub-runner](https://cloud.spring.io/spring-cloud-contract/2.1.x/multi/multi__spring_cloud_contract_stub_runner.html) und zu den Stubs des Producer-Service:
 
 ```yaml
 dependencies {
@@ -318,7 +318,7 @@ dependencies {
 ### Test Setup
 Nun wollen wir sicherstellen, dass der Producer-Service korrekt angebunden wurde.
 Üblicherweise würde man nun für den Producer-Service händisch Mocks anlegen.
-Stattdessen verwenden wir für die Mocks aber die generierten Stubs des Producer-Services.
+Stattdessen verwenden wir für die Mocks aber die generierten Stubs des Producer-Service.
 Dazu bietet Spring Cloud Contract die Möglichkeit von sogenannten [Contract Stub Runnern](https://cloud.spring.io/spring-cloud-contract/2.1.x/multi/multi__spring_cloud_contract_stub_runner.html).
 Diese vereinfachen die Integration von extern generierten Stubs in die Testumgebung.
 Dies erfolgt, indem die benötigten Stubs automatisch zur Testlaufzeit heruntergeladen und ausgeführt werden.
@@ -365,9 +365,9 @@ Nun können wir die Consumer-Tests ausführen:
 gradle clean test
 ```
 
-Wie man sieht, benötigen wir kein händisches Mocking des Producer-Services.
+Wie man sieht, benötigen wir kein händisches Mocking des Producer-Service.
 Im Build-Prozess werden automatisch die Producer-Stubs integriert.
-Dadurch fällt nun jede Änderung aufseiten des Producer-Services bei Ausführung der Consumer-Tests auf.
+Dadurch fällt nun jede Änderung aufseiten des Producer-Service bei Ausführung der Consumer-Tests auf.
 Dies ist natürlich nur der Fall, sofern der Contract gebrochen wurde.
 Das hier beschriebene Setup lässt sich als *Producer-Driven Contract Testing* beschreiben.
 Denn die Contracts sind ausgehend vom Producer-Service definiert und Stubs angeboten worden.
