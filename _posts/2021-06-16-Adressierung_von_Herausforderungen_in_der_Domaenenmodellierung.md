@@ -1,11 +1,11 @@
 ---
 layout: [post, post-xml]              # Pflichtfeld. Nicht ändern!
 title:  "Adressierung von Herausforderungen in der Domänenmodellierung"         # Pflichtfeld. Bitte einen Titel für den Blog Post angeben.
-date:   2021-05-02 13:00              # Pflichtfeld. Format "YYYY-MM-DD HH:MM". Muss für Veröffentlichung in der Vergangenheit liegen. (Für Preview egal)
-modified_date: 2021-05-02 13:00             # Optional. Muss angegeben werden, wenn eine bestehende Datei geändert wird.
+date:   2021-06-16 13:00              # Pflichtfeld. Format "YYYY-MM-DD HH:MM". Muss für Veröffentlichung in der Vergangenheit liegen. (Für Preview egal)
+modified_date: 2021-06-16 13:00             # Optional. Muss angegeben werden, wenn eine bestehende Datei geändert wird.
 author: viktor-mucha                  # Pflichtfeld. Es muss in der "authors.yml" einen Eintrag mit diesem Namen geben.
-categories: [Softwareentwicklung]                    # Pflichtfeld. Maximal eine der angegebenen Kategorien verwenden.
-tags: [Domain Driven Design, Modellierung, Architektur]         # Bitte auf Großschreibung achten.
+categories: [Architektur]                    # Pflichtfeld. Maximal eine der angegebenen Kategorien verwenden.
+tags: [Domain Driven Design, Modellierung]         # Bitte auf Großschreibung achten.
 ---
 
 Von zentraler Bedeutung für die Softwareentwicklung ist die Modellierung der Fachdomäne.
