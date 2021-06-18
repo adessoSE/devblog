@@ -119,7 +119,7 @@ Dies kann somit auf die IT-Sicherheit verschiedenster Unternehmen (ohne entsprec
 Im zweiten Teil dieses Artikels wird vermehrt auf die Auswirkung solcher kognitiven Verzerrungen in der Zusammenarbeit und Implementierung in der Softwareentwicklung eingegangen. 
 Außerdem wird darauf eingegangen, was getan werden kann, dass die Wahrnehmungen des Menschen nicht zur Sicherheitslücke werden. 
 
-Wer in der Zwischenzeit mehr über unsere Denksysteme, dem sei das Buch „Schnelles Denken, langsames Denken“ von Daniel Kahnemann empfohlen.
+Wer in der Zwischenzeit mehr über unsere Denksysteme erfahren möchte, dem sei das Buch „Schnelles Denken, langsames Denken“ von Daniel Kahnemann empfohlen.
 
 Weitere Informationen zu DeepFakes gibt es in den Videos von [Leschs Kosmos](https://www.zdf.de/wissen/leschs-kosmos/deepfakes-der-manipulation-ausgeliefert-100.html) und im Youtube Video von [funk](https://www.youtube.com/watch?v=EFR1XYZXhdU) zu sehen. 
 
