@@ -1,8 +1,8 @@
 ---
 layout: [post, post-xml]
 title:  "Konvertierung einer REST-API zu einer SOAP-Schnittstelle mithilfe von Kong"
-date:   2021-04-12 14:45
-modified_date: 2021-05-10 12:10
+date:   2021-06-18 16:00
+modified_date: 2021-06-18 16:00
 author: DanielKraft
 categories: [Softwareentwicklung]
 tags: [Kong, SOAP, REST, Lua]
