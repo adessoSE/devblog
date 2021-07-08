@@ -44,6 +44,9 @@ kramdown:
 encoding: "utf-8"
 markdown_ext: "markdown,mkdown,mkdn,mkd,md"
 
+feed:
+  path: feed.xml
+
 # Konfiguration für das Erstellen der Bilder
 mini_magick:
     fullScreen_1600:
