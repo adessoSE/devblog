@@ -27,17 +27,6 @@
             {{page.date | date: "%s%L"}}
             {%- endif -%}
             ]]></field>
-        <!--Picture-->
-        <!-- Not in use at the moment
-    {%- if page.images -%}
-        {% for image in page.images%}
-        <field name="pictureInOverview_stored_only"><![CDATA[assets/images/originals/{{image}}]]></field>
-        <field name="pictureInOverview_W960xH640_CUTOUT"><![CDATA[assets/images/Cropped_Resized//{{image}}]]></field>
-        <field name="pictureInOverview_W576xH384_CUTOUT"><![CDATA[/images/Cropped_Resized//{{image}}]]></field>
-        <field name="pictureInOverview_W700xH467_CUTOUT"><![CDATA[/images/Cropped_Resized//{{image}}]]></field>
-        {% endfor %}
-    {%- endif -%}
-        -->
         <!--Author Information-->
         {% for id in page.author_ids %}
         <field name="author_id"><![CDATA[{{ id }}]]></field>
