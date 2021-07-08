@@ -39,13 +39,9 @@
     {%- endif -%}
         -->
         <!--Author Information-->
-        <field name="author_first_name"><![CDATA[{{author.first_name}}]]></field>
-        <field name="author_last_name"><![CDATA[{{author.last_name}}]]></field>
-        <field name="author_id"><![CDATA[{{author.github_username}}]]></field>
         {% for id in page.author_ids %}
-        <field name="author_id_multi_keyword"><![CDATA[{{ id }}]]></field>
+        <field name="author_id"><![CDATA[{{ id }}]]></field>
         {%- endfor -%}
-        <field name="author_picture_stored_only"><![CDATA[{{ author.avatar_url | prepend: site.baseurl | prepend:site.url }}]]></field>
         <!--Postcontent-->
         <field name="headlines"><![CDATA[{{ page.title }}]]></field>
         <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
