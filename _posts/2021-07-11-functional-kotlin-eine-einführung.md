@@ -24,7 +24,7 @@ In diesem Blogeintrag widmen wir uns der Programmiersprache Kotlin.
 Wir werfen einen kurzen Blick auf die Ursprünge der Sprache, wie sie aufgebaut ist und mit welchen Designprinzipien im Hinterkopf sie entworfen wurde. 
 An Beispielen betrachten wir die Best Practices und stellen uns dabei die Frage: Was hat das mit funktionaler Programmierung zu tun?
 
-## Kotlin
+# Kotlin
 
 Vor zehn Jahren (2011) stellte JetBrains erstmals die Open-Source Programmiersprache Kotlin auf dem [JVM Language Summit](https://blog.jetbrains.com/kotlin/2011/07/hello-world-2/) vor -- "Eine Sprache einfach genug für den gewöhnlichen Entwickler und produktiv genug für moderne Anforderungen an Projekte". 
 Die Sprache setzt auf der Java Virtual Machine (JVM) auf und erschien 2016 in der ersten Release-Version. 
@@ -40,7 +40,7 @@ Im [PYPL-Index](https://pypl.github.io/PYPL.html)[^2] belegt Kotlin den 11. Plat
 
 Kotlin, eine statisch typisierte Programmiersprache, ist voll interoperabel zu Java-Programmen und -Bibliotheken und kann ohne aufwändige Integration in bereits bestehende Projekte eingepflegt werden.
 
-### Grundlagen
+## Grundlagen
 Jeder Einstieg in eine Programmiersprache fängt gleich an. 
 Man muss sich an die Syntax gewöhnen. 
 Folgendes Beispiel zeigt ein kleines in Kotlin geschriebenes Programm, welches zuerst das Ergebnis einer Instanzmethode und dann das einer statischen Methode ausgibt:
@@ -74,7 +74,7 @@ Wie das Beispiel oben auch zeigt, habe ich einen primären Konstruktor für die 
 Die in den Klammern des Konstruktors angegebenen Properties (hier *member*) entsprechen direkt einer Deklaration dieser als Teil der Klasse.
 Auch die Semikolons können wir in den meisten Fällen weglassen.
 
-### Nullsicherheit
+## Nullsicherheit
 Eine Ärgerlichkeit, mit der wir uns als Entwicklerinnen und Entwickler im Alltag häufig auseinandersetzen müssen ist das Behandeln von Nullpointer-Exceptions; 
 Also das Fehlen von Daten an Stellen, an denen das Programm welche erwartet hat. 
 ([My billion-dollar mistake](https://www.infoq.com/presentations/Null-References-The-Billion-Dollar-Mistake-Tony-Hoare/))
@@ -145,7 +145,7 @@ val string = head.next?.next?.value?:"default"
 
 So kann sichergestellt werden, dass null-Werte innerhalb der Anwendung angemessen behandelt werden können.
 
-### Immutabilität
+## Immutabilität
 In den beiden Beispielen der vorherigenen Sektionen habe ich das `val`- und das `var`-Schlüsselwort zur Definition von Werten genutzt. 
 `val` wird genutzt um einen zur Laufzeit unveränderlichen Wert zu definieren (anders noch als `const`, welches für unveränderliche, zur Kompilierzeit bekannte, Werte steht). 
 Es ist vergleichbar mit `final` aus Java.
@@ -190,7 +190,7 @@ An dieser Stelle bediene ich mich zusätzlich an einigen Punkten, auf die man zu
 
 Ich denke diese kurze Übersicht ergibt Sinn und spricht für sich selbst, dass der Aufwand für Immutabilität im Verältnis zu den Vorteilen in den meisten Fällen gering ausfallen dürfte.
 
-### Funktionale Programmierung
+# Funktionale Programmierung
 An dieser Stelle macht es Sinn, die funktionalen Programmierung ins Spiel zu bringen. 
 Was ist funktionale Programmierung und wie kann sie uns bei unserer Arbeit helfen?
 Die funktionale Programmierung ist ein Ansatz der Programmierung, die Verarbeitung von Daten nicht anweisungsgetrieben (imperativ, wie z.B. in Java) zu konzipieren, sondern aus einer mathematischen Perspektive heraus -- funktional -- zu betrachten.
@@ -217,7 +217,7 @@ strings.filter { it.length == 5 }
 Auch wenn beide Beispiele hier nur einfache sind, empfinde ich persönlich die Kotlin-seitigen Lösungen häufig intuitiver und kürzer als das bei Java der Fall ist. 
 Allein der Wegfall der Konvertierungen reduziert den Boilerplate-Code und erleichtert damit die Wartung der Software.
 
-### map, reduce, filter, ...
+## map, reduce, filter, ...
 Die `filter`-Methode haben wir gerade eben kennengelernt. 
 Wie der Name beschreibt, kann sie genutzt werden, um Elemente aus einer Menge an Daten herauszufiltern.
 Die zwei wichtigen anderen Methoden, die häufig eingesetzt werden sind die `map`- und die `reduce`-Methode.
@@ -240,7 +240,7 @@ Statt uns mit der Iteration beschäftigen zu müssen, erlaubt diese Heransgehens
 `Map`, `filter` und `reduce` sind Beispiele für sogenannte [Funktionen höherer Ordnung](https://kotlinlang.org/docs/lambdas.html), denn sie nehmen nicht nur einfache Werte als Parameter entgegen, sondern erwarten Funktionen, die sie während ihrer Ausführung ausrufen können.
 Ihre Flexibilität im Kern, während sie einen klaren Rahmen für die Verarbeitung von Daten in einer bestimmten Art und Weise schaffen, machen sie zu mächtigen Werkzeugen.
 
-### Extension Functions
+## Extension Functions
 
 ```Kotlin
 inline fun <S, T : S> Iterable<T>.reduce(
@@ -301,7 +301,7 @@ val category = item.category?.getCategoryByCategoryId()
 ```
 
 
-## Funktionales Testen mit Property Based Testing
+# Funktionales Testen mit Property Based Testing
 
 ![Available automated test technics](/assets/images/posts/functional-kotlin-eine-einführung/available-automated-test-technics.png)
 
