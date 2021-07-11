@@ -304,6 +304,7 @@ val category = item.category?.getCategoryByCategoryId()
 ## Funktionales Testen mit Property Based Testing
 
 ![Available automated test technics](/assets/images/posts/functional-kotlin-eine-einführung/available-automated-test-technics.png)
+
 [Bildquelle](https://medium.com/criteo-engineering/introduction-to-property-based-testing-f5236229d237)
 
 Nehmen wir das, was wir bis jetzt betrachtet haben, ergeben sich daraus auch neue Möglichkeiten Softwarequalität sicherzustellen. 
