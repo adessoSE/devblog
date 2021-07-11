@@ -28,9 +28,11 @@ An Beispielen betrachten wir die Best Practices und stellen uns dabei die Frage:
 
 Vor zehn Jahren (2011) stellte JetBrains erstmals die Open-Source Programmiersprache Kotlin auf dem [JVM Language Summit](https://blog.jetbrains.com/kotlin/2011/07/hello-world-2/) vor -- "Eine Sprache einfach genug für den gewöhnlichen Entwickler und produktiv genug für moderne Anforderungen an Projekte". 
 Die Sprache setzt auf der Java Virtual Machine (JVM) auf und erschien 2016 in der ersten Release-Version. 
-2017 wurde sie von Google offiziell zur Entwicklung von Android-Apps unterstützt und ist seit 2019 Googles bevorzugte Sprache für diese Plattform. 
+2017 wurde sie von Google offiziell zur Entwicklung von Android-Apps unterstützt und ist seit 2019 Googles bevorzugte Sprache für diese Plattform.
+
 Im [TIOBE-Index](https://www.tiobe.com/tiobe-index/)[^1] rangiert Kotlin aktuell (Juli 2021) auf Platz 38 der beliebtesten Programmiersprachen. 
 Betrachtet man ausschließlich die JVM-spezifischen Sprachen steht Kotlin dort auf Platz 4 (übertrumpft von #36 Scala, #15 Groovy und #2 Java). 
+
 Im [PYPL-Index](https://pypl.github.io/PYPL.html)[^2] belegt Kotlin den 11. Platz.
 
 [^1]:TIOBE zählt die gefundenen Ergebnisse zu Programmiersprachen aus verschiedenen Suchmaschinen.
@@ -98,7 +100,7 @@ So sind wir als Entwickler immer informiert, wann Daten potentiell undefinierte 
 `"Kotlin: Null can not be a value of a non-null type Double"`
 Manchmal lässt es sich allerdings auch nicht vermeiden, oder ist erwünscht, dass ein null Wert übernommen wird;
 Zum Beispiel an Schnittstellen, wenn kein Default-Wert Sinn ergibt.
-Dazu kann die Entwicklerin oder der Entwickler Werte mit einem `?` markieren, dass sie null (*nullable*) sein  dürfen: 
+Dazu kann die Entwicklerin oder der Entwickler Werte mit einem `?` markieren, dass sie null (*nullable*) sein dürfen: 
 `val vat: Double? = null`
 Hier kommt die Arbeit zum Vorschein, die uns der Compiler durch diese kleine Änderung abnimmt: `product.getConsumerPrice(vat)` wird mit dem `Double?`aufgerufen, aber `getConsumerPrice(vat: Double)` erwartet einen Wert, der nicht null ist.
 Auch das erkennt der Compiler und gibt `Type mismatch: inferred type is Double? but Double was expected`zurück.
@@ -116,7 +118,7 @@ class Node {
 ...
 head.next.next.value;
 ```
-Die Suche von *value* in dem Beispiel kann, wenn einer der Zwischenaufrufe null ist, zu einer `NullpointerException` führen.
+Die Suche von `value` in dem Beispiel kann, wenn einer der Zwischenaufrufe null ist, zu einer `NullpointerException` führen.
 Um dieses Problem zu umgehen, müssen wir zwischen den Aufrufen null-Checks einführen. 
 Um Platz zu sparen schreibe ich die Prüfungen direkt als ternäre Operationen:
 ```java
@@ -133,7 +135,7 @@ class Node(val next: Node?, val value: String)
 val head = Head(null) // Bei der Initialisierung muss ich den Wert für 'next' direkt angeben und kann ihn nicht unbestimmt lassen
 val string = head.next?.next?.value
 ```
-Dieser Aufruf führt zu keiner NullpointerException, sondern weist `string` null zu, da bereits der Aufruf von `head.next?` null ist. 
+Dieser Aufruf führt zu keiner `NullpointerException`, sondern weist `string` null zu, da bereits der Aufruf von `head.next?` null zurückgibt. 
 Der Wert ist dabei implizit vom Typ `String?`, wodurch auch alle folgenden Aufrufe vom Compiler wieder geprüft werden.
 
 Alternativ kann der Elvis-Opeator `?:` genutzt werden, um in solchen Fällen direkt einen Standardwert zuzuweisen, sodass statt `String?` der Typ `String` inferiert wird.
@@ -141,7 +143,7 @@ Alternativ kann der Elvis-Opeator `?:` genutzt werden, um in solchen Fällen dir
 val string = head.next?.next?.value?:"default"
 ```
 
-So kann sichergestellt werden, dass null-Werte innerhalb der Anwendung angemessen behandelt werden können.  
+So kann sichergestellt werden, dass null-Werte innerhalb der Anwendung angemessen behandelt werden können.
 
 ### Immutabilität
 In den beiden Beispielen der vorherigenen Sektionen habe ich das `val`- und das `var`-Schlüsselwort zur Definition von Werten genutzt. 
@@ -177,7 +179,7 @@ public int someCalculation(int input, int memberVal) {
 ```
 Durch das Verlagern des für die Berechnung genutzten Wertes ist sichergestellt, dass die Methode, selbst wenn sich `member` zur Laufzeit ändert, innerhalb ihres Ausführungskontextes einen konsistenten Zustand einhält.
 An dieser Stelle bediene ich mich zusätzlich an einigen Punkten, auf die man zum Thema Immutabilität im Internet immer wieder trifft:
-- Threadsicherheit (durch Zugriff auf Werte, die sich nicht ändern)
+- Threadsicherheit (Durch Zugriff auf Werte, die sich nicht ändern)
 - Keine versteckten Nebeneffekte (Es gibt kein Risiko, dass Methoden unbemerkt Werte an anderen Stellen ändern)
 - Sicherheit vor Nullwerten (Wenn ein Wert einmal überprüft wurde, behält er seine Gültigkeit)
 - Leichteres Chaching (Wenn ein Wert einmal geladen wurde und sich Rahmenbedingungen ändern, ist sichergestellt, dass dieser Wert nach wie vor gültig ist und nicht neu geladen werden muss)
@@ -195,7 +197,7 @@ Die funktionale Programmierung ist ein Ansatz der Programmierung, die Verarbeitu
 Also statt das wir ein Problem aus der Perspektive betrachten, jeden Schritt einzeln durchzugehen, arbeiten wir mit einer Menge von Daten, auf die Operationen angewandt werden und die mitunter eine neue Menge von Daten erzeugt.
 Die funktionale Programmierung ist etwas, was in vielen großen Programmiersprachen immer mehr Einzug hält, auch weil die Rechenleistung heutiger Computer so hoch ist, dass die schlechtere Performance, die durch diesen Ansatz erreicht wird, nicht mehr ins Gewicht fällt.
 Theoretische Grundlage der funktionalen Programmierung ist das Lambda-Kalkül, welches in den 30er Jahren von Church und Kleene zur Beschreibung von Funktionen eingeführt wurde.
-Ein einfacher Lambda-Ausdruck sieht dabei wie folgt aus und beschreibt hier "f(x)=x+2":
+Ein einfacher Lambda-Ausdruck sieht dabei wie folgt aus und beschreibt hier f(x)=x+2:
 ```
 λx.x+2
 ```
@@ -216,17 +218,17 @@ Auch wenn beide Beispiele hier nur einfache sind, empfinde ich persönlich die K
 Allein der Wegfall der Konvertierungen reduziert den Boilerplate-Code und erleichtert damit die Wartung der Software.
 
 ### map, reduce, filter, ...
-Die filter-Methode haben wir gerade eben kennengelernt. 
+Die `filter`-Methode haben wir gerade eben kennengelernt. 
 Wie der Name beschreibt, kann sie genutzt werden, um Elemente aus einer Menge an Daten herauszufiltern.
-Die zwei wichtigen anderen Methoden, die häufig eingesetzt werden sind die map- und die reduce-Methode.
-Map iteriert über jedes Element einer Menge von Daten und wendet eine Funktion auf dieses an. 
+Die zwei wichtigen anderen Methoden, die häufig eingesetzt werden sind die `map`- und die `reduce`-Methode.
+`Map` iteriert über jedes Element einer Menge von Daten und wendet eine Funktion auf dieses an. 
 Heraus kommt dabei eine neue Menge von Daten, die möglicherweise geändert wurden. 
-(Ich sage möglicherweise, weil die identische Abbildung "f(x)=x" existiert)
+(Ich sage möglicherweise, weil die identische Abbildung f(x)=x existiert)
 ```Kotlin
 productList.map { product -> product.getConsumerPrice(0.19) }
 ```
 Obiges Beispiel zeigt, wie eine Liste von Produkten in eine Liste von Preisen konvertiert wird, in dem von jedem Produkt-Element der Konsumentenpreis geholt wird.
-Die reduce-Methode verhält sich ähnlich zur map-Methode, mit dem Unterschied, dass das Ergebnis ein einzelnes Element ist. 
+Die `reduce`-Methode verhält sich ähnlich zur `map`-Methode, mit dem Unterschied, dass das Ergebnis ein einzelnes Element ist. 
 Auch hier wird auf jedes Element der Menge eine Funktion angewandt.
 Das folgende Beispiel zeigt, wie aus unserer Preisliste eine Summe über alle Preise gebildet wird. 
 `sum` definiert dabei das Akkumulator-Element im ersten Parameter.
@@ -235,7 +237,7 @@ Im zweiten Parameter wird die Funktion mit `price` als Laufwert aus der Liste vo
 priceList.reduce { sum, price -> sum+price }
 ```
 Statt uns mit der Iteration beschäftigen zu müssen, erlaubt diese Heransgehensweise uns das eigentliche Problem behandeln zu können.
-Map, filter und reduce sind Beispiele für sogenannte [Funktionen höherer Ordnung](https://kotlinlang.org/docs/lambdas.html), denn sie nehmen nicht nur einfache Werte als Parameter entgegen, sondern erwarten Funktionen, die sie während ihrer Ausführung ausrufen können..
+`Map`, `filter` und `reduce` sind Beispiele für sogenannte [Funktionen höherer Ordnung](https://kotlinlang.org/docs/lambdas.html), denn sie nehmen nicht nur einfache Werte als Parameter entgegen, sondern erwarten Funktionen, die sie während ihrer Ausführung ausrufen können..
 Ihre Flexibilität im Kern, während sie einen klaren Rahmen für die Verarbeitung von Daten in einer bestimmten Art und Weise schaffen, machen sie zu einem mächtigen Werkzeug.
 
 ### Extension Functions
@@ -289,7 +291,7 @@ Extension-Functions:
 partner01.toDTO().enrichWithData(data).prepareSend(destination)
 ```
 Ein anderes Beispiel zeigt, dass wir auch Klassen erweitern können, die wir nicht selber geschrieben haben.
-(Das Schlüsselwort *suspend* kann ignoriert werden. 
+(Das Schlüsselwort `suspend` kann ignoriert werden. 
 Bei Interesse empfehle ich die Einführung in [Coroutines](https://kotlinlang.org/docs/coroutines-basics.html))
 Hier haben wir String um eine domänenspezifische Funktion erweitert, um zu diesem eine zugehörige Klasse zu finden:
 ```Kotlin
@@ -301,25 +303,25 @@ val category = item.category?.getCategoryByCategoryId()
 
 ## Funktionales Testen mit Property Based Testing
 
-![Available automated test technics](https://github.com/adessoAG/devblog/raw/master/assets/images/functional-kotlin-eine-einführung/available-automated-test-technics.png)
+![Available automated test technics](https://github.com/adessoAG/devblog/raw/master/assets/images/posts/functional-kotlin-eine-einführung/available-automated-test-technics.png)
 [Bildquelle](https://medium.com/criteo-engineering/introduction-to-property-based-testing-f5236229d237)
 
-Nehmen wir das was wir bis jetzt betrachtet haben, ergeben sich daraus auch neue Möglichkeiten Softwarequalität sicherzustellen. 
+Nehmen wir das, was wir bis jetzt betrachtet haben, ergeben sich daraus auch neue Möglichkeiten Softwarequalität sicherzustellen. 
 Die Standardvorgehensweise für das Schreiben von Tests auf unterster Ebene sind die Unit-Tests. 
 Kleine Blöcke, die die Funktionalität einzelner, isolierter Code-Ausschnitte überprüfen sollen, indem wir feste Vorgabewerte definieren und an die jeweilige Funktion übergeben.
 An dieser Stelle tritt das Property based testing aus der funktionalen Programmierung auf den Plan.
 Dahinter verbirgt sich die Idee, statt einige feste Werte auf bestimmte Ergebnisse zu überprüfen (und damit Fehlerräume an den Stellen zu lassen, die man nicht testet), gemeinsame Eigenschaften in Gruppen von Eigabeparametern zu finden, die anschließend randomisiert überprüft werden können. 
 Schauen wir uns für ein besseres Verständnis ein einfaches Beispiel an.
-Die folgende Funktion konkateniert zwei Strings miteinander (Man beachte, dass die "{}" weggelassen werden können, wenn es sich bei der Funktion um eine einzelne Operation handelt):
+Die folgende Funktion konkateniert zwei Strings miteinander (Man beachte, dass die geschweiften Klammern weggelassen werden können, wenn es sich bei der Funktion um eine einzelne Operation handelt):
 ```kotlin
 public fun concatenate(string1: String, string2: String): String = string1 + string2
 ```
 In klassischer Herangehensweise würde man beim Testen neben den Grenzfällen (leerer String, Nullstring), einen "normalen" Methodenaufruf testen.
 Eine andere Art und Weise an den Test heranszugehen, ist sich zu überlegen, welche Eigenschaft die Ergebnisse des Methodenaufrufs gemein haben.
-Eigenschaften lassen sich dabei nach folgender Form beschreiben:
-*Für Werte ... gilt, wenn ... zutrifft, dass ... wahr/falsch ist*
-In diesem Fall können wir also sagen:
-*Für alle Strings string1 und string2 gilt, dass die Konkatenation von string1 und string2 mit string1 anfängt und mit string2 endet*
+Eigenschaften lassen sich dabei nach folgender Form beschreiben:\
+*Für Werte ... gilt, wenn ... zutrifft, dass ... wahr/falsch ist*\
+In diesem Fall können wir also sagen:\
+*Für alle Strings string1 und string2 gilt, dass die Konkatenation von string1 und string2 mit string1 anfängt und mit string2 endet*\
 In [Kotest](https://kotest.io/) könnte der Test dann so aussehen:
 ```kotlin
 class StringConcatTest: StringSpec({
@@ -355,20 +357,20 @@ Im Allgemeinen empfehle ich auch den [Kotlin Playground](https://play.kotlinlang
 
 Ein anderer spannender Blogeintrag zum Thema Kotlin bei adesso, wenn ihr direkt weiterlesen wollt, was sonst noch so in der Kotlin Welt passiert:
 [Kotlin Multiplattform Mobile](https://www.adesso.de/de/news/blog/vorteile-von-kotlin-fuer-die-businesslogik-von-android-und-ios-apps.jsp)
-Oder direkt an der Quelle:
+oder direkt an der Quelle:
 [The Kotlin Blog](https://blog.jetbrains.com/kotlin/)
 
 
-Quellen:
-https://de.wikipedia.org/wiki/Kotlin_(Programmiersprache)
-https://de.wikipedia.org/wiki/Funktionale_Programmierung
-https://de.wikipedia.org/wiki/Lambda-Kalk%C3%BCl
-https://kotlinlang.org/docs/properties.html
-https://www.learningjournal.guru/article/scala/functional-programming/immutability-in-functional-programming/
-https://www.baeldung.com/kotlin/const-var-and-val-keywords
-https://phauer.com/2017/idiomatic-kotlin-best-practices/#functional-programming
-https://medium.com/criteo-engineering/introduction-to-property-based-testing-f5236229d237
-https://kotest.io/docs/proptest/property-test-functions.html
-https://www.leadingagile.com/2018/03/immutability-in-java/
-https://hackernoon.com/5-benefits-of-immutable-objects-worth-considering-for-your-next-project-f98e7e85b6ac
+Quellen:\
+https://de.wikipedia.org/wiki/Kotlin_(Programmiersprache)\
+https://de.wikipedia.org/wiki/Funktionale_Programmierung\
+https://de.wikipedia.org/wiki/Lambda-Kalk%C3%BCl\
+https://kotlinlang.org/docs/properties.html\
+https://www.learningjournal.guru/article/scala/functional-programming/immutability-in-functional-programming/\
+https://www.baeldung.com/kotlin/const-var-and-val-keywords\
+https://phauer.com/2017/idiomatic-kotlin-best-practices/#functional-programming\
+https://medium.com/criteo-engineering/introduction-to-property-based-testing-f5236229d237\
+https://kotest.io/docs/proptest/property-test-functions.html\
+https://www.leadingagile.com/2018/03/immutability-in-java/\
+https://hackernoon.com/5-benefits-of-immutable-objects-worth-considering-for-your-next-project-f98e7e85b6ac\
 https://stackoverflow.com/questions/34385243/why-is-immutability-so-important-or-needed-in-javascript
