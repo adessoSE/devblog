@@ -237,8 +237,8 @@ Im zweiten Parameter wird die Funktion mit `price` als Laufwert aus der Liste vo
 priceList.reduce { sum, price -> sum+price }
 ```
 Statt uns mit der Iteration beschäftigen zu müssen, erlaubt diese Heransgehensweise uns das eigentliche Problem behandeln zu können.
-`Map`, `filter` und `reduce` sind Beispiele für sogenannte [Funktionen höherer Ordnung](https://kotlinlang.org/docs/lambdas.html), denn sie nehmen nicht nur einfache Werte als Parameter entgegen, sondern erwarten Funktionen, die sie während ihrer Ausführung ausrufen können..
-Ihre Flexibilität im Kern, während sie einen klaren Rahmen für die Verarbeitung von Daten in einer bestimmten Art und Weise schaffen, machen sie zu einem mächtigen Werkzeug.
+`Map`, `filter` und `reduce` sind Beispiele für sogenannte [Funktionen höherer Ordnung](https://kotlinlang.org/docs/lambdas.html), denn sie nehmen nicht nur einfache Werte als Parameter entgegen, sondern erwarten Funktionen, die sie während ihrer Ausführung ausrufen können.
+Ihre Flexibilität im Kern, während sie einen klaren Rahmen für die Verarbeitung von Daten in einer bestimmten Art und Weise schaffen, machen sie zu mächtigen Werkzeugen.
 
 ### Extension Functions
 
@@ -266,7 +266,7 @@ fun Partner.toDto(): PartnerDto = PartnerDto(
         name,
         ...
 )
-
+...
 partner01.toDto()
 ```
 Natürlich lässt sich die Konvertierung in ein DTO auch klassisch lösen: 
@@ -361,16 +361,16 @@ oder direkt an der Quelle:
 [The Kotlin Blog](https://blog.jetbrains.com/kotlin/)
 
 
-Quellen:\
-https://de.wikipedia.org/wiki/Kotlin_(Programmiersprache)\
-https://de.wikipedia.org/wiki/Funktionale_Programmierung\
-https://de.wikipedia.org/wiki/Lambda-Kalk%C3%BCl\
-https://kotlinlang.org/docs/properties.html\
-https://www.learningjournal.guru/article/scala/functional-programming/immutability-in-functional-programming/\
-https://www.baeldung.com/kotlin/const-var-and-val-keywords\
-https://phauer.com/2017/idiomatic-kotlin-best-practices/#functional-programming\
-https://medium.com/criteo-engineering/introduction-to-property-based-testing-f5236229d237\
-https://kotest.io/docs/proptest/property-test-functions.html\
-https://www.leadingagile.com/2018/03/immutability-in-java/\
-https://hackernoon.com/5-benefits-of-immutable-objects-worth-considering-for-your-next-project-f98e7e85b6ac\
-https://stackoverflow.com/questions/34385243/why-is-immutability-so-important-or-needed-in-javascript
+Quellen:  
+- [Kotlin-Wikipedia](https://de.wikipedia.org/wiki/Kotlin_(Programmiersprache)) 
+- [Funktionale Programmierung-Wikipedia](https://de.wikipedia.org/wiki/Funktionale_Programmierung)
+- [Lambda Kalkül-Wikipedia](https://de.wikipedia.org/wiki/Lambda-Kalk%C3%BCl)
+- [Kotlin Dokumentation](https://kotlinlang.org/docs/properties.html)
+- [Learning Journal](https://www.learningjournal.guru/article/scala/functional-programming/immutability-in-functional-programming/)
+- [Baeldung](https://www.baeldung.com/kotlin/const-var-and-val-keywords)
+- [Philipp Hauer's Blog](https://phauer.com/2017/idiomatic-kotlin-best-practices/#functional-programming)
+- [Medium](https://medium.com/criteo-engineering/introduction-to-property-based-testing-f5236229d237)
+- [Kotest](https://kotest.io/docs/proptest/property-test-functions.html)
+- [Leading Agile](https://www.leadingagile.com/2018/03/immutability-in-java/)
+- [Hackernoon](https://hackernoon.com/5-benefits-of-immutable-objects-worth-considering-for-your-next-project-f98e7e85b6ac)
+- [Stackoverflow](https://stackoverflow.com/questions/34385243/why-is-immutability-so-important-or-needed-in-javascript)
