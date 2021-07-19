@@ -67,7 +67,7 @@ Anders als in Java werden die Rückgabewerte von Methoden am Ende des Methodenko
 Kotlin unterstützt [Typinferenz](https://kotlinlang.org/spec/type-inference.html), weswegen die Typdefinitionen in den meisten Fällen auch weggelassen werden können.
 Was -- anders als bei Java -- hier auch auffällt, ist, dass ich die *Properties* der `MainClass` direkt hinter den Klassennamen in "( )" definieren kann und sie nicht im Codeblock schreiben muss (, aber auch das könnte ich). 
 Kotlin generiert für die Variablen Getter- und Setter-Methoden und für die Values nur Getter-Methoden.
-Auf den Unterschied komme ich im Abschnitt [Immutabilität](#Immutabilität) zu sprechen.
+Auf den Unterschied komme ich im Abschnitt [Immutabilität](#immutabilität) zu sprechen.
 Wie das Beispiel oben auch zeigt, habe ich einen primären Konstruktor für die `MainClass`geschrieben, der sich direkt im Header befindet. 
 Die in den Klammern des Konstruktors angegebenen Properties (hier *member*) entsprechen direkt einer Deklaration dieser als Teil der Klasse.
 Auch die Semikolons können wir in den meisten Fällen weglassen.
@@ -320,9 +320,13 @@ public fun concatenate(string1: String, string2: String): String = string1 + str
 In klassischer Herangehensweise würden wir beim Testen neben den Grenzfällen (leerer String, Nullstring), einen "normalen" Methodenaufruf testen.
 Eine andere Art und Weise an den Test heranszugehen ist, sich zu überlegen, welche Eigenschaft die Ergebnisse des Methodenaufrufs gemein haben.
 Eigenschaften lassen sich dabei nach folgender Form beschreiben:
-\*Für Werte ... gilt, wenn ... zutrifft, dass ... wahr/falsch ist\*
+
+*Für Werte ... gilt, wenn ... zutrifft, dass ... wahr/falsch ist*
+
 In diesem Fall können wir also sagen:
-\*Für alle Strings string1 und string2 gilt, dass die Konkatenation von string1 und string2 mit string1 anfängt und mit string2 endet\*
+
+*Für alle Strings string1 und string2 gilt, dass die Konkatenation von string1 und string2 mit string1 anfängt und mit string2 endet*
+
 In [Kotest](https://kotest.io/) könnte der Test dann so aussehen:
 ```kotlin
 class StringConcatTest: StringSpec({
