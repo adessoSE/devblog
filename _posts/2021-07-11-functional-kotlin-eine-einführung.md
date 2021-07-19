@@ -18,8 +18,6 @@ tags: [
     Extension Functions
   ] # Bitte auf Großschreibung achten.
 ---
-
-# Functional Kotlin -- Eine Einführung
 In diesem Blogeintrag widmen wir uns der Programmiersprache Kotlin.
 Wir werfen einen kurzen Blick auf die Ursprünge der Sprache, wie sie aufgebaut ist und mit welchen Designprinzipien im Hinterkopf sie entworfen wurde. 
 An Beispielen betrachten wir die Best Practices und stellen uns dabei die Frage: Was hat das mit funktionaler Programmierung zu tun?
@@ -69,14 +67,15 @@ Anders als in Java werden die Rückgabewerte von Methoden am Ende des Methodenko
 Kotlin unterstützt [Typinferenz](https://kotlinlang.org/spec/type-inference.html), weswegen die Typdefinitionen in den meisten Fällen auch weggelassen werden können.
 Was -- anders als bei Java -- hier auch auffällt, ist, dass ich die *Properties* der `MainClass` direkt hinter den Klassennamen in "( )" definieren kann und sie nicht im Codeblock schreiben muss (, aber auch das könnte ich). 
 Kotlin generiert für die Variablen Getter- und Setter-Methoden und für die Values nur Getter-Methoden.
-Auf den Unterschied komme ich im Abschnitt [Immutabilität](#Immutabilitt_80) zu sprechen.
+Auf den Unterschied komme ich im Abschnitt [Immutabilität](#Immutabilität) zu sprechen.
 Wie das Beispiel oben auch zeigt, habe ich einen primären Konstruktor für die `MainClass`geschrieben, der sich direkt im Header befindet. 
 Die in den Klammern des Konstruktors angegebenen Properties (hier *member*) entsprechen direkt einer Deklaration dieser als Teil der Klasse.
 Auch die Semikolons können wir in den meisten Fällen weglassen.
 
 ## Nullsicherheit
-Eine Ärgerlichkeit, mit der wir uns im Entwicklungsalltag häufig auseinandersetzen müssen ist das Behandeln von Nullpointer-Exceptions; 
-Also das Fehlen von Daten an Stellen, an denen das Programm welche erwartet hat. 
+Eine Ärgerlichkeit, mit der wir uns im Entwicklungsalltag häufig auseinandersetzen müssen ist das Behandeln von Nullpointer-Exceptions, also dem Fehlen von Daten an Stellen, an denen das Programm welche erwartet hat.
+Tony Hoare, der Erfinder der Null-Referenz, hielt 2009 einen Vortrag und nannte als Grund für dessen Einführung die Einfachheit, mit der sie zu implementieren gewesen sei.
+Er bezeichnet seine Entscheidung inzwischen als "Milliarde-Dollar-Fehler":
 ([My billion-dollar mistake](https://www.infoq.com/presentations/Null-References-The-Billion-Dollar-Mistake-Tony-Hoare/))
 Kotlin behandelt dieses Problem aus meiner Sicht pragmatisch ([Null-Safety](https://kotlinlang.org/docs/null-safety.html)), indem, wenn nicht anders angegeben, Werte einfach nicht null sein dürfen.
 Betrachten wir folgendes kleines Beispiel eines Produkts, für das ein Preis mit Steuer berechnet werden soll.
@@ -99,14 +98,15 @@ Was tendenziell in Java und vielen anderen Sprachen funktioniert wird hier vom C
 So werden wir bei der Entwicklung immer informiert, wenn Daten potentiell undefinierte Zustände annehmen könnten:
 `"Kotlin: Null can not be a value of a non-null type Double"`
 Manchmal lässt es sich allerdings auch nicht vermeiden oder ist erwünscht, dass ein null Wert übernommen wird;
-Zum Beispiel an Schnittstellen, wenn kein Default-Wert Sinn ergibt.
+Das kann zum Beispiel an Schnittstellen der Fall sein, an denen ein Standardwert keinen Sinn ergibt (Auch wenn sich hier wieder darüber streiten lässt, ob ein Standardwert wirklich nicht die bessere Entscheidung ist).
 Wir können den Wert mit einem `?` markieren, um kenntlich zu machen, dass sie null (*nullable*) sein dürfen: 
 `val vat: Double? = null`
 Hier kommt die Arbeit zum Vorschein, die uns der Compiler durch diese kleine Änderung abnimmt: `product.getConsumerPrice(vat)` wird mit dem `Double?`aufgerufen, aber `getConsumerPrice(vat: Double)` erwartet einen Wert, der nicht null ist.
 Auch das erkennt der Compiler und gibt `Type mismatch: inferred type is Double? but Double was expected`zurück.
-So sind wir gezwungen, uns um diesen Fall zu kümmern und entweder vorher sicherzustellen, dass `vat` nicht null sein kann, oder einen null-Wert als Eingabeparameter zu erlauben, wodurch sich die Fehlermeldung auf nachfolgende Aufrufe von `vat` verbreitet.
+So sind wir gezwungen, uns um diesen Fall zu kümmern und entweder vorher sicherzustellen, dass `vat` nicht null sein kann, oder einen Nullwert als Eingabeparameter zu erlauben, wodurch sich die Fehlermeldung auf nachfolgende Aufrufe von `vat` verbreitet.
 
-Ein anderes Beispiel zeigt, wie wir uns beim Programmieren mit Nullwerten in Kotlin viel Boilerplate-Code sparen können:
+Ein anderes Beispiel zeigt, wie wir uns beim Programmieren mit Nullwerten in Kotlin viel Boilerplate-Code sparen können.
+Dafür schauen wir uns zunächst ein Problem in Java und anschließend eine Lösung in Kotlin an:
 ```java
 class Head {
     public Node next;
@@ -143,7 +143,7 @@ Alternativ kann der Elvis-Opeator `?:` genutzt werden, um in solchen Fällen dir
 val string = head.next?.next?.value?:"default"
 ```
 
-So kann sichergestellt werden, dass null-Werte innerhalb der Anwendung angemessen behandelt werden können.
+So kann sichergestellt werden, dass Nullwerte innerhalb der Anwendung angemessen behandelt werden können.
 
 ## Immutabilität
 In den beiden Beispielen der vorherigenen Sektionen habe ich das `val`- und das `var`-Schlüsselwort zur Definition von Werten genutzt. 
@@ -182,7 +182,7 @@ An dieser Stelle bediene ich mich zusätzlich an einigen Punkten, auf die man zu
 - Threadsicherheit (Durch Zugriff auf Werte, die sich nicht ändern)
 - Keine versteckten Nebeneffekte (Es gibt kein Risiko, dass Methoden unbemerkt Werte an anderen Stellen ändern)
 - Sicherheit vor Nullwerten (Wenn ein Wert einmal überprüft wurde, behält er seine Gültigkeit)
-- Leichteres Chaching (Wenn ein Wert einmal geladen wurde und sich Rahmenbedingungen ändern, ist sichergestellt, dass dieser Wert nach wie vor gültig ist und nicht neu geladen werden muss)
+- Leichteres Caching (Wenn ein Wert einmal geladen wurde und sich Rahmenbedingungen ändern, ist sichergestellt, dass dieser Wert nach wie vor gültig ist und nicht neu geladen werden muss)
 - Bessere Kapselung von Methoden und Klassen (Es ist sichergestellt, dass Methoden und Klassen, die untereinander kommunizieren, sich nicht gegenseitig verändern)
 - Einfacher zu Testen (Durch feste Werte und fehlende Nebeneffekte sind die Punkte, die es bei Fehlern zu überprüfen gilt, weniger und einfacher)
 - Leichtere Lesbarkeit und Wartbarkeit (Geht einher mit der leichteren Testbarkeit)
@@ -232,7 +232,7 @@ Die `reduce`-Methode verhält sich ähnlich zur `map`-Methode, mit dem Unterschi
 Auch hier wird auf jedes Element der Menge eine Funktion angewandt.
 Das folgende Beispiel zeigt, wie aus unserer Preisliste eine Summe über alle Preise gebildet wird. 
 `sum` definiert dabei das Akkumulator-Element im ersten Parameter.
-Im zweiten Parameter wird die Funktion mit `price` als Laufwert aus der Liste vorgegeben.
+`price` ist die Laufvariable (eher Laufwert) für die einzelnen Preise, über die iteriert wird.
 ```Kotlin
 priceList.reduce { sum, price -> sum+price }
 ```
@@ -252,7 +252,7 @@ inline fun <S, T : S> Iterable<T>.reduce(
 Zwei Dinge, die an dem obigen Beispiel auffallen, sind der Einsatz von Generics zur Verallgemeinerung der Anwendbarkeit der Funktion;
 Und dass es sich hierbei um eine sogenannte [*Extension-Function*](https://kotlinlang.org/docs/extensions.html) handelt, die -- in diesem Fall -- Iterable um eine Methode erweitert.
 Extension-Functions können genutzt werden um Klassen zu erweitern, ohne neue Klassen oder Interfaces definieren zu müssen, die von der Grundklasse erben.
-(Mehr Informationen zu [inline-Funktionen](https://kotlinlang.org/docs/inline-functions.html))
+Hier gibt es mehr Informationen zu [inline-Funktionen](https://kotlinlang.org/docs/inline-functions.html).
 
 Hier ist ein Beispiel aus einem Projekt in dem ich gearbeitet habe. 
 Dort haben wir Extension-Functions häufig genutzt, um vor allem die Lesbarkeit unseres Codes zu erhöhen.
@@ -319,10 +319,10 @@ public fun concatenate(string1: String, string2: String): String = string1 + str
 ```
 In klassischer Herangehensweise würden wir beim Testen neben den Grenzfällen (leerer String, Nullstring), einen "normalen" Methodenaufruf testen.
 Eine andere Art und Weise an den Test heranszugehen ist, sich zu überlegen, welche Eigenschaft die Ergebnisse des Methodenaufrufs gemein haben.
-Eigenschaften lassen sich dabei nach folgender Form beschreiben:\
-*Für Werte ... gilt, wenn ... zutrifft, dass ... wahr/falsch ist*\
-In diesem Fall können wir also sagen:\
-*Für alle Strings string1 und string2 gilt, dass die Konkatenation von string1 und string2 mit string1 anfängt und mit string2 endet*\
+Eigenschaften lassen sich dabei nach folgender Form beschreiben:
+\*Für Werte ... gilt, wenn ... zutrifft, dass ... wahr/falsch ist\*
+In diesem Fall können wir also sagen:
+\*Für alle Strings string1 und string2 gilt, dass die Konkatenation von string1 und string2 mit string1 anfängt und mit string2 endet\*
 In [Kotest](https://kotest.io/) könnte der Test dann so aussehen:
 ```kotlin
 class StringConcatTest: StringSpec({
