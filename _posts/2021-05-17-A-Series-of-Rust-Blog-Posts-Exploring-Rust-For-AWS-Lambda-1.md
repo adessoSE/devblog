@@ -151,11 +151,11 @@ To get our function going on `AWS` we need to do one last thing:
 aws lambda create-function --function-name adesso-echo --handler doesnt.matter --zip-file fileb://lambda.zip --runtime provided --role arn:aws:iam::XXXXXXXXXXXX:role/lambda-role --environment Variables={RUST_BACKTRACE=1}
 ```
 
-_[--function-name] denotes the name of the function we wish to create_ \
-_[--handler] the handler is usually a reference to the corresponding handler function. In our case we provide the runtime (and poll on the API our selfs as you will see in the next blog post) in our executable so this wouldn't matter so we set it to `doesnt.matter`_ \
-_[--zip-file] the zip file to use_ \
-_[--role] the role our function should assume for execution_ \
-_[--environment] sets the environment attribute on you lambda resource_
+* [--function-name] denotes the name of the function we wish to create
+* [--handler] the handler is usually a reference to the corresponding handler function. In our case we provide the runtime (and poll on the API our selfs as you will see in the next blog post) in our executable so this wouldn't matter so we set it to `doesnt.matter`
+* [--zip-file] the zip file to use
+* [--role] the role our function should assume for execution
+* [--environment] sets the environment attribute on you lambda resource
 
 This will upload our function to `AWS`.
 
