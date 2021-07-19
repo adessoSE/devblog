@@ -54,7 +54,7 @@ Durch **Lazy-Loading** ist es darüber hinaus auch möglich, die Komponenten bei
 Im kommenden Codebeispiel lernen wir, wie wir mit Stencil eine Komponente erstellen können. 
 Dabei werden wir gezielt nur auf ein kleines Stück der API und Funktionalitäten blicken.
 
-__Stencil erfordert eine aktuelle LTS-Version von NodeJS und mindestens npm in der Version 6 oder höher.__
+Stencil in Version 2.6 erfordert NodeJS in der LTS-Version 14.17.3 und npm in der Version 6 oder höher. [https://stenciljs.com/docs/getting-started](https://stenciljs.com/docs/getting-started)
 
 Mit folgendem Befehl können wir aus einer von drei Startvorlagen auswählen:
 
