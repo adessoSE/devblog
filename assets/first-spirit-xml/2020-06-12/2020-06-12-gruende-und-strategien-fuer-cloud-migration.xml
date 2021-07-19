@@ -18,9 +18,10 @@ In meinem Blogbeitrag zeige ich, dass sich auch für bestehende Anwendungen der 
         <field name="tag_multi_keyword"><![CDATA[FaaS]]></field>
         <field name="tag_multi_keyword"><![CDATA[AWS]]></field>
         <field name="tag_multi_keyword"><![CDATA[Cloud Computing]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Cloud]]></field>
         <field name="date_date"><![CDATA[2020-06-12T08:00:00+02:00]]></field>
         <field name="date_l"><![CDATA[1591941600000]]></field>
-        <field name="change_date"><![CDATA[1591941600000]]></field>
+        <field name="change_date"><![CDATA[1623999600000]]></field>
         <!--Picture-->
         <!-- Not in use at the moment-->
         <!--Author Information-->
