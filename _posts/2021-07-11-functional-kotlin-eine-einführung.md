@@ -28,7 +28,7 @@ An Beispielen betrachten wir die Best Practices und stellen uns dabei die Frage:
 
 Vor zehn Jahren (2011) stellte JetBrains erstmals die Open-Source Programmiersprache Kotlin auf dem [JVM Language Summit](https://blog.jetbrains.com/kotlin/2011/07/hello-world-2/) vor -- "Eine Sprache einfach genug für den gewöhnlichen Entwickler und produktiv genug für moderne Anforderungen an Projekte". 
 Die Sprache setzt auf der Java Virtual Machine (JVM) auf und erschien 2016 in der ersten Release-Version. 
-2017 wurde sie von Google offiziell zur Entwicklung von Android-Apps unterstützt und ist seit 2019 Googles bevorzugte Sprache für diese Plattform.
+Seit 2017 wird sie von Google offiziell zur Entwicklung von Android-Apps unterstützt und ist seit 2019 Googles bevorzugte Sprache für diese Plattform.
 
 Im [TIOBE-Index](https://www.tiobe.com/tiobe-index/)[^1] rangiert Kotlin aktuell (Juli 2021) auf Platz 38 der beliebtesten Programmiersprachen. 
 Betrachtet man ausschließlich die JVM-spezifischen Sprachen steht Kotlin dort auf Platz 4 (übertrumpft von #36 Scala, #15 Groovy und #2 Java). 
