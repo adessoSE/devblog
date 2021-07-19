@@ -349,14 +349,15 @@ Sicherlich wird dabei auch das noch recht junge Alter der Sprache und die Erfahr
 Das funktionale Paradigma und Kotlin in seiner Ausprägung, ich habe es schon vorher geschrieben, kommen mir häufig leichtgängiger vor und es bereitet mir viel Freude, so zu programmieren.
 Wir sollten uns dabei aber auch immer bewusst sein, dass dies zu einem gewissen Preis geschieht.
 Der Preis, den wir hier zahlen, sind Effizienzeinbußen (die in vielen Projekten allerdings vernachlässigbar sein werden) gegenüber zum Beispiel einer optimierten Programmierlösung in C, sowie der Aufwand, den es für uns mit sich bringt, sich an diese *neue* Art zu denken zu gewöhnen.
-Es hat einen Grund, dass viele Sprachen sind heutzutage an diesen Aspekten orientieren und diese bei den Entwicklerinnen und Entwicklern populär sind und ich hoffe, dass ich euch einen kleinen Einblick in Kotlin und die funktionale Welt geben konnte.
+Es hat einen Grund, dass sich viele Sprachen heutzutage an funktionaler Programmierung orientieren und diese sehr populär ist.
+Ich hoffe, dass ich euch einen kleinen Einblick in Kotlin und die funktionale Welt geben konnte.
 
-Wenn ihr an dieser Stelle noch neugierig seid und euch weiter mit der Sprache beschäftigen möchtet, dann empfehle ich ausdrücklich die [Kotlin Koans](https://kotlinlang.org/docs/koans.html).
-Eine sehr gute offizielle Tutorial-Reihe die sich unter anderem mit den Inhalten beschäftigt, die wir hier nur oberflächlich betrachten konnten und auch noch viel weiter in die Details der Sprache eintaucht.
+Wenn ihr an dieser Stelle neugierig geworden seid und euch weiter mit der Sprache beschäftigen möchtet, dann empfehle ich ausdrücklich die [Kotlin Koans](https://kotlinlang.org/docs/koans.html).
+Kotlin Koans sind sehr gute offizielle Tutorial-Reihe, die sich unter anderem mit den Inhalten beschäftigt, die wir hier nur oberflächlich betrachten konnten, und auch noch viel weiter in die Details der Sprache eintaucht.
 
 Im Allgemeinen empfehle ich auch den [Kotlin Playground](https://play.kotlinlang.org/) zum schnellen und unkomplizierten herumprobieren und programmieren im Webbrowser eurer Wahl, wenn ihr Kotlin nicht lokal ausführen wollt.
 
-Ein anderer spannender Blogeintrag zum Thema Kotlin bei adesso, wenn ihr direkt weiterlesen wollt, was sonst noch so in der Kotlin Welt passiert:
+Ein anderer spannender Blogeintrag zum Thema Kotlin bei adesso zum direkt Weiterlesen:
 [Kotlin Multiplattform Mobile](https://www.adesso.de/de/news/blog/vorteile-von-kotlin-fuer-die-businesslogik-von-android-und-ios-apps.jsp)
 oder direkt an der Quelle:
 [The Kotlin Blog](https://blog.jetbrains.com/kotlin/)
