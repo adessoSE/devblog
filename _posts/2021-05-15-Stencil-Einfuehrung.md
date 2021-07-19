@@ -44,7 +44,7 @@ Stencil bietet des weiteren ein **reaktives Data-Binding** an, sodass die Daten 
 Durch TypeScript wird JavaScript mit Typen erweitert. 
 
 Ein weiteres aus React bekanntes Feature ist **JSX**, welches eine XML-artige Syntax anbietet, die JavaScript-Code erstellt und von Typescript unterstützt wird.  
-Die statische Seitengenerierung (**SSG**) bezeichnet das Erstellen und Rendern der Komponenten und Routen zur Build-Time, welches auch als Prerendering bekannt ist.  
+Die statische Seitengenerierung (**SSG**) bezeichnet das Erstellen und Rendern der Komponenten und Routen zur Bauzeit, welches auch als Prerendering bekannt ist.  
 Durch **Lazy-Loading** ist es darüber hinaus auch möglich, die Komponenten bei Gebrauch dynamisch zur Laufzeit nachzuladen.
 
 
