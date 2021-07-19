@@ -73,7 +73,7 @@ Die in den Klammern des Konstruktors angegebenen Properties (hier *member*) ents
 Auch die Semikolons können wir in den meisten Fällen weglassen.
 
 ## Nullsicherheit
-Eine Ärgerlichkeit, mit der wir uns im Entwicklungsalltag häufig auseinandersetzen müssen ist das Behandeln von Nullpointer-Exceptions, also dem Fehlen von Daten an Stellen, an denen das Programm welche erwartet hat.
+Eine Ärgerlichkeit, mit der wir uns im Entwicklungsalltag häufig auseinandersetzen müssen, ist das Behandeln von Nullpointer-Exceptions, also dem Fehlen von Daten an Stellen, an denen das Programm welche erwartet hat.
 Tony Hoare, der Erfinder der Null-Referenz, hielt 2009 einen Vortrag und nannte als Grund für dessen Einführung die Einfachheit, mit der sie zu implementieren gewesen sei.
 Er bezeichnet seine Entscheidung inzwischen als "Milliarde-Dollar-Fehler":
 ([My billion-dollar mistake](https://www.infoq.com/presentations/Null-References-The-Billion-Dollar-Mistake-Tony-Hoare/))
@@ -98,8 +98,8 @@ Was tendenziell in Java und vielen anderen Sprachen funktioniert wird hier vom C
 So werden wir bei der Entwicklung immer informiert, wenn Daten potentiell undefinierte Zustände annehmen könnten:
 `"Kotlin: Null can not be a value of a non-null type Double"`
 Manchmal lässt es sich allerdings auch nicht vermeiden oder ist erwünscht, dass ein null Wert übernommen wird;
-Das kann zum Beispiel an Schnittstellen der Fall sein, an denen ein Standardwert keinen Sinn ergibt (Auch wenn sich hier wieder darüber streiten lässt, ob ein Standardwert wirklich nicht die bessere Entscheidung ist).
-Wir können den Wert mit einem `?` markieren, um kenntlich zu machen, dass sie null (*nullable*) sein dürfen: 
+Das kann zum Beispiel an Schnittstellen der Fall sein, an denen ein Standardwert keinen Sinn ergibt (auch wenn sich hier wieder darüber streiten lässt, ob ein Standardwert wirklich nicht die bessere Entscheidung ist).
+Wir können die Werte mit einem `?` markieren, um kenntlich zu machen, dass sie null (*nullable*) sein dürfen: 
 `val vat: Double? = null`
 Hier kommt die Arbeit zum Vorschein, die uns der Compiler durch diese kleine Änderung abnimmt: `product.getConsumerPrice(vat)` wird mit dem `Double?`aufgerufen, aber `getConsumerPrice(vat: Double)` erwartet einen Wert, der nicht null ist.
 Auch das erkennt der Compiler und gibt `Type mismatch: inferred type is Double? but Double was expected`zurück.
