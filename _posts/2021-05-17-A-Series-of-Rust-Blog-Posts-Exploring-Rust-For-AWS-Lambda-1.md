@@ -125,7 +125,9 @@ async fn func(event: Value, _: Context) -> Result<Value, Error> {
 
 We can now build and create our function, assuming you have your aws CLI configured locally with correct permissions and everything.
 
-Lets build our application:
+As with most Rust projects cargo is our build tool of choice. Cargo manages our dependencies, invokes the compiler and does some general plumbing around our code base, so that we can focus on what matters - the code.
+
+To build just run:
 
 ```bash
 cargo build --release --target x86_64-unknown-linux-musl
@@ -136,14 +138,8 @@ Now, AWS Lambda runs an executable named `bootstrap` that resides within a zip f
 We are going to execute these three commands to generate our zip file:
 
 ```bash
-cp ./target/x86_64-unknown-linux-musl/release/adesso-echo ./bootstrap
-```
-
-```bash
+cp ./target/x86_64-unknown-linux-musl/release/adesso-echo ./bootstrap 
 zip lambda.zip ./bootstrap
-```
-
-```bash
 rm ./bootstrap
 ```
 
@@ -154,10 +150,11 @@ To get our function going on `AWS` we need to do one last thing:
 ```bash
 aws lambda create-function --function-name adesso-echo --handler doesnt.matter --zip-file fileb://lambda.zip --runtime provided --role arn:aws:iam::XXXXXXXXXXXX:role/lambda-role --environment Variables={RUST_BACKTRACE=1}
 ```
-* [--function-name] denotes the name of the function we wish to create \
-* [--handler] the handler is usually a reference to the corresponding handler function. In our case we provide the runtime (and poll on the API our selfs as you will see in the next blog post) in our executable so this wouldn't matter so we set it to `doesnt.matter` \
-* [--zip-file] the zip file to use \
-* [--role] the role our function should assume for execution \
+
+* [--function-name] denotes the name of the function we wish to create
+* [--handler] the handler is usually a reference to the corresponding handler function. In our case we provide the runtime (and poll on the API our selfs as you will see in the next blog post) in our executable so this wouldn't matter so we set it to `doesnt.matter`
+* [--zip-file] the zip file to use
+* [--role] the role our function should assume for execution
 * [--environment] sets the environment attribute on you lambda resource
 
 This will upload our function to `AWS`.
@@ -174,8 +171,8 @@ and
 
 ```bash
 cat out.txt
-```
 Output: {"message": "Hello, Felix!"}
+```
 
 # The End
 
