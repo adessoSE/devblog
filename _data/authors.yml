@@ -327,7 +327,7 @@ DanielKraft:
   last_name: Kraft
   github_username: DanielKraft
   email: daniel.kraft@adesso.de
-  bio: "Daniel ist als Werkstudent im Versicherungsbereich bei adesso in Frankfurt am Main tätig."
+  bio: "Daniel Kraft ist als Werkstudent im Versicherungsbereich bei adesso in Frankfurt am Main tätig."
   avatar_url: /assets/images/avatars/DanielKraft.jpg
   github: https://github.com/DanielKraft
 
@@ -381,7 +381,7 @@ vschiller:
   last_name: Schiller
   github_username: VivienEmily
   email: vivien.schiller@adesso.de
-  bio: "Vivien Schiller ist als Senior Software Engineer bei adesso in Dortmund tätig und ist dort auf die Sicherheit von Webanwendungen spezialisiert. Ihr Fokus liegt dabei auf User Centered Security."
+  bio: "Vivien Schiller ist als Senior Software Engineer bei adesso in Dortmund tätig. Sie ist dort auf die Sicherheit von Webanwendungen spezialisiert, gibt Schulungen im Bereich Kryptographie und bechäftigt sich mit Security Awareness Maßnahmen. Zudem leitet sie zusammen mit ihrer Kollegin die She for IT Initiative und setzt sich für mehr Diversität in der IT Branche ein."
   avatar_url: /assets/images/avatars/vschiller.jpg
   github: https://github.com/VivienEmily
 
@@ -479,6 +479,16 @@ thorbolo:
   bio: "Thorben Schiller ist Senior Software Engineer und hat seit 2013 bei adesso den Weg vom Studenten zum angehenden Software Architekten gemacht. Sein Schwerpunkt liegt im Java-Backend."
   avatar_url: /assets/images/avatars/thorbenschiller.jpg
   github: https://github.com/thorbolo
+
+tgraefenstein:
+  first_name: Thomas
+  last_name: Gräfenstein
+  email: thomas.graefenstein@adesso.de
+  bio: "Thomas Gräfenstein ist Fullstack Senior Software Engineer im Bereich Cross Industries und E-Mobility."
+  avatar_url: /assets/images/avatars/tgraefenstein.jpg
+  github_username: g-stone7
+  github: https://github.com/g-stone7
+
 parideis:
   first_name: Denis
   last_name: Paris
@@ -487,3 +497,4 @@ parideis:
   bio: "Denis Paris arbeitet bei adesso als Werkstudent in Köln und entwickelt Full-Stack JavaScript Applikationen. Er hat Erfahrung mit Angular, React, Stencil, Svelte und Vue gesammelt. In seiner Freizeit spielt er gerne Basketball 🏀 und hält JavaScript Vorträge auf Meetups und Konferenzen."
   avatar_url: /assets/images/avatars/paris.jpg
   github: https://github.com/parideis
+  
