@@ -140,7 +140,25 @@ In der render()-Funktion wird die Ausgabe definiert, die bei uns ein slot enthä
 Ein slot ist ein Platzhalter bei dem die Kinderkomponenten eingebunden werden. 
 Was in unserem Fall das h1-Element mit dem Inhalt "Willkommen" ist.
 
-![Stencil Code: Überblick über den generierten Code](/assets/images/posts/Stencil-Einfuehrung/stencil-code-1.png)
+```javascript
+import { Component, ComponentInterface, Host, h } from '@stencil/core';
+
+@Component({
+  tag: 'hallo-welt',
+  shadow: true,
+})
+export class HalloWelt implements ComponentInterface {
+
+  render() {
+    return (
+      <Host>
+        <slot></slot>
+      </Host>
+    );
+  }
+
+}
+```
 
 ## Die Komponente soll einen Namen ausgeben
 
