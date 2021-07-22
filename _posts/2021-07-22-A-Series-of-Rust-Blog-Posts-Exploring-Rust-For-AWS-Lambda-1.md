@@ -1,11 +1,11 @@
 ---
 layout: 		[post, post-xml]     
 title:  		"A Series of Rust: Exploring Rust for AWS Lambda - Part 1"
-date:   		2021-05-17 16:15
-modified_date: 	2021-05-17 16:15
+date:   		2021-07-22 08:00
+modified_date: 	2021-07-22 08:00
 author: 		felix_marezki
 categories: 	[Softwareentwicklung]
-tags: 			[AWS, AWS Lambda, Cloud, Rust, A Series of Rust]
+tags: 			[AWS, AWS Lambda, Cloud, Rust]
 ---
 
 The demand for a high performance, yet secure programming language is increasing.
