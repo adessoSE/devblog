@@ -17,9 +17,10 @@ Dieser Artikel beschreibt die Idee hinter FaaS und zeigt, wie man Funktionen mit
         <field name="tag_multi_keyword"><![CDATA[FaaS]]></field>
         <field name="tag_multi_keyword"><![CDATA[Architektur]]></field>
         <field name="tag_multi_keyword"><![CDATA[Java]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Cloud]]></field>
         <field name="date_date"><![CDATA[2019-02-13T12:00:00+01:00]]></field>
         <field name="date_l"><![CDATA[1550055600000]]></field>
-        <field name="change_date"><![CDATA[1615211400000]]></field>
+        <field name="change_date"><![CDATA[1623999600000]]></field>
         <!--Picture-->
         <!-- Not in use at the moment-->
         <!--Author Information-->

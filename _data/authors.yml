@@ -327,7 +327,7 @@ DanielKraft:
   last_name: Kraft
   github_username: DanielKraft
   email: daniel.kraft@adesso.de
-  bio: "Daniel ist als Werkstudent im Versicherungsbereich bei adesso in Frankfurt am Main tätig."
+  bio: "Daniel Kraft ist als Werkstudent im Versicherungsbereich bei adesso in Frankfurt am Main tätig."
   avatar_url: /assets/images/avatars/DanielKraft.jpg
   github: https://github.com/DanielKraft
 
@@ -381,7 +381,7 @@ vschiller:
   last_name: Schiller
   github_username: VivienEmily
   email: vivien.schiller@adesso.de
-  bio: "Vivien Schiller ist als Senior Software Engineer bei adesso in Dortmund tätig und ist dort auf die Sicherheit von Webanwendungen spezialisiert. Ihr Fokus liegt dabei auf User Centered Security."
+  bio: "Vivien Schiller ist als Senior Software Engineer bei adesso in Dortmund tätig. Sie ist dort auf die Sicherheit von Webanwendungen spezialisiert, gibt Schulungen im Bereich Kryptographie und bechäftigt sich mit Security Awareness Maßnahmen. Zudem leitet sie zusammen mit ihrer Kollegin die She for IT Initiative und setzt sich für mehr Diversität in der IT Branche ein."
   avatar_url: /assets/images/avatars/vschiller.jpg
   github: https://github.com/VivienEmily
 
@@ -488,3 +488,13 @@ felix_marezki:
   bio: "Felix Marezki is a Fullstack Developer at adesso SE with a Java foundation and strong insterests in alternative technologies espacially Rust."
   avatar_url: /assets/images/avatars/felix_marezki.jpg
   github: https://github.com/reenigneEsrever92
+
+tgraefenstein:
+  first_name: Thomas
+  last_name: Gräfenstein
+  email: thomas.graefenstein@adesso.de
+  bio: "Thomas Gräfenstein ist Fullstack Senior Software Engineer im Bereich Cross Industries und E-Mobility."
+  avatar_url: /assets/images/avatars/tgraefenstein.jpg
+  github_username: g-stone7
+  github: https://github.com/g-stone7
+
