@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<documents>
+    <document uid="404b534102b96ef77a6ce17076dbda5e">
+        <field name="title"><![CDATA[A Series of Rust: Exploring Rust for AWS Lambda - Part 1]]></field>
+        <field name="subline"><![CDATA[]]></field>
+        <field name="teaser"><![CDATA[<p>The demand for a high performance, yet secure programming language is increasing.
+Evidence for that claim is found not only in statistics about security bugs but also in the ground and momentum in general that Rust has been able to gain, lately. 
+I take that as well as a bit of my own curiosity as cause for a series of blog posts about Rust and applications in real world scenarios.</p>
+
+]]></field>
+        <field name="language_multi_keyword"><![CDATA[de]]></field>
+        <field name="content_type_multi_keyword"><![CDATA[blog]]></field>
+        <field name="mime_type_multi_keyword"><![CDATA[text/html]]></field>
+        <field name="category_multi_keyword"><![CDATA[Softwareentwicklung]]></field>
+        <field name="tag_multi_keyword"><![CDATA[AWS]]></field>
+        <field name="tag_multi_keyword"><![CDATA[AWS Lambda]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Cloud]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Rust]]></field>
+        <field name="date_date"><![CDATA[2021-07-22T08:00:00+02:00]]></field>
+        <field name="date_l"><![CDATA[1626933600000]]></field>
+        <field name="change_date"><![CDATA[1626933600000]]></field>
+        <!--Picture-->
+        <!-- Not in use at the moment-->
+        <!--Author Information-->
+        <field name="author_first_name"><![CDATA[Felix]]></field>
+        <field name="author_last_name"><![CDATA[Marezki]]></field>
+        <field name="author_id"><![CDATA[reenigneEsrever92]]></field>
+        <field name="author_picture_stored_only"><![CDATA[http://localhost:4000/assets/images/avatars/felix_marezki.jpg]]></field>
+        <!--Postcontent-->
+        <field name="headlines"><![CDATA[A Series of Rust: Exploring Rust for AWS Lambda - Part 1]]></field>
+        <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
+            <p>The demand for a high performance, yet secure programming language is increasing.
+Evidence for that claim is found not only in statistics about security bugs but also in the ground and momentum in general that Rust has been able to gain, lately. 
+I take that as well as a bit of my own curiosity as cause for a series of blog posts about Rust and applications in real world scenarios.</p>
+
+</div>]]></field>
+        <field name="content"><![CDATA[<div class="adesso-text-formate">
+<div class="row p-t-2">
+<div class="adesso-container">
+<div class="col-xl-8 adesso-center p-b-1 p-l-0 p-r-0">
+    <p>The demand for a high performance, yet secure programming language is increasing.
+Evidence for that claim is found not only in statistics about security bugs but also in the ground and momentum in general that Rust has been able to gain, lately. 
+I take that as well as a bit of my own curiosity as cause for a series of blog posts about Rust and applications in real world scenarios.</p>
+
+<h4 id="the-intro">The Intro</h4>
+
+<p>With all the arguments around Rust considering safety, usability and performance already being established, I would like to take the opportunity here to show the current state of effort around Rust that has or is being made to make Rust a suitable candidate for cloud development.
+Since Amazon seems to have taken Rusts proposal very seriously and are pursuing Rust already in a variety of their own services as well as offerings to their cloud customers, projects like <a href="https://github.com/awslabs/aws-lambda-rust-runtime">lambda-runtime</a> or <a href="https://github.com/awslabs/aws-sdk-rust">aws-rust-sdk</a> have caught my attention.</p>
+
+<p>This Post is therefore the first of what I plan to be three of this kind.</p>
+
+<h4 id="the-contents">The Contents</h4>
+
+<p>In this post we will develop a function for AWS lambda using Rust that we will be able to upload and test on AWS.</p>
+
+<p>I presume you are somewhat familiar with one AWS service or the other but just in case you have not come across lambda or the AWS CLI yet you can find links for further information on both these topics below:</p>
+
+<ul>
+  <li><a href="https://docs.aws.amazon.com/lambda/latest/dg/welcome.html">AWS Lambda</a></li>
+  <li><a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html">AWS CLI</a></li>
+</ul>
+
+<h4 id="the-groundwork">The Groundwork</h4>
+
+<p>This is what I’m gonna be using:</p>
+
+<ul>
+  <li><a href="https://www.rust-lang.org/learn/get-started">Rust (Up)</a></li>
+  <li><a href="https://code.visualstudio.com">Visual Studio Code</a></li>
+  <li><a href="https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html">AWS CLI</a></li>
+</ul>
+
+<p>Just follow the links for installation instructions.</p>
+
+<p>The musl target is required for our rust installation:</p>
+
+<pre><code class="language-bash">rustup target add x86_64-unknown-linux-musl
+</code></pre>
+
+<p>We need one additional thing in case we are trying to run this on OS X. Which is the musl library to statically link to:</p>
+
+<pre><code class="language-bash">brew install filosottile/musl-cross/musl-cross
+</code></pre>
+
+<pre><code class="language-bash">mkdir .cargo
+echo $'[target.x86_64-unknown-linux-musl]\nlinker = "x86_64-linux-musl-gcc"' &gt; .cargo/config
+</code></pre>
+
+<p>For a quick explanation: Musl is a libc implementation that is optimized for static linking. This library together with the rust target enables us to produce a binary that needs no further attention from the Operating System to link dependencies at runtime. You can find further information about musl <a href="https://musl.libc.org">here</a>.</p>
+
+<h4 id="the-account">The Account</h4>
+
+<p>To try this we need an AWS Account and configure it as described below.</p>
+
+<p>You have to set up a user in your <code>AWS Management Console</code> that has permissions to at least create new lambda functions. 
+Also, define it to be used programmatically and generate an <code>access key</code> for it. 
+For the permissions part I chose to attach an <code>AWS Managed Policy</code> to to my user, which you can find by the name <code>AWSLambda_FullAccess</code>.</p>
+
+<h4 id="the-project">The Project</h4>
+
+<p>To start with our project we can use cargo to generate an initial crate:</p>
+
+<pre><code class="language-bash">cargo new adesso-echo
+</code></pre>
+
+<p>Now, we can open the folder that cargo created in Visual Studio Code:</p>
+
+<pre><code class="language-bash">code adesso-echo
+</code></pre>
+
+<h4 id="the-code">The Code</h4>
+
+<p>There are already several projects in place that ease some of the typical things we would like to do with rust in an AWS context. 
+We are going to leverage the lambda_runtime crate to easily integrate our code into the lambda infrastructure.
+So lets add a copuple of dependencies.
+Our <code>Cargo.toml</code> should now look something like this:</p>
+
+<pre><code class="language-toml">[package]
+name = "adesso-echo"
+version = "0.1.0"
+authors = ["felix.marezki"]
+edition = "2018"
+
+[dependencies]
+lambda_runtime = "0.3.0"
+serde_json = "1.0"
+tokio = { version = "1.5.0", features = ["full"] }
+</code></pre>
+
+<p>In our <code>main.rs</code> we are going to do the following:</p>
+
+<pre><code class="language-rust">use lambda_runtime::{handler_fn, Context, Error};
+use serde_json::{Value, json};
+
+#[tokio::main]
+async fn main() -&gt; Result&lt;(), Error&gt; {
+    let func = handler_fn(func);
+    lambda_runtime::run(func).await?;
+    Ok(())
+}
+
+async fn func(event: Value, _: Context) -&gt; Result&lt;Value, Error&gt; {
+    Ok(json!({ 
+        "message": format!("Hello, {}!", event["name"].as_str().unwrap_or("world"))
+    }))
+}
+</code></pre>
+
+<h4 id="the-build">The Build</h4>
+
+<p>We can now build and create our function, assuming you have your aws CLI configured locally with correct permissions and everything.</p>
+
+<p>As with most Rust projects cargo is our build tool of choice. Cargo manages our dependencies, invokes the compiler and does some general plumbing around our code base, so that we can focus on what matters - the code.</p>
+
+<p>To build just run:</p>
+
+<pre><code class="language-bash">cargo build --release --target x86_64-unknown-linux-musl
+</code></pre>
+
+<p>Now, AWS Lambda runs an executable named <code>bootstrap</code> that resides within a zip file that we will supply to it.</p>
+
+<p>We are going to execute these three commands to generate our zip file:</p>
+
+<pre><code class="language-bash">cp ./target/x86_64-unknown-linux-musl/release/adesso-echo ./bootstrap 
+zip lambda.zip ./bootstrap
+rm ./bootstrap
+</code></pre>
+
+<h4 id="the-deployment">The Deployment</h4>
+
+<p>To get our function going on <code>AWS</code> we need to do one last thing:</p>
+
+<pre><code class="language-bash">aws lambda create-function --function-name adesso-echo --handler doesnt.matter --zip-file fileb://lambda.zip --runtime provided --role arn:aws:iam::XXXXXXXXXXXX:role/lambda-role --environment Variables={RUST_BACKTRACE=1}
+</code></pre>
+
+<ul>
+  <li>[–function-name] denotes the name of the function we wish to create</li>
+  <li>[–handler] the handler is usually a reference to the corresponding handler function. In our case we provide the runtime (and poll on the API our selfs as you will see in the next blog post) in our executable so this wouldn’t matter so we set it to <code>doesnt.matter</code></li>
+  <li>[–zip-file] the zip file to use</li>
+  <li>[–role] the role our function should assume for execution</li>
+  <li>[–environment] sets the environment attribute on you lambda resource</li>
+</ul>
+
+<p>This will upload our function to <code>AWS</code>.</p>
+
+<h4 id="the-test">The Test</h4>
+
+<p>We can now test our function using the <code>AWS CLI</code>. To do so run the following command:</p>
+
+<pre><code class="language-bash">aws lambda invoke --function-name adesso-echo --payload '{"name": "Felix"}' --cli-binary-format raw-in-base64-out out.txt
+</code></pre>
+
+<p>and</p>
+
+<pre><code class="language-bash">cat out.txt
+Output: {"message": "Hello, Felix!"}
+</code></pre>
+
+<h4 id="the-end">The End</h4>
+
+<p>So we have seen how to build and deploy lambda functions written in rust to AWS. 
+In the next post I wanna see if we can test our experiments locally so we can spare us the roundtrip to AWS every time we want to try something new.</p>
+
+</div>
+</div>
+</div>
+</div>]]></field>
+    </document>
+</documents>
