@@ -1,6 +1,6 @@
 ---
 layout:         [post, post-xml]              
-title:          "Wann Apache CXF als Webservice-Framework glänzen kann.md"
+title:          "Wann Apache CXF als Webservice-Framework glänzen kann"
 date:           2021-08-09 15:00
 author:         thorbolo
 categories:     [Softwareentwicklung]
