@@ -29,7 +29,7 @@ Bei einer gewählten Implementierung mit Jax-WS, also SOAP als Grundlage der Kom
 Bei einer gewählten Implementierung mit Jax-RS, also REST als Grundlage der Kommunikation, sind noch einfache Annotationen an am Interface notwendig, die sich jedoch sehr in Grenzen halten.
 
 ## Beispiel 
-Das folgende Beispiel zeigt eine einfache Definition eines Jax-RS Interfaces, der serverseitigen Implementierung und die clientseitige Verwendung.
+Das folgende Beispiel zeigt eine einfache Definition eines Jax-RS Interface, der serverseitigen Implementierung und die clientseitige Verwendung.
 Dabei besticht CXF durch seine Einfachheit, dass trotz einer technischen Schnittstelle, die über HTTP kommuniziert, kaum bis keine zusätzliche Komplexität aufweist.
 Aufgrund der Natur der Java-Interfaces und die gemeinsame Codebase sind Änderungen an der Schnittstelle immer bereits zur Compilezeit auf Server- und Clientseite umzusetzen.
 Dadurch werden Laufzeitfehler durch unterschiedliche Schnittstellenversionen ausgeschlossen.
