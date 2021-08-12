@@ -56,7 +56,7 @@ public interface IHelloWorld {
 }
 ```
 
-### serverseitige Implementierung
+### Serverseitige Implementierung
 Die Serverseitige Implementierung unterscheidet sich in keiner Weise von der Implementierung eines typischen Interfaces. 
 
 ```java
