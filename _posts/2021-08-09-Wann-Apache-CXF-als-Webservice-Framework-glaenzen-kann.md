@@ -120,7 +120,7 @@ Auch das weitere googlen bringt weit weniger befriedigende Ergebnisse, als man e
 Dadurch fällt die Einarbeitung in CXF schwerfälliger aus und man kommt schnell zu dem Gedanken, ob ein anderes Framework nicht doch die bessere Wahl wäre.
 
 Dabei muss man auch im Blick haben, dass man selbst nicht der einzige bleiben wird, der sich durch den Lernprozess quälen muss.
-Nachfolgende Entwickler, die irgendwann weitere Konfigurationen am CXF-Setup machen müssen, werden es ebenfalls schwerer haben.
+Nachfolgende Entwicklungsteams, die irgendwann weitere Konfigurationen am CXF-Setup vornehmen müssen, werden es ebenfalls schwerer haben.
 
 # Fazit
 CXF ist zurecht nicht das beliebteste Webservice-Framework. 
