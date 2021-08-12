@@ -36,7 +36,7 @@ Dadurch werden Laufzeitfehler durch unterschiedliche Schnittstellenversionen aus
 Dieser Vorteil kommt besonders in der frühen Phase einer Entwicklung zur Geltung, da sich Schnittstellen in dieser Zeit besonders häufig ändern.
 
 ### Interface
-Das gemeinsame Interface wird bei der Implementierung mit Jax-RS mit den Java REST-Endpoint Annotationen angereichert.
+Das gemeinsame Interface wird bei der Implementierung mit Jax-RS mit den Java REST-Endpoint-Annotationen angereichert.
 Bei Jax-WS wären diese nicht notwendig und würden das Interface weiter vereinfachen.
 
 ```java
