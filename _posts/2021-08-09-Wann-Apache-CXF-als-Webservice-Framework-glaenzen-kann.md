@@ -7,7 +7,7 @@ categories:     [Softwareentwicklung]
 tags:           [Java, Apache CXF, Webservice]
 ---
 
-Apaches CXF Framework bietet für die Webservice-Schnittstellen Entwicklung entscheidende Vorteile gegenüber den Konkurrenten (z.B. Spring MVC), wenn sowohl Client- als auch Serverseite in eigener Hand liegen. 
+Apaches CXF Framework bietet für die Webservice-Schnittstellenentwicklung entscheidende Vorteile gegenüber den Konkurrenten (z.B. Spring MVC), wenn sowohl Client- als auch Serverseite in eigener Hand liegen. 
 Jedoch steht es sich anfänglich selbst dabei im Weg in deren Genuss zu kommen. 
 
 # Apache CXF auf einem Bierdeckel
