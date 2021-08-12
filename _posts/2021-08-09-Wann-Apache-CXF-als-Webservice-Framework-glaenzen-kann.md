@@ -57,7 +57,7 @@ public interface IHelloWorld {
 ```
 
 ### Serverseitige Implementierung
-Die Serverseitige Implementierung unterscheidet sich in keiner Weise von der Implementierung eines typischen Interfaces. 
+Die serverseitige Implementierung unterscheidet sich in keiner Weise von der Implementierung eines typischen Interface. 
 
 ```java
 public class HelloWorldWebservice implements IHelloWorld{
