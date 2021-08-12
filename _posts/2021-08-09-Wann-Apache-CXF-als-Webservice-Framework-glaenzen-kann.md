@@ -14,7 +14,7 @@ Jedoch steht es sich anfänglich selbst dabei im Weg in deren Genuss zu kommen.
 CXFs Unique Selling Point ist es, REST- und/oder SOAP-Webservices nahezu vollständig als Java-Code zu implementieren, ohne sich Gedanken über die technischen Details der Kommunikationswege machen zu müssen.
 Konkret reicht es aus, ein Java Interface zu spezifizieren, welches die Serverseite implementiert und die Clientseite es verwendet.
 Im Code unterscheidet sich die Verwendung dadurch nicht von einem ganz normalen Service.
-Die Kommunikationswege zwischen der Verwendung im Client und dem Empfang im Server wird dabei vollständig von CXF weggekapselt.  
+Die Kommunikationswege zwischen der Verwendung im Client und dem Empfang im Server werden dabei vollständig von CXF weggekapselt.  
 
 # Das ideale Szenario
 Die Vorteile von CXF kommen besonders bei der Entwicklung von Webservice-Schnittstellen zur Geltung, bei der sowohl die Client- als auch Serverimplementierung in der eigenen Hand liegen.
