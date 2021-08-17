@@ -33,7 +33,7 @@ Ein Secure Default wäre in diesem Falle, dass nach erstmaligen aufsetzen das Pa
 
 Sicherheit sollte mehrschichtig implementiert werden, um ebenfalls die Angriffsfläche und Sicherheitslücken zu verkleinern.
 Wenn ein Mechanismus fehlschlägt, gibt es weitere Sicherheitsmechanismen, um einen Angriff zu verhindern oder zu verzögern.
-Oft wird die Analogie zur Verteidigung einer Burg gezogen: Bis eine Burg von einem Angreifer erreicht werden konnte, mussten mehrere Mauern, Wälle, Gräben und weitere Verteidigungslinien überwunden werden. 
+Oft wird die Analogie zur Verteidigung einer Burg gezogen: Bis eine Burg von Angreifenden erreicht werden konnte, mussten mehrere Mauern, Wälle, Gräben und weitere Verteidigungslinien überwunden werden. 
 So wurde frühzeitig ein Eindringling erkannt und mehr Zeit gewonnen um sich zu Verteidigen. 
 Im Bereich der IT-Sicherheit kann es sich zum einem um jede Schicht im ISO/OSI Modell handeln, und zum anderen können in jeder Schicht selbst wiederum mehrschichtige Sicherheitskontrollen, wie beispielsweise im Netzwerk eingebaut werden. 
 
