@@ -21,7 +21,7 @@ Bei einem Hausbau beispielsweise ist es am günstigsten und einfachsten, die Fu�
 
 # Secure Defaults
 
-Softwareartefakte sollten mit Secure Defaults ausgeliefert werden, dass bedeutet, das die Standardeinstellung bereits ein hohes Maß an Sicherheit gewährleisten sollte. 
+Softwareartefakte sollten mit Secure Defaults ausgeliefert werden, das bedeutet, dass die Standardeinstellungen bereits ein hohes Maß an Sicherheit gewährleisten sollten. 
 Die Voreinstellungen sollten unsichere Funktionen und Schnittstellen standardmäßig deaktivieren. 
 Hierauf lässt sich auch das Default Deny Prinzip anwenden, wobei Sicherheitsparameter immer restriktiv eingestellt werden und diese explizit gelockert werden müssen. 
 Beispiel wäre hier die Einstellung und Konfiguration eines Servers. 
