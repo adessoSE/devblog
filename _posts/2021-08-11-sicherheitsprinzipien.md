@@ -24,7 +24,7 @@ Bei einem Hausbau beispielsweise ist es am günstigsten und einfachsten, die Fu�
 Softwareartefakte sollten mit Secure Defaults ausgeliefert werden, das bedeutet, dass die Standardeinstellungen bereits ein hohes Maß an Sicherheit gewährleisten sollten. 
 Die Voreinstellungen sollten unsichere Funktionen und Schnittstellen standardmäßig deaktivieren. 
 Hierauf lässt sich auch das Default-Deny-Prinzip anwenden, wobei Sicherheitsparameter immer restriktiv eingestellt werden und diese explizit gelockert werden müssen. 
-Beispiel wäre hier die Einstellung und Konfiguration eines Servers. 
+Ein Beispiel wäre hier die Konfiguration eines Servers. 
 Einige Server oder Geräte, die über ein Authentifizierungssystem verfügen, haben Standardbenutzernamen und -kennwörter. 
 Wenn sie nicht ordnungsgemäß geändert werden, kann sich jeder, der die Standardkonfiguration kennt, erfolgreich authentifizieren. 
 Ein Secure Default wäre in diesem Falle, dass nach erstmaligen aufsetzen das Passwort geändert werden muss. 
