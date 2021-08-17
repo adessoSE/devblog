@@ -16,7 +16,7 @@ Um diese Herausforderungen auf ein nicht-technologisches Niveau herunterzubreche
 Die Begriffe Secure bzw. Security by Design beziehen sich darauf, dass Software von Grund auf sicher designt wird. 
 Die Sicherheit einer Software sollte von Anfang an in den Entwurf mit einbezogen werden. 
 Dies gilt ebenso bei Datenschutzaspekten und wird durch den Privacy by Design Begriff erweitert. 
-Eine mit auf die Sicherheit abgestimmte Anwendungsarchitektur verkleinert die Angriffsfläche von Anfang an und spart zudem auch Kosten, als wenn man Sicherheitsaspekte erst im Nachhinein einbaut. 
+Eine mit auf die Sicherheit abgestimmte Anwendungsarchitektur verkleinert die Angriffsfläche von Anfang an und spart zudem Kosten im Vergleich zum nachträglichen Einbau von Sicherheistaspekten. 
 Bei einem Hausbau beispielsweise ist es am günstigsten und einfachsten, die Fußbodenheizung zu Beginn zu verlegen, statt 5 Jahre später. 
 
 # Secure Defaults
