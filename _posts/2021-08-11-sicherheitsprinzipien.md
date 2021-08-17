@@ -8,8 +8,7 @@ categories: [Softwareentwicklung]     # Pflichtfeld. Maximal eine der angegebene
 tags: [IT-Security]   # Bitte auf Großschreibung achten.
 ---
 
-Software in jeder ISO/OSI Stufe abzusichern kann eine ziemlich komplexe Aufgabe und technologische Herausforderung werden. 
-Je nachdem wieviel man an Zeit und Kosten investieren möchte. 
+Software in jeder ISO/OSI Stufe abzusichern kann eine ziemlich komplexe Aufgabe und technologische Herausforderung werden, je nachdem wie viel Zeit und Kosten man investieren möchte. 
 Um diese Herausforderungen auf ein nicht-technologisches Niveau herunterzubrechen, werden verschiedene Sicherheitsprinzipien vorgestellt und kurz und knapp zusammengefasst.
 
 # Secure by Design 
