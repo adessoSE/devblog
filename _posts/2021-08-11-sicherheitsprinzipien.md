@@ -26,7 +26,7 @@ Die Voreinstellungen sollten unsichere Funktionen und Schnittstellen standardmä
 Hierauf lässt sich auch das Default-Deny-Prinzip anwenden, wobei Sicherheitsparameter immer restriktiv eingestellt werden und diese explizit gelockert werden müssen. 
 Ein Beispiel wäre hier die Konfiguration eines Servers. 
 Einige Server oder Geräte, die über ein Authentifizierungssystem verfügen, haben Standardbenutzernamen und -kennwörter. 
-Wenn sie nicht ordnungsgemäß geändert werden, kann sich jeder, der die Standardkonfiguration kennt, erfolgreich authentifizieren. 
+Wenn sie nicht ordnungsgemäß geändert werden, können sich alle, die die Standardkonfiguration kennen, erfolgreich authentifizieren. 
 Ein Secure Default wäre in diesem Falle, dass nach erstmaligen aufsetzen das Passwort geändert werden muss. 
 
 # Defense in Depth
