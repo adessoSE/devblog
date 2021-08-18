@@ -488,3 +488,21 @@ fabianvolkert:
   bio: "Fabian Volkert ist seit 2020 Software Developer bei adesso. Die ersten Berührungspunkte mit Kotlin hatte er 2019 in seiner Masterarbeit und programmierte in dieser Sprache anschließend auch in einem Projekt im E-Commerce."
   avatar_url: /assets/images/avatars/fabianvolkert.png
   github: https://github.com/VolkertF
+
+felix_marezki:
+  first_name: Felix
+  last_name: Marezki
+  github_username: reenigneEsrever92
+  email: felix.marezki@adesso.de
+  bio: "Felix Marezki is a Fullstack Developer at adesso SE with a Java foundation and strong insterests in alternative technologies espacially Rust."
+  avatar_url: /assets/images/avatars/felix_marezki.jpg
+  github: https://github.com/reenigneEsrever92
+
+tgraefenstein:
+  first_name: Thomas
+  last_name: Gräfenstein
+  email: thomas.graefenstein@adesso.de
+  bio: "Thomas Gräfenstein ist Fullstack Senior Software Engineer im Bereich Cross Industries und E-Mobility."
+  avatar_url: /assets/images/avatars/tgraefenstein.jpg
+  github_username: g-stone7
+  github: https://github.com/g-stone7
