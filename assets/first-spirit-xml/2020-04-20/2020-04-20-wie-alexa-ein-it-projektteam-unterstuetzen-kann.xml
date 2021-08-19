@@ -17,13 +17,7 @@ Wie aber sehen die Entwicklungen und Einsatzmöglichkeiten im Unternehmenskontex
         <field name="date_date"><![CDATA[2020-04-20T13:00:00+02:00]]></field>
         <field name="date_l"><![CDATA[1587380400000]]></field>
         <field name="change_date"><![CDATA[1587380400000]]></field>
-        <!--Picture-->
-        <!-- Not in use at the moment-->
         <!--Author Information-->
-        <field name="author_first_name"><![CDATA[Philippe]]></field>
-        <field name="author_last_name"><![CDATA[Schild]]></field>
-        <field name="author_id"><![CDATA[pschild]]></field>
-        <field name="author_picture_stored_only"><![CDATA[http://localhost:4000/assets/images/avatars/pschild.jpg]]></field>
         <!--Postcontent-->
         <field name="headlines"><![CDATA[Kollegin Alexa – Wie Sprachassistenten ein IT-Projektteam unterstützen können]]></field>
         <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">

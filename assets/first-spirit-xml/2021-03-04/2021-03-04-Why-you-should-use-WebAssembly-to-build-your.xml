@@ -19,13 +19,7 @@ In this article, two identical applications are programmed in WebAssembly and Ja
         <field name="date_date"><![CDATA[2021-03-04T09:00:00+01:00]]></field>
         <field name="date_l"><![CDATA[1614844800000]]></field>
         <field name="change_date"><![CDATA[1614844800000]]></field>
-        <!--Picture-->
-        <!-- Not in use at the moment-->
         <!--Author Information-->
-        <field name="author_first_name"><![CDATA[Maximilian]]></field>
-        <field name="author_last_name"><![CDATA[Lang]]></field>
-        <field name="author_id"><![CDATA[xXanth0s]]></field>
-        <field name="author_picture_stored_only"><![CDATA[http://localhost:4000/assets/images/avatars/langmaximilian.jpg]]></field>
         <!--Postcontent-->
         <field name="headlines"><![CDATA[Why you should not use WebAssembly to build your SPA]]></field>
         <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">

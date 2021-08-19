@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <documents>
-    <document uid="84f7f22eb70c7598e43d0d6d2d175c26">
-        <field name="title"><![CDATA[Konvertierung einer REST-API zu einer SOAP-Schnittstelle mithilfe von Kong]]></field>
+    <document uid="be1a13fc3f52f95322800e7eb2498778">
+        <field name="title"><![CDATA[Testartikel]]></field>
         <field name="subline"><![CDATA[]]></field>
         <field name="teaser"><![CDATA[<p>Welche Möglichkeiten haben wir, wenn neben einer REST-API auch eine SOAP-Schnittstelle zur Verfügung stehen soll?
 In diesem Artikel wird eine Methode vorgestellt, wie man diese Anforderung mit Hilfe von Kong umsetzen kann.</p>
@@ -15,12 +15,14 @@ In diesem Artikel wird eine Methode vorgestellt, wie man diese Anforderung mit H
         <field name="tag_multi_keyword"><![CDATA[SOAP]]></field>
         <field name="tag_multi_keyword"><![CDATA[REST]]></field>
         <field name="tag_multi_keyword"><![CDATA[Lua]]></field>
-        <field name="date_date"><![CDATA[2021-06-18T16:00:00+02:00]]></field>
-        <field name="date_l"><![CDATA[1624024800000]]></field>
-        <field name="change_date"><![CDATA[1624024800000]]></field>
+        <field name="date_date"><![CDATA[2021-06-24T16:00:00+02:00]]></field>
+        <field name="date_l"><![CDATA[1624543200000]]></field>
+        <field name="change_date"><![CDATA[1624543200000]]></field>
         <!--Author Information-->
-        <!--Postcontent-->
-        <field name="headlines"><![CDATA[Konvertierung einer REST-API zu einer SOAP-Schnittstelle mithilfe von Kong]]></field>
+        
+        <field name="author_id"><![CDATA[DanielKraft]]></field>
+        <field name="author_id"><![CDATA[jo2]]></field><!--Postcontent-->
+        <field name="headlines"><![CDATA[Testartikel]]></field>
         <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
             <p>Welche Möglichkeiten haben wir, wenn neben einer REST-API auch eine SOAP-Schnittstelle zur Verfügung stehen soll?
 In diesem Artikel wird eine Methode vorgestellt, wie man diese Anforderung mit Hilfe von Kong umsetzen kann.</p>

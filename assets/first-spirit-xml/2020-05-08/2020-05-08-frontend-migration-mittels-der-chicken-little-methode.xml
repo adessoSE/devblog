@@ -25,13 +25,7 @@ Als Zieltechnologie für die Migration dient in diesem Beispiel das <strong>Sing
         <field name="date_date"><![CDATA[2020-05-08T17:00:00+02:00]]></field>
         <field name="date_l"><![CDATA[1588950000000]]></field>
         <field name="change_date"><![CDATA[1589192700000]]></field>
-        <!--Picture-->
-        <!-- Not in use at the moment-->
         <!--Author Information-->
-        <field name="author_first_name"><![CDATA[Michael]]></field>
-        <field name="author_last_name"><![CDATA[Schick]]></field>
-        <field name="author_id"><![CDATA[mschick]]></field>
-        <field name="author_picture_stored_only"><![CDATA[http://localhost:4000/assets/images/avatars/mschick.jpg]]></field>
         <!--Postcontent-->
         <field name="headlines"><![CDATA[Frontend Migration anhand der Chicken-Little-Methode in der Praxis]]></field>
         <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">

@@ -17,13 +17,7 @@ Handelt das Opfer nicht korrekt, ist der Klick auf den Link oder Anhang die einz
         <field name="date_date"><![CDATA[2020-11-13T09:00:00+01:00]]></field>
         <field name="date_l"><![CDATA[1605254400000]]></field>
         <field name="change_date"><![CDATA[1605254400000]]></field>
-        <!--Picture-->
-        <!-- Not in use at the moment-->
         <!--Author Information-->
-        <field name="author_first_name"><![CDATA[Vivien Emily]]></field>
-        <field name="author_last_name"><![CDATA[Schiller]]></field>
-        <field name="author_id"><![CDATA[VivienEmily]]></field>
-        <field name="author_picture_stored_only"><![CDATA[http://localhost:4000/assets/images/avatars/vschiller.jpg]]></field>
         <!--Postcontent-->
         <field name="headlines"><![CDATA[Phishing Kampagne bei adesso]]></field>
         <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
