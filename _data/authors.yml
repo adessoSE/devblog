@@ -480,6 +480,15 @@ thorbolo:
   avatar_url: /assets/images/avatars/thorbenschiller.jpg
   github: https://github.com/thorbolo
 
+fabianvolkert:
+  first_name: Fabian
+  last_name: Volkert
+  github_username: VolkertF
+  email: fabian.volkert@adesso.de
+  bio: "Fabian Volkert ist seit 2020 Software Developer bei adesso. Die ersten Berührungspunkte mit Kotlin hatte er 2019 in seiner Masterarbeit und programmierte in dieser Sprache anschließend auch in einem Projekt im E-Commerce."
+  avatar_url: /assets/images/avatars/fabianvolkert.png
+  github: https://github.com/VolkertF
+
 felix_marezki:
   first_name: Felix
   last_name: Marezki
@@ -497,4 +506,3 @@ tgraefenstein:
   avatar_url: /assets/images/avatars/tgraefenstein.jpg
   github_username: g-stone7
   github: https://github.com/g-stone7
-
