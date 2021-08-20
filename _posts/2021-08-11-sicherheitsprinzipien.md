@@ -41,7 +41,7 @@ Im Bereich der IT-Sicherheit kann es sich zum einen um jede Schicht im ISO/OSI M
 
 Dieses Prinzip gilt natürlich nicht nur im Bereich der IT-Sicherheit. 
 Jedoch sollten gerade sicherheitsrelevante Schnittstellen nicht zu komplex gestaltet werden, sodass keine Fehlbedienung oder -interpretation möglich ist. 
-Eine Validierungsfunktion, die beispielsweise aus komplexen regulären Ausdrücken aufgebaut wurde, birgt hohe Risiken und Möglichkeiten zur Fehlinterpretation und sollten wenn möglich vermieden werden. 
+Eine Validierungsfunktion, die beispielsweise aus komplexen regulären Ausdrücken aufgebaut wurde, birgt hohe Risiken und Möglichkeiten zur Fehlinterpretation und sollte, wenn möglich, vermieden werden. 
 Manche sicherheitsrelevanten APIs benötigen eine komplexe Parametrisierung die nicht jede entwickelnde Person, ohne ein Kryptoexperte zu sein, auf Anhieb versteht und sicher implementiert. 
 Besser ist es auf Standardbibliotheken zu setzen, die bereits Secure Defaults einsetzen. 
 So erhöht sich die Wartbarkeit und lässt sich leichter für das ganze Team verstehen, insbesondere wenn genau die Entwickelnden das Team verlassen, die diese Funktionen implementiert haben. 
