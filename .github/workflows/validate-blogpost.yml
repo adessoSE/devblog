@@ -1,0 +1,23 @@
+#Run blogpost-checker in a Docker container to validate the new blogpost
+name: validate-blogpost
+
+on:
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  pull-and-run-blogpost-checker-image:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@master
+
+      - name: Inject env
+        uses: rlespinasse/github-slug-action@v3.x
+
+      - name: Pull Docker image
+        run: docker pull jekyll2cms/blogpost-checker:1.0.0
+
+      - name: Run Docker image
+        run: docker run --env REPOSITORY_REMOTE_URL='https://github.com/${{ env.GITHUB_REPOSITORY_OWNER_PART }}/${{ env.GITHUB_REPOSITORY_NAME_PART }}' --env REPOSITORY_BRANCH_NAME='${{ env.GITHUB_HEAD_REF_SLUG }}' jekyll2cms/blogpost-checker:1.0.0
