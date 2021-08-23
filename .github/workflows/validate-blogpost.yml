@@ -1,0 +1,24 @@
+#Run blogpost-checker in a Docker container to validate the new blogpost
+name: convert-blogpost-to-xml
+
+on:
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  pull-and-run-blogpost-checker-image:
+    #    if: github.repository == 'adessoag/devblog'
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@master
+
+      - name: Inject slug/short variables
+        uses: rlespinasse/github-slug-action@v3.x
+
+      - name: Pull Docker image
+        run: docker pull jekyll2cms/blogpost-checker:1.0.0
+
+      - name: Run Docker image
+        run: docker run --env REPOSITORY_REMOTE_URL='${{ env.GITHUB_REPOSITORY_SLUG }}' --env REPOSITORY_BRANCH_NAME='${{ env.GITHUB_REF_SLUG_URL }}' jekyll2cms/blogpost-checker:1.0.0
