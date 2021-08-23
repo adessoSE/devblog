@@ -14,8 +14,8 @@ jobs:
     steps:
       - uses: actions/checkout@master
 
-#      - name: Inject slug/short variables
-#        uses: rlespinasse/github-slug-action@v3.x
+      - name: Inject env
+        uses: rlespinasse/github-slug-action@v3.x
 
       - name: Pull Docker image
         run: docker pull jekyll2cms/blogpost-checker:1.0.0
