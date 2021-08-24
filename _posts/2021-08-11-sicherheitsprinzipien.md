@@ -114,5 +114,5 @@ Viele Nutzende klicken Zertifikatsfehler weg, vergeben öfter das gleiche Passwo
 Komplizierter wird es, wenn man sich plötzlich mit Zertifikaten anmelden muss. 
 Wer seine Steuererklärung online abgibt kennt den Prozess. 
 Weniger technisch affine Menschen kommen häufig zu dem Punkt, dass dieser Vorgang zu kompliziert erscheint und sie jedes Jahr aufs Neue ihr Zertifikat suchen, dieses wiederrum unsicher abgespeichert ist und zudem keine psychologische Akzeptanz gegenüber diesen Maßnahmen herrscht. 
-Daher sollte Sicherheit auch für die Benutzenden stets nutzvoll, verifizier- und nachvollziehbar erscheinen. 
+Daher sollte Sicherheit auch für die Benutzenden stets nutzvoll, verifizierbar und nachvollziehbar erscheinen. 
 
