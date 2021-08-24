@@ -109,7 +109,7 @@ Dementsprechend gilt es die Sicherheitsmaßnahmen auszuwählen und zu konfigurie
 
 # Make Security Usable and Friendly
 
-Die Sicherheit einer Anwendung hängt nicht nur von den technisch getroffenen Sicherheitsmaßnahmen ab, sondern auch, ob eine nutzende Person mit ihnen umgehen oder sie umgehen kann. 
+Die Sicherheit einer Anwendung hängt nicht nur von den technisch getroffenen Sicherheitsmaßnahmen ab, sondern auch davon, ob eine nutzende Person mit ihnen umgehen oder sie umgehen kann. 
 Viele Nutzenden klicken Zertifikatsfehler weg oder vergeben öfter das gleiche Passwort oder schreiben es sich irgendwo auf.
 Komplizierter wird es, wenn man sich plötzlich mit Zertifikaten anmelden muss. 
 Wer seine Steuererklärung online abgibt kennt den Prozess. 
