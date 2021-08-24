@@ -100,7 +100,7 @@ Pentesting bietet eine weitere Möglichkeit.
 
 # Kein Versteckspiel
 
-Als Basis dieses Sicherheitsprinzip dient das Kerckhoffssche Prinzip aus der Kryptographie, welches besagt, dass die Sicherheit eines Verschlüsselungsverfahrens nicht auf der Geheimhaltung des verwendeten Algorithmus, sondern auf die Geheimhaltung des Schlüssels beruhen darf. 
+Als Basis dieses Sicherheitsprinzips dient das Kerckhoffssche Prinzip aus der Kryptographie, welches besagt, dass die Sicherheit eines Verschlüsselungsverfahrens nicht auf der Geheimhaltung des verwendeten Algorithmus, sondern auf die Geheimhaltung des Schlüssels beruhen darf. 
 Übersetzt soll es bedeuten, dass die Sicherheit nicht auf der Geheimhaltung der getroffenen Sicherheitsmaßnahmen im Entwurf und der eingesetzten Algorithmen beruhen darf (Security by Obscurity). 
 Wer auf Security by Obscurity setzt, erzeugt ein falsches Gefühl von Sicherheit. 
 Natürlich ist es besser, wenn eine potenziell angreifende Person so wenig wie möglich weiß, jedoch darf die Sicherheit nicht allein auf das Verstecken von Sicherheitsmaßnahmen beruhen. 
