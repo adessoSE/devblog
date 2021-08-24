@@ -1,6 +1,6 @@
 ---
 layout: [post, post-xml]              # Pflichtfeld. Nicht ändern!
-title:  "Sicherheitsprinzipien 2go"         # Pflichtfeld. Bitte einen Titel für den Blog Post angeben.
+title:  "Sicherheitsprinzipien 2 go"         # Pflichtfeld. Bitte einen Titel für den Blog Post angeben.
 date:   2021-08-11 10:25              # Pflichtfeld. Format "YYYY-MM-DD HH:MM". Muss für Veröffentlichung in der Vergangenheit liegen. (Für Preview egal)
 modified_date: 2021-08-11             # Optional. Muss angegeben werden, wenn eine bestehende Datei geändert wird.
 author: vschiller                      # Pflichtfeld. Es muss in der "authors.yml" einen Eintrag mit diesem Namen geben.
