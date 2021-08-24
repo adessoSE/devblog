@@ -74,7 +74,7 @@ Dafür müssen die Teilkomponenten bekannt sein.
 Bei einem Systementwurf scheinen diese Komponente zunächst sichtbar. 
 Bei dem Burgbau mit all seinen Sicherheitswallen und Burggraben ebenfalls. Und trotzdem kann durch menschliche Manipulation ein Trojanisches Pferd alle Sicherheitsmechanismen umgehen. 
 Die Teilkomponente Mensch wurde in diesem Fall außer Acht gelassen. 
-Daher ist das sichtbar machen von Teilkomponenten, die nicht offensichtlich zum System gehören äußerst wichtig, um konsistente Sicherheit zu gewährleisten. 
+Daher ist das Sichtbarmachen von Teilkomponenten, die nicht offensichtlich zum System, gehören äußerst wichtig, um konsistente Sicherheit zu gewährleisten. 
 
 # Verwende ausgereifte Sicherheit
 
