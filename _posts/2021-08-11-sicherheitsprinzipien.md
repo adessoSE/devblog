@@ -86,7 +86,7 @@ Bei einem kleinen Implementierungsfehler eines eigenen Verschlüsselungsalgorith
 # Entkopple Sicherheitslogik
 
 Da sich die Sicherheitsstandards fortlaufend anpassen, sollte die Sicherheitslogik an einer zentralen Stelle gepflegt werden.
-So kann sichergestellt werden, dass bei einer Anpassung eines kryptographischen Algorithmus, die Anpassung an jeder genutzten Stelle konsistent erfolgt und nicht an einer Stelle übersehen wird.  
+So kann sichergestellt werden, dass bei einer Anpassung eines kryptographischen Algorithmus die Anpassung an jeder genutzten Stelle konsistent erfolgt und nicht an einer Stelle übersehen wird.  
 Die Wartung des Codes ist handhabbarer und lässt sich dadurch leichter in andere Projekte mit einbinden. 
 Zudem kann die Sicherheitslogik separat auf die Sicherheit hin überprüft werden und unautorisierte Änderungen können eher vermieden werden. 
 
