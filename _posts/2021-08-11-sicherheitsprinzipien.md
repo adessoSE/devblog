@@ -55,7 +55,7 @@ Eine Steigerung ist das Zero Trust Modell, bei dem das Prinzip nicht nur lautet,
 # Positives Sicherheitsmodell
 
 Beim positiven Sicherheitsmodell stellt sich die Frage: Was kann erlaubt werden, statt was muss ich verbieten. 
-Prinzipiell baut dieses Prinzip darauf auf, dass zunächst einmal alles verboten wird und nur das explizit Erlaubte zugelassen wird. 
+Prinzipiell baut dieses Prinzip darauf auf, dass zunächst alles verboten wird und nur das explizit Erlaubte zugelassen wird. 
 Beim umgekehrten Fall, dem „was-muss-ich-alles-verbieten-Fall“ kann es passieren, dass nicht alle Negativfälle betrachtet werden, da sie eventuell auch gar nicht alle bekannt sind. 
 So ist das Whitelisting, dem Blacklisting vorzuziehen. 
 Das positive Sicherheitsmodell baut auf dem Misstrauensprinzip auf und erlaubt anschließend geprüfte Vertrauensbeziehungen. 
