@@ -95,7 +95,7 @@ Zudem kann die Sicherheitslogik separat auf die Sicherheit hin überprüft werde
 Wer den Film "Who am I" nicht gesehen hat, dem sei der Film an dieser Stelle empfohlen. Wie zuvor beschrieben ist es besser, auf ein Misstrauensprinzip zu setzen und eher als Standard alles zu verbieten und nur (authentifizierte) Ausnahmen zu erlauben. 
 Trotzdem ist es wichtig sich Gedanken über potenzielle Angreifende zu machen, ihre Taktiken zu verstehen und am eigenen System zu testen. 
 Dieses Prinzip sollte ergänzend eingesetzt werden, um zu verifizieren, dass die eingesetzten Sicherheitsmaßnahmen ausreichend sind. 
-Eine Möglichkeit dies strukturiert und von Anfang am im Softwareentwicklungsprozess zu betrachten und umzusetzen sind Evil User Storys. 
+Eine Möglichkeit, dies strukturiert und von Anfang an im Softwareentwicklungsprozess zu betrachten und umzusetzen, sind Evil User Storys. 
 Pentesting bietet eine weitere Möglichkeit.
 
 # Kein Versteckspiel
