@@ -50,7 +50,7 @@ So erhöht sich die Wartbarkeit und die Verständlichkeit des sicherheitskritisc
 
 Das Misstrauensprinzip zielt darauf ab, jeglichen Schnittstellen eher zu Misstrauen als zu Vertrauen. 
 So sollte zum Beispiel allen vom Client erhaltenen Daten stets misstraut werden, da sie durch einen Man-in-the-Middle-Angriff hätten manipuliert werden können. 
-Eine Steigerung ist das Zero Trust Modell, bei dem das Prinzip nicht nur lautet niemandem zu Vertrauen, sondern auch jeder Anwendungszugriff authentifiziert werden muss.
+Eine Steigerung ist das Zero Trust Modell, bei dem das Prinzip nicht nur lautet, niemandem zu Vertrauen, sondern auch jeder Anwendungszugriff authentifiziert werden muss.
 
 # Positives Sicherheitsmodell
 
