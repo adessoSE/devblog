@@ -79,7 +79,7 @@ Daher ist das Sichtbarmachen von Teilkomponenten, die nicht offensichtlich zum S
 # Verwende ausgereifte Sicherheit
 
 Dieses Sicherheitsprinzip zielt vor allem auf kryptografische Umsetzungen ab. 
-Wo möglich, sollten keine eigenständig kreierten kryptografisches Verfahren oder ein eigener Algorithmus implementiert werden. 
+Wo möglich, sollten keine eigenständig kreierten kryptografischen Verfahren oder eigene Algorithmen implementiert werden. 
 Nicht nur aufgrund des Keep-it-Simples Prinzips, sondern auch weil bewährte Implementierung und Bibliotheken ausgereift sind, stets gepflegt und ständig getestet werden. 
 Bei einem kleinen Implementierungsfehler eines eigenen Verschlüsselungsalgorithmus, kann dieser schon massive Auswirkung auf die Sicherheit haben. 
 
