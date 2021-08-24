@@ -104,7 +104,7 @@ Als Basis dieses Sicherheitsprinzips dient das Kerckhoffssche Prinzip aus der Kr
 Das bedeutet, dass die Sicherheit nicht auf der Geheimhaltung der getroffenen Sicherheitsmaßnahmen im Entwurf und der eingesetzten Algorithmen beruhen darf (Security by Obscurity). 
 Wer auf Security by Obscurity setzt, erzeugt ein falsches Gefühl von Sicherheit. 
 Natürlich ist es besser, wenn eine potenziell angreifende Person so wenig wie möglich weiß, jedoch darf die Sicherheit nicht allein auf dem Verstecken von Sicherheitsmaßnahmen beruhen. 
-Die Sicherheit einer Anwendung sollte einem Angriff auch standhalten, wenn die Sicherheitsmaßnahmen offengelegt wären.
+Die Sicherheit einer Anwendung sollte einem Angriff auch standhalten, wenn die Sicherheitsmaßnahmen offengelegt sind.
 Dementsprechend gilt es die Sicherheitsmaßnahmen auszuwählen und zu konfigurieren. 
 
 # Make Security Usable and Friendly
