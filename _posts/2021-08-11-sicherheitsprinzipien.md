@@ -87,8 +87,9 @@ Bei einem kleinen Implementierungsfehler eines eigenen Verschlüsselungsalgorith
 
 Da sich die Sicherheitsstandards fortlaufend anpassen, sollte die Sicherheitslogik an einer zentralen Stelle gepflegt werden.
 So kann sichergestellt werden, dass bei einer Anpassung eines kryptographischen Algorithmus die Anpassung an jeder genutzten Stelle konsistent erfolgt und nicht an einer Stelle übersehen wird.  
-Die Wartung des Codes ist handhabbarer und lässt sich dadurch leichter in andere Projekte mit einbinden. 
-Zudem kann die Sicherheitslogik separat auf die Sicherheit hin überprüft werden und unautorisierte Änderungen können eher vermieden werden. 
+Die Wartung des Codes ist handhabbarer. 
+Zudem lässt sich der Code durch die Zentralisierung leichter in andere (Teil-)Projekte einbinden. 
+Weiterhin kann die Sicherheitslogik separat auf die Sicherheit hin überprüft werden und unautorisierte Änderungen können eher vermieden werden. 
 
 # Who am I?
 
@@ -105,7 +106,7 @@ Das bedeutet, dass die Sicherheit nicht auf der Geheimhaltung der getroffenen Si
 Wer auf Security by Obscurity setzt, erzeugt ein falsches Gefühl von Sicherheit. 
 Natürlich ist es besser, wenn eine potenziell angreifende Person so wenig wie möglich weiß, jedoch darf die Sicherheit nicht allein auf dem Verstecken von Sicherheitsmaßnahmen beruhen. 
 Die Sicherheit einer Anwendung sollte einem Angriff auch standhalten, wenn die Sicherheitsmaßnahmen offengelegt sind.
-Dementsprechend gilt es die Sicherheitsmaßnahmen auszuwählen und zu konfigurieren. 
+Dementsprechend sollten die Sicherheitsmaßnahmen ausgewählt und konfiguriert werden. 
 
 # Make Security Usable and Friendly
 
@@ -115,4 +116,10 @@ Komplizierter wird es, wenn man sich plötzlich mit Zertifikaten anmelden muss.
 Wer seine Steuererklärung online abgibt kennt den Prozess. 
 Weniger technisch affine Menschen kommen häufig zu dem Punkt, dass dieser Vorgang zu kompliziert erscheint und sie jedes Jahr aufs Neue ihr Zertifikat suchen, dieses wiederrum unsicher abgespeichert ist und zudem keine psychologische Akzeptanz gegenüber diesen Maßnahmen herrscht. 
 Daher sollte Sicherheit auch für die Benutzenden stets nutzvoll, verifizierbar und nachvollziehbar erscheinen. 
+
+Die vorgestellten Sicherheitsprinzipien sollen in diesem Beitrag einen groben Überblick über die gängigsten Prinzipien geben. 
+Mache lassen sich in Software Projekten besser oder schlechter anwenden.
+Insbesondere wird es schwierig, diese in einem bestehenden Projekt umzusetzen, wenn dort bisher nicht auf diese Prinzipien geachtet wurde.
+Wer aber ein neues Projekt aufsetzen kann, dem können diese Sicherheitsprinzipien in den ersten Schritten der Softwareentwicklung, auch ohne technisches Know-How weiterhelfen. 
+Wer weitergehendes Know-How benötigt, kann sich an unser Security-Exchange Team wenden. 
 
