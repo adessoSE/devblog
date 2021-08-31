@@ -177,6 +177,185 @@ Zum Schluss müssen wir im HTML unserem Custom Element noch das Attribut *name* 
 Im Browser sollte nun folgende Begrüßung angezeigt werden: 
 ![Stencil im Browser: Unser Komponente begrüßt uns mit den übergeben Namen](/assets/images/posts/Stencil-Einfuehrung/stencil-browser-3.png)
 
+# Die Komponente testen
+Wir können die Funktionalität der Komponente mit Unit-Tests und Ende-zu-Ende-Tests (E2E-Tests) nachprüfen und validieren. 
+Beide Testarten verwenden Jest. 
+Die Browserumgebung für die E2E-Tests wird mit Hilfe von Puppeteer bereitgestellt. 
+
+Außerdem bietet die Stencil CLI einen Befehl **stencil test** an.
+Mit den optionalen Parametern  “—spec” oder “—e2e” kann angegeben werden, welche der beiden Testarten genutzt werden soll. 
+Mit den Parameter “—watchAll” werden die Tests automatisch neu durchlaufen, sobald sich die Testdateien geändert haben.
+
+Unser **npm test** Befehl, um Unit-Tests und E2E-Tests laufen zu lassen, könnte so aussehen:
+
+```json
+"scripts": {
+    "test": "stencil test --spec --e2e",
+    "test.watch": "stencil test --spec --e2e --watchAll",
+}
+```
+## Tests schreiben
+Zuerst wollen wir testen, ob die Komponente ohne mitgegebene Werte funktioniert.
+In der Unit-Test-Datei **hallo-welt.spec.tsx** können wir das folgendermaßen machen:
+
+```javascript
+// Unit-Test:hallo-welt.spec.tsx
+import { newSpecPage } from "@stencil/core/testing";
+import { HalloWelt } from "./hallo-welt";
+
+describe("testing-compo", () => {
+  it("renders", async () => {
+    const page = await newSpecPage({
+      components: [HalloWelt],
+      html: `<hallo-welt></hallo-welt>`,
+    });
+    expect(page.root).toEqualHtml(`
+      <hallo-welt>
+        <mock:shadow-root>
+          <slot></slot>
+          <p>
+            Hallo
+          </p>
+        </mock:shadow-root>
+      </hallo-welt>
+    `);
+  });
+}
+```
+
+Die E2E-Tests schreiben wir in einer separaten Datei **hallo-welt.e2e.ts**: 
+```javascript
+// E2E:hallo-welt.e2e.ts
+import { newE2EPage } from "@stencil/core/testing";
+
+describe("hallo-welt", () => {
+  it("renders", async () => {
+    const page = await newE2EPage();
+    await page.setContent("<hallo-welt></hallo-welt>");
+
+    const element = await page.find("hallo-welt");
+    expect(element).toHaveClass("hydrated");
+  });
+
+});
+```
+
+Daraufhin wollen wir testen, ob die Komponente den angegebenen Namen von dem Attribut korrekt begrüßt:
+
+
+```javascript
+// Unit-Test:hallo-welt.spec.tsx
+
+  it("uses the given prop", async () => {
+    const page = await newSpecPage({
+      components: [HalloWelt],
+      html: `<hallo-welt name="Anna"></hallo-welt>`,
+    });
+    expect(page.root).toEqualHtml(`
+      <hallo-welt name="Anna">
+        <mock:shadow-root>
+          <slot></slot>
+          <p>
+            Hallo Anna
+          </p>
+        </mock:shadow-root>
+      </hallo-welt>
+    `);
+  });
+```
+Mit den "durchdringenden"  Selektor ``>>>`` kann nach einem Objekt innerhalb des Shadow-root einer Komponente gesucht werden.
+So können wir nach den Paragraphen suchen und testen, ob der ausgegebene Text den Erwartungen entspricht. 
+
+```javascript
+// E2E:hallo-welt.e2e.ts
+
+  it("can greet with the given name", async () => {
+    const page = await newE2EPage();
+    await page.setContent("<hallo-welt name='Anna'></hallo-welt>");
+
+    const element = await page.find("hallo-welt >>> p");
+    expect(element).toEqualText("Hallo Anna");
+  });
+```
+
+Anschließend testen wir, ob die Kindkomponente korrekt eingebunden wird. 
+Da wir in der Komponente *shadow* auf *true* gesetzt haben, befindet sich die Kindkomponente nicht direkt im Slot der ``<hallo-welt>`` Komponente, sondern nur ein Verweis darauf. 
+Deswegen erwarten wir unser Kindelement (hier h1) unterhalb vom schließenden Shadow-Root:
+
+```javascript
+// Unit-Test:hallo-welt.spec.tsx
+
+  it("uses the given slot", async () => {
+    const page = await newSpecPage({
+      components: [HalloWelt],
+      html: `<hallo-welt><h1>Willkommen</h1></hallo-welt>`,
+    });
+    expect(page.root).toEqualHtml(`
+      <hallo-welt>
+        <mock:shadow-root>
+          <slot></slot>
+          <p>
+            Hallo
+          </p>
+        </mock:shadow-root>
+        <h1>Willkommen</h1>
+      </hallo-welt>
+    `);
+  });
+```
+
+```javascript
+// E2E:hallo-welt.e2e.ts
+
+  it("can find the given child component", async () => {
+    const page = await newE2EPage();
+    await page.setContent(
+      "<hallo-welt name='Anna'><h1>Willkommen</h1>hallo-welt>"
+    );
+    const child = await page.find("hallo-welt > h1");
+    expect(child).toEqualHtml(`<h1>Willkommen</h1>`);
+  });
+```
+
+Zum Schluss testen wir die Kombination aus den mitgegebenen Namen und der Kindkomponente:
+```javascript
+// Unit-Test:hallo-welt.spec.tsx
+
+  it("uses the given prop and slot ", async () => {
+    const page = await newSpecPage({
+      components: [HalloWelt],
+      html: `<hallo-welt name="Anna"><h1>Willkommen</h1></hallo-welt>`,
+    });
+    expect(page.root).toEqualHtml(`
+      <hallo-welt name="Anna">
+        <mock:shadow-root>
+          <slot></slot>
+          <p>
+            Hallo Anna
+          </p>
+        </mock:shadow-root>
+        <h1>Willkommen</h1>
+      </hallo-welt>
+    `);
+  });
+```
+
+```javascript
+// E2E:hallo-welt.e2e.ts
+
+  it("can find the given name and child component", async () => {
+    const page = await newE2EPage();
+    await page.setContent(
+      "<hallo-welt name='Anna'><h1>Willkommen</h1>hallo-welt>"
+    );
+
+    const paragraph = await page.find("hallo-welt >>> p");
+    expect(paragraph).toEqualText("Hallo Anna");
+
+    const child = await page.find("hallo-welt > h1");
+    expect(child).toEqualHtml(`<h1>Willkommen</h1>`);
+  });
+```
 # Zusammenfassung
 
 Im Vergleich zur direkten Verwendung von Custom Elements bietet Stencil zusätzliche APIs, die das Entwickeln schneller Komponenten vereinfachen. 
