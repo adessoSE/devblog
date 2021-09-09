@@ -1,5 +1,6 @@
-{% assign author = site.data.authors[page.author] %}
 <div class="adesso-blog-author col-md-12 col-xl-8 adesso-center p-b-3">
+    {% for author_id in page.author_ids  %}
+    {% assign author = site.data.authors[author_id] %}
     <div class="author-information">
         <img src="{{ author.avatar_url | prepend: site.baseurl }}" alt="">
         <div class="author-about">
@@ -11,6 +12,7 @@
             {%  endif %}
         </div>
     </div>
+    {% endfor %}
     <div class="category-information">
         <table>
             <tbody>

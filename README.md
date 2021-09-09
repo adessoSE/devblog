@@ -6,7 +6,9 @@ Dieses Repository beinhaltet Blog Posts für den [adesso Blog](https://blog.ades
 
 ## Wie kann ich einen Blog Post veröffentlichen?
 Eine Anleitung, wie ein Blog Post über dieses Repository veröffentlicht werden kann,
-findest du [hier](examples/2017-08-10-blog-post-guide.md).
+findest du [hier](examples/2021-08-23-blog-post-guide.md).
+
+**WICHTIG: Achte bitte auf die Aktualisierung zur Angabe der Autoren**
 
 Falls du einige Tipps zum Schreiben eines erfolgreichen Artikels haben möchtest, schau doch mal in unsere [Best Practices](https://github.com/adessoAG/devblog/blob/master/examples/best-practices.md).
 
