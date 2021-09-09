@@ -10,6 +10,7 @@ Wenn du einen Pull-Request stellst, teile uns bitte deine Änderungen mit, indem
     - [ ] "author" angegeben
     - [ ] "categories" enthält maximal eine der Hauptkategorien (Architektur, Branchen, Digital Experience, Inside adesso, KI, Methodik, Softwareentwicklung)
     - [ ] "tags" enthält (beliebige) passende Tags
+  - [ ] Der blogpost-checker hat die Richtigkeit der Metadaten bestätigt (siehe CI Check)
 - **Text** (abzuhaken durch den Autor)
   - [ ] [Teaser entspricht den Vorgaben](https://github.com/adessoAG/devblog/blob/master/examples/2017-08-10-blog-post-guide.md#einleitung--teaser)
   - [ ] Rechtschreibung korrigiert
