@@ -184,7 +184,7 @@ Die Browserumgebung für die E2E-Tests wird mit Hilfe von Puppeteer bereitgestel
 
 Außerdem bietet die Stencil CLI einen Befehl **stencil test** an.
 Mit den optionalen Parametern  “—spec” oder “—e2e” kann angegeben werden, welche der beiden Testarten genutzt werden soll. 
-Mit den Parameter “—watchAll” werden die Tests automatisch neu durchlaufen, sobald sich die Testdateien geändert haben.
+Mit dem Parameter “—watchAll” werden die Tests automatisch erneut durchgeführt, sobald sich die Testdateien geändert haben.
 
 Unser **npm test** Befehl, um Unit-Tests und E2E-Tests laufen zu lassen, könnte so aussehen:
 
@@ -240,7 +240,7 @@ describe("hallo-welt", () => {
 });
 ```
 
-Daraufhin wollen wir testen, ob die Komponente den angegebenen Namen von dem Attribut korrekt begrüßt:
+Daraufhin wollen wir testen, ob die Komponente den angegebenen Namen aus dem mitgegebenen Attribut ausliest und korrekt verwendet:
 
 
 ```javascript
@@ -263,7 +263,7 @@ Daraufhin wollen wir testen, ob die Komponente den angegebenen Namen von dem Att
     `);
   });
 ```
-Mit den "durchdringenden"  Selektor ``>>>`` kann nach einem Objekt innerhalb des Shadow-root einer Komponente gesucht werden.
+Mit dem "durchdringenden"  Selektor ``>>>`` kann nach einem Objekt innerhalb des Shadow-root einer Komponente gesucht werden.
 So können wir nach den Paragraphen suchen und testen, ob der ausgegebene Text den Erwartungen entspricht. 
 
 ```javascript
@@ -317,7 +317,7 @@ Deswegen erwarten wir unser Kindelement (hier h1) unterhalb vom schließenden Sh
   });
 ```
 
-Zum Schluss testen wir die Kombination aus den mitgegebenen Namen und der Kindkomponente:
+Zum Schluss testen wir die Kombination aus dem mitgegebenen Namen und der Kindkomponente:
 ```javascript
 // Unit-Test:hallo-welt.spec.tsx
 
@@ -359,8 +359,8 @@ Zum Schluss testen wir die Kombination aus den mitgegebenen Namen und der Kindko
 # Zusammenfassung
 
 Im Vergleich zur direkten Verwendung von Custom Elements bietet Stencil zusätzliche APIs, die das Entwickeln schneller Komponenten vereinfachen. 
-Im Gegensatz zu den beliebten JavaScript-Frameworks werden keine zusätzlichen Codelasten zur Laufzeit eingebunden, da 100% Webkomponenten zur Kompilierzeit generiert werden, die nativ vom Browser genutzt werden können. 
-Durch die breite Browserkompatibilität und Möglichkeit in den beliebten Frameworks integriert zu werden, bietet sich Stencil als Tool an, um Design-Systeme bzw. Komponentenbibliotheken zu entwickeln.
+Im Gegensatz zu den beliebten JavaScript-Frameworks werden keine zusätzlichen Codelasten zur Laufzeit eingebunden, da reine Webkomponenten zur Kompilierzeit generiert werden, die nativ vom Browser genutzt werden können. 
+Durch die breite Browserkompatibilität und die Möglichkeit, in die beliebten Frameworks integriert zu werden, bietet sich Stencil als Tool an, um Design-Systeme bzw. Komponentenbibliotheken zu entwickeln.
 
 # Quellen
 [Codebeispiel: https://github.com/parideis/stencil-hallo-welt ](https://github.com/parideis/stencil-hallo-welt)
