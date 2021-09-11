@@ -25,8 +25,8 @@ Es gibt jedoch Systeme, bei denen diese Gegebenheiten bereits aus der Vergangenh
 
 # The Good
 Unter den beschriebenen Voraussetzungen kann die Webservice-Schnittstelle genau so einfach entwickelt werden, wie jedes andere Java-Interface.
-Bei einer gewählten Implementierung mit Jax-WS, also SOAP als Grundlage der Kommunikation, beinhaltet das Java-Interface keinen weiteren Code.
-Bei einer gewählten Implementierung mit Jax-RS, also REST als Grundlage der Kommunikation, sind noch einfache Annotationen an am Interface notwendig, die sich jedoch sehr in Grenzen halten.
+Bei einer gewählten Implementierung mit **Jax-WS**, also **SOAP** als Grundlage der Kommunikation, beinhaltet das Java-Interface keinen weiteren Code.
+Bei einer gewählten Implementierung mit **Jax-RS**, also **REST** als Grundlage der Kommunikation, sind noch einfache Annotationen an am Interface notwendig, die sich jedoch sehr in Grenzen halten.
 
 ## Beispiel 
 Das folgende Beispiel zeigt eine einfache Definition eines Jax-RS Interface, der serverseitigen Implementierung und die clientseitige Verwendung.
