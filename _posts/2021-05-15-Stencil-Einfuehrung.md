@@ -358,7 +358,7 @@ Zum Schluss testen wir die Kombination aus dem mitgegebenen Namen und der Kindko
 ```
 # Zusammenfassung
 
-Im Vergleich zur direkten Verwendung von Custom Elements bietet Stencil zusätzliche APIs, die das Entwickeln schneller Komponenten vereinfachen. 
+Im Vergleich zur direkten Verwendung von Custom Elements bietet Stencil zusätzliche APIs, die den Entwicklungsprozess beschleunigen. 
 Im Gegensatz zu den beliebten JavaScript-Frameworks werden keine zusätzlichen Codelasten zur Laufzeit eingebunden, da reine Webkomponenten zur Kompilierzeit generiert werden, die nativ vom Browser genutzt werden können. 
 Durch die breite Browserkompatibilität und die Möglichkeit, in die beliebten Frameworks integriert zu werden, bietet sich Stencil als Tool an, um Design-Systeme bzw. Komponentenbibliotheken zu entwickeln.
 
