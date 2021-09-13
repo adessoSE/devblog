@@ -35,9 +35,13 @@ Aufgrund der Natur der Java-Interfaces und der gemeinsamen Codebase sind Änderu
 Dadurch werden Laufzeitfehler durch unterschiedliche Schnittstellenversionen ausgeschlossen.
 Dieser Vorteil kommt besonders in der frühen Phase einer Entwicklung zur Geltung, da sich Schnittstellen in dieser Zeit besonders häufig ändern.
 
+Das Beispiel soll veranschaulichen, wie einfach eine Schnittstelle mit einem fertig konfigurierten CXF zu gestalten ist, daher wird folgend auf Code-Beispiele für die Konfiguration der Client- und Serverseite verzichtet   
+Dafür sind im Internet ausreichend Beispiele zu finden (im Gegensatz zu allem anderen was CXF angeht, dazu später mehr).
+
 ### Interface
-Das gemeinsame Interface wird bei der Implementierung mit Jax-RS mit den Java REST-Endpoint-Annotationen angereichert.
-Bei Jax-WS wären diese nicht notwendig und würden das Interface weiter vereinfachen.
+Das gemeinsame Interface wird bei der Implementierung mit Jax-RS mit den Java-EE REST-Endpoint-Annotationen angereichert.
+Diese sind im Java SDK enthalten. 
+Bei der Verwendung von Jax-WS wären diese nicht notwendig und würden das Interface weiter vereinfachen.
 
 ```java
 @WebService
@@ -79,6 +83,17 @@ public class HelloWorldWebservice implements IHelloWorld{
 }
 ```
 
+Zur Konfiguration des Webservice wird folgende Dependency benötigt:
+```xml
+<dependency>
+    <groupId>org.apache.cxf</groupId>
+    <artifactId>cxf-rt-frontend-jaxrs</artifactId>
+</dependency>
+```
+
+Auf die Details der Konfiguration wird wie oben erläutert verzichtet.
+
+
 ### Clientseitige Verwendung
 Der Webservice kann clientseitig wie ein gewöhnlicher Service verwendet werden.
 Im Code unterscheidet er sich in der Handhabung in keiner Weise. 
@@ -105,6 +120,16 @@ public class HelloWorldClient {
     }
 }
 ```
+
+Zur Konfiguration des Client wird folgende Dependency benötigt:
+```xml
+<dependency>
+    <groupId>org.apache.cxf</groupId>
+    <artifactId>cxf-rt-rs-client</artifactId>
+</dependency>
+```
+
+Auf die Details der Konfiguration wird wie oben erläutert verzichtet.
 
 # The Bad and the Ugly
 Grundsätzlich kann CXF alles, was andere Webservice-Frameworks auch können und die Integration mit Spring ist ebenfalls gegeben, sodass die Endpoints und Webservice-Clients in den Kontexten initialisiert werden können.
