@@ -79,7 +79,7 @@ public class HelloWorldWebservice implements IHelloWorld{
 }
 ```
 
-### clientseitige Verwendung
+### Clientseitige Verwendung
 Der Webservice kann clientseitig wie ein gewöhnlicher Service verwendet werden.
 Im Code unterscheidet er sich in der Handhabung in keiner Weise. 
 
