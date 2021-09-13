@@ -116,7 +116,7 @@ Kurzgesagt: die Dokumentation und mangelnde (gute) Beispiele im Internet.
 Wer CXF einsetzen und aufsetzen möchte, findet sich schnell auf der öffentlichen Seite von [CXF](https://cxf.apache.org/) wieder und wird erschlagen von Informationen, das Gesuchte gehört allerdings oft nicht dazu.
 Eine derart unübersichtliche Dokumentation ist heutzutage einfach nicht zeitgemäß und demotiviert schnell, wenn man von den Dokumentationen von Spring und allen seinen Frameworks verwöhnt ist.
 
-Auch das weitere googlen bringt weit weniger befriedigende Ergebnisse, als man es von anderen Frameworks kennt.
+Auch das weitere Googlen bringt weit weniger befriedigende Ergebnisse, als man es von anderen Frameworks kennt.
 Dadurch fällt die Einarbeitung in CXF schwerfälliger aus und man kommt schnell zu dem Gedanken, ob ein anderes Framework nicht doch die bessere Wahl wäre.
 
 Dabei muss man auch im Blick haben, dass man selbst nicht der einzige bleiben wird, der sich durch den Lernprozess quälen muss.
