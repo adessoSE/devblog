@@ -17,7 +17,8 @@ Aus diesem Grund möchten wir euch hier als kleine Starthilfe eine reduzierte Au
 ## map und flatMap
 Diese Methoden werden allen, die schon mit Java Streams oder funktionalen Programmiersprachen gearbeitet haben, bekannt vorkommen.
 Sie sollten immer dann genutzt werden, wenn man das Ergebnis eines Monos oder Fluxes weiter verarbeiten möchte.
-Angenommen, ich habe in einem Request die Daten eines Nutzers in einer API abgefragt, brauche im Folgenden aber nur das Kürzel, das aus Vor- und Nachname gebildet werden kann.
+Angenommen, ich habe in einem Request die Daten eines Nutzers in einer API abgefragt, brauche im Folgenden aber nur das Kürzel,
+das aus Vor- und Nachname gebildet werden kann.
 ``` Java
 public Mono<String> getAbbreviatedName(String userId) {
     Mono<UserData> userDataMono = userClient.getUser(userId);
@@ -31,8 +32,18 @@ In der Methode, die innerhalb des map-Befehls aufgerufen wird (Hier `buildAbbrev
 muss nicht mit den Webflux Publishern gearbeitet werden,
 hier kann also die eigentliche Geschäftslogik mit gewöhnlichem Java-Code implementiert werden.
 
-Der Operator flatMap unterscheidet sich insofern von map, als sie als Rückgabewert der übergebenen Methode wieder einen Publisher erwartet.
-Das ist etwa dann sinnvoll, wenn diese Methode ihrerseits wieder einen API-Call machen muss. In unserem Beispiel könnte 
+Der Operator flatMap unterscheidet sich insofern von map, als er als Rückgabewert der übergebenen Methode wieder einen Publisher erwartet.
+Das ist etwa dann sinnvoll, wenn diese Methode ihrerseits wieder einen API-Call machen muss. 
+In unserem Beispiel könnte ein Blogbeitrag mit den Daten des Nutzers angelegt werden.
+``` Java
+public Mono<BlogpostWithAuthor> saveBlogPost(BlogPost blogPost, String userId) {
+    Mono<UserData> userDataMono = userClient.getUser(userId);
+    Mono<BlogPostWithAuthor> savedBlogPostMono = userDataMono.flatMap(userData -> saveBlogPost(blogPost, userData));
+    return savedBlogPostMono;
+}
+
+private Mono<BlogpostWithAuthor> saveBlogPost(BlogPost blogPost, UserData userData){[...]}
+```
 
 * map
 * flatMap
