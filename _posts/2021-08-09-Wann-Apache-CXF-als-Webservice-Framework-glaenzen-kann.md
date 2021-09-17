@@ -40,7 +40,7 @@ Aufgrund der Natur der Java-Interfaces und der gemeinsamen Codebase sind Änderu
 Dadurch werden Laufzeitfehler durch unterschiedliche Schnittstellenversionen ausgeschlossen.
 Dieser Vorteil kommt besonders in der frühen Phase einer Entwicklung zur Geltung, da sich Schnittstellen in dieser Zeit besonders häufig ändern.
 
-Das Beispiel soll veranschaulichen, wie einfach eine Schnittstelle mit einem fertig konfigurierten CXF zu gestalten ist, daher wird folgend auf Code-Beispiele für die Konfiguration der Client- und Serverseite verzichtet   
+Das Beispiel soll veranschaulichen, wie einfach eine Schnittstelle mit einem fertig konfigurierten CXF zu gestalten ist, daher wird folgend auf Code-Beispiele für die Konfiguration der Client- und Serverseite verzichtet.
 Dafür sind im Internet ausreichend Beispiele zu finden (im Gegensatz zu allem anderen was CXF angeht, dazu später mehr).
 
 ### Interface
