@@ -516,3 +516,10 @@ schroeerth:
   avatar_url: /assets/images/avatars/thomas_schroeer.jpg
   github_username: schroeerth
   github: https://github.com/schroeerth
+
+friggej:
+  first_name: Jens
+  last_name: Frigge
+  email: jens.frigge@adesso.de
+  bio: "Jens Frigge ist Senior Software Engineer im Bereich Manufacturing Industry. Sein Schwerpunkt liegt in der Java Backendentwicklung"
+  avatar_url: /assets/images/avatars/friggej.png
