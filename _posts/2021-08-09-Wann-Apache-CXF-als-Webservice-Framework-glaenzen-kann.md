@@ -20,7 +20,7 @@ Die Kommunikationswege zwischen der Verwendung im Client und dem Empfang im Serv
 
 # Das ideale Szenario
 Die Vorteile von CXF kommen besonders bei der Entwicklung interner Webservice-Schnittstellen zur Geltung.
-Das schließt zum einen ein, dass Client- und Serverseite in der eigenen Hand liegen und andern, dass keine externen Clients den Webservice verwenden.
+Das schließt zum einen ein, dass Client- und Serverseite in der eigenen Hand liegen, und zum anderen, dass keine externen Clients den Webservice verwenden.
 Es wird vorausgesetzt, dass auf beiden Seiten Apache CXF verwendet wird, es sich also um Java Ökosysteme handelt.
 Ein diskussionswürdiger (aber für CXF perfekter) Umstand ist, wenn Client- und Servercode in der gleichen Codebase, bzw. im gleichen Repository, entwickelt werden. 
 Hierdurch erzwingen Änderungen an der Schnittstelle bereits zur Compilezeit die Anpassungen von Client- und Servercode.
