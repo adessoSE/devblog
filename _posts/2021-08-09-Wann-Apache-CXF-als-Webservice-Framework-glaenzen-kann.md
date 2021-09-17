@@ -9,7 +9,7 @@ tags:           [Java, Apache CXF, Webservice]
 
 Apaches CXF Framework bietet für die Webservice-Schnittstellenentwicklung entscheidende Vorteile gegenüber den Konkurrenten (z.B. Spring MVC), wenn sowohl Client- als auch Serverseite in eigener Hand liegen. 
 Jedoch steht es sich anfänglich selbst dabei im Weg in deren Genuss zu kommen. 
-In diesem Blogpost ist ein einfaches Beispiel, welches verdeutlichen soll, wie simpel und wartungsfreundlich (interne) Schnittstellen mit CXF im Idealfall umgesetzt werden können.
+In diesem Blogpost wird ein einfaches Beispiel vorgestellt, welches verdeutlichen soll, wie simpel und wartungsfreundlich (interne) Schnittstellen mit CXF im Idealfall umgesetzt werden können.
 Leider ist die Welt selten ideal, womit bei CXF dann die Unannehmlichkeiten beginnen.   
 
 # Apache CXF auf einem Bierdeckel
