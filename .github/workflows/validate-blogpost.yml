@@ -18,6 +18,9 @@ jobs:
 
       - name: Pull Docker image
         run: docker pull jekyll2cms/blogpost-checker:1.0.0
+        
+      - name: print env
+        run: printenv | sort
 
       - name: Run Docker image
         run: docker run --env REPOSITORY_REMOTE_URL='https://github.com/${{ env.GITHUB_REPOSITORY_OWNER_PART }}/${{ env.GITHUB_REPOSITORY_NAME_PART }}' --env REPOSITORY_BRANCH_NAME='${{ env.GITHUB_HEAD_REF_SLUG }}' jekyll2cms/blogpost-checker:1.0.0
