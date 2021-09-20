@@ -7,9 +7,10 @@ Wenn du einen Pull-Request stellst, teile uns bitte deine Änderungen mit, indem
   - [ ] [Autoreninfo gepflegt](https://github.com/adessoAG/devblog/blob/master/examples/2017-08-10-blog-post-guide.md#autoren-informationen)
   - [ ] [Metadaten gepflegt:](https://github.com/adessoAG/devblog/blob/master/examples/2017-08-10-blog-post-guide.md#metadaten)
     - [ ] "title" vergeben
-    - [ ] "author" angegeben
-    - [ ] "categories" enthält maximal eine der Hauptkategorien (Methodik, Architekturen, Softwareentwicklung, Branchen, Inside adesso)
+    - [ ] "author_ids" angegeben
+    - [ ] "categories" enthält maximal eine der Hauptkategorien (Architektur, Branchen, Digital Experience, Inside adesso, KI, Methodik, Softwareentwicklung)
     - [ ] "tags" enthält (beliebige) passende Tags
+  - [ ] Der blogpost-checker hat die Richtigkeit der Metadaten bestätigt (siehe CI Check)
 - **Text** (abzuhaken durch den Autor)
   - [ ] [Teaser entspricht den Vorgaben](https://github.com/adessoAG/devblog/blob/master/examples/2017-08-10-blog-post-guide.md#einleitung--teaser)
   - [ ] Rechtschreibung korrigiert

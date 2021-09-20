@@ -13932,6 +13932,39 @@ label.toggle-button {
  background-color:#f6a800;
  color:#fff;
 }
+.adesso-blog-category.de {
+ border:2px solid #a79300;
+ color:#a79300;
+}
+.adesso-blog-category.de.active,
+.adesso-blog-category.de:hover,
+.adesso-blog-category.de:active,
+.adesso-blog-category.de:focus {
+ background-color:#a79300;
+ color:#fff;
+}
+.adesso-blog-category.ki {
+ border:2px solid #995219;
+ color:#995219;
+}
+.adesso-blog-category.ki.active,
+.adesso-blog-category.ki:hover,
+.adesso-blog-category.ki:active,
+.adesso-blog-category.ki:focus {
+ background-color:#995219;
+ color:#fff;
+}
+.adesso-blog-category.cloud {
+ border:2px solid #5e5300;
+ color:#5e5300;
+}
+.adesso-blog-category.cloud.active,
+.adesso-blog-category.cloud:hover,
+.adesso-blog-category.cloud:active,
+.adesso-blog-category.cloud:focus {
+ background-color:#5e5300;
+ color:#fff;
+}
 .blog-image-header .jumbotron {
  position:absolute;
  top:37%;

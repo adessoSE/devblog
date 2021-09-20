@@ -8,7 +8,6 @@ on:
 
 jobs:
   pull-and-run-blogpost-checker-image:
-    #    if: github.repository == 'adessoag/devblog'
     runs-on: ubuntu-latest
 
     steps:
@@ -19,15 +18,6 @@ jobs:
 
       - name: Pull Docker image
         run: docker pull jekyll2cms/blogpost-checker:1.0.0
-
-      - name: echo
-        run: |
-          echo "Slug variables"
-          echo "https://github.com/${{ env.GITHUB_REPOSITORY_OWNER_PART }}/${{ env.GITHUB_REPOSITORY_NAME_PART }}"
-          echo "${{ env.GITHUB_HEAD_REF_SLUG }}"
-          
-      - name: print context
-        run: echo "$GITHUB_CONTEXT"
         
       - name: print env
         run: printenv | sort
