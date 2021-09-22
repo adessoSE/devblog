@@ -144,7 +144,7 @@ Was ist dann also faul?
 Kurzgesagt: die Dokumentation und mangelnde (gute) Beispiele im Internet.
 
 Wer CXF einsetzen und aufsetzen möchte, findet sich schnell auf der öffentlichen Seite von [CXF](https://cxf.apache.org/) wieder und wird erschlagen von einer unintuitiv strukturierten Dokumentation.
-Informationen zu fortgeschritteneren Anwendungsfällen, wie die Behandlung von Netzwerkfehlern oder das Implementieren von Fallbacks, ist entweder nur schwer auffindbar oder einfach nicht vorhanden.
+Informationen zu fortgeschritteneren Anwendungsfällen, beispielsweise die Behandlung von Netzwerkfehlern oder das Implementieren von Fallbacks, ist entweder nur schwer auffindbar oder einfach nicht vorhanden.
 
 Eine derart unübersichtliche Dokumentation ist heutzutage einfach nicht zeitgemäß und demotiviert schnell, wenn man von den Dokumentationen von Spring und allen seinen Frameworks verwöhnt ist.
 
