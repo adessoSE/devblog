@@ -479,6 +479,14 @@ thorbolo:
   bio: "Thorben Schiller ist seit 2013 bei adesso und hat seinen Weg vom Studenten zum Software Architekten gemacht. Sein Schwerpunkt liegt im Java-Backend."
   avatar_url: /assets/images/avatars/thorbenschiller.jpg
   github: https://github.com/thorbolo
+  
+johndoe:
+  first_name: John
+  last_name: Doe
+  github_username: johndoe
+  bio: "John Doe ist der Autor für Codebeispiele in der Blog-Dokumentation."
+  avatar_url: /assets/images/avatars/johndoe.jpg
+  github: https://github.com/
 
 tgraefenstein:
   first_name: Thomas
