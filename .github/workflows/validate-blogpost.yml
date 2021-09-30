@@ -11,8 +11,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - uses: actions/checkout@v2
+      
       - name: find
-        run: find / -name *.md
+        run: find / -name _posts/*.md
       
       - name: Inject env
         uses: rlespinasse/github-slug-action@v3.x
