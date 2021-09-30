@@ -23,10 +23,11 @@ jobs:
         run: find /home/runner/work -name '*.md' 
       
       - name: git log
-        run: cd /home/runner/work/devblog/devblog && git log | sed -e 's/\"Merge\s\(.*\)into\(.*\)/\1/' >> $PR_COMMIT
+        run: cd /home/runner/work/devblog/devblog && echo "##[set-output name=branch;]$(echo git log | sed -e 's/\"Merge\s\(.*\)into\(.*\)/\1/')"
+        id: current_commit
       
       - name: Test
-        run: echo $PR_COMMIT
+        run: echo steps.current_commit.outputs.commit
       
       - uses: actions/checkout@v2
         with:
