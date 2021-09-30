@@ -21,7 +21,7 @@ jobs:
       
       - name: git log
         run: |
-          export CURRENT_COMMIT=cd /home/runner/work/devblog/devblog && git log | sed -e 's/\"Merge\s\(.*\)into\(.*\)/\1/' >> $GITHUB_ENV
+          export CURRENT_COMMIT=cd /home/runner/work/devblog/devblog && git log | sed -e 's/\"Merge\s\(.*\)into\(.*\)/\1/'
           echo "::set-env name=CURRENT_COMMIT::$CURRENT_COMMIT"
           echo $CURRENT_COMMIT
         
