@@ -16,6 +16,11 @@ jobs:
         
       - name: print env
         run: printenv | sort
+        
+      - uses: actions/checkout@v2
+        
+      - name: find
+        run: find /home/runner/work -name '*.md' 
       
       - name: git log
         run: cd /home/runner/work/devblog/devblog && git log | sed -e 's/\"Merge\s\(.*\)into\(.*\)/\1/' >> $PR_COMMIT
