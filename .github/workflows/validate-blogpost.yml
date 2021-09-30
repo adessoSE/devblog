@@ -21,10 +21,9 @@ jobs:
       
       - name: git log
         run: |
-          echo 'CURRENT_COMMIT<<EOF' >> $GITHUB_ENV
-          cd /home/runner/work/devblog/devblog && git log | sed -e 's/\"Merge\s\(.*\)into\(.*\)/\1/' >> $GITHUB_ENV
-          echo 'EOF' >> $GITHUB_ENV
-        id: current_commit
+          export CURRENT_COMMIT=cd /home/runner/work/devblog/devblog && git log | sed -e 's/\"Merge\s\(.*\)into\(.*\)/\1/' >> $GITHUB_ENV
+          echo "::set-env name=CURRENT_COMMIT::$CURRENT_COMMIT"
+          echo $CURRENT_COMMIT
         
       - name: print env
         run: printenv | sort
