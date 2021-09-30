@@ -23,16 +23,16 @@ jobs:
         run: find /home/runner/work -name '*.md' 
       
       - name: git log
-        run: cd /home/runner/work/devblog/devblog && echo "##[set-output name=branch;]$(echo git log | sed -e 's/\"Merge\s\(.*\)into\(.*\)/\1/')"
+        run: cd /home/runner/work/devblog/devblog && echo "##[set-output name=commit;]$(echo git log | sed -e 's/\"Merge\s\(.*\)into\(.*\)/\1/')"
         id: current_commit
       
       - name: Test
-        run: echo steps.current_commit.outputs.commit
+        run: echo ${{ steps.current_commit.outputs.commit }}
       
       - uses: actions/checkout@v2
         with:
           repository: ${{ env.GITHUB_REPOSITORY_OWNER_PART }}/${{ env.GITHUB_REPOSITORY_NAME_PART }}
-          ref: ${{ env.PR_COMMIT }}
+          ref: ${{ steps.current_commit.outputs.commit }}
 
       - name: find
         run: find /home/runner/work/devblog -name '*.md'
