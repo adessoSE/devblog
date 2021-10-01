@@ -506,3 +506,13 @@ tgraefenstein:
   avatar_url: /assets/images/avatars/tgraefenstein.jpg
   github_username: g-stone7
   github: https://github.com/g-stone7
+
+parideis:
+  first_name: Denis
+  last_name: Paris
+  github_username: parideis
+  email: denis.paris@adesso.de
+  bio: "Denis Paris arbeitet bei adesso als Werkstudent in Köln und entwickelt Full-Stack-JavaScript-Applikationen. Er hat Erfahrung mit Angular, React, Stencil, Svelte und Vue gesammelt. In seiner Freizeit spielt er gerne Basketball 🏀 und hält JavaScript-Vorträge auf Meetups und Konferenzen."
+  avatar_url: /assets/images/avatars/paris.jpg
+  github: https://github.com/parideis
+  
