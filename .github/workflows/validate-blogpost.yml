@@ -15,24 +15,24 @@ jobs:
         uses: rlespinasse/github-slug-action@v3.x
   
       - uses: actions/checkout@v2
-        
-      - name: find
-        run: find /home/runner/work -name '*.md' 
-      
+
       - name: git log
         run: |
           LOG_MESSAGE=`cd /home/runner/work/devblog/devblog && git log`
+          echo "Test 1"
+          echo "$LOG_MESSAGE"
           CURRENT_COMMIT=`$LOG_MESSAGE | sed -e 's/\(.*\)Merge\s\(.*\)into\(.*\)/\2/'`
-          echo $CURRENT_COMMIT
+          echo "Test 2"
+          echo "$CURRENT_COMMIT"
           export $CURRENT_COMMIT
+          echo "Test 3"
           echo "::set-env name=CURRENT_COMMIT::$CURRENT_COMMIT"
+          echo "Test 4"
           echo $CURRENT_COMMIT
+          echo "Test 5"
         
-      - name: print env
-        run: printenv | sort
-      
       - name: Test
-        run: echo ${{ env.CURRENT_COMMIT }}
+        run: echo "${{ env.CURRENT_COMMIT }}"
       
       - uses: actions/checkout@v2
         with:
