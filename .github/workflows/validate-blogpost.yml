@@ -18,15 +18,16 @@ jobs:
 
       - name: git log
         run: |
-          CURRENT_COMMIT=`cd /home/runner/work/devblog/devblog && git log | sed -e 's/\(.*\)Merge\s\(.*\)into\(.*\)/\2/'`
+          MESSAGE=`cd /home/runner/work/devblog/devblog && git log --pretty=oneline
+          echo "Test 0"
+          echo "$MESSAGE"
+          COMMIT=`$MESSAGE | sed -e 's/\(.*\)Merge\s\(.*\)into\(.*\)/\2/'`
+          echo "Test 1"
+          echo "$COMMIT"
+          export $COMMIT
           echo "Test 2"
-          echo "$CURRENT_COMMIT"
-          export $CURRENT_COMMIT
+          echo "::set-env name=CURRENT_COMMIT::$COMMIT"
           echo "Test 3"
-          echo "::set-env name=CURRENT_COMMIT::$CURRENT_COMMIT"
-          echo "Test 4"
-          echo $CURRENT_COMMIT
-          echo "Test 5"
         
       - name: Test
         run: echo "${{ env.CURRENT_COMMIT }}"
