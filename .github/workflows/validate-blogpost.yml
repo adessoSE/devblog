@@ -20,12 +20,10 @@ jobs:
         run: |
           MESSAGE=`cd /home/runner/work/devblog/devblog && git log --pretty=oneline`
           COMMIT=`echo "$MESSAGE" | sed -e 's/\(.*\)Merge\s\(.*\) into\(.*\)/\2/'`
-          echo "Test 1"
-          echo "$COMMIT"
           export CURRENT_COMMIT="$COMMIT"
-          echo "Test 2"
           echo "::set-env name=CURRENT_COMMIT::$COMMIT"
-          echo "Test 3"
+        env:
+          ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
         
       - name: Test
         run: echo "${{ env.CURRENT_COMMIT }}"
