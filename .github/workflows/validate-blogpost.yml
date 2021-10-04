@@ -18,7 +18,7 @@ jobs:
 
       - name: git log
         run: |
-          MESSAGE=cd /home/runner/work/devblog/devblog && git log --pretty=oneline
+          MESSAGE=`cd /home/runner/work/devblog/devblog && git log --pretty=oneline`
           echo "Test 0"
           echo "$MESSAGE"
           echo "$MESSAGE" | sed -e 's/\(.*\)Merge\s\(.*\) into\(.*\)/\2/'
