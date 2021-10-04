@@ -20,13 +20,7 @@ Cross-Platform-Frameworks versprechen, die mobile Anwendungsentwicklung zu verei
         <field name="date_date"><![CDATA[2020-10-09T09:00:00+02:00]]></field>
         <field name="date_l"><![CDATA[1602226800000]]></field>
         <field name="change_date"><![CDATA[1602226800000]]></field>
-        <!--Picture-->
-        <!-- Not in use at the moment-->
         <!--Author Information-->
-        <field name="author_first_name"><![CDATA[Vincent]]></field>
-        <field name="author_last_name"><![CDATA[Lipschinski]]></field>
-        <field name="author_id"><![CDATA[v1nc33]]></field>
-        <field name="author_picture_stored_only"><![CDATA[http://localhost:4000/assets/images/avatars/vincentlipschinski.jpg]]></field>
         <!--Postcontent-->
         <field name="headlines"><![CDATA[Mobile Cross Platform Entwicklung]]></field>
         <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">

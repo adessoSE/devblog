@@ -19,13 +19,7 @@ Wie dies mit Hilfe von Tool Unterstützung durch ArchUnit sichergestellt werden 
         <field name="date_date"><![CDATA[2020-09-28T16:00:00+02:00]]></field>
         <field name="date_l"><![CDATA[1601301600000]]></field>
         <field name="change_date"><![CDATA[1601301600000]]></field>
-        <!--Picture-->
-        <!-- Not in use at the moment-->
         <!--Author Information-->
-        <field name="author_first_name"><![CDATA[Klaus]]></field>
-        <field name="author_last_name"><![CDATA[Schnaithmann]]></field>
-        <field name="author_id"><![CDATA[klausSchnaithmann]]></field>
-        <field name="author_picture_stored_only"><![CDATA[http://localhost:4000/assets/images/avatars/klausSchnaithmann.jpg]]></field>
         <!--Postcontent-->
         <field name="headlines"><![CDATA[ArchUnit – Die Umsetzung von Architekturvorgaben lässt sich testen!]]></field>
         <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">

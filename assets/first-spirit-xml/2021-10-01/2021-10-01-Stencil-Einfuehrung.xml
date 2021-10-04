@@ -1,0 +1,381 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<documents>
+    <document uid="c6124dd042f8dbfdfc3171b4cec782ff">
+        <field name="title"><![CDATA[Stencil - Einführung in den wiederverwendbare Web-Components-Compiler]]></field>
+        <field name="subline"><![CDATA[]]></field>
+        <field name="teaser"><![CDATA[<p>In diesem Artikel werfen wir gemeinsam einen Blick auf Stencil und vergleichen, welche Vorteile diese Compiler-Lösung zu den gängigen Laufzeit-JavaScript-Frameworks bietet. 
+Anschließend werden wir eine Stencil-Umgebung aufsetzen und eine passende Komponente erstellen. Stencil stammt aus dem Hause Ionic und auch große Unternehmen wie Apple, Amazon und Microsoft nutzen Stencil in ihren Produkten.<br />
+Dieser Artikel richtet sich an alle, die schon erste Erfahrungen mit JavaScript-Frameworks wie Angular und Vue oder der Bibliothek React gemacht haben.</p>
+
+]]></field>
+        <field name="language_multi_keyword"><![CDATA[de]]></field>
+        <field name="content_type_multi_keyword"><![CDATA[blog]]></field>
+        <field name="mime_type_multi_keyword"><![CDATA[text/html]]></field>
+        <field name="category_multi_keyword"><![CDATA[Softwareentwicklung]]></field>
+        <field name="tag_multi_keyword"><![CDATA[JavaScript]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Stencil]]></field>
+        <field name="tag_multi_keyword"><![CDATA[WebComponents]]></field>
+        <field name="date_date"><![CDATA[2021-10-01T08:00:00+02:00]]></field>
+        <field name="date_l"><![CDATA[1633068000000]]></field>
+        <field name="change_date"><![CDATA[1633068000000]]></field>
+        <!--Author Information-->
+        
+        <field name="author_id"><![CDATA[parideis]]></field><!--Postcontent-->
+        <field name="headlines"><![CDATA[Stencil - Einführung in den wiederverwendbare Web-Components-Compiler]]></field>
+        <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
+            <p>In diesem Artikel werfen wir gemeinsam einen Blick auf Stencil und vergleichen, welche Vorteile diese Compiler-Lösung zu den gängigen Laufzeit-JavaScript-Frameworks bietet. 
+Anschließend werden wir eine Stencil-Umgebung aufsetzen und eine passende Komponente erstellen. Stencil stammt aus dem Hause Ionic und auch große Unternehmen wie Apple, Amazon und Microsoft nutzen Stencil in ihren Produkten.<br />
+Dieser Artikel richtet sich an alle, die schon erste Erfahrungen mit JavaScript-Frameworks wie Angular und Vue oder der Bibliothek React gemacht haben.</p>
+
+</div>]]></field>
+        <field name="content"><![CDATA[<div class="adesso-text-formate">
+<div class="row p-t-2">
+<div class="adesso-container">
+<div class="col-xl-8 adesso-center p-b-1 p-l-0 p-r-0">
+    <p>In diesem Artikel werfen wir gemeinsam einen Blick auf Stencil und vergleichen, welche Vorteile diese Compiler-Lösung zu den gängigen Laufzeit-JavaScript-Frameworks bietet. 
+Anschließend werden wir eine Stencil-Umgebung aufsetzen und eine passende Komponente erstellen. Stencil stammt aus dem Hause Ionic und auch große Unternehmen wie Apple, Amazon und Microsoft nutzen Stencil in ihren Produkten.<br />
+Dieser Artikel richtet sich an alle, die schon erste Erfahrungen mit JavaScript-Frameworks wie Angular und Vue oder der Bibliothek React gemacht haben.</p>
+
+<h4 id="einführung-in-stencil">Einführung in Stencil</h4>
+
+<p>Mit Stencil lassen sich plattformunabhängige Web-Components generieren, die in allen <a href="https://stenciljs.com/docs/overview">gängigen Frameworks eingebunden</a> werden können, sowie in allen <a href="https://stenciljs.com/docs/browser-support">aktuellen Browsern</a> laufen.</p>
+
+<p>Somit bietet Stencil eine neue Herangehensweise an eine beliebte Idee: die Erstellung schneller und funktionsreicher Anwendungen im Browser. Dabei machen wir uns bei der Entwicklung die Vorteile wichtiger neuer Funktionen zu Nutzen, die nativ im Browser zur Verfügung stehen (z.B. <a href="https://developer.mozilla.org/en-US/docs/Web/Web_Components/Custom_Elements">Custom Elements v1</a>). 
+Hierdurch können wir weitaus weniger Code ausliefern und schnellere Anwendungen erstellen, die mit allen Frameworks kompatibel sind. 
+Custom Elements sind ein Bestandteil von der <a href="https://developer.mozilla.org/de/docs/Web/Web_Components">Web-Components Definition</a>.</p>
+
+<p>Die gängigen Frameworks wie Angular oder Bibliotheken wie React brauchen, anders als Stencil, zusätzliches clientseitiges JavaScript, welches im Browser heruntergeladen und geparst werden muss, damit die Applikation funktioniert. 
+Das wird deutlich beim konkreten Vergleich, wie viel Code (nur minified) benötigt wird, um eine Webkomponente zu liefern.</p>
+
+<p><img src="/assets/images/posts/Stencil-Einfuehrung/stencil-vergleich.png" alt="Stencil im Vergleich zu Angular, React und Vue" /></p>
+
+<p>Mit Stencil hat die Komponente nur 12,75kb Speicherplatz gekostet. 
+Die React Lösung ist mit 128kb zehnmal so groß, wie die Stencil-Komponente, die Komponente von Angular 11 Elements ist mit 176kb sogar noch deutlich größer.
+Vue kommt auf ungefähr 75kb und ist fast sechs mal so groß wie die Webkomponente, die mit Stencil generiert wurde.</p>
+
+<p>Obwohl Stencil eine viel kleinere Paketgröße hat, verzichtet Stencil nicht auf die beliebten Funktionen, die wir als EntwicklerInnen von den Frameworks gewöhnt sind. 
+Diese Funktionen werden wir im nächsten Abschnitt erläutern.</p>
+
+<h5 id="funktionen-von-stencil">Funktionen von Stencil</h5>
+
+<p>Im folgenden Abschnitt werden wir uns die einzelnen Funktionalitäten, die Stencil bietet, anschauen.</p>
+
+<p>Der <strong>virtuelle DOM</strong> ist, ähnlich wie bei React und Vue, eine Abbildung des tatsächlichen DOM, worüber eine schnellere Veränderung möglich ist. 
+Durch <strong>asynchrones Rendering</strong> wird außerdem eine Möglichkeit geboten, einen Platzhalter anzuzeigen, bis die Komponente eingebunden werden kann. 
+Diese Funktion ist stark angelehnt an der Implementation von React-“Fiber”. 
+Stencil bietet des weiteren ein <strong>reaktives Data-Binding</strong> an, sodass die Daten zwischen der Komponente und dem DOM reaktiv miteinander verbunden werden. 
+Durch TypeScript wird JavaScript mit Typen erweitert.</p>
+
+<p>Ein weiteres aus React bekanntes Feature ist <strong>JSX</strong>, welches eine XML-artige Syntax anbietet, die JavaScript-Code erstellt und von Typescript unterstützt wird.<br />
+Die statische Seitengenerierung (<strong>SSG</strong>) bezeichnet das Erstellen und Rendern der Komponenten und Routen zur Bauzeit, welches auch als Prerendering bekannt ist.<br />
+Durch <strong>Lazy-Loading</strong> ist es darüber hinaus auch möglich, die Komponenten bei Gebrauch dynamisch zur Laufzeit nachzuladen.</p>
+
+<h4 id="die-erste-komponente-erstellen">Die erste Komponente erstellen</h4>
+
+<p>Im kommenden Codebeispiel lernen wir, wie wir mit Stencil eine Komponente erstellen können. 
+Dabei werden wir gezielt nur auf ein kleines Stück der API und Funktionalitäten blicken.</p>
+
+<p>Stencil in Version 2.6 erfordert NodeJS in der LTS-Version 14.17.3 und npm in der Version 6 oder höher. <a href="https://stenciljs.com/docs/getting-started">https://stenciljs.com/docs/getting-started</a></p>
+
+<p>Mit folgendem Befehl können wir aus einer von drei Startvorlagen auswählen:</p>
+
+<pre><code class="language-bash">npm init stencil 
+</code></pre>
+
+<p>Wir wählen für das Beispiel die <em>component</em> Vorlage aus:</p>
+
+<p><img src="/assets/images/posts/Stencil-Einfuehrung/stencil-cli-1.png" alt="Stencil CLI: Starter auswählen" /></p>
+
+<p>Nachdem wir den Projektnamen mit <em>Enter</em> und <em>Y</em> bestätigt haben, generiert uns Stencil das Projekt und wir erhalten folgenden Überblick:</p>
+
+<p><img src="/assets/images/posts/Stencil-Einfuehrung/stencil-cli-2.png" alt="Stencil CLI: Überblick über die verfügbaren Befehle" /></p>
+
+<p>Als nächstes gehen wir in unser soeben generiertes Projekt und erstellen unsere erste Komponente:</p>
+<pre><code class="language-bash">cd &lt;Projektname&gt;
+npm run generate
+</code></pre>
+
+<p>Bei den Namen der Komponenten muss ein Bindestrich vorhanden sein. 
+Das geht aus den Webkomponenten-Spezifikationen heraus, damit der Browser es als Custom Element erkennt. 
+Für unser Beispiel brauchen wir die zusätzlichen Dateien nicht, deswegen werden wir mit <em>a</em> alle Optionen abschalten und mit <em>Enter</em> bestätigen.</p>
+
+<p><img src="/assets/images/posts/Stencil-Einfuehrung/stencil-cli-3.png" alt="Stencil CLI: Erste Komponente Generieren" /></p>
+
+<h5 id="die-komponente-nutzen">Die Komponente nutzen</h5>
+
+<p>Im Ordner <strong>/src/components/</strong> sollte sich nun die generierte (hallo-welt im Beispiel) Komponente befinden. 
+Nun werden wir die Komponente verwenden, indem wir in der <strong>src/index.html</strong> Datei in der Zeile 14, wo zurzeit noch die Vorlage-Komponente <em>my-component</em> steht, mit unserer hallo-welt ersetzen:</p>
+
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html dir="ltr" lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="utf-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"&gt;
+  &lt;title&gt;Stencil Component Starter&lt;/title&gt;
+
+  &lt;script type="module" src="/build/hallo.esm.js"&gt;&lt;/script&gt;
+  &lt;script nomodule src="/build/hallo.js"&gt;&lt;/script&gt;
+
+&lt;/head&gt;
+&lt;body&gt;
+
+  &lt;hallo-welt&gt;&lt;/hallo-welt&gt; &lt;!-- 👈 Zeile 14 --&gt; 
+
+&lt;/body&gt;
+&lt;/html&gt;
+
+</code></pre>
+
+<p>Wir können mit dem Befehl <em>npm start</em> das Projekt starten und der Browser sollte automatisch <a href="http://localhost:3333/">http://localhost:3333/</a> aufrufen:</p>
+
+<pre><code class="language-bash">npm start
+</code></pre>
+
+<p>Nun sehen wir, wie unser Projekt zum ersten Mal gebaut wird:</p>
+
+<p><img src="/assets/images/posts/Stencil-Einfuehrung/stencil-browser-1.png" alt="Stencil im Browser: Unser erster Build läuft" /></p>
+
+<p>Danach gibt es nichts zu sehen, da uns unsere Komponente noch gar nichts anzeigt. 
+Dies können wir ändern, indem wir in der HTML-Datei zwischen den <hallo-welt> Tags einen Inhalt schreiben, wie z.B. einen Titel:</hallo-welt></p>
+
+<pre><code class="language-html">&lt;hallo-welt&gt;&lt;h1&gt;Willkommen&lt;/h1&gt;&lt;/hallo-welt&gt;
+</code></pre>
+
+<p>Sobald wir die Datei speichern, baut Stencil die Komponente neu und aktualisiert dann den Browser:</p>
+
+<p><img src="/assets/images/posts/Stencil-Einfuehrung/stencil-browser-2.png" alt="Stencil im Browser: Unsere Komponente Zeigt was an" /></p>
+
+<p>Werfen wir nun einen Blick in die <strong>hallo-welt.tsx</strong> Datei. 
+In der render()-Funktion wird die Ausgabe definiert, die bei uns ein slot enthält:</p>
+
+<pre><code class="language-html">&lt;!--- hallo-welt.tsx Zeile 12---&gt;
+&lt;slot&gt;&lt;/slot&gt;
+</code></pre>
+<p>Ein slot ist ein Platzhalter bei dem die Kinderkomponenten eingebunden werden. 
+Was in unserem Fall das h1-Element mit dem Inhalt “Willkommen” ist.</p>
+
+<pre><code class="language-javascript">import { Component, ComponentInterface, Host, h } from '@stencil/core';
+
+@Component({
+  tag: 'hallo-welt',
+  shadow: true,
+})
+export class HalloWelt implements ComponentInterface {
+
+  render() {
+    return (
+      &lt;Host&gt;
+        &lt;slot&gt;&lt;/slot&gt;
+      &lt;/Host&gt;
+    );
+  }
+
+}
+</code></pre>
+
+<h5 id="die-komponente-soll-einen-namen-ausgeben">Die Komponente soll einen Namen ausgeben</h5>
+
+<p>Als nächstes wollen wir, dass die Komponente uns mit einem Namen begrüßt, welchen wir als Attribut mitgeben. Dafür setzen wir in der Klasse <strong>HalloWelt</strong> einen <em>@Prop()</em>-Dekorator und vergeben den Namen <strong>name</strong> mit <strong>string</strong> als Typen. 
+Zusätzlich müssen wir <em>Prop</em> noch in der import Deklaration von Stencil hinzufügen. 
+Damit der Name auch angezeigt wird, fügen wir einen Paragraphen in der render()-Funktion unter dem <strong>slot</strong> ein, der mit <em>{this.name}</em> den Wert der Eigenschaft ausliest.</p>
+
+<p><img src="/assets/images/posts/Stencil-Einfuehrung/stencil-code-2.png" alt="Stencil Code: Property Name mit den Typen String hinzufügen und auslesen" /></p>
+
+<p>Zum Schluss müssen wir im HTML unserem Custom Element noch das Attribut <em>name</em> hinzufügen und dessen Wert setzen:</p>
+
+<pre><code class="language-html">&lt;hallo-welt name="Anna"&gt;&gt;&lt;h1&gt;Willkommen&lt;/h1&gt;&lt;/hallo-welt&gt;
+</code></pre>
+
+<p>Im Browser sollte nun folgende Begrüßung angezeigt werden: 
+<img src="/assets/images/posts/Stencil-Einfuehrung/stencil-browser-3.png" alt="Stencil im Browser: Unser Komponente begrüßt uns mit den übergeben Namen" /></p>
+
+<h4 id="die-komponente-testen">Die Komponente testen</h4>
+<p>Wir können die Funktionalität der Komponente mit Unit-Tests und Ende-zu-Ende-Tests (E2E-Tests) nachprüfen und validieren. 
+Beide Testarten verwenden Jest. 
+Die Browserumgebung für die E2E-Tests wird mit Hilfe von Puppeteer bereitgestellt.</p>
+
+<p>Außerdem bietet die Stencil CLI einen Befehl <strong>stencil test</strong> an.
+Mit den optionalen Parametern  “—spec” oder “—e2e” kann angegeben werden, welche der beiden Testarten genutzt werden soll. 
+Mit dem Parameter “—watchAll” werden die Tests automatisch erneut durchgeführt, sobald sich die Testdateien geändert haben.</p>
+
+<p>Unser <strong>npm test</strong> Befehl, um Unit-Tests und E2E-Tests laufen zu lassen, könnte so aussehen:</p>
+
+<pre><code class="language-json">"scripts": {
+    "test": "stencil test --spec --e2e",
+    "test.watch": "stencil test --spec --e2e --watchAll",
+}
+</code></pre>
+<h5 id="tests-schreiben">Tests schreiben</h5>
+<p>Zuerst wollen wir testen, ob die Komponente ohne mitgegebene Werte funktioniert.
+In der Unit-Test-Datei <strong>hallo-welt.spec.tsx</strong> können wir das folgendermaßen machen:</p>
+
+<pre><code class="language-javascript">// Unit-Test:hallo-welt.spec.tsx
+import { newSpecPage } from "@stencil/core/testing";
+import { HalloWelt } from "./hallo-welt";
+
+describe("testing-compo", () =&gt; {
+  it("renders", async () =&gt; {
+    const page = await newSpecPage({
+      components: [HalloWelt],
+      html: `&lt;hallo-welt&gt;&lt;/hallo-welt&gt;`,
+    });
+    expect(page.root).toEqualHtml(`
+      &lt;hallo-welt&gt;
+        &lt;mock:shadow-root&gt;
+          &lt;slot&gt;&lt;/slot&gt;
+          &lt;p&gt;
+            Hallo
+          &lt;/p&gt;
+        &lt;/mock:shadow-root&gt;
+      &lt;/hallo-welt&gt;
+    `);
+  });
+}
+</code></pre>
+
+<p>Die E2E-Tests schreiben wir in einer separaten Datei <strong>hallo-welt.e2e.ts</strong>:</p>
+<pre><code class="language-javascript">// E2E:hallo-welt.e2e.ts
+import { newE2EPage } from "@stencil/core/testing";
+
+describe("hallo-welt", () =&gt; {
+  it("renders", async () =&gt; {
+    const page = await newE2EPage();
+    await page.setContent("&lt;hallo-welt&gt;&lt;/hallo-welt&gt;");
+
+    const element = await page.find("hallo-welt");
+    expect(element).toHaveClass("hydrated");
+  });
+
+});
+</code></pre>
+
+<p>Daraufhin wollen wir testen, ob die Komponente den angegebenen Namen aus dem mitgegebenen Attribut ausliest und korrekt verwendet:</p>
+
+<pre><code class="language-javascript">// Unit-Test:hallo-welt.spec.tsx
+
+  it("uses the given prop", async () =&gt; {
+    const page = await newSpecPage({
+      components: [HalloWelt],
+      html: `&lt;hallo-welt name="Anna"&gt;&lt;/hallo-welt&gt;`,
+    });
+    expect(page.root).toEqualHtml(`
+      &lt;hallo-welt name="Anna"&gt;
+        &lt;mock:shadow-root&gt;
+          &lt;slot&gt;&lt;/slot&gt;
+          &lt;p&gt;
+            Hallo Anna
+          &lt;/p&gt;
+        &lt;/mock:shadow-root&gt;
+      &lt;/hallo-welt&gt;
+    `);
+  });
+</code></pre>
+<p>Mit dem “durchdringenden”  Selektor <code>&gt;&gt;&gt;</code> kann nach einem Objekt innerhalb des Shadow-root einer Komponente gesucht werden.
+So können wir nach den Paragraphen suchen und testen, ob der ausgegebene Text den Erwartungen entspricht.</p>
+
+<pre><code class="language-javascript">// E2E:hallo-welt.e2e.ts
+
+  it("can greet with the given name", async () =&gt; {
+    const page = await newE2EPage();
+    await page.setContent("&lt;hallo-welt name='Anna'&gt;&lt;/hallo-welt&gt;");
+
+    const element = await page.find("hallo-welt &gt;&gt;&gt; p");
+    expect(element).toEqualText("Hallo Anna");
+  });
+</code></pre>
+
+<p>Anschließend testen wir, ob die Kindkomponente korrekt eingebunden wird. 
+Da wir in der Komponente <em>shadow</em> auf <em>true</em> gesetzt haben, befindet sich die Kindkomponente nicht direkt im Slot der <code>&lt;hallo-welt&gt;</code> Komponente, sondern nur ein Verweis darauf. 
+Deswegen erwarten wir unser Kindelement (hier h1) unterhalb vom schließenden Shadow-Root:</p>
+
+<pre><code class="language-javascript">// Unit-Test:hallo-welt.spec.tsx
+
+  it("uses the given slot", async () =&gt; {
+    const page = await newSpecPage({
+      components: [HalloWelt],
+      html: `&lt;hallo-welt&gt;&lt;h1&gt;Willkommen&lt;/h1&gt;&lt;/hallo-welt&gt;`,
+    });
+    expect(page.root).toEqualHtml(`
+      &lt;hallo-welt&gt;
+        &lt;mock:shadow-root&gt;
+          &lt;slot&gt;&lt;/slot&gt;
+          &lt;p&gt;
+            Hallo
+          &lt;/p&gt;
+        &lt;/mock:shadow-root&gt;
+        &lt;h1&gt;Willkommen&lt;/h1&gt;
+      &lt;/hallo-welt&gt;
+    `);
+  });
+</code></pre>
+
+<pre><code class="language-javascript">// E2E:hallo-welt.e2e.ts
+
+  it("can find the given child component", async () =&gt; {
+    const page = await newE2EPage();
+    await page.setContent(
+      "&lt;hallo-welt name='Anna'&gt;&lt;h1&gt;Willkommen&lt;/h1&gt;hallo-welt&gt;"
+    );
+    const child = await page.find("hallo-welt &gt; h1");
+    expect(child).toEqualHtml(`&lt;h1&gt;Willkommen&lt;/h1&gt;`);
+  });
+</code></pre>
+
+<p>Zum Schluss testen wir die Kombination aus dem mitgegebenen Namen und der Kindkomponente:</p>
+<pre><code class="language-javascript">// Unit-Test:hallo-welt.spec.tsx
+
+  it("uses the given prop and slot ", async () =&gt; {
+    const page = await newSpecPage({
+      components: [HalloWelt],
+      html: `&lt;hallo-welt name="Anna"&gt;&lt;h1&gt;Willkommen&lt;/h1&gt;&lt;/hallo-welt&gt;`,
+    });
+    expect(page.root).toEqualHtml(`
+      &lt;hallo-welt name="Anna"&gt;
+        &lt;mock:shadow-root&gt;
+          &lt;slot&gt;&lt;/slot&gt;
+          &lt;p&gt;
+            Hallo Anna
+          &lt;/p&gt;
+        &lt;/mock:shadow-root&gt;
+        &lt;h1&gt;Willkommen&lt;/h1&gt;
+      &lt;/hallo-welt&gt;
+    `);
+  });
+</code></pre>
+
+<pre><code class="language-javascript">// E2E:hallo-welt.e2e.ts
+
+  it("can find the given name and child component", async () =&gt; {
+    const page = await newE2EPage();
+    await page.setContent(
+      "&lt;hallo-welt name='Anna'&gt;&lt;h1&gt;Willkommen&lt;/h1&gt;hallo-welt&gt;"
+    );
+
+    const paragraph = await page.find("hallo-welt &gt;&gt;&gt; p");
+    expect(paragraph).toEqualText("Hallo Anna");
+
+    const child = await page.find("hallo-welt &gt; h1");
+    expect(child).toEqualHtml(`&lt;h1&gt;Willkommen&lt;/h1&gt;`);
+  });
+</code></pre>
+<h4 id="zusammenfassung">Zusammenfassung</h4>
+
+<p>Im Vergleich zur direkten Verwendung von Custom Elements bietet Stencil zusätzliche APIs, die den Entwicklungsprozess beschleunigen. 
+Im Gegensatz zu den beliebten JavaScript-Frameworks werden keine zusätzlichen Codelasten zur Laufzeit eingebunden, da reine Webkomponenten zur Kompilierzeit generiert werden, die nativ vom Browser genutzt werden können. 
+Durch die breite Browserkompatibilität und die Möglichkeit, in die beliebten Frameworks integriert zu werden, bietet sich Stencil als Tool an, um Design-Systeme bzw. Komponentenbibliotheken zu entwickeln.</p>
+
+<h4 id="quellen">Quellen</h4>
+<p><a href="https://github.com/parideis/stencil-hallo-welt">Codebeispiel: https://github.com/parideis/stencil-hallo-welt </a></p>
+
+<p><a href="https://stenciljs.com/">https://stenciljs.com/</a></p>
+
+<p><a href="https://github.com/ionic-team/stencil">https://github.com/ionic-team/stencil</a></p>
+
+<p><a href="https://webcomponents.dev/blog/all-the-ways-to-make-a-web-component/">Vergleich von Codierungsstil, Paketgröße und Leistung</a></p>
+
+</div>
+</div>
+</div>
+</div>]]></field>
+    </document>
+</documents>

@@ -18,13 +18,7 @@ In diesem Artikel wird eine Methode vorgestellt, wie man diese Anforderung mit H
         <field name="date_date"><![CDATA[2021-06-18T16:00:00+02:00]]></field>
         <field name="date_l"><![CDATA[1624024800000]]></field>
         <field name="change_date"><![CDATA[1624024800000]]></field>
-        <!--Picture-->
-        <!-- Not in use at the moment-->
         <!--Author Information-->
-        <field name="author_first_name"><![CDATA[Daniel]]></field>
-        <field name="author_last_name"><![CDATA[Kraft]]></field>
-        <field name="author_id"><![CDATA[DanielKraft]]></field>
-        <field name="author_picture_stored_only"><![CDATA[http://localhost:4000/assets/images/avatars/DanielKraft.jpg]]></field>
         <!--Postcontent-->
         <field name="headlines"><![CDATA[Konvertierung einer REST-API zu einer SOAP-Schnittstelle mithilfe von Kong]]></field>
         <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">

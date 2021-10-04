@@ -17,13 +17,7 @@
         <field name="date_date"><![CDATA[2018-11-12T15:00:00+01:00]]></field>
         <field name="date_l"><![CDATA[1542031200000]]></field>
         <field name="change_date"><![CDATA[1544572800000]]></field>
-        <!--Picture-->
-        <!-- Not in use at the moment-->
         <!--Author Information-->
-        <field name="author_first_name"><![CDATA[Markus]]></field>
-        <field name="author_last_name"><![CDATA[Karnik]]></field>
-        <field name="author_id"><![CDATA[karnik]]></field>
-        <field name="author_picture_stored_only"><![CDATA[http://localhost:4000/assets/images/avatars/karnik.jpg]]></field>
         <!--Postcontent-->
         <field name="headlines"><![CDATA[Distributed Execution mit Hazelcast]]></field>
         <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
