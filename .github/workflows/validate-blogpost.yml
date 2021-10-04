@@ -24,20 +24,11 @@ jobs:
           echo "::set-env name=CURRENT_COMMIT::$COMMIT"
         env:
           ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
-        
-      - name: Test
-        run: echo "${{ env.CURRENT_COMMIT }}"
-      
+              
       - uses: actions/checkout@v2
         with:
           repository: ${{ env.GITHUB_REPOSITORY_OWNER_PART }}/${{ env.GITHUB_REPOSITORY_NAME_PART }}
           ref: ${{ env.CURRENT_COMMIT }}
 
-      - name: find
-        run: find /home/runner/work/devblog -name '*.md'
-
-      - name: Pull Docker image
-        run: docker pull jekyll2cms/blogpost-checker:1.0.1
-
       - name: Run Docker image
-        run: docker run --env REPOSITORY_REMOTE_URL='https://github.com/${{ env.GITHUB_REPOSITORY_OWNER_PART }}/${{ env.GITHUB_REPOSITORY_NAME_PART }}' --env REPOSITORY_BRANCH_NAME='${{ env.GITHUB_HEAD_REF_SLUG }}' --env LOCAL_REPO_PATH='repo' --env SPRING_PROFILES_ACTIVE=remote --mount src=/home/runner/work/devblog/devblog,target=/repo jekyll2cms/blogpost-checker:1.0.1
+        run: docker run --env REPOSITORY_REMOTE_URL='https://github.com/${{ env.GITHUB_REPOSITORY_OWNER_PART }}/${{ env.GITHUB_REPOSITORY_NAME_PART }}' --env REPOSITORY_BRANCH_NAME='${{ env.GITHUB_HEAD_REF_SLUG }}' --env LOCAL_REPO_PATH=repo --env SPRING_PROFILES_ACTIVE=remote -v /home/runner/work/devblog/devblog:/repo jekyll2cms/blogpost-checker:1.0.1
