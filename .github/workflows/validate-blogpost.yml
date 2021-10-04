@@ -22,7 +22,7 @@ jobs:
           echo "Test 0"
           echo "$MESSAGE"
           echo "$MESSAGE" | sed -e 's/\(.*\)Merge\s\(.*\)into\(.*\)/\2/'
-          COMMIT=`"$MESSAGE" | sed -e 's/\(.*\)Merge\s\(.*\)into\(.*\)/\2/'`
+          COMMIT=`echo "$MESSAGE" | sed -e 's/\(.*\)Merge\s\(.*\)into\(.*\)/\2/'`
           echo "Test 1"
           echo "$COMMIT"
           export "$COMMIT"
