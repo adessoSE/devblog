@@ -22,7 +22,6 @@ jobs:
       - name: git log
         run: |
           LOG_MESSAGE=`cd /home/runner/work/devblog/devblog && git log`
-          echo $LOG_MESSAGE
           CURRENT_COMMIT=`$LOG_MESSAGE | sed -e 's/\(.*\)Merge\s\(.*\)into\(.*\)/\2/'`
           echo $CURRENT_COMMIT
           export $CURRENT_COMMIT
