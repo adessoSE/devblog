@@ -40,4 +40,4 @@ jobs:
         run: docker pull jekyll2cms/blogpost-checker:1.0.1
 
       - name: Run Docker image
-        run: docker run --env REPOSITORY_REMOTE_URL='https://github.com/${{ env.GITHUB_REPOSITORY_OWNER_PART }}/${{ env.GITHUB_REPOSITORY_NAME_PART }}' --env REPOSITORY_BRANCH_NAME='${{ env.GITHUB_HEAD_REF_SLUG }}' --env LOCAL_REPO_PATH='/home/runner/work/devblog/devblog' jekyll2cms/blogpost-checker:1.0.0
+        run: docker run --env REPOSITORY_REMOTE_URL='https://github.com/${{ env.GITHUB_REPOSITORY_OWNER_PART }}/${{ env.GITHUB_REPOSITORY_NAME_PART }}' --env REPOSITORY_BRANCH_NAME='${{ env.GITHUB_HEAD_REF_SLUG }}' --env LOCAL_REPO_PATH='/home/runner/work/devblog/devblog' --env SPRING_PROFILES_ACTIVE=remote jekyll2cms/blogpost-checker:1.0.0
