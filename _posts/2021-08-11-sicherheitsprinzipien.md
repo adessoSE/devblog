@@ -8,7 +8,7 @@ categories: [Softwareentwicklung]     # Pflichtfeld. Maximal eine der angegebene
 tags: [IT-Security]   # Bitte auf Großschreibung achten.
 ---
 
-Software in jeder ISO/OSI Stufe abzusichern kann eine ziemlich komplexe Aufgabe und technologische Herausforderung werden, je nachdem wie viel Zeit und Kosten man investieren möchte. 
+Software in jeder ISO/OSI Stufe abzusichern, kann eine ziemlich komplexe Aufgabe und technologische Herausforderung werden, je nachdem wie viel Zeit und Kosten man investieren möchte. 
 Um diese Herausforderung auf ein nicht-technologisches Niveau herunterzubrechen, werden verschiedene Sicherheitsprinzipien vorgestellt und kurz und knapp zusammengefasst.
 
 # Secure by Design 
@@ -16,7 +16,7 @@ Um diese Herausforderung auf ein nicht-technologisches Niveau herunterzubrechen,
 Die Begriffe Secure bzw. Security by Design beziehen sich darauf, dass Software von Grund auf sicher designt wird. 
 Die Sicherheit einer Software sollte von Anfang an in den Entwurf mit einbezogen werden. 
 Dies gilt ebenso bei Datenschutzaspekten und wird durch den Privacy by Design Begriff erweitert. 
-Eine mit auf die Sicherheit abgestimmte Anwendungsarchitektur verkleinert die Angriffsfläche von Anfang an und spart zudem Kosten im Vergleich zum nachträglichen Einbau von Sicherheistaspekten. 
+Eine auf die Sicherheit abgestimmte Anwendungsarchitektur verkleinert die Angriffsfläche von Anfang an und spart zudem Kosten im Vergleich zum nachträglichen Einbau von Sicherheistaspekten. 
 Bei einem Hausbau beispielsweise ist es am günstigsten und einfachsten, einbruchsichere Fenster und (Terrassen-)Türen zu Beginn einzubauen, statt sie 5 Jahre später auszuwechseln. 
 
 # Secure Defaults
