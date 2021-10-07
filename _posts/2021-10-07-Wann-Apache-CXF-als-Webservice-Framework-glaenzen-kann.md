@@ -1,7 +1,7 @@
 ---
 layout:         [post, post-xml]              
 title:          "Wann Apache CXF als Webservice-Framework glänzen kann"
-date:           2021-09-28 10:00
+date:           2021-10-07 11:00
 author_ids:     [thorbolo]
 categories:     [Softwareentwicklung]
 tags:           [Java, Apache CXF, Webservice]
