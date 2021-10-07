@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<documents>
+    <document uid="1b3335698c70e81c0181f79155db316f">
+        <field name="title"><![CDATA[Wann Apache CXF als Webservice-Framework glänzen kann]]></field>
+        <field name="subline"><![CDATA[]]></field>
+        <field name="teaser"><![CDATA[<p>Apaches CXF Framework bietet für die Webservice-Schnittstellenentwicklung entscheidende Vorteile gegenüber den Konkurrenten (z.B. Spring MVC), wenn sowohl Client- als auch Serverseite in eigener Hand liegen. 
+Jedoch steht es sich anfänglich selbst dabei im Weg in deren Genuss zu kommen. 
+In diesem Blogpost wird ein einfaches Beispiel vorgestellt, welches verdeutlichen soll, wie simpel und wartungsfreundlich (interne) Schnittstellen mit CXF im Idealfall umgesetzt werden können.
+Leider ist die Welt selten ideal, womit bei CXF dann die Unannehmlichkeiten beginnen.</p>
+
+]]></field>
+        <field name="language_multi_keyword"><![CDATA[de]]></field>
+        <field name="content_type_multi_keyword"><![CDATA[blog]]></field>
+        <field name="mime_type_multi_keyword"><![CDATA[text/html]]></field>
+        <field name="category_multi_keyword"><![CDATA[Softwareentwicklung]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Java]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Apache CXF]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Webservice]]></field>
+        <field name="date_date"><![CDATA[2021-10-07T11:00:00+02:00]]></field>
+        <field name="date_l"><![CDATA[1633597200000]]></field>
+        <field name="change_date"><![CDATA[1633597200000]]></field>
+        <!--Author Information-->
+        
+        <field name="author_id"><![CDATA[thorbolo]]></field><!--Postcontent-->
+        <field name="headlines"><![CDATA[Wann Apache CXF als Webservice-Framework glänzen kann]]></field>
+        <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
+            <p>Apaches CXF Framework bietet für die Webservice-Schnittstellenentwicklung entscheidende Vorteile gegenüber den Konkurrenten (z.B. Spring MVC), wenn sowohl Client- als auch Serverseite in eigener Hand liegen. 
+Jedoch steht es sich anfänglich selbst dabei im Weg in deren Genuss zu kommen. 
+In diesem Blogpost wird ein einfaches Beispiel vorgestellt, welches verdeutlichen soll, wie simpel und wartungsfreundlich (interne) Schnittstellen mit CXF im Idealfall umgesetzt werden können.
+Leider ist die Welt selten ideal, womit bei CXF dann die Unannehmlichkeiten beginnen.</p>
+
+</div>]]></field>
+        <field name="content"><![CDATA[<div class="adesso-text-formate">
+<div class="row p-t-2">
+<div class="adesso-container">
+<div class="col-xl-8 adesso-center p-b-1 p-l-0 p-r-0">
+    <p>Apaches CXF Framework bietet für die Webservice-Schnittstellenentwicklung entscheidende Vorteile gegenüber den Konkurrenten (z.B. Spring MVC), wenn sowohl Client- als auch Serverseite in eigener Hand liegen. 
+Jedoch steht es sich anfänglich selbst dabei im Weg in deren Genuss zu kommen. 
+In diesem Blogpost wird ein einfaches Beispiel vorgestellt, welches verdeutlichen soll, wie simpel und wartungsfreundlich (interne) Schnittstellen mit CXF im Idealfall umgesetzt werden können.
+Leider ist die Welt selten ideal, womit bei CXF dann die Unannehmlichkeiten beginnen.</p>
+
+<h4 id="apache-cxf-auf-einem-bierdeckel">Apache CXF auf einem Bierdeckel</h4>
+<p>CXFs Unique Selling Point ist es, REST- und/oder SOAP-Webservices nahezu vollständig als Java-Code zu definieren zu können, ohne sich Gedanken über die technischen Details der Kommunikationswege machen zu müssen.
+Konkret reicht es aus, ein Java Interface zu spezifizieren, welches die Serverseite implementiert und die Clientseite es verwendet.
+Im Code unterscheidet sich die Verwendung dadurch nicht von einem ganz normalen Service.
+Die Kommunikationswege zwischen der Verwendung im Client und dem Empfang im Server werden dabei vollständig von CXF weggekapselt.</p>
+
+<h4 id="das-ideale-szenario">Das ideale Szenario</h4>
+<p>Die Vorteile von CXF kommen besonders bei der Entwicklung interner Webservice-Schnittstellen zur Geltung.
+Das schließt zum einen ein, dass Client- und Serverseite in der eigenen Hand liegen, und zum anderen, dass keine externen Clients den Webservice verwenden.
+Es wird vorausgesetzt, dass auf beiden Seiten Apache CXF verwendet wird, es sich also um Java Ökosysteme handelt.
+Ein diskussionswürdiger (aber für CXF perfekter) Umstand ist, wenn Client- und Servercode in der gleichen Codebase, bzw. im gleichen Repository, entwickelt werden. 
+Hierdurch erzwingen Änderungen an der Schnittstelle bereits zur Compilezeit die Anpassungen von Client- und Servercode.
+Ob dieser Umstand nur für den Einsatz von CXF herbeigeführt werden sollte, muss kritisch abgewogen werden. 
+Bei getrennten Repositories sind aber auch Mechanismen in den CI- und Build-Prozessen möglich, die frühzeitig Änderungen propagieren.
+Es gibt jedoch Systeme, bei denen diese Gegebenheiten bereits aus der Vergangenheit feststehen.</p>
+
+<h4 id="the-good">The Good</h4>
+<p>Unter den beschriebenen Voraussetzungen kann die Webservice-Schnittstelle genau so einfach entwickelt werden, wie jedes andere Java-Interface.
+Bei einer gewählten Implementierung mit <strong>Jax-WS</strong>, also <strong>SOAP</strong> als Grundlage der Kommunikation, beinhaltet das Java-Interface keinen weiteren Code.
+Bei einer gewählten Implementierung mit <strong>Jax-RS</strong>, also <strong>REST</strong> als Grundlage der Kommunikation, sind noch einfache Annotationen an am Interface notwendig, die sich jedoch sehr in Grenzen halten.</p>
+
+<h5 id="beispiel">Beispiel</h5>
+<p>Das folgende Beispiel zeigt eine einfache Definition eines Jax-RS Interface, der serverseitigen Implementierung und die clientseitige Verwendung.
+Dabei besticht CXF durch seine Einfachheit, dass trotz einer technischen Schnittstelle, die über HTTP kommuniziert, kaum bis keine zusätzliche Komplexität aufweist.
+Aufgrund der Natur der Java-Interfaces und der gemeinsamen Codebase sind Änderungen an der Schnittstelle immer bereits zur Compilezeit auf Server- und Clientseite umzusetzen.
+Dadurch werden Laufzeitfehler durch unterschiedliche Schnittstellenversionen ausgeschlossen.
+Dieser Vorteil kommt besonders in der frühen Phase einer Entwicklung zur Geltung, da sich Schnittstellen in dieser Zeit besonders häufig ändern.</p>
+
+<p>Das Beispiel soll veranschaulichen, wie einfach eine Schnittstelle mit einem fertig konfigurierten CXF zu gestalten ist, daher wird folgend auf Code-Beispiele für die Konfiguration der Client- und Serverseite verzichtet.
+Dafür sind im Internet ausreichend Beispiele zu finden (im Gegensatz zu allem anderen was CXF angeht, dazu später mehr).</p>
+
+<h6 id="interface">Interface</h6>
+<p>Das gemeinsame Interface wird bei der Implementierung mit Jax-RS mit den Java-EE REST-Endpoint-Annotationen angereichert.
+Diese sind im Java SDK enthalten. 
+Bei der Verwendung von Jax-WS wären diese nicht notwendig und würden das Interface weiter vereinfachen.</p>
+
+<pre><code class="language-java">@WebService
+public interface IHelloWorld {
+
+    @GET
+    @Path("/sayHello")
+    @Produces(MediaType.APPLICATION_JSON)
+    HelloMessage sayHello() throws NotInRightMoodException;
+
+    @POST
+    @Path("/setMood")
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
+    Result setMood(Mood mood);
+}
+</code></pre>
+
+<h6 id="serverseitige-implementierung">Serverseitige Implementierung</h6>
+<p>Die serverseitige Implementierung unterscheidet sich in keiner Weise von der Implementierung eines typischen Interface.</p>
+
+<pre><code class="language-java">public class HelloWorldWebservice implements IHelloWorld{
+
+    private Mood myMood;
+    
+    @Override
+    public HelloMessage sayHello() throws NotInRightMoodException {
+        if(myMood.isRight()){
+            return new HelloMessage("hello!");
+        }
+        throw new NotInRightMoodException();
+    }
+
+    @Override
+    public Result setMood(Mood mood) {
+        return new Result(myMood = mood);
+    }
+}
+</code></pre>
+
+<p>Zur Konfiguration des Webservice wird folgende Dependency benötigt:</p>
+<pre><code class="language-xml">&lt;dependency&gt;
+    &lt;groupId&gt;org.apache.cxf&lt;/groupId&gt;
+    &lt;artifactId&gt;cxf-rt-frontend-jaxrs&lt;/artifactId&gt;
+&lt;/dependency&gt;
+</code></pre>
+
+<p>Auf die Details der Konfiguration wird wie oben erläutert verzichtet.</p>
+
+<h6 id="clientseitige-verwendung">Clientseitige Verwendung</h6>
+<p>Der Webservice kann clientseitig wie ein gewöhnlicher Service verwendet werden.
+Im Code unterscheidet er sich in der Handhabung in keiner Weise.</p>
+
+<pre><code class="language-java">public class HelloWorldClient {
+
+    private final IHelloWorld helloWorldWebservice;
+
+    public HelloWorldClient(IHelloWorld helloWorldWebservice) {
+        this.helloWorldWebservice = helloWorldWebservice;
+    }
+
+    public HelloMessage sayHello() {
+        try{
+            return helloWorldWebservice.sayHello();
+        }catch (NotInRightMoodException e){
+            LOGGER.error("'Hello World'-Service is not in the right mood to say hello", e);
+        }
+    }
+
+    public Result setGoodMood() {
+        return helloWorldWebservice.setMood(new Mood("good"));
+    }
+}
+</code></pre>
+
+<p>Zur Konfiguration des Client wird folgende Dependency benötigt:</p>
+<pre><code class="language-xml">&lt;dependency&gt;
+    &lt;groupId&gt;org.apache.cxf&lt;/groupId&gt;
+    &lt;artifactId&gt;cxf-rt-rs-client&lt;/artifactId&gt;
+&lt;/dependency&gt;
+</code></pre>
+
+<p>Auf die Details der Konfiguration wird wie oben erläutert verzichtet.</p>
+
+<h4 id="the-bad-and-the-ugly">The Bad and the Ugly</h4>
+<p>Grundsätzlich kann CXF alles, was andere Webservice-Frameworks auch können und die Integration mit Spring ist ebenfalls gegeben, sodass die Endpoints und Webservice-Clients in den Kontexten initialisiert werden können.
+Spezialfälle sind über gegebene Mechanismen umsetzbar und bieten reichlich Flexibilität.
+Was ist dann also faul?</p>
+
+<p>Kurzgesagt: die Dokumentation und mangelnde (gute) Beispiele im Internet.</p>
+
+<p>Wer CXF einsetzen und aufsetzen möchte, findet sich schnell auf der öffentlichen Seite von <a href="https://cxf.apache.org/">CXF</a> wieder und wird erschlagen von einer unintuitiv strukturierten Dokumentation.
+Informationen zu fortgeschritteneren Anwendungsfällen, beispielsweise die Behandlung von Netzwerkfehlern oder das Implementieren von Fallbacks, ist entweder nur schwer auffindbar oder einfach nicht vorhanden.</p>
+
+<p>Eine derart unübersichtliche Dokumentation ist heutzutage einfach nicht zeitgemäß und demotiviert schnell, wenn man von den Dokumentationen von Spring und allen seinen Frameworks verwöhnt ist.</p>
+
+<p>Auch das weitere Googlen bringt weit weniger befriedigende Ergebnisse, als man es von anderen Frameworks kennt.
+Dadurch fällt die Einarbeitung in CXF schwerfälliger aus und man kommt schnell zu dem Gedanken, ob ein anderes Framework nicht doch die bessere Wahl wäre.</p>
+
+<p>Dabei muss man auch im Blick haben, dass man selbst nicht der einzige bleiben wird, der sich durch den Lernprozess quälen muss.
+Nachfolgende Entwicklungsteams, die irgendwann weitere Konfigurationen am CXF-Setup vornehmen müssen, werden es ebenfalls schwerer haben.</p>
+
+<h4 id="fazit">Fazit</h4>
+<p>CXF ist zurecht nicht das beliebteste Webservice-Framework. 
+Es gibt jedoch Szenarien, in denen es seine Stärken voll ausspielen kann. 
+In diesen Fällen sollte man den anfänglichen Mehraufwand gegen die deutlichen Vorteile aufwiegen und seinen Einsatz ernsthaft erwägen.
+Wer CXF eine Chance gibt, kann mit einer sehr leicht wartbaren Schnittstelle belohnt werden.</p>
+
+</div>
+</div>
+</div>
+</div>]]></field>
+    </document>
+</documents>
