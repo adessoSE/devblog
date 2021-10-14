@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <documents>
     <document uid="c6124dd042f8dbfdfc3171b4cec782ff">
-        <field name="title"><![CDATA[Stencil - Einführung in den wiederverwendbare Web-Components-Compiler]]></field>
+        <field name="title"><![CDATA[Stencil - Einführung in den wiederverwendbaren Web-Components-Compiler]]></field>
         <field name="subline"><![CDATA[]]></field>
         <field name="teaser"><![CDATA[<p>In diesem Artikel werfen wir gemeinsam einen Blick auf Stencil und vergleichen, welche Vorteile diese Compiler-Lösung zu den gängigen Laufzeit-JavaScript-Frameworks bietet. 
 Anschließend werden wir eine Stencil-Umgebung aufsetzen und eine passende Komponente erstellen. Stencil stammt aus dem Hause Ionic und auch große Unternehmen wie Apple, Amazon und Microsoft nutzen Stencil in ihren Produkten.<br />
@@ -17,11 +17,11 @@ Dieser Artikel richtet sich an alle, die schon erste Erfahrungen mit JavaScript-
         <field name="tag_multi_keyword"><![CDATA[WebComponents]]></field>
         <field name="date_date"><![CDATA[2021-10-01T08:00:00+02:00]]></field>
         <field name="date_l"><![CDATA[1633068000000]]></field>
-        <field name="change_date"><![CDATA[1633068000000]]></field>
+        <field name="change_date"><![CDATA[1634198400000]]></field>
         <!--Author Information-->
         
         <field name="author_id"><![CDATA[parideis]]></field><!--Postcontent-->
-        <field name="headlines"><![CDATA[Stencil - Einführung in den wiederverwendbare Web-Components-Compiler]]></field>
+        <field name="headlines"><![CDATA[Stencil - Einführung in den wiederverwendbaren Web-Components-Compiler]]></field>
         <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
             <p>In diesem Artikel werfen wir gemeinsam einen Blick auf Stencil und vergleichen, welche Vorteile diese Compiler-Lösung zu den gängigen Laufzeit-JavaScript-Frameworks bietet. 
 Anschließend werden wir eine Stencil-Umgebung aufsetzen und eine passende Komponente erstellen. Stencil stammt aus dem Hause Ionic und auch große Unternehmen wie Apple, Amazon und Microsoft nutzen Stencil in ihren Produkten.<br />
