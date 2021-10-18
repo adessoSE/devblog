@@ -173,9 +173,9 @@ Als nächstes Tool sehen wir uns [FitNesse][8] an, welches einen etwas anderen W
 ### Einleitung
 
 Beim vorherigen Tool haben wir gesehen, wie mittels Tabellen und einer [Domain-Specific Language][7] Szenarien
-beschrieben und mittels Reporting Ergebnisse auch für die Businessseite aufbereitet werden können.
+beschrieben und durch Reporting Ergebnisse auch für die Businessseite aufbereitet werden können.
 
-[FitNesse][8] geht hierbei einen anderen Weg und bietet zwar ebenfalls wie [Cucumber][5] Daten-gestützte Tests
+[FitNesse][8] geht hierbei einen anderen Weg und bietet ebenfalls wie [Cucumber][5] Daten-gestützte Tests
 an, allerdings werden diese in einer eigenen [Wikiengine][13] angezeigt und können auch dort direkt im Browser
 ausgeführt werden:
 
@@ -238,8 +238,8 @@ public class TodoEndpointFitnesseFixture {
 }
 ```
 
-Im **Fixture** selbst greift [FitNesse][8] direkt auf die Setter und Getter anhand der Namen der Tabellenspalten zu.
-Somit wird aus der Spalte **title** ein Aufruf von `setTitle` und analog dazu aus der Spalte **id** ein Aufruf des
+[FitNesse][8] greift im Testlauf direkt auf die Methoden des **Fixtures** zu:
+Somit wird aus der Spalte **title** ein Aufruf des Getters `setTitle` und analog dazu aus der Spalte **id** ein Aufruf des
 Setters `id`.
 
 Im Browser selbst kann dann mittels Klick auf **Test** der Test gestartet und die Elemente der Seite werden
@@ -253,7 +253,7 @@ je nach Testergebnis dann farblich hervorgehoben:
 auszuführen.
 2. Wie auch bei [Cucumber][5] werden Tabellen eingesetzt, um Testdaten für die Szenarien bereitzustellen.
 3. Eine Übersicht über Testläufe kann direkt im Wiki erfolgen und bietet so eine einfache Möglichkeit für die
-Businessseite den Status einzusehen.
+Businessseite den Status einfach einzusehen.
 
 Und zuletzt widmen wir uns jetzt [Concordion][2], welches [Markdown][11] einsetzt, um Testfälle und Reports zu
 erzeugen.
@@ -262,10 +262,10 @@ erzeugen.
 
 ### Einleitung
 
-Im Grunde sehen wir hier bekanntes Vorgehen, wie auch die beiden Vorgänger ist es bei [Concordion][2] möglich Tests
+Im Grunde sehen wir hier bekanntes Vorgehen, wie auch bei den Vorgängern ist es bei [Concordion][2] möglich Tests
 in einem Dokument zu beschreiben und Daten in Form von Tabellen zu hinterlegen.
-Der erwähnenswerte Unterschied hier ist es wird [Markdown][11] eingesetzt, um die Verbindungen zwischen Test und Fixture
-herzustellen.
+Der erwähnenswerte Unterschied hier ist es wird [Markdown][11] als _Glue Code_ eingesetzt, um die Verbindung zwischen
+Testfall und **Fixture** herzustellen.
 
 Das ganze ist einfacher gezeigt als erklärt, daher springen wir direkt zum Beispiel.
 
@@ -285,17 +285,17 @@ title **[test](- "#title")** and the matching description
 [1](- "?=#result.getId").
 ```
 
-Auf dem ersten Blick mag einen das jetzt erschlagen, allerdings findet mans ich schnell zu recht, wenn man
-[Markdown][11] ein wenig gewohnt.
-Der interessante Teil ist hierbei die Handhabung von Links:
+Auf dem ersten Blick mag einen das jetzt erschlagen, allerdings findet man sich mit ein wenig [Markdown][11] Kenntnis
+schnell zu recht.
+Der interessante Teil ist hierbei die Verwendung von Links:
 
 - Mittels `#title` können in [Concordion][2] Variablen gesetzt werden, in diesem Fall die Variable `title`.
 - Verwendet man dabei ein Gleichzeichen wie bei `#result = #title` erzeugt man eine Zuweisung.
 - Lässt man alles davon weg wie bei `create`, wird diese Methode des **Fixtures** aufgerufen.
-- Beginnt man mit einem Fragezeichen wie bei `?=#result` wird eine _AssertEquals_ aufgerufen.
+- Und beginnt man mit einem Fragezeichen wie bei `?=#result` wird ein _AssertEquals_ aufgerufen.
 
-Im obigen Beispiel haben wir einen einfachen Fall und wollen lediglich ein Todo mit **title** und **description**
-angelegt, dies sieht im **Fixture** dann so aus:
+Im obigen Beispiel nutzen wir wieder den ersten Testfall und wollen lediglich ein Todo mit **title** und
+**description** angelegen, dies sieht im **Fixture** dann so aus:
 
 ```java
 @RunWith(ConcordionRunner.class)
@@ -311,11 +311,11 @@ public class TodoConcordionFixture {
 }
 ```
 
-Startet man den Testlauf wird ein Report erzeugt der in etwa so aussieht:
+Startet man den Testlauf wird ein Report erzeugt, der in etwa so aussieht:
 
 ![image](/assets/images/posts/specification-by-example/concordion_simple_test.png)
 
-Jetzt sind die ganzen Links _inline_ relativ komplex und können schnell unübersichtlich werden, daher ist es ebenfalls
+Jetzt sind die ganzen _inline_ Links relativ komplex und werden schnell unübersichtlich, daher ist es ebenfalls
 möglich die alternative Schreibweise von Links in [Markdown][11] zu verwenden:
 
 ```markdown
@@ -331,7 +331,7 @@ as ID [1](- "?=#result.getId").
 
 ![image](/assets/images/posts/specification-by-example/concordion_simple_test_modified.png)
 
-Und abschließend dazu sind natürlich Tabellen ebenfalls in [Concordion][2] möglich:
+Und abschließend dazu sind natürlich ebenfalls Tabellen in [Concordion][2] möglich:
 
 ```markdown
 ### [Extended table example](- "extended_table")
@@ -339,9 +339,9 @@ Und abschließend dazu sind natürlich Tabellen ebenfalls in [Concordion][2] mö
 This example combines ideas from the others ones:
 
 | [createWithDate][][Start date][start] | (Due date][due] | (Is done?][done] |
-| ------------------------------------ | ----------------| ------------------|
-| 2021-09-10                           | 2022-09-10      | undone            |
-| 2021-09-10                           | 2021-09-09      | done              |
+| ------------------------------------- | --------------- | ---------------- |
+| 2021-09-10                            | 2022-09-10      | undone           |
+| 2021-09-10                            | 2021-09-09      | done             |
 
 [createWithDate]: - "#result = createWithDate(#start,#due)"
 [start]: - "#start"
@@ -367,11 +367,10 @@ Kontext und wichtige Randbedingungen liefert und bei Änderungen gepflegt bzw. �
 Diese _lebende_ Dokumentation kann dann Testpläne und auch Tickets überdauern, so dass auch später noch verständlich
 ist worum es dabei geht.
 
-Und hierbei können auch die in diesem Artikel vorgestellten Tools unterstützen und die Ergebnisse von Dokumentation
-und auch Testläufen den richtigen Zielgruppen zur Verfügung stellen.
-
-Ein weiterer wichtiger Aspekt ist der Austausch der beteiligten Rollen, um auch hier die Idee einer Storycard
-aufzugreifen, miteinander zu sprechen und so ein gemeinsames Verständnis zu schaffen.
+Ein weiterer wichtiger Aspekt ist der Austausch der beteiligten Rollen, die im Rahmen dieser Workshops zusammenkommen
+und im **Vorfeld** ein gemeinsames Verständnis schaffen.
+Die im Artikel vorgestellten Tools können zusätzlich dabei unterstützen und sowohl Ergebnisse als auch Dokumentation
+der Testläufe aufzubereiten und so den richtigen Personen zielgruppengerecht zur Verfügung zu stellen.
 
 [1]: https://en.wikipedia.org/wiki/Behavior-driven_development
 [2]: https://concordion.org/
