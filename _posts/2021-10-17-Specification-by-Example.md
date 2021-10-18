@@ -144,7 +144,7 @@ public class TodoSteps {
 Hier bieten die [Java Bindings][10] hilfreiche Annotationen, mit denen ein Matching über reguläre Ausdrücke leicht von
 der Hand geht.
 
-Und wenn man jetzt den Test startet sieht man u.a. folgende Ausgabe:
+Nach einem Testdurchlauf sieht man dann u.a. folgende Ausgabe:
 
 ```gherkin
 Scenario Outline: Create a todo with title and description and check the id. # src/test/resources/features/todo.feature:11
@@ -153,8 +153,8 @@ Scenario Outline: Create a todo with title and description and check the id. # s
   Then its id should be 1                                                    # dev.unexist.showcase.todo.domain.todo.TodoSteps.then_get_id(int)
 ```
 
-Neben dieser reinen Textausgabe beim Build können bietet [Cucumber][5] die Möglichkeit mittels [externer Tools][15] zu
-erzeugen oder diese **optional** über <https://reports.cucumber.io> online einzusehen:
+Neben dieser reinen Textausgabe beim Build bietet [Cucumber][5] die Möglichkeit mittels [externer Tools][15]
+weitere Reports zu erzeugen oder **optional** einen Standardreport über <https://reports.cucumber.io> online einzusehen:
 
 ![image](/assets/images/posts/specification-by-example/cucumber-shell.png)
 
@@ -175,7 +175,7 @@ Als nächstes Tool sehen wir uns [FitNesse][8] an, welches einen etwas anderen W
 Beim vorherigen Tool haben wir gesehen, wie mittels Tabellen und einer [Domain-Specific Language][7] Szenarien
 beschrieben und mittels Reporting Ergebnisse auch für die Businessseite aufbereitet werden können.
 
-[FitNesse][8] geht hierbei einen anderen Weg und bietet zwar ebenfalls wie [Cucumber][5] eben Daten-gestützte Tests
+[FitNesse][8] geht hierbei einen anderen Weg und bietet zwar ebenfalls wie [Cucumber][5] Daten-gestützte Tests
 an, allerdings werden diese in einer eigenen [Wikiengine][13] angezeigt und können auch dort direkt im Browser
 ausgeführt werden:
 
