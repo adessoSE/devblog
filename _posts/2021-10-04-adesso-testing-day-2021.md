@@ -85,7 +85,7 @@ Möchte man dieses Konzept noch weitertreiben, dann könnten entsprechende cypre
 
 Ein entsprechender "Test" sieht dann z.B. so aus
 
-```markdowb
+````markdowb
 
 ## Main feature
 
@@ -103,11 +103,11 @@ cy.get('.new-todo')
   .type('test in Cypress{enter}')
 cy.get('.to-list li').should('have.length', 3)
 cy.screenshot('todos')
-\`\`\` 
+``` 
 
 <!--- fiddle-end -->
 </details>
-```
+````
 
 # Technisches Testen im Fokus des zweiten Teils
 
