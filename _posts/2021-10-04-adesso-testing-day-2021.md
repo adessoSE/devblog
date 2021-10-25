@@ -103,7 +103,7 @@ cy.get('.new-todo')
   .type('test in Cypress{enter}')
 cy.get('.to-list li').should('have.length', 3)
 cy.screenshot('todos')
-````` ``
+`` ``` ``
 
 <!--- fiddle-end -->
 </details>
