@@ -2,7 +2,7 @@
 layout: [post, post-xml]              
 title:  "Welcher Config-Server passt zu meinem Projekt?"         
 date:   2021-10-24 10:25              
-author_ids:     [kaythielmann]                  # Pflichtfeld. Es muss in der "authors.yml" einen Eintrag mit diesem Namen geben.
+author_ids:     [kaythielmann]
 categories: [Softwareentwicklung]           
 tags: [Java, AWS, Cloud, Springboot, Config-Server]        
 ---
@@ -29,26 +29,47 @@ Reicht es einen Wert zum Zeitpunkt des Starts einer Umgebung initial zu übergeb
 Verschiedene dieser Anforderungen werden durch unterschiedliche Systeme für die Speicherung von Konfigurationen unterschiedlich gut unterstützt.
 Neben dem Funktionsumfang unterscheiden sich die Systeme auch im Aufwand für Betrieb und Integration in vorhandene Projekte.
 
-# Spring Cloud
-Als konfigurierbares Docker Image verfügbar.
-Leicht selbst zu implementieren und zu erweitern.
-Kann gut in EKS betrieben werden.
-Integration transparent durch Spring-Boot-Starter und bootstrap.properties
-Properties im git-Repository möglich für mehrere Projekte und Stages, letztendlich einfach ein Verzeichnis.
+# Spring Cloud Config Server
+Ist man mit Java und dort evtl. sowieso mit Spring unterwegs, so springt einen der Spring Cloud Config Server förmlich an.
+Ein Start ist in diesem Kontext schnell gemacht, denn ein einsatzfähiges Docker-Image steht bereits zur Verfügung und lässt sich leicht in bestehende Umgebungen wie z.B. AWS EKS integrieren.
+Die Integration in ein springbasiertes Projekt kann vollständig transparent über einen Spring-Boot-Starter und ein wenig Konfiguration mit Hilfe einer bootstrap.properties erfolgen.
+Für die initiale Befüllung des Config-Servers mit den gewünschten Properties lässt sich out-of-the-box mit einfachen Mitteln ein git Repository einbinden, welches dann auch gleich für eine Historisierung der Properties sorgt.
 
 ## Pro
-Als eigenes Projekt vollumfänglich individualisierbar.
-Nahezu vollständig transparent integrierbar über spring-cloud-starter und bootstrap.properties
-Konfigurierbares Docker-Image vorhanden
-Lokaler betrieb via Docker möglich
-Auch Client für Micronaut und NodeJS möglich.
+Will man die vorhandenen Funktionen erweitern und z.B. Properties aus weiteren Quellen integrieren so kann man hier mit wenigen Annotationen schnell sein eigenes spring-boot-basiertes Projekt aufsetzen, in dem man sein eigener Herr ist.
+Und natürlich ist man nicht darauf beschränkt hier Java-Projekte mit Spring zu versorgen.
+Es stehen unter anderem auch passenden Libs für NodeJS oder Micronaut zur Verfügung.
 
 ## Contra
-Betrieb im EKS kostet erstmal diverse IPs.
-Keine hohe Performance nötig, aber sehr hohe Ausfallsicherheit!
-Evtl. Wechselwirkungen durch neue Abhängigkeiten in pom.xml
+Am Ende bleibt der Betrieb des Service als ganz sicher nicht unlösbares aber essentielles ToDo.
+Die Last auf dem Service wird dabei selten hoch sein, doch muss ein zentrales Augenmerk der Ausfallsicherheit gelten.
+Ohne die passenden Umgebungsvariablen startet keine neue Umgebung. 
+Jegliche Skalierung wird im schlimmsten Fall durch einen Ausfall des Config-Server verhindert.
+
+![Aufbau der Infrastruktur](/assets/images/posts/configserver/Configserver.png)
+
+Ein Config-Server kann eine ganze Reihe von Artefakten und auch gleichzeitig diverse Stages mit Properties versorgen.
+Ändert sich aber ein Wert, so werden nur neu gestartete Instanzen diese Werte abrufen.
+Geschieht dies durch Skalierungsprozesse könnte ein dauerhafter Schiefstand zwischen den Konfigurationen einzelner Instanzen entstehen.
+Wer alle betroffenen Instanzen automatisch benachrichtigen und updaten will muss sich etwas einfallen lassen.
+So können z.B. alle betroffenen Instanzen an einen MessageBus angeschlossen werden, an den der Config-Server entsprechende Events schickt, sobald eine Änderung eintritt.
+Die Instanzen können dann die neuen Werte über ein Rolling-Update ziehen oder ihren Context on-the-fly updaten.
+Aber all dies muss letztendlich selbst implementiert, betrieben und gewartet werden.
 
 # Unleash
+Steht der Fokus ehr auf Feature-Switches, soll ein sehr dynamischer Umgang mit Properties unterstützt werden oder ist AB-Testing eine Anforderung mit hoher Priorität, so kann Unleash einiges mitbringen um dies zu unterstützen.
+Im Gegensatz zu anderen Lösungen liegt der Fokus hier auf dynamischen Werten, die sich zur Laufzeit, auch automatisiert einem Regelwerk folgend, ändern können. 
+Es handelt sich also weniger um einen klassischen Configserver, sondern um eine Umgebung in der Feature-Switches an zur Laufzeit abgefragte Bedingungen geknüpft werden können.
+Eigene Java- oder NodeJS-Lib für die Integration
+Umschalten von Configswitches in der laufenden Umgebung.
+AB-Testing 
+Berechtigungen umsetzbar
+
+![Aufbau der Infrastruktur](/assets/images/posts/configserver/Unleash_Aufbau.png)
+
+##Pro
+
+##Contra
 
 # Consul
 
