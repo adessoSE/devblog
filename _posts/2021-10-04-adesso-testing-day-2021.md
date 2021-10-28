@@ -36,7 +36,7 @@ Noch vor wenigen Jahren hatte man als Testmanager oder Testmanagerin das Problem
 Für Spezialaufgaben fand sich oft kein Tool, das einem die notwendige Funktionalität lieferte. 
 Dieser Zustand hat sich in den letzten Jahren deutlich gedreht. 
 Inzwischen hat man eher die Qual der Wahl in einem oft unübersehbaren Werkzeugfeld. 
-Hier hilft oft ein Erfahrungsbericht von Kollegen bzw. eine kurze Demonstration der Arbeit mit einem Tool. 
+Hier hilft oft ein Erfahrungsbericht bzw. eine kurze Demonstration der Arbeit mit einem Tool. 
 Oft bekommt man so schnell einen Eindruck, ob ein bestimmtes Werkzeug für die Arbeit im konkreten Projekt eine Option darstellt oder nicht. 
 Nicht umsonst stellt Attraktivität in der ISO 9126 bzw. Ästhetik in der ISO 25010 ein Qualitätsmerkmal guter Software dar. 
 Natürlich darf das Bauchgefühl hier nicht allein entscheiden. 
