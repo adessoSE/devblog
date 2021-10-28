@@ -131,7 +131,7 @@ Wir erfuhren etwas über das allgemeine Portfolio des neuen CC IT-Security, beis
 
 Dann gab es eine kleine Einführung in das Vorgehen beim Pen-Testing. 
 Marvin erklärte die verschiedenen Arten von Pen-Testern (Black Hat, Grey Hat und White Hat) und Pen-Tests (Black Box, Grey Box, White Box) und differenzierte mehrere Typen von Pen-Tests (z.B. Network / Wireless Penetration Testing and Exploitation​, Web Application / Application Penetration Testing and Exploitation​ und Physical Penetration Testing​). 
-Dann folgte die Methodik eines Pentesters ausgehend von einem Kickoff über den sich wiederholenden Zyklus Reconnaissance, Enumeration und Exploitation gefolgt von der Dokumentation, einem Retest und einer Abschlusspräsentation.
+Dann folgte die Methodik eines Pen-Testers ausgehend von einem Kickoff über den sich wiederholenden Zyklus Reconnaissance, Enumeration und Exploitation, gefolgt von der Dokumentation, einem Retest und einer Abschlusspräsentation.
 
 Jetzt haben wir endlich ein professionelles Team im Securitybereich und durch den testing day wissen wir auch, wen wir bei Bedarf ansprechen können. 
 Zum Glück behalten die Kollegen ihr Wissen nicht für sich, sondern bieten für adesso zugeschnittene Trainings an, ganz wie es bei adesso üblich ist.
