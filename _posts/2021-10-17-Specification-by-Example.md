@@ -52,7 +52,7 @@ Das Teststeam nutzt seine Kenntnis des Produktes, Erfahrungen allgemein beim Tes
 Testheuristiken, um Fehler aufzuspüren.
 
 Wie so oft in unserer Branche ist Kommunikation der Schlüssel für dieses Problem:
-Setzen sich Entwickler und Tester gemeinsam an einen Tisch, um im Vorfeld über mögliche Probleme zu sprechen, könnten
+Setzen sich beide Teams gemeinsam an einen Tisch, um im Vorfeld über mögliche Probleme zu sprechen, könnten
 aufwändige Nacharbeiten begrenzt und die Abläufe beschleunigt werden.
 
 ## Three Amigos
