@@ -127,7 +127,7 @@ Wir erfuhren etwas über das allgemeine Portfolio des neuen CC IT-Security, beis
 * Sicherheitskonzepte​,
 * Statische und dynamische Codeanalysen​ sowie Code Reviews​,
 * SecDevOps​ und
-* Segmentation Test (nach PCI DSS)​.
+* Segmentation Tests (nach PCI DSS)​.
 
 Dann gab es eine kleine Einführung in das Vorgehen beim Pen-Testing. 
 Marvin erklärte die verschiedenen Arten von Pentestern (Black Hat, Grey Hat und White Hat) und Pentests (Black Box, Grey Box, White Box) und differenzierte mehrere Typen von Pentests (z.B. Network / Wireless Penetration Testing and Exploitation​, Web Application / Application Penetration Testing and Exploitation​ und Physical Penetration Testing​). 
