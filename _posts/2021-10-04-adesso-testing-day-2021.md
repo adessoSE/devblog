@@ -27,7 +27,7 @@ Neben einer expliziten Networking-Session im Speeddating-Format hatten die Teiln
 
 ![Come together in GatherTown](/assets/images/posts/adesso-testing-day-2021/GatherTown.png)
 
-Aufgrund des Live-Online Formats wurde die Veranstaltung wie bereits letztes Jahr auf zwei halbe Tage aufgeteilt. 
+Aufgrund des Live-Online-Formats wurde die Veranstaltung wie bereits letztes Jahr auf zwei halbe Tage aufgeteilt. 
 Der erste Teil widmete sich Themen rund um das Testmanagement; der zweite Teil fokussierte die mehr technischen Themen, hier insbesondere die Testautomatisierung.
 
 # Testmanagement im Fokus des ersten Teils
