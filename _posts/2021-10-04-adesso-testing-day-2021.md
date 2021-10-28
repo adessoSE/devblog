@@ -149,7 +149,7 @@ Ich bin gespannt was für ein spannendes Tool sich in Zukunft daraus entwickelt.
 
 ## Kreativer Einsatz von UFT
 
-Nach der ganzen Theorie war es schön auch die Anwendung eines Testautomatisierungswerkzeugs in der Praxis bzw. in einem konkreten Projekt zu sehen. 
+Nach der ganzen Theorie war es schön, auch die Anwendung eines Testautomatisierungswerkzeugs in der Praxis bzw. in einem konkreten Projekt zu sehen. 
 Marco Bormann und Pablo Salvans berichteten von dem Einsatz von [UFT - Unified Functional Testing](https://www.microfocus.com/de-de/products/uft-one/overview) für das Schweizer Wirtschaftsministerium. 
 Marco und Pablo beschrieben zunächst die klassische Nutzung von UFT nach Handbuch und zeigten die Schwächen dieses Ansatzes auf. 
 Anschließend lieferten die beiden auch gleich eine alternative Anwendung: die Nutzung von UFT wie Selenium.
