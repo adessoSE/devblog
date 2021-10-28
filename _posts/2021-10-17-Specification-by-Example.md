@@ -33,7 +33,7 @@ und zur Vermeidung von Regression.
 Wie das bei allgemeinen Antworten so üblich ist, findet man auch hier interessante Lücken:
 **Wer schreibt diese Tests und vor allem wann?**
 
-Wenn man sich Projekte ansieht ist die Erwartung, sowohl in Teamstrukturen nach [Conway][4], als auch bei
+Wenn man sich Projekte ansieht, ist die Erwartung, sowohl in Teamstrukturen nach [Conway][4] als auch bei
 cross-funktionalen Teams, dass diese Art von Tests von Testern geschrieben und durchgeführt werden.
 Und das erfolgt entweder parallel zur Arbeit der Entwickler oder in irgendeinem nachgelagerten Prozess.
 
