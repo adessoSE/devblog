@@ -242,7 +242,7 @@ public class TodoEndpointFitnesseFixture {
 Somit wird aus der Spalte **title** ein Aufruf des Getters `setTitle` und analog dazu aus der Spalte **id** ein Aufruf des
 Setters `id`.
 
-Im Browser selbst kann dann mittels Klick auf **Test** der Test gestartet und die Elemente der Seite werden
+Im Browser selbst kann dann mittels Klick auf **Test** der Test gestartet werden und die Elemente der Seite werden
 je nach Testergebnis dann farblich hervorgehoben:
 
 ![image](/assets/images/posts/specification-by-example/fitnesse_wiki_after.png)
