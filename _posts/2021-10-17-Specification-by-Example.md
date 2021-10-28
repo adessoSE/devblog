@@ -10,7 +10,7 @@ tags:			[Testing, BDD, Cucumber, FitNesse, Concordion]				# Bitte auf Großschre
 
 **Knowledge Sharing** ist eines der Kernprobleme unserer Branche und zentraler Bestandteil vieler moderner Methodiken
 der Softwareentwicklung.
-**Specifications-by-Example** als Vorgehen kann hierbei unterstützen und bietet einen Rahmen, um diese gemeinsame
+**Specifications by Example** als Vorgehen kann hierbei unterstützen und bietet einen Rahmen, um eine gemeinsame
 Wissensbasis zu schaffen, Randfälle durch Tests im Vorfeld zu beschreiben und als Ergebnis eine lebende Spezifikation
 zu erstellen.
 
