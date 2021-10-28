@@ -59,7 +59,7 @@ Dies begann bereits in den 1950er Jahren mit Kaizen bzw. dem kontinuierlichen Ve
 Oft beschränkt sich dieser Prozess allerdings darauf, explizit Maßnahmen gegen besonders schlecht bzw. schiefgelaufene Dinge aufzusetzen bzw. gut gelungene Praktiken zu fördern und zu verbreiten.
 
 Bei adesso hat sich seit einigen Jahren eine Projektgruppe gebildet, die diesen Verbesserungsprozess umfassender betrachtet. 
-Kernstück ist die Auffassung das Projekt als System zu begreifen, dessen Qualitätsprozesse individuell auf den jeweiligen Kontext zugeschnitten werden müssen. 
+Kernstück ist die Auffassung, das Projekt als System zu begreifen, dessen Qualitätsprozesse individuell auf den jeweiligen Kontext zugeschnitten werden müssen. 
 Christoph Ostertag berichtete im Rahmen des testing days vom Stand der Dinge. 
 Das Modell "PITQM" (Pragmatisches IT-Qualitätsmanagement - angelehnt an das von adesso gerne eingesetzte Vorgehensmodell [PITPM - Pragmatisches IT-Projektmanagement](https://pitpm.net/)) besteht mittlerweile aus den Bausteinen
 
