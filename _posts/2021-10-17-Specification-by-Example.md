@@ -181,7 +181,7 @@ ausgeführt werden:
 
 ![image](/assets/images/posts/specification-by-example/fitnesse_wiki_before.png)
 
-Natürlich ist es auch mögliche diese Tests _headless_ ohne Browser in einer Pipeline auszuführen:
+Natürlich ist es auch möglich, diese Tests _headless_ ohne Browser in einer Pipeline auszuführen:
 
 ```shell
 $ java -jar lib/fitnesse.jar -c "FrontPage?suite&suiteFilter=MustBeGreen&format=text"
