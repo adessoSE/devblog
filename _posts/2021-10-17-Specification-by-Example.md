@@ -153,7 +153,7 @@ Scenario Outline: Create a todo with title and description and check the id. # s
   Then its id should be 1                                                    # dev.unexist.showcase.todo.domain.todo.TodoSteps.then_get_id(int)
 ```
 
-Neben dieser reinen Textausgabe beim Build bietet [Cucumber][5] die Möglichkeit mittels [externer Tools][15]
+Neben dieser reinen Textausgabe beim Build bietet [Cucumber][5] die Möglichkeit, mittels [externer Tools][15]
 weitere Reports zu erzeugen oder **optional** einen Standardreport über <https://reports.cucumber.io> online einzusehen:
 
 ![image](/assets/images/posts/specification-by-example/cucumber-shell.png)
