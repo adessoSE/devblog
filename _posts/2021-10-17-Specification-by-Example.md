@@ -292,7 +292,7 @@ Der interessante Teil ist hierbei die Verwendung von Links:
 - Mittels `#title` können in [Concordion][2] Variablen gesetzt werden, in diesem Fall die Variable `title`.
 - Verwendet man dabei ein Gleichzeichen wie bei `#result = #title` erzeugt man eine Zuweisung.
 - Lässt man alles davon weg wie bei `create`, wird diese Methode des **Fixtures** aufgerufen.
-- Und beginnt man mit einem Fragezeichen wie bei `?=#result` wird ein _AssertEquals_ aufgerufen.
+- Und beginnt man mit einem Fragezeichen wie bei `?=#result`, wird ein _AssertEquals_ aufgerufen.
 
 Im obigen Beispiel nutzen wir wieder den ersten Testfall und wollen lediglich ein Todo mit **title** und
 **description** angelegen, dies sieht im **Fixture** dann so aus:
