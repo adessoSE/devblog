@@ -285,7 +285,7 @@ title **[test](- "#title")** and the matching description
 [1](- "?=#result.getId").
 ```
 
-Auf dem ersten Blick mag einen das jetzt erschlagen, allerdings findet man sich mit ein wenig [Markdown][11] Kenntnis
+Auf dem ersten Blick mag einen das jetzt erschlagen, allerdings findet man sich mit ein wenig [Markdown][11]-Kenntnis
 schnell zu recht.
 Der interessante Teil ist hierbei die Verwendung von Links:
 
