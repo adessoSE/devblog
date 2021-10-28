@@ -210,7 +210,7 @@ Create various todo entries to test the endpoint.
 | title2  | description2  | 2    |
 ```
 
-Hier wird neben Befehlen für die Wahl der Testengine und Formatierung der Inhalte die wir jetzt außen vorlassen,
+Hier wird neben Befehlen für die Wahl der Testengine und Formatierung der Inhalte, die wir jetzt außen vor lassen,
 zunächst der Pfad für die Imports festgelegt und anschließend werden wie auch bei [Cucumber][5] die Testdaten
 tabellarisch aufgeführt.
 
