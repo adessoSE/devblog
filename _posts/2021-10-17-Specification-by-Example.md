@@ -90,7 +90,7 @@ Sämtliche Beispiele können im folgenden Repository eingesehen werden:
 
 Als erstes Tool wollen wir uns [Cucumber][5] ansehen, welches vermutlich das bekannteste zum Thema
 [Behavior-Driven Development][1] ist.
-[Cucumber][5] verwendet ein leicht verständliches [given-when-then][16] Format (ursprünglich von [Dan North][6]
+[Cucumber][5] verwendet ein leicht verständliches [given-when-then][16]-Format (ursprünglich von [Dan North][6]
 entwickelt) namens [Gherkin][9], um strukturierte Testfälle zu schreiben und sukzessive eine
 [Domain-Specific Language][7] für die Fachdomäne zu entwickeln.
 
