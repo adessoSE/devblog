@@ -41,7 +41,7 @@ Findet hierbei jetzt irgendein Austausch statt?
 
 ## Knowledge Sharing
 
-Folgt man diesem Vorgehen, kommt es allenfalls bei Problem zu irgendeiner Form der Kommunikation.
+Folgt man diesem Vorgehen, kommt es allenfalls bei Problemen zu irgendeiner Form der Kommunikation.
 Beispielsweise wenn etwas nicht funktioniert, eine Fehlerklasse gänzlich übersehen wurde oder erst durch die vorhandene
 Umsetzung auftritt.
 
