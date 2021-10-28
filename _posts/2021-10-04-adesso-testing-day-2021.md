@@ -63,7 +63,7 @@ Kernstück ist die Auffassung, das Projekt als System zu begreifen, dessen Quali
 Christoph Ostertag berichtete im Rahmen des testing days vom Stand der Dinge. 
 Das Modell "PITQM" (Pragmatisches IT-Qualitätsmanagement - angelehnt an das von adesso gerne eingesetzte Vorgehensmodell [PITPM - Pragmatisches IT-Projektmanagement](https://pitpm.net/)) besteht mittlerweile aus den Bausteinen
 
-* Projektrisikoanalyse mit dem adesso-spezifischen Qualitytree,
+* Projektrisikoanalyse mit dem adesso-spezifischen Quality Tree,
 * Anpassung der Qualitätsprozesse für das jeweilige Projekt und
 * Feedback an die PITQM-Community.
 
