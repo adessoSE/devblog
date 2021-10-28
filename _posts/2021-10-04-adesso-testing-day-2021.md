@@ -111,7 +111,7 @@ cy.screenshot('todos')
 
 # Technisches Testen im Fokus des zweiten Teils
 
-Im Fokus des zweiten Teils des adesso testing days standen technische Test-Themen wie Securitytests und Testautomatisierung.
+Im Fokus des zweiten Teils des adesso testing days standen technische Testthemen wie Securitytests und Testautomatisierung.
 
 ## Was macht eigentlich ein Pen-Tester?
 
