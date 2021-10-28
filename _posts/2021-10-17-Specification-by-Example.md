@@ -95,7 +95,7 @@ entwickelt) namens [Gherkin][9], um strukturierte Testfälle zu schreiben und su
 [Domain-Specific Language][7] für die Fachdomäne zu entwickeln.
 
 Hierbei ist die Ähnlichkeit zwischen [given-when-then][16] und dem von [Connextra][3] geprägten Format kein Zufall:
-Die Grundidee hier ist es soll so einfach wie möglich sein die eine Form in die andere zu übertragen.
+Die Grundidee hier ist, es soll so einfach wie möglich sein, die eine Form in die andere zu übertragen.
 
 [Gherkin][9] selbst bietet [zahlreiche Möglichkeiten][18] und ist alleine dadurch schon einen eigenen Blogpost wert,
 daher beschränken wir uns hier auf die verwendeten Grundbefehle.
