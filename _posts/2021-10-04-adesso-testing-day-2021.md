@@ -80,7 +80,7 @@ Ende-zu-Ende-Testautomatisierung mit [cypress](https://www.cypress.io/) - das is
 Auch Schulungen werden hierzu angeboten, wie üblich von adessi für adessi. 
 Tobias Struckmeier zeigte hier den Stand der Dinge und demonstrierte, dass cypress nicht nur für Testteams, sondern auch für Entwicklungsteams einen Blick wert ist. 
 
-Dazu führte Tobias noch einen praktischen Nebeneffekt vor: durch die Durchführung von Anwendungsfallbasierten Tests lassen sich durch zusätzlich eingebaute Kommandos an den relevanten Stellen Screenshots erzeugen, die dann für eine immer aktuelle Benutzerdokumentation verwendet werden können. 
+Dazu führte Tobias noch einen praktischen Nebeneffekt vor: durch die Durchführung von anwendungsfallbasierten Tests lassen sich durch zusätzlich eingebaute Kommandos an den relevanten Stellen Screenshots erzeugen, die dann für eine immer aktuelle Benutzerdokumentation verwendet werden können. 
 Möchte man dieses Konzept noch weitertreiben, dann könnten entsprechende cypress-"Tests" zur Erzeugung der Screenshots in die Seiten eingebettet werden (falls die Nutzerdokumentation in Form einer Wiki-Seite angelegt wird).
 
 Ein entsprechender "Test" sieht dann z.B. so aus
