@@ -48,7 +48,7 @@ Umsetzung auftritt.
 Hier wäre es jetzt von Vorteil, wenn man die Sicht beider Gruppen einfängt:
 Das Entwicklungsteam betrachtet die Software von seiner technischen Seite und versuchet, alle ihm bekannten Probleme im Vorfeld
 zu berücksichtigen und zu verhindern.
-Und Tester nutzen ihre Kenntnis des Produktes, Erfahrungen allgemein beim Testen von Software und natürlich
+Das Teststeam nutzt seine Kenntnis des Produktes, Erfahrungen allgemein beim Testen von Software und natürlich
 Testheuristiken, um Fehler aufzuspüren.
 
 Wie so oft in unserer Branche ist Kommunikation der Schlüssel für dieses Problem:
