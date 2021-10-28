@@ -253,7 +253,7 @@ je nach Testergebnis dann farblich hervorgehoben:
 auszuführen.
 2. Wie auch bei [Cucumber][5] werden Tabellen eingesetzt, um Testdaten für die Szenarien bereitzustellen.
 3. Eine Übersicht über Testläufe kann direkt im Wiki erfolgen und bietet so eine einfache Möglichkeit für die
-Businessseite den Status einfach einzusehen.
+Businessseite, den Status einzusehen.
 
 Und zuletzt widmen wir uns jetzt [Concordion][2], welches [Markdown][11] einsetzt, um Testfälle und Reports zu
 erzeugen.
