@@ -18,7 +18,7 @@ Dies bot zusätzlich den Vorteil, dass die Veranstaltung aufgezeichnet werden ko
 Die reinen Vortragsunterlagen sind hier erfahrungsgemäß nicht immer hilfreich. 
 
 Mit über 90 Anmeldungen konnte der Erfolg aus dem letzten Jahr erneut gesteigert werden. 
-Auch die im Test so wichtige "Abdeckung" war hier beachtlich: die Teilnehmer kamen aus 16 nationalen und 6 internationalen Standorten aus Bulgarien, Spanien, Türkei und der Schweiz. 
+Auch die im Test so wichtige "Abdeckung" war hier beachtlich: 16 nationale und 6 internationale Standorte aus Bulgarien, Spanien, Türkei und der Schweiz waren vertreten. 
 Fachlich kamen die Teilnehmer aus 10 LoBs (Lines of Business) bzw. Branchen sowie auch von 4 adesso-Töchtergesellschaften. 
 
 Gerade bei dem rasanten Wachstum von adesso ist eine Vernetzung der im Testbereich tätigen adessi besonders wichtig, damit das Rad nicht überall neu erfunden werden muss. 
