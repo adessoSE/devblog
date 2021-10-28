@@ -362,7 +362,7 @@ relativ übersichtlich bleiben:
 
 # Fazit
 
-Die Grundidee bei **Specification by Example** ist ein Dokument zu erzeugen, welches neben reiner Testdaten auch
+Die Grundidee bei **Specification by Example** ist, ein Dokument zu erzeugen, welches neben reinen Testdaten auch
 Kontext und wichtige Randbedingungen liefert und bei Änderungen gepflegt bzw. überarbeitet wird.
 Diese _lebende_ Dokumentation kann dann Testpläne und auch Tickets überdauern, sodass auch später noch verständlich
 ist, worum es dabei geht.
