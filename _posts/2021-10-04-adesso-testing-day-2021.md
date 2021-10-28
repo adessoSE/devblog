@@ -8,7 +8,7 @@ tags: [Testing]                       # Optional.
 ---
 
 
-Um es mit der Herrin Galadriel aus Tolkiens "Der Herr der Ringe" zu sagen: "Die Welt ist im Wandel." Zugegeben: das galt für die IT schon immer. Aber gerade die aktuellen Techniken und Trends stellen den Bereich Software Testing vor neue Herausforderungen. Um diesen Herausforderungen zu begegnen und das Wissen im Unternehmen aktuell und frisch zu halten veranstaltet adesso jährlich den adesso testing day. In diesem Jahr fand er im September zum achten Mal statt. 
+Um es mit der Herrin Galadriel aus Tolkiens "Der Herr der Ringe" zu sagen: "Die Welt ist im Wandel." Zugegeben: das galt für die IT schon immer. Aber gerade die aktuellen Techniken und Trends stellen den Bereich Software Testing vor neue Herausforderungen. Um diesen Herausforderungen zu begegnen und das Wissen im Unternehmen aktuell und frisch zu halten, veranstaltet adesso jährlich den adesso testing day. In diesem Jahr im September fand er zum achten Mal statt. 
 
 # adesso testing day im hybriden Format
 
