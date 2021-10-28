@@ -311,7 +311,7 @@ public class TodoConcordionFixture {
 }
 ```
 
-Startet man den Testlauf wird ein Report erzeugt, der in etwa so aussieht:
+Startet man den Testlauf, wird ein Report erzeugt, der in etwa so aussieht:
 
 ![image](/assets/images/posts/specification-by-example/concordion_simple_test.png)
 
