@@ -122,7 +122,7 @@ Im oberen Teil wird zunächst der allgemeine Testfall beschrieben und anschließ
 einmal eingegrenzt.
 Darauf folgt die Beschreibung des eigentlichen Szenarios samt Tabelle mit Beispielen, welche jetzt definierte
 Randbedingungen aus einem vorherigen **Specification Workshop** sein könnten.
-Hierbei wird bewusst auf natürliche Sprache gesetzt und stehen Bindings für [weitere Sprachen][17] zur Verfügung.
+Hierbei wird bewusst auf natürliche Sprache gesetzt und es stehen Bindings für [weitere Sprachen][17] zur Verfügung.
 
 Nachdem die Features und Szenarien definiert wurden muss noch der entsprechende _Glue Code_ in Form von **Stepfiles**
 ergänzt werden, hier einmal auszugsweise:
