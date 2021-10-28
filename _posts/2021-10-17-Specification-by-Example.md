@@ -59,7 +59,7 @@ aufwändige Nacharbeiten begrenzt und die Abläufe beschleunigt werden.
 
 **Three Amigos** oder **Specification Workshop** ist ein Format, um genau dieses Vorgehen zu ermöglichen:
 Wenn ein neues Feature geplant wird, kommen der beauftragende **Stakeholder**, ein Verantwortlicher aus dem **Entwicklungsteam** und
-ein **Tester** zusammen und besprechen *was* und vor allem *wie* umgesetzt werden soll und wie später überprüft
+ein Verantwortlicher aus dem **Testteam** zusammen und besprechen, *was* und vor allem *wie* dies umgesetzt werden soll und wie später überprüft
 werden kann, dass die Aufgabe abgeschlossen wurde.
 
 Hierbei ist dieses Format vollkommen offen, mögliche Ergebnisse können einfache Notizen (beispielsweise an der
