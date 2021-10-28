@@ -32,7 +32,7 @@ Der erste Teil widmete sich Themen rund um das Testmanagement; der zweite Teil f
 
 # Testmanagement im Fokus des ersten Teils
 
-Noch vor wenigen Jahren hatte man als Testmanager das Problem nur wenig passende Tools zu finden. 
+Noch vor wenigen Jahren hatte man als Testmanager oder Testmanagerin das Problem, nur wenig passende Tools zu finden. 
 Für Spezialaufgaben fand sich oft kein Tool, das einem die notwendige Funktionalität lieferte. 
 Dieser Zustand hat sich in den letzten Jahren deutlich gedreht. 
 Inzwischen hat man als Testmanager eher die Qual der Wahl bei oft unübersehbarem Werkzeugfeld. 
