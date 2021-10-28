@@ -161,7 +161,7 @@ Dabei werden die folgenden Ansätze genutzt:
 
 ## Gamification zur Sicherstellung der Softwarequalität
 
-Aufgrund der engen Anbindung von adesso an diverse Hochschulen, entstehen bei adesso auch pro Jahr viele Bachelor- und Masterabschlussarbeiten - auch im Test- und QS-Bereich. 
+Aufgrund der engen Anbindung von adesso an diverse Hochschulen entstehen bei adesso auch pro Jahr viele Bachelor- und Masterabschlussarbeiten - auch im Test- und QS-Bereich. 
 Daher ist es inzwischen neben dem Engagement von externen Referenten eine weitere gute Tradition auf dem adesso testing day geworden, über diese Arbeiten zu berichten und die Ergebnisse vorzustellen. 
 In diesem Jahr stellte Stefanie Schwilski ihre Masterarbeit "Entwicklung und Evaluation einer Anwendung zur Sicherstellung von Softwarequalität unter Verwendung von Gamification" vor. 
 Der Trick lag hier im Vergleich eines Projektes bzw. eines Produkts mit einem virtuellen Freizeitpark a la Rollercoaster Tycoon. 
