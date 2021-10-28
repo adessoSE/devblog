@@ -76,7 +76,7 @@ PITQM geht allerdings noch einen Schritt weiter: hier werden auch die Qualitäts
 
 ## Developer Experience mit praktischem Nebeneffekt
 
-Ende-zu-Ende Testautomatisierung mit [cypress](https://www.cypress.io/) - das ist nicht neu; adesso setzt dieses Werkzeug - neben einigen anderen - erfolgreich in vielen Projekten ein. 
+Ende-zu-Ende-Testautomatisierung mit [cypress](https://www.cypress.io/) - das ist nicht neu; adesso setzt dieses Werkzeug - neben einigen anderen - erfolgreich in vielen Projekten ein. 
 Auch Schulungen werden hierzu angeboten, wie üblich von adessi für adessi. 
 Tobias Struckmeier zeigte hier den Stand der Dinge und demonstrierte, dass cypress auch für Entwickler, und nicht nur für Tester einen Blick wert ist. 
 
