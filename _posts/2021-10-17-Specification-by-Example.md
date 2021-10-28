@@ -175,7 +175,7 @@ Als nächstes Tool sehen wir uns [FitNesse][8] an, welches einen etwas anderen W
 Beim vorherigen Tool haben wir gesehen, wie mittels Tabellen und einer [Domain-Specific Language][7] Szenarien
 beschrieben und durch Reporting Ergebnisse auch für die Businessseite aufbereitet werden können.
 
-[FitNesse][8] geht hierbei einen anderen Weg und bietet ebenfalls wie [Cucumber][5] Daten-gestützte Tests
+[FitNesse][8] geht hierbei einen anderen Weg und bietet ebenfalls wie [Cucumber][5] datengestützte Tests
 an, allerdings werden diese in einer eigenen [Wikiengine][13] angezeigt und können auch dort direkt im Browser
 ausgeführt werden:
 
