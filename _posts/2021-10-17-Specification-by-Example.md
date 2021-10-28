@@ -30,7 +30,7 @@ Akzeptanztests sind demnach also Abnahmetests, die vom Benutzer oder von einem e
 werden **nachdem** die Software erstellt wurde und dienen zur Überprüfung, ob eine Software ordnungsgemäß funktioniert
 und zur Vermeidung von Regression.
 
-Wie das bei allgemeinen Antworten so üblich ist findet man auch hier interessante Lücken:
+Wie das bei allgemeinen Antworten so üblich ist, findet man auch hier interessante Lücken:
 **Wer schreibt diese Tests und vor allem wann?**
 
 Wenn man sich Projekte ansieht ist die Erwartung, sowohl in Teamstrukturen nach [Conway][4], als auch bei
