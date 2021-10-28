@@ -249,7 +249,7 @@ je nach Testergebnis dann farblich hervorgehoben:
 
 ### Zusammenfassung
 
-1. [FitNesse][8] verwendet ein eigenes Wiki für die Testfällen und bietet die Möglichkeit diese auch direkt dort
+1. [FitNesse][8] verwendet ein eigenes Wiki für die Testfälle und bietet die Möglichkeit, diese auch direkt dort
 auszuführen.
 2. Wie auch bei [Cucumber][5] werden Tabellen eingesetzt, um Testdaten für die Szenarien bereitzustellen.
 3. Eine Übersicht über Testläufe kann direkt im Wiki erfolgen und bietet so eine einfache Möglichkeit für die
