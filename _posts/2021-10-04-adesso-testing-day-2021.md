@@ -123,7 +123,7 @@ Wir erfuhren etwas über das allgemeine Portfolio des neuen CC IT-Security, beis
 
 * Sicherheit im Software Development Lifecycle (SDLC)​,
 * Threat-Modelling​,
-* Entwicklertrainings,​
+* Trainings für Entwicklungsteams,​
 * Sicherheitskonzepte​,
 * Statische und dynamische Codeanalysen​ sowie Code Reviews​,
 * SecDevOps​ und
