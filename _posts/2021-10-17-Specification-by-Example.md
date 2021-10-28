@@ -370,7 +370,7 @@ ist, worum es dabei geht.
 Ein weiterer wichtiger Aspekt ist der Austausch der beteiligten Rollen, die im Rahmen dieser Workshops zusammenkommen
 und im **Vorfeld** ein gemeinsames Verständnis schaffen.
 Die im Artikel vorgestellten Tools können zusätzlich dabei unterstützen und sowohl Ergebnisse als auch Dokumentation
-der Testläufe aufzubereiten und so den richtigen Personen zielgruppengerecht zur Verfügung zu stellen.
+der Testläufe aufbereiten, sodass sie den richtigen Personen zielgruppengerecht zur Verfügung gestellt werden können.
 
 [1]: https://en.wikipedia.org/wiki/Behavior-driven_development
 [2]: https://concordion.org/
