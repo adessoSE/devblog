@@ -19,7 +19,7 @@ zu erstellen.
 In diesem Artikel beschäftigen wir uns zuerst mit der Grundidee von Akzeptanztests, ihrer unterstützenden Funktion
 und der Idee der lebenden Spezifikation.
 Anschließend untersuchen wir drei Tools und sehen anhand von einfachen Beispielen, wie man sie in der Praxis einsetzen
-kann und sprechen über ihre Vorzüge und ihre Schwächen.
+kann und sprechen über ihre Vorzüge und Schwächen.
 
 Was genau sind also Akzeptanztests?
 
