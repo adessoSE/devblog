@@ -349,7 +349,7 @@ This example combines ideas from the others ones:
 [done]: - "?=isDone(#result)"
 ```
 
-Hierbei müssen dann auch lediglich die Spaltennamen mit der Logik versehen werden, so dass die Tabellen selbst
+Hierbei müssen dann auch lediglich die Spaltennamen mit der Logik versehen werden, sodass die Tabellen selbst
 relativ übersichtlich bleiben:
 
 ![image](/assets/images/posts/specification-by-example/concordion_table_test.png)
