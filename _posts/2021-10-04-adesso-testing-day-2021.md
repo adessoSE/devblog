@@ -13,7 +13,7 @@ Um es mit der Herrin Galadriel aus Tolkiens "Der Herr der Ringe" zu sagen: "Die 
 # adesso testing day im hybriden Format
 
 Nachdem letztes Jahr die Corona-Pandemie zuschlug und alle Planungen kurzfristig umgestellt werden mussten, wagte adesso dieses Jahr ein hybrides Format. 
-Ermutigt durch sinkende 7-Tages-Inzidenzen, hatten die Teilnehmer die Wahl entweder Online per Microsoft Teams teilzunehmen oder vor Ort in ausgewählten Geschäftsstellen den Vorträgen zu folgen. 
+Ermutigt durch sinkende 7-Tages-Inzidenzen, hatten die teilnehmenden adessi die Wahl, entweder Online per Microsoft Teams teilzunehmen oder vor Ort in ausgewählten Geschäftsstellen den Vorträgen zu folgen. 
 Dies bot zusätzlich den Vorteil, dass die Veranstaltung aufgezeichnet werden konnte und so Interessierte auch nachträglich die Möglichkeit hatten, die Vorträge offline zu verfolgen. 
 Die reinen Vortragsunterlagen sind hier erfahrungsgemäß nicht immer hilfreich. 
 
