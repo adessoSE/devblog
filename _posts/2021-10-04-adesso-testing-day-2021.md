@@ -55,7 +55,7 @@ Vielen Dank an dieser Stelle an Dirk Hedderich und Jonathan Rhymer.
 ## PITQM - das Projekt als System betrachten
 
 Aus Fehlern lernen will jeder. 
-Dies begann bereits in den 1950er Jahren mit Kaizen bzw. dem kontinuierlichen Verbesserungsprozess und schlägt sich heutzutage im Testbereich in sogenannten Lessons Learned-Workshops in der Aktivität "Testabschluss" des Testprozesses nach [ISTQB](https://www.istqb.org/) wieder. 
+Dies begann bereits in den 1950er Jahren mit Kaizen bzw. dem kontinuierlichen Verbesserungsprozess und schlägt sich heutzutage im Testbereich in sogenannten Lessons-Learned-Workshops in der Aktivität "Testabschluss" des Testprozesses nach [ISTQB](https://www.istqb.org/) wieder. 
 Oft beschränkt sich dieser Prozess allerdings darauf, explizit Maßnahmen gegen besonders schlecht bzw. schiefgelaufene Dinge aufzusetzen bzw. gut gelungene Praktiken zu fördern und zu verbreiten.
 
 Bei adesso hat sich seit einigen Jahren eine Projektgruppe gebildet, die diesen Verbesserungsprozess umfassender betrachtet. 
