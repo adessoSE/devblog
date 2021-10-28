@@ -168,7 +168,7 @@ Der Trick lag hier im Vergleich eines Projektes bzw. eines Produkts mit einem vi
 Qualitätsrelevante Ereignisse im Projekt wurden von Stefanie entsprechenden Vorfällen im Freizeitpark zugeordnet. 
 Zum Beispiel könnten Code Smells oder fehlende Ästhetik auf herumliegenden Müll oder braune Pflanzen gemappt werden. 
 Stefanie schlug vor etablierte Tools wie zum Beispiel SonarQube entsprechend zu erweitern und so einen Gamification-Ansatz zu nutzen, um die Qualität durch eine erhöhte Motivation der Projektmitarbeiter zu sichern. 
-Ein guter und neuer Vorschlag als Abschlussvortrag, der uns an der ein- oder anderen Stelle schmunzeln ließ.
+Ein guter und neuer Vorschlag als Abschlussvortrag, der uns an der einen oder anderen Stelle schmunzeln ließ.
 
 # Gelungene hybride Veranstaltung
 
