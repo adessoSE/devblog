@@ -83,7 +83,7 @@ Tobias Struckmeier zeigte hier den Stand der Dinge und demonstrierte, dass cypre
 Dazu führte Tobias noch einen praktischen Nebeneffekt vor: durch die Durchführung von anwendungsfallbasierten Tests lassen sich durch zusätzlich eingebaute Kommandos an den relevanten Stellen Screenshots erzeugen, die dann für eine immer aktuelle Benutzerdokumentation verwendet werden können. 
 Möchte man dieses Konzept noch weitertreiben, dann könnten entsprechende cypress-"Tests" zur Erzeugung der Screenshots in die Seiten eingebettet werden (falls die Nutzerdokumentation in Form einer Wiki-Seite angelegt wird).
 
-Ein entsprechender "Test" sieht dann z.B. so aus
+Ein entsprechender "Test" sieht dann z.B. so aus:
 
 ````markdowb
 
