@@ -69,7 +69,7 @@ Das Modell "PITQM" (Pragmatisches IT-Qualitätsmanagement - angelehnt an das von
 
 ![PITQM](/assets/images/posts/adesso-testing-day-2021/pitqm-bicycle.png)
 
-Im Gegensatz dem Lessons-Learned am Ende eines Projektes steht hier der PITQM-Workshop zu Beginn eines Projektes. 
+Im Gegensatz zum Lessons Learned am Ende eines Projektes steht hier der PITQM-Workshop zu Beginn eines Projektes. 
 Bereits seit dem Foundation Level von ISTQB wissen wir, dass Testen kontextabhängig ist (sieben Grundsätze des Testens). 
 Dies berücksichtigen wir in der Priorisierung der zu behandelnden Qualitätsmerkmale und der Testplanung. 
 PITQM geht allerdings noch einen Schritt weiter: hier werden auch die Qualitätsprozesse auf das jeweilige Projekt zugeschnitten.
