@@ -262,7 +262,7 @@ erzeugen.
 
 ### Einleitung
 
-Im Grunde sehen wir hier bekanntes Vorgehen, wie auch bei den Vorgängern ist es bei [Concordion][2] möglich Tests
+Im Grunde sehen wir hier bekanntes Vorgehen, wie auch bei den Vorgängern ist es bei [Concordion][2] möglich, Tests
 in einem Dokument zu beschreiben und Daten in Form von Tabellen zu hinterlegen.
 Der erwähnenswerte Unterschied hier ist es wird [Markdown][11] als _Glue Code_ eingesetzt, um die Verbindung zwischen
 Testfall und **Fixture** herzustellen.
