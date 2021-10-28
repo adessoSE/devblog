@@ -46,7 +46,7 @@ Beispielsweise wenn etwas nicht funktioniert, eine Fehlerklasse gänzlich übers
 Umsetzung auftritt.
 
 Hier wäre es jetzt von Vorteil, wenn man die Sicht beider Gruppen einfängt:
-Entwickler betrachten die Software von ihrer technischen Seite und versuchen alle für sie bekannten Probleme im Vorfeld
+Das Entwicklungsteam betrachtet die Software von seiner technischen Seite und versuchet, alle ihm bekannten Probleme im Vorfeld
 zu berücksichtigen und zu verhindern.
 Und Tester nutzen ihre Kenntnis des Produktes, Erfahrungen allgemein beim Testen von Software und natürlich
 Testheuristiken, um Fehler aufzuspüren.
