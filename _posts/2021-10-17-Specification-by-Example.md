@@ -41,14 +41,14 @@ Findet hierbei jetzt irgendein Austausch statt?
 
 ## Knowledge Sharing
 
-Folgt man diesem Vorgehen, kommt es allenfalls bei Problemen zu irgendeiner Form der Kommunikation.
-Beispielsweise wenn etwas nicht funktioniert, eine Fehlerklasse gänzlich übersehen wurde oder erst durch die vorhandene
-Umsetzung auftritt.
+In der Praxis findet dabei dann allenfalls irgendeine Form der Kommunikation statt, sobald Probleme auftreten und
+etwas nicht wie erwartet funktioniert, eine Fehlerklasse gänzlich übersehen wurde oder aufgrund der konkreten Umsetzung
+neue Fehlerfälle entstehen.
 
 Hier wäre es jetzt von Vorteil, wenn man die Sicht beider Gruppen einfängt:
-Das Entwicklungsteam betrachtet die Software von seiner technischen Seite und versuchet, alle ihm bekannten Probleme im Vorfeld
-zu berücksichtigen und zu verhindern.
-Das Teststeam nutzt seine Kenntnis des Produktes, Erfahrungen allgemein beim Testen von Software und natürlich
+Das Entwicklungsteam betrachtet die Software von seiner technischen Seite und versucht, alle ihm bekannten Probleme im
+Vorfeld zu berücksichtigen und zu verhindern.
+Das Testteam nutzt seine Kenntnis des Produktes, Erfahrungen allgemein beim Testen von Software und natürlich
 Testheuristiken, um Fehler aufzuspüren.
 
 Wie so oft in unserer Branche ist Kommunikation der Schlüssel für dieses Problem:
@@ -58,9 +58,9 @@ aufwändige Nacharbeiten begrenzt und die Abläufe beschleunigt werden.
 ## Three Amigos
 
 **Three Amigos** oder **Specification Workshop** ist ein Format, um genau dieses Vorgehen zu ermöglichen:
-Wenn ein neues Feature geplant wird, kommen der beauftragende **Stakeholder**, ein Verantwortlicher aus dem **Entwicklungsteam** und
-ein Verantwortlicher aus dem **Testteam** zusammen und besprechen, *was* und vor allem *wie* dies umgesetzt werden soll und wie später überprüft
-werden kann, dass die Aufgabe abgeschlossen wurde.
+Wenn ein neues Feature geplant wird, kommen der beauftragende **Stakeholder**, ein Verantwortlicher aus dem
+**Entwicklungsteam** und ein Verantwortlicher aus dem **Testteam** zusammen und besprechen, *was* und vor allem *wie*
+dies umgesetzt werden soll und wie später überprüft werden kann, dass die Aufgabe abgeschlossen wurde.
 
 Hierbei ist dieses Format vollkommen offen, mögliche Ergebnisse können einfache Notizen (beispielsweise an der
 Userstory im agilen Feld) oder komplette Tabellen mit konkreten Randbedingungen sein.
@@ -72,13 +72,11 @@ die weiteren Schritte abhängen.
 
 # Tools
 
-Die nächsten Beispiele zeigen anhand von zwei konkreten Testfällen an einer einfachen Todo-App (auf Basis von
-[Quarkus][12]), wie diese Tools verwendet werden können.
+Die nächsten Beispiele zeigen anhand eines konkreten Testfalls an einer einfachen Todo-App (auf Basis von
+[Quarkus][12]) wie Todo-Einträge erzeugt und die hier vorgestellten Tools verwendet werden können.
+
 Die Todo-App selbst bietet eine einfache REST-Schnittstelle, über die sie u.a. Daten entgegennimmt und in-memory
 persistiert.
-
-Im ersten Testfall sollen jeweils neue Einträge erzeugt werden und im zweiten wird überprüft, ob ein Todo automatisch
-als erledigt markiert wird, wenn das Ablaufdatum überschritten wird.
 
 Sämtliche Beispiele können im folgenden Repository eingesehen werden:
 
@@ -89,7 +87,7 @@ Sämtliche Beispiele können im folgenden Repository eingesehen werden:
 ### Einleitung
 
 Als erstes Tool wollen wir uns [Cucumber][5] ansehen, welches vermutlich das bekannteste zum Thema
-[Behavior-Driven Development][1] ist.
+[Behavior-Driven Development][1] (kurz **BDD**) ist.
 [Cucumber][5] verwendet ein leicht verständliches [given-when-then][16]-Format (ursprünglich von [Dan North][6]
 entwickelt) namens [Gherkin][9], um strukturierte Testfälle zu schreiben und sukzessive eine
 [Domain-Specific Language][7] für die Fachdomäne zu entwickeln.
@@ -125,7 +123,7 @@ Randbedingungen aus einem vorherigen **Specification Workshop** sein könnten.
 Hierbei wird bewusst auf natürliche Sprache gesetzt und es stehen Bindings für [weitere Sprachen][17] zur Verfügung.
 
 Nachdem die Features und Szenarien definiert wurden muss noch der entsprechende _Glue Code_ in Form von **Stepfiles**
-ergänzt werden, hier einmal auszugsweise:
+ergänzt werden, einen Auszug daraus sehen wir uns hier an:
 
 ```java
 public class TodoSteps {
@@ -239,8 +237,8 @@ public class TodoEndpointFitnesseFixture {
 ```
 
 [FitNesse][8] greift im Testlauf direkt auf die Methoden des **Fixtures** zu:
-Somit wird aus der Spalte **title** ein Aufruf des Getters `setTitle` und analog dazu aus der Spalte **id** ein Aufruf des
-Setters `id`.
+Somit wird aus der Spalte **title** ein Aufruf des Getters `getTitle` und analog dazu sorgt die Spalte **id** für
+einen Aufruf des Setters `id`.
 
 Im Browser selbst kann dann mittels Klick auf **Test** der Test gestartet werden und die Elemente der Seite werden
 je nach Testergebnis dann farblich hervorgehoben:
@@ -334,19 +332,19 @@ as ID [1](- "?=#result.getId").
 Und abschließend dazu sind natürlich ebenfalls Tabellen in [Concordion][2] möglich:
 
 ```markdown
-### [Extended table example](- "extended_table")
+### [Simple table example](- "simple_table")
 
-This example combines ideas from the others ones:
+This example creates todos based on table values:
 
-| [createWithDate][][Start date][start] | (Due date][due] | (Is done?][done] |
-| ------------------------------------- | --------------- | ---------------- |
-| 2021-09-10                            | 2022-09-10      | undone           |
-| 2021-09-10                            | 2021-09-09      | done             |
+| [createAndSave][][Title][title] | [Description][description] | [ID][id] |
+| ------------------------------- | -------------------------- | -------- |
+| title1                          | description1               | 3        |
+| title2                          | description2               | 4        |
 
-[createWithDate]: - "#result = createWithDate(#start,#due)"
-[start]: - "#start"
-[due]: - "#due"
-[done]: - "?=isDone(#result)"
+[createAndSave]: - "#result = createAndSave(#title,#description)"
+[title]: - "#title"
+[description]: - "#description"
+[id]: - "?=#result.getId"
 ```
 
 Hierbei müssen dann auch lediglich die Spaltennamen mit der Logik versehen werden, sodass die Tabellen selbst
