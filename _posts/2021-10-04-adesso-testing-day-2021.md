@@ -118,7 +118,7 @@ Im Fokus des zweiten Teils des adesso testing days standen technische Testthemen
 Ein Wunsch aus der adesso testing-Community zum adesso testing day war, einmal etwas zum Thema Security-Testing zu hören. 
 Da kam es gerade recht, dass adesso vor kurzem ein Competence Center aufgebaut hatte, dass sich genau mit dem Thema beschäftigt.
 
-Marvin Gerlach berichtet über die allgemeine Vorgehensweise und den Alltag eines Pentesters. 
+Marvin Gerlach berichtet über die allgemeine Vorgehensweise und den Alltag eines Pen-Testers. 
 Wir erfuhren etwas über das allgemeine Portfolio des neuen CC IT-Security, beispielsweise
 
 * Sicherheit im Software Development Lifecycle (SDLC)​,
