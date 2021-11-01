@@ -12,7 +12,6 @@ pagination:
 
 {% for post in paginator.posts %}
 {% if post.layout == 'post' %}
-{% assign author = site.data.authors[post.author] %}
 <div class="adesso-blog-elem">
 
         {% if post.categories %}
@@ -41,14 +40,36 @@ pagination:
         <div class="blog-elem-header">
             <div class="blog-elem-info">
                 <p class="adesso-date">{{ post.date | date: "%d.%m.%Y" }}
-                    <span class="adesso-location">von {{ author.first_name }} {{ author.last_name }}</span>
+                    <span class="adesso-location">von <span>
+                        {% for author_id in post.author_ids %}
+                            {% assign author = site.data.authors[author_id] %}
+                            {% if author %}
+                                {{author.first_name}} {{author.last_name}}
+                                {% if forloop.rindex0 > 1 %}
+                                ,
+                                {% endif %}
+                                {% if forloop.rindex0 == 1 %}
+                                und
+                                {% endif %}
+                            {%  endif %}
+                        {% endfor %}
+                    </span></span>
                 </p>
                 <h2>
                     <a href="{{post.url | prepend:site.baseurl }}">{{ post.title }}</a>
                 </h2>
             </div>
             <div class="blog-author">
-                <img class="img-circle center-block adesso-3-8" src="{{ author.avatar_url | prepend: site.baseurl }}" alt=" ">
+                <span>
+                {% if post.author_ids.size > 1 %}
+                    <img class="img-circle center-block adesso-3-8" src="{{ '/assets/images/logos/adesso-logo-grau_W200xH200_CUTOUT.jpg' | prepend: site.baseurl }}" alt=" ">
+                {% endif %}
+                {% if post.author_ids.size == 1 %}
+                    {% assign id = post.author_ids[0] %}
+                    {% assign author = site.data.authors[id] %}
+                    <img class="img-circle center-block adesso-3-8" src="{{ author.avatar_url | prepend: site.baseurl }}" alt=" ">
+                {% endif %}
+                </span>
             </div>
         </div>
 

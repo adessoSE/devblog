@@ -3,7 +3,7 @@ layout: [post, post-xml]
 title:  "Duales Studium am IT-Center Dortmund mit adesso als Partner"            
 date:   2019-05-31 08:37              
 modified_date: 2020-04-06 13:36          
-author: ccaylak                       
+author_ids: [ccaylak]                       
 categories: [Inside adesso]       
 ---
 Du bist demnächst mit dem Abitur fertig und denkst über ein Studium in der Welt der Informatik nach?

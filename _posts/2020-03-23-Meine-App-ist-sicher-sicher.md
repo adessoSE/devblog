@@ -3,7 +3,7 @@ layout: [post, post-xml]
 title:  "\"Meine Webanwendung ist sicher!\" - sicher?"
 date:   2020-03-23 09:00
 modified_date: 2020-03-23 09:00
-author: Flo4l
+author_ids: [Flo4l]
 categories: [Softwareentwicklung]
 tags: [Security, OWASP]
 ---
