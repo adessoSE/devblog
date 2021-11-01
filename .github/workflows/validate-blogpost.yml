@@ -19,6 +19,7 @@ jobs:
       - name: git log
         run: |
           MESSAGE=`cd /home/runner/work/devblog/devblog && git log --pretty=oneline`
+          echo "$MESSAGE"
           HEAD_COMMIT=`echo "$MESSAGE" | sed -e 's/\(.*\)Merge\s\(.*\) into\(.*\)/\3/'`
           HEAD_BASE=`echo "$MESSAGE" | sed -e 's/\(.*\)Merge\s\(.*\) into\(.*\)/\2/'`
           export HEAD_COMMIT="$HEAD_COMMIT"
