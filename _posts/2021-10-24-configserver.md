@@ -80,41 +80,42 @@ Hier muss also nicht nur die Ausfallsicherheit sondern auch die Performance im B
 
 # Consul
 Consul aus dem Hause Hashicorp ist eigentlich weit mehr als nur ein Config-Server.
-Der als Speicher für Umgebungsvariablen dienende KV-Store ist am Ende nur "eine" Kernkomponente.
-SOA über Serviceregistry, interessant bei selbst gemanagten Loadbalancern
-In EKS via Helm betreibbar
-Pflege-Oberfläche
-Gleiche Integration über Starter und bootstrap.properties
-Kommt mit eigenem Terraform Provider
-Erweiterbar über Go Templates
+Der als Speicher für Umgebungsvariablen dienende KV-Store ist am Ende nur "eine" der Kernkomponenten.
+Hat man über diese hinaus weitere Anforderungen im Projekt, kann Consul sehr interessant werden.
+So unterstützt Consul durch seine Serviceregistry z.B. wenn selbst gemanagte Loadbalancern im Projekt eingesetzt werden müssen, die sich sonst schnell zu einem Single-Point-Of-Failure entwickeln können.
+Desweiteren lässt sich hier eine schöne Integration weiterer Tools aus dem Hause Hashicorp erwarten.
+So lässt sich z.B. Vault einsetzen um Passwörter sicher zu speichern und zu verwalten.
+Quasi selbstverständlich ist die Möglichkeit Consul mit Hilfe von Terraform zu managen.
+Um Consul zu betreiben ist ein Deployment in Kubernetes via Helm vorgesehen.
 
 ##Pro
-Keys und Objects sind bzgl. der Zeichen nicht limitiert.
-Nahezu vollständig transparent integrierbar über spring-cloud-starter und bootstrap.properties
-Micronaut und NodeJS sollten möglich sein
+Keys und Objects sind bzgl. ihrer Zeichen nicht limitiert.
+Die Integration in ein vorhandenes Sping-Boot-Projekt erfolgt auch hier nahezu vollständig transparent über spring-cloud-starter und bootstrap.properties.
+Aber auch mit Micronaut und NodeJS sollte es keine Probleme geben.
+Consul bietet eine Pflege-Oberfläche an, mit der viele Einstellungen schnell und einfach zu erledigen sind.
+Wer letztendlich noch eine Funktion vermisst oder eine vorhandene anpassen will, dem bietet die Erweiterbarkeit über Go Templates eine Option.
 
 ##Contra
-Betrieb im EKS kostet erstmal diverse IPs.
-Berechtigung für Oberfläche
-Mehr als Notwendig
-Datensicherheit muss selbst gemanagt werden.
-Ausfallsicherheit muss selbst gewährleistet werden.
+Auch in diesem Fall ist es denkbar das System selbst zu betreiben und man sollte sich analog zu den anderen Systemen Gedanken zu Themen Ausfallsicherheit, Performance aber auch Authentifizierung machen.
+Denn die Pflegeoberfläche sollte natürlich sehr gut abgesichert sein um jeglichen Mißbrauch zu unterbinden.
+Wer keine über die Speicherung von Umgebungsvariablen hinausgehenden Anforderungen hat, der bekommt hier weit mehr geliefert als er bräuchte und könnte sich auch schmalere Lösungen angucken.
 
 # AWS Systems Manager
-AWS-eigene Lösung
-Stages werden unterstützt -> Ressourcengruppierung
-Baumstruktur über Pfade -> /kore/dev/db/url
-Automatisierung möglich auf Gruppenresourcen
-Unterstützt direkt ECS, EC2, Lambda, Cloudformation, CodeBuild, CodeDeploy
+Wenn die eigene Software bereits in der Cloud läuft, ist es natürlich interessant zu gucken was vom jeweiligen Cloud-Provider bereits angeboten wird.
+Am Beispiel von AWS wäre dies der Parameter Store als Teil des AWS Systems Managers.
+Umgebungsvariablen werden hier in einer Baumstruktur abgelegt, die es ermöglicht diverse Projekte mit ihren jeweiligen Stages in Teilbäumen zu verwalten, welche dann einzeln abgefragt werden können.
+So könnte ein Pfad in der Form ```<projektname>/<stage>/db/url``` die Daten für die Connection-URL zu einer Datenbank enthalten.
 
 ##Pro
-Direkt via Terraform aufbaubar
-Updates
-Automatisierung
-Validierung
-Gruppieren für Stages oder Applikationen
-Versionierung der Parameter
-Muss nicht selbst gehostet, skaliert oder abgesichert werden.
+Ein Vorteil gegenüber selbst gehosteten Lösungen ist natürlich die vorbereitete Integration in andere von AWS angebotene Services, wie ECS, EC2, Lambda, Cloudformation, CodeBuild oder CodeDeploy.
+Darüber hinaus lässt sich aber auch hier ein beliebiges Sping-Boot-Projekt über Starter und bootstrap.properties transparent anbinden.
+Automatisierungen bzw. Runbooks ermöglichen es z.B. den Betrieb abzusichern.
+So können entsprechende EC2-Instanzen automatisiert einen Reboot durchführen.
+Validierung kann genutzt werden um sicherzustellen, dass die Anforderungen für den Start und Betrieb einer angeschlossenen Applikationen immer erfüllt sind.
+Die Parameter sind im Parameter Store versioniert.
+Dadurch wird es möglich ohne weiteren Aufwand auf alte Stände zurückzurollen oder für Fehleranalysen zu bestimmen, welche Konfiguration zum fraglichen Zeitpunkt genutzt wurde.
+Dass der Service nicht selbst gehostet, skaliert oder abgesichert werden muss, vereinfacht den initialen Aufbau.
+Natürlich sind damit dann aber Kosten verbunden, die man mit dem Betrieb eigener Instanzen einer anderen Lösung abgleichen sollte.
 Vault
 
 ##Contra
