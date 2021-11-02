@@ -23,7 +23,7 @@ Fachlich kamen die adessi aus 10 LoBs (Lines of Business) bzw. Branchen sowie vo
 
 Gerade bei dem rasanten Wachstum von adesso ist eine Vernetzung der im Testbereich tätigen adessi besonders wichtig, damit das Rad nicht überall neu erfunden werden muss. 
 Diese Vernetzung explizit zu fördern, ist auch eins der Ziele des adesso testing days. 
-Neben einer expliziten Networking-Session im Speeddating-Format hatten die Teilnehmer die Möglichkeit, sich vor und nach dem Event untereinander und mit den Referentinnen und Referenten in [GatherTown](https://gather.town) auszutauschen.
+Neben einer expliziten Networking-Session im Speeddating-Format bestand die Möglichkeit, sich vor und nach dem Event untereinander und mit den Referentinnen und Referenten in [GatherTown](https://gather.town) auszutauschen.
 
 ![Come together in GatherTown](/assets/images/posts/adesso-testing-day-2021/GatherTown.png)
 
