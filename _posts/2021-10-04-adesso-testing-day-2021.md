@@ -19,7 +19,7 @@ Die reinen Vortragsunterlagen sind hier erfahrungsgemäß nicht immer hilfreich.
 
 Mit über 90 Anmeldungen konnte der Erfolg aus dem letzten Jahr erneut gesteigert werden. 
 Auch die im Test so wichtige "Abdeckung" war hier beachtlich: 16 nationale und 6 internationale Standorte aus Bulgarien, Spanien, Türkei und der Schweiz waren vertreten. 
-Fachlich kamen die adessi aus 10 LoBs (Lines of Business) bzw. Branchen sowie von 4 adesso-Töchtergesellschaften. 
+Fachlich kamen die adessi aus 10 LoBs (Lines of Business) bzw. Branchen sowie von 4 adesso-Tochtergesellschaften. 
 
 Gerade bei dem rasanten Wachstum von adesso ist eine Vernetzung der im Testbereich tätigen adessi besonders wichtig, damit das Rad nicht überall neu erfunden werden muss. 
 Diese Vernetzung explizit zu fördern, ist auch eins der Ziele des adesso testing days. 
