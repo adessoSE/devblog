@@ -65,13 +65,13 @@ Die Anbindung von Unleash erfolgt über einen der zahlreichen Client-SDKs, die f
 
 ![Aufbau der Infrastruktur](/assets/images/posts/configserver/Unleash_Aufbau.png)
 
-##Pro
+## Pro
 Der große Vorteil von Unleash ist die Möglichkeit bei jedem einzelnen Durchlauf einer Codestelle, die von einer ausgelagerten Variablen abhängt, neu entscheiden zu können, was passieren soll.
 Dabei liegt die Logik für die Bedingungen, die eine Variable beeinflussen, in Unleash und können dort kurzfristig angepasst werden.
 Dafür steht auch eine GUI zur Verfügung.
 So lassen sich z.B. Szenarien für ein AB-Testing, ein automatisiertes zeitgesteuertes Umschalten von Featuren oder sogar Berechtigungen von Usern dynamisch steuern.
 
-##Contra
+## Contra
 In ein vorhandenes System lässt sich Unleash allerdings logischer Weise nicht ganz so einfach integrieren, wie es z.B. mit einem Spring Cloud Config Server der Fall wäre.
 Wir müssen jede Stelle im Code identifizieren, die von einer Variablen abhängig ist und dort ein Request an Unleash über den SDK auszulösen. 
 Bei einer Software, die schon länger im Betrieb ist, kann sich hier also einiges an Aufwand verstecken.
@@ -89,14 +89,14 @@ So lässt sich Vault einsetzen, um Passwörter sicher zu speichern und zu verwal
 Quasi selbstverständlich ist die Möglichkeit Consul mit Hilfe von Terraform zu managen.
 Um Consul zu betreiben ist zum Beispiel ein Deployment in Kubernetes via Helm vorgesehen.
 
-##Pro
+## Pro
 In Consul sind die gespeicherten Keys und Objects bezüglich ihrer Zeichen nicht limitiert.
 Die Integration in ein vorhandenes Sping-Boot-Projekt erfolgt auch hier nahezu vollständig transparent über spring-cloud-starter und bootstrap.properties.
 Aber auch mit Micronaut und NodeJS sollte es keine Probleme geben.
 Consul bietet uns zusätzlich eine Pflege-Oberfläche an, mit der viele Einstellungen schnell und einfach zu erledigen sind.
 Wer noch eine Funktion vermisst oder eine vorhandene anpassen will, dem bietet die Erweiterbarkeit über Go Templates eine Option.
 
-##Contra
+## Contra
 Auch in diesem Fall ist es denkbar das System selbst zu betreiben und man sollte sich analog zu den anderen Systemen Gedanken zu den Themen Ausfallsicherheit, Performance aber auch Authentifizierung machen.
 Denn die Pflegeoberfläche sollte natürlich sehr gut abgesichert sein, um jeglichen Missbrauch zu unterbinden.
 Wer keine über die Speicherung von Umgebungsvariablen hinausgehenden Anforderungen hat, der bekommt hier weit mehr geliefert als er bräuchte und könnte sich auch schmalere Lösungen angucken.
@@ -109,7 +109,7 @@ So könnte ein Pfad in der Form ```<projektname>/<stage>/db/url``` die Daten fü
 
 ![Aufbau der Infrastruktur](/assets/images/posts/configserver/AWS-ParameterStore.png)
 
-##Pro
+## Pro
 Ein Vorteil gegenüber selbst gehosteten Lösungen ist die vorbereitete Integration in andere von AWS angebotene Services, wie ECS, EC2, Lambda, Cloudformation, CodeBuild oder CodeDeploy.
 Darüber hinaus lässt sich aber auch hier ein beliebiges Sping-Boot-Projekt über einen Starter und eine zugehörige bootstrap.properties transparent anbinden.
 Automatisierungen bzw. Runbooks ermöglichen es uns zum Beispiel den Betrieb abzusichern.
@@ -121,7 +121,7 @@ Dass der Service nicht selbst gehostet, skaliert oder abgesichert werden muss, v
 Natürlich sind damit dann aber Kosten für uns verbunden, die mit dem Betrieb eigener Instanzen einer anderen Lösung abgleichen werden sollten.
 Auch im Parameter Store von AWS lassen sich Passwörter oder andere schützenswerte Properties entsprechend verschlüsselt ablegen.
 
-##Contra
+## Contra
 Ganz ohne Abstriche geht es aber auch hier nicht. 
 So gibt es Einschränkungen der Keys auf Buchstaben, Ziffern und die Symbole ```. - _ ```.
 Eine direkte Unterstützung von Elastic Beanstalk wird von AWS auch nicht angeboten.
