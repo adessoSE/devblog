@@ -106,6 +106,8 @@ Am Beispiel von AWS wäre dies der Parameter Store als Teil des AWS Systems Mana
 Umgebungsvariablen werden hier in einer Baumstruktur abgelegt, die es ermöglicht diverse Projekte mit ihren jeweiligen Stages in Teilbäumen zu verwalten, welche dann einzeln abgefragt werden können.
 So könnte ein Pfad in der Form ```<projektname>/<stage>/db/url``` die Daten für die Connection-URL zu einer Datenbank enthalten.
 
+![Aufbau der Infrastruktur](/assets/images/posts/configserver/AWS-ParameterStore.png)
+
 ##Pro
 Ein Vorteil gegenüber selbst gehosteten Lösungen ist die vorbereitete Integration in andere von AWS angebotene Services, wie ECS, EC2, Lambda, Cloudformation, CodeBuild oder CodeDeploy.
 Darüber hinaus lässt sich aber auch hier ein beliebiges Sping-Boot-Projekt über einen Starter und eine zugehörige bootstrap.properties transparent anbinden.
