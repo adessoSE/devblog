@@ -479,7 +479,7 @@ thorbolo:
   bio: "Thorben Schiller ist seit 2013 bei adesso und hat seinen Weg vom Studenten zum Software Architekten gemacht. Sein Schwerpunkt liegt im Java-Backend."
   avatar_url: /assets/images/avatars/thorbenschiller.jpg
   github: https://github.com/thorbolo
-  
+
 johndoe:
   first_name: John
   last_name: Doe
@@ -523,4 +523,13 @@ parideis:
   bio: "Denis Paris arbeitet bei adesso als Werkstudent in Köln und entwickelt Full-Stack-JavaScript-Applikationen. Er hat Erfahrung mit Angular, React, Stencil, Svelte und Vue gesammelt. In seiner Freizeit spielt er gerne Basketball 🏀 und hält JavaScript-Vorträge auf Meetups und Konferenzen."
   avatar_url: /assets/images/avatars/paris.jpg
   github: https://github.com/parideis
-  
+
+scarstenen:
+  first_name: Stefan
+  last_name: Carstensen
+  github_username: parideis
+  email: stefan.carstensen@adesso.de
+  bio: "Stefan Carstensen ist Principal Software Engineer bei adesso in Hamburg. Er arbeitet als Entwickler, Anforderungsanalyse und Scrum Master in verschiedenen Projekten im Java Umfeld."
+  avatar_url: /assets/images/avatars/scarstensen.jpg
+  github: https://github.com/janstefan42
+
