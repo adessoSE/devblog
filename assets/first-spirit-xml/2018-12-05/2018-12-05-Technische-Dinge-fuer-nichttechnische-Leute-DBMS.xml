@@ -16,7 +16,8 @@ Dazu kläre ich auf, wie Datenbankmanagementsysteme dazu verwendet werden könne
         <field name="date_l"><![CDATA[1544007600000]]></field>
         <field name="change_date"><![CDATA[1544832000000]]></field>
         <!--Author Information-->
-        <!--Postcontent-->
+        
+        <field name="author_id"><![CDATA[florianluediger]]></field><!--Postcontent-->
         <field name="headlines"><![CDATA[Technische Dinge für nichttechnische Leute (Teil 4)]]></field>
         <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
             <p>Nachdem Annegret in den ersten drei Teilen der Serie schon einiges über die Welt der IT berichtet hat, möchte ich in diesem Artikel auf das Thema Datenhaltung eingehen.

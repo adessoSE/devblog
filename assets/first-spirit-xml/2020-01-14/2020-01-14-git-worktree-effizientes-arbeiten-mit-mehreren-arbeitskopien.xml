@@ -18,7 +18,8 @@ In diesem Blog-Beitrag betrachten wir den nicht weit verbreiteten git-Befehl git
         <field name="date_l"><![CDATA[1578988800000]]></field>
         <field name="change_date"><![CDATA[1578999600000]]></field>
         <!--Author Information-->
-        <!--Postcontent-->
+        
+        <field name="author_id"><![CDATA[smsnheck]]></field><!--Postcontent-->
         <field name="headlines"><![CDATA[git worktree - Effizientes Arbeiten mit mehreren Arbeitskopien]]></field>
         <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
             <p>In der heutigen Entwicklung geht kaum noch ein Weg an git vorbei. 

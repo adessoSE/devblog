@@ -18,7 +18,8 @@ Dieser Beitrag stellt dar, wie beide Technologien zusammenspielen können.</p>
         <field name="date_l"><![CDATA[1520334000000]]></field>
         <field name="change_date"><![CDATA[1615211400000]]></field>
         <!--Author Information-->
-        <!--Postcontent-->
+        
+        <field name="author_id"><![CDATA[AdessoMaDa]]></field><!--Postcontent-->
         <field name="headlines"><![CDATA[NodeJS als Auskunftswebservice einer JEE-Applikation]]></field>
         <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
             <p>Seit über zehn Jahren sind JEE-Applikationen etabliert, um unternehmenskritische Verfahren auf einer vereinheitlichten IT-Infrastruktur zu entwickeln.
