@@ -3,7 +3,7 @@ layout: [post, post-xml]
 title:  "Cloud native Migration mit der Rearchitecting Strategie"         
 date:   2020-10-19 08:00           
 modified_date:  2021-06-18 09:00
-author: c-bachmann                                  
+author_ids: [c-bachmann]                                  
 categories: [Architektur]                        
 tags: [Architektur, Serverless, FaaS, AWS, Cloud Computing, Cloud]       
 ---

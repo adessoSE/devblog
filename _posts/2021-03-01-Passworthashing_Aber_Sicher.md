@@ -2,7 +2,7 @@
 layout: [post, post-xml]              
 title:  "Passworthashing - Aber sicher!"        
 date:   2021-03-01 11:00              # Pflichtfeld. Format "YYYY-MM-DD HH:MM". Muss für Veröffentlichung in der Vergangenheit liegen. (Für Preview egal)
-author: tboettinger                     
+author_ids: [tboettinger]                     
 categories: [Softwareentwicklung]       
 tags: [Security, Kryptographie, Java]      
 ---

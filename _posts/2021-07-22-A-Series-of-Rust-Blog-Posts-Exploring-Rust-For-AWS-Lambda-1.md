@@ -3,7 +3,7 @@ layout: 		[post, post-xml]
 title:  		"A Series of Rust: Exploring Rust for AWS Lambda - Part 1"
 date:   		2021-07-22 08:00
 modified_date: 	2021-07-22 08:00
-author: 		felix_marezki
+author_ids: [felix_marezki]
 categories: 	[Softwareentwicklung]
 tags: 			[AWS, AWS Lambda, Cloud, Rust]
 ---

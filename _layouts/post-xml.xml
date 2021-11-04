@@ -1,4 +1,3 @@
-{%- assign author = site.data.authors[page.author] -%}
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <documents>
     <document uid="{{page.id | md5}}">

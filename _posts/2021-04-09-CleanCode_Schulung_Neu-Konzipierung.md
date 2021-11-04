@@ -2,7 +2,7 @@
 layout: [post, post-xml]              
 title:  "Unsere CleanCode-Schulung in neuem Gewand"        
 date:   2021-04-09 10:00                    
-author: bianca-batsch                   
+author_ids: [bianca-batsch]                   
 categories: [Inside adesso]             
 tags: [CleanCode, Schulungen, Softwareentwicklung]
 ---

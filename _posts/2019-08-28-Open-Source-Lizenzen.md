@@ -3,7 +3,7 @@ layout:         [post, post-xml]
 title:          "Open-Source-Lizenzen und was ich damit machen darf"
 date:           2019-08-28 09:30
 modified_date:  2019-08-28 09:30
-author:         jo2
+author_ids: [jo2]
 categories:     [Softwareentwicklung]
 tags:           [Open Source, Lizenzen]
 ---
