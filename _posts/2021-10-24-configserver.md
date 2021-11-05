@@ -66,7 +66,7 @@ Die Anbindung von Unleash erfolgt über einen der zahlreichen Client-SDKs, die f
 ![Aufbau der Infrastruktur](/assets/images/posts/configserver/Unleash_Aufbau.png)
 
 ## Pro
-Der große Vorteil von Unleash ist die Möglichkeit bei jedem einzelnen Durchlauf einer Codestelle, die von einer ausgelagerten Variablen abhängt, neu entscheiden zu können, was passieren soll.
+Der große Vorteil von Unleash ist die Möglichkeit, bei jedem einzelnen Durchlauf einer Codestelle, die von einer ausgelagerten Variablen abhängt, neu entscheiden zu können, was passieren soll.
 Dabei liegt die Logik für die Bedingungen, die eine Variable beeinflussen, in Unleash und können dort kurzfristig angepasst werden.
 Dafür steht auch eine GUI zur Verfügung.
 So lassen sich z.B. Szenarien für ein AB-Testing, ein automatisiertes zeitgesteuertes Umschalten von Featuren oder sogar Berechtigungen von Usern dynamisch steuern.
