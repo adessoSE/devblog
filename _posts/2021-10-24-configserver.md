@@ -52,7 +52,7 @@ Aber das gilt letztendlich natürlich für alle Lösungen, die wir selbst betrei
 Ein Config-Server kann eine ganze Reihe von Artefakten und auch gleichzeitig diverse Stages mit Properties versorgen.
 Ändert sich aber ein Wert, so werden nur neu gestartete Instanzen diese Werte auch abrufen.
 Geschieht dies durch Skalierungsprozesse könnte ein dauerhafter Schiefstand zwischen den Konfigurationen einzelner Instanzen eines Clusters entstehen.
-Wer alle betroffenen Instanzen automatisch benachrichtigen und updaten will muss sich etwas einfallen lassen.
+Wer alle betroffenen Instanzen automatisch benachrichtigen und updaten will, muss sich etwas einfallen lassen.
 So können z.B. alle betroffenen Instanzen an einen MessageBus angeschlossen werden, an den der Config-Server entsprechende Events schickt, sobald eine Änderung eintritt.
 Die Instanzen können dann die neuen Werte über ein Rolling-Update ziehen oder ihren Context on-the-fly updaten.
 Aber all dies muss letztendlich selbst implementiert, betrieben und gewartet werden.
