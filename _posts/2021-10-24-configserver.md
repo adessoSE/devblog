@@ -33,7 +33,7 @@ Neben dem Funktionsumfang unterscheiden sich die Systeme auch stark im Aufwand f
 Ist man mit Java und dort evtl. sogar mit Spring unterwegs, so springt einen der Spring Cloud Config Server förmlich an.
 Ein Start ist in diesem Kontext schnell gemacht, denn ein einsatzfähiges Docker Image steht bereits zur Verfügung und lässt sich leicht in bestehende Umgebungen wie beispielsweise AWS EKS integrieren.
 Die Integration in ein springbasiertes Projekt kann vollständig transparent über einen Spring Boot Starter und ein wenig Konfiguration mit Hilfe einer bootstrap.properties erfolgen.
-Für die initiale Befüllung des Config-Servers mit den gewünschten Properties lässt sich out-of-the-box mit einfachen Mitteln ein git Repository einbinden, welches dann auch gleich für eine Historisierung der Properties sorgt.
+Für die initiale Befüllung des Config Servers mit den gewünschten Properties lässt sich out-of-the-box mit einfachen Mitteln ein git Repository einbinden, welches dann auch gleich für eine Historisierung der Properties sorgt.
 
 ## Pro
 Um die vorhandenen Funktionen zu erweitern und z.B. Properties aus weiteren Quellen zu integrieren können wir hier mit wenigen Annotationen schnell ein eigenes spring-boot-basiertes Projekt aufsetzen, in dem wir unser eigener Herr sind.
