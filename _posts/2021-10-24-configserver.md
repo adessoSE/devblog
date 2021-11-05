@@ -14,7 +14,7 @@ Einige Möglichkeiten, diese Werte zentral zu verwalten, sowie deren Vor- und Na
 
 # Motivation - Was gilt es zu beachten?
 Nicht nur, dass die Anzahl der Konfigurationswerte in einem Projekt, sei es nun verteilt oder monolithisch, mit der Zeit stetig wachsen kann, auch die gespeicherten Werte an sich können unterschiedliche Anforderungen an ein Projekt stellen.
-Ist die Konfiguration beispielsweise in einem git-Repository mit hinterlegt, so erschlägt man damit bereits Anforderungen an die Historisierung.
+Ist die Konfiguration beispielsweise in einem git Repository mit hinterlegt, so erschlägt man damit bereits Anforderungen an die Historisierung.
 Es gibt aber auch verschiedenste schützenswerte Einstellungen, die natürlich nicht mit dem Code im Repository landen dürfen.
 Diese sollten gerade für eine Produktivumgebung nicht für jeden einsehbar sein.
 Darüber hinaus erhöht es die Sicherheit diese regelmäßig auszutauschen.
