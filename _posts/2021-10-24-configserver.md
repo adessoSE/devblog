@@ -112,7 +112,7 @@ So könnte ein Pfad in der Form ```<projektname>/<stage>/db/url``` die Daten fü
 ## Pro
 Ein Vorteil gegenüber selbst gehosteten Lösungen ist die vorbereitete Integration in andere von AWS angebotene Services wie ECS, EC2, Lambda, Cloudformation, CodeBuild oder CodeDeploy.
 Darüber hinaus lässt sich aber auch hier ein beliebiges Sping-Boot-Projekt über einen Starter und eine zugehörige bootstrap.properties transparent anbinden.
-Automatisierungen bzw. Runbooks ermöglichen es uns zum Beispiel den Betrieb abzusichern.
+Automatisierungen bzw. Runbooks ermöglichen es uns zum Beispiel, den Betrieb abzusichern.
 So können wir hier entsprechende EC2-Instanzen automatisiert einen Reboot durchführen lassen, wenn Änderungen der gespeicherten Werte vorliegen.
 Validierung können wir nutzen, um sicherzustellen, dass die Anforderungen für den Start und Betrieb einer angeschlossenen Applikationen immer erfüllt sind.
 Die Parameter sind im Parameter Store versioniert.
