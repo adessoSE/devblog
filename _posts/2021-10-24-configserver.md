@@ -44,7 +44,7 @@ Es stehen unter anderem auch passenden Libs für NodeJS oder Micronaut zur Verf�
 Am Ende bleibt der Betrieb des Service als ganz sicher nicht unlösbares, aber essentielles ToDo.
 Die Last auf dem Service wird dabei selten hoch sein, doch muss ein zentrales Augenmerk der Ausfallsicherheit gelten.
 Ohne die passenden Umgebungsvariablen startet keine neue Umgebung. 
-Jegliche Skalierung wird im schlimmsten Fall durch einen Ausfall des Config-Servers verhindert.
+Jegliche Skalierung wird im schlimmsten Fall durch einen Ausfall des Config Servers verhindert.
 Aber das gilt letztendlich natürlich für alle Lösungen, die wir selbst betreiben wollen.
 
 ![Aufbau der Infrastruktur](/assets/images/posts/configserver/Configserver.png)
