@@ -114,7 +114,7 @@ Ein Vorteil gegenüber selbst gehosteten Lösungen ist die vorbereitete Integrat
 Darüber hinaus lässt sich aber auch hier ein beliebiges Sping-Boot-Projekt über einen Starter und eine zugehörige bootstrap.properties transparent anbinden.
 Automatisierungen bzw. Runbooks ermöglichen es uns zum Beispiel, den Betrieb abzusichern.
 So können wir hier entsprechende EC2-Instanzen automatisiert einen Reboot durchführen lassen, wenn Änderungen der gespeicherten Werte vorliegen.
-Validierung können wir nutzen, um sicherzustellen, dass die Anforderungen für den Start und Betrieb einer angeschlossenen Applikationen immer erfüllt sind.
+Validierung können wir nutzen, um sicherzustellen, dass die Anforderungen für den Start und Betrieb einer angeschlossenen Applikation immer erfüllt sind.
 Die Parameter sind im Parameter Store versioniert.
 Dadurch wird es uns möglich ohne weiteren Aufwand auf alte Stände zurückzurollen oder für Fehleranalysen zu bestimmen, welche Konfiguration zum fraglichen Zeitpunkt genutzt wurde.
 Dass der Service nicht selbst gehostet, skaliert oder abgesichert werden muss, vereinfacht den initialen Aufbau.
