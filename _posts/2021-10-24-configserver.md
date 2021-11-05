@@ -73,7 +73,7 @@ So lassen sich z.B. Szenarien für ein AB-Testing, ein automatisiertes zeitgeste
 
 ## Contra
 In ein vorhandenes System lässt sich Unleash allerdings logischer Weise nicht ganz so einfach integrieren, wie es z.B. mit einem Spring Cloud Config Server der Fall wäre.
-Wir müssen jede Stelle im Code identifizieren, die von einer Variablen abhängig ist und dort ein Request an Unleash über den SDK auszulösen. 
+Wir müssen jede Stelle im Code identifizieren, die von einer Variablen abhängig ist und dort einen Request an Unleash über den SDK auszulösen. 
 Bei einer Software, die schon länger im Betrieb ist, kann sich hier also einiges an Aufwand verstecken.
 Der Betrieb von Unleash gestaltet sich in einem Aspekt auch etwas aufwändiger.
 Da eine erhöhte Last auf einem Client hier in der Regel eine im gleichen Verhältnis steigende Last bei Unleash verursacht, muss Unleash so eingerichtet werden, dass es mit den Lastspitzen mithalten kann.
