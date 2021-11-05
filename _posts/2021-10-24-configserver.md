@@ -20,7 +20,7 @@ Diese sollten gerade für eine Produktivumgebung nicht für jeden einsehbar sein
 Darüber hinaus erhöht es die Sicherheit diese regelmäßig auszutauschen.
 
 Übergeben wir die Konfiguration in Form von Umgebungsvariablen, ergeben sich je nach ausführender Plattform weitere technische Limitierungen in Bezug auf Format und Menge.
-So darf z.B. in einer [AWS EC2 Umgebung](https://docs.aws.amazon.com/de_de/elasticbeanstalk/latest/dg/environments-cfg-softwaresettings.html?icmpid=docs_elasticbeanstalk_console) der Key einer Umgebungsvariable nur die Symbole ```_ . : / + \ - @``` enthalten, wobei durch die gewählte Plattform noch weitere Einschränkungen möglich sind.
+So darf z.B. in einer [AWS-EC2-Umgebung](https://docs.aws.amazon.com/de_de/elasticbeanstalk/latest/dg/environments-cfg-softwaresettings.html?icmpid=docs_elasticbeanstalk_console) der Key einer Umgebungsvariable nur die Symbole ```_ . : / + \ - @``` enthalten, wobei durch die gewählte Plattform noch weitere Einschränkungen möglich sind.
 Auch für die Länge der Keys und Values gelten hier Einschränkungen, genauso wie für die Gesamtgröße aller Umgebungseigenschaften.
 
 Zu guter Letzt sollte für alle Umgebungsvariablen klar sein, wann und wie oft sie eigentlich gelesen werden müssen.
