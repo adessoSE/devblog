@@ -87,7 +87,7 @@ So unterstützt Consul durch seine Serviceregistry wenn selbst gemanagte Loadbal
 Des Weiteren lässt sich hier eine schöne Integration weiterer Tools aus dem Hause Hashicorp erwarten.
 So lässt sich Vault einsetzen, um Passwörter sicher zu speichern und zu verwalten.
 Quasi selbstverständlich ist die Möglichkeit, Consul mit Hilfe von Terraform zu managen.
-Um Consul zu betreiben ist zum Beispiel ein Deployment in Kubernetes via Helm vorgesehen.
+Um Consul zu betreiben, ist zum Beispiel ein Deployment in Kubernetes via Helm vorgesehen.
 
 ## Pro
 In Consul sind die gespeicherten Keys und Objects bezüglich ihrer Zeichen nicht limitiert.
