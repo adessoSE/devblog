@@ -80,7 +80,7 @@ Da eine erhöhte Last auf einem Client hier in der Regel eine im gleichen Verhä
 Hier muss also nicht nur die Ausfallsicherheit, sondern auch die Performance im Betrieb der Komponente betrachtet werden.
 
 # Consul
-Consul aus dem Hause Hashicorp ist eigentlich weit mehr als nur ein Config-Server.
+Consul aus dem Hause Hashicorp ist eigentlich weit mehr als nur ein Config Server.
 Der als Speicher für Umgebungsvariablen dienende KV-Store ist am Ende nur "eine" der Kernkomponenten.
 Hat man über diese hinaus weitere Anforderungen im Projekt, kann Consul sehr interessant werden.
 So unterstützt Consul durch seine Serviceregistry wenn selbst gemanagte Loadbalancern im Projekt eingesetzt werden müssen, die sich ohne einen solchen Service sonst schnell zu einem Single-Point-Of-Failure entwickeln können.
