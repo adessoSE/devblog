@@ -60,7 +60,7 @@ Aber all dies muss letztendlich selbst implementiert, betrieben und gewartet wer
 # Unleash
 Steht der Fokus eher auf Feature-Switches, soll ein sehr dynamischer Umgang mit Properties unterstützt werden oder ist AB-Testing eine Anforderung mit hoher Priorität, so kann Unleash einiges mitbringen, um dies zu unterstützen.
 Im Gegensatz zu anderen Lösungen liegt der Fokus hier auf dynamischen Werten, die sich zur Laufzeit, auch automatisiert einem Regelwerk folgend, ändern können. 
-Es handelt sich also weniger um einen klassischen Config-Server, sondern um eine Umgebung in der Feature-Switches an zur Laufzeit abgefragte Bedingungen geknüpft werden können.
+Es handelt sich also weniger um einen klassischen Config Server, sondern um eine Umgebung, in der Feature-Switches an zur Laufzeit abgefragte Bedingungen geknüpft werden können.
 Die Anbindung von Unleash erfolgt über einen der zahlreichen Client-SDKs, die für diverse Programmiersprachen zur Verfügung stehen.
 
 ![Aufbau der Infrastruktur](/assets/images/posts/configserver/Unleash_Aufbau.png)
