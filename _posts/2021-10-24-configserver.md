@@ -86,7 +86,7 @@ Hat man über diesen hinaus weitere Anforderungen im Projekt, kann Consul sehr i
 So unterstützt Consul durch seine Serviceregistry wenn selbst gemanagte Loadbalancern im Projekt eingesetzt werden müssen, die sich ohne einen solchen Service sonst schnell zu einem Single-Point-Of-Failure entwickeln können.
 Des Weiteren lässt sich hier eine schöne Integration weiterer Tools aus dem Hause Hashicorp erwarten.
 So lässt sich Vault einsetzen, um Passwörter sicher zu speichern und zu verwalten.
-Quasi selbstverständlich ist die Möglichkeit Consul mit Hilfe von Terraform zu managen.
+Quasi selbstverständlich ist die Möglichkeit, Consul mit Hilfe von Terraform zu managen.
 Um Consul zu betreiben ist zum Beispiel ein Deployment in Kubernetes via Helm vorgesehen.
 
 ## Pro
