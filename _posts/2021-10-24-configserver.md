@@ -129,6 +129,6 @@ Nur über die Nutzung eines [Scripts](https://github.com/wobondar/ssm-dotenv) f�
 
 # Fazit
 Einen Config Server für ein bestimmtes Projekt an dieser Stelle allgemein zu empfehlen ist in Anbetracht unterschiedlicher Anforderungen sowie dem jeweils nötigen Einsatz von Zeit und Geld gar nicht möglich.
-Hier sei nur die Empfehlung ausgesprochen sich mit den Fragen auseinander zu setzen, was mein Projekt für Anforderungen mitbringt und welcher Aufwand für Integration und Betrieb vom Team gestemmt werden kann.
+Hier sei nur die Empfehlung ausgesprochen, sich mit den Fragen auseinander zu setzen, was mein Projekt für Anforderungen mitbringt und welcher Aufwand für Integration und Betrieb vom Team gestemmt werden kann.
 Gerade der Betrieb sowie die gut vorbereitete Integration machen es interessant sich die Lösungen von Cloud-Providern wie AWS trotz der damit verbundenen laufenden Kosten genau anzugucken.
 Aber spezielle Anforderungen wie dynamische Feature-Switches oder der Bedarf an einem Service-Mesh rechtfertigen den Einsatz von Unleash oder Consul trotz höherer Aufwände bei Integration und Betrieb am Ende eventuell dennoch.
