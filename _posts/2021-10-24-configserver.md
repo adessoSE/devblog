@@ -36,7 +36,7 @@ Die Integration in ein springbasiertes Projekt kann vollständig transparent üb
 Für die initiale Befüllung des Config Servers mit den gewünschten Properties lässt sich out-of-the-box mit einfachen Mitteln ein git Repository einbinden, welches dann auch gleich für eine Historisierung der Properties sorgt.
 
 ## Pro
-Um die vorhandenen Funktionen zu erweitern und z.B. Properties aus weiteren Quellen zu integrieren können wir hier mit wenigen Annotationen schnell ein eigenes spring-boot-basiertes Projekt aufsetzen, in dem wir unser eigener Herr sind.
+Um die vorhandenen Funktionen zu erweitern und z.B. Properties aus weiteren Quellen zu integrieren, können wir hier mit wenigen Annotationen schnell ein eigenes spring-boot-basiertes Projekt aufsetzen, in dem wir unser eigener Herr sind.
 Und natürlich sind wir nicht darauf beschränkt hier nur springbasierte Java-Projekte mit Konfigurationen zu versorgen.
 Es stehen unter anderem auch passenden Libs für NodeJS oder Micronaut zur Verfügung.
 
