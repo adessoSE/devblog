@@ -10,7 +10,7 @@ tags: [Java, AWS, Cloud, Springboot, Config-Server]
 Konfigurationen für Artefakte von außen zu injecten ist lang bewährte Praxis und wird in vielen Softwareprojekten so gelebt.
 Seien es Feature-Switches, stage-spezifische Einstellungen oder andere Werte, deren Ausprägungen stetigen Anpassungen unterworfen sein können, alle sollten am Ende gut nachvollziehbar und sicher abgelegt sein.
 Dabei können verteilte Systeme aber auch bereits einzelne Artefakte im Laufe ihrer Entwicklung eine schwer überschaubare Anzahl von Umgebungsvariablen benötigen.
-Einige Möglichkeiten diese Werte zentral zu verwalten, sowie deren Vor- und Nachteile, möchte ich im Folgenden etwas näher betrachten.
+Einige Möglichkeiten, diese Werte zentral zu verwalten, sowie deren Vor- und Nachteile, möchte ich im Folgenden etwas näher betrachten.
 
 # Motivation - Was gilt es zu beachten?
 Nicht nur, dass die Anzahl der Konfigurationswerte in einem Projekt, sei es nun verteilt oder monolithisch, mit der Zeit stetig wachsen kann, auch die gespeicherten Werte an sich können unterschiedliche Anforderungen an ein Projekt stellen.
