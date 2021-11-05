@@ -32,8 +32,8 @@ Neben dem Funktionsumfang unterscheiden sich die Systeme auch stark im Aufwand f
 # Spring Cloud Config Server
 Ist man mit Java und dort evtl. sogar mit Spring unterwegs, so springt einen der Spring Cloud Config Server förmlich an.
 Ein Start ist in diesem Kontext schnell gemacht, denn ein einsatzfähiges Docker Image steht bereits zur Verfügung und lässt sich leicht in bestehende Umgebungen wie beispielsweise AWS EKS integrieren.
-Die Integration in ein springbasiertes Projekt kann vollständig transparent über einen Spring Boot Starter und ein wenig Konfiguration mit Hilfe einer bootstrap.properties erfolgen.
-Für die initiale Befüllung des Config Servers mit den gewünschten Properties lässt sich out-of-the-box mit einfachen Mitteln ein git Repository einbinden, welches dann auch gleich für eine Historisierung der Properties sorgt.
+Die Integration in ein springbasiertes Projekt kann vollständig transparent über einen Spring-Boot-Starter und ein wenig Konfiguration mit Hilfe einer bootstrap.properties erfolgen.
+Für die initiale Befüllung des Config-Servers mit den gewünschten Properties lässt sich out-of-the-box mit einfachen Mitteln ein git Repository einbinden, welches dann auch gleich für eine Historisierung der Properties sorgt.
 
 ## Pro
 Um die vorhandenen Funktionen zu erweitern und z.B. Properties aus weiteren Quellen zu integrieren, können wir hier mit wenigen Annotationen schnell ein eigenes spring-boot-basiertes Projekt aufsetzen, in dem wir unser eigener Herr sind.
@@ -44,7 +44,7 @@ Es stehen unter anderem auch passenden Libs für NodeJS oder Micronaut zur Verf�
 Am Ende bleibt der Betrieb des Service als ganz sicher nicht unlösbares, aber essentielles ToDo.
 Die Last auf dem Service wird dabei selten hoch sein, doch muss ein zentrales Augenmerk der Ausfallsicherheit gelten.
 Ohne die passenden Umgebungsvariablen startet keine neue Umgebung. 
-Jegliche Skalierung wird im schlimmsten Fall durch einen Ausfall des Config Servers verhindert.
+Jegliche Skalierung wird im schlimmsten Fall durch einen Ausfall des Config-Servers verhindert.
 Aber das gilt letztendlich natürlich für alle Lösungen, die wir selbst betreiben wollen.
 
 ![Aufbau der Infrastruktur](/assets/images/posts/configserver/Configserver.png)
@@ -53,23 +53,23 @@ Ein Config-Server kann eine ganze Reihe von Artefakten und auch gleichzeitig div
 Ändert sich aber ein Wert, so werden nur neu gestartete Instanzen diese Werte auch abrufen.
 Geschieht dies durch Skalierungsprozesse könnte ein dauerhafter Schiefstand zwischen den Konfigurationen einzelner Instanzen eines Clusters entstehen.
 Wer alle betroffenen Instanzen automatisch benachrichtigen und updaten will, muss sich etwas einfallen lassen.
-So können z.B. alle betroffenen Instanzen an einen MessageBus angeschlossen werden, an den der Config Server entsprechende Events schickt, sobald eine Änderung eintritt.
+So können z.B. alle betroffenen Instanzen an einen MessageBus angeschlossen werden, an den der Config-Server entsprechende Events schickt, sobald eine Änderung eintritt.
 Die Instanzen können dann die neuen Werte über ein Rolling Update ziehen oder ihren Context on-the-fly updaten.
 Aber all dies muss letztendlich selbst implementiert, betrieben und gewartet werden.
 
 # Unleash
 Steht der Fokus eher auf Feature-Switches, soll ein sehr dynamischer Umgang mit Properties unterstützt werden oder ist AB-Testing eine Anforderung mit hoher Priorität, so kann Unleash einiges mitbringen, um dies zu unterstützen.
 Im Gegensatz zu anderen Lösungen liegt der Fokus hier auf dynamischen Werten, die sich zur Laufzeit, auch automatisiert einem Regelwerk folgend, ändern können. 
-Es handelt sich also weniger um einen klassischen Config Server, sondern um eine Umgebung, in der Feature-Switches an zur Laufzeit abgefragte Bedingungen geknüpft werden können.
+Es handelt sich also weniger um einen klassischen Config-Server, sondern um eine Umgebung, in der Feature-Switches an zur Laufzeit abgefragte Bedingungen geknüpft werden können.
 Die Anbindung von Unleash erfolgt über einen der zahlreichen Client-SDKs, die für diverse Programmiersprachen zur Verfügung stehen.
 
 ![Aufbau der Infrastruktur](/assets/images/posts/configserver/Unleash_Aufbau.png)
 
 ## Pro
 Der große Vorteil von Unleash ist die Möglichkeit, bei jedem einzelnen Durchlauf einer Codestelle, die von einer ausgelagerten Variablen abhängt, neu entscheiden zu können, was passieren soll.
-Dabei liegt die Logik für die Bedingungen, die eine Variable beeinflussen, in Unleash und können dort kurzfristig angepasst werden.
+Dabei liegt die Logik für die Bedingungen, die eine Variable beeinflussen, in Unleash und es ist möglich diese Bedingungen dort kurzfristig anzupassen.
 Dafür steht auch eine GUI zur Verfügung.
-So lassen sich z.B. Szenarien für ein AB-Testing, ein automatisiertes zeitgesteuertes Umschalten von Featuren oder sogar Berechtigungen von Usern dynamisch steuern.
+So lassen sich z.B. Szenarien für ein AB-Testing, ein automatisiertes zeitgesteuertes Umschalten von Feature-Switches oder sogar Berechtigungen von Usern dynamisch steuern.
 
 ## Contra
 In ein vorhandenes System lässt sich Unleash allerdings logischer Weise nicht ganz so einfach integrieren, wie es z.B. mit einem Spring Cloud Config Server der Fall wäre.
@@ -80,10 +80,10 @@ Da eine erhöhte Last auf einem Client hier in der Regel eine im gleichen Verhä
 Hier muss also nicht nur die Ausfallsicherheit, sondern auch die Performance im Betrieb der Komponente betrachtet werden.
 
 # Consul
-Consul aus dem Hause Hashicorp ist eigentlich weit mehr als nur ein Config Server.
-Der als Speicher für Umgebungsvariablen dienende KV-Store ist am Ende nur "eine" der Kernkomponenten.
+Consul aus dem Hause Hashicorp ist eigentlich weit mehr als nur ein Config-Server.
+Der als Speicher für Umgebungsvariablen dienende Key-Value-Store Consul KV ist am Ende nur "eine" der Kernkomponenten.
 Hat man über diesen hinaus weitere Anforderungen im Projekt, kann Consul sehr interessant werden.
-So unterstützt Consul durch seine Serviceregistry wenn selbst gemanagte Loadbalancern im Projekt eingesetzt werden müssen, die sich ohne einen solchen Service sonst schnell zu einem Single-Point-Of-Failure entwickeln können.
+So unterstützt Consul durch seine Service-Registry, wenn selbst gemanagte Load-Balancern im Projekt eingesetzt werden müssen, die sich ohne einen solchen Service sonst schnell zu einem Single-Point-Of-Failure entwickeln können.
 Des Weiteren lässt sich hier eine schöne Integration weiterer Tools aus dem Hause Hashicorp erwarten.
 So lässt sich Vault einsetzen, um Passwörter sicher zu speichern und zu verwalten.
 Quasi selbstverständlich ist die Möglichkeit, Consul mit Hilfe von Terraform zu managen.
@@ -91,7 +91,7 @@ Um Consul zu betreiben, ist zum Beispiel ein Deployment in Kubernetes via Helm v
 
 ## Pro
 In Consul sind die gespeicherten Keys und Objects bezüglich ihrer Zeichen nicht limitiert.
-Die Integration in ein vorhandenes Sping-Boot-Projekt erfolgt auch hier nahezu vollständig transparent über spring-cloud-starter und bootstrap.properties.
+Die Integration in ein vorhandenes Spring-Boot-Projekt erfolgt auch hier nahezu vollständig transparent über Spring-Cloud-Starter und bootstrap.properties.
 Aber auch mit Micronaut und NodeJS sollte es keine Probleme geben.
 Consul bietet uns zusätzlich eine Pflegeoberfläche an, mit der viele Einstellungen schnell und einfach zu erledigen sind.
 Wer noch eine Funktion vermisst oder eine vorhandene anpassen will, dem bietet die Erweiterbarkeit über Go Templates eine Option.
@@ -125,10 +125,13 @@ Im Parameter Store von AWS lassen sich Passwörter oder andere schützenswerte P
 Ganz ohne Abstriche geht es aber auch hier nicht. 
 So gibt es Einschränkungen der Keys auf Buchstaben, Ziffern und die Symbole ```. - _ ```.
 Eine direkte Unterstützung von Elastic Beanstalk wird von AWS auch nicht angeboten.
-Nur über die Nutzung eines [Scripts](https://github.com/wobondar/ssm-dotenv) für die Manipulation der Daten in den ebextensions soll dies dennoch machbar sein.
+Nur über die Nutzung eines [Scripts](https://github.com/wobondar/ssm-dotenv) für die Manipulation der Daten, welches in das für Elastic Beanstalk genutzte Konfigurationsverzeichnis ```ebextensions``` integriert werden muss, soll dies dennoch machbar sein.
 
 # Fazit
-Einen Config Server für ein bestimmtes Projekt an dieser Stelle allgemein zu empfehlen ist in Anbetracht unterschiedlicher Anforderungen sowie dem jeweils nötigen Einsatz von Zeit und Geld gar nicht möglich.
+Einen Config-Server für ein bestimmtes Projekt an dieser Stelle allgemein zu empfehlen ist in Anbetracht unterschiedlicher Anforderungen sowie dem jeweils nötigen Einsatz von Zeit und Geld gar nicht möglich.
 Hier sei nur die Empfehlung ausgesprochen, sich mit den Fragen auseinander zu setzen, was mein Projekt für Anforderungen mitbringt und welcher Aufwand für Integration und Betrieb vom Team gestemmt werden kann.
 Gerade der Betrieb sowie die gut vorbereitete Integration machen es interessant sich die Lösungen von Cloud-Providern wie AWS trotz der damit verbundenen laufenden Kosten genau anzugucken.
-Aber spezielle Anforderungen wie dynamische Feature-Switches oder der Bedarf an einem Service-Mesh rechtfertigen den Einsatz von Unleash oder Consul trotz höherer Aufwände bei Integration und Betrieb am Ende eventuell dennoch.
+Im Vergleich zu den entstehenden Kosten für den Betrieb eines ausreichend performanten und ausfallsicheren Clusters von Config-Servern können gemanagte Lösungen wie der AWS Systems Manager durchaus mithalten.
+Denn wir müssen nicht nur die Kosten betrachten, die durch den Betrieb der Hardware entstehen, sondern wir müssen uns bei selbst gehosteten Lösungen immer wieder um Updates kümmern.
+Und dabei sind nicht nur die aktuellen und sichersten Versionen der jeweils eingesetzen Software zu betrachten, sondern auch die Deployment-Scripte wie zum Beispiel Helm oder auch eventuell benötigte Versionen von Terraform, die stetigen Aktualisierungen unterliegen.
+Trotzdem können spezielle Anforderungen wie dynamische Feature-Switches oder der Bedarf an einem Service-Mesh den Einsatz von Unleash oder Consul trotz höherer Aufwände bei Integration und Betrieb am Ende dennoch rechtfertigen.
