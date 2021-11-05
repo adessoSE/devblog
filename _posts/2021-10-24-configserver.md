@@ -37,7 +37,7 @@ Für die initiale Befüllung des Config Servers mit den gewünschten Properties 
 
 ## Pro
 Um die vorhandenen Funktionen zu erweitern und z.B. Properties aus weiteren Quellen zu integrieren, können wir hier mit wenigen Annotationen schnell ein eigenes spring-boot-basiertes Projekt aufsetzen, in dem wir unser eigener Herr sind.
-Und natürlich sind wir nicht darauf beschränkt hier nur springbasierte Java-Projekte mit Konfigurationen zu versorgen.
+Und natürlich sind wir nicht darauf beschränkt, hier nur springbasierte Java-Projekte mit Konfigurationen zu versorgen.
 Es stehen unter anderem auch passenden Libs für NodeJS oder Micronaut zur Verfügung.
 
 ## Contra
