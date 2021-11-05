@@ -97,7 +97,7 @@ Consul bietet uns zusätzlich eine Pflegeoberfläche an, mit der viele Einstellu
 Wer noch eine Funktion vermisst oder eine vorhandene anpassen will, dem bietet die Erweiterbarkeit über Go Templates eine Option.
 
 ## Contra
-Auch in diesem Fall ist es denkbar das System selbst zu betreiben und man sollte sich analog zu den anderen Systemen Gedanken zu den Themen Ausfallsicherheit, Performance aber auch Authentifizierung machen.
+Auch in diesem Fall ist es denkbar, das System selbst zu betreiben, und man sollte sich analog zu den anderen Systemen Gedanken zu den Themen Ausfallsicherheit, Performance aber auch Authentifizierung machen.
 Denn die Pflegeoberfläche sollte natürlich sehr gut abgesichert sein, um jeglichen Missbrauch zu unterbinden.
 Wer keine über die Speicherung von Umgebungsvariablen hinausgehenden Anforderungen hat, der bekommt hier weit mehr geliefert als er bräuchte und könnte sich auch schmalere Lösungen angucken.
 
