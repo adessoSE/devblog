@@ -24,7 +24,7 @@ So darf z.B. in einer [AWS EC2 Umgebung](https://docs.aws.amazon.com/de_de/elast
 Auch für die Länge der Keys und Values gelten hier Einschränkungen, genauso wie für die Gesamtgröße aller Umgebungseigenschaften.
 
 Zu guter Letzt sollte für alle Umgebungsvariablen klar sein, wann und wie oft sie eigentlich gelesen werden müssen.
-Reicht es mit wenn einen Wert zum Zeitpunkt des Starts einer Umgebung initial übergeben wird oder ist es evtl. notwendig sogar während der Laufzeit einen Wert anpassen zu können?
+Reicht es mir, wenn der Wert zum Zeitpunkt des Starts einer Umgebung initial übergeben wird oder ist es evtl. notwendig, sogar während der Laufzeit einen Wert anpassen zu können?
 
 Verschiedene dieser Anforderungen werden durch unterschiedliche Systeme für die Speicherung von Konfigurationen unterschiedlich gut unterstützt.
 Neben dem Funktionsumfang unterscheiden sich die Systeme auch stark im Aufwand für Betrieb und Integration in vorhandene Projekte.
