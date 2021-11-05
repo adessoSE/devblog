@@ -118,7 +118,7 @@ Validierung können wir nutzen, um sicherzustellen, dass die Anforderungen für 
 Die Parameter sind im Parameter Store versioniert.
 Dadurch wird es uns möglich ohne weiteren Aufwand auf alte Stände zurückzurollen oder für Fehleranalysen zu bestimmen, welche Konfiguration zum fraglichen Zeitpunkt genutzt wurde.
 Dass der Service nicht selbst gehostet, skaliert oder abgesichert werden muss, vereinfacht den initialen Aufbau.
-Natürlich sind damit dann aber Kosten für uns verbunden, die mit dem Betrieb eigener Instanzen einer anderen Lösung abgleichen werden sollten.
+Natürlich sind damit dann aber Kosten für uns verbunden, die mit dem Betrieb eigener Instanzen einer anderen Lösung abgeglichen werden sollten.
 Im Parameter Store von AWS lassen sich Passwörter oder andere schützenswerte Properties auch entsprechend verschlüsselt ablegen.
 
 ## Contra
