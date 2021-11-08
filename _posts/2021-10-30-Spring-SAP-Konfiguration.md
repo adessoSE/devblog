@@ -106,7 +106,7 @@ EXPOSE 8080
 Das Ergebnis des vorherigen Build wird über das BuildArgument `JAR_FILE` an das Dockerfile übergeben. 
 
 Der Versuch, das bis hier hin entstandenen `spring-sap.jar` auszuführen, scheitert daran, dass die Klassen der *SAP-JCo*-Bibliothek nicht gefunden werden. 
-Die Fehlermeldung lautet *java.lang.NoClassDefFoundError: com/sap/conn/jco/ext/DestinationDataProvider* oder ähnlich.
+Die Fehlermeldung lautet `java.lang.NoClassDefFoundError: com/sap/conn/jco/ext/DestinationDataProvider` oder ähnlich.
 
 Die Zeile `COPY libs/* /libs/` übernimmt alle *SAP-JCo*-Dateien aus dem Projekt in das Docker Image. 
 Der Parameter `-Dloader.path=/libs/` des `java`-Aufrufs sogt dann dafür, dass sie alle Teil des Classpath werden und die Applikation sie verwenden kann.
