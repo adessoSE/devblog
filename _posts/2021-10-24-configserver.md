@@ -102,7 +102,7 @@ Denn die Pflegeoberfläche sollte natürlich sehr gut abgesichert sein, um jegli
 Wer keine über die Speicherung von Umgebungsvariablen hinausgehenden Anforderungen hat, der bekommt hier weit mehr geliefert als er bräuchte und könnte sich auch schmalere Lösungen angucken.
 
 # AWS Systems Manager
-Wenn die eigene Software bereits in der Cloud läuft, ist es natürlich interessant zu gucken, was vom jeweiligen Cloud-Provider bereits angeboten wird.
+Wenn die eigene Software bereits in der Cloud läuft, ist es natürlich interessant zu gucken, was vom jeweiligen Cloud Provider bereits angeboten wird.
 Am Beispiel von AWS wäre dies der Parameter Store als Teil des AWS Systems Managers.
 Umgebungsvariablen werden hier in einer Baumstruktur abgelegt, die es ermöglicht, diverse Projekte mit ihren jeweiligen Stages in Teilbäumen zu verwalten, welche dann einzeln abgefragt werden können.
 So könnte ein Pfad in der Form ```<projektname>/<stage>/db/url``` die Daten für die Connection URL zu einer Datenbank enthalten.
