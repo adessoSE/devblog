@@ -60,7 +60,7 @@ Aber all dies muss letztendlich selbst implementiert, betrieben und gewartet wer
 # Unleash
 Steht der Fokus eher auf Feature Switches, soll ein sehr dynamischer Umgang mit Properties unterstützt werden oder ist AB-Testing eine Anforderung mit hoher Priorität, so kann Unleash einiges mitbringen, um dies zu unterstützen.
 Im Gegensatz zu anderen Lösungen liegt der Fokus hier auf dynamischen Werten, die sich zur Laufzeit, auch automatisiert einem Regelwerk folgend, ändern können. 
-Es handelt sich also weniger um einen klassischen Config-Server, sondern um eine Umgebung, in der Feature-Switches an zur Laufzeit abgefragte Bedingungen geknüpft werden können.
+Es handelt sich also weniger um einen klassischen Config-Server, sondern um eine Umgebung, in der Feature Switches an zur Laufzeit abgefragte Bedingungen geknüpft werden können.
 Die Anbindung von Unleash erfolgt über einen der zahlreichen Client-SDKs, die für diverse Programmiersprachen zur Verfügung stehen.
 
 ![Aufbau der Infrastruktur](/assets/images/posts/configserver/Unleash_Aufbau.png)
@@ -81,7 +81,7 @@ Hier muss also nicht nur die Ausfallsicherheit, sondern auch die Performance im 
 
 # Consul
 Consul aus dem Hause Hashicorp ist eigentlich weit mehr als nur ein Config-Server.
-Der als Speicher für Umgebungsvariablen dienende Key-Value-Store Consul KV ist am Ende nur "eine" der Kernkomponenten.
+Der als Speicher für Umgebungsvariablen dienende Key Value Store Consul KV ist am Ende nur "eine" der Kernkomponenten.
 Hat man über diesen hinaus weitere Anforderungen im Projekt, kann Consul sehr interessant werden.
 So unterstützt Consul durch seine Service Registry, wenn selbst gemanagte Load Balancern im Projekt eingesetzt werden müssen, die sich ohne einen solchen Service sonst schnell zu einem Single Point Of Failure entwickeln können.
 Des Weiteren lässt sich hier eine schöne Integration weiterer Tools aus dem Hause Hashicorp erwarten.
