@@ -91,7 +91,7 @@ Um Consul zu betreiben, ist zum Beispiel ein Deployment in Kubernetes via Helm v
 
 ## Pro
 In Consul sind die gespeicherten Keys und Objects bezüglich ihrer Zeichen nicht limitiert.
-Die Integration in ein vorhandenes Spring-Boot-Projekt erfolgt auch hier nahezu vollständig transparent über Spring-Cloud-Starter und bootstrap.properties.
+Die Integration in ein vorhandenes Spring-Boot-Projekt erfolgt auch hier nahezu vollständig transparent über Spring Cloud Starter und bootstrap.properties.
 Aber auch mit Micronaut und NodeJS sollte es keine Probleme geben.
 Consul bietet uns zusätzlich eine Pflegeoberfläche an, mit der viele Einstellungen schnell und einfach zu erledigen sind.
 Wer noch eine Funktion vermisst oder eine vorhandene anpassen will, dem bietet die Erweiterbarkeit über Go Templates eine Option.
