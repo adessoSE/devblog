@@ -67,7 +67,7 @@ Die Anbindung von Unleash erfolgt über einen der zahlreichen Client-SDKs, die f
 
 ## Pro
 Der große Vorteil von Unleash ist die Möglichkeit, bei jedem einzelnen Durchlauf einer Codestelle, die von einer ausgelagerten Variablen abhängt, neu entscheiden zu können, was passieren soll.
-Dabei liegt die Logik für die Bedingungen, die eine Variable beeinflussen, in Unleash und es ist möglich diese Bedingungen dort kurzfristig anzupassen.
+Dabei liegt die Logik für die Bedingungen, die eine Variable beeinflussen, in Unleash und es ist möglich, diese Bedingungen dort kurzfristig anzupassen.
 Dafür steht auch eine GUI zur Verfügung.
 So lassen sich z.B. Szenarien für ein AB-Testing, ein automatisiertes zeitgesteuertes Umschalten von Feature-Switches oder sogar Berechtigungen von Usern dynamisch steuern.
 
