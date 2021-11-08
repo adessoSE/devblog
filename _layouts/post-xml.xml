@@ -28,7 +28,8 @@
             ]]></field>
         <!--Author Information-->
         {% for id in page.author_ids %}
-        <field name="author_id"><![CDATA[{{ id }}]]></field>
+        {%- assign author = site.data.authors[id] -%}
+        <field name="author_id"><![CDATA[{{ author.github_username }}]]></field>
         {%- endfor -%}
         <!--Postcontent-->
         <field name="headlines"><![CDATA[{{ page.title }}]]></field>
