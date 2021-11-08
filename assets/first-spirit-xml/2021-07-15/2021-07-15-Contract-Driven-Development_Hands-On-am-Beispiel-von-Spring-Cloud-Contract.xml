@@ -22,8 +22,7 @@ Dazu bietet sich Contract-Driven Development an, welches wir uns mittels Spring 
         <field name="date_l"><![CDATA[1626328800000]]></field>
         <field name="change_date"><![CDATA[1626328800000]]></field>
         <!--Author Information-->
-        
-        <field name="author_id"><![CDATA[tgraefenstein]]></field><!--Postcontent-->
+        <field name="author_id"><![CDATA[g-stone7]]></field><!--Postcontent-->
         <field name="headlines"><![CDATA[Contract-Driven Development: Hands-On am Beispiel von Spring Cloud Contract]]></field>
         <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
             <p>In modernen Softwaresystemen kommt man mittlerweile kaum noch daran vorbei, mit anderen Systemen zu kommunizieren. 

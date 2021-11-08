@@ -18,7 +18,6 @@
         <field name="date_l"><![CDATA[1542031200000]]></field>
         <field name="change_date"><![CDATA[1544572800000]]></field>
         <!--Author Information-->
-        
         <field name="author_id"><![CDATA[karnik]]></field><!--Postcontent-->
         <field name="headlines"><![CDATA[Distributed Execution mit Hazelcast]]></field>
         <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">

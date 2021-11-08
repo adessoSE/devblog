@@ -26,7 +26,6 @@ Als Zieltechnologie für die Migration dient in diesem Beispiel das <strong>Sing
         <field name="date_l"><![CDATA[1588950000000]]></field>
         <field name="change_date"><![CDATA[1589192700000]]></field>
         <!--Author Information-->
-        
         <field name="author_id"><![CDATA[mschick]]></field><!--Postcontent-->
         <field name="headlines"><![CDATA[Frontend Migration anhand der Chicken-Little-Methode in der Praxis]]></field>
         <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">

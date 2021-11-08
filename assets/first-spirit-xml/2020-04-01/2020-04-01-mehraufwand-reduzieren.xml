@@ -21,8 +21,7 @@ Daneben gibt es das Tolerant Reader Pattern, dass den Mehraufwand, eine Schnitts
         <field name="date_l"><![CDATA[1585724400000]]></field>
         <field name="change_date"><![CDATA[1615211400000]]></field>
         <!--Author Information-->
-        
-        <field name="author_id"><![CDATA[stefanmueller]]></field><!--Postcontent-->
+        <field name="author_id"><![CDATA[stefanAdesso]]></field><!--Postcontent-->
         <field name="headlines"><![CDATA[Mehraufwand reduzieren durch das Tolerant Reader Pattern]]></field>
         <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
             <p>In fast jedem Softwareprojekt müssen Systeme mit anderen Systemen und deren Anwendungen kommunizieren. 

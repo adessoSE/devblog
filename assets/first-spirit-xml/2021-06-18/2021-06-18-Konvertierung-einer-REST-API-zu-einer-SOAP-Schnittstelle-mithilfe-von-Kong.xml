@@ -19,7 +19,6 @@ In diesem Artikel wird eine Methode vorgestellt, wie man diese Anforderung mit H
         <field name="date_l"><![CDATA[1624024800000]]></field>
         <field name="change_date"><![CDATA[1624024800000]]></field>
         <!--Author Information-->
-        
         <field name="author_id"><![CDATA[DanielKraft]]></field><!--Postcontent-->
         <field name="headlines"><![CDATA[Konvertierung einer REST-API zu einer SOAP-Schnittstelle mithilfe von Kong]]></field>
         <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">

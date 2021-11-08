@@ -23,7 +23,6 @@ In meinem Blogbeitrag zeige ich, dass sich auch für bestehende Anwendungen der 
         <field name="date_l"><![CDATA[1591941600000]]></field>
         <field name="change_date"><![CDATA[1623999600000]]></field>
         <!--Author Information-->
-        
         <field name="author_id"><![CDATA[c-bachmann]]></field><!--Postcontent-->
         <field name="headlines"><![CDATA[Gründe und Strategien für die Migration einer Applikation in die Cloud]]></field>
         <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
