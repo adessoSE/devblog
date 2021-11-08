@@ -83,7 +83,7 @@ Hier muss also nicht nur die Ausfallsicherheit, sondern auch die Performance im 
 Consul aus dem Hause Hashicorp ist eigentlich weit mehr als nur ein Config-Server.
 Der als Speicher für Umgebungsvariablen dienende Key-Value-Store Consul KV ist am Ende nur "eine" der Kernkomponenten.
 Hat man über diesen hinaus weitere Anforderungen im Projekt, kann Consul sehr interessant werden.
-So unterstützt Consul durch seine Service-Registry, wenn selbst gemanagte Load-Balancern im Projekt eingesetzt werden müssen, die sich ohne einen solchen Service sonst schnell zu einem Single-Point-Of-Failure entwickeln können.
+So unterstützt Consul durch seine Service Registry, wenn selbst gemanagte Load Balancern im Projekt eingesetzt werden müssen, die sich ohne einen solchen Service sonst schnell zu einem Single Point Of Failure entwickeln können.
 Des Weiteren lässt sich hier eine schöne Integration weiterer Tools aus dem Hause Hashicorp erwarten.
 So lässt sich Vault einsetzen, um Passwörter sicher zu speichern und zu verwalten.
 Quasi selbstverständlich ist die Möglichkeit, Consul mit Hilfe von Terraform zu managen.
