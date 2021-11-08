@@ -8,7 +8,7 @@ tags: [Java, AWS, Cloud, Springboot, Config-Server]
 ---
 
 Konfigurationen für Artefakte von außen zu injecten ist lang bewährte Praxis und wird in vielen Softwareprojekten so gelebt.
-Seien es Feature-Switches, stage-spezifische Einstellungen oder andere Werte, deren Ausprägungen stetigen Anpassungen unterworfen sein können, alle sollten am Ende gut nachvollziehbar und sicher abgelegt sein.
+Seien es Feature Switches, stage-spezifische Einstellungen oder andere Werte, deren Ausprägungen stetigen Anpassungen unterworfen sein können, alle sollten am Ende gut nachvollziehbar und sicher abgelegt sein.
 Dabei können verteilte Systeme aber auch bereits einzelne Artefakte im Laufe ihrer Entwicklung eine schwer überschaubare Anzahl von Umgebungsvariablen benötigen.
 Einige Möglichkeiten, diese Werte zentral zu verwalten, sowie deren Vor- und Nachteile, möchte ich im Folgenden etwas näher betrachten.
 
@@ -58,7 +58,7 @@ Die Instanzen können dann die neuen Werte über ein Rolling Update ziehen oder 
 Aber all dies muss letztendlich selbst implementiert, betrieben und gewartet werden.
 
 # Unleash
-Steht der Fokus eher auf Feature-Switches, soll ein sehr dynamischer Umgang mit Properties unterstützt werden oder ist AB-Testing eine Anforderung mit hoher Priorität, so kann Unleash einiges mitbringen, um dies zu unterstützen.
+Steht der Fokus eher auf Feature Switches, soll ein sehr dynamischer Umgang mit Properties unterstützt werden oder ist AB-Testing eine Anforderung mit hoher Priorität, so kann Unleash einiges mitbringen, um dies zu unterstützen.
 Im Gegensatz zu anderen Lösungen liegt der Fokus hier auf dynamischen Werten, die sich zur Laufzeit, auch automatisiert einem Regelwerk folgend, ändern können. 
 Es handelt sich also weniger um einen klassischen Config-Server, sondern um eine Umgebung, in der Feature-Switches an zur Laufzeit abgefragte Bedingungen geknüpft werden können.
 Die Anbindung von Unleash erfolgt über einen der zahlreichen Client-SDKs, die für diverse Programmiersprachen zur Verfügung stehen.
@@ -69,7 +69,7 @@ Die Anbindung von Unleash erfolgt über einen der zahlreichen Client-SDKs, die f
 Der große Vorteil von Unleash ist die Möglichkeit, bei jedem einzelnen Durchlauf einer Codestelle, die von einer ausgelagerten Variablen abhängt, neu entscheiden zu können, was passieren soll.
 Dabei liegt die Logik für die Bedingungen, die eine Variable beeinflussen, in Unleash und es ist möglich, diese Bedingungen dort kurzfristig anzupassen.
 Dafür steht auch eine GUI zur Verfügung.
-So lassen sich z.B. Szenarien für ein AB-Testing, ein automatisiertes zeitgesteuertes Umschalten von Feature-Switches oder sogar Berechtigungen von Usern dynamisch steuern.
+So lassen sich z.B. Szenarien für ein AB-Testing, ein automatisiertes zeitgesteuertes Umschalten von Feature Switches oder sogar Berechtigungen von Usern dynamisch steuern.
 
 ## Contra
 In ein vorhandenes System lässt sich Unleash allerdings logischer Weise nicht ganz so einfach integrieren, wie es z.B. mit einem Spring Cloud Config Server der Fall wäre.
@@ -134,4 +134,4 @@ Gerade der Betrieb sowie die gut vorbereitete Integration machen es interessant 
 Mit den entstehenden Kosten für den Betrieb eines ausreichend performanten und ausfallsicheren Clusters von Config-Servern können gemanagte Lösungen wie der AWS Systems Manager durchaus mithalten.
 Denn wir müssen nicht nur die Kosten betrachten, die durch den Betrieb der Hardware entstehen, sondern auch die Aufwände berücksichtigen, die uns bei selbst gehosteten Lösungen immer wieder durch Updates entstehen.
 Dabei sind nicht nur die jeweils aktuellsten und sichersten Versionen der eingesetzen Software zu betrachten, sondern auch die Versionen der Deployment-Scripte wie zum Beispiel Helm oder auch eventuell benötigte Versionen von Terraform, die stetigen Aktualisierungen unterliegen.
-Trotzdem können spezielle Anforderungen wie dynamische Feature-Switches oder der Bedarf an einem Service-Mesh den Einsatz von Unleash oder Consul trotz höherer Aufwände bei Integration und Betrieb am Ende dennoch rechtfertigen.
+Trotzdem können spezielle Anforderungen wie dynamische Feature Switches oder der Bedarf an einem Service-Mesh den Einsatz von Unleash oder Consul trotz höherer Aufwände bei Integration und Betrieb am Ende dennoch rechtfertigen.
