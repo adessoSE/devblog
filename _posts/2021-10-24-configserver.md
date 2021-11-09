@@ -20,7 +20,7 @@ Diese sollten gerade für eine Produktivumgebung nicht für jeden einsehbar sein
 Darüber hinaus erhöht es die Sicherheit diese regelmäßig auszutauschen.
 
 Übergeben wir die Konfiguration in Form von Umgebungsvariablen, ergeben sich je nach ausführender Plattform weitere technische Limitierungen in Bezug auf Format und Menge.
-So darf z.B. in einer [AWS-EC2-Umgebung](https://docs.aws.amazon.com/de_de/elasticbeanstalk/latest/dg/environments-cfg-softwaresettings.html?icmpid=docs_elasticbeanstalk_console) der Key einer Umgebungsvariable nur die Symbole ```_ . : / + \ - @``` enthalten, wobei durch die gewählte Plattform noch weitere Einschränkungen möglich sind.
+So darf z.B. in einer [AWS-EC2-Umgebung](https://docs.aws.amazon.com/de_de/elasticbeanstalk/latest/dg/environments-cfg-softwaresettings.html?icmpid=docs_elasticbeanstalk_console) der Key einer Umgebungsvariable neben Buchstaben und Ziffern nur die Sonderzeichen ```_ . : / + \ - @``` enthalten, wobei durch die gewählte Plattform noch weitere Einschränkungen möglich sind.
 Auch für die Länge der Keys und Values gelten hier Einschränkungen, genauso wie für die Gesamtgröße aller Umgebungseigenschaften.
 
 Zu guter Letzt sollte für alle Umgebungsvariablen klar sein, wann und wie oft sie eigentlich gelesen werden müssen.
@@ -38,7 +38,7 @@ Für die initiale Befüllung des Config-Servers mit den gewünschten Properties 
 ## Pro
 Um die vorhandenen Funktionen zu erweitern und z.B. Properties aus weiteren Quellen zu integrieren, können wir hier mit wenigen Annotationen schnell ein eigenes spring-boot-basiertes Projekt aufsetzen, in dem wir unser eigener Herr sind.
 Und natürlich sind wir nicht darauf beschränkt, hier nur spring-basierte Java-Projekte mit Konfigurationen zu versorgen.
-Es stehen unter anderem auch passenden Libs für NodeJS oder Micronaut zur Verfügung.
+Es stehen unter anderem auch passenden Libs für NodeJS, Quarkus oder Micronaut zur Verfügung.
 
 ## Contra
 Am Ende bleibt der Betrieb des Service als ganz sicher nicht unlösbares, aber essentielles ToDo.
@@ -92,7 +92,7 @@ Um Consul zu betreiben, ist zum Beispiel ein Deployment in Kubernetes via Helm v
 ## Pro
 In Consul sind die gespeicherten Keys und Objects bezüglich ihrer Zeichen nicht limitiert.
 Die Integration in ein vorhandenes Spring-Boot-Projekt erfolgt auch hier nahezu vollständig transparent über Spring Cloud Starter und bootstrap.properties.
-Aber auch mit Micronaut und NodeJS sollte es keine Probleme geben.
+Aber auch mit Micronaut, Quarkus und NodeJS sollte es keine Probleme geben.
 Consul bietet uns zusätzlich eine Pflegeoberfläche an, mit der viele Einstellungen schnell und einfach zu erledigen sind.
 Wer noch eine Funktion vermisst oder eine vorhandene anpassen will, dem bietet die Erweiterbarkeit über Go Templates eine Option.
 
@@ -123,7 +123,7 @@ Im Parameter Store von AWS lassen sich Passwörter oder andere schützenswerte P
 
 ## Contra
 Ganz ohne Abstriche geht es aber auch hier nicht. 
-So gibt es Einschränkungen der Keys auf Buchstaben, Ziffern und die Symbole ```. - _ ```.
+So gibt es Einschränkungen der Keys auf Buchstaben, Ziffern und die Sonderzeichen ```. - _ ```.
 Eine direkte Unterstützung von Elastic Beanstalk wird von AWS auch nicht angeboten.
 Nur über die Nutzung eines [Scripts](https://github.com/wobondar/ssm-dotenv) für die Manipulation der Daten, welches in das für Elastic Beanstalk genutzte Konfigurationsverzeichnis ```ebextensions``` integriert werden muss, soll dies dennoch machbar sein.
 
