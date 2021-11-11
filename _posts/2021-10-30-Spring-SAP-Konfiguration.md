@@ -63,7 +63,7 @@ Da der Name einer jar-Datei in der Regel keine Rollen spielt, hat die Umbenennun
 
 *SAP JCo* prüft jedoch, ob der Name der jar-Datei genau `sapjco3.jar` ist. 
 Wenn wir oder das Spring Maven Plugin ihn ändern, führt das zu einem Fehler in der Art von 
-```
+```java
 JCo initialization fails with java.lang.ExceptionInInitializerError: Illegal JCo archive "sap-jco-3.0.11.jar".
 It is not allowed to rename or repackage the original archive "sapjco3.jar"
 ```
@@ -110,7 +110,7 @@ Das Ergebnis des vorherigen Build wird über das BuildArgument `JAR_FILE` an das
 
 Der Versuch, das bis hier hin entstandenen `spring-sap.jar` auszuführen, scheitert daran, dass die Klassen der *SAP-JCo*-Bibliothek nicht gefunden werden. 
 Die Fehlermeldung lautet
-```
+```java
 java.lang.NoClassDefFoundError: com/sap/conn/jco/ext/DestinationDataProvider
 ```
 oder ähnlich.
