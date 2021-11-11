@@ -62,8 +62,11 @@ So wird z.B. aus `jakarta.el.jar` in der Version 3.0.3 `jakarta.el-3.0.3.jar`.
 Da der Name einer jar-Datei in der Regel keine Rollen spielt, hat die Umbenennung keine negativen Auswirkungen.
 
 *SAP JCo* prüft jedoch, ob der Name der jar-Datei genau `sapjco3.jar` ist. 
-Wenn wir oder das Spring Maven Plugin ihn ändern, führt das zu einem Fehler in der Art von `JCo initialization fails with java.lang.ExceptionInInitializerError: Illegal JCo archive "sap-jco-3.0.11.jar".
-It is not allowed to rename or repackage the original archive "sapjco3.jar"`
+Wenn wir oder das Spring Maven Plugin ihn ändern, führt das zu einem Fehler in der Art von 
+```
+JCo initialization fails with java.lang.ExceptionInInitializerError: Illegal JCo archive "sap-jco-3.0.11.jar".
+It is not allowed to rename or repackage the original archive "sapjco3.jar"
+```
 
 Die augenblickliche Lösung ist die Verwendung des Scope `system` für die Abhängigkeit. 
 Augenblicklich deswegen, weil der Scope `deprecated` also als veraltet markiert ist. 
@@ -106,7 +109,11 @@ EXPOSE 8080
 Das Ergebnis des vorherigen Build wird über das BuildArgument `JAR_FILE` an das Dockerfile übergeben. 
 
 Der Versuch, das bis hier hin entstandenen `spring-sap.jar` auszuführen, scheitert daran, dass die Klassen der *SAP-JCo*-Bibliothek nicht gefunden werden. 
-Die Fehlermeldung lautet `java.lang.NoClassDefFoundError: com/sap/conn/jco/ext/DestinationDataProvider` oder ähnlich.
+Die Fehlermeldung lautet
+```
+java.lang.NoClassDefFoundError: com/sap/conn/jco/ext/DestinationDataProvider
+```
+oder ähnlich.
 
 Die Zeile `COPY libs/* /libs/` übernimmt alle *SAP-JCo*-Dateien aus dem Projekt in das Docker Image. 
 Der Parameter `-Dloader.path=/libs/` des `java`-Aufrufs sogt dann dafür, dass sie alle Teil des Classpath werden und die Applikation sie verwenden kann.
