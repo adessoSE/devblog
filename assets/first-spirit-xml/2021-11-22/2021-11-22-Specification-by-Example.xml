@@ -1,0 +1,406 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<documents>
+    <document uid="8a8197cfe0e0e6a2e389e8707f3cfce2">
+        <field name="title"><![CDATA[Specification by Example]]></field>
+        <field name="subline"><![CDATA[]]></field>
+        <field name="teaser"><![CDATA[<p><strong>Knowledge Sharing</strong> ist eines der Kernprobleme unserer Branche und zentraler Bestandteil vieler moderner Methodiken
+der Softwareentwicklung.
+<strong>Specifications by Example</strong> als Vorgehen kann hierbei unterstützen und bietet einen Rahmen, um eine gemeinsame
+Wissensbasis zu schaffen, Randfälle durch Tests im Vorfeld zu beschreiben und als Ergebnis eine lebende Spezifikation
+zu erstellen.</p>
+
+]]></field>
+        <field name="language_multi_keyword"><![CDATA[de]]></field>
+        <field name="content_type_multi_keyword"><![CDATA[blog]]></field>
+        <field name="mime_type_multi_keyword"><![CDATA[text/html]]></field>
+        <field name="category_multi_keyword"><![CDATA[Softwareentwicklung]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Testing]]></field>
+        <field name="tag_multi_keyword"><![CDATA[BDD]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Cucumber]]></field>
+        <field name="tag_multi_keyword"><![CDATA[FitNesse]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Concordion]]></field>
+        <field name="date_date"><![CDATA[2021-11-22T11:00:00+01:00]]></field>
+        <field name="date_l"><![CDATA[1637575200000]]></field>
+        <field name="change_date"><![CDATA[1634464800000]]></field>
+        <!--Author Information-->
+        <field name="author_id"><![CDATA[unexist]]></field><!--Postcontent-->
+        <field name="headlines"><![CDATA[Specification by Example]]></field>
+        <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
+            <p><strong>Knowledge Sharing</strong> ist eines der Kernprobleme unserer Branche und zentraler Bestandteil vieler moderner Methodiken
+der Softwareentwicklung.
+<strong>Specifications by Example</strong> als Vorgehen kann hierbei unterstützen und bietet einen Rahmen, um eine gemeinsame
+Wissensbasis zu schaffen, Randfälle durch Tests im Vorfeld zu beschreiben und als Ergebnis eine lebende Spezifikation
+zu erstellen.</p>
+
+</div>]]></field>
+        <field name="content"><![CDATA[<div class="adesso-text-formate">
+<div class="row p-t-2">
+<div class="adesso-container">
+<div class="col-xl-8 adesso-center p-b-1 p-l-0 p-r-0">
+    <p><strong>Knowledge Sharing</strong> ist eines der Kernprobleme unserer Branche und zentraler Bestandteil vieler moderner Methodiken
+der Softwareentwicklung.
+<strong>Specifications by Example</strong> als Vorgehen kann hierbei unterstützen und bietet einen Rahmen, um eine gemeinsame
+Wissensbasis zu schaffen, Randfälle durch Tests im Vorfeld zu beschreiben und als Ergebnis eine lebende Spezifikation
+zu erstellen.</p>
+
+<h4 id="specification-by-example">Specification by Example</h4>
+
+<p>In diesem Artikel beschäftigen wir uns zuerst mit der Grundidee von Akzeptanztests, ihrer unterstützenden Funktion
+und der Idee der lebenden Spezifikation.
+Anschließend untersuchen wir drei Tools und sehen anhand von einfachen Beispielen, wie man sie in der Praxis einsetzen
+kann und sprechen über ihre Vorzüge und Schwächen.</p>
+
+<p>Was genau sind also Akzeptanztests?</p>
+
+<h5 id="akzeptanztests">Akzeptanztests</h5>
+
+<p>Wenn wir <a href="https://en.wikipedia.org/wiki/Acceptance_testing">Wikipedia</a> dazu befragen bekommen wir eine sehr allgemeine Antwort:
+Akzeptanztests sind demnach also Abnahmetests, die vom Benutzer oder von einem entsprechenden Fachexperten durchgeführt
+werden <strong>nachdem</strong> die Software erstellt wurde und dienen zur Überprüfung, ob eine Software ordnungsgemäß funktioniert
+und zur Vermeidung von Regression.</p>
+
+<p>Wie das bei allgemeinen Antworten so üblich ist, findet man auch hier interessante Lücken:
+<strong>Wer schreibt diese Tests und vor allem wann?</strong></p>
+
+<p>Wenn man sich Projekte ansieht, ist die Erwartung, sowohl in Teamstrukturen nach <a href="https://en.wikipedia.org/wiki/Conway%27s_law">Conway</a> als auch bei
+cross-funktionalen Teams, dass diese Art von Tests vom Testteam geschrieben und durchgeführt werden.
+Und das erfolgt entweder parallel zur Entwicklung oder in irgendeinem nachgelagerten Prozess.</p>
+
+<p>Findet hierbei jetzt irgendein Austausch statt?</p>
+
+<h5 id="knowledge-sharing">Knowledge Sharing</h5>
+
+<p>In der Praxis findet dabei dann allenfalls irgendeine Form der Kommunikation statt, sobald Probleme auftreten und
+etwas nicht wie erwartet funktioniert, eine Fehlerklasse gänzlich übersehen wurde oder aufgrund der konkreten Umsetzung
+neue Fehlerfälle entstehen.</p>
+
+<p>Hier wäre es jetzt von Vorteil, wenn man die Sicht beider Gruppen einfängt:
+Das Entwicklungsteam betrachtet die Software von seiner technischen Seite und versucht, alle ihm bekannten Probleme im
+Vorfeld zu berücksichtigen und zu verhindern.
+Das Testteam nutzt seine Kenntnis des Produktes, Erfahrungen allgemein beim Testen von Software und natürlich
+Testheuristiken, um Fehler aufzuspüren.</p>
+
+<p>Wie so oft in unserer Branche ist Kommunikation der Schlüssel für dieses Problem:
+Setzen sich beide Teams gemeinsam an einen Tisch, um im Vorfeld über mögliche Probleme zu sprechen, könnten
+aufwändige Nacharbeiten begrenzt und die Abläufe beschleunigt werden.</p>
+
+<h5 id="three-amigos">Three Amigos</h5>
+
+<p><strong>Three Amigos</strong> oder <strong>Specification Workshop</strong> ist ein Format, um genau dieses Vorgehen zu ermöglichen:
+Wenn ein neues Feature geplant wird, kommen der beauftragende <strong>Stakeholder</strong>, ein Verantwortlicher aus dem
+<strong>Entwicklungsteam</strong> und ein Verantwortlicher aus dem <strong>Testteam</strong> zusammen und besprechen, <em>was</em> und vor allem <em>wie</em>
+dies umgesetzt werden soll und wie später überprüft werden kann, dass die Aufgabe abgeschlossen wurde.</p>
+
+<p>Hierbei ist dieses Format vollkommen offen, mögliche Ergebnisse können einfache Notizen (beispielsweise an der
+Userstory im agilen Feld) oder komplette Tabellen mit konkreten Randbedingungen sein.
+Wichtigstes Element hier ist die Kommunikation und das im Gespräch entstehende gemeinsame Verständnis der Aufgabe der
+Beteiligten.</p>
+
+<p>Im nächsten Teil sehen wir uns drei verschiedene Tools an, die hierbei unterstützen können und von denen ein wenig
+die weiteren Schritte abhängen.</p>
+
+<h4 id="tools">Tools</h4>
+
+<p>Die nächsten Beispiele zeigen anhand eines konkreten Testfalls an einer einfachen Todo-App (auf Basis von
+<a href="https://quarkus.io/">Quarkus</a>) wie Todo-Einträge erzeugt und die hier vorgestellten Tools verwendet werden können.</p>
+
+<p>Die Todo-App selbst bietet eine einfache REST-Schnittstelle, über die sie u.a. Daten entgegennimmt und in-memory
+persistiert.</p>
+
+<p>Sämtliche Beispiele können im folgenden Repository eingesehen werden:</p>
+
+<p><a href="https://github.com/unexist/showcase-acceptance-testing-quarkus">https://github.com/unexist/showcase-acceptance-testing-quarkus</a></p>
+
+<h5 id="cucumber">Cucumber</h5>
+
+<h6 id="einleitung">Einleitung</h6>
+
+<p>Als erstes Tool wollen wir uns <a href="https://cucumber.io">Cucumber</a> ansehen, welches vermutlich das bekannteste zum Thema
+<a href="https://en.wikipedia.org/wiki/Behavior-driven_development">Behavior-Driven Development</a> (kurz <strong>BDD</strong>) ist.
+<a href="https://cucumber.io">Cucumber</a> verwendet ein leicht verständliches <a href="https://en.wikipedia.org/wiki/Given-When-Then">given-when-then</a>-Format (ursprünglich von <a href="https://dannorth.net/">Dan North</a>
+entwickelt) namens <a href="https://cucumber.io/docs/gherkin/">Gherkin</a>, um strukturierte Testfälle zu schreiben und sukzessive eine
+<a href="https://en.wikipedia.org/wiki/Domain-specific_language">Domain-Specific Language</a> für die Fachdomäne zu entwickeln.</p>
+
+<p>Hierbei ist die Ähnlichkeit zwischen <a href="https://en.wikipedia.org/wiki/Given-When-Then">given-when-then</a> und dem von <a href="https://www.oreilly.com/library/view/user-experience-mapping/9781787123502/92d21fe3-a741-49ff-8200-25abf18c98d0.xhtml">Connextra</a> geprägten Format kein Zufall:
+Die Grundidee hier ist, es soll so einfach wie möglich sein, die eine Form in die andere zu übertragen.</p>
+
+<p><a href="https://cucumber.io/docs/gherkin/">Gherkin</a> selbst bietet <a href="https://cucumber.io/docs/gherkin/reference">zahlreiche Möglichkeiten</a> und ist alleine dadurch schon einen eigenen Blogpost wert,
+daher beschränken wir uns hier auf die verwendeten Grundbefehle.
+Im folgenden Beispiel kann man schön sehen wie ein Testfall (oder <strong>Feature</strong>) aufgebaut ist:</p>
+
+<h6 id="beispiel">Beispiel</h6>
+
+<pre><code class="language-gherkin">Feature: Create a todo
+  Create various todo entries to test the endpoint.
+
+  Scenario Outline: Create a todo with title and description and check the id.
+    Given I create a todo with the title "&lt;title&gt;"
+    And the description "&lt;description&gt;"
+    Then its id should be &lt;id&gt;
+
+    Examples:
+      | title  | description  | id |
+      | title1 | description1 | 1  |
+      | title2 | description2 | 2  |
+</code></pre>
+
+<p>Im oberen Teil wird zunächst der allgemeine Testfall beschrieben und anschließend in einem konkreten Szenario noch
+einmal eingegrenzt.
+Darauf folgt die Beschreibung des eigentlichen Szenarios samt Tabelle mit Beispielen, welche jetzt definierte
+Randbedingungen aus einem vorherigen <strong>Specification Workshop</strong> sein könnten.
+Hierbei wird bewusst auf natürliche Sprache gesetzt und es stehen Bindings für <a href="https://cucumber.io/docs/gherkin/languages/">weitere Sprachen</a> zur Verfügung.</p>
+
+<p>Nachdem die Features und Szenarien definiert wurden muss noch der entsprechende <em>Glue Code</em> in Form von <strong>Stepfiles</strong>
+ergänzt werden, einen Auszug daraus sehen wir uns hier an:</p>
+
+<pre><code class="language-java">public class TodoSteps {
+    @Given("I create a todo with the title {string}")
+    public void given_set_title(String title) {
+        this.todoBase.setTitle(title);
+    }
+
+    @And("the description {string}")
+    public void and_set_description(String description) {
+        this.todoBase.setDescription(description);
+    }
+}
+</code></pre>
+
+<p>Hier bieten die <a href="https://cucumber.io/docs/installation/java/">Java Bindings</a> hilfreiche Annotationen, mit denen ein Matching über reguläre Ausdrücke leicht von
+der Hand geht.</p>
+
+<p>Nach einem Testdurchlauf sieht man dann u.a. folgende Ausgabe:</p>
+
+<pre><code class="language-gherkin">Scenario Outline: Create a todo with title and description and check the id. # src/test/resources/features/todo.feature:11
+  Given I create a todo with the title "title1"                              # dev.unexist.showcase.todo.domain.todo.TodoSteps.given_set_title(java.lang.String)
+  And the description "description1"                                         # dev.unexist.showcase.todo.domain.todo.TodoSteps.and_set_description(java.lang.String)
+  Then its id should be 1                                                    # dev.unexist.showcase.todo.domain.todo.TodoSteps.then_get_id(int)
+</code></pre>
+
+<p>Neben dieser reinen Textausgabe beim Build bietet <a href="https://cucumber.io">Cucumber</a> die Möglichkeit, mittels <a href="https://cucumber.io/docs/cucumber/reporting/">externer Tools</a>
+weitere Reports zu erzeugen oder <strong>optional</strong> einen Standardreport über <a href="https://reports.cucumber.io">https://reports.cucumber.io</a> online einzusehen:</p>
+
+<p><img src="/assets/images/posts/specification-by-example/cucumber-shell.png" alt="image" /></p>
+
+<p><img src="/assets/images/posts/specification-by-example/cucumber-report-online.png" alt="image" /></p>
+
+<h6 id="zusammenfassung">Zusammenfassung</h6>
+
+<ol>
+  <li>Testfälle werden in <a href="https://cucumber.io">Cucumber</a> in natürlicher Sprache geschrieben.</li>
+  <li>Es können Tabellen verwendet werden, um Testdaten für die Szenarien bereitzustellen.</li>
+  <li>Abseits der Textausgabe eines Builds können weitere Reports gesondert erstellt werden.</li>
+</ol>
+
+<p>Als nächstes Tool sehen wir uns <a href="http://fitnesse.org/">FitNesse</a> an, welches einen etwas anderen Weg geht.</p>
+
+<h5 id="fitnesse">FitNesse</h5>
+
+<h6 id="einleitung-1">Einleitung</h6>
+
+<p>Beim vorherigen Tool haben wir gesehen, wie mittels Tabellen und einer <a href="https://en.wikipedia.org/wiki/Domain-specific_language">Domain-Specific Language</a> Szenarien
+beschrieben und durch Reporting Ergebnisse auch für die Businessseite aufbereitet werden können.</p>
+
+<p><a href="http://fitnesse.org/">FitNesse</a> geht hierbei einen anderen Weg und bietet ebenfalls wie <a href="https://cucumber.io">Cucumber</a> datengestützte Tests
+an, allerdings werden diese in einer eigenen <a href="https://en.wikipedia.org/wiki/Wiki_software">Wikiengine</a> angezeigt und können auch dort direkt im Browser
+ausgeführt werden:</p>
+
+<p><img src="/assets/images/posts/specification-by-example/fitnesse_wiki_before.png" alt="image" /></p>
+
+<p>Natürlich ist es auch möglich, diese Tests <em>headless</em> ohne Browser in einer Pipeline auszuführen:</p>
+
+<pre><code class="language-shell">$ java -jar lib/fitnesse.jar -c "FrontPage?suite&amp;suiteFilter=MustBeGreen&amp;format=text"
+</code></pre>
+
+<p>Uns sollte der Testfall ja mittlerweile vertraut sein, daher springen wir direkt zum Beispiel.</p>
+
+<h6 id="beispiel-1">Beispiel</h6>
+
+<p>Der Quelltext der Wikiseite sieht dann so aus:</p>
+
+<pre><code class="language-asc">!1 Create a todo
+
+----
+!contents -R2 -g -p -f -h
+
+|import|
+|dev.unexist.showcase.todo.domain.todo|
+
+Create various todo entries to test the endpoint.
+
+!|Todo Endpoint Fitnesse Fixture |
+| title   | description   | id?  |
+| title1  | description1  | 1    |
+| title2  | description2  | 2    |
+</code></pre>
+
+<p>Hier wird neben Befehlen für die Wahl der Testengine und Formatierung der Inhalte, die wir jetzt außen vor lassen,
+zunächst der Pfad für die Imports festgelegt und anschließend werden wie auch bei <a href="https://cucumber.io">Cucumber</a> die Testdaten
+tabellarisch aufgeführt.</p>
+
+<pre><code class="language-java">public class TodoEndpointFitnesseFixture {
+    private TodoBase todoBase;
+    private RequestSpecification requestSpec;
+
+    public void setTitle(String title) {
+        this.todoBase.setTitle(title);
+    }
+
+    public int id() {
+        String location = given(this.requestSpec)
+            .when()
+                .body(this.todoBase)
+                .post("/todo")
+            .then()
+                .statusCode(201)
+            .and()
+                .extract().header("location");
+
+        return Integer.parseInt(location.substring(location.lastIndexOf("/") + 1));
+    }
+}
+</code></pre>
+
+<p><a href="http://fitnesse.org/">FitNesse</a> greift im Testlauf direkt auf die Methoden des <strong>Fixtures</strong> zu:
+Somit wird aus der Spalte <strong>title</strong> ein Aufruf des Getters <code>getTitle</code> und analog dazu sorgt die Spalte <strong>id</strong> für
+einen Aufruf des Setters <code>id</code>.</p>
+
+<p>Im Browser selbst kann dann mittels Klick auf <strong>Test</strong> der Test gestartet werden und die Elemente der Seite werden
+je nach Testergebnis dann farblich hervorgehoben:</p>
+
+<p><img src="/assets/images/posts/specification-by-example/fitnesse_wiki_after.png" alt="image" /></p>
+
+<h6 id="zusammenfassung-1">Zusammenfassung</h6>
+
+<ol>
+  <li><a href="http://fitnesse.org/">FitNesse</a> verwendet ein eigenes Wiki für die Testfälle und bietet die Möglichkeit, diese auch direkt dort
+auszuführen.</li>
+  <li>Wie auch bei <a href="https://cucumber.io">Cucumber</a> werden Tabellen eingesetzt, um Testdaten für die Szenarien bereitzustellen.</li>
+  <li>Eine Übersicht über Testläufe kann direkt im Wiki erfolgen und bietet so eine einfache Möglichkeit für die
+Businessseite, den Status einzusehen.</li>
+</ol>
+
+<p>Und zuletzt widmen wir uns jetzt <a href="https://concordion.org/">Concordion</a>, welches <a href="https://daringfireball.net/projects/markdown/syntax">Markdown</a> einsetzt, um Testfälle und Reports zu
+erzeugen.</p>
+
+<h5 id="concordion">Concordion</h5>
+
+<h6 id="einleitung-2">Einleitung</h6>
+
+<p>Im Grunde sehen wir hier bekanntes Vorgehen, wie auch bei den Vorgängern ist es bei <a href="https://concordion.org/">Concordion</a> möglich, Tests
+in einem Dokument zu beschreiben und Daten in Form von Tabellen zu hinterlegen.
+Der erwähnenswerte Unterschied hier ist, es wird <a href="https://daringfireball.net/projects/markdown/syntax">Markdown</a> als <em>Glue Code</em> eingesetzt, um die Verbindung zwischen
+Testfall und <strong>Fixture</strong> herzustellen.</p>
+
+<p>Das ganze ist einfacher gezeigt als erklärt, daher springen wir direkt zum Beispiel.</p>
+
+<h6 id="beispiel-2">Beispiel</h6>
+
+<pre><code class="language-markdown"># Create a todo
+
+This is an example specification, that demonstrates how to facilitate markdown
+and [Concordion](https://concordion.org) fixtures.
+
+### [Simple example](- "simple_example")
+
+A todo is [created](- "#result = create(#title, #description)") with the simple
+title **[test](- "#title")** and the matching description
+**[test](- "#description")** and [saved](- "#result = save(#result)") as ID
+[1](- "?=#result.getId").
+</code></pre>
+
+<p>Auf den ersten Blick mag einen das jetzt erschlagen, allerdings findet man sich mit ein wenig <a href="https://daringfireball.net/projects/markdown/syntax">Markdown</a>-Kenntnis
+schnell zu recht.
+Der interessante Teil ist hierbei die Verwendung von Links:</p>
+
+<ul>
+  <li>Mittels <code>#title</code> können in <a href="https://concordion.org/">Concordion</a> Variablen gesetzt werden, in diesem Fall die Variable <code>title</code>.</li>
+  <li>Verwendet man dabei ein Gleichheitszeichen wie bei <code>#result = #title</code>, erzeugt man eine Zuweisung.</li>
+  <li>Lässt man alles davon weg wie bei <code>create</code>, wird diese Methode des <strong>Fixtures</strong> aufgerufen.</li>
+  <li>Und beginnt man mit einem Fragezeichen wie bei <code>?=#result</code>, wird ein <em>AssertEquals</em> aufgerufen.</li>
+</ul>
+
+<p>Im obigen Beispiel nutzen wir wieder den ersten Testfall und wollen lediglich ein Todo mit <strong>title</strong> und
+<strong>description</strong> angelegen, dies sieht im <strong>Fixture</strong> dann so aus:</p>
+
+<pre><code class="language-java">@RunWith(ConcordionRunner.class)
+public class TodoConcordionFixture {
+    public TodoBase create(final String title, final String description) {
+        TodoBase base = new Todo();
+
+        base.setTitle(title);
+        base.setDescription(description);
+
+        return base;
+    }
+}
+</code></pre>
+
+<p>Startet man den Testlauf, wird ein Report erzeugt, der in etwa so aussieht:</p>
+
+<p><img src="/assets/images/posts/specification-by-example/concordion_simple_test.png" alt="image" /></p>
+
+<p>Jetzt sind die ganzen <em>inline</em> Links relativ komplex und werden schnell unübersichtlich, daher ist es ebenfalls
+möglich die alternative Schreibweise von Links in <a href="https://daringfireball.net/projects/markdown/syntax">Markdown</a> zu verwenden:</p>
+
+<pre><code class="language-markdown">### [Simple example with different notation](- "simple_example_modified")
+
+A todo is [created][createdCmd] with the simple title **[test](- "#title")** and
+the matching description **[test](- "#description")** and [saved][savedCmd]
+as ID [1](- "?=#result.getId").
+
+[createdCmd]: - "#result = create(#title, #description)"
+[savedCmd]: - "#result = save(#result)"
+</code></pre>
+
+<p><img src="/assets/images/posts/specification-by-example/concordion_simple_test_modified.png" alt="image" /></p>
+
+<p>Und abschließend dazu sind natürlich ebenfalls Tabellen in <a href="https://concordion.org/">Concordion</a> möglich:</p>
+
+<pre><code class="language-markdown">### [Simple table example](- "simple_table")
+
+This example creates todos based on table values:
+
+| [createAndSave][][Title][title] | [Description][description] | [ID][id] |
+| ------------------------------- | -------------------------- | -------- |
+| title1                          | description1               | 3        |
+| title2                          | description2               | 4        |
+
+[createAndSave]: - "#result = createAndSave(#title,#description)"
+[title]: - "#title"
+[description]: - "#description"
+[id]: - "?=#result.getId"
+</code></pre>
+
+<p>Hierbei müssen dann auch lediglich die Spaltennamen mit der Logik versehen werden, sodass die Tabellen selbst
+relativ übersichtlich bleiben:</p>
+
+<p><img src="/assets/images/posts/specification-by-example/concordion_table_test.png" alt="image" /></p>
+
+<h6 id="zusammenfassung-2">Zusammenfassung</h6>
+
+<ol>
+  <li>Hier ist der wesentliche Unterschied die Form, in der die Testfälle geschrieben werden.</li>
+  <li>Neben Tabellen können hier auch einzelne Werte direkt eingesetzt und im Testszenario flexibel verwendet werden.</li>
+  <li>Die Ausgabe des Testlaufs ist die generierte Seite, die mittels <a href="https://daringfireball.net/projects/markdown/syntax">Markdown</a> beschrieben wurde.</li>
+</ol>
+
+<h4 id="fazit">Fazit</h4>
+
+<p>Die Grundidee bei <strong>Specification by Example</strong> ist, ein Dokument zu erzeugen, welches neben reinen Testdaten auch
+Kontext und wichtige Randbedingungen liefert und bei Änderungen gepflegt bzw. überarbeitet wird.
+Diese <em>lebende</em> Dokumentation kann dann Testpläne und auch Tickets überdauern, sodass auch später noch verständlich
+ist, worum es dabei geht.</p>
+
+<p>Ein weiterer wichtiger Aspekt ist der Austausch der beteiligten Rollen, die im Rahmen dieser Workshops zusammenkommen
+und im <strong>Vorfeld</strong> ein gemeinsames Verständnis schaffen.
+Die im Artikel vorgestellten Tools können zusätzlich dabei unterstützen und sowohl Ergebnisse als auch Dokumentation
+der Testläufe aufbereiten, sodass sie den richtigen Personen zielgruppengerecht zur Verfügung gestellt werden können.</p>
+
+
+</div>
+</div>
+</div>
+</div>]]></field>
+    </document>
+</documents>
