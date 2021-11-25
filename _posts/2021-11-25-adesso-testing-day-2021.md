@@ -1,7 +1,7 @@
 ---
 layout: [post, post-xml]              # Pflichtfeld. Nicht ändern!
 title:  "adesso testing day 2021"     # Pflichtfeld. Bitte einen Titel für den Blog Post angeben.
-date:   2021-10-04 15:00              # Pflichtfeld. Format "YYYY-MM-DD HH:MM". Muss für Veröffentlichung in der Vergangenheit liegen. (Für Preview egal)
+date:   2021-11-25 12:00              # Pflichtfeld. Format "YYYY-MM-DD HH:MM". Muss für Veröffentlichung in der Vergangenheit liegen. (Für Preview egal)
 author_ids: [stwacker]
 categories: [Inside adesso]           # Pflichtfeld. Maximal eine der angegebenen Kategorien verwenden.
 tags: [Testing]                       # Optional.
