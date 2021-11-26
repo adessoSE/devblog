@@ -532,3 +532,12 @@ unexist:
   avatar_url: /assets/images/avatars/unexist.jpg
   github_username: unexist
   github: https://github.com/unexist
+
+gaboratarithnea:
+  first_name: Gabor
+  last_name: Meißner
+  github_username: gaboratarithnea
+  email: gabor.meissner@arithnea.de
+  bio: "Gabor Meißner ist Softwarearchitekt im Bereich Cross Industries mit dem Schwerpunkt auf Retail und eCommerce-Anwendungen. Er beschäftigt sich gern mit der Beobachtung neuer Technologien wie Microframeworks und Kotlin."
+  avatar_url: /assets/images/avatars/gabormeissner.jpg
+  github: https://github.com/gaboratarithnea
