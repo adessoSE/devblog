@@ -11,7 +11,7 @@ Im Jahr 2021 muss man niemanden mehr erklären, dass alle Bereiche der Gesellsch
 Das gilt auch für die Entwicklung von Software.
 In diesem Beitrag sollen einige Ansätze dazu für den Entwickler:innen-Alltag bei Java-basierten Serveranwendungen gezeigt werden, die auf einen möglichst sparsamen Umgang mit Ressourcen abzielen.
 
-## Effiziente Algorithmen verwenden
+# Effiziente Algorithmen verwenden
 
 Die gute Nachricht zuerst: Informatiker:innen haben sich in der Regel durch ein Studium "gekämpft", bei dem eines der wichtigsten Themen Effizienz war.
 Wir sind also gut darin ausgebildet, effiziente Lösungen für Probleme zu erkennen und anzuwenden.
@@ -31,7 +31,7 @@ Im Prinzip sind diese Techniken längst bekannt, effizient zu entwickeln war sch
 
 Aber selbst effiziente Algorithmen sollten nicht unnötig oft laufen. In Zeiten von replizierten Microservices sollten "teure" Aufgaben nicht einfach jeder Instanz ausgeführt, wenn das auch eine Instanz erledigen kann. Im Kubernetes-Umfeld bieten sich dafür beispielsweise [Jobs](https://kubernetes.io/docs/concepts/workloads/controllers/job/ an.
 
-## CPU-Last minimieren
+# CPU-Last minimieren
 
 Möglicherweise nicht ganz so klar ist der zweite Punkt. Die CPU-Auslastung von Webanwendungen hängt in der Regel von zu bearbeitenden Request ab.
 Je mehr Request und je aufwendiger diese sind, desto höher ist die CPU-Auslastung. Wenn gerade keine Requests ankommen, sollte die Auslastung nahe 0 sein.
@@ -47,7 +47,7 @@ Das wird zwar den Speicherverbrauch erhöhen, senkt aber die CPU-Auslastung, wen
 
 Microframeworks erfordern in unterschiedlichen Szenarien (Start, Leerlauf, beim Beantworten von Requests) weniger CPU-Kapazitäten als herkömmliche Webframeworks (siehe [hier](https://dzone.com/articles/not-only-spring-boot-a-review-of-alternatives)).
 
-## Netzwerk-Last minimieren
+# Netzwerk-Last minimieren
 
 Request gegen eine Webanwendung bedeuten in der Regel, dass Daten über das Internet hin- und hergesandt werden und das sollte möglichst selten und knapp passieren.
 Die Bedeutung binäre Protokollen für den Austausch wurden bereits kurz angedeutet.
@@ -61,7 +61,7 @@ Hier können die Daten explizit angefragt werden, die auch benötigt werden und 
 
 adesso arbeitet bei vielen eCommercetools-Projekten mit commercetools zusammen, die eine solche GraphQL anbietet. Hier kurz der Vergleich, wie viele Daten gespart werden können, wenn man eine Kategorie mit GraphQL anfordert (um den Beitrag kurzzuhalten, die REST-Variante hat über 80 Zeilen):
 
-### Anfrage
+## Anfrage
 
 ```graphql
 {
@@ -81,7 +81,7 @@ adesso arbeitet bei vielen eCommercetools-Projekten mit commercetools zusammen, 
 ```
 
 
-### Antwort
+## Antwort
 ````json
 {
   "data": {
@@ -105,7 +105,7 @@ Bei binären Daten wie Bildern sieht es im Prinzip ähnlich aus.
 Diese sollten effizient mit einer angepassten Auflösung und Qualität heruntergeladen werden.
 Hier bieten sich Content Delivery Networks an, die diese Aufgabe gut erledigen.
 
-## Skalierbarkeit
+# Skalierbarkeit
 
 Skalierbarkeit wird häufig unter dem Aspekt betrachtet, dass hohe Zugriffszahlen auftreten, die sonst unüblich sind.
 In der Regel gibt man sich aber ansonsten zufrieden, wenn die Anwendung schnell reagiert.
@@ -118,13 +118,13 @@ Dabei kann man ganz trivial eine Mindest- und eine Höchstzahl an Pods (Instanze
 Entscheidend für die Technologie ist allerdings die Startzeit eines Microservice und da sind die auf "klassischen" Webframeworks basierenden Anwendungen leider recht langsam.
 Da ist mit einer Startzeit von über zehn Sekunden zu rechnen, in vielen Fällen sogar deutlich mehr. Das ist nicht wirklich kompatibel mit dem Skalierungsgedanken. Natürlich spricht immer noch viel für den Einsatz von Spring Boot u.a., bei diesem Aspekt sind andere Frameworks wie Quarkus, Micronaut und Ktor überlegen (siehe [hier](https://dzone.com/articles/not-only-spring-boot-a-review-of-alternatives)).
 
-## Caching
+# Caching
 
 Webanwendungen verbrauchen z.B. dann viel Speicher, wenn sie Daten cachen müssen. Caching ist prinzipiell aber zu empfehlen, da dadurch gleiche Berechnungen, Datenbank- oder API-Anfragen nicht ständig wiederholt werden müssen. Caching, das sich über mehrere Instanzen eines Microservices erstreckt, ist hier der Königsweg und würde noch stärker vermeiden (insbesondere bei Skalierungen), dass Berechnungen mehrfach gemacht werden.
 
 Ansonsten ist anzumerken, dass Microframeworks wie Quarkus und Ktor im Speicherverbrauch deutlich günstiger sind als beispielsweise Platzhirsch Spring Boot.
 
-## Reaktiv entwickeln
+# Reaktiv entwickeln
 
 In die Java-Community zog vor ein paar Jahren die nicht-blockierende Entwicklung ein. Der Grund dafür war, dass andere Technologiefamilien wie NodeJS bei der Verarbeitung von Requests eine bessere Performance zeigten und das vor allem am nicht-blockierenden Ansatz lag ([Ein aktueller Beitrag
 dazu ist hier zu sehen](https://da-14.com/blog/nodejs-vs-java-backend-language-large-software-development)).
@@ -136,7 +136,7 @@ Trotzdem sollte man auch im Java- oder JVM-Umfeld reaktiv entwickeln, da dadurch
 Ein großer Nachteil reaktiver Programmierung in Java ist allerdings das Schreiben und die Lesbarkeit des Codes.
 Viel Code wird mit Funktionen beschrieben, die häufig schwer verständlich sind und leicht den Blick auf das Wesentliche, also die Geschäftslogik, versperren. [Der Empfehlung des Autors](https://nexocode.com/blog/posts/reactive-streams-vs-coroutines/) kann ich mir anschließen, Kotlin Coroutines wirken deutlich einfacher als die gängigen Java-Bibliotheken.
 
-## Zusammenfassung
+# Zusammenfassung
 
 Technologieauswahl und Programmierung spielen eine wichtige Rolle, für den ökologischen Fußabdruck einer Webanwendung.
 Hier wurde exemplarisch einige Beispiele gezeigt, wie man Ressourcen sparen kann, in dem man auf Microframeworks, moderne Serialisierungsbibliotheken, skalierbare Architekturen, reaktive Entwicklung und GraphQL setzt.
