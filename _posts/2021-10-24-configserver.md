@@ -7,14 +7,14 @@ categories: [Architektur]
 tags: [Java, AWS, Cloud, Springboot, Config-Server]        
 ---
 
-Konfigurationen für Artefakte von außen zu injecten ist lang bewährte Praxis und wird in vielen Softwareprojekten so gelebt.
+Konfigurationen für Artefakte von außen zu injecten, ist lang bewährte Praxis und wird in vielen Softwareprojekten so gelebt.
 Seien es Feature Switches, stage-spezifische Einstellungen oder andere Werte, deren Ausprägungen stetigen Anpassungen unterworfen sein können, alle sollten am Ende gut nachvollziehbar und sicher abgelegt sein.
 Dabei können verteilte Systeme aber auch bereits einzelne Artefakte im Laufe ihrer Entwicklung eine schwer überschaubare Anzahl von Umgebungsvariablen benötigen.
 Einige Möglichkeiten, diese Werte zentral zu verwalten, sowie deren Vor- und Nachteile, möchte ich im Folgenden etwas näher betrachten.
 
 # Motivation - Was gilt es zu beachten?
 Nicht nur, dass die Anzahl der Konfigurationswerte in einem Projekt, sei es nun verteilt oder monolithisch, mit der Zeit stetig wachsen kann, auch die gespeicherten Werte an sich können unterschiedliche Anforderungen an ein Projekt stellen.
-Ist die Konfiguration beispielsweise in einem git Repository mit hinterlegt, so erschlägt man damit bereits Anforderungen an die Historisierung.
+Ist die Konfiguration beispielsweise in einem git-Repository mit hinterlegt, so erschlägt man damit bereits Anforderungen an die Historisierung.
 Es gibt aber auch verschiedenste schützenswerte Einstellungen, die natürlich nicht mit dem Code im Repository landen dürfen.
 Diese sollten gerade für eine Produktivumgebung nicht für jeden einsehbar sein.
 Darüber hinaus erhöht es die Sicherheit diese regelmäßig auszutauschen.
@@ -36,7 +36,7 @@ Die Integration in ein spring-basiertes Projekt kann vollständig transparent ü
 Für die initiale Befüllung des Config-Servers mit den gewünschten Properties lässt sich out of the box mit einfachen Mitteln ein git Repository einbinden, welches dann auch gleich für eine Historisierung der Properties sorgt.
 
 ## Pro
-Um die vorhandenen Funktionen zu erweitern und z.B. Properties aus weiteren Quellen zu integrieren, können wir hier mit wenigen Annotationen schnell ein eigenes spring-boot-basiertes Projekt aufsetzen, in dem wir unser eigener Herr sind.
+Um die vorhandenen Funktionen zu erweitern und z.B. Properties aus weiteren Quellen zu integrieren, können wir hier mit wenigen Annotationen schnell ein eigenes Spring Boot-basiertes Projekt aufsetzen, in dem wir unser eigener Herr sind.
 Und natürlich sind wir nicht darauf beschränkt, hier nur spring-basierte Java-Projekte mit Konfigurationen zu versorgen.
 Es stehen unter anderem auch passenden Libs für NodeJS, Quarkus oder Micronaut zur Verfügung.
 
@@ -99,7 +99,7 @@ Wer noch eine Funktion vermisst oder eine vorhandene anpassen will, dem bietet d
 ## Contra
 Auch in diesem Fall ist es denkbar, das System selbst zu betreiben, und man sollte sich analog zu den anderen Systemen Gedanken zu den Themen Ausfallsicherheit, Performance aber auch Authentifizierung machen.
 Denn die Pflegeoberfläche sollte natürlich sehr gut abgesichert sein, um jeglichen Missbrauch zu unterbinden.
-Wer keine über die Speicherung von Umgebungsvariablen hinausgehenden Anforderungen hat, der bekommt hier weit mehr geliefert als er bräuchte und könnte sich auch schmalere Lösungen angucken.
+Wer keine über die Speicherung von Umgebungsvariablen hinausgehenden Anforderungen hat, der bekommt hier weit mehr geliefert, als er bräuchte, und könnte sich auch schmalere Lösungen angucken.
 
 # AWS Systems Manager
 Wenn die eigene Software bereits in der Cloud läuft, ist es natürlich interessant zu gucken, was vom jeweiligen Cloud Provider bereits angeboten wird.
