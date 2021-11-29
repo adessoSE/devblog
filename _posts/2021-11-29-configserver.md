@@ -1,7 +1,7 @@
 ---
 layout: [post, post-xml]              
 title:  "Welcher Config-Server passt zu meinem Projekt?"         
-date:   2021-10-24 10:25              
+date:   2021-11-29 10:00              
 author_ids:     [kaythielmann]
 categories: [Architektur]           
 tags: [Java, AWS, Cloud, Springboot, Config-Server]        
