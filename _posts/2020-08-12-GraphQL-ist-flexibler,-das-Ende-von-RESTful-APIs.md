@@ -3,7 +3,7 @@ layout:         [post, post-xml]
 title:          "GraphQL ist flexibler, das Ende von REST-APIs?"
 date:           2020-08-12-20:00
 modified_date:  2020-08-12-20:00
-author:         muhannaddarraj 
+author_ids: [muhannaddarraj] 
 categories:     [Architektur]
 tags:           [GraphQL, REST, Webservices]
 ---

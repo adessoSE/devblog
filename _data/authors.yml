@@ -479,7 +479,7 @@ thorbolo:
   bio: "Thorben Schiller ist seit 2013 bei adesso und hat seinen Weg vom Studenten zum Software Architekten gemacht. Sein Schwerpunkt liegt im Java-Backend."
   avatar_url: /assets/images/avatars/thorbenschiller.jpg
   github: https://github.com/thorbolo
-  
+
 johndoe:
   first_name: John
   last_name: Doe
@@ -532,3 +532,12 @@ kaythielmann:
   bio: "Kay Thielmann arbeitet als Software Architect bei Adesso in Dortmund. Seine Schwerpunkte liegen zur Zeit im Bereich e-Commerce, wo er diverse Applikationen in der AWS-Cloud mit betreut und weiterentwickelt."
   avatar_url: /assets/images/avatars/kaythielmann.jpg
   github: https://github.com/kthielma
+
+unexist:
+  first_name: Christoph
+  last_name: Kappel
+  email: christoph.kappel@adesso.de
+  bio: "Christoph Kappel arbeitet als Softwarearchitekt im Bereich Cross Industries und beschäftigt sich in seiner Freizeit auch mal mit Technologie."
+  avatar_url: /assets/images/avatars/unexist.jpg
+  github_username: unexist
+  github: https://github.com/unexist

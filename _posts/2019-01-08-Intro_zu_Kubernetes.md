@@ -2,7 +2,7 @@
 layout:         [post, post-xml]              
 title:          "Einführung in Kubernetes"
 date:           2019-01-08 10:00
-author:         t-buss
+author_ids: [t-buss]
 categories:     [Softwareentwicklung]
 tags:           [cloud, kubernetes]
 ---

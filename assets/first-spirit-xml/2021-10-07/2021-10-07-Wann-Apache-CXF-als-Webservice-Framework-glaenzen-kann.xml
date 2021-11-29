@@ -20,7 +20,6 @@ Leider ist die Welt selten ideal, womit bei CXF dann die Unannehmlichkeiten begi
         <field name="date_l"><![CDATA[1633597200000]]></field>
         <field name="change_date"><![CDATA[1633597200000]]></field>
         <!--Author Information-->
-        
         <field name="author_id"><![CDATA[thorbolo]]></field><!--Postcontent-->
         <field name="headlines"><![CDATA[Wann Apache CXF als Webservice-Framework glänzen kann]]></field>
         <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">

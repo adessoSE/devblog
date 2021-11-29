@@ -1,8 +1,8 @@
 ---
 layout: [post, post-xml]              
 title: "Why you should not use WebAssembly to build your SPA"            
-date: 2021-03-04 09:00 
-author: maximilian_Lang                 
+date: 2021-03-04 09:00
+author_ids: [maximilian_Lang]                 
 categories: [Softwareentwicklung]
 tags: [JavaScript, WebAssembly, Blazor, Vue.js, Lighthouse]     
 ---
