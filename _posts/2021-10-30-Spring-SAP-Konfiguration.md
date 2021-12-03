@@ -45,13 +45,91 @@ jco:
     passwd: [SAP-PASSWORT]
     lang: de
 ```
-Die Klasse `SapConfigurationProperties` nutzt die Spring Annotation `@ConfigurationProperties(prefix = "jco.client")`, um die Konfiguration zu lesen und innerhalb der Setter in die erforderlichen Properties zu schreiben.
+Die Klasse `SapConfigurationProperties` nutzt die [Spring Annotation](https://docs.spring.io/spring-boot/docs/current/reference/html/features.html#features.external-config) `@ConfigurationProperties(prefix = "jco.client")`, um diese Konfiguration zu lesen und innerhalb der Setter in die erforderlichen Properties zu schreiben.
+Die Annoation bewirkt, dass Spring beim Start der Anwendung Konfigurationswerte auf Basis ihres Namens an Properties eine Instanz.
+Das Schreiben der Werte in die Instanz erfolgt über den Aufruf der entsprechenden Setter.
+
+Da *SAP JCo* keine Beans zur Konfiguration nutzt, sondern Properties verwendet, füllen die Setter in diesem Fall eine Properties Instanz mit den Werte, die in der FOlge verwendet werden können. 
+```java
+@Configuration
+@ConfigurationProperties(prefix = "jco.client")
+public class SapConfigurationProperties {
+
+  private final Properties properties = new Properties();
+
+  public void setAshost(String ashost) {
+    this.properties.setProperty(DestinationDataProvider.JCO_ASHOST, ashost);
+  }
+
+  public void setSysnr(String sysnr) {
+    this.properties.setProperty(DestinationDataProvider.JCO_SYSNR, sysnr);
+  }
+
+  public void setClient(String client) {
+    this.properties.setProperty(DestinationDataProvider.JCO_CLIENT, client);
+  }
+
+  public void setUser(String user) {
+    this.properties.setProperty(DestinationDataProvider.JCO_USER, user);
+  }
+
+  public void setPasswd(String passwd) {
+    this.properties.setProperty(DestinationDataProvider.JCO_PASSWD, passwd);
+  }
+
+  public void setLang(String lang) {
+    this.properties.setProperty(DestinationDataProvider.JCO_LANG, lang);
+  }
+
+  public Properties getProperties() {
+    return properties;
+  }
+}
+
+```
+
 
 Der `SapDestinationProvider` stellt *SAP JCo* diese Konfiguration als ein Ziel zur Verfügung. Ein Ziel ist die Darstellung eines SAP-Systems innerhalb von *SAP JCo*.
 Grundsätzlich können beliebig viele Ziele verwaltet werden. 
 Das Beispiel beschränkt sich auf eines.
 Da der Provider eine `@Component` ist, wird er bei Bedarf von Spring instanziiert und das Ziel somit in *SAP JCo* registriert. 
 Der `InMemoryDestinationDataProvider` dient dabei der einfachen Ablage der Konfiguration im Speicher.
+```java
+@Component
+@RequiredArgsConstructor
+@Slf4j
+public class SapDestinationProvider {
+
+  private static final String DESTINATION_NAME = "Test-SAP";
+
+  private final SapConfigurationProperties configurationProperties;
+
+  @PostConstruct
+  public void init() {
+    var memoryProvider = new InMemoryDestinationDataProvider();
+
+    // Registriert den Provider in der JCo-Umgebung.
+    // Fängt IllegalStateException, wenn eine Instanz bereits registriert ist.
+    try {
+      Environment.registerDestinationDataProvider(memoryProvider);
+    } catch (IllegalStateException providerAlreadyRegisteredException) {
+      log.warn("Die Implementierung ist bereits registriert.", providerAlreadyRegisteredException);
+    }
+
+    memoryProvider.changeProperties(DESTINATION_NAME, configurationProperties.getProperties());
+  }
+
+  public JCoDestination getDestination() throws JCoException {
+    return JCoDestinationManager.getDestination(DESTINATION_NAME);
+  }
+}
+```
+Jede Anwendung, die *SAP JCo* verwendet, behandelt Ziele. 
+Ein Ziel stellt eine logische Adresse eines SAP-Systems dar und trennt somit die Konfiguration von der eigentlichen Anwendungslogik.
+
+*SAP JCo* ruft die zur Laufzeit erforderlichen Parameter aus dem in der Laufzeitumgebung registrierten DestinationDataProvider ab. 
+Wenn kein Provider registriert ist, verwendet *SAP JCo* eine Standardimplementierung, die die Konfiguration aus einer Properties-Datei liest. 
+
 
 # Das Repackage-Problem
 Das `spring-boot-maven-plugin` stellt innerhalb des Build-Prozesse ein ausführbares Archiv zusammen, das die komplette Anwendung enthält.
@@ -73,6 +151,62 @@ Augenblicklich deswegen, weil der Scope `deprecated` also als veraltet markiert 
 In der aktuellen Version unterstützt Maven den Scope aber noch. 
 Maven geht nun davon aus, dass die entsprechende Abhängigkeit auf irgendeine Weise im classpath vorhanden ist. 
 Das Spring-Boot-Plugin kennt die jar-Datei somit nicht, sie wird folglich auch nicht umbenannt.
+
+# Was ist mit Tests
+Die Struktur, mit der auf SAP zugegriffen wird, lässt sich gut durch Mock-Objekte ersetzen.
+Somit sind Test auf verschieneden Ebenen möglich.
+Das folgende Beispiel abstrahiert sehr weit und testet lediglich die Antwort-Verarbeitung.
+Nach diesem Vorbild lassen aich auch beliebige komplexere Test realisieren, die zum Beispiel konkrete Ein- und Ausgabeparameter oder Fehlerantworten testen.
+
+```java
+@ExtendWith(SpringExtension.class)
+@SpringBootTest()
+class SapVertragClientTest {
+
+    @MockBean
+    SapDestinationProvider sapDestinationProvider;
+
+    @Autowired
+    private SapVertragClient client;
+    private JCoParameterList exportParameterList;
+
+    @BeforeEach
+    void init() throws JCoException {
+        exportParameterList = mock(JCoParameterList.class);
+
+        var importParameterList = mock(JCoParameterList.class);
+        when(importParameterList.getStructure("IS_READ_PM_KEY")).thenReturn(mock(JCoStructure.class));
+
+        var jCoFunction = mock(JCoFunction.class);
+        when(jCoFunction.getExportParameterList()).thenReturn(exportParameterList);
+        when(jCoFunction.getImportParameterList()).thenReturn(importParameterList);
+
+        var jCoRepository = mock(JCoRepository.class);
+        when(jCoRepository.getFunction("/PM0/ABT_CM_GET_CONTRACT_DATA")).thenReturn(jCoFunction);
+
+        var jCoDestination = mock(JCoDestination.class);
+        when(jCoDestination.getRepository()).thenReturn(jCoRepository);
+
+        when(sapDestinationProvider.getDestination()).thenReturn(jCoDestination);
+    }
+
+    @Test
+    void police1000_sollVertragLiefern() throws JCoException {
+        when(exportParameterList.toJSON()).thenReturn("{}");
+
+        assertEquals(Optional.of("{}"), client.leseVertrag("1000", "1000"));
+    }
+
+    @Test
+    void police2000_sollKeinErgebnis() throws JCoException {
+        when(exportParameterList.toJSON()).thenReturn(null);
+
+        assertEquals(Optional.empty(), client.leseVertrag("2000", "2000"));
+    }
+
+}
+```
+
 
 # Docker - In die Box
 ```xml
