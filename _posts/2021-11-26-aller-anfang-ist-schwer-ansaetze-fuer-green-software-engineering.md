@@ -31,7 +31,7 @@ Im Prinzip sind diese Techniken längst bekannt und effizient zu entwickeln war 
 
 Aber selbst effiziente Algorithmen sollten nicht unnötig oft laufen. 
 In Zeiten von replizierten Microservices sollten "teure" Aufgaben nicht einfach von jeder Instanz ausgeführt werden, wenn das auch eine Instanz erledigen kann. 
-Im Kubernetes-Umfeld bieten sich dafür beispielsweise [Jobs](https://kubernetes.io/docs/concepts/workloads/controllers/job/ an.
+Im Kubernetes-Umfeld bieten sich dafür beispielsweise [Jobs](https://kubernetes.io/docs/concepts/workloads/controllers/job/) an.
 
 # CPU-Last minimieren
 
@@ -137,10 +137,10 @@ Der Grund hierfür war, dass andere Technologiefamilien wie NodeJS bei der Verar
 Gleichzeitig benötigen asynchrone Frameworks mehr Speicher und die "Organisation" der nicht-blockierenden Prozesse gilt als aufwändig und damit nicht als ressourcenschonend.
 Zudem hängt der Nutzen stark von der Länge einer Blockade eines Threads ab ([5 Aspekte reativer Programmierung](https://javapro.io/5-aspekte-reaktive-programmierung/)).
 
-Trotzdem sollte man auch im Java- oder JVM-Umfeld reaktiv entwickeln, da dadurch deutlich schnellere Antwortzeiten möglich sind (siehe z.B. [hier](https://dzone.com/articles/spring-boot-20-webflux-reactive-performance-test)) und das dann in der Regel auch Ressourcen spart (weniger Rechenzeit, weniger Speichernutzung, wenige Wartezeit für den Client).
+Trotzdem sollte man auch im Java- oder JVM-Umfeld reaktiv entwickeln, da dadurch deutlich schnellere Antwortzeiten möglich sind (siehe z.B. [hier](https://dzone.com/articles/spring-boot-20-webflux-reactive-performance-test)) und das dann in der Regel auch Ressourcen spart (weniger Rechenzeit, weniger Speichernutzung, geringere Wartezeit für den Client).
 
 Ein großer Nachteil reaktiver Programmierung in Java ist allerdings das Schreiben und die Lesbarkeit des Codes.
-Viel Code wird mit Funktionen beschrieben, die häufig schwer verständlich sind und leicht den Blick auf das Wesentliche, also die Geschäftslogik, versperren. [Der Empfehlung dieses Autors](https://nexocode.com/blog/posts/reactive-streams-vs-coroutines/) kann ich mir anschließen, Kotlin Coroutines wirken deutlich einfacher als die gängigen Java-Bibliotheken.
+Viel Code wird mit Funktionen beschrieben, die häufig schwer verständlich sind und leicht den Blick auf das Wesentliche, also die Geschäftslogik, versperren. [Der Empfehlung dieses Autors](https://nexocode.com/blog/posts/reactive-streams-vs-coroutines/) kann man sich anschließen, Kotlin Coroutines wirken deutlich einfacher als die gängigen Java-Bibliotheken.
 
 # Zusammenfassung
 
