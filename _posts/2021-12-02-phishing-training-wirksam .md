@@ -2,7 +2,7 @@
 layout: [post, post-xml]              # Pflichtfeld. Nicht ändern!
 title:  "Wie erfolgreich können Phishing Simulationen sein?"         # Pflichtfeld. Bitte einen Titel für den Blog Post angeben.
 date:   2021-12-03 10:25              # Pflichtfeld. Format "YYYY-MM-DD HH:MM". Muss für Veröffentlichung in der Vergangenheit liegen. (Für Preview egal)
-modified_date: 2017-08-18             # Optional. Muss angegeben werden, wenn eine bestehende Datei geändert wird.
+modified_date: 2021-12-08             # Optional. Muss angegeben werden, wenn eine bestehende Datei geändert wird.
 author_ids: [vschiller]                 # Pflichtfeld. Es muss in der "authors.yml" einen Eintrag mit diesen Namen geben.
 categories: [Methodik]     # Pflichtfeld. Maximal eine der angegebenen Kategorien verwenden.
 tags: [IT-Security, Security Awareness]   # Bitte auf Großschreibung achten.
