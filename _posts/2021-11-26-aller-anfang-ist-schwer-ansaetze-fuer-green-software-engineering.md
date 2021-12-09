@@ -120,9 +120,10 @@ Reicht dann eine Instanz oder gar keine?
 Das Thema Skalierbarkeit wurde in vielerlei Hinsicht durch das Aufkommen von Kubernetes (für die breite Masse) gelöst.
 Dabei kann man ganz trivial eine Mindest- und eine Höchstzahl an Pods (Instanzen) pro Service definieren, die dann automatisch skalieren.
 Entscheidend für die Technologie ist allerdings die Startzeit eines Microservice und da sind die auf "klassischen" Webframeworks basierenden Anwendungen leider recht langsam.
-Bei diesen Technologien ist mit einer Startzeit von über zehn Sekunden zu rechnen, in vielen Fällen sogar deutlich mehr (die Nutzung von GraalVM mit Spring Boot ermöglicht ebenfalls kurze Startzeiten, siehe [Running Spring Boot apps as GraalVM Native Images](https://blog.codecentric.de/en/2020/05/spring-boot-graalvm/))). 
-Das ist nicht wirklich kompatibel mit dem Skalierungsgedanken. 
+Bei diesen Technologien ist mit einer Startzeit von über zehn Sekunden zu rechnen, in vielen Fällen sogar deutlich mehr.
+Das ist nicht wirklich kompatibel mit dem Skalierungsgedanken.
 Natürlich spricht immer noch viel für den Einsatz von Spring Boot u.ä., bei diesem Aspekt sind aber andere Frameworks wie Quarkus, Micronaut und Ktor überlegen (siehe [Review of Microservices Frameworks](https://dzone.com/articles/not-only-spring-boot-a-review-of-alternatives)).
+Durch Ansätze wie die Nutzung von GraalVM kann dieses Problem in Spring Boot umgangen werden und es können Startzeiten im Millisekundenbereich erreicht werden (siehe [Running Spring Boot apps as GraalVM Native Images](https://blog.codecentric.de/en/2020/05/spring-boot-graalvm/)).
 
 # Caching
 
