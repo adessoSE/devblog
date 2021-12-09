@@ -50,7 +50,7 @@ Im besten Fall wurde ein simuliertes Phishing-Training wiederholt, um den Traini
 Da ein solches zweiphasiges Experiment in der Realität schwierig durchzuführen ist, gibt es in diesem Bereich nur wenige Studien. 
 Zweiphasige Experimente sind schwer zu messen, da es immer eine Fluktuation der Mitarbeitenden gibt und somit immer nur ein Teil der Mitarbeitenden beim ersten oder nur beim zweiten simulierten Phishing-Training teilnehmen können und das Ergebnis so verzerrt werden kann. 
 Zudem sind die Phasen, in denen das Phishing-Training durchgeführt wird, meist mehrere Wochen oder Monate lang. 
-Somit gibt es nur wenige Studien, die in der Praxis durchgeführt wurden, und wenn dann handelte es sich meistens um einphasige Experimente.
+Somit gibt es nur wenige Studien, die in der Praxis durchgeführt wurden, und wenn, dann handelte es sich meistens um einphasige Experimente.
 Beispiele für zweiphasige Studien sind die Studien von [West-Point-Kadetten](https://www.learntechlib.org/p/103686/) und dem [New York State Office](https://www.wsj.com/articles/SB112424042313615131). 
 Sowohl in West Point als auch im New York State Office wurde in der ersten Phase untersucht, ob und wie gut die Probanden die Phishing-Angriffe erkennen.
 Im zweiten Teil wurden die West-Point-Kadetten im Präsenztraining geschult und anschließend erneut getestet. 
