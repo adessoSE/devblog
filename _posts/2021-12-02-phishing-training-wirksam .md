@@ -70,7 +70,7 @@ Daraus wurde gefolgert, dass ein solches Training auch für Personen wirksam sei
 Eine weitere Schlussfolgerung war, dass es auch kaum einen Unterschied zwischen dem Lernen mit dem Spear-Phishing-Material und dem generischen Phishing-Material gab.
 
 Eine andere einphasige [Studie](https://ieeexplore.ieee.org/abstract/document/6585241/?casa_token=gR_MTQC_7wUAAAAA:dmXsUP0cQSNsv1BMate9-Un15g2hYut02b847gVLlndOJ4RoWt08Pj8HxhPtpklT7QpjHR2cHFyj) untersucht ebenfalls Spear-Phishing-E-Mails und die Wirksamkeit von eingebetteten Schulungen in der Praxis. 
-Auch hier war die Hypothese, dass nach einem Phishing-Training die Anzahl der gemeldeten verdächtigen E-Mails steigt. 
+Auch hier war die Hypothese, dass nach einem Phishing-Training die Anzahl der gemeldeten verdächtigen realen E-Mails steigt. 
 Die Anzahl der Teilnehmenden an dieser Studie betrug 1359.
 Es wurden mehrere E-Mails vorbereitet, einige davon mit kleinen Fehlern, sodass die Probanden die Phishing-E-Mails erkennen konnten, wenn sie (mehr) aufpassten. 
 Das Ergebnis war, dass das eingebettete Training nicht wirksam war. 
@@ -89,7 +89,7 @@ Dies war eine der wenigen Studien, die in Deutschland mit 1200 Universitätsstud
 
 Auch bei adesso wurde 2019 eine einphasige Phishing-Studie durchgeführt. 
 Hierfür wurden vier Phishing-E-Mails in verschiedenen Schwierigkeitsstufen versendet. 
-Die Klickrate über alle Trainings-Phishing-E-Mails betrug am Ende des Training 26,4%. 
+Die Klickrate (die anonym ausgewertet wurde) über alle Trainings-Phishing-E-Mails betrug am Ende des Training 26,4%. 
 Besonders bemerkenswert war, dass am Ende des ersten Tages die Klickrate der schwierigsten Trainings-Phishing-E-Mail bei 52,6% lag. 
 Wer mehr über die über die Zahlen, Daten und Fakten dieses Trainings erfahren möchte, kann sich den dazugehörigen [Blog-Beitrag](https://www.adesso.ch/de_ch/news/blog/phishing-kampagne-bei-adesso.jsp) durchlesen.
 
@@ -103,6 +103,12 @@ Zudem lassen sich aus den Studien weitere Schlussfolgerungen ziehen:
 * Geeignetes Schulungsmaterial erhöht die Akzeptanz und den Trainingseffekt einer solchen Maßnahme
 
 Es scheint aber auch Grenzen des simulierten Phishing-Trainings zu geben. 
+Ein Training über acht Tage ist zunächst ein guter kurzer Trainingseffekt. 
+Jedoch war ein weiteres Ergebnis der zweiphasigen Studien, dass es weiterhin Personen gab, die sowohl im ersten Durchlauf, als auch im zweiten Durchlauf auf eine simulierte Phishing-E-Mail reinfielen. 
+Der Trainingseffekt lässt nach einer gewissen Zeit nach, da die Betroffenheit auf eine Trainings-Phishing-E-Mail reingefallen zu sein nicht mehr präsent ist und das Phishing-Training kein prägendes negatives Ereignis ist, als wenn man tatsächlich Opfer eines echten Phishing-Betrugs geworden ist. 
+Interviewte Teilnehmende, die einen realen Phishing-Betrug im näheren Umkreis hatten bestätigten diesen Effekt.
+Um den Trainingseffekt über alle Mitarbeitenden trotzdem konstant hoch zu halten, macht es Sinn, variierende Phishing-Simulationen kontinuierlich über einen langen Zeitraum durchzuführen und als festen Bestandteil der Security Awareness im Unternehmen zu etablieren. 
+Dabei sollten wenige Trainings-Phishing-E-Mails über einen langen Zeitraum versendet werden, um einerseits die Mitarbeitenden in ihrem Arbeitsalltag nicht zu stören, andererseits ihren Trainingseffekt zu erhalten oder bei neuen Mitarbeitenden neu aufzubauen. 
 Phishing-E-Mails als Training zu versenden, scheint bisher eine gute Möglichkeit, doch scheint auch die Nutzung von Social-Media-Plattformen ein großes Einfallstor für Phishing darzustellen. 
 Dies gilt insbesondere, wenn diese auch auf Betriebsgeräten wie auf dem Firmenhandy oder Firmenlaptop genutzt werden. 
 Hierüber lässt sich jedoch kaum ein simuliertes Phishing-Training für Mitarbeitende ohne ihr Einverständnis durchführen, da dies ein herbleicher Eingriff in die Privatsphäre darstellen würde. 
