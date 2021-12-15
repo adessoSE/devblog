@@ -1,10 +1,10 @@
 ---
 layout: [post, post-xml]              
 title:  "Welcher Config-Server passt zu meinem Projekt?"         
-date:   2021-11-29 10:00              
+date:   2021-12-15 10:00              
 author_ids:     [kaythielmann]
 categories: [Architektur]           
-tags: [Java, AWS, Cloud, Springboot, Config-Server]        
+tags: [Java, AWS, Cloud, Spring Boot, Config-Server]        
 ---
 
 Konfigurationen für Artefakte von außen zu injecten, ist lang bewährte Praxis und wird in vielen Softwareprojekten so gelebt.
