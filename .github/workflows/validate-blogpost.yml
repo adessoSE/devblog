@@ -20,8 +20,8 @@ jobs:
         run: |
           MESSAGE=`cd /home/runner/work/devblog/devblog && git log --pretty=oneline`
           echo "$MESSAGE"
-          HEAD_COMMIT=`echo "$MESSAGE" | sed -e 's/\(.*\)Merge\s\(.*\) into \(.*\)/\3/'`
-          BASE_COMMIT=`echo "$MESSAGE" | sed -e 's/\(.*\)Merge\s\(.*\) into \(.*\)/\2/'`
+          HEAD_COMMIT=`echo "$MESSAGE" | sed -e 's/\(.*\)Merge\s\(.*\) into \(.*\)/\2/'`
+          BASE_COMMIT=`echo "$MESSAGE" | sed -e 's/\(.*\)Merge\s\(.*\) into \(.*\)/\3/'`
           export HEAD_COMMIT="$HEAD_COMMIT"
           export BASE_COMMIT="$BASE_COMMIT"
           echo "::set-env name=HEAD_COMMIT::$HEAD_COMMIT"
