@@ -33,6 +33,12 @@ jobs:
         with:
           repository: ${{ env.GITHUB_REPOSITORY_OWNER_PART }}/${{ env.GITHUB_REPOSITORY_NAME_PART }}
           ref: ${{ env.HEAD_COMMIT }}
+      
+      - name: check repo 1
+        run: find / -name 2021-08-19-functional-kotlin-eine-einführung.md
+      
+      - name: check repo 2
+        run: find / -name 2021-08-23-functional-kotlin-eine-einführung.md
 
       - name: Run Docker image
         run: docker run --env BASE_COMMIT='${{ env.BASE_COMMIT }}' --env HEAD_COMMIT='${{ env.HEAD_COMMIT }}' --env LOCAL_REPO_PATH=repo -v /home/runner/work/devblog/devblog:/repo jekyll2cms/blogpost-checker:1.0.4
