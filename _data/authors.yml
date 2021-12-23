@@ -476,9 +476,17 @@ thorbolo:
   last_name: Schiller
   github_username: thorbolo
   email: thorben.schiller@adesso.de
-  bio: "Thorben Schiller ist Senior Software Engineer und hat seit 2013 bei adesso den Weg vom Studenten zum angehenden Software Architekten gemacht. Sein Schwerpunkt liegt im Java-Backend."
+  bio: "Thorben Schiller ist seit 2013 bei adesso und hat seinen Weg vom Studenten zum Software Architekten gemacht. Sein Schwerpunkt liegt im Java-Backend."
   avatar_url: /assets/images/avatars/thorbenschiller.jpg
   github: https://github.com/thorbolo
+
+johndoe:
+  first_name: John
+  last_name: Doe
+  github_username: johndoe
+  bio: "John Doe ist der Autor für Codebeispiele in der Blog-Dokumentation."
+  avatar_url: /assets/images/avatars/johndoe.jpg
+  github: https://github.com/
 
 fabianvolkert:
   first_name: Fabian
@@ -506,3 +514,30 @@ tgraefenstein:
   avatar_url: /assets/images/avatars/tgraefenstein.jpg
   github_username: g-stone7
   github: https://github.com/g-stone7
+
+parideis:
+  first_name: Denis
+  last_name: Paris
+  github_username: parideis
+  email: denis.paris@adesso.de
+  bio: "Denis Paris arbeitet bei adesso als Werkstudent in Köln und entwickelt Full-Stack-JavaScript-Applikationen. Er hat Erfahrung mit Angular, React, Stencil, Svelte und Vue gesammelt. In seiner Freizeit spielt er gerne Basketball 🏀 und hält JavaScript-Vorträge auf Meetups und Konferenzen."
+  avatar_url: /assets/images/avatars/paris.jpg
+  github: https://github.com/parideis
+  
+kaythielmann:
+  first_name: Kay
+  last_name: Thielmann
+  github_username: kthielma
+  email: Kay.Thielmann@adesso.de
+  bio: "Kay Thielmann arbeitet als Software Architect bei Adesso in Dortmund. Seine Schwerpunkte liegen zur Zeit im Bereich e-Commerce, wo er diverse Applikationen in der AWS-Cloud mit betreut und weiterentwickelt."
+  avatar_url: /assets/images/avatars/kaythielmann.jpg
+  github: https://github.com/kthielma
+
+unexist:
+  first_name: Christoph
+  last_name: Kappel
+  email: christoph.kappel@adesso.de
+  bio: "Christoph Kappel arbeitet als Softwarearchitekt im Bereich Cross Industries und beschäftigt sich in seiner Freizeit auch mal mit Technologie."
+  avatar_url: /assets/images/avatars/unexist.jpg
+  github_username: unexist
+  github: https://github.com/unexist

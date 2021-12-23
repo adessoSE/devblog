@@ -2,14 +2,14 @@
 layout: [post, post-xml]              
 title:  "Phishing Kampagne bei adesso"        
 date:   2020-11-13 09:00              # Pflichtfeld. Format "YYYY-MM-DD HH:MM". Muss für Veröffentlichung in der Vergangenheit liegen. (Für Preview egal)
-author: vschiller                     
+author_ids: [vschiller]                     
 categories: [Inside adesso]       
 tags: [Security Awareness, Phising]     
 ---
 
 Phishing ist eine Kunst der Manipulation, die sowohl technisches als auch menschliches Wissen erfordert. 
 Wird eine Phishing E-Mail nicht durch technische Maßnahmen daran gehindert, vom Empfangenden aufgerufen zu werden, liegt es an diesem, richtig zu handeln. 
-Handelt das Opfer nicht korrekt, ist der Klick auf den Link oder Anhang die einzige notwendige Aktion des Opfers für einen erfolgreichen Phishing Betrug. 
+Handelt das Opfer nicht korrekt, ist der Klick auf den Link oder Anhang die einzige notwendige Aktion des Opfers für einen erfolgreichen Phishing Betrug.
 
 
 # Phishing Awareness durch Phishing

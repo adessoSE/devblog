@@ -22,7 +22,7 @@ anfangs noch nicht so stabilen Integrations- und Testsystemen gelingt, vermeidet
         <field name="date_l"><![CDATA[1534939020000]]></field>
         <field name="change_date"><![CDATA[1615211400000]]></field>
         <!--Author Information-->
-        <!--Postcontent-->
+        <field name="author_id"><![CDATA[RMajchszak]]></field><!--Postcontent-->
         <field name="headlines"><![CDATA[Systemüberwachung mit den Spring Boot Health Checks]]></field>
         <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
             <p>Bei der Entwicklung von Anwendungen in einer Microservice-Architektur  muss man mit wesentlich komplexeren 

@@ -3,7 +3,7 @@ layout: [post, post-xml]
 title:  "Neo4j – Ein Einblick in die Welt der Graphdatenbanken"        
 date:   2018-11-21 14:00 
 modified_date: 2018-11-21 14:00                        
-author: shsanayei                     
+author_ids: [shsanayei]                     
 categories: [Softwareentwicklung]             
 tags: [Graphdatenbanken, Neo4j]
 ---

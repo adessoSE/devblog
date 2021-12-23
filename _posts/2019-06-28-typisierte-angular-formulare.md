@@ -2,7 +2,7 @@
 layout: [post, post-xml]
 title:  "Typisierte Forms in Angular"
 date:   2019-06-28 10:25
-author: no0x9d
+author_ids: [no0x9d]
 categories: [Softwareentwicklung]
 tags: [Angular, Typescript, Angular forms]
 ---
