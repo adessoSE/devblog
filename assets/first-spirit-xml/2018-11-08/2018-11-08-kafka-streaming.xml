@@ -24,7 +24,7 @@ In diesem Blog wird der Einsatz von Kafka als Message-Queue und Streaming-Plattf
         <field name="date_l"><![CDATA[1541660400000]]></field>
         <field name="change_date"><![CDATA[1541660400000]]></field>
         <!--Author Information-->
-        <!--Postcontent-->
+        <field name="author_id"><![CDATA[swindisch]]></field><!--Postcontent-->
         <field name="headlines"><![CDATA[Apache Kafka als Streaming Plattform]]></field>
         <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
             <p>In der heutigen Welt wird es immer wichtiger, Mengen verschiedener Informationen zu sammeln,

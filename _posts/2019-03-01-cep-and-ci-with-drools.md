@@ -3,7 +3,7 @@ layout:         [post, post-xml]
 title:          "Echtzeitdatenverarbeitung von Eventströmen"
 date:           2019-03-01 09:30
 modified_date:  2021-03-08 14:50
-author:         ceverke 
+author_ids: [ceverke] 
 categories:     [Softwareentwicklung]
 tags:           [BRMS, Business Rules, Geschäftsregeln, Drools, Complex Event Processing, Java]
 ---

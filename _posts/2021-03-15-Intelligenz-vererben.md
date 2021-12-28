@@ -2,7 +2,7 @@
 layout: [post, post-xml]
 title:  "Intelligenz vererben – Mit genetischen Algorithmen künstliche neuronale Netze trainieren"
 date:   2021-03-15 09:00
-author: swindisch
+author_ids: [swindisch]
 categories: [Architektur]
 tags: [Künstliche Intelligenz, Maschinelles Lernen, Genetische Algorithmen]
 ---

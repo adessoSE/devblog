@@ -2,7 +2,7 @@
 layout: [post, post-xml]              # Pflichtfeld. Nicht ändern!
 title:  "adesso testing day 2020"     # Pflichtfeld. Bitte einen Titel für den Blog Post angeben.
 date:   2020-07-08 15:00              # Pflichtfeld. Format "YYYY-MM-DD HH:MM". Muss für Veröffentlichung in der Vergangenheit liegen. (Für Preview egal)
-author: stwacker                      # Pflichtfeld. Es muss in der "authors.yml" einen Eintrag mit diesem Namen geben.
+author_ids: [stwacker]                      # Pflichtfeld. Es muss in der "authors.yml" einen Eintrag mit diesem Namen geben.
 categories: [Inside adesso]       # Pflichtfeld. Maximal eine der angegebenen Kategorien verwenden.
 tags: [Testing]                       # Optional.
 ---

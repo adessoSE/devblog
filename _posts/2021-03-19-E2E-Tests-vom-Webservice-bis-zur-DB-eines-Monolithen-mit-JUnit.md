@@ -2,7 +2,7 @@
 layout:         [post, post-xml]              
 title:          "E2E-Tests vom Webservice bis zur DB eines Monolithen mit JUnit"
 date:           2021-03-19 15:00
-author:         thorbolo
+author_ids: [thorbolo]
 categories:     [Softwareentwicklung]
 tags:           [Java, Test, JUnit, E2E-Tests, Webservice, Monolith]
 ---

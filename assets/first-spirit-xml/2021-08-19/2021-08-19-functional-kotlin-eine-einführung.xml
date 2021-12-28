@@ -18,7 +18,7 @@ An Beispielen betrachten wir die Best Practices und stellen uns dabei die Frage:
         <field name="date_l"><![CDATA[1629370800000]]></field>
         <field name="change_date"><![CDATA[1629370800000]]></field>
         <!--Author Information-->
-        <!--Postcontent-->
+        <field name="author_id"><![CDATA[VolkertF]]></field><!--Postcontent-->
         <field name="headlines"><![CDATA[Functional Kotlin - Eine Einführung]]></field>
         <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
             <p>In diesem Blogeintrag widmen wir uns der Programmiersprache Kotlin.

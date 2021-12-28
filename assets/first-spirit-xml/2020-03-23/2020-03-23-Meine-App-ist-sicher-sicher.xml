@@ -18,7 +18,7 @@ Tatsächlich enthält die durchschnittliche Webanwendung jedoch stolze 33 Lücke
         <field name="date_l"><![CDATA[1584950400000]]></field>
         <field name="change_date"><![CDATA[1584950400000]]></field>
         <!--Author Information-->
-        <!--Postcontent-->
+        <field name="author_id"><![CDATA[Flo4l]]></field><!--Postcontent-->
         <field name="headlines"><![CDATA["Meine Webanwendung ist sicher!" - sicher?]]></field>
         <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
             <p>Bei einem solch wichtigem Thema wie der Sicherheit von Webanwendungen, Daten und Unternehmen sollte man meinen, dass jenes Thema eine besondere Aufmerksamkeit erfährt.

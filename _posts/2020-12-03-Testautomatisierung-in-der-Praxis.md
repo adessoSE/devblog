@@ -3,7 +3,7 @@ layout: [post, post-xml]
 title:  "Testautomatisierung in der Praxis "        
 date:   2020-12-03 10:00                    
 modified_date: 2020-12-10 10:00
-author: schirmer_urbanik_eggert                    
+author_ids: [axelSchirmer,peterUrbanik,tonyEggert]                    
 categories: [Branchen]             
 tags: [Testautomatisierung, Webdriver IO, Cucumber, Chai, Öffentliche Verwaltung, Public]
 ---
