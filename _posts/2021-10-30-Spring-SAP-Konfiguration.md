@@ -49,7 +49,7 @@ Die Klasse `SapConfigurationProperties` nutzt die [Spring Annotation](https://do
 Die Annoation bewirkt, dass Spring beim Start der Anwendung Konfigurationswerte auf Basis ihres Namens an Properties eine Instanz.
 Das Schreiben der Werte in die Instanz erfolgt über den Aufruf der entsprechenden Setter.
 
-Da *SAP JCo* keine Beans zur Konfiguration nutzt, sondern Properties verwendet, füllen die Setter in diesem Fall eine Properties Instanz mit den Werte, die in der FOlge verwendet werden können. 
+Da *SAP JCo* keine Beans zur Konfiguration nutzt, sondern Properties verwendet, füllen die Setter in diesem Fall eine Properties Instanz mit den Werte, die in der Folge verwendet werden können. 
 ```java
 @Configuration
 @ConfigurationProperties(prefix = "jco.client")
@@ -152,7 +152,7 @@ In der aktuellen Version unterstützt Maven den Scope aber noch.
 Maven geht nun davon aus, dass die entsprechende Abhängigkeit auf irgendeine Weise im classpath vorhanden ist. 
 Das Spring-Boot-Plugin kennt die jar-Datei somit nicht, sie wird folglich auch nicht umbenannt.
 
-# Was ist mit Tests
+# Was ist mit Tests?
 Die Struktur, mit der auf SAP zugegriffen wird, lässt sich gut durch Mock-Objekte ersetzen.
 Somit sind Test auf verschieneden Ebenen möglich.
 Das folgende Beispiel abstrahiert sehr weit und testet lediglich die Antwort-Verarbeitung.
@@ -209,6 +209,8 @@ class SapVertragClientTest {
 
 
 # Docker - In die Box
+Das Dockerfile Plugin von Spotify verwendet ein externes Dockerfile zur Erzeugung eines Image. 
+Somit können aus dem Docker-Umfeld gewohnte Mechanismen auch innerhalb eines Maven-Build-Prozesses verwendet werden. 
 ```xml
 <plugin>
     <groupId>com.spotify</groupId>
@@ -228,8 +230,7 @@ class SapVertragClientTest {
     </configuration>
 </plugin>
 ```
-Das Dockerfile Plugin von Spotify verwendet ein externes Dockerfile zur Erzeugung eines Image. 
-Somit können aus dem Docker-Umfeld gewohnte Mechanismen auch innerhalb eines Maven-Build-Prozesses verwendet werden. 
+
 Das Plugin erwartet das `DOCKERFILE` im selben Verzeichnis wie die `pom.xml`.
 ```dockerfile
 FROM adoptopenjdk/openjdk13
@@ -244,7 +245,7 @@ Das Ergebnis des vorherigen Build wird über das BuildArgument `JAR_FILE` an das
 
 Der Versuch, das bis hier hin entstandenen `spring-sap.jar` auszuführen, scheitert daran, dass die Klassen der *SAP-JCo*-Bibliothek nicht gefunden werden. 
 Die Fehlermeldung lautet
-```java
+```bash
 java.lang.NoClassDefFoundError: com/sap/conn/jco/ext/DestinationDataProvider
 ```
 oder ähnlich.
