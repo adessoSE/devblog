@@ -1,7 +1,7 @@
 ---
 layout:         [post, post-xml]              
 title:          "Java und SAP in der Box"
-date:           2021-10-30 12:00
+date:           2021-12-29 12:00
 author_ids:     [scarstenen]
 categories:     [Softwareentwicklung]
 tags:           [Java, Spring, SAP, Docker]
