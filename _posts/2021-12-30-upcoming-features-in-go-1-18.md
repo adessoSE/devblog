@@ -1,8 +1,8 @@
 ---
 layout: 		[post, post-xml]     
 title:  		"Upcoming Features in Go 1.18"
-date:   		2021-11-21 08:00
-modified_date: 	2021-11-21 08:00
+date:   		2021-12-30 08:00
+modified_date: 	2021-12-30 08:00
 author_ids: 	[sebastianholstein]
 categories: 	[Softwareentwicklung]
 tags: 			[Go]
