@@ -33,6 +33,9 @@ jobs:
         with:
           repository: ${{ github.event.pull_request.user.login }}/${{ env.GITHUB_REPOSITORY_NAME_PART }}
           ref: ${{ env.HEAD_COMMIT }}
+          
+      - name: history
+        run: git log --pretty=oneline --since=2.weeks
 
       - name: Run Docker image
         run: docker run --env BASE_COMMIT='${{ env.BASE_COMMIT }}' --env HEAD_COMMIT='${{ env.HEAD_COMMIT }}' --env LOCAL_REPO_PATH=repo -v /home/runner/work/devblog/devblog:/repo jekyll2cms/blogpost-checker:1.0.4
