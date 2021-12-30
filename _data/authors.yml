@@ -541,3 +541,12 @@ unexist:
   avatar_url: /assets/images/avatars/unexist.jpg
   github_username: unexist
   github: https://github.com/unexist
+
+scarstenen:
+  first_name: Stefan
+  last_name: Carstensen
+  github_username: janstefan42
+  email: stefan.carstensen@adesso.de
+  bio: "Stefan Carstensen ist Principal Software Engineer bei adesso in Hamburg. Er arbeitet in der Entwicklung, der Anforderungsanalyse und als Scrum Master in verschiedenen Projekten im Java-Umfeld."
+  avatar_url: /assets/images/avatars/scarstensen.jpg
+  github: https://github.com/janstefan42

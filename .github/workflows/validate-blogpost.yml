@@ -31,7 +31,7 @@ jobs:
               
       - uses: actions/checkout@v2
         with:
-          repository: ${{ env.GITHUB_REPOSITORY_OWNER_PART }}/${{ env.GITHUB_REPOSITORY_NAME_PART }}
+          repository: ${{ github.event.pull_request.user.login }}/${{ env.GITHUB_REPOSITORY_NAME_PART }}
           ref: ${{ env.HEAD_COMMIT }}
 
       - name: check repo 2
