@@ -35,8 +35,8 @@ jobs:
           ref: ${{ env.HEAD_COMMIT }}
           fetch-depth: 0
           
-      - name: history
-        run: git log --pretty=oneline
+      - name: get issue number
+        run: echo "${{ github.event.issue.number }}"
 
       - name: Run Docker image
         run: docker run --env BASE_COMMIT='${{ env.BASE_COMMIT }}' --env HEAD_COMMIT='${{ env.HEAD_COMMIT }}' --env LOCAL_REPO_PATH=repo -v /home/runner/work/devblog/devblog:/repo jekyll2cms/blogpost-checker:1.0.4
