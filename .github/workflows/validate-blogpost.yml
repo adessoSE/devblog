@@ -11,16 +11,35 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@master
-
       - name: Inject env
         uses: rlespinasse/github-slug-action@v3.x
+  
+      - uses: actions/checkout@v2
 
-      - name: Pull Docker image
-        run: docker pull jekyll2cms/blogpost-checker:1.0.2
-        
-      - name: print env
-        run: printenv | sort
+      - name: git log
+        run: |
+          MESSAGE=`cd /home/runner/work/devblog/devblog && git log --pretty=oneline`
+          echo "$MESSAGE"
+          HEAD_COMMIT=`echo "$MESSAGE" | sed -e 's/\(.*\)Merge\s\(.*\) into \(.*\)/\2/'`
+          BASE_COMMIT=`echo "$MESSAGE" | sed -e 's/\(.*\)Merge\s\(.*\) into \(.*\)/\3/'`
+          export HEAD_COMMIT="$HEAD_COMMIT"
+          export BASE_COMMIT="$BASE_COMMIT"
+          echo "::set-env name=HEAD_COMMIT::$HEAD_COMMIT"
+          echo "::set-env name=BASE_COMMIT::$BASE_COMMIT"
+        env:
+          ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
+              
+      - uses: actions/checkout@v2
+        with:
+          repository: ${{ github.event.pull_request.user.login }}/${{ env.GITHUB_REPOSITORY_NAME_PART }}
+          ref: ${{ env.HEAD_COMMIT }}
+          fetch-depth: 0
+          
+      - run: |
+          echo github.event.number = ${{ github.event.number  }}
+          echo github.event.pull_request.number = ${{ github.event.pull_request.number }}
+          echo github.event.issue.number = ${{ github.event.issue.number }}
 
       - name: Run Docker image
-        run: docker run --env REPOSITORY_REMOTE_URL='https://github.com/${{ env.GITHUB_REPOSITORY_OWNER_PART }}/${{ env.GITHUB_REPOSITORY_NAME_PART }}' --env REPOSITORY_BRANCH_NAME='${{ env.GITHUB_HEAD_REF_SLUG }}' jekyll2cms/blogpost-checker:1.0.2
+        run: docker run --env BASE_COMMIT='${{ env.BASE_COMMIT }}' --env HEAD_COMMIT='${{ env.HEAD_COMMIT }}' --env LOCAL_REPO_PATH=repo -v /home/runner/work/devblog/devblog:/repo jekyll2cms/blogpost-checker:1.0.4
+

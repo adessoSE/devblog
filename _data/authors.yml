@@ -524,6 +524,15 @@ parideis:
   avatar_url: /assets/images/avatars/paris.jpg
   github: https://github.com/parideis
 
+kaythielmann:
+  first_name: Kay
+  last_name: Thielmann
+  github_username: kthielma
+  email: Kay.Thielmann@adesso.de
+  bio: "Kay Thielmann arbeitet als Software Architect bei Adesso in Dortmund. Seine Schwerpunkte liegen zur Zeit im Bereich e-Commerce, wo er diverse Applikationen in der AWS-Cloud mit betreut und weiterentwickelt."
+  avatar_url: /assets/images/avatars/kaythielmann.jpg
+  github: https://github.com/kthielma
+
 unexist:
   first_name: Christoph
   last_name: Kappel
@@ -541,3 +550,21 @@ gaboratarithnea:
   bio: "Gabor Meißner ist Softwarearchitekt im Bereich Cross Industries mit dem Schwerpunkt auf Retail- und eCommerce-Anwendungen. Er beschäftigt sich gern mit der Beobachtung neuer Technologien wie Microframeworks und Kotlin."
   avatar_url: /assets/images/avatars/gabormeissner.jpg
   github: https://github.com/gaboratarithnea
+
+sebastianholstein:
+  first_name: Sebastian
+  last_name: Holstein
+  github_username: SebastianM
+  email: sebastian.holstein@adesso.de
+  bio: "Sebastian Holstein ist Senior Software Architect und seit 2012 bei adesso. Er beschäftigt sich schwerpunktmäßig mit Frontend-Architekturen und Cloud-Anwendungen mit Go."
+  avatar_url: /assets/images/avatars/sebastianholstein.jpg
+  github: https://github.com/SebastianM
+
+scarstenen:
+  first_name: Stefan
+  last_name: Carstensen
+  github_username: janstefan42
+  email: stefan.carstensen@adesso.de
+  bio: "Stefan Carstensen ist Principal Software Engineer bei adesso in Hamburg. Er arbeitet in der Entwicklung, der Anforderungsanalyse und als Scrum Master in verschiedenen Projekten im Java-Umfeld."
+  avatar_url: /assets/images/avatars/scarstensen.jpg
+  github: https://github.com/janstefan42
