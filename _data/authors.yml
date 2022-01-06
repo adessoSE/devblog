@@ -568,3 +568,12 @@ scarstenen:
   bio: "Stefan Carstensen ist Principal Software Engineer bei adesso in Hamburg. Er arbeitet in der Entwicklung, der Anforderungsanalyse und als Scrum Master in verschiedenen Projekten im Java-Umfeld."
   avatar_url: /assets/images/avatars/scarstensen.jpg
   github: https://github.com/janstefan42
+  
+bolsei:
+  first_name: Timo
+  last_name: Rudersdorf
+  github_username: Bolsei
+  email: timo.rudersdorf@adesso.de
+  bio: "Timo Rudersdorf ist seit 2021 als Senior Software Engineer bei adesso in Essen tätig. Dort unterstützt er den Bereich Public als Entwickler im Java-Umfeld."
+  avatar_url: /assets/images/avatars/trudersdorf.jpg
+  github: https://github.com/bolsei
