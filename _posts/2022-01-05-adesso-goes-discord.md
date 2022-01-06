@@ -8,13 +8,11 @@ tags: [Discord, Java]
 ---
 
 Unter Gamern ist Discord ein schon lange verbreitets Tool, um sich beim Spielen zu unterhalten.
-Aber auch außerhalb der Gamer-Community wird Discord immer häufiger genutzt,
-um sich mit Freunden zu unterhalten oder auch nur zu Schreiben.
+Aber auch außerhalb der Gamer-Community wird Discord immer häufiger genutzt, um sich mit Freunden zu unterhalten oder auch nur zu Schreiben.
 Dadurch, dass Discord nicht nur als Client auf dem Computer genutzt werden kann,
 sondern auch als App für Android und IOS verfügbar ist und über den Browser verwendet werden kann,
 ist es ohne große Hürden möglich sich mit anderen Menschen zu verknüpfen.
-Discord ermöglicht es einem auch für seine eigenen Zwecke einen Server zu erstellen,
-um mit seiner eigenen Community kommunizieren zu können.
+Discord ermöglicht es einem auch für seine eigenen Zwecke einen Server zu erstellen, um mit seiner eigenen Community kommunizieren zu können.
 Um sich die Administration von seinem eigenen Server zu vereinfachen kann man Bots nutzen.
 
 In diesem Artikel werden die ersten Schritte aufgezeigt, um solch einen Bot in Java zu programmieren und welche weiteren Schritte nötig sind. 
@@ -27,7 +25,7 @@ Zur Erstellung und Programmieren, werden folgende Dinge benötigt:
 # Den Bot im Web vorbereiten
 
 Bevor mit der programmatischen Umsetzung begonnen werden kann, müssen zunächst einige Vorarbeiten erledigt werden.
-Als erstes muss der Bot im Web erstellt werden. Dazu muss man sich zunächst auf der [Discord Seite] (https://discord.com/) anmelden.
+Als erstes muss der Bot im Web erstellt werden. Dazu muss man sich zunächst auf der [Discord Seite](https://discord.com/) anmelden.
 Danach kann die Seite https://discord.com/developers/applications aufgerufen werden.
 Auf der Seite kann über den Button „New Application“ oben rechts eine neue Applikation erzeugt werden.
 Um die so erstellte Applikation in einen Bot umzuwandeln, muss über den linken Baum in den Zweig Bot navigiert werden.
@@ -114,6 +112,7 @@ Am einfachsten ist es einen eigenen Server für solche Tests anzulegen.
 
 Über die Discord App lässt sich dieser ganz einfach über das Plus auf der linken Seite erledigen.
 Um den programmierten Bot einem Server zu zuweisen, gibt man folgende URL in den Browser ein:
+
 https://discord.com/oauth2/authorize?client_id=unsereClientId&scope=bot&permissions=8
 
 Bei der 8 handelt es sich um einen Permission Integer.
