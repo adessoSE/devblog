@@ -1,19 +1,19 @@
 ---
 layout: [post, post-xml]              # Pflichtfeld. Nicht ändern!
-title:  "Mit QGIS eine Fotolandkarte erstellen"         # Pflichtfeld. Bitte einen Titel für den Blog Post angeben.
+title:  "Mit QGIS eine Fotolandkarte erstellen" # Pflichtfeld. Bitte einen Titel für den Blog Post angeben.
 date:   2022-01-26 12:00              # Pflichtfeld. Format "YYYY-MM-DD HH:MM". Muss für Veröffentlichung in der Vergangenheit liegen. (Für Preview egal)
 modified_date: 2022-01-26             # Optional. Muss angegeben werden, wenn eine bestehende Datei geändert wird.
 author_ids: [cjohn]                   # Pflichtfeld. Es muss in der "authors.yml" einen Eintrag mit diesen Namen geben.
-categories: [Branchen]     # Pflichtfeld. Maximal eine der angegebenen Kategorien verwenden.
-tags: [Gis, Applications]   # Bitte auf Großschreibung achten.
+categories: [Branchen]                # Pflichtfeld. Maximal eine der angegebenen Kategorien verwenden.
+tags: [Open Source,  Applications, Gis, Geodata, Photo] # Bitte auf Großschreibung achten.
 ---
 
-TODO:
-Der erste Absatz (also alles bis zur ersten Leerzeile in der Markdown-Datei) wird als Einleitung / Teaser übernommen.
-Der erste Absatz sollte also höchstens ein paar Sätze lang sein und keine Überschriften beinhalten.
-**Bitte keine Links im Teaser verwenden!**
+Dieser Artikel zeigt, wie Bilder mit Standortdaten auf einer Karte angeordnet werden.
+Ohne Cookies, ohne Cloud, ohne undurchsichtige Nutzungsbedingungen wegzuklicken.
+Eigentlich fast ohne Internet.
+Das freie Desktop-Geoinformationssystem QGIS und ein paar Kacheln aus OpenStreetMap reichen völlig aus.
 
-# Erste Überschrift
+# Geodaten sind überall
 
 Geoinformationssysteme verwalten räumliche Daten.
 Im einfachsten Fall werden Dinge aus der realen Welt an den jeweiligen Orten dargestellt werden, damit User sie auswerten können.
@@ -21,15 +21,15 @@ So etwa Gebäude und Straßen in einer Stadt oder die Positionen einer Fahrzeugf
 
 Dieser Artikel demonstriert die Anzeige von Fotos am Aufnahmeort auf einer Landkarte.
 Die Datenerfassung ist denkbar einfach:
-Mit einem handelsüblichen Smartphone werden die Beobachtungen fotografiert, dabei werden die Geokoordinaten automatisch in den Metadaten der Bilder gespeichert.
+Mit einem handelsüblichen Smartphone werden Orte fotografiert, dabei werden die Geokoordinaten automatisch in den Metadaten der Bilder gespeichert.
 
 ## Problematische Abhängigkeiten
 
 Die häufigste Weiterverarbeitung zeigt die Abhängigkeit von scheinbar kostenlosen Cloud-Diensten:
-Man sendet alle Fotos an einen Speicherdienst wie z.B. Google Drive und lässt sie als Marker auf Google Maps anzeigen.
+Oft sendet man alle Fotos an einen Speicherdienst wie z.B. Google Drive und lässt sie als Marker auf Google Maps anzeigen.
 Damit hat man nicht nur sämtliche Bilder ins Internet entlassen, man gibt die Kontrolle auch an einen Konzern ab, dessen Geschäftsbedingungen die wenigsten Menschen verstehen.
 
-Für kritische Daten wie etwa Gebäudeschäden auf einem Betriebsgelände oder Bilder fremder Personen ist das keine Lösung.
+Für kritische Daten wie etwa Sicherheitsmängel auf einem Betriebsgelände oder Bilder fremder Personen ist das keine Lösung.
 Darüber hinaus steht eine schnelle Internetverbindung nicht an jedem Ort jederzeit zur Verfügung.
 Vielleicht wird auch eine Reduzierung von Abhängigkeiten angestrebt, um die eigene Software-Umgebung durchschaubar zu halten.
 
@@ -44,7 +44,6 @@ Nur so können Konflike mit Landnutzern oder Baumschäden an Straßen vorhergese
 Doch sie sollen keinesfalls veröffentlicht werden, weil zu befürchten ist, dass Touristen die Tiere aufscheuchen oder Landwirte sie aus Angst vor Schäden vergrämen.
 
 Die Kartierer laufen je ein Gewässer ab und fotografieren jede Tierspur mit der Foto-App des eigenen Smartphones.
-Eine komplexere Verarbeitung ist im Feld nicht zuverlässig möglich.
 Um zurückzumelden, wo sich Biber angesiedelt haben, werden die gesammelten Fotos in eine Landkarte importiert.
 Die abschließende Bewertung ist dann auf einen Blick möglich.
 
