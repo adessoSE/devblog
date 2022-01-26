@@ -47,7 +47,7 @@ Die Kartierer laufen je ein Gewässer ab und fotografieren jede Tierspur mit der
 Um zurückzumelden, wo sich Biber angesiedelt haben, werden die gesammelten Fotos in eine Landkarte importiert.
 Die abschließende Bewertung ist dann auf einen Blick möglich.
 
-![Eine Foto-Landkarte offline selbst erstellen](https://github.com/adessoAG/devblog/raw/master/assets/images/posts/Fotolandkarte-in-QGIS-erstellen/qgis_screen_fake.jpg)
+![Eine Foto-Landkarte offline selbst erstellen](/assets/images/posts/Fotolandkarte-in-QGIS-erstellen/qgis_screen_fake.jpg)
 
 # Vorbereitung
 ## Installation von QGIS
@@ -111,7 +111,7 @@ Was wir stattdessen brauchen, ist eine sogenannte „Datendefinierte Übersteuer
 Wie in Abbildung 2, finden Sie diese mit dem Menü ganz rechts neben dem Dateinamenfeld unter „Bearbeiten“.
 Das öffnet den Ausdruckseditor.
 
-![Symbolisierung mit Rasterbildmarkierung](https://github.com/adessoAG/devblog/raw/master/assets/images/posts/Fotolandkarte-in-QGIS-erstellen/qgis_screen_rasterbildmarkierung_ausschnitt.png)
+![Symbolisierung mit Rasterbildmarkierung](/assets/images/posts/Fotolandkarte-in-QGIS-erstellen/qgis_screen_rasterbildmarkierung_ausschnitt.png)
 
 Der gesuchte Dateiname ist ein Attribut des Fotopunkts.
 Scrollen Sie also zu „Felder und Werte“ (Abbildung 3) und suchen Sie aus allen Eigenschaften der Fotos das Feld „photo“ heraus.
@@ -124,7 +124,7 @@ Die Symbolgröße steht noch auf wenige Millimeter, was für den bunten Kreis an
 Ändern Sie die Breite auf 25 Millimeter, übernehmen Sie alles mit dem Button „Anwenden“, atmen Sie tief durch und ... die Fotos liegen auf der Karte, genau an ihren Aufnahmeorten!
 Die feine Linie des Track-Layers markiert im Hintergrund den Weg, auf dem die Orte besucht wurden.
 
-![Der Ausdruck "photo" liefert den Inhalt des gleichnamigen Felds](https://github.com/adessoAG/devblog/raw/master/assets/images/posts/Fotolandkarte-in-QGIS-erstellen/qgis_screen_rasterbildmarkierung_detail.png)
+![Der Ausdruck "photo" liefert den Inhalt des gleichnamigen Felds](/assets/images/posts/Fotolandkarte-in-QGIS-erstellen/qgis_screen_rasterbildmarkierung_detail.png)
 
 ## Kartenhinweise einblenden
 
