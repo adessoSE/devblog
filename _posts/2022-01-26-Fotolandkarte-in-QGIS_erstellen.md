@@ -15,20 +15,57 @@ Der erste Absatz sollte also höchstens ein paar Sätze lang sein und keine Übe
 
 # Erste Überschrift
 
-TODO: Intro in das Thema und den Anwendungsfall
+Geoinformationssysteme verwalten räumliche Daten.
+Im einfachsten Fall werden Dinge aus der realen Welt an den jeweiligen Orten dargestellt werden, damit User sie auswerten können.
+So etwa Gebäude und Straßen in einer Stadt oder die Positionen einer Fahrzeugflotte.
+
+Dieser Artikel demonstriert die Anzeige von Fotos am Aufnahmeort auf einer Landkarte.
+Die Datenerfassung ist denkbar einfach:
+Mit einem handelsüblichen Smartphone werden die Beobachtungen fotografiert, dabei werden die Geokoordinaten automatisch in den Metadaten der Bilder gespeichert.
+
+## Problematische Abhängigkeiten
+
+Die häufigste Weiterverarbeitung zeigt die Abhängigkeit von scheinbar kostenlosen Cloud-Diensten:
+Man sendet alle Fotos an einen Speicherdienst wie z.B. Google Drive und lässt sie als Marker auf Google Maps anzeigen.
+Damit hat man nicht nur sämtliche Bilder ins Internet entlassen, man gibt die Kontrolle auch an einen Konzern ab, dessen Geschäftsbedingungen die wenigsten Menschen verstehen.
+
+Für kritische Daten wie etwa Gebäudeschäden auf einem Betriebsgelände oder Bilder fremder Personen ist das keine Lösung.
+Darüber hinaus steht eine schnelle Internetverbindung nicht an jedem Ort jederzeit zur Verfügung.
+Vielleicht wird auch eine Reduzierung von Abhängigkeiten angestrebt, um die eigene Software-Umgebung durchschaubar zu halten.
+
+## Das Beispiel
+
+Deshalb wird hier eine Lösung gezeigt, die mit freier Software auskommt und das Internet nur zum Lesen aus [OpenStreetMap](https://www.openstreetmap.org/) nutzt.
+Sämtliche Fotos, Positions- und Metadaten bleiben offline auf dem eigenen Gerät.
+
+Als Anwendungsfall dienst hier eine Kartierung von Tierspuren in freier Landschaft.
+Die Daten werden von der öffentlichen Verwaltung benötigt, um die Ausbreitung des Bibers in Niedersachsen zu verfolgen.
+Nur so können Konflike mit Landnutzern oder Baumschäden an Straßen vorhergesehen werden.
+Doch sie sollen keinesfalls veröffentlicht werden, weil zu befürchten ist, dass Touristen die Tiere aufscheuchen oder Landwirte sie aus Angst vor Schäden vergrämen.
+
+Die Kartierer laufen je ein Gewässer ab und fotografieren jede Tierspur mit der Foto-App des eigenen Smartphones.
+Eine komplexere Verarbeitung ist im Feld nicht zuverlässig möglich.
+Um zurückzumelden, wo sich Biber angesiedelt haben, werden die gesammelten Fotos in eine Landkarte importiert.
+Die abschließende Bewertung ist dann auf einen Blick möglich.
 
 ![Eine Foto-Landkarte offline selbst erstellen](https://github.com/adessoAG/devblog/raw/master/assets/images/posts/Fotolandkarte-in-QGIS-erstellen/qgis_screen_fake.jpg)
 
 # Installation von QGIS
 
-TODO: Quelle und Versionshinweis
+QGIS wird für die Betriebssysteme Windows, Linux, macOS und BSD angeboten sowie als mobile Feldvariante für Android.
+Auf der [Download-Seite](https://www.qgis.org/de/site/forusers/download.html) können Sie zwischen Langzeit-Support und aktuellster Version wählen.
+Dieser Artikel bezieht sich auf Version 3.22 für Windows.
+
+Falls dies Ihr erstes Experiment mit QGIS ist, laden Sie den Installer herunter und akzeptieren Sie die Voreinstellungen.
+QGIS wird automatisch für den üblichen Bedarf passend eingerichtet.
 
 # Die erste Karte
 
 Starten Sie QGIS mit einem neuen Projekt.
-Die Welt erscheint als leere, weiße Fläche.
-Dennoch sind alle Punkte der Erde enthalten, es fehlt nur eine Landkarte, um sich zu orientieren.
-Eine schlichte Basiskarte aus OpenStreetMap eignet sich als Grundlage für fast jedes Kartenprojekt. Dafür wird im GIS-Browser unter "XYZ Tiles" mit einem Klick die OpenStreetMap-Ebene ins Projekt eingefügt.
+In der leeren, weißen Fläche, die Sie nun sehen, sind alle Punkte der Erde enthalten.
+Es fehlt nur eine Landkarte, um sich zu orientieren.
+Eine schlichte Basiskarte aus OpenStreetMap eignet sich als Grundlage für fast jedes Kartenprojekt.
+Dafür wird im GIS-Browser unter "XYZ Tiles" mit einem Klick die OpenStreetMap-Ebene ins Projekt eingefügt.
 Sie lädt keine Details über die Objekte, sie liegt nur wie ein Hintergrundbild unter der Welt.
 
 Jetzt müssen die Fotos aus dem OSM Tracker importiert werden.
