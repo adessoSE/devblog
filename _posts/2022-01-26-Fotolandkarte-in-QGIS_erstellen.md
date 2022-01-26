@@ -49,7 +49,8 @@ Die abschließende Bewertung ist dann auf einen Blick möglich.
 
 ![Eine Foto-Landkarte offline selbst erstellen](https://github.com/adessoAG/devblog/raw/master/assets/images/posts/Fotolandkarte-in-QGIS-erstellen/qgis_screen_fake.jpg)
 
-# Installation von QGIS
+# Vorbereitung
+## Installation von QGIS
 
 QGIS wird für die Betriebssysteme Windows, Linux, macOS und BSD angeboten sowie als mobile Feldvariante für Android.
 Auf der [Download-Seite](https://www.qgis.org/de/site/forusers/download.html) können Sie zwischen Langzeit-Support und aktuellster Version wählen.
@@ -57,6 +58,18 @@ Dieser Artikel bezieht sich auf Version 3.22 für Windows.
 
 Falls dies Ihr erstes Experiment mit QGIS ist, laden Sie den Installer herunter und akzeptieren Sie die Voreinstellungen.
 QGIS wird automatisch für den üblichen Bedarf passend eingerichtet.
+
+## Fotos sammeln
+
+Aktivieren Sie Standortdaten in der Foto-App Ihres Telefons. Das ist alles, damit sind Sie gerüstet für das Sammeln von Geodaten.
+Falls Sie zusätzlich den gelaufenen Weg aufzeichnen möchten, empfiehlt sich die App [OSM Tracker](https://learnosm.org/en/mobile-mapping/osmtracker/).
+Sie verwendet ausschließlich die GPS-Funktion des Geräts, um offline einen Track aufzuzeichnen, in den man bei Bedarf ortsbezogene Kommentare, Sprachnotizen etc. einfügen kann.
+
+In unserem Beispiel ziehen Sie die Wanderstiefel an und stapfen mit dem Handy durchs Gebüsch.
+Jede Spur eines Bibers wird kurz fotografiert, dann stecken Sie das Gerät schnell wieder in die Tasche, bevor es in den Schlamm fällt.
+Und ziehen Sie den Handschuh wieder an, denn Sie kartieren aus ökologischen Gründen im Winter.
+Fertig?
+Sicher können Sie es kaum erwarten, endlich wieder am Computer zu sitzen.
 
 # Die erste Karte
 
@@ -67,13 +80,21 @@ Eine schlichte Basiskarte aus OpenStreetMap eignet sich als Grundlage für fast 
 Dafür wird im GIS-Browser unter "XYZ Tiles" mit einem Klick die OpenStreetMap-Ebene ins Projekt eingefügt.
 Sie lädt keine Details über die Objekte, sie liegt nur wie ein Hintergrundbild unter der Welt.
 
-Jetzt müssen die Fotos aus dem OSM Tracker importiert werden.
-Der Vollständigkeit halber sollte man noch die Route selbst exportieren, das geht in OSM Tracker mit dem Kontextmenü "Als GPX exportieren".
-Danach können Sie das Smartphone an den PC anschließen und den kompletten Ordner "/osmtracker/2022-01-23_10-21-24" auf den PC kopieren. Der Ordnername ist jeweils der Startzeitpunkt der Route.
+## Fotos herunterladen
+
+Schließen Sie das Smartphone per USB-Kabel an den PC. Im Datei-Explorer wird es wie ein Dateisystem angezeigt.
+Die aktuellen Fotos können aus dem Ordner "DCIM" kopiert und in ein Verzeichnis auf der Festplatte eingefügt werden.
+
+### Optional: Track exportieren
+
+Falls Sie OSM Tracker verwenden, lässt sich mit dem Kontextmenü "Als GPX exportieren" die Route als XML-Datei abspeichern.
+Danach können Sie den kompletten Ordner "/osmtracker/2022-01-23_10-21-24" vom Handy auf den PC kopieren. Der Ordnername ist jeweils der Startzeitpunkt der Route.
 
 Der kopierte Ordner enthält eine GPX-Datei und alle unterwegs gesammelten Fotos. GPX steht für „Global Positioning System Exchange Format“.
 Ziehen Sie diese Datei aus dem Dateiexplorer aufs QGIS-Fenster, um den Import zu starten.
 Nun entsteht unter anderem der Layer „tracks“, der den gelaufenen Weg als Linie enthält.
+
+## Fotos in QGIS anzeigen
 
 In der Toolbox „Verarbeitungsdialoge“ liegt unter „Vektorerzeugung“ das Werkzeug „Geogetaggte Fotos importieren“.
 Per Doppelklick gestartet, fragt es nach dem Eingabeverzeichnis.
@@ -105,6 +126,8 @@ Die feine Linie des Track-Layers markiert im Hintergrund den Weg, auf dem die Or
 
 ![Der Ausdruck "photo" liefert den Inhalt des gleichnamigen Felds](https://github.com/adessoAG/devblog/raw/master/assets/images/posts/Fotolandkarte-in-QGIS-erstellen/qgis_screen_rasterbildmarkierung_detail.png)
 
+## Kartenhinweise einblenden
+
 Jetzt fehlt noch eine große Ansicht, die sich bei Klick auf ein Vorschaubild öffnet.
 Solche Pop-ups heißen in QGIS Kartenhinweise und werden in den Layereigenschaften unter „Anzeigen“ konfiguriert.
 Dabei darf HTML verwendet werden, die Felder aus den Punktattributen werden mit spitzer Klammer und Prozentzeichen eingefasst.
@@ -116,5 +139,18 @@ Tippen Sie also in die große Box „HTML-Kartenhinweis“ ein:
 <img src="file:///[% photo %]" width="500px"/>
 ```
 
-Nachdem der Dialog mit OK geschlossen wurde, sind die Thumbnails interaktiv: Sobald eines per Objektauswahl aktiviert wird, springt ein Pop-up mit dem großen Bild und dem Dateinamen auf.
-Welche Magie steckt dahinter? Alle Daten stammen aus den EXIT-Einträgen in den Fotos selbst. Markieren Sie mit dem Objektauswahl-Werkzeug (Abbildung 3) ein paar Fotos und klicken Sie auf „Attributtabelle öffnen“. Jetzt sehen Sie alle Eigenschaften der ausgewählten Punkte: Neben Dateipfad und Koordinaten gibt es „rotation“ für die Drehung des Smartphones bei der Aufnahme und „timestamp“ für den Aufnahmezeitpunkt. Viel Spaß beim Ausprobieren, was sich damit anstellen lässt!
+Nachdem der Dialog mit OK geschlossen wurde, sind die Thumbnails interaktiv:
+Sobald eines per Objektauswahl aktiviert wird, springt ein Pop-up mit dem großen Bild und dem Dateinamen auf.
+Welche Magie steckt dahinter?
+Alle Daten stammen aus den EXIT-Einträgen in den Fotos selbst.
+Markieren Sie mit dem Objektauswahl-Werkzeug (Abbildung 3) ein paar Fotos und klicken Sie auf „Attributtabelle öffnen“.
+Jetzt sehen Sie alle Eigenschaften der ausgewählten Punkte:
+Neben Dateipfad und Koordinaten gibt es „rotation“ für die Drehung des Smartphones bei der Aufnahme und „timestamp“ für den Aufnahmezeitpunkt.
+Viel Spaß beim Ausprobieren, was sich damit anstellen lässt!
+
+# Fazit
+
+ QGIS ist ein umfangreiches Werkzeug, das für eine steile Lernkurve bekannt ist.
+ Für einfache Anwendungsfälle wie diesen ist es aber mit wenigen Klicks einsatzbereit.
+ Da offline auf eigenen Geräten gearbeitet wird, treten viele Datenschutzfragen gar nicht erst auf.
+ Und nach kurzer Einarbeitung ermöglicht das volle Potenzial von QGIS komplexe Anwendungen, an die mit den bekannten Internet-Diensten kaum zu denken wäre.
