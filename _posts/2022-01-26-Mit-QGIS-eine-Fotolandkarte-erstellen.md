@@ -46,7 +46,7 @@ Die Kartierenden laufen ein Gewässer ab und fotografieren jede Tierspur mit der
 Um zurückzumelden, wo sich Biber angesiedelt haben, werden die gesammelten Fotos in eine Landkarte importiert.
 Die abschließende Bewertung ist dann auf einen Blick möglich.
 
-![Eine Foto-Landkarte offline selbst erstellen](/assets/images/posts/Fotolandkarte-in-QGIS-erstellen/qgis_screen_fake.jpg)
+![Eine Foto-Landkarte offline selbst erstellen](/assets/images/posts/Mit-QGIS-eine-Fotolandkarte-erstellen/qgis_screen_fake.jpg)
 
 # Vorbereitung
 ## Installation von QGIS
@@ -79,7 +79,7 @@ Eine schlichte Basiskarte aus OpenStreetMap eignet sich als Grundlage für fast 
 Dafür wird im GIS-Browser unter "XYZ Tiles" mit einem Klick die OpenStreetMap-Ebene ins Projekt eingefügt.
 Sie lädt keine Details über die Objekte, sie liegt nur wie ein Hintergrundbild unter der Welt.
 
-![Menüpunkte für den Import von OSM und Fotos](/assets/images/posts/Fotolandkarte-in-QGIS-erstellen/qgis_menu.png)
+![Menüpunkte für den Import von OSM und Fotos](/assets/images/posts/Mit-QGIS-eine-Fotolandkarte-erstellen/qgis_menu.png)
 
 ## Fotos herunterladen
 
@@ -112,7 +112,7 @@ Was wir stattdessen brauchen, ist eine sogenannte "Datendefinierte Übersteuerun
 Wie in der Abbildung markiert, finden Sie ein Menü ganz rechts neben dem Dateinamenfeld unter "Bearbeiten".
 Das öffnet den Ausdruckseditor.
 
-![Symbolisierung mit Rasterbildmarkierung](/assets/images/posts/Fotolandkarte-in-QGIS-erstellen/qgis_screen_rasterbildmarkierung_ausschnitt.png)
+![Symbolisierung mit Rasterbildmarkierung](/assets/images/posts/Mit-QGIS-eine-Fotolandkarte-erstellen/qgis_screen_rasterbildmarkierung_ausschnitt.png)
 
 Der gesuchte Dateiname ist ein Attribut des Fotopunkts.
 Scrollen Sie also zu "Felder und Werte" und suchen Sie aus allen Eigenschaften der Fotos das Feld "photo" heraus.
@@ -125,7 +125,7 @@ Die Symbolgröße steht noch auf wenige Millimeter, was für den bunten Kreis an
 Ändern Sie die Breite auf 25 Millimeter, übernehmen Sie alles mit dem Button "Anwenden", atmen Sie tief durch und ... die Fotos liegen auf der Karte, genau an ihren Aufnahmeorten!
 Die feine Linie des Track-Layers markiert im Hintergrund den Weg, auf dem die Orte besucht wurden.
 
-![Der Ausdruck "photo" liefert den Inhalt des gleichnamigen Felds](/assets/images/posts/Fotolandkarte-in-QGIS-erstellen/qgis_screen_rasterbildmarkierung_detail.png)
+![Der Ausdruck "photo" liefert den Inhalt des gleichnamigen Felds](/assets/images/posts/Mit-QGIS-eine-Fotolandkarte-erstellen/qgis_screen_rasterbildmarkierung_detail.png)
 
 ## Kartenhinweise einblenden
 
