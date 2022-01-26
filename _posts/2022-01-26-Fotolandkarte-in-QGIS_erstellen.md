@@ -38,12 +38,11 @@ Vielleicht wird auch eine Reduzierung von Abhängigkeiten angestrebt, um die eig
 Deshalb wird hier eine Lösung gezeigt, die mit freier Software auskommt und das Internet nur zum Lesen aus [OpenStreetMap](https://www.openstreetmap.org/) nutzt.
 Sämtliche Fotos, Positions- und Metadaten bleiben offline auf dem eigenen Gerät.
 
-Als Anwendungsfall dienst hier eine Kartierung von Tierspuren in freier Landschaft.
+Als Anwendungsfall dient hier eine Kartierung von Tierspuren in freier Landschaft.
 Die Daten werden von der öffentlichen Verwaltung benötigt, um die Ausbreitung des Bibers in Niedersachsen zu verfolgen.
-Nur so können Konflike mit Landnutzern oder Baumschäden an Straßen vorhergesehen werden.
 Doch sie sollen keinesfalls veröffentlicht werden, weil zu befürchten ist, dass Touristen die Tiere aufscheuchen oder Landwirte sie aus Angst vor Schäden vergrämen.
 
-Die Kartierer laufen ein Gewässer ab und fotografieren jede Tierspur mit der Foto-App des eigenen Smartphones.
+Die Kartierenden laufen ein Gewässer ab und fotografieren jede Tierspur mit der Foto-App des eigenen Smartphones.
 Um zurückzumelden, wo sich Biber angesiedelt haben, werden die gesammelten Fotos in eine Landkarte importiert.
 Die abschließende Bewertung ist dann auf einen Blick möglich.
 
@@ -145,7 +144,7 @@ Nachdem der Dialog mit OK geschlossen wurde, sind die Thumbnails interaktiv:
 Sobald eines per Objektauswahl aktiviert wird, springt ein Pop-up mit dem großen Bild und dem Dateinamen auf.
 Welche Magie steckt dahinter?
 Alle Daten stammen aus den EXIF-Einträgen in den Fotos selbst.
-Natprlich ht QGIS nicht alle importiert, sondern nur die für Ort und Ausrichtung relevanten.
+Natürlich hat QGIS nicht alle importiert, sondern nur die für Ort und Ausrichtung relevanten.
 Markieren Sie mit dem Objektauswahl-Werkzeug ein paar Fotos und klicken Sie auf "Attributtabelle öffnen".
 Jetzt sehen Sie alle Eigenschaften der ausgewählten Punkte:
 Neben Dateipfad und Koordinaten gibt es "rotation" für die Drehung des Smartphones bei der Aufnahme und "timestamp" für den Aufnahmezeitpunkt.
