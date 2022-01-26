@@ -110,7 +110,7 @@ Bei "Symbolisierung" ist ein einfacher Marker mit einem bunten Kreis eingestellt
 
 Auf den ersten Blick scheint der Dialog nur feste Dateinamen für das Punktsymbol anzunehmen.
 Was wir stattdessen brauchen, ist eine sogenannte "Datendefinierte Übersteuerung".
-Wie in der Abbildung markiert, finden Sie diese mit dem Menü ganz rechts neben dem Dateinamenfeld unter "Bearbeiten".
+Wie in der Abbildung markiert, finden Sie ein Menü ganz rechts neben dem Dateinamenfeld unter "Bearbeiten".
 Das öffnet den Ausdruckseditor.
 
 ![Symbolisierung mit Rasterbildmarkierung](/assets/images/posts/Fotolandkarte-in-QGIS-erstellen/qgis_screen_rasterbildmarkierung_ausschnitt.png)
@@ -144,7 +144,8 @@ Tippen Sie also in die große Box "HTML-Kartenhinweis" ein:
 Nachdem der Dialog mit OK geschlossen wurde, sind die Thumbnails interaktiv:
 Sobald eines per Objektauswahl aktiviert wird, springt ein Pop-up mit dem großen Bild und dem Dateinamen auf.
 Welche Magie steckt dahinter?
-Alle Daten stammen aus den EXIT-Einträgen in den Fotos selbst.
+Alle Daten stammen aus den EXIF-Einträgen in den Fotos selbst.
+Natprlich ht QGIS nicht alle importiert, sondern nur die für Ort und Ausrichtung relevanten.
 Markieren Sie mit dem Objektauswahl-Werkzeug ein paar Fotos und klicken Sie auf "Attributtabelle öffnen".
 Jetzt sehen Sie alle Eigenschaften der ausgewählten Punkte:
 Neben Dateipfad und Koordinaten gibt es "rotation" für die Drehung des Smartphones bei der Aufnahme und "timestamp" für den Aufnahmezeitpunkt.
