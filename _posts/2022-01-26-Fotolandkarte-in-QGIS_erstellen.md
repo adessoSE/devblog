@@ -10,16 +10,16 @@ tags: [Open Source,  Applications, Gis, Geodata, Photo] # Bitte auf Großschreib
 
 Dieser Artikel zeigt, wie Bilder mit Standortdaten auf einer Karte angeordnet werden.
 Ohne Cookies, ohne Cloud, ohne undurchsichtige Nutzungsbedingungen wegzuklicken.
-Eigentlich fast ohne Internet.
+Fast ohne Internet.
 Das freie Desktop-Geoinformationssystem QGIS und ein paar Kacheln aus OpenStreetMap reichen völlig aus.
 
 # Geodaten sind überall
 
 Geoinformationssysteme verwalten räumliche Daten.
-Im einfachsten Fall werden Dinge aus der realen Welt an den jeweiligen Orten dargestellt werden, damit User sie auswerten können.
+Im einfachsten Fall werden Dinge aus der realen Welt an den jeweiligen Orten dargestellt, damit User sie auswerten können.
 So etwa Gebäude und Straßen in einer Stadt oder die Positionen einer Fahrzeugflotte.
 
-Dieser Artikel demonstriert die Anzeige von Fotos am Aufnahmeort auf einer Landkarte.
+Dieser Artikel demonstriert die Anzeige von Fotos am Aufnahmeort.
 Die Datenerfassung ist denkbar einfach:
 Mit einem handelsüblichen Smartphone werden Orte fotografiert, dabei werden die Geokoordinaten automatisch in den Metadaten der Bilder gespeichert.
 
@@ -43,7 +43,7 @@ Die Daten werden von der öffentlichen Verwaltung benötigt, um die Ausbreitung 
 Nur so können Konflike mit Landnutzern oder Baumschäden an Straßen vorhergesehen werden.
 Doch sie sollen keinesfalls veröffentlicht werden, weil zu befürchten ist, dass Touristen die Tiere aufscheuchen oder Landwirte sie aus Angst vor Schäden vergrämen.
 
-Die Kartierer laufen je ein Gewässer ab und fotografieren jede Tierspur mit der Foto-App des eigenen Smartphones.
+Die Kartierer laufen ein Gewässer ab und fotografieren jede Tierspur mit der Foto-App des eigenen Smartphones.
 Um zurückzumelden, wo sich Biber angesiedelt haben, werden die gesammelten Fotos in eine Landkarte importiert.
 Die abschließende Bewertung ist dann auf einen Blick möglich.
 
@@ -53,27 +53,27 @@ Die abschließende Bewertung ist dann auf einen Blick möglich.
 ## Installation von QGIS
 
 QGIS wird für die Betriebssysteme Windows, Linux, macOS und BSD angeboten sowie als mobile Feldvariante für Android.
-Auf der [Download-Seite](https://www.qgis.org/de/site/forusers/download.html) können Sie zwischen Langzeit-Support und aktuellster Version wählen.
-Dieser Artikel bezieht sich auf Version 3.22 für Windows.
+Auf der [Download-Seite](https://www.qgis.org/de/site/forusers/download.html) können Sie zwischen Langzeit-Support und aktueller Version wählen.
+Diese Anleitung bezieht sich auf Version 3.22 für Windows.
 
 Falls dies Ihr erstes Experiment mit QGIS ist, laden Sie den Installer herunter und akzeptieren Sie die Voreinstellungen.
-QGIS wird automatisch für den üblichen Bedarf passend eingerichtet.
+QGIS wird automatisch für den üblichen Bedarf eingerichtet.
 
 ## Fotos sammeln
 
-Aktivieren Sie Standortdaten in der Foto-App Ihres Telefons. Das ist alles, damit sind Sie gerüstet für das Sammeln von Geodaten.
+Aktivieren Sie Standortdaten in der Foto-App Ihres Telefons. Das ist alles, nun sind Sie gerüstet für das Sammeln von Geodaten.
 Falls Sie zusätzlich den gelaufenen Weg aufzeichnen möchten, empfiehlt sich die App [OSM Tracker](https://learnosm.org/en/mobile-mapping/osmtracker/).
 Sie verwendet ausschließlich die GPS-Funktion des Geräts, um offline einen Track aufzuzeichnen, in den man bei Bedarf ortsbezogene Kommentare, Sprachnotizen etc. einfügen kann.
 
 In unserem Beispiel ziehen Sie die Wanderstiefel an und stapfen mit dem Handy durchs Gebüsch.
-Jede Spur eines Bibers wird kurz fotografiert, dann stecken Sie das Gerät schnell wieder in die Tasche, bevor es in den Schlamm fällt.
-Und ziehen Sie den Handschuh wieder an, denn Sie kartieren aus ökologischen Gründen im Winter.
+Jede Spur eines Bibers wird kurz fotografiert, dann verschwindet das Gerät schnell wieder in der Tasche, bevor es in den Schlamm fällt.
+Und ziehen Sie den Handschuh wieder an, denn aus ökologischen Gründen wird im Winter kartiert.
 Fertig?
 Sicher können Sie es kaum erwarten, endlich wieder am Computer zu sitzen.
 
 # Die erste Karte
 
-Starten Sie QGIS mit einem neuen Projekt.
+Wählen Sie nach dem Start von QGIS "Neues leeres Projekt" aus.
 In der leeren, weißen Fläche, die Sie nun sehen, sind alle Punkte der Erde enthalten.
 Es fehlt nur eine Landkarte, um sich zu orientieren.
 Eine schlichte Basiskarte aus OpenStreetMap eignet sich als Grundlage für fast jedes Kartenprojekt.
