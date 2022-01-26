@@ -92,38 +92,38 @@ Die aktuellen Fotos können aus dem Ordner "DCIM" kopiert und in ein Verzeichnis
 Falls Sie OSM Tracker verwenden, lässt sich mit dem Kontextmenü "Als GPX exportieren" die Route als XML-Datei abspeichern.
 Danach können Sie den kompletten Ordner "/osmtracker/2022-01-23_10-21-24" vom Handy auf den PC kopieren. Der Ordnername ist jeweils der Startzeitpunkt der Route.
 
-Der kopierte Ordner enthält eine GPX-Datei und alle unterwegs gesammelten Fotos. GPX steht für „Global Positioning System Exchange Format“.
+Der kopierte Ordner enthält eine GPX-Datei und alle unterwegs gesammelten Fotos. GPX steht für "Global Positioning System Exchange Format".
 Ziehen Sie diese Datei aus dem Dateiexplorer aufs QGIS-Fenster, um den Import zu starten.
-Nun entsteht unter anderem der Layer „tracks“, der den gelaufenen Weg als Linie enthält.
+Nun entsteht unter anderem der Layer "tracks", der den gelaufenen Weg als Linie enthält.
 
 ## Fotos in QGIS anzeigen
 
-In der Toolbox „Verarbeitungsdialoge“ liegt unter „Vektorerzeugung“ das Werkzeug „Geogetaggte Fotos importieren“.
+In der Toolbox "Verarbeitungsdialoge" liegt unter "Vektorerzeugung" das Werkzeug "Geogetaggte Fotos importieren".
 Per Doppelklick gestartet, fragt es nach dem Eingabeverzeichnis.
 Geben Sie hier den Ordner mit den Fotos an, der restliche Dialog kann leer bleiben.
 Dadurch entsteht ein Layer, das für jedes Foto einen Punkt enthält.
 
 Die Karte ist jetzt gepunktet, doch von den Bildern ist noch nichts zu sehen.
-Suchen Sie in der Layers-Toolbox die neue Ebene „Fotos“ und öffnen Sie ihre Eigenschaften.
-Bei „Symbolisierung“ ist ein einfacher Marker mit einem bunten Kreis eingestellt.
-Ändern Sie den Symbollayertyp in „Rasterbildmarkierung“ – der untere Dialogteil verschiebt sich und eine leere Vorschau wird eingeblendet.
+Suchen Sie in der Layers-Toolbox die neue Ebene "Fotos" und öffnen Sie ihre Eigenschaften.
+Bei "Symbolisierung" ist ein einfacher Marker mit einem bunten Kreis eingestellt.
+Ändern Sie den Symbollayertyp in "Rasterbildmarkierung" – der untere Dialogteil verschiebt sich und eine leere Vorschau wird eingeblendet.
 
 Auf den ersten Blick scheint der Dialog nur feste Dateinamen für das Punktsymbol anzunehmen.
-Was wir stattdessen brauchen, ist eine sogenannte „Datendefinierte Übersteuerung“.
-Wie in Abbildung 2, finden Sie diese mit dem Menü ganz rechts neben dem Dateinamenfeld unter „Bearbeiten“.
+Was wir stattdessen brauchen, ist eine sogenannte "Datendefinierte Übersteuerung".
+Wie in der Abbildung markiert, finden Sie diese mit dem Menü ganz rechts neben dem Dateinamenfeld unter "Bearbeiten".
 Das öffnet den Ausdruckseditor.
 
 ![Symbolisierung mit Rasterbildmarkierung](/assets/images/posts/Fotolandkarte-in-QGIS-erstellen/qgis_screen_rasterbildmarkierung_ausschnitt.png)
 
 Der gesuchte Dateiname ist ein Attribut des Fotopunkts.
-Scrollen Sie also zu „Felder und Werte“ (Abbildung 3) und suchen Sie aus allen Eigenschaften der Fotos das Feld „photo“ heraus.
+Scrollen Sie also zu "Felder und Werte" und suchen Sie aus allen Eigenschaften der Fotos das Feld "photo" heraus.
 Es enthält den vollständigen Dateipfad des Bildes.
 Außerdem stehen hier die Geokoordinaten und der Zeitstempel zur Auswahl sowie getrennte Felder für Verzeichnis und Dateinamen, die wir teils später noch benötigen werden.
 
-Damit ist der einfache Ausdruck „photo“ auch schon vollständig.
+Damit ist der einfache Ausdruck "photo" auch schon vollständig.
 Bestätigen Sie den Dialog, um zu den Layereigenschaften zurückzukehren.
 Die Symbolgröße steht noch auf wenige Millimeter, was für den bunten Kreis angemessen war, aber nicht für ein Foto reicht.
-Ändern Sie die Breite auf 25 Millimeter, übernehmen Sie alles mit dem Button „Anwenden“, atmen Sie tief durch und ... die Fotos liegen auf der Karte, genau an ihren Aufnahmeorten!
+Ändern Sie die Breite auf 25 Millimeter, übernehmen Sie alles mit dem Button "Anwenden", atmen Sie tief durch und ... die Fotos liegen auf der Karte, genau an ihren Aufnahmeorten!
 Die feine Linie des Track-Layers markiert im Hintergrund den Weg, auf dem die Orte besucht wurden.
 
 ![Der Ausdruck "photo" liefert den Inhalt des gleichnamigen Felds](/assets/images/posts/Fotolandkarte-in-QGIS-erstellen/qgis_screen_rasterbildmarkierung_detail.png)
@@ -131,10 +131,10 @@ Die feine Linie des Track-Layers markiert im Hintergrund den Weg, auf dem die Or
 ## Kartenhinweise einblenden
 
 Jetzt fehlt noch eine große Ansicht, die sich bei Klick auf ein Vorschaubild öffnet.
-Solche Pop-ups heißen in QGIS Kartenhinweise und werden in den Layereigenschaften unter „Anzeigen“ konfiguriert.
+Solche Pop-ups heißen in QGIS Kartenhinweise und werden in den Layereigenschaften unter "Anzeigen" konfiguriert.
 Dabei darf HTML verwendet werden, die Felder aus den Punktattributen werden mit spitzer Klammer und Prozentzeichen eingefasst.
 In diesem Fall soll die Detailansicht den Dateinamen ohne Pfad und darunter das Foto anzeigen.
-Tippen Sie also in die große Box „HTML-Kartenhinweis“ ein:
+Tippen Sie also in die große Box "HTML-Kartenhinweis" ein:
 
 ```html
 [% filename %]
@@ -145,9 +145,9 @@ Nachdem der Dialog mit OK geschlossen wurde, sind die Thumbnails interaktiv:
 Sobald eines per Objektauswahl aktiviert wird, springt ein Pop-up mit dem großen Bild und dem Dateinamen auf.
 Welche Magie steckt dahinter?
 Alle Daten stammen aus den EXIT-Einträgen in den Fotos selbst.
-Markieren Sie mit dem Objektauswahl-Werkzeug (Abbildung 3) ein paar Fotos und klicken Sie auf „Attributtabelle öffnen“.
+Markieren Sie mit dem Objektauswahl-Werkzeug ein paar Fotos und klicken Sie auf "Attributtabelle öffnen".
 Jetzt sehen Sie alle Eigenschaften der ausgewählten Punkte:
-Neben Dateipfad und Koordinaten gibt es „rotation“ für die Drehung des Smartphones bei der Aufnahme und „timestamp“ für den Aufnahmezeitpunkt.
+Neben Dateipfad und Koordinaten gibt es "rotation" für die Drehung des Smartphones bei der Aufnahme und "timestamp" für den Aufnahmezeitpunkt.
 Viel Spaß beim Ausprobieren, was sich damit anstellen lässt!
 
 # Fazit
