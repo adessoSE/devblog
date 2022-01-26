@@ -69,16 +69,18 @@ In unserem Beispiel ziehen Sie die Wanderstiefel an und stapfen mit dem Handy du
 Jede Spur eines Bibers wird kurz fotografiert, dann verschwindet das Gerät schnell wieder in der Tasche, bevor es in den Schlamm fällt.
 Und ziehen Sie den Handschuh wieder an, denn aus ökologischen Gründen wird im Winter kartiert.
 Fertig?
-Sicher können Sie es kaum erwarten, endlich wieder am Computer zu sitzen.
+Sicher können Sie es kaum erwarten, endlich wieder am Schreibtisch zu sitzen.
 
 # Die erste Karte
 
 Wählen Sie nach dem Start von QGIS "Neues leeres Projekt" aus.
-In der leeren, weißen Fläche, die Sie nun sehen, sind alle Punkte der Erde enthalten.
+In der weißen Fläche, die Sie nun sehen, sind alle Punkte der Erde enthalten.
 Es fehlt nur eine Landkarte, um sich zu orientieren.
 Eine schlichte Basiskarte aus OpenStreetMap eignet sich als Grundlage für fast jedes Kartenprojekt.
 Dafür wird im GIS-Browser unter "XYZ Tiles" mit einem Klick die OpenStreetMap-Ebene ins Projekt eingefügt.
 Sie lädt keine Details über die Objekte, sie liegt nur wie ein Hintergrundbild unter der Welt.
+
+![Menüpunkte für den Import von OSM und Fotos](/assets/images/posts/Fotolandkarte-in-QGIS-erstellen/qgis_menu.png)
 
 ## Fotos herunterladen
 
