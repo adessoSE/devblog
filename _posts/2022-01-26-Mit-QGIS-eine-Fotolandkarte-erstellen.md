@@ -40,7 +40,7 @@ Sämtliche Fotos, Positions- und Metadaten bleiben offline auf dem eigenen Gerä
 
 Als Anwendungsfall dient hier eine Kartierung von Tierspuren in freier Landschaft.
 Die Daten werden von der öffentlichen Verwaltung benötigt, um die Ausbreitung des Bibers in Niedersachsen zu verfolgen.
-Doch sie sollen keinesfalls veröffentlicht werden, weil zu befürchten ist, dass Touristen die Tiere aufscheuchen oder Landwirte sie aus Angst vor Schäden vergrämen.
+Doch sie sollen keinesfalls veröffentlicht werden, weil zu befürchten ist, dass Sensationssuchende die Tiere aufscheuchen oder die Landwirtschaft sie aus Angst vor Schäden vergrämt.
 
 Die Kartierenden laufen ein Gewässer ab und fotografieren jede Tierspur mit der Foto-App des eigenen Smartphones.
 Um zurückzumelden, wo sich Biber angesiedelt haben, werden die gesammelten Fotos in eine Landkarte importiert.
