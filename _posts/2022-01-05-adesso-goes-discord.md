@@ -7,8 +7,8 @@ categories: [Softwareentwicklung]
 tags: [Discord, Java, Discord Bot]
 ---
 
-Unter Gamern ist Discord ein schon lange verbreitets Tool, um sich beim Spielen zu unterhalten.
-Aber auch außerhalb der Gamer-Community wird Discord immer häufiger genutzt, um sich mit Freunden zu unterhalten oder auch nur zu Schreiben.
+Unter Gamern ist Discord ein schon lange verbreitetes Tool, um sich beim Spielen zu unterhalten.
+Aber auch außerhalb der Gamer-Community wird Discord immer häufiger genutzt, um sich mit Freunden zu unterhalten oder auch nur um zu Schreiben.
 Dadurch, dass Discord nicht nur als Client auf dem Computer genutzt werden kann,
 sondern auch als App für Android und IOS verfügbar ist und über den Browser verwendet werden kann,
 ist es ohne große Hürden möglich, sich mit anderen Menschen zu verknüpfen.
@@ -16,16 +16,19 @@ ist es ohne große Hürden möglich, sich mit anderen Menschen zu verknüpfen.
 Discord ermöglicht es einem auch für seine eigenen Zwecke einen Server zu erstellen, um mit seiner eigenen Community kommunizieren zu können.
 Um sich die Administration von seinem eigenen Server zu vereinfachen, kann man Bots nutzen.
 
+
 In diesem Artikel möchte ich mit euch die ersten Schritte machen, um solch einen Bot in Java zu programmieren.
 Und natürlich zeige ich euch auch welche weiteren Schritte nötig sind. 
 
 Zur Erstellung und Programmieren, benötigen wir folgende Dinge:
+
 * IDE
 * Version 9+
 * Maven
 * Discord Account
 
 # Den Bot im Web vorbereiten
+
 
 Bevor wir mit der programmatischen Umsetzung beginnen können, müssen wir zunächst einiges vorbereiten.
 Als erstes müssen wir den Bot im Web erstellen.
@@ -38,7 +41,8 @@ Dort können wir über "Add Bot" die Applikation nun in einen Bot umwandeln.
 Nach der Umwandlung gibt es auf der Seite die Möglichkeit einen Token zu kopieren.
 Diesen sollten wir uns für später schon einmal abspeichern.
 
-Die Default Einstellung von einem neu erstellten Bot ist public.
+
+Die Default-Einstellung von einem neu erstellten Bot ist public.
 Der Bot könnte somit von jedem auf seinen Server geholt werden.
 Damit das nicht passiert sollten wir diese Einstellung daher erst einmal auf private stellen.
 
