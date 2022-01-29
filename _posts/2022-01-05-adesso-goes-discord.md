@@ -16,7 +16,6 @@ ist es ohne große Hürden möglich, sich mit anderen Menschen zu verknüpfen.
 Discord ermöglicht es einem auch für seine eigenen Zwecke einen Server zu erstellen, um mit seiner eigenen Community kommunizieren zu können.
 Um sich die Administration von seinem eigenen Server zu vereinfachen, kann man Bots nutzen.
 
-
 In diesem Artikel möchte ich mit euch die ersten Schritte machen, um solch einen Bot in Java zu programmieren.
 Und natürlich zeige ich euch auch welche weiteren Schritte nötig sind. 
 
@@ -29,7 +28,6 @@ Zur Erstellung und Programmieren, benötigen wir folgende Dinge:
 
 # Den Bot im Web vorbereiten
 
-
 Bevor wir mit der programmatischen Umsetzung beginnen können, müssen wir zunächst einiges vorbereiten.
 Als erstes müssen wir den Bot im Web erstellen.
 Dazu müssen wir uns auf der [Discord-Seite](https://discord.com/) anmelden.
@@ -40,7 +38,6 @@ Dort können wir über "Add Bot" die Applikation nun in einen Bot umwandeln.
 
 Nach der Umwandlung gibt es auf der Seite die Möglichkeit einen Token zu kopieren.
 Diesen sollten wir uns für später schon einmal abspeichern.
-
 
 Die Default-Einstellung von einem neu erstellten Bot ist public.
 Der Bot könnte somit von jedem auf seinen Server geholt werden.
