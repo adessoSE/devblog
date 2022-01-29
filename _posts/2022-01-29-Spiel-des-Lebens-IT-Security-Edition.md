@@ -57,13 +57,9 @@ Unter den Kooperationspartnerschaften von [klicksafe](https://www.klicksafe.de/u
 
 # Erwachsene
 
-Natürlich ist es nicht nur wichtig die Sicherheit von, mit und für Kinder im Netz zu gewährleisten, sondern auch die eigene private Sicherheit. 
+Natürlich ist es nicht nur wichtig die Sicherheit von, mit und für Kinder im Netz zu gewährleisten, sondern auch die eigene private Sicherheit. Das Bundesamt für Sicherheit in der Informationstechnik (BSI) setzt sich für den digitalen Verbraucherschutz ein, die ein zunehmendes Risiko für Nutzende beschreibt:
 
-Das Bundesamt für Sicherheit in der Informationstechnik (BSI) setzt sich für den digitalen Verbraucherschutz ein, die ein zunehmendes Risiko für Nutzende beschreibt:
-
-"So versuchen die Angreifer beispielsweise, in die Systeme von digitalen Diensteanbietern einzudringen, um dort sensible Kundendaten abzuschöpfen. Cyber-Kriminelle nutzten etwa eine Sicherheitslücke in 1.000 Onlineshops in Deutschland aus, die es ihnen ermöglichte, bei der Aufgabe einer Bestellung die Kundendaten auszuspähen.
-
-Neben dieser Gefährdung Einzelner stellen unsichere Produkte auch ein Risiko für die öffentliche Sicherheit dar. 
+"So versuchen die Angreifer beispielsweise, in die Systeme von digitalen Diensteanbietern einzudringen, um dort sensible Kundendaten abzuschöpfen. Cyber-Kriminelle nutzten etwa eine Sicherheitslücke in 1.000 Onlineshops in Deutschland aus, die es ihnen ermöglichte, bei der Aufgabe einer Bestellung die Kundendaten auszuspähen. Neben dieser Gefährdung Einzelner stellen unsichere Produkte auch ein Risiko für die öffentliche Sicherheit dar. 
 Wenn zum Beispiel internetfähige Anwenderprodukte wie Router, Netzwerkdrucker oder Smart-TVs von Cyber-Kriminellen zu einem Botnetz zusammengeschlossen werden, können damit Cyber-Angriffe gegen Dritte beziehungsweise gegen weitere Geräte oder Netzwerke ausgeführt werden und weitaus größere Schäden anrichten."
 
 Für diese und viele andere Themen stellt das BSI [Informationsmaterial](https://www.bsi.bund.de/DE/Themen/Verbraucherinnen-und-Verbraucher/verbraucherinnen-und-verbraucher_node.html) bereit. 
