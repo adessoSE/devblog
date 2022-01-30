@@ -9,8 +9,23 @@ tags: [Java, Spring, Webflux, Reaktive Programmierung] # Bitte auf Großschreibu
 ---
 # Einleitung
 ## Was ist reaktive Programmierung?
+In Wikipedia ist reaktive Programmierung wie folgt beschrieben.
+Bei der Datenverarbeitung ist Reaktive Programmierung ein Programmierparadigma, das sich an Datenflüssen orientiert.
+Das zugrunde liegende Ausführungsmodell propagiert Änderungen in den Datenflüssen automatisch.
+
+Seit Version 5 unterstützt das Spring Framework reaktive Programmierung und bietet verschiedene Möglichkeiten diese zu nutzen.
 ## Nachteile 1 Thread pro Request
-## Abgrenzung zu traditioneller Programmierung & Project Reactor
+Klassische Programmiermodelle, wie z.B. in Spring MVC, nutzen für jeden Request jeweils einen Thread und belegen ihn 
+so lange bis die aktuelle Aufgabe abgeschlossen ist und geben ihn dann wieder frei. Muss während der Codeverarbeitung z.B.
+eine Datenbank oder ein entferntes System angesprochen werden, welche eine langsame Antwortzeit hat muss der Thread lange blockieren.
+Um die Antwortbereitschaft aufrecht zu halten wird oft ein größerer Threadpool vorgehalten, 
+je nach Szenario kann ein Java Thread auch schnell mal 1MB Speicher belegen, welches gerade in Cloudumgebungen schnell mit erhöten Kosten einhergeht. 
+
+## Project Reactor
+Publisher
+Subscriber
+Subscription
+Processor
 ## Mono und Flux
 In den folgenden Kapiteln und insbesondere in den Codebeispielen wird viel die Rede von Mono und Flux sein. 
 Dabei handelt es sich um die beiden zentralen APIs der Reactor-Library.
