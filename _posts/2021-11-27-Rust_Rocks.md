@@ -1,6 +1,6 @@
 ---
 layout: [post, post-xml]              # Pflichtfeld. Nicht ändern!
-title:  "Rust - Was, Warum und Wofür" # Pflichtfeld. Bitte einen Titel für den Blog Post angeben.
+title:  "Rust Rocks" # Pflichtfeld. Bitte einen Titel für den Blog Post angeben.
 date:   2021-11-28 14:00              # Pflichtfeld. Format "YYYY-MM-DD HH:MM". Muss für Veröffentlichung in der Vergangenheit liegen. (Für Preview egal)
 modified_date: 2021-11-28 14:00       # Optional. Muss angegeben werden, wenn eine bestehende Datei geändert wird.
 author_ids: [christianlunau]          # Pflichtfeld. Es muss in der "authors.yml" einen Eintrag mit diesem Namen geben.
