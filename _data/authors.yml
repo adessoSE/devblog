@@ -532,3 +532,12 @@ unexist:
   avatar_url: /assets/images/avatars/unexist.jpg
   github_username: unexist
   github: https://github.com/unexist
+
+christianlunau:
+  first_name: Christian
+  last_name: Lunau
+  github_username: clunion
+  email: Christian.Lunau@adesso.de
+  bio: "Christian Lunau entwickelt seit dem vorigen Jahrtausend Software mit Schwerpunkten in den Bereichen performante Backendsysteme und Datenbankanwendungen."
+  avatar_url: /assets/images/avatars/Christian_Lunau.jpg
+  github: https://github.com/clunion
