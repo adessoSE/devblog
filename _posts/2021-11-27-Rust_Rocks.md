@@ -5,30 +5,17 @@ date:   2021-11-28 14:00              # Pflichtfeld. Format "YYYY-MM-DD HH:MM". 
 modified_date: 2021-11-28 14:00       # Optional. Muss angegeben werden, wenn eine bestehende Datei geändert wird.
 author_ids: [christianlunau]          # Pflichtfeld. Es muss in der "authors.yml" einen Eintrag mit diesem Namen geben.
 categories: [Softwareentwicklung]     # Pflichtfeld. Maximal eine der angegebenen Kategorien verwenden.
-tags: [Rust]                          # Bitte auf Großschreibung achten.
+tags: [Rust, Nachhaltigkeit, Energieeffizienz, Performance]                          # Bitte auf Großschreibung achten.
 ---
-
-
-[rust_logo_rusty]: /assets/images/posts/Rust_Rocks/rust-logo-256x256.png "Rust-Logo groß, rostig"  
-
-[rust_logo_black]: /assets/images/posts/Rust_Rocks/rust-logo-blk.svg "rust logo black"  
-
-[energy_efficiency_langs]: /assets/images/posts/Rust_Rocks/Energieeffizienz_all_languages.png "Energy-Efficiency langs"  
-
-[Rust_Mitglieder_und_Sponsor]: /assets/images/posts/Rust_Rocks/RustFoundation_Mitglieder.png "Rust Mitglieder und Sponsor"  
-
-[bubblesort_as_a_Bug]: /assets/images/posts/Rust_Rocks/bubblesort_as_a_Bug.jpg "Bubblesort as a Bug"  
+Hin und wieder treten neue Programmiersprachen auf den Plan, die meist schnell wieder in der Bedeutungslosigkeit verschwinden.
+Nur selten wird eine neue Sprache gleichermaßen von einer großen Community getragen und von globalen IT-Firmen zur Umsetzung der eigenen Kernprojekte verwendet.  
+Rust ist eine solche seltene Sprache.  
 
 # Rust Rocks!
 
 ## Nachhaltigkeit - Performance - Sicherheit
 
 ![rust_logo_rusty]
-
-Hin und wieder treten neue Programmiersprachen auf den Plan, die meist schnell wieder in der Bedeutungslosigkeit verschwinden.
-Nur selten wird eine neue Sprache gleichermaßen von einer großen Community getragen und von globalen IT-Firmen zur Umsetzung der eigenen Kernprojekte verwendet.  
-
-Rust ist eine solche seltene Sprache.  
 
 ## Was ist Rust?
 
@@ -38,7 +25,7 @@ Aufgrund der Struktur von Rust sind die Kosten der Sprachabstraktionen so gering
 
 Das alles korrekt zu koordinieren wird durch den Borrow-Checker zur Compile-Zeit sichergestellt. Ein im Hintergrund laufender Garbage-Collector zum Einsammeln der freien Speicherbereiche ist nicht erforderlich.  
 
-Kein dauernd laufender Aufräumprozess im Hintergrund bedeutet: 
+Kein dauernd laufender Aufräumprozess im Hintergrund bedeutet:  
 -> kein zusätzlicher Laufzeitaufwand  
 -> somit geringere Anzahl ausgeführter CPU-Befehle  
 -> höhere Performance und geringerer Energiebedarf.  
@@ -46,6 +33,7 @@ Kein dauernd laufender Aufräumprozess im Hintergrund bedeutet:
 Zudem wird Rust-Sourcecode nativ kompiliert, was die Grundlage für die hohe Performance ist: Zur Laufzeit wird nicht mehr interpretiert oder als Bytecode durch eine Virtuelle Maschine verarbeitet. Rust-Programme sind wie Eisenoxid - nah am "Bare Metal" der Maschine, da ist nichts mehr dazwischen.
 
 ## Wer steckt dahinter?  
+
 ![Rust_Mitglieder_und_Sponsor]
 
 Ursprünglich wurde Rust von Mozilla entwickelt, bevor die Aufsicht über die Weiterentwicklung dann an die Ende 2020 neu gegründete [Rust Foundation](https://foundation.rust-lang.org/) übergeben wurde.  
@@ -146,7 +134,7 @@ Dabei wurden für alle beteiligten Sprachen jeweils möglichst effiziente Implem
 
 Ende Mai 2021 hat [Christian Meesters diese Ergebnisse noch mal aufbereitet](https://scienceblogs.de/rupture-de-catenaire/2021/05/03/die-energie-effizienz-von-programmiersprachen/) und die Ergebnisse im folgenden Diagramm übersichtlich dargestellt:
 
-![energy_efficiency_langs] 
+![energy_efficiency_langs]  
 Das Diagramm ist freundlicherweise unter der sehr freigiebigen [CC-BY SA 4.0-Lizenz](https://creativecommons.org/licenses/by-sa/4.0/deed.de) veröffentlicht.  
 
 Zu sehen ist hier jeweils der Energieverbrauch des Test-Sets an Implementierungen, relativ normiert zu der energiesparendsten Sprache, welche C ist und die den Wert '1' erhalten hat. Die anderen Sprachen benötigen für dieselben Aufgaben dementsprechend die Y-fache Energie.  
@@ -230,3 +218,13 @@ Elisabeth Schulz (auf Informatik Aktuell, 08.06.2021): [Serverless und doch Meta
 Heise.de (2020): [Warum Rust die Antwort auf miese Software und Programmierfehler ist]( https://www.heise.de/hintergrund/Entwicklung-Warum-Rust-die-Antwort-auf-miese-Software-und-Programmierfehler-ist-4879795.html)
 
 Golem.de (2016): [Ist die neue Programmiersprache besser?](https://www.golem.de/news/rust-ist-die-neue-programmiersprache-besser-1606-121227.html)  
+
+[rust_logo_rusty]: /assets/images/posts/Rust_Rocks/rust-logo-256x256.png "Rust-Logo groß, rostig"  
+
+[rust_logo_black]: /assets/images/posts/Rust_Rocks/rust-logo-blk.svg "rust logo black"  
+
+[energy_efficiency_langs]: /assets/images/posts/Rust_Rocks/Energieeffizienz_all_languages.png "Energy-Efficiency langs"  
+
+[Rust_Mitglieder_und_Sponsor]: /assets/images/posts/Rust_Rocks/RustFoundation_Mitglieder.png "Rust Mitglieder und Sponsor"  
+
+[bubblesort_as_a_Bug]: /assets/images/posts/Rust_Rocks/bubblesort_as_a_Bug.jpg "Bubblesort as a Bug"  
