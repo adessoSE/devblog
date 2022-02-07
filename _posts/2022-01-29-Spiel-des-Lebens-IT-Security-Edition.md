@@ -49,7 +49,7 @@ Im Safer Internet Centre bietet klicksafe Informationen und weist auf Beratungss
 Ebenso gibt es pädagogisches Material, welches Lehrende im Unterricht direkt verwenden können. 
 So gibt es Materialen wie das Lehrerhandbuch und eine ganze Unterrichtsreihe zu mobilen Medien oder ein ganzes Jahresprogramm "durchs Jahr mit klicksafe".
 
-Klicksafe bietet zudem den Podcast „klicksafe fragt …“ an. 
+Klicksafe bietet zudem den Podcast "klicksafe fragt …" an. 
 Beschrieben wird er wie folgt: „Kinder, Medien, Sicherheit - einmal im Monat stellen wir eine Frage aus diesem Themenfeld. Sind zum Beispiel Soziale Netzwerke für Kinder eine gute Idee? Ist die Gaming-Community toxisch? Welche Haltung sollten Eltern beim Thema Sexting einnehmen? Für diese und weitere Fragen laden wir uns ExpertInnen ein, mit denen wir sprechen und diskutieren.“
 Einmal im Monat am Frühstückstisch lässt sich vielleicht gemeinsam eine Folge anhören. 
 Unter den Kooperationspartnerschaften von [klicksafe](https://www.klicksafe.de/ueber-klicksafe/netzwerk-deutschland/kooperationspartner) finden sich zudem viele weitere Informationsquellen für Eltern, Kinder und Pädagogen.
