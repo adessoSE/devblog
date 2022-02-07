@@ -41,7 +41,7 @@ Die Inhalte sind immer informativ mit aufgezeigten Möglichkeiten zum Schutz und
 
 Auch wenn man sich wünscht, dass Kinder nicht mit solch problematischen Inhalten in Kontakt kommen, kann man es nicht verhindern. 
 Umso wichtiger ist die Aufklärung der Eltern, der pädagogisch Lehrenden und der Kinder. 
-Sowohl das internet-abc, als auch klicksafe bieten Informationsmaterial für Eltern und Pädagogen an. 
+Sowohl das internet-abc, als auch klicksafe bieten Informationsmaterial für Eltern und pädagogisch Lehrende an. 
 Für Eltern gibt es Material, wie sie die Geräte von ihren Kindern sichern können und ihre Kinder im Netz sicher begleiten können. 
 Es gibt aber auch Informationen dazu, an wen die Eltern oder ihre Kinder sich wenden können, falls sie mit Cybergrooming oder anderen sensiblen Themen in Kontakt kamen und betroffen sind.
 Es gibt zudem spezielle Materialen für Elternabende. 
