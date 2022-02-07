@@ -47,7 +47,7 @@ Es gibt aber auch Informationen dazu, an wen die Eltern oder ihre Kinder sich we
 Es gibt zudem spezielle Materialen für Elternabende. 
 Im Safer Internet Centre bietet klicksafe Informationen und weist auf Beratungsstellen wie [nummergegenkummer](nummergegenkummer.de) oder Meldestellen wie [jugenschutz.net](jugenschutz.net) und [internet.beschwerdestelle.de](internet.beschwerdestelle.de) hin.
 Ebenso gibt es pädagogisches Material, welches Lehrende im Unterricht direkt verwenden können. 
-So gibt es Materialen, wie das Lehrerhandbuch, sowie eine ganze Unterrichtsreihe zu mobilen Medien oder ein ganzes Jahresprogramm „durchs Jahr mit klicksafe“.
+So gibt es Materialen wie das Lehrerhandbuch und eine ganze Unterrichtsreihe zu mobilen Medien oder ein ganzes Jahresprogramm "durchs Jahr mit klicksafe".
 
 Klicksafe bietet zudem den Podcast „klicksafe fragt …“ an. 
 Beschrieben wird er wie folgt: „Kinder, Medien, Sicherheit - einmal im Monat stellen wir eine Frage aus diesem Themenfeld. Sind zum Beispiel Soziale Netzwerke für Kinder eine gute Idee? Ist die Gaming-Community toxisch? Welche Haltung sollten Eltern beim Thema Sexting einnehmen? Für diese und weitere Fragen laden wir uns ExpertInnen ein, mit denen wir sprechen und diskutieren.“
