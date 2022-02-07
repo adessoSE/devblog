@@ -75,7 +75,7 @@ Die Umstellung auf eine digitale Welt, wenn vorher alles analog war, kann schwer
 Manche Hersteller wie Apple bieten auch in ihren Stores eigene [Sessions](https://www.apple.com/de/today/event/skills-getting-started-with-ipad/6889189001107180266/?sn=R403) an, um den Umgang mit ihren Geräten zu lernen. 
 Dort findet man sogar auch Sessions zu Themen Kinder, Datenschutz & Familienfreigabe. 
 Bei anderen Anbietern kann man auf die Seite der Hersteller schauen. 
-Nicht immer muss es ein Senioren Handy oder Tablet sein, in manchen Fällen ist es auch die Zeit zum Lernen die benötigt wird. 
+Nicht immer muss es ein Seniorenhandy oder -tablet sein, in manchen Fällen ist es auch die Zeit zum Lernen, die benötigt wird. 
 
 Falls der Weg ins Internet über ein Gerät der Wahl geschafft ist, gibt es auch hier spezielle Informationsseiten, die ihre Inhalte Zielgruppenspezifisch aufbereitet hat, wie zum Beispiel die Seite [Silver Tipps](https://www.silver-tipps.de). 
 Dort gibt es Videomaterial wie „Helga hilft“ die Beispielsweise erklärt, warum man Updates auf verschieden Geräten benötigt. 
