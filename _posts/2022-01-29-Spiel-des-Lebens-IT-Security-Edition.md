@@ -71,7 +71,7 @@ Ein Newsletter per E-Mail kann man ebenfalls abonnieren.
 
 # Bronze, Silber und Gold 
 
-Die Umstellung auf eine digitale Welt, wenn vorher alles analog war, kann schwerfallen. Es gibt jedoch verschieden VHS Kurse in verschiedenen Städten um den Weg (mit verschiedenen Geräten) in die digitale Welt zu finden. [Hier](https://vhs.dortmund.de/index.php?id=264&kathaupt=1&katid=96&katvaterid=3&katname=IT+fuer+Senioren) ein Beispiel an Kursen aus Dortmund. 
+Die Umstellung auf eine digitale Welt, wenn vorher alles analog war, kann schwerfallen. Es gibt jedoch verschiedene VHS-Kurse in verschiedenen Städten, um den Weg (mit verschiedenen Geräten) in die digitale Welt zu finden. [Hier](https://vhs.dortmund.de/index.php?id=264&kathaupt=1&katid=96&katvaterid=3&katname=IT+fuer+Senioren) ist ein Beispiel an Kursen aus Dortmund. 
 Manche Hersteller wie Apple bieten auch in ihren Stores eigene [Sessions](https://www.apple.com/de/today/event/skills-getting-started-with-ipad/6889189001107180266/?sn=R403) an, um den Umgang mit ihren Geräten zu lernen. 
 Dort findet man sogar auch Sessions zu Themen Kinder, Datenschutz & Familienfreigabe. 
 Bei anderen Anbietern kann man auf die Seite der Hersteller schauen. 
