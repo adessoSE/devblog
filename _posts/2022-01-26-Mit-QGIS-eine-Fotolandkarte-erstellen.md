@@ -9,15 +9,14 @@ tags: [Open Source,  Applications, Gis, Geodata, Photo] # Bitte auf Großschreib
 ---
 
 Dieser Artikel zeigt, wie Bilder mit Standortdaten auf einer Karte angeordnet werden.
-Ohne Cookies, ohne Cloud, ohne undurchsichtige Nutzungsbedingungen wegzuklicken.
-Fast ohne Internet.
-Das freie Desktop-Geoinformationssystem QGIS und ein paar Kacheln aus OpenStreetMap reichen völlig aus.
+Mit dem freien Desktop-Geoinformationssystem [QGIS](https://www.qgis.org) und ein paar Kacheln aus [OpenStreetMap](https://www.osm.org)
+geht das ohne Cookies, ohne Cloud und ohne undurchsichtige Nutzungsbedingungen wegzuklicken.
 
 # Geodaten sind überall
 
 Geoinformationssysteme verwalten räumliche Daten.
 Im einfachsten Fall werden Dinge aus der realen Welt an den jeweiligen Orten dargestellt, damit User sie auswerten können.
-So etwa Gebäude und Straßen in einer Stadt oder die Positionen einer Fahrzeugflotte.
+Beispiele hierfür sind Gebäude und Straßen in einer Stadt oder die Positionen einer Fahrzeugflotte.
 
 Dieser Artikel demonstriert die Anzeige von Fotos am Aufnahmeort.
 Die Datenerfassung ist denkbar einfach:
@@ -31,11 +30,11 @@ Damit hat man nicht nur sämtliche Bilder ins Internet entlassen, man gibt die K
 
 Für kritische Daten wie etwa Sicherheitsmängel auf einem Betriebsgelände oder Bilder fremder Personen ist das keine Lösung.
 Darüber hinaus steht eine schnelle Internetverbindung nicht an jedem Ort jederzeit zur Verfügung.
-Vielleicht wird auch eine Reduzierung von Abhängigkeiten angestrebt, um die eigene Software-Umgebung durchschaubar zu halten.
+Vielleicht wird auch eine Reduzierung von Abhängigkeiten angestrebt, um die eigene Softwareumgebung durchschaubar zu halten.
 
 ## Das Beispiel
 
-Deshalb wird hier eine Lösung gezeigt, die mit freier Software auskommt und das Internet nur zum Lesen aus [OpenStreetMap](https://www.openstreetmap.org/) nutzt.
+Deshalb wird hier eine Lösung gezeigt, die mit freier Software auskommt und das Internet nur zum Lesen aus OpenStreetMap nutzt.
 Sämtliche Fotos, Positions- und Metadaten bleiben offline auf dem eigenen Gerät.
 
 Als Anwendungsfall dient hier eine Kartierung von Tierspuren in freier Landschaft.
@@ -52,7 +51,7 @@ Die abschließende Bewertung ist dann auf einen Blick möglich.
 ## Installation von QGIS
 
 QGIS wird für die Betriebssysteme Windows, Linux, macOS und BSD angeboten sowie als mobile Feldvariante für Android.
-Auf der [Download-Seite](https://www.qgis.org/de/site/forusers/download.html) können Sie zwischen Langzeit-Support und aktueller Version wählen.
+Auf der [Downloadseite](https://www.qgis.org/de/site/forusers/download.html) können Sie zwischen einer Version mit Langzeitsupport und einer aktuellen Version wählen.
 Diese Anleitung bezieht sich auf Version 3.22 für Windows.
 
 Falls dies Ihr erstes Experiment mit QGIS ist, laden Sie den Installer herunter und akzeptieren Sie die Voreinstellungen.
@@ -108,7 +107,7 @@ Bei "Symbolisierung" ist ein einfacher Marker mit einem bunten Kreis eingestellt
 Ändern Sie den Symbollayertyp in "Rasterbildmarkierung" – der untere Dialogteil verschiebt sich und eine leere Vorschau wird eingeblendet.
 
 Auf den ersten Blick scheint der Dialog nur feste Dateinamen für das Punktsymbol anzunehmen.
-Was wir stattdessen brauchen, ist eine sogenannte "Datendefinierte Übersteuerung".
+Was wir stattdessen brauchen, ist eine sogenannte "datendefinierte Übersteuerung".
 Wie in der Abbildung markiert, finden Sie ein Menü ganz rechts neben dem Dateinamenfeld unter "Bearbeiten".
 Das öffnet den Ausdruckseditor.
 
@@ -129,7 +128,7 @@ Die feine Linie des Track-Layers markiert im Hintergrund den Weg, auf dem die Or
 
 ## Kartenhinweise einblenden
 
-Jetzt fehlt noch eine große Ansicht, die sich bei Klick auf ein Vorschaubild öffnet.
+Jetzt fehlt noch eine große Ansicht, die sich beim Klick auf ein Vorschaubild öffnet.
 Solche Pop-ups heißen in QGIS Kartenhinweise und werden in den Layereigenschaften unter "Anzeigen" konfiguriert.
 Dabei darf HTML verwendet werden, die Felder aus den Punktattributen werden mit spitzer Klammer und Prozentzeichen eingefasst.
 In diesem Fall soll die Detailansicht den Dateinamen ohne Pfad und darunter das Foto anzeigen.
@@ -156,3 +155,6 @@ Viel Spaß beim Ausprobieren, was sich damit anstellen lässt!
  Für einfache Anwendungsfälle wie diesen ist es aber mit wenigen Klicks einsatzbereit.
  Da offline auf eigenen Geräten gearbeitet wird, treten viele Datenschutzfragen gar nicht erst auf.
  Und nach kurzer Einarbeitung ermöglicht das volle Potenzial von QGIS komplexe Anwendungen, an die mit den bekannten Internet-Diensten kaum zu denken wäre.
+
+ Ein Nachteil der Desktopanwendung ist, dass nur eine Person gleichzeitig an den Kartendateien arbeiten kann.
+ Um eine Karte als Team zu nutzen, lohnt sich ein Blick auf den Web Map Service [QGIS Server](https://www.qgis.org/de/site/about/features.html#qgis-server).
