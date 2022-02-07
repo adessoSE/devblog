@@ -79,7 +79,7 @@ Nicht immer muss es ein Seniorenhandy oder -tablet sein, in manchen Fällen ist 
 
 Falls der Weg ins Internet über ein Gerät der Wahl geschafft ist, gibt es auch hier spezielle Informationsseiten, die ihre Inhalte zielgruppenspezifisch aufbereitet haben wie zum Beispiel die Seite [Silver Tipps](https://www.silver-tipps.de). 
 Dort gibt es Videomaterial wie "Helga hilft", das beispielsweise erklärt, warum man Updates auf verschieden Geräten benötigt. 
-Auch andere Formate wie Podcasts und auch Online-Meetings (https://digibo.silver-tipps.de/veranstaltungen/) zu spezifischen Themen wie Gesundheitsfragen im Digitalbereich, wie die elektronische Gesundheitsakte werden angeboten.
+Auch andere Formate wie Podcasts und auch [Online-Meetings](https://digibo.silver-tipps.de/veranstaltungen/) zu spezifischen Themen wie Gesundheitsfragen im Digitalbereich, zum Beispiel die elektronische Gesundheitsakte, werden angeboten.
 
 # Fazit
 
