@@ -27,12 +27,9 @@ Subscriber
 Subscription
 Processor
 ## Mono und Flux
-In den folgenden Kapiteln und insbesondere in den Codebeispielen wird viel die Rede von Mono und Flux sein. 
-Dabei handelt es sich um die beiden zentralen APIs der Reactor-Library.
-<!--
-#TODO: mit den Begriffen fertigstellen, die in den vorherigen Kapiteln erklärt wurden
--->
-Beide implementieren das Interface ``Publisher``
+In dem folgenden Kapitel und insbesondere in den Codebeispielen wird viel die Rede von Mono und Flux sein. 
+Dabei handelt es sich um die beiden zentralen ``Publisher``-Implementierungen der Project Reactor-Library. 
+Ein Mono kann nur für höchstens ein Signal verwendet werden, während ein Flux beliebig viele Elemente ausgibt, bis es schließlich ein ``completed``-Signal sendet.
 
 # Wie arbeite ich mit Spring Webflux?
 Die Reactor-API bietet eine sehr große Anzahl an Methoden.
@@ -40,7 +37,7 @@ Es existiert zwar eine Art [Anleitung](https://projectreactor.io/docs/core/relea
 wann welche zu nutzen ist, die kann aber insbesondere beim Einstieg in Webflux erschlagend wirken.
 Aus diesem Grund möchten wir euch hier als kleine Starthilfe eine reduzierte Auswahl mit Codebeispielen an die Hand geben.
 
-Es existieren natürlich bereits einige Tutorials auf den einschlägig bekannten Webseiten, wie mit Spring Webflux gearbeitet werden kann. 
+Es existieren bereits viele Tutorials auf den üblichen Webseiten, wie mit Spring Webflux gearbeitet werden kann. 
 Diese beschränken sich jedoch oft auf die Kommunikation nach außen, also auf Controller, Datenbank-Repositories und Webclients, die andere Rest-APIs konsumieren.
 Unserer Erfahrung nach ist das aber eher der unproblematischere Teil, da hier ein Großteil der Arbeit bereits damit getan ist,
 die jeweils relevanten Dependencies mit Spring Webflux zu ersetzen und die Methodensignaturen entsprechend anzupassen. Die Umstellung
@@ -63,9 +60,9 @@ Voraussetzung ist natürlich, dass der ``BlogpostService`` auch ein Mono, statt 
 Und das ist auch die Ebene, wo das Ganze unserer Meinung nach spannend wird. Wie gehe ich auf Serviceebene mit Mono und Flux um,
 und wie realisiere ich Geschäftslogik, die über einfaches Weiterreichen von Daten hinausgeht? 
 
-Darauf wird sich dieses Kapitel konzentrieren.
+Darauf konzentriert sich dieses Kapitel.
 In den Beispielen wird lediglich mit Monos gearbeitet, fast alle genannten Methoden sind jedoch auch für Flux verfügbar.
-Ausgenommen hiervon ist lediglich die Methode ``zipWhen``, die nur für Monos implementiert ist.
+Ausgenommen hiervon ist die Methode ``zipWhen``, die nur für Monos implementiert ist.
 
 ## map und flatMap
 Diese Methoden werden allen, die schon mit Java Streams oder funktionalen Programmiersprachen gearbeitet haben, bekannt vorkommen.
@@ -86,7 +83,7 @@ muss nicht mit den Webflux-Publishern gearbeitet werden,
 die eigentliche Geschäftslogik kann also mit gewöhnlichem Java-Code implementiert werden.
 
 Der Operator flatMap unterscheidet sich insofern von map, als er als Rückgabewert der übergebenen Methode wieder einen Publisher erwartet.
-Das ist etwa dann sinnvoll, wenn diese Methode ihrerseits wieder einen API-Call machen muss. 
+Das ist etwa dann sinnvoll, wenn diese Methode ihrerseits wieder einen API-Call absetzen muss. 
 In unserem Beispiel könnte ein Blogbeitrag mit den Daten des Nutzers angelegt werden.
 ``` Java
 public Mono<BlogpostWithAuthor> saveBlogpost(Blogpost blogpost, String userId) {
@@ -107,16 +104,16 @@ public Mono<BlogpostWithAuthor> getBlogpost(String blogpostId, String authorId) 
     Mono<Blogpost> blogpostMono = blogpostClient.getBlogpost(blogpostId);
     Mono<UserData> authorMono = userClient.getUser(authorId);
     Mono<Tuple2<Blogpost, UserData>> blogpostAuthorMono = blogpostMono.zipWith(authorMono);
-    Mono<BlogpostWithAuthor> savedBlogpostMono = blogpostAuthorMono.map(blogpostUserTuple -> 
+    Mono<BlogpostWithAuthor> result = blogpostAuthorMono.map(blogpostUserTuple -> 
             buildBlogpostWithAuthor(blogpostUserTuple.getT1(), blogpostUserTuple.getT2()));
-    return savedBlogpostMono;
+    return result;
 }
 
-private Mono<BlogpostWithAuthor> buildBlogpostWithAuthor(Blogpost blogpost, UserData userData){[...]}
+private BlogpostWithAuthor buildBlogpostWithAuthor(Blogpost blogpost, UserData userData){[...]}
 ```
 
 Denkbar ist in diesem Szenario auch, dass die ``authorId`` nicht explizit mitgegeben werden muss, sondern Teil des ``Blogpost``-Objekts ist.
-Dann müssten wir mit Informationen aus dem Request des Blogpost-Clients den UserClient aufrufen, um anschließend wieder mit beiden Ergebnissen
+Dann müssten wir mit Informationen aus der Response des Blogpost-Clients den UserClient aufrufen, um anschließend wieder mit beiden Ergebnissen
 weiterzuarbeiten. Hier kommt ``zipWhen`` ins Spiel. Mit dieser Methode kann man ähnlich wie mit ``flatMap``
 das Ergebnis eines Publishers transformieren, mit dem Unterschied, dass man anschließend wieder ein Tuple2 mit dem
 ursprünglichen und dem transformierten Ergebnis erhält.
@@ -148,24 +145,36 @@ public Mono<Blogpost> getBlogpost(String blogpostId) {
 
 private Mono<Integer> incrementViewCount(Blogpost blogpost){[...]}
 ```
-<!--
-#TODO: Ggf. auf Erklärung in Einleitung verweisen!
--->
 Zu beachten ist hier, auch wenn sich am eigentlichen Inhalt des Monos nichts ändert, muss dennoch der Rückgabewert der ``doOnNext``-Methode
 weiter verwendet werden, damit die Methode auch Teil der Ausführungssequenz wird.
 
 Außerdem ist der Aufruf von incrementViewCount wieder asynchron. Das bedeutet, dass man nicht davon ausgehen kann, dass der Zähler
 auf dem aktuellsten Stand ist, wenn getBlogpost sein Ergebnis zurückgibt. Wenn das erforderlich ist, muss statt ``doOnNext``
 ``delayUntil`` verwendet werden.
-## onErrorMap und doOnError
+## onErrorMap, onErrorReturn und doOnError
 Zu guter Letzt sollte auch das Error Handling nicht unerwähnt bleiben.
-
 Wenn in der Ausführsequenz eine Methode einen Fehler wirft, gibt der Publisher ein Error-Signal anstelle des Werts aus. 
-Dieses Signal wird wie normale RuntimeExceptions so lange weitergereicht, bis es irgendwo explizit behandelt wird, 
-* map
-* flatMap
-* zipWhen & zipWith (Unterschied herausstellen!)
-* doOnNext/delayUntil (Unterschied herausstellen!)
-* doOnError
-* onErrorMap
-* reduce/reduceWith 
+Dieses Signal wird wie normale RuntimeExceptions so lange an die nächsten Subscriber weitergereicht, bis es irgendwo explizit behandelt wird.
+
+Mit ``onErrorMap`` kann eine Exception abgefangen und eine andere Exception geworfen werden.
+Über ``onErrorReturn`` kann beim Autreten einer Exception ein Standardwert zurückgegeben werden, 
+``onErrorResume ``ruft einen alternativen Publisher auf. 
+Jeder dieser Methoden kann außerdem die Klasse der zu behandelnden Exception übergeben werden, um einzuschränken, welche Exceptions behandelt werden soll.
+
+Wenn in der Kürzelmethode aus dem ersten Beispiel des Kapitels einfach der Standard-String "Unbekannt" zurückgegeben werden soll, 
+wenn kein Nutzer mit der gegebenen ID existiert, könnte die Implementierung so aussehen:
+
+``` Java
+public Mono<String> getAbbreviatedName(String userId) {
+    Mono<UserData> userDataMono = userClient.getUser(userId);
+    Mono<String> abbreviatedNameMono = userDataMono.map(userData -> buildAbbreviatedName(userData));
+    return abbreviatedNameMono.onErrorReturn(UserNotFoundException.class, "Unbekannt");
+}
+
+private String buildAbbreviatedName(UserData userData){[...]}
+```
+
+Mithilfe dieser 9 Methoden solltet ihr für den Start in die Programmierung mit Spring Webflux gerüstet sein.
+Wenn ihr Anwendungsfälle habt, die hier nicht abgedeckt wurden, können wir euch die bereits eingangs in diesem Kapitel
+erwähnte [Operatorenübersicht](https://projectreactor.io/docs/core/release/reference/#which-operator) aus dem Project Reactor
+Handbuch empfehlen.
