@@ -10,7 +10,7 @@ tags: [IT-Sicherheit, IT-Security]   # Bitte auf Großschreibung achten.
 
 
 Dieser Blog Beitrag bietet einen Überblick über Informationsquellen für jung bis alt, um die IT-Sicherheit in allen Lebensjahren zu betrachten und mit der Digitalisierung Schritt zu halten. 
-So begleitet das Thema Datenschutz und Digitalkompetenz alle Lebensabschnitte, denn sie sind auch in jedem Alter schützenswert.
+So begleitet das Thema Datenschutz und Digitalkompetenz alle Lebensabschnitte, denn die persönlichen Daten sind auch in jedem Alter schützenswert.
 
 # Young Starter
 
