@@ -52,7 +52,7 @@ So gibt es Materialen wie das Lehrerhandbuch und eine ganze Unterrichtsreihe zu 
 Klicksafe bietet zudem den Podcast "klicksafe fragt …" an. 
 Beschrieben wird er wie folgt: "Kinder, Medien, Sicherheit - einmal im Monat stellen wir eine Frage aus diesem Themenfeld. Sind zum Beispiel Soziale Netzwerke für Kinder eine gute Idee? Ist die Gaming-Community toxisch? Welche Haltung sollten Eltern beim Thema Sexting einnehmen? Für diese und weitere Fragen laden wir uns Expert*innen ein, mit denen wir sprechen und diskutieren."
 Einmal im Monat am Frühstückstisch lässt sich vielleicht gemeinsam eine Folge anhören. 
-Unter den Kooperationspartnerschaften von [klicksafe](https://www.klicksafe.de/ueber-klicksafe/netzwerk-deutschland/kooperationspartner) finden sich zudem viele weitere Informationsquellen für Eltern, Kinder und Pädagogen.
+Unter den [Kooperationspartnerschaften von klicksafe](https://www.klicksafe.de/ueber-klicksafe/netzwerk-deutschland/kooperationspartner) finden sich zudem viele weitere Informationsquellen für Eltern, Kinder und pädagogisch Lehrende.
 
 # Erwachsene
 
