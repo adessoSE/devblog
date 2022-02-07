@@ -18,7 +18,7 @@ Daten sind das neue Geld.
 So wird es immer wieder geschrieben. 
 Und wenn auch bereits kleinen Kinder der Umgang mit Geld beigebracht wird, so kann man ihnen auch den Umgang mit Daten von Anfang an an die Hand geben. 
 Dies kann durch Geschichten vermittelt werden. 
-Kostenlose Kurzgeschichten Hefte bietet das BfDI an. So können zwei [Pixi Formate](https://www.bfdi.bund.de/SharedDocs/Kurzmeldungen/DE/2021/19_Pixi-Datenschutz.html) kostenlos von jeder Person bestellt werden. 
+Kostenlose Kurzgeschichtenhefte bietet die Bundesbeauftragte für den Datenschutz und die Informationsfreiheit (BfDI) an. So können zwei [Pixi Formate](https://www.bfdi.bund.de/SharedDocs/Kurzmeldungen/DE/2021/19_Pixi-Datenschutz.html) kostenlos von jeder Person bestellt werden. 
 Warum also nicht mal andere Gute-Nacht Geschichten vorlesen? 
 
 Eine weitere (digitale) Möglichkeit bietet die Seite [internet-abc](https://www.internet-abc.de). 
