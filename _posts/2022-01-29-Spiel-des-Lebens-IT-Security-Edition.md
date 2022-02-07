@@ -37,7 +37,7 @@ Unter anderem werden auch Themen wie Big Data und Privatsphäre aufgegriffen und
 Auch auf sensible Themen wie Cybermobbing, Cybergrooming, selbstverletzendes Verhalten, Essstörung, Hatespeech, Fake News, Pornografie (Nutzung und Sexting), sowie Videos wird eingegangen. 
 Die Inhalte sind immer informativ mit aufgezeigten Möglichkeiten zum Schutz und möglichen Gegenmaßnahmen dargestellt. 
 
-# Eltern & Pädagogen
+# Eltern & pädagogisch Lehrende
 
 Auch wenn man sich wünscht, dass Kinder nicht mit solch problematischen Inhalten in Kontakt kommen, kann man es nicht verhindern. 
 Umso wichtiger ist die Aufklärung der Eltern, der Pädagogen und der Kinder. 
