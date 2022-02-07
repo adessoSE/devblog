@@ -62,7 +62,7 @@ Natürlich ist es nicht nur wichtig die Sicherheit von, mit und für Kinder im N
 Wenn zum Beispiel internetfähige Anwenderprodukte wie Router, Netzwerkdrucker oder Smart-TVs von Cyber-Kriminellen zu einem Botnetz zusammengeschlossen werden, können damit Cyber-Angriffe gegen Dritte beziehungsweise gegen weitere Geräte oder Netzwerke ausgeführt werden und weitaus größere Schäden anrichten."
 
 Für diese und viele andere Themen stellt das BSI [Informationsmaterial](https://www.bsi.bund.de/DE/Themen/Verbraucherinnen-und-Verbraucher/verbraucherinnen-und-verbraucher_node.html) bereit. 
-Dies unterteilt sich in Basistipps zur IT-Sichereheit, digitale Identitäten, sichere Online-Kommunikation, Gaming, IT-Sicherheit bei Wahlen, Alltags Tipps, Cloud Dienste, mobile Zahlungsmittel, smartes Leben, eHealth und vieles mehr. 
+Dies unterteilt sich in Basistipps zur IT-Sichereheit, digitale Identitäten, sichere Online-Kommunikation, Gaming, IT-Sicherheit bei Wahlen, Alltagstipps, Cloud-Dienste, mobile Zahlungsmittel, smartes Leben, eHealth und vieles mehr. 
 
 Alle Informationen auf einmal können ziemlich erschlagen, zudem kommen immer wieder neue Themen wie Beispielsweise das IT-Sicherheitskennzeichen hinzu. 
 Wer sich stetig häppchenweise informieren möchte kann das über den BSI Podcast „Update verfügbar“ tun oder dem BSI auf Instagram, LinkedIn oder anderen sozialen Medien folgen. 
