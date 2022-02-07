@@ -77,7 +77,7 @@ Dort findet man sogar auch Sessions zu Themen Kinder, Datenschutz & Familienfrei
 Bei anderen Anbietern kann man auf die Seite der Hersteller schauen. 
 Nicht immer muss es ein Seniorenhandy oder -tablet sein, in manchen Fällen ist es auch die Zeit zum Lernen, die benötigt wird. 
 
-Falls der Weg ins Internet über ein Gerät der Wahl geschafft ist, gibt es auch hier spezielle Informationsseiten, die ihre Inhalte Zielgruppenspezifisch aufbereitet hat, wie zum Beispiel die Seite [Silver Tipps](https://www.silver-tipps.de). 
+Falls der Weg ins Internet über ein Gerät der Wahl geschafft ist, gibt es auch hier spezielle Informationsseiten, die ihre Inhalte zielgruppenspezifisch aufbereitet haben wie zum Beispiel die Seite [Silver Tipps](https://www.silver-tipps.de). 
 Dort gibt es Videomaterial wie „Helga hilft“ die Beispielsweise erklärt, warum man Updates auf verschieden Geräten benötigt. 
 Auch andere Formate wie Podcasts und auch Online-Meetings (https://digibo.silver-tipps.de/veranstaltungen/) zu spezifischen Themen wie Gesundheitsfragen im Digitalbereich, wie die elektronische Gesundheitsakte werden angeboten.
 
