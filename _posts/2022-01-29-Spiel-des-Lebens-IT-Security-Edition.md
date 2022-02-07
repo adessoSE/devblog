@@ -83,7 +83,7 @@ Auch andere Formate wie Podcasts und auch Online-Meetings (https://digibo.silver
 
 # Fazit
 
-Ein spielerischer Ansatz ist immer gut, um zu lernen und das ein Leben lang, um ein ernstes Thema wie IT-Sicherheit zu verpacken. 
+Ein spielerischer Ansatz ist immer gut, um zu lernen, und das ein Leben lang, um ein ernstes Thema wie IT-Sicherheit zu verpacken. 
 Denn das Spiel des Lebens sollte kein Spiel der Identität oder der Existenz werden. 
 In jedem Alter sieht man sich verschieden Gefahren in der digitalen Welt ausgesetzt. 
 Die Sicherheit der eigenen Daten betrifft jeden Menschen in jedem Alter. 
