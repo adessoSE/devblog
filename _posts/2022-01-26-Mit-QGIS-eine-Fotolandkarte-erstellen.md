@@ -157,4 +157,4 @@ Viel Spaß beim Ausprobieren, was sich damit anstellen lässt!
  Und nach kurzer Einarbeitung ermöglicht das volle Potenzial von QGIS komplexe Anwendungen, an die mit den bekannten Internet-Diensten kaum zu denken wäre.
 
  Ein Nachteil der Desktopanwendung ist, dass nur eine Person gleichzeitig an den Kartendateien arbeiten kann.
- Um eine Karte als Team zu nutzen, lohnt sich ein Blick auf den Web Map Service [QGIS Server](https://www.qgis.org/de/site/about/features.html#qgis-server).
+ Um eine Karte als Team zu nutzen, lohnt sich ein Blick auf den Web-Map-Service [QGIS Server](https://www.qgis.org/de/site/about/features.html#qgis-server).
