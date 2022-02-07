@@ -65,7 +65,7 @@ Für diese und viele andere Themen stellt das BSI [Informationsmaterial](https:/
 Dies unterteilt sich in Basistipps zur IT-Sichereheit, digitale Identitäten, sichere Online-Kommunikation, Gaming, IT-Sicherheit bei Wahlen, Alltagstipps, Cloud-Dienste, mobile Zahlungsmittel, smartes Leben, eHealth und vieles mehr. 
 
 Alle Informationen auf einmal können ziemlich erschlagen, zudem kommen immer wieder neue Themen wie Beispielsweise das IT-Sicherheitskennzeichen hinzu. 
-Wer sich stetig häppchenweise informieren möchte kann das über den BSI Podcast „Update verfügbar“ tun oder dem BSI auf Instagram, LinkedIn oder anderen sozialen Medien folgen. 
+Wer sich stetig häppchenweise informieren möchte kann das über den BSI-Podcast "Update verfügbar" tun oder dem BSI auf Instagram, LinkedIn oder anderen sozialen Medien folgen. 
 Dort werden regelmäßig unter dem Motto #einfachaBSIchern immer wieder Tipps zum sicheren Umgang mit den verschiedensten Alltagsgegenständen und -situationen geteilt. 
 Ein Newsletter per E-Mail kann man ebenfalls abonnieren. 
 
