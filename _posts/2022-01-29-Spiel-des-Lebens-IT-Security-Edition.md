@@ -39,7 +39,7 @@ Die Inhalte sind immer informativ mit aufgezeigten Möglichkeiten zum Schutz und
 
 # Eltern & Pädagogen
 
-Auch wenn man sich wünscht, dass Kinder nicht mit solch problematischen Inhalten in Kontakt kommen, kann man sie nicht verhindern. 
+Auch wenn man sich wünscht, dass Kinder nicht mit solch problematischen Inhalten in Kontakt kommen, kann man es nicht verhindern. 
 Umso wichtiger ist die Aufklärung der Eltern, der Pädagogen und der Kinder. 
 Sowohl das internet-abc, als auch klicksafe bieten Informationsmaterial für Eltern und Pädagogen an. 
 Für Eltern gibt es Material, wie sie die Geräte von ihren Kindern sichern können und ihre Kinder im Netz sicher begleiten können. 
