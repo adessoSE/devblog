@@ -22,7 +22,7 @@ Kostenlose Kurzgeschichtenhefte bietet die Bundesbeauftragte für den Datenschut
 Warum also nicht mal andere Gute-Nacht-Geschichten vorlesen? 
 
 Eine weitere (digitale) Möglichkeit bietet die Seite [internet-abc](https://www.internet-abc.de). 
-Diese Seite richtet sich an Kinder im Alter zwischen 6 und 12 Jahren und soll ihnen spielerisch über verschiedene Medienkompetenzen aufklären. 
+Diese Seite richtet sich an Kinder im Alter zwischen 6 und 12 Jahren und soll sie spielerisch über verschiedene Medienkompetenzen aufklären. 
 Wichtig vor allem, da die Kinder immer früher in die Medienwelt mittels Smartphones und Tablets abtauchen.
 Die Kinder können sich in unterschiedlichen Themengebieten (Lernen & Schule, Hobby & Freizeit, Spiel & Spaß, Mitreden & Mitmachen) selbstständig mittels Spielen, Quizzen und Comics weiterbilden. 
 Oder auch verschiedene Scheine wie den „Surfschein“ absolvieren.
