@@ -43,7 +43,7 @@ Auch wenn man sich wünscht, dass Kinder nicht mit solch problematischen Inhalte
 Umso wichtiger ist die Aufklärung der Eltern, der Pädagogen und der Kinder. 
 Sowohl das internet-abc, als auch klicksafe bieten Informationsmaterial für Eltern und Pädagogen an. 
 Für Eltern gibt es Material, wie sie die Geräte von ihren Kindern sichern können und ihre Kinder im Netz sicher begleiten können. 
-Aber auch an wen sie oder ihre Kinder sich wenden können, falls sie mit Cybergrooming oder anderen sensiblen Themen in Kontakt kamen und betroffen sind.
+Es gibt aber auch Informationen dazu, an wen die Eltern oder ihre Kinder sich wenden können, falls sie mit Cybergrooming oder anderen sensiblen Themen in Kontakt kamen und betroffen sind.
 Es gibt zudem spezielle Materialen für Elternabende. 
 Im Safer Internet Centre bietet klicksafe Informationen und weist auf Beratungsstellen wie [nummergegenkummer](nummergegenkummer.de) oder Meldestellen wie [jugenschutz.net](jugenschutz.net) und [internet.beschwerdestelle.de](internet.beschwerdestelle.de) hin.
 Ebenso gibt es pädagogisches Material, welches Lehrende im Unterricht direkt verwenden können. 
