@@ -32,7 +32,7 @@ Bei Jugendlichen ist das Internet kein Neuland mehr und die sozialen Medien sind
 Mit den sozialen Netzwerken tauchen jedoch weitere Angriffsflächen auf. 
 [Klicksafe](https://www.klicksafe.de) informiert Jugendliche über verschiedene Herausforderungen und Gefahren in der digitalen Welt. 
 Dabei gibt es die Themenblöcke vom smarten Leben mit smarten Geräten, Kommunikation in den sozialen Medien, problematische Inhalte, digitale Spiele, Schutzmaßnahmen für den eigenen PC, Rechtsfragen, Medienethik, Datenschutz, Recherche und sicheres Einkaufen im Netz. 
-Unter anderem werden auch auf Themen wie Big Data und Privatsphäre aufgegriffen und wie man die Kontrolle über die eigene Identität behält.
+Unter anderem werden auch Themen wie Big Data und Privatsphäre aufgegriffen und wie man die Kontrolle über die eigene Identität behält.
 
 Auch auf sensible Themen wie Cybermobbing, Cybergrooming, selbstverletzendes Verhalten, Essstörung, Hatespeech, Fake News, Pornografie Nutzung und Sexting, sowie Videos wird eingegangen. 
 Immer informativ mit aufgezeigten Möglichkeiten zum Schutz und möglichen Gegenmaßnahmen. 
