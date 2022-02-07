@@ -35,7 +35,7 @@ Dabei gibt es die Themenblöcke vom smarten Leben mit smarten Geräten, Kommunik
 Unter anderem werden auch Themen wie Big Data und Privatsphäre aufgegriffen und wie man die Kontrolle über die eigene Identität behält.
 
 Auch auf sensible Themen wie Cybermobbing, Cybergrooming, selbstverletzendes Verhalten, Essstörung, Hatespeech, Fake News, Pornografie (Nutzung und Sexting), sowie Videos wird eingegangen. 
-Immer informativ mit aufgezeigten Möglichkeiten zum Schutz und möglichen Gegenmaßnahmen. 
+Die Inhalte sind immer informativ mit aufgezeigten Möglichkeiten zum Schutz und möglichen Gegenmaßnahmen dargestellt. 
 
 # Eltern & Pädagogen
 
