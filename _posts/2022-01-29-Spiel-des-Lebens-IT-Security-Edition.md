@@ -87,7 +87,7 @@ Ein spielerischer Ansatz ist immer gut, um zu lernen, und das ein Leben lang, um
 Denn das Spiel des Lebens sollte kein Spiel der Identität oder der Existenz werden. 
 In jedem Alter sieht man sich verschieden Gefahren in der digitalen Welt ausgesetzt. 
 Die Sicherheit der eigenen Daten betrifft jeden Menschen in jedem Alter. 
-Umso wichtiger ist es ein Leben lang zu lernen, und wachsam zu bleiben. 
+Umso wichtiger ist es, ein Leben lang zu lernen und wachsam zu bleiben. 
 Denn selbst wer die digitale Welt ablehnt, vor dem macht auch kein Social Engineer halt. 
 Dies gilt für (Online-)Erpressung Minderjähriger, Phishing von Zugangsdaten (im Portmonee die Karte und der Pin oder beim Online Shopping Benutzername und Passwort) oder den Enkeltrick. 
 Nur wer sich solcher Gefahren bewusst ist, kann präventiv handeln und auch im worst case schnell reagieren und den eigenen Schaden minimieren. 
