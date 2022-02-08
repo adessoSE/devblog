@@ -183,7 +183,7 @@ Der folgende Screenshot zeigt eine Konsolenausgabe, wie sie der Rust-Compiler im
 
 Bitte genau hinschauen: der Compiler bemängelt hier, dass der Entwickler offensichtlich etwas sortieren will, dafür aber den bekanntermaßen ineffizienten Algorithmus 'Bubblesort' gecodet hat. Dies lehnt der Compiler mit einer Fehlermeldung ab... 
 
-OK, das ist ein in der Rust-Community entstandener Hoax, so weit geht der Compiler dann doch nicht; Dass dieser Scherz in der Community so ausgebrütet wurde und der Screenshot nach seiner Veröffentlichung viral ging, zeigt aber auch, welchen Stellenwert hilfreiche Fehlermeldungen in der Rust-Community haben. Viele Fehlermeldungen sehen tatsächlich so ähnlich aus, haben eine treffende Genauigkeit und sind mit vergleichbar hilfreichen Informationen versehen. Zu einem gewissen Grad kann man dadurch mittels Try-and-Error das Rust-Programmieren erlernen. Das geht mit Rust besser, als in wohl jeder anderen Sprache.
+OK, das ist ein in der Rust-Community entstandener Hoax, so weit geht der Compiler dann doch nicht; Dass dieser Scherz in der Community so ausgebrütet wurde und der Screenshot nach seiner Veröffentlichung viral ging, zeigt aber auch, welchen Stellenwert hilfreiche Fehlermeldungen in der Rust-Community haben. Viele Fehlermeldungen sehen tatsächlich so ähnlich aus, haben eine treffende Genauigkeit und sind mit vergleichbar hilfreichen Informationen versehen. Zu einem gewissen Grad kann man dadurch mittels Try-and-Error das Programmieren in Rust erlernen. Das geht mit Rust besser als in wohl jeder anderen Sprache.
 
 ## Warum ist Rust für adesso interessant?
 
