@@ -195,7 +195,7 @@ OK, das ist ein in der Rust-Community entstandener Hoax, so weit geht der Compil
 
 ## Fazit
 
-Die Zeit, welche die Vielzahl von Anwendern damit verbringen auf Ergebnisse von Software-Berechnungen zu warten oder sich durch zähe Anwendungen zu schleppen, ist nicht zuletzt auch Lebenszeit, die jeder sicherlich sinnvoller als gerade mit Warten verbringen möchte.  
+Die Zeit, welche die Vielzahl von Anwendern damit verbringen, auf Ergebnisse von Softwareberechnungen zu warten oder sich durch zähe Anwendungen zu schleppen, ist nicht zuletzt auch Lebenszeit, die jeder sicherlich sinnvoller als gerade mit Warten verbringen möchte.  
 
 Insbesondere in Zeiten, in denen die zurechnungsfähige Welt das Klima retten will, ist Energieeffizienz ein wesentliches Qualitätsmerkmal von Softwareprodukten.  
 
