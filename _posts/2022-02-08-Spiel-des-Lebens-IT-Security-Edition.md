@@ -1,8 +1,8 @@
 ---
 layout: [post, post-xml]              # Pflichtfeld. Nicht ändern!
 title:  "Spiel des Lebens - IT-Security Edition"         # Pflichtfeld. Bitte einen Titel für den Blog Post angeben.
-date:   2022-01-29 14:25              # Pflichtfeld. Format "YYYY-MM-DD HH:MM". Muss für Veröffentlichung in der Vergangenheit liegen. (Für Preview egal)
-modified_date: 2022-01-29             # Optional. Muss angegeben werden, wenn eine bestehende Datei geändert wird.
+date:   2022-02-08 09:00            # Pflichtfeld. Format "YYYY-MM-DD HH:MM". Muss für Veröffentlichung in der Vergangenheit liegen. (Für Preview egal)
+modified_date: 2022-02-08 09:00             # Optional. Muss angegeben werden, wenn eine bestehende Datei geändert wird.
 author_ids: [vschiller]                 # Pflichtfeld. Es muss in der "authors.yml" einen Eintrag mit diesen Namen geben.
 categories: [Methodik]     # Pflichtfeld. Maximal eine der angegebenen Kategorien verwenden.
 tags: [IT-Sicherheit, IT-Security]   # Bitte auf Großschreibung achten.
