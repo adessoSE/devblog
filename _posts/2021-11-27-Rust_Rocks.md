@@ -187,10 +187,10 @@ OK, das ist ein in der Rust-Community entstandener Hoax, so weit geht der Compil
 
 ## Warum ist Rust für adesso interessant?
 
-- Nachhaltigkeit und Energieffizienz.  
-- Hohe Performance spart auch die Zeit jedes Anwenders.
-- Stabilität von Applikationen wird frühzeitiger erreicht.  
-- Technische Qualität der Applikation steigt.
+- Nachhaltigkeit und Energieffizienz
+- Hohe Performance spart auch die Zeit jedes Anwenders
+- Stabilität von Applikationen wird frühzeitiger erreicht
+- Technische Qualität der Applikation steigt
 - Die Gesamtzeit, bis ein stabiles Produkt entstanden ist, kann verringert werden.
 
 ## Fazit
