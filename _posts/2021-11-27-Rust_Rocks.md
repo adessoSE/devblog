@@ -181,7 +181,7 @@ Einerseits kann ein Anwender/Betreiber bei Rust-Applikationen keine Sicherheitsl
 Der folgende Screenshot zeigt eine Konsolenausgabe, wie sie der Rust-Compiler im Fehlerfall typischerweise zeigt. Man sieht einen Code-Ausschnitt, mit Zeilennummern und exakten Angaben, wo welcher Fehler auftritt, oft auch gleich angereichert mit Hinweisen zu Fehlerbehebung und Verbesserung des Codesegments:
 ![bubblesort_as_a_Bug]
 
-Bitte genau hinschauen: der Compiler bemängelt hier, dass der Entwickler offensichtlich etwas sortieren will, dafür aber den bekanntermaßen ineffizienten Algorithmus 'Bubblesort' gecodet hat. Dies lehnt der Compiler mit einer Fehlermeldung ab. . . .  
+Bitte genau hinschauen: der Compiler bemängelt hier, dass der Entwickler offensichtlich etwas sortieren will, dafür aber den bekanntermaßen ineffizienten Algorithmus 'Bubblesort' gecodet hat. Dies lehnt der Compiler mit einer Fehlermeldung ab... 
 
 OK, das ist ein in der Rust-Community entstandener Hoax, so weit geht der Compiler dann doch nicht; Dass dieser Scherz in der Community so ausgebrütet wurde und der Screenshot nach seiner Veröffentlichung viral ging, zeigt aber auch, welchen Stellenwert hilfreiche Fehlermeldungen in der Rust-Community haben. Viele Fehlermeldungen sehen tatsächlich so ähnlich aus, haben eine treffende Genauigkeit und sind mit vergleichbar hilfreichen Informationen versehen. Zu einem gewissen Grad kann man dadurch mittels Try-and-Error das Rust-Programmieren erlernen. Das geht mit Rust besser, als in wohl jeder anderen Sprache.
 
