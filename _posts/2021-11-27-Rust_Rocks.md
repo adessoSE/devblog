@@ -201,7 +201,7 @@ Insbesondere in Zeiten, in denen die zurechnungsfähige Welt das Klima retten wi
 
 Da Rusts Speichersicherheitsmethodik gerade bei langlaufenden Anwendungen zu erhöhter Stabilität und auch verlässlicheren Antwortzeitverhalten führt, kann hier ein verbessertes Verhalten der Software im Betrieb erwartet werden.
 
-Zusammen mit einem guten Tool-Ökosystem und dem freundlich-hilfreichen Compiler-Verhalten wird daraus ein Gesamtpaket, dass insbesondere für die Implementierung ernsthafter Anwendungen unübertroffen ist.  
+Zusammen mit einem guten Tool-Ökosystem und dem freundlich-hilfreichen Compilerverhalten wird daraus ein Gesamtpaket, dass insbesondere für die Implementierung ernsthafter Anwendungen unübertroffen ist.  
 
 __Rust Rocks!__
 
