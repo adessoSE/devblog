@@ -23,7 +23,7 @@ Rust ist eine Multiplattform- und [Multiparadigmen-](https://de.wikipedia.org/wi
 
 Aufgrund der Struktur von Rust sind die Kosten der Sprachabstraktionen so gering wie nur möglich, wodurch eine mit C/C++ vergleichbare [Performance](https://prev.rust-lang.org/de-DE/faq.html#how-fast-is-rust) möglich wird, ohne dabei die benötigte Speichersicherheit zu vernachlässigen. So wird z.B. zur Compile-Zeit durch einen Borrow-Checking genannten Mechanismus sichergestellt, dass jederzeit(!) klar ist, welcher Variableninhalt aktuell gültig (und in-scope) ist. Stichwort Highlander-Prinzip: Es kann nur einen ([Owner eines Speicherbereichs](https://doc.rust-lang.org/1.8.0/book/references-and-borrowing.html#the-rules)) geben. Alle anderen dürfen gucken (Speicherinhalt lesen), aber nicht anfassen (Speicherinhalt verändern). Verlässt der Besitzer den Raum (geht 'out of Scope'), geht der Besitz in die Tonne (gehaltener Speicher wird automatisch freigegeben).  
 
-Das alles korrekt zu koordinieren wird durch den Borrow-Checker zur Compile-Zeit sichergestellt. Ein im Hintergrund laufender Garbage-Collector zum Einsammeln der freien Speicherbereiche ist nicht erforderlich.  
+Dass alles korrekt koordiniert wird, wird durch den Borrow-Checker zur Compile-Zeit sichergestellt. Ein im Hintergrund laufender Garbage-Collector zum Einsammeln der freien Speicherbereiche ist nicht erforderlich.  
 
 Kein dauernd laufender Aufräumprozess im Hintergrund bedeutet:  
 -> kein zusätzlicher Laufzeitaufwand  
