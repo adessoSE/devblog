@@ -17,9 +17,9 @@ Discord ermöglicht es einem auch für seine eigenen Zwecke einen Server zu erst
 Um sich die Administration von seinem eigenen Server zu vereinfachen, gibt es die Möglichkeit Bots zu nutzen.
 
 In diesem Artikel möchte ich mit euch die ersten Schritte machen, um solch einen Bot in Java zu programmieren.
-Und natürlich zeige ich euch auch welche weiteren Schritte nötig sind. 
+Und natürlich zeige ich euch auch, welche weiteren Schritte nötig sind. 
 
-Zur Erstellung und Programmieren, benötigen wir folgende Dinge:
+Zur Erstellung und Programmierung benötigen wir folgende Dinge:
 
 * IDE
 * Version 9+
@@ -44,10 +44,10 @@ Damit das nicht passiert sollten wir diese Einstellung daher erst einmal auf pri
 
 # Die Entwicklung des Bots
 
-Bevor wir mit der Implementierung beginnen können müssen wir ein Maven Projekt anlegen.
+Bevor wir mit der Implementierung beginnen können müssen wir ein Maven-Projekt anlegen.
 
 Zunächst müssen wir die `pom.xml` erweitern, damit wir Abhängigkeiten zur Discord API erfolgreich einbinden können.
-Da sich die Discord API nicht im Maven-Repository befindet, müssen wir das Discord-Repository in die `pom.xml` aufnehmen:
+Da sich die Discord API nicht im zentralen Maven-Repository befindet, müssen wir das Discord-Repository in die `pom.xml` aufnehmen:
 
 ```xml
 <repository>
@@ -106,7 +106,7 @@ Damit unser Bot nach dem Starten auch schon ein kleines Lebenszeichen von sich g
 builder.setActivity(Activity.playing("Solitäre"));
 ```
 
-Zum Starten des Botes müssen wir jetzt nur noch den ShardManager über die `build()`-Methode erzeugen lassen.
+Zum Starten des Bots müssen wir jetzt nur noch den ShardManager über die `build()`-Methode erzeugen lassen.
 
 Unsere komplette Klasse sieht dann so aus:
 
@@ -130,12 +130,12 @@ public class AdessoBot {
 }
 ```
 
-Um unsere Applikation jetzt noch starten zu können benötigt unsere Klasse `BotStartUp.java` nun noch eine `main()`-Methode.
+Um unsere Applikation jetzt noch starten zu können benötigt unsere Klasse `BotStartUp.java` nur noch eine `main()`-Methode.
 In dieser erzeugen wir ein `AdessoBot`-Objeket und rufen die `startBot()`-Methode auf.
 
 # Die ersten Lebenszeichen des Bots
 
-Damit wir unseren Bot am Ende auch testen können, benötigen wir einen Server, auf dem wir die Rechte haben einen Bot hinzuzufügen.
+Damit wir unseren Bot am Ende auch testen können, benötigen wir einen Server, auf dem wir die Rechte haben, einen Bot hinzuzufügen.
 Am einfachsten ist es, wenn wir für den Test einen eigenen Server anlegen.
 
 Über die Discord-Anwendung können wir das ganz einfach über das Plus auf der linken Seite erledigen.
@@ -143,11 +143,11 @@ Am einfachsten ist es, wenn wir für den Test einen eigenen Server anlegen.
 
 [https://discord.com/oauth2/authorize?client_id=unsereClientId&scope=bot&permissions=8](https://discord.com/oauth2/authorize?client_id=unsereClientId&scope=bot&permissions=8)
 
-Die `client_id` ist eine Eindeutige Application Id von unserer Discord-Applikation.
+Die `client_id` ist eine eindeutige Application Id von unserer Discord-Applikation.
 Diese finden wir unter dem Reiter "General Information".
 
 Bei der 8 handelt es sich um einen Permission Integer.
-Mit einem Permission Integer wird angegeben welche Rechte unser Bot auf dem Server besitzt.
+Mit einem Permission Integer wird angegeben, welche Rechte unser Bot auf dem Server besitzt.
 Die 8 steht für Administrator.
 Auf der [Applikationsseite](https://discord.com/developers/applications) gibt es nach dem Auswählen des Bots unter dem Reiter Bot ein Tool, mit dem wir uns die Permission Integer abhängig von den benötigen Rechten ermitteln lassen können.
 
@@ -159,14 +159,14 @@ Sollten wir keine Fehler gemachten haben, können wir jetzt sehen, wie unser Bot
 
 # Der Bot mag auch ein Integrationstests
 
-Natürlich ist es schön, zu sehen das der Bot auf unserem Discord Server Solitäre spielt.
+Natürlich ist es schön, zu sehen, dass der Bot auf unserem Discord-Server Solitäre spielt.
 Zu einem guten Projekt gehören aber natürlich auch selbst geschriebene Tests.
 Für den Anfang wollen wir einen kleinen Integrationstest schreiben.
 
-Durch unseren erstellen Server können wir für diesen Test einfach das JUnit Framework nutzen.
+Durch unseren erstellen Server können wir für diesen Test einfach das JUnit-Framework nutzen.
 Zusätzlich nutzen wir auch noch AssertJ, mit diesem Framework lassen sich schöne fließende Vergleiche schreiben.
 
-Da beide APIs nicht zum Java Standard gehören, müssen wir als erstes die Abhängigkeiten in unserer `pom.xml` aufnehmen.
+Da beide APIs nicht zum Java-Standard gehören, müssen wir als erstes die Abhängigkeiten in unsere `pom.xml` aufnehmen.
 
 ```xml
 <dependency>
@@ -184,7 +184,7 @@ Da beide APIs nicht zum Java Standard gehören, müssen wir als erstes die Abhä
 ```
 
 Jetzt erstellen wir unsere Test Klasse `AdessoBotTest.java` mit unserer Testmethode.
-Der Name der Methode ist für die Ausführung des Tests nicht relevant, wir sollten Trotzdem einen sprechenden Namen wählen.
+Der Name der Methode ist für die Ausführung des Tests nicht relevant, wir sollten trotzdem einen sprechenden Namen wählen.
 Wichtig ist aber, dass wir unsere Methode mit der Annotation `@Test` versehen.
 Zusätzlich können wir durch die Annotation `@DisplayName` noch einen gut leserlichen Namen vergeben.
 
@@ -195,14 +195,14 @@ Mit unserem Test wollen wir die folgenden Dinge prüfen:
 
 Damit wir diese Dinge prüfen können, müssen wir uns den `ShardManager` angucken, der vom `DefaultShardManagerBuilder` erzeugt wurde.
 Vom `SharedManager` können wir uns über die `getShards()`-Methode alle Shards zurückgeben lassen, die durch `JDA`-Objekete dargestellt werden.
-Für den Anfang haben wir nur einen Shard, dass heißt über ein `get(0)` bekommen wir unser `JDA`-Objekete mit dem wir unsere Tests durchführen können.
+Für den Anfang haben wir nur einen Shard, dass heißt über ein `get(0)` bekommen wir unser `JDA`-Objekt mit dem wir unsere Tests durchführen können.
 
 # Ist der Bot online?
 
-Als erstes wollen wir wissen ob unser Bot auch online ist, wenn die Methode `startBot` aufgerufen wurde.
-Für diesen Test brauchen wir den Status, von unserem Shard, den wir über die Methode `getStatus()` bekommen.
-Der Status wird über ein eigenes `enum` dargestellt und wir wollen prüfen ob unser Shard den Status `CONNECTED` hat.
-Dafür nutzen wir das vorher eingebunden Framework assertj um folgenden Code zu schreiben:
+Als erstes wollen wir wissen, ob unser Bot auch online ist, wenn die Methode `startBot()` aufgerufen wurde.
+Für diesen Test brauchen wir den Status von unserem Shard, den wir über die Methode `getStatus()` bekommen.
+Der Status wird über ein eigenes `enum` dargestellt und wir wollen prüfen, ob unser Shard den Status `CONNECTED` hat.
+Dafür nutzen wir das vorher eingebunden Framework assertj, um folgenden Code zu schreiben:
 
 ```java
 Status status = jda.getStatus();
@@ -212,9 +212,9 @@ assertThat(status).isEqualTo(Status.CONNECTED);
 # Spielt der Bot Solitäre?
 
 Nun wollen wir noch gucken, ob der Bot auch aktiv ist und wirklich Solitäre spielt.
-Die Aktivität selber wird in einem `Presence`-Objekete gespeichert, wir müssen also von unserem Shard ein `Presence`-Objekete bekommen.
+Die Aktivität selber wird in einem `Presence`-Objekt gespeichert, wir müssen also von unserem Shard ein `Presence`-Objeket bekommen.
 Das bekommen wir auch über die `getPresence()`-Methode.
-Nach dem wir nun das `Presence`-Objekete haben können wir uns die Aktivität holen und prüfen, ob sie unseren Erwartungen entspricht.
+Nachdem wir nun das `Presence`-Objekt haben, können wir uns die Aktivität holen und prüfen, ob sie unseren Erwartungen entspricht.
 
 ```java
 Activity activity = jda.getPresence().getActivity();
@@ -224,7 +224,7 @@ assertThat(activity.getName()).isEqualTo("Solitär"));
 
 # Die vollständige Test Klasse
 
-Die neuste Version von JUnit ermöglicht es uns alle unsere Prüfungen auszuführen ohne, dass der Test abbricht so bald eine Prüfung nicht Erfolgreich ist.
+Die neuste Version von JUnit ermöglicht es uns alle unsere Prüfungen auszuführen ohne, dass der Test abbricht sobald eine Prüfung nicht erfolgreich ist.
 Dafür können wir die Metode `assertAll(Executable...)` nutzen.
 Am Ende sieht unser Test also so aus:
 
