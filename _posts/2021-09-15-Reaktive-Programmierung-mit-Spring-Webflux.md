@@ -19,9 +19,16 @@ Klassische Programmiermodelle, wie z.B. in Spring MVC, nutzen für jeden Request
 so lange bis die aktuelle Aufgabe abgeschlossen ist und geben ihn dann wieder frei. Muss während der Codeverarbeitung z.B.
 eine Datenbank oder ein entferntes System angesprochen werden, welche eine langsame Antwortzeit hat muss der Thread lange blockieren.
 Um die Antwortbereitschaft aufrecht zu halten wird oft ein größerer Threadpool vorgehalten, 
-je nach Szenario kann ein Java Thread auch schnell mal 1MB Speicher belegen, welches gerade in Cloudumgebungen schnell mit erhöten Kosten einhergeht. 
+je nach Szenario kann ein Java Thread auch schnell mal 1MB Speicher allokieren, welches gerade in Cloudumgebungen schnell mit erhöten Kosten einhergeht. 
 
 ## Project Reactor
+Das Spring Framework nutzt das Open-Source-Projekt Reactor als Basis für die Umsetzung der reaktiven Programmierung.
+Reactor ist eine nicht blockierende(non-blocking) reaktive Open Source Programmiergrundlage für die Java Virtual Machine.
+Es setzt direkt auf den funktionalen APIs von Java 8 und nutzt konsequent CompletableFuture, Stream und Duration.
+Zusätzlich unterstützt Reactor mit dem reactor-netty Projekt eine nicht blockierende Interprozesskommunikation, welche eine Backpressure-fähige Netzwerkengine für HTTP bietet.
+
+Spring Webflux bietet, reaktive Implementierungen für Webanwendungen, Datenbankzugriffe, Security und Stream basierte Datenverarbeitung
+
 Publisher
 Subscriber
 Subscription
