@@ -16,14 +16,8 @@
         <field name="date_date"><![CDATA[2021-04-09T10:00:00+02:00]]></field>
         <field name="date_l"><![CDATA[1617955200000]]></field>
         <field name="change_date"><![CDATA[1617955200000]]></field>
-        <!--Picture-->
-        <!-- Not in use at the moment-->
         <!--Author Information-->
-        <field name="author_first_name"><![CDATA[Bianca]]></field>
-        <field name="author_last_name"><![CDATA[Batsch]]></field>
-        <field name="author_id"><![CDATA[BiancaBatsch]]></field>
-        <field name="author_picture_stored_only"><![CDATA[http://localhost:4000/assets/images/avatars/batsch.jpg]]></field>
-        <!--Postcontent-->
+        <field name="author_id"><![CDATA[BiancaBatsch]]></field><!--Postcontent-->
         <field name="headlines"><![CDATA[Unsere CleanCode-Schulung in neuem Gewand]]></field>
         <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
             <p>Dieser Blog-Artikel beschreibt wie <strong>Train the Trainer</strong> unser adesso-internes Expertenteam gute und nachhaltige Wissensvermittlung für Erwachsene lehrt und welche Möglichkeiten in einer gezielteren Durchführung für die Trainer und Inhalte der Schulungen schlummern.</p>

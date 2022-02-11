@@ -19,14 +19,8 @@
         <field name="date_date"><![CDATA[2019-03-01T09:30:00+01:00]]></field>
         <field name="date_l"><![CDATA[1551429000000]]></field>
         <field name="change_date"><![CDATA[1615211400000]]></field>
-        <!--Picture-->
-        <!-- Not in use at the moment-->
         <!--Author Information-->
-        <field name="author_first_name"><![CDATA[Christian]]></field>
-        <field name="author_last_name"><![CDATA[Everke]]></field>
-        <field name="author_id"><![CDATA[ceverke]]></field>
-        <field name="author_picture_stored_only"><![CDATA[http://localhost:4000/assets/images/avatars/ceverke.png]]></field>
-        <!--Postcontent-->
+        <field name="author_id"><![CDATA[ceverke]]></field><!--Postcontent-->
         <field name="headlines"><![CDATA[Echtzeitdatenverarbeitung von Eventströmen]]></field>
         <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
             <p>Ereignisse, im Englischen als Events bezeichnet, dienen im Software Engineering zur Steuerung des Programmablaufes von Software und werden durch Aktionen ausgelöst oder lösen selbst Aktionen aus. Neben technischen Events ist es auch möglich, fachliche Aktionen aus Events zu herzuleiten. In diesem Blogbeitrag widmen wir uns der Fragestellung, wie eingehende Events in Echtzeit ausgewertet werden können. Dazu greifen wir auf die Konzepte des Complex Event Processings (CEP) zurück, die als <em>Drools</em> <em>Fusion</em> in dem Business-Rules-Management-System <em>Drools</em> enthalten sind. Ein Beispiel aus der Banking-Branche zeigt ein mögliches und realistisches Szenario, in dem die hier vorgestellten Konzepte, Ideen und Technologien Anwendung finden könnten.</p>

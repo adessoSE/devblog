@@ -3,7 +3,7 @@ layout: [post, post-xml]                                                        
 title:  "Contract-Driven Development: Hands-On am Beispiel von Spring Cloud Contract"   # Pflichtfeld. Bitte einen Titel für den Blog Post angeben.
 date:   2021-07-15 08:00                                                                # Pflichtfeld. Format "YYYY-MM-DD HH:MM". Muss für Veröffentlichung in der Vergangenheit liegen. (Für Preview egal)
 modified_date: 2021-07-15 08:00                                                                         # Optional. Muss angegeben werden, wenn eine bestehende Datei geändert wird.
-author: tgraefenstein                                                                   # Pflichtfeld. Es muss in der "authors.yml" einen Eintrag mit diesem Namen geben.
+author_ids: [tgraefenstein]                                                                   # Pflichtfeld. Es muss in der "authors.yml" einen Eintrag mit diesem Namen geben.
 categories: [Softwareentwicklung]                                                       # Pflichtfeld. Maximal eine der angegebenen Kategorien verwenden.
 tags: [Spring, Cloud, Contract-Driven Development, Microservices, Java]                 # Bitte auf Großschreibung achten.
 ---

@@ -20,14 +20,8 @@ In diesem Teil geht es weiter mit der Testautomatisierung, speziell im Bereich d
         <field name="date_date"><![CDATA[2020-12-03T10:00:00+01:00]]></field>
         <field name="date_l"><![CDATA[1606986000000]]></field>
         <field name="change_date"><![CDATA[1607590800000]]></field>
-        <!--Picture-->
-        <!-- Not in use at the moment-->
         <!--Author Information-->
-        <field name="author_first_name"><![CDATA[Axel Schirmer, Peter Urbanik]]></field>
-        <field name="author_last_name"><![CDATA[und Tony Eggert]]></field>
-        <field name="author_id"><![CDATA[schirmer_urbanik_eggert]]></field>
-        <field name="author_picture_stored_only"><![CDATA[http://localhost:4000]]></field>
-        <!--Postcontent-->
+        <field name="author_id"><![CDATA[axelSchirmer]]></field><field name="author_id"><![CDATA[]]></field><field name="author_id"><![CDATA[]]></field><!--Postcontent-->
         <field name="headlines"><![CDATA[Testautomatisierung in der Praxis ]]></field>
         <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
             <p>Als Berater für den Aufbau eines geeigneten Testumfeldes im Public Umfeld, wollen wir euch in unserem mehrteiligen Erfahrungsbericht einladen, die verschiedenen Höhen und Tiefen in der Umsetzung zu begleiten.

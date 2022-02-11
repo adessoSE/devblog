@@ -1,4 +1,3 @@
-{% assign author = site.data.authors[page.author] %}
 {% assign adesso_url = "https://www.adesso.de" %}
 
 {% capture de_date %}
@@ -44,7 +43,20 @@
 
                         {% endif %}
 
-                        <p><span>{{ de_date }}</span>von {{author.first_name}} {{author.last_name}}</p>
+                        <p><span>{{ de_date }}</span>von
+                                {% for author_id in page.author_ids %}
+                                        {% assign author = site.data.authors[author_id] %}
+                                        {% if author %}
+                                                {{author.first_name}} {{author.last_name}}
+                                                {% if forloop.rindex0 > 1 %}
+                                                ,
+                                                {% endif %}
+                                                {% if forloop.rindex0 == 1 %}
+                                                und
+                                                {% endif %}
+                                        {%  endif %}
+                                {% endfor %}
+                        </p>
                         <h1>
                                 {% if  page.layout == 'post' and page.title %}
                                 {{ page.title }}

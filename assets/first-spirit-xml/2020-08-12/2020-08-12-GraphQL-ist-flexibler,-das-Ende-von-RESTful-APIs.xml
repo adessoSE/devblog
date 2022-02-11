@@ -16,14 +16,8 @@
         <field name="date_date"><![CDATA[2020-08-12T20:00:00+02:00]]></field>
         <field name="date_l"><![CDATA[1597255200000]]></field>
         <field name="change_date"><![CDATA[1597255200000]]></field>
-        <!--Picture-->
-        <!-- Not in use at the moment-->
         <!--Author Information-->
-        <field name="author_first_name"><![CDATA[Muhannad]]></field>
-        <field name="author_last_name"><![CDATA[Darraj]]></field>
-        <field name="author_id"><![CDATA[muhannaddarraj]]></field>
-        <field name="author_picture_stored_only"><![CDATA[http://localhost:4000/assets/images/avatars/dar.jpg]]></field>
-        <!--Postcontent-->
+        <field name="author_id"><![CDATA[muhannaddarraj]]></field><!--Postcontent-->
         <field name="headlines"><![CDATA[GraphQL ist flexibler, das Ende von REST-APIs?]]></field>
         <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
             <p>Die Brücke zwischen dem Frontend und dem Backend wurde bisher in den meisten modernen Applikationen durch eine REST-Schnittstelle geschlossen, um eine Kommunikation mit der Geschäftslogik zu ermöglichen. Nun verstecken sich hinter modernen Softwaresystemen viele Daten und Funktionen und die Menge an genutzten Informationen vergrößert sich stetig. Dies beeinflusst auch die Kommunikation zwischen Client und Server und macht diese aufwändiger. Um einen flexiblen Umgang mit vielen Daten zur Verfügung zu stellen, stellt sich Facebooks GraphQL als Alternative zu REST auf.</p>

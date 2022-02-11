@@ -2,7 +2,7 @@
 layout: [post, post-xml]
 title: "Kollegin Alexa – Wie Sprachassistenten ein IT-Projektteam unterstützen können"
 date: 2020-04-20 13:00
-author: pschild
+author_ids: [pschild]
 categories: [Softwareentwicklung]
 tags: [TypeScript, Alexa, Sprachassistent]
 ---

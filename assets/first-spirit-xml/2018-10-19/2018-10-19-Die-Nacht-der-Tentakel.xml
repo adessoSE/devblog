@@ -19,14 +19,8 @@ In diesem humoristischen Artikel wird beschrieben, wie ich in einer langen Hotel
         <field name="date_date"><![CDATA[2018-10-19T16:29:00+02:00]]></field>
         <field name="date_l"><![CDATA[1539959340000]]></field>
         <field name="change_date"><![CDATA[1615211400000]]></field>
-        <!--Picture-->
-        <!-- Not in use at the moment-->
         <!--Author Information-->
-        <field name="author_first_name"><![CDATA[Frank]]></field>
-        <field name="author_last_name"><![CDATA[Meyfarth]]></field>
-        <field name="author_id"><![CDATA[Franknjava]]></field>
-        <field name="author_picture_stored_only"><![CDATA[http://localhost:4000/assets/images/avatars/Franknjava.png]]></field>
-        <!--Postcontent-->
+        <field name="author_id"><![CDATA[Franknjava]]></field><!--Postcontent-->
         <field name="headlines"><![CDATA[Frank'n Java und die Nacht der Tentakel]]></field>
         <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
             <p>Wie ich in einer sturmdurchpeitschten Nacht Java hart auf die Werkbank schnallte um ihr cthulhuoide Tentakel anzunähen, auf dass sie von nun an und für immerdar in der Lage sei, echte italienische Pasta zu bereiten.<br /><br />

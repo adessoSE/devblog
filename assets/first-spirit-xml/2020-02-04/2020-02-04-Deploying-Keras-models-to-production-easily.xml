@@ -18,14 +18,8 @@ After endless research I’m most glad to serve you an easy to execute guide for
         <field name="date_date"><![CDATA[2020-02-04T09:00:00+01:00]]></field>
         <field name="date_l"><![CDATA[1580803200000]]></field>
         <field name="change_date"><![CDATA[1580803200000]]></field>
-        <!--Picture-->
-        <!-- Not in use at the moment-->
         <!--Author Information-->
-        <field name="author_first_name"><![CDATA[Sergej]]></field>
-        <field name="author_last_name"><![CDATA[Grilborzer]]></field>
-        <field name="author_id"><![CDATA[s-gbz]]></field>
-        <field name="author_picture_stored_only"><![CDATA[http://localhost:4000/assets/images/avatars/s-gbz.jpg]]></field>
-        <!--Postcontent-->
+        <field name="author_id"><![CDATA[s-gbz]]></field><!--Postcontent-->
         <field name="headlines"><![CDATA[Deploy Keras models to production level easily]]></field>
         <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
             <p>Moving your Deep Learning models from the developers playground to a serious production stage can be a hard feat to accomplish.

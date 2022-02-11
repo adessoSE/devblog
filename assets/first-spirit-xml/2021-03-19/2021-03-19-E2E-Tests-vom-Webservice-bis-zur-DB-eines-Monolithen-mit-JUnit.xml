@@ -20,14 +20,8 @@ Dieser Artikel richtet sich an Projektleiter, Architekten oder interessierte Ent
         <field name="date_date"><![CDATA[2021-03-19T15:00:00+01:00]]></field>
         <field name="date_l"><![CDATA[1616162400000]]></field>
         <field name="change_date"><![CDATA[1616162400000]]></field>
-        <!--Picture-->
-        <!-- Not in use at the moment-->
         <!--Author Information-->
-        <field name="author_first_name"><![CDATA[Thorben]]></field>
-        <field name="author_last_name"><![CDATA[Schiller]]></field>
-        <field name="author_id"><![CDATA[thorbolo]]></field>
-        <field name="author_picture_stored_only"><![CDATA[http://localhost:4000/assets/images/avatars/thorbenschiller.jpg]]></field>
-        <!--Postcontent-->
+        <field name="author_id"><![CDATA[thorbolo]]></field><!--Postcontent-->
         <field name="headlines"><![CDATA[E2E-Tests vom Webservice bis zur DB eines Monolithen mit JUnit]]></field>
         <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
             <p>In diesem Artikel geht es um automatisierte, in die CI-Pipeline integrierbare Tests, die die gesamte Geschäftslogik eines Monolithen von der obersten Schicht (einem Webservice) bis zur untersten Schicht (der Datenbank) abdecken können.
