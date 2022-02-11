@@ -73,7 +73,7 @@ Voraussetzung ist natürlich, dass der ``BlogpostService`` auch ein Mono, statt 
 Und das ist auch die Ebene, wo das Ganze unserer Meinung nach spannend wird. Wie gehe ich auf Serviceebene mit Mono und Flux um,
 und wie realisiere ich Geschäftslogik, die über einfaches Weiterreichen von Daten hinausgeht? 
 
-Darauf konzentriert sich dieses Kapitel.
+Darauf konzentriert sich dieser Abschnitt.
 In den Beispielen wird lediglich mit Monos gearbeitet, fast alle genannten Methoden sind jedoch auch für Flux verfügbar.
 Ausgenommen hiervon ist die Methode ``zipWhen``, die nur für Monos implementiert ist.
 
