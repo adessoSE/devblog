@@ -13,8 +13,10 @@ In Wikipedia ist reaktive Programmierung wie folgt beschrieben.
 Bei der Datenverarbeitung ist Reaktive Programmierung ein Programmierparadigma, das sich an Datenflüssen orientiert.
 Das zugrunde liegende Ausführungsmodell propagiert Änderungen in den Datenflüssen automatisch.
 
-Seit Version 5 unterstützt das Spring Framework reaktive Programmierung und bietet verschiedene Möglichkeiten diese zu nutzen.
-## Nachteile 1 Thread pro Request
+Seit Version 5 unterstützt das Spring Framework reaktive Programmierung und bietet reaktive Implementierungen für Webanwendungen, 
+Datenbankzugriffe, Security und Stream basierte Datenverarbeitung
+
+## Nachteile der 1 Thread pro Request Methode
 Klassische Programmiermodelle, wie z.B. in Spring MVC, nutzen für jeden Request jeweils einen Thread und belegen ihn 
 so lange bis die aktuelle Aufgabe abgeschlossen ist und geben ihn dann wieder frei. Muss während der Codeverarbeitung z.B.
 eine Datenbank oder ein entferntes System angesprochen werden, welche eine langsame Antwortzeit hat muss der Thread lange blockieren.
@@ -36,13 +38,12 @@ _**Publisher:**_ Der _Publisher_ ist verantwortlich für die Veröffentlichung v
 
 _**Processor:**_ Ein _Processor_ transformiert Element die zwischen _Publisher_ und _Subscriber_ übertragen werden
 
-Das Projekt Reactor bietet zwei Implementierungen des Interface _Publisher_ an, welche in den folgenden Beispielen oft benutzt werden.
+![image of reactive streams interfaces](/assets/images/posts/reaktive-programmierung-mit-spring-webflux/reativestream.png)
 
-Spring Webflux bietet, reaktive Implementierungen für Webanwendungen, Datenbankzugriffe, Security und Stream basierte Datenverarbeitung
-## Mono und Flux
-In dem folgenden Kapitel und insbesondere in den Codebeispielen wird viel die Rede von Mono und Flux sein. 
-Dabei handelt es sich um die beiden zentralen ``Publisher``-Implementierungen der Project Reactor-Library. 
-Ein Mono kann nur für höchstens ein Signal verwendet werden, während ein Flux beliebig viele Elemente ausgibt, bis es schließlich ein ``completed``-Signal sendet.
+Das Projekt Reactor bietet zwei Implementierungen des Interface _Publisher_ an, _Mono_ und _Flux_, welche in den folgenden Beispielen oft benutzt werden.
+_Flux_ ist dabei als asynchrone Abfolge von 0-N Elementen und Mono als 0-1 Element implementiert.
+
+Spring Webflux bietet, 
 
 # Wie arbeite ich mit Spring Webflux?
 Die Reactor-API bietet eine sehr große Anzahl an Methoden.
