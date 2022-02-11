@@ -11,23 +11,23 @@ tags: [Java, Spring, Webflux, Reaktive Programmierung] # Bitte auf Großschreibu
 In diesem Blogbeitrag wollen wir euch eine kurze Übersicht zu Spring Webflux geben. Zusätzlich gibt der Beitrag eine kleine Starthilfe mit einer Auswahl an 
 Codebeispielen, damit ihr erfolgreich im Projekt durchstarten könnt.
 
->In Wikipedia ist reaktive Programmierung wie folgt beschrieben.
+>In Wikipedia ist reaktive Programmierung wie folgt beschrieben:
 Bei der Datenverarbeitung ist Reaktive Programmierung ein Programmierparadigma, das sich an Datenflüssen orientiert.
 Das zugrunde liegende Ausführungsmodell propagiert Änderungen in den Datenflüssen automatisch.
 
 Seit Version 5 unterstützt das Spring Framework reaktive Programmierung und bietet reaktive Implementierungen für Webanwendungen, 
-Datenbankzugriffe, Security und Stream basierte Datenverarbeitung
+Datenbankzugriffe, Security und Streambasierte Datenverarbeitung.
 
 Klassische Programmiermodelle, wie z.B. in Spring MVC, nutzen für jeden Request jeweils einen Thread und belegen ihn 
 so lange bis die aktuelle Aufgabe abgeschlossen ist und geben ihn dann wieder frei. Muss während der Codeverarbeitung z.B.
-eine Datenbank oder ein entferntes System angesprochen werden, welche eine langsame Antwortzeit hat muss der Thread lange blockieren.
+eine Datenbank oder ein entferntes System angesprochen werden, welche eine langsame Antwortzeit hat, muss der Thread lange blockieren.
 Um die Antwortbereitschaft aufrecht zu halten wird oft ein größerer Threadpool vorgehalten, 
-je nach Szenario kann ein Java Thread auch schnell mal 1MB Speicher allokieren, welches gerade in Cloudumgebungen schnell mit erhöten Kosten einhergeht. 
+je nach Szenario kann ein Java Thread auch schnell mal 1MB Speicher allokieren, welches gerade in Cloudumgebungen schnell mit erhöhten Kosten einhergeht. 
 
 ## Project Reactor
 Das Spring Framework nutzt das Open-Source-Projekt Reactor als Basis für die Umsetzung der reaktiven Programmierung.
-Reactor ist eine nicht blockierende(non-blocking) reaktive Open Source Programmiergrundlage für die Java Virtual Machine, welche auf der Reactive-Streams-Spezifikation basiert.
-Es setzt direkt auf den funktionalen APIs von Java 8 und nutzt konsequent CompletableFuture, Stream und Duration.
+Reactor ist eine nicht blockierende (non-blocking) reaktive Open Source Programmiergrundlage für die Java Virtual Machine, welche auf der Reactive-Streams-Spezifikation basiert.
+Es setzt direkt auf den funktionalen APIs von Java 8 auf und nutzt konsequent CompletableFuture, Stream und Duration.
 Zusätzlich unterstützt Reactor mit dem reactor-netty Projekt eine nicht blockierende Interprozesskommunikation, welche eine Backpressure-fähige Netzwerkengine für HTTP bietet.
 Die Reactive-Streams-Spezifikation sieht eine gewisse Standardisierung für die JVM aber auch Javascript vor und basiert auf folgenden Interfaces:
 
@@ -37,11 +37,11 @@ _**Subscription:**_ Die _Subscription_ beschreibt die Beziehung zwischen _Subscr
 
 _**Publisher:**_ Der _Publisher_ ist verantwortlich für die Veröffentlichung von Daten an die angemeldeten _Subscriber_
 
-_**Processor:**_ Ein _Processor_ transformiert Element die zwischen _Publisher_ und _Subscriber_ übertragen werden
+_**Processor:**_ Ein _Processor_ transformiert Elemente die zwischen _Publisher_ und _Subscriber_ übertragen werden
 
 ![image of reactive streams interfaces](/assets/images/posts/reaktive-programmierung-mit-spring-webflux/reativestream.png)
 
-Das Projekt Reactor bietet zwei Implementierungen des Interface _Publisher_ an, _Mono_ und _Flux_, welche in den folgenden Beispielen oft benutzt werden.
+Das Projekt Reactor bietet zwei Implementierungen des Interface _Publisher_ an, _Mono_ und _Flux_, welche in den folgenden Beispielen oft genutzt werden.
 _Flux_ ist dabei als asynchrone Abfolge von 0-N Elementen und Mono als 0-1 Element implementiert.
 
 # Wie arbeite ich mit Spring Webflux?
