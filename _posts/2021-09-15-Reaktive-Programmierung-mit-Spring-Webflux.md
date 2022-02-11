@@ -23,16 +23,22 @@ je nach Szenario kann ein Java Thread auch schnell mal 1MB Speicher allokieren, 
 
 ## Project Reactor
 Das Spring Framework nutzt das Open-Source-Projekt Reactor als Basis für die Umsetzung der reaktiven Programmierung.
-Reactor ist eine nicht blockierende(non-blocking) reaktive Open Source Programmiergrundlage für die Java Virtual Machine.
+Reactor ist eine nicht blockierende(non-blocking) reaktive Open Source Programmiergrundlage für die Java Virtual Machine, welche auf der Reactive-Streams-Spezifikation basiert.
 Es setzt direkt auf den funktionalen APIs von Java 8 und nutzt konsequent CompletableFuture, Stream und Duration.
 Zusätzlich unterstützt Reactor mit dem reactor-netty Projekt eine nicht blockierende Interprozesskommunikation, welche eine Backpressure-fähige Netzwerkengine für HTTP bietet.
+Die Reactive-Streams-Spezifikation sieht eine gewisse Standardisierung für die JVM aber auch Javascript vor und basiert auf folgenden Interfaces:
+
+_**Subscriber:**_ Der _Subscriber_ abonniert einen _Publisher_ und wird mittels Callbacks über Neuerungen informiert
+
+_**Subscription:**_ Die _Subscription_ beschreibt die Beziehung zwischen _Subscriber_ und _Publisher_
+
+_**Publisher:**_ Der _Publisher_ ist verantwortlich für die Veröffentlichung von Daten an die angemeldeten _Subscriber_
+
+_**Processor:**_ Ein _Processor_ transformiert Element die zwischen _Publisher_ und _Subscriber_ übertragen werden
+
+Das Projekt Reactor bietet zwei Implementierungen des Interface _Publisher_ an, welche in den folgenden Beispielen oft benutzt werden.
 
 Spring Webflux bietet, reaktive Implementierungen für Webanwendungen, Datenbankzugriffe, Security und Stream basierte Datenverarbeitung
-
-Publisher
-Subscriber
-Subscription
-Processor
 ## Mono und Flux
 In dem folgenden Kapitel und insbesondere in den Codebeispielen wird viel die Rede von Mono und Flux sein. 
 Dabei handelt es sich um die beiden zentralen ``Publisher``-Implementierungen der Project Reactor-Library. 
