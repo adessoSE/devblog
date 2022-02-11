@@ -7,16 +7,17 @@ author_ids: [schroeerth,friggej] # Pflichtfeld. Es muss in der "authors.yml" ein
 categories: [Softwareentwicklung] # Pflichtfeld. Maximal eine der angegebenen Kategorien verwenden.
 tags: [Java, Spring, Webflux, Reaktive Programmierung] # Bitte auf Großschreibung achten.
 ---
-# Einleitung
-## Was ist reaktive Programmierung?
-In Wikipedia ist reaktive Programmierung wie folgt beschrieben.
+
+In diesem Blogbeitrag wollen wir euch eine kurze Übersicht zu Spring Webflux geben. Zusätzlich gibt der Beitrag eine kleine Starthilfe mit einer Auswahl an 
+Codebeispielen, damit ihr erfolgreich im Projekt durchstarten könnt.
+
+>In Wikipedia ist reaktive Programmierung wie folgt beschrieben.
 Bei der Datenverarbeitung ist Reaktive Programmierung ein Programmierparadigma, das sich an Datenflüssen orientiert.
 Das zugrunde liegende Ausführungsmodell propagiert Änderungen in den Datenflüssen automatisch.
 
 Seit Version 5 unterstützt das Spring Framework reaktive Programmierung und bietet reaktive Implementierungen für Webanwendungen, 
 Datenbankzugriffe, Security und Stream basierte Datenverarbeitung
 
-## Nachteile der 1 Thread pro Request Methode
 Klassische Programmiermodelle, wie z.B. in Spring MVC, nutzen für jeden Request jeweils einen Thread und belegen ihn 
 so lange bis die aktuelle Aufgabe abgeschlossen ist und geben ihn dann wieder frei. Muss während der Codeverarbeitung z.B.
 eine Datenbank oder ein entferntes System angesprochen werden, welche eine langsame Antwortzeit hat muss der Thread lange blockieren.
@@ -43,13 +44,11 @@ _**Processor:**_ Ein _Processor_ transformiert Element die zwischen _Publisher_ 
 Das Projekt Reactor bietet zwei Implementierungen des Interface _Publisher_ an, _Mono_ und _Flux_, welche in den folgenden Beispielen oft benutzt werden.
 _Flux_ ist dabei als asynchrone Abfolge von 0-N Elementen und Mono als 0-1 Element implementiert.
 
-Spring Webflux bietet, 
-
 # Wie arbeite ich mit Spring Webflux?
 Die Reactor-API bietet eine sehr große Anzahl an Methoden.
 Es existiert zwar eine Art [Anleitung](https://projectreactor.io/docs/core/release/reference/#which-operator),
 wann welche zu nutzen ist, die kann aber insbesondere beim Einstieg in Webflux erschlagend wirken.
-Aus diesem Grund möchten wir euch hier als kleine Starthilfe eine reduzierte Auswahl mit Codebeispielen an die Hand geben.
+
 
 Es existieren bereits viele Tutorials auf den üblichen Webseiten, wie mit Spring Webflux gearbeitet werden kann. 
 Diese beschränken sich jedoch oft auf die Kommunikation nach außen, also auf Controller, Datenbank-Repositories und Webclients, die andere Rest-APIs konsumieren.
