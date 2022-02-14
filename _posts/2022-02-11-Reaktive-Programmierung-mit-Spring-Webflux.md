@@ -144,7 +144,7 @@ public Mono<BlogpostWithAuthor> getBlogpost(String blogpostId) {
 private Mono<BlogpostWithAuthor> buildBlogpostWithAuthor(Blogpost blogpost, UserData userData){[...]}
 ```
 
-##doOnNext und delayUntil
+## doOnNext und delayUntil
 Die bislang vorgestellten Methoden sind alle primär dazu gedacht, die Werte eines Publishers in irgendeiner Weise zu 
 transformieren.
 Es gibt aber auch Methoden, mit denen Seiteneffekte ausgeführt werden können, die den Wert des Publishers allerdings nicht beeinflussen.
