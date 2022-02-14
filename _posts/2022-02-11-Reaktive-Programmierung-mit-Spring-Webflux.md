@@ -1,15 +1,15 @@
 ---
 layout: [post, post-xml] # Pflichtfeld. Nicht ändern!
 title: 'Reaktive Programmierung mit Spring Webflux' # Pflichtfeld. Bitte einen Titel für den Blog Post angeben.
-date: 2021-09-15 18:00 # Pflichtfeld. Format "YYYY-MM-DD HH:MM". Muss für Veröffentlichung in der Vergangenheit liegen. (Für Preview egal)
-modified_date: 2021-09-15 18:00 # Optional. Muss angegeben werden, wenn eine bestehende Datei geändert wird.
+date: 2022-02-11 18:00 # Pflichtfeld. Format "YYYY-MM-DD HH:MM". Muss für Veröffentlichung in der Vergangenheit liegen. (Für Preview egal)
+modified_date: 2022-02-11 18:00 # Optional. Muss angegeben werden, wenn eine bestehende Datei geändert wird.
 author_ids: [schroeerth,friggej] # Pflichtfeld. Es muss in der "authors.yml" einen Eintrag mit diesem Namen geben.
 categories: [Softwareentwicklung] # Pflichtfeld. Maximal eine der angegebenen Kategorien verwenden.
 tags: [Java, Spring, Webflux, Reaktive Programmierung] # Bitte auf Großschreibung achten.
 ---
 
-In diesem Blogbeitrag wollen wir euch eine kurze Übersicht zu Spring Webflux geben. Zusätzlich gibt der Beitrag eine kleine Starthilfe mit einer Auswahl an 
-Codebeispielen, damit ihr erfolgreich im Projekt durchstarten könnt.
+In diesem Blogbeitrag wollen wir euch eine kurze Übersicht zu Spring Webflux geben.
+Zusätzlich gibt der Beitrag eine kleine Starthilfe mit einer Auswahl an Codebeispielen, damit ihr erfolgreich im Projekt durchstarten könnt.
 
 >In Wikipedia ist reaktive Programmierung wie folgt beschrieben:
 Bei der Datenverarbeitung ist Reaktive Programmierung ein Programmierparadigma, das sich an Datenflüssen orientiert.
@@ -19,8 +19,8 @@ Seit Version 5 unterstützt das Spring Framework reaktive Programmierung und bie
 Datenbankzugriffe, Security und Streambasierte Datenverarbeitung.
 
 Klassische Programmiermodelle, wie z.B. in Spring MVC, nutzen für jeden Request jeweils einen Thread und belegen ihn 
-so lange bis die aktuelle Aufgabe abgeschlossen ist und geben ihn dann wieder frei. Muss während der Codeverarbeitung z.B.
-eine Datenbank oder ein entferntes System angesprochen werden, welche eine langsame Antwortzeit hat, muss der Thread lange blockieren.
+so lange, bis die aktuelle Aufgabe abgeschlossen ist und geben ihn dann wieder frei.
+Muss während der Codeverarbeitung z.B. eine Datenbank oder ein entferntes System angesprochen werden, welche eine langsame Antwortzeit hat, muss der Thread lange blockieren.
 Um die Antwortbereitschaft aufrecht zu halten wird oft ein größerer Threadpool vorgehalten, 
 je nach Szenario kann ein Java Thread auch schnell mal 1MB Speicher allokieren, welches gerade in Cloudumgebungen schnell mit erhöhten Kosten einhergeht. 
 
