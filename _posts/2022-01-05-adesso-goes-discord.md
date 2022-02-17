@@ -212,7 +212,7 @@ assertThat(status).isEqualTo(Status.CONNECTED);
 # Spielt der Bot Solitäre?
 
 Nun wollen wir noch gucken, ob der Bot auch aktiv ist und wirklich Solitäre spielt.
-Die Aktivität selber wird in einem `Presence`-Objekt gespeichert, wir müssen also von unserem Shard ein `Presence`-Objeket bekommen.
+Die Aktivität selber wird in einem `Presence`-Objekt gespeichert, wir müssen also von unserem Shard ein `Presence`-Objekt bekommen.
 Das bekommen wir auch über die `getPresence()`-Methode.
 Nachdem wir nun das `Presence`-Objekt haben, können wir uns die Aktivität holen und prüfen, ob sie unseren Erwartungen entspricht.
 
