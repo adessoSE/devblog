@@ -8,6 +8,10 @@ on:
 
 jobs:
   pull-and-run-blogpost-checker-image:
+    permissions:
+      issues: write
+      pull-requests: write
+    
     runs-on: ubuntu-latest
 
     steps:
