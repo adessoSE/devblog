@@ -41,5 +41,5 @@ jobs:
           echo github.event.issue.number = ${{ github.event.issue.number }}
 
       - name: Run Docker image
-        run: docker run --env BASE_COMMIT='${{ env.BASE_COMMIT }}' --env HEAD_COMMIT='${{ env.HEAD_COMMIT }}' --env LOCAL_REPO_PATH=repo --env PR_NUMBER='${{ github.event.number }}' --env USERNAME=jekyll2cms --env TOKEN=${{ secrets.GITHUB_TOKEN }} -v /home/runner/work/devblog/devblog:/repo jekyll2cms/blogpost-checker:1.0.10
+        run: docker run --env BASE_COMMIT='${{ env.BASE_COMMIT }}' --env HEAD_COMMIT='${{ env.HEAD_COMMIT }}' --env LOCAL_REPO_PATH=repo --env PR_NUMBER='${{ github.event.number }}' --env USERNAME=jekyll2cms --env TOKEN=${{ secrets.GITHUB_TOKEN }} -v /home/runner/work/devblog/devblog:/repo jekyll2cms/blogpost-checker:1.0.11
 
