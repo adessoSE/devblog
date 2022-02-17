@@ -10,20 +10,8 @@ jobs:
   pull-and-run-blogpost-checker-image:
     runs-on: ubuntu-latest
     permissions:
-      actions: read
-      checks: read
-      contents: read
-      deployments: read
-      id-token: read
       issues: write
-      discussions: read
-      packages: read
-      pages: read
-      pull-requests: write
-      repository-projects: write
-      security-events: read
-      statuses: read
-
+    
     steps:
       - name: Inject env
         uses: rlespinasse/github-slug-action@v3.x
