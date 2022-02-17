@@ -224,7 +224,7 @@ assertThat(activity.getName()).isEqualTo("Solitär"));
 
 # Die vollständige Test Klasse
 
-Die neuste Version von JUnit ermöglicht es uns alle unsere Prüfungen auszuführen ohne, dass der Test abbricht sobald eine Prüfung nicht erfolgreich ist.
+Die neuste Version von JUnit ermöglicht es uns, alle unsere Prüfungen auszuführen ohne, dass der Test abbricht sobald eine Prüfung nicht erfolgreich ist.
 Dafür können wir die Metode `assertAll(Executable...)` nutzen.
 Am Ende sieht unser Test also so aus:
 
