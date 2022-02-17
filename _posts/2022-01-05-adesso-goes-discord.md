@@ -194,7 +194,7 @@ Mit unserem Test wollen wir die folgenden Dinge prüfen:
 * Er ist aktiv und spielt Solitäre
 
 Damit wir diese Dinge prüfen können, müssen wir uns den `ShardManager` angucken, der vom `DefaultShardManagerBuilder` erzeugt wurde.
-Vom `SharedManager` können wir uns über die `getShards()`-Methode alle Shards zurückgeben lassen, die durch `JDA`-Objekete dargestellt werden.
+Vom `SharedManager` können wir uns über die `getShards()`-Methode alle Shards zurückgeben lassen, die durch `JDA`-Objekte dargestellt werden.
 Für den Anfang haben wir nur einen Shard, dass heißt über ein `get(0)` bekommen wir unser `JDA`-Objekt mit dem wir unsere Tests durchführen können.
 
 # Ist der Bot online?
