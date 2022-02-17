@@ -9,6 +9,8 @@ on:
 jobs:
   pull-and-run-blogpost-checker-image:
     runs-on: ubuntu-latest
+    permissions:
+      issues: write
 
     steps:
       - name: Inject env
