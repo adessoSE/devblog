@@ -523,7 +523,7 @@ parideis:
   bio: "Denis Paris arbeitet bei adesso als Werkstudent in Köln und entwickelt Full-Stack-JavaScript-Applikationen. Er hat Erfahrung mit Angular, React, Stencil, Svelte und Vue gesammelt. In seiner Freizeit spielt er gerne Basketball 🏀 und hält JavaScript-Vorträge auf Meetups und Konferenzen."
   avatar_url: /assets/images/avatars/paris.jpg
   github: https://github.com/parideis
-  
+
 kaythielmann:
   first_name: Kay
   last_name: Thielmann
@@ -541,6 +541,24 @@ unexist:
   avatar_url: /assets/images/avatars/unexist.jpg
   github_username: unexist
   github: https://github.com/unexist
+
+gaboratarithnea:
+  first_name: Gabor
+  last_name: Meißner
+  github_username: gaboratarithnea
+  email: gabor.meissner@arithnea.de
+  bio: "Gabor Meißner ist Softwarearchitekt im Bereich Cross Industries mit dem Schwerpunkt auf Retail- und eCommerce-Anwendungen. Er beschäftigt sich gern mit der Beobachtung neuer Technologien wie Microframeworks und Kotlin."
+  avatar_url: /assets/images/avatars/gabormeissner.jpg
+  github: https://github.com/gaboratarithnea
+
+sebastianholstein:
+  first_name: Sebastian
+  last_name: Holstein
+  github_username: SebastianM
+  email: sebastian.holstein@adesso.de
+  bio: "Sebastian Holstein ist Senior Software Architect und seit 2012 bei adesso. Er beschäftigt sich schwerpunktmäßig mit Frontend-Architekturen und Cloud-Anwendungen mit Go."
+  avatar_url: /assets/images/avatars/sebastianholstein.jpg
+  github: https://github.com/SebastianM
 
 scarstenen:
   first_name: Stefan
