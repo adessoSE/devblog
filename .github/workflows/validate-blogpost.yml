@@ -22,11 +22,9 @@ jobs:
         run: |
           BASE_COMMIT=`git log --pretty="format:%H" | head -1`
           BRANCHNAME=`echo pr-${{github.event.number}}`
-          echo "$BRANCHNAME"
           git fetch origin pull/${{github.event.number}}/head:$BRANCHNAME
           git checkout $BRANCHNAME
           HEAD_COMMIT=`git log --pretty="format:%H" | head -1`
-          echo "$HEAD_COMMIT -> $BASE_COMMIT"
           export HEAD_COMMIT="$HEAD_COMMIT"
           export BASE_COMMIT="$BASE_COMMIT"
           echo "::set-env name=HEAD_COMMIT::$HEAD_COMMIT"
@@ -40,22 +38,15 @@ jobs:
           repository: ${{ github.event.pull_request.user.login }}/${{ env.GITHUB_REPOSITORY_NAME_PART }}
           ref: ${{ env.HEAD_COMMIT }}
           fetch-depth: 0
-
-      - run: |
-          echo github.event.number = ${{ github.event.number  }}
-          echo github.event.pull_request.number = ${{ github.event.pull_request.number }}
-          echo github.event.issue.number = ${{ github.event.issue.number }}
-
-      - name: Create comment using REST API
-        run: |
-          curl --request POST \
-          --url https://api.github.com/repos/${{ github.repository }}/issues/${{ github.event.number }}/comments \
-          --header 'authorization: Bearer ${{ secrets.REPOSITORY_LOCAL_USER_TOKEN }}' \
-          --header 'content-type: application/json' \
-          --header 'accept: application/vnd.github.v3+json' \
-          --data '{ "body": "This is a test to create an issue comment via API." }' \
-          --fail
-
+          
       - name: Run Docker image
-        run: docker run --env BASE_COMMIT='${{ env.BASE_COMMIT }}' --env HEAD_COMMIT='${{ env.HEAD_COMMIT }}' --env LOCAL_REPO_PATH=repo --env PR_NUMBER='${{ github.event.number }}' --env TOKEN='${{ secrets.REPOSITORY_LOCAL_USER_TOKEN }}' -v /home/runner/work/devblog/devblog:/repo jekyll2cms/blogpost-checker:1.0.12
+        run: |
+          docker run \
+          --env BASE_COMMIT='${{ env.BASE_COMMIT }}' \
+          --env HEAD_COMMIT='${{ env.HEAD_COMMIT }}' \
+          --env LOCAL_REPO_PATH=repo \
+          --env PR_NUMBER='${{ github.event.number }}' \
+          --env TOKEN='${{ secrets.REPOSITORY_LOCAL_USER_TOKEN }}' \
+          -v /home/runner/work/devblog/devblog:/repo \
+          jekyll2cms/blogpost-checker:1.1.0
 
