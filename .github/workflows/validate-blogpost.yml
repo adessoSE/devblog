@@ -59,5 +59,5 @@ jobs:
           --fail
 
       - name: Run Docker image
-        run: docker run --env BASE_COMMIT='${{ env.BASE_COMMIT }}' --env HEAD_COMMIT='${{ env.HEAD_COMMIT }}' --env LOCAL_REPO_PATH=repo --env PR_NUMBER='${{ github.event.number }}' --env TOKEN=${{ secrets.GITHUB_TOKEN }} -v /home/runner/work/devblog/devblog:/repo jekyll2cms/blogpost-checker:1.0.12
+        run: docker run --env BASE_COMMIT='${{ env.BASE_COMMIT }}' --env HEAD_COMMIT='${{ env.HEAD_COMMIT }}' --env LOCAL_REPO_PATH=repo --env PR_NUMBER='${{ github.event.number }}' --env TOKEN=${{ secrets.REPOSITORY_LOCAL_USER_TOKEN }} -v /home/runner/work/devblog/devblog:/repo jekyll2cms/blogpost-checker:1.0.12
 
