@@ -20,6 +20,7 @@ jobs:
 
       - name: git log
         run: |
+          cd /home/runner/work/devblog/devblog && git fetch origin pull/${{github.event.number}}/head:pr-${{github.event.number}}
           MESSAGE=`cd /home/runner/work/devblog/devblog && git log --pretty=oneline`
           echo "$MESSAGE"
           HEAD_COMMIT=`echo "$MESSAGE" | sed -e 's/\(.*\)Merge\s\(.*\) into \(.*\)/\2/'`
