@@ -20,14 +20,13 @@ jobs:
 
       - name: git log
         run: |
+          BASE_COMMIT=`git log --pretty="format:%H" | head -1`
           BRANCHNAME=`echo pr-${{github.event.number}}`
           echo "$BRANCHNAME"
           git fetch origin pull/${{github.event.number}}/head:$BRANCHNAME
           git checkout $BRANCHNAME
-          MESSAGE=`git log --pretty=oneline`
-          echo "$MESSAGE"
-          HEAD_COMMIT=`echo "$MESSAGE" | sed -e 's/\(.*\)Merge\s\(.*\) into \(.*\)/\2/'`
-          BASE_COMMIT=`echo "$MESSAGE" | sed -e 's/\(.*\)Merge\s\(.*\) into \(.*\)/\3/'`
+          HEAD_COMMIT=`git log --pretty="format:%H" | head -1`
+          echo "$HEAD_COMMIT -> $BASE_COMMIT"
           export HEAD_COMMIT="$HEAD_COMMIT"
           export BASE_COMMIT="$BASE_COMMIT"
           echo "::set-env name=HEAD_COMMIT::$HEAD_COMMIT"
