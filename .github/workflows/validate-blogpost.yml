@@ -20,8 +20,11 @@ jobs:
 
       - name: git log
         run: |
-          cd /home/runner/work/devblog/devblog && git fetch origin pull/${{github.event.number}}/head:pr-${{github.event.number}}
-          MESSAGE=`cd /home/runner/work/devblog/devblog && git log --pretty=oneline`
+          BRANCHNAME=`echo pr-${{github.event.number}}`
+          echo "$BRANCHNAME"
+          git fetch origin pull/${{github.event.number}}/head:$BRANCHNAME
+          git checkout $BRANCHNAME
+          MESSAGE=`git log --pretty=oneline`
           echo "$MESSAGE"
           HEAD_COMMIT=`echo "$MESSAGE" | sed -e 's/\(.*\)Merge\s\(.*\) into \(.*\)/\2/'`
           BASE_COMMIT=`echo "$MESSAGE" | sed -e 's/\(.*\)Merge\s\(.*\) into \(.*\)/\3/'`
@@ -31,6 +34,7 @@ jobs:
           echo "::set-env name=BASE_COMMIT::$BASE_COMMIT"
         env:
           ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
+        working-directory: /home/runner/work/devblog/devblog
               
       - uses: actions/checkout@v2
         with:
