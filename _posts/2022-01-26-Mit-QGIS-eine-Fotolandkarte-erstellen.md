@@ -26,7 +26,7 @@ Mit einem handelsüblichen Smartphone werden Orte fotografiert, dabei werden die
 
 Die häufigste Weiterverarbeitung zeigt die Abhängigkeit von scheinbar kostenlosen Cloud-Diensten:
 Oft sendet man alle Fotos an einen Speicherdienst wie z.B. Google Drive und lässt sie als Marker auf Google Maps anzeigen.
-Damit hat man nicht nur sämtliche Bilder ins Internet entlassen, man gibt die Kontrolle auch an einen Konzern ab, dessen Geschäftsbedingungen die wenigsten Menschen verstehen.
+Damit hat man nicht nur sämtliche Bilder ins Internet entlassen, man unterwirft sich auch den Geschäftsbedingungen und macht sich abhängig von der Verfügbarkeit dieser Dienste.
 
 Für kritische Daten wie etwa Sicherheitsmängel auf einem Betriebsgelände oder Bilder fremder Personen ist das keine Lösung.
 Darüber hinaus steht eine schnelle Internetverbindung nicht an jedem Ort jederzeit zur Verfügung.
