@@ -162,7 +162,7 @@ Zu beachten ist hier, auch wenn sich am eigentlichen Inhalt des Monos nichts än
 weiter verwendet werden, damit die Methode auch Teil der Ausführungssequenz wird.
 
 Außerdem ist der Aufruf von incrementViewCount wieder asynchron. Das bedeutet, dass man nicht davon ausgehen kann, dass der Zähler
-auf dem aktuellsten Stand ist, wenn getBlogpost sein Ergebnis zurückgibt. Wenn das erforderlich ist, muss statt ``doOnNext``
+auf dem aktuellsten Stand ist, wenn `getBlogpost` sein Ergebnis zurückgibt. Wenn das erforderlich ist, muss statt ``doOnNext``
 ``delayUntil`` verwendet werden.
 ## onErrorMap, onErrorReturn und doOnError
 Zu guter Letzt sollte auch das Error Handling nicht unerwähnt bleiben.
