@@ -22,8 +22,8 @@ Und natürlich zeige ich euch auch, welche weiteren Schritte nötig sind.
 Zur Erstellung und Programmierung benötigen wir folgende Dinge:
 
 * IDE
-* Version 9+
-* Maven
+* Java Version 9+
+* Apache Maven
 * Discord Account
 
 # Den Bot im Web vorbereiten
@@ -252,7 +252,7 @@ void adessoBotIsOnline() throws LoginException, IllegalArgumentException, Interr
 
 
 **Quellen:**
-* [maven](https://maven.apache.org/index.html)
+* [Apache Maven](https://maven.apache.org/index.html)
 * [Discord Documentation](https://discord.com/developers/docs/intro)
 * [Java](https://www.java.com/de/)
 * [JUnit](https://junit.org/junit5/)
