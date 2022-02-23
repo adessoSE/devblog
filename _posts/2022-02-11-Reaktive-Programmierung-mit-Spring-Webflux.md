@@ -16,7 +16,7 @@ Bei der Datenverarbeitung ist Reaktive Programmierung ein Programmierparadigma, 
 Das zugrunde liegende Ausführungsmodell propagiert Änderungen in den Datenflüssen automatisch.
 
 Seit Version 5 unterstützt das Spring Framework reaktive Programmierung und bietet reaktive Implementierungen für Webanwendungen, 
-Datenbankzugriffe, Security und Streambasierte Datenverarbeitung.
+Datenbankzugriffe, Security und streambasierte Datenverarbeitung.
 
 Klassische Programmiermodelle wie z.B. in Spring MVC nutzen für jeden Request jeweils einen Thread und belegen ihn 
 so lange, bis die aktuelle Aufgabe abgeschlossen ist und geben ihn dann wieder frei.
