@@ -18,7 +18,7 @@ Das zugrunde liegende Ausführungsmodell propagiert Änderungen in den Datenflü
 Seit Version 5 unterstützt das Spring Framework reaktive Programmierung und bietet reaktive Implementierungen für Webanwendungen, 
 Datenbankzugriffe, Security und Streambasierte Datenverarbeitung.
 
-Klassische Programmiermodelle, wie z.B. in Spring MVC, nutzen für jeden Request jeweils einen Thread und belegen ihn 
+Klassische Programmiermodelle wie z.B. in Spring MVC nutzen für jeden Request jeweils einen Thread und belegen ihn 
 so lange, bis die aktuelle Aufgabe abgeschlossen ist und geben ihn dann wieder frei.
 Muss während der Codeverarbeitung z.B. eine Datenbank oder ein entferntes System angesprochen werden, welche eine langsame Antwortzeit hat, muss der Thread lange blockieren.
 Um die Antwortbereitschaft aufrecht zu halten wird oft ein größerer Threadpool vorgehalten, 
