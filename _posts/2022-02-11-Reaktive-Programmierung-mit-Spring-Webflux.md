@@ -189,5 +189,5 @@ private String buildAbbreviatedName(UserData userData){[...]}
 
 Mithilfe dieser 9 Methoden solltet ihr für den Start in die Programmierung mit Spring Webflux gerüstet sein.
 Wenn ihr Anwendungsfälle habt, die hier nicht abgedeckt wurden, können wir euch die bereits eingangs in diesem Kapitel
-erwähnte [Operatorenübersicht](https://projectreactor.io/docs/core/release/reference/#which-operator) aus dem Project Reactor
+erwähnte [Operatorenübersicht](https://projectreactor.io/docs/core/release/reference/#which-operator) aus dem Project-Reactor-
 Handbuch empfehlen.
