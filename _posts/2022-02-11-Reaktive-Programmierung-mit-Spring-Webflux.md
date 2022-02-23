@@ -167,7 +167,7 @@ auf dem aktuellsten Stand ist, wenn getBlogpost sein Ergebnis zurückgibt. Wenn 
 ## onErrorMap, onErrorReturn und doOnError
 Zu guter Letzt sollte auch das Error Handling nicht unerwähnt bleiben.
 Wenn in der Ausführsequenz eine Methode einen Fehler wirft, gibt der Publisher ein Error-Signal anstelle des Werts aus. 
-Dieses Signal wird wie normale RuntimeExceptions so lange an die nächsten Subscriber weitergereicht, bis es irgendwo explizit behandelt wird.
+Dieses Signal wird wie eine normale `RuntimeException` so lange an die nächsten Subscriber weitergereicht, bis es irgendwo explizit behandelt wird.
 
 Mit ``onErrorMap`` kann eine Exception abgefangen und eine andere Exception geworfen werden.
 Über ``onErrorReturn`` kann beim Autreten einer Exception ein Standardwert zurückgegeben werden, 
