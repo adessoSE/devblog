@@ -1,6 +1,6 @@
 ---
 layout: [post, post-xml]
-title:  "Hands-on Entwicklung Discord-Bots"
+title:  "Hands-on Entwicklung eines Discord-Bots"
 date:   2022-02-25 10:25              # Pflichtfeld. Format "YYYY-MM-DD HH:MM". Muss für Veröffentlichung in der Vergangenheit liegen. (Für Preview egal)
 author_ids: [bolsei]
 categories: [Softwareentwicklung]
