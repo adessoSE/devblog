@@ -15,10 +15,10 @@ Zusätzlich gibt der Beitrag eine kleine Starthilfe mit einer Auswahl an Codebei
 Bei der Datenverarbeitung ist Reaktive Programmierung ein Programmierparadigma, das sich an Datenflüssen orientiert.
 Das zugrunde liegende Ausführungsmodell propagiert Änderungen in den Datenflüssen automatisch.
 
-Seit Version 5 unterstützt das Spring Framework reaktive Programmierung und bietet reaktive Implementierungen für Webanwendungen, 
-Datenbankzugriffe, Security und Streambasierte Datenverarbeitung.
+Seit Version 5 unterstützt das Spring-Framework reaktive Programmierung und bietet reaktive Implementierungen für Webanwendungen, 
+Datenbankzugriffe, Security und streambasierte Datenverarbeitung.
 
-Klassische Programmiermodelle, wie z.B. in Spring MVC, nutzen für jeden Request jeweils einen Thread und belegen ihn 
+Klassische Programmiermodelle wie z.B. in Spring MVC nutzen für jeden Request jeweils einen Thread und belegen ihn 
 so lange, bis die aktuelle Aufgabe abgeschlossen ist und geben ihn dann wieder frei.
 Muss während der Codeverarbeitung z.B. eine Datenbank oder ein entferntes System angesprochen werden, welche eine langsame Antwortzeit hat, muss der Thread lange blockieren.
 Um die Antwortbereitschaft aufrecht zu halten wird oft ein größerer Threadpool vorgehalten, 
@@ -161,13 +161,13 @@ private Mono<Integer> incrementViewCount(Blogpost blogpost){[...]}
 Zu beachten ist hier, auch wenn sich am eigentlichen Inhalt des Monos nichts ändert, muss dennoch der Rückgabewert der ``doOnNext``-Methode
 weiter verwendet werden, damit die Methode auch Teil der Ausführungssequenz wird.
 
-Außerdem ist der Aufruf von incrementViewCount wieder asynchron. Das bedeutet, dass man nicht davon ausgehen kann, dass der Zähler
-auf dem aktuellsten Stand ist, wenn getBlogpost sein Ergebnis zurückgibt. Wenn das erforderlich ist, muss statt ``doOnNext``
+Außerdem ist der Aufruf von `incrementViewCount` wieder asynchron. Das bedeutet, dass man nicht davon ausgehen kann, dass der Zähler
+auf dem aktuellsten Stand ist, wenn `getBlogpost` sein Ergebnis zurückgibt. Wenn das erforderlich ist, muss statt ``doOnNext``
 ``delayUntil`` verwendet werden.
 ## onErrorMap, onErrorReturn und doOnError
 Zu guter Letzt sollte auch das Error Handling nicht unerwähnt bleiben.
-Wenn in der Ausführsequenz eine Methode einen Fehler wirft, gibt der Publisher ein Error-Signal anstelle des Werts aus. 
-Dieses Signal wird wie normale RuntimeExceptions so lange an die nächsten Subscriber weitergereicht, bis es irgendwo explizit behandelt wird.
+Wenn in der Ausführungssequenz eine Methode einen Fehler wirft, gibt der Publisher ein Error-Signal anstelle des Werts aus. 
+Dieses Signal wird wie eine normale `RuntimeException` so lange an die nächsten Subscriber weitergereicht, bis es irgendwo explizit behandelt wird.
 
 Mit ``onErrorMap`` kann eine Exception abgefangen und eine andere Exception geworfen werden.
 Über ``onErrorReturn`` kann beim Autreten einer Exception ein Standardwert zurückgegeben werden, 
@@ -189,5 +189,5 @@ private String buildAbbreviatedName(UserData userData){[...]}
 
 Mithilfe dieser 9 Methoden solltet ihr für den Start in die Programmierung mit Spring Webflux gerüstet sein.
 Wenn ihr Anwendungsfälle habt, die hier nicht abgedeckt wurden, können wir euch die bereits eingangs in diesem Kapitel
-erwähnte [Operatorenübersicht](https://projectreactor.io/docs/core/release/reference/#which-operator) aus dem Project Reactor
+erwähnte [Operatorenübersicht](https://projectreactor.io/docs/core/release/reference/#which-operator) aus dem Project-Reactor-
 Handbuch empfehlen.
