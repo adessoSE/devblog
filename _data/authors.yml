@@ -569,7 +569,6 @@ scarstenen:
   avatar_url: /assets/images/avatars/scarstensen.jpg
   github: https://github.com/janstefan42
 
-
 schroeerth:
   first_name: Thomas
   last_name: Schröer
@@ -587,3 +586,12 @@ friggej:
   avatar_url: /assets/images/avatars/friggej.png
   github_username: JensFriggeAdesso
   github: https://github.com/JensFriggeAdesso
+  
+bolsei:
+  first_name: Timo
+  last_name: Rudersdorf
+  github_username: bolsei
+  email: timo.rudersdorf@adesso.de
+  bio: "Timo Rudersdorf ist seit 2021 als Senior Software Engineer bei adesso in Essen tätig. Dort unterstützt er den Bereich Public als Entwickler im Java-Umfeld."
+  avatar_url: /assets/images/avatars/trudersdorf.jpg
+  github: https://github.com/bolsei
