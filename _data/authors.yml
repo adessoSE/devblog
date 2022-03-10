@@ -568,6 +568,15 @@ scarstenen:
   bio: "Stefan Carstensen ist Principal Software Engineer bei adesso in Hamburg. Er arbeitet in der Entwicklung, der Anforderungsanalyse und als Scrum Master in verschiedenen Projekten im Java-Umfeld."
   avatar_url: /assets/images/avatars/scarstensen.jpg
   github: https://github.com/janstefan42
+
+cjohn:
+  first_name: Corinna
+  last_name: John
+  github_username: c0c0bird
+  email: corinna.john@adesso.de
+  bio: "Corinna John ist Senior Software Engineer bei adesso in Hannover. Ihr Schwerpunkt liegt in der C#-Entwicklung."
+  avatar_url: /assets/images/avatars/cjohn.jpg
+  github: https://github.com/c0c0bird
   
 bolsei:
   first_name: Timo
