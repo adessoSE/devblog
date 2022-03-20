@@ -1,8 +1,8 @@
 ---
 layout:         [post, post-xml]              
 title:          "Logaggregation in verteilten Systemen mit Loki"
-date:           2021-02-21 09:27
-modified_date:  2021-02-21 09:27
+date:           2021-03-20 16:00
+modified_date:  2021-03-20 16:00
 author_ids:     [hesch] 
 categories:     [Softwareentwicklung]
 tags:           [Logging, Microservices, Architektur]
