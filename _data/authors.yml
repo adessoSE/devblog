@@ -586,3 +586,12 @@ bolsei:
   bio: "Timo Rudersdorf ist seit 2021 als Senior Software Engineer bei adesso in Essen tätig. Dort unterstützt er den Bereich Public als Entwickler im Java-Umfeld."
   avatar_url: /assets/images/avatars/trudersdorf.jpg
   github: https://github.com/bolsei
+
+hesch:
+  first_name: Henri
+  last_name: Schmidt
+  github_username: hesch
+  email: henri.schmidt@adesso.de
+  bio: "Henri Schmidt ist seit 2015 bei adesso in Dortmund als Werkstudent tätig. Er ist Fullstack-Entwickler und arbeitet mit Microservice-Systemen basieren auf Java und Frontendanwendungen mit Angular."
+  avatar_url: /assets/images/avatars/hesch.png
+  github: https://github.com/hesch
