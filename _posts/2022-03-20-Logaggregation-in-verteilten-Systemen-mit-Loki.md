@@ -1,8 +1,8 @@
 ---
 layout:         [post, post-xml]              
 title:          "Logaggregation in verteilten Systemen mit Loki"
-date:           2021-03-20 16:00
-modified_date:  2021-03-20 16:00
+date:           2022-03-20 16:00
+modified_date:  2022-03-20 16:00
 author_ids:     [hesch] 
 categories:     [Softwareentwicklung]
 tags:           [Logging, Microservices, Architektur]
@@ -119,7 +119,7 @@ Hier beschränken wir uns aber erstmal auf die einfache Variante, in der wir nur
 
 Kommen wir jetzt zum eigentlichen Herzstück der Loki Konfiguration.
 Wie auch Promtail wird Loki als Docker Container gestartet und per docker-compose konfiguriert.
-
+```yaml
 services:
  loki:
     image: grafana/loki:2.4.1
