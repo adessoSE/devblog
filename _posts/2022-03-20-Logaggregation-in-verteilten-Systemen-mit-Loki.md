@@ -8,18 +8,18 @@ categories:     [Softwareentwicklung]
 tags:           [Logging, Microservices, Architektur]
 ---
 
-Gerade in verteilten Systemen ist es bei wachsender Zahl von Komponenten schwierieg, den Überblick über alle Logs zu behalten.
+Gerade in verteilten Systemen ist es bei wachsender Zahl von Komponenten schwierig den Überblick über alle Logs zu behalten.
 Daher ist ein Logaggregationsdienst für Transparenz und Fehleranalyse in solchen Systemen sehr hilfreich.
 Dieser sammelt die Logs von allen möglichen Services und Systemen an einer zentralen Stelle.
 Dieser Artikel beschreibt wie der Logaggregationsdienst Loki mit allen notwendigen Komponenten aufgesetzt werden kann und in ein bestehendes System aus Microservices eingebunden werden kann.
 
 # Logaggregation
 In verteilten Systemen fallen Logs an vielen unterschiedlichen Stellen an.
-Jeder Microservice sowie jeder Server und jeder Dienst auf diesen Servern bietet seine eigenen Logausgaben.
-Diese Logausgaben an zentraler Stelle zusammenzufassen, ist die Aufgabe der Logaggregation.
+Jeder Microservice sowie jeder Server und jeder Dienst auf diesen Servern hat seine eigenen Logausgaben.
+Diese Logausgaben an zentraler Stelle zusammenzufassen ist die Aufgabe der Logaggregation.
 Dazu gibt es verschiedene Systeme, die eingesetzt werden könnnen.
 Wohl am bekanntesten ist der Technologiestack von Elastic mit Elasticsearch, Logstash und Kibana oder als alternative Graylog.
-Wer kein großes ressourcenfressendes System aufsetzen möchte, kann auf Loki setzen.
+Wer kein großes ressourcenfressendes System aufsetzen möchte, kann aber auf Loki setzen.
 Ende 2019 wurde dieser Dienst von GrafanaLabs veröffentlicht und ist damit gegenüber den Alternativen relativ neu.
 Loki hat dabei gegenüber den anderen Technologien den Vorteil leichtgewichtiger zu sein.
 Außerdem lässt es sich einfacher in bestehende Grafana-Installationen integrieren.
@@ -30,10 +30,11 @@ Durch die Integration von Loki in Grafana sind damit auch Analysen möglich, die
 Der Loki-Grafana-Stack besteht hauptsächlich aus drei Diensten: Promtail, Loki und Grafana.
 Promtail ist hier dafür zuständig, die Logs aus verschiedenen Quellen zu sammeln und an Loki weiterzuleiten.
 Loki ist die eigentliche Logdatenbank und implementiert auch die LogQL.
-Grafana kennen einige vielleicht auch aus anderen Kontexten und ist die grafische Oberfläche zur Darstellung von Diagrammen.
-Es wird häufig als Tool zum erstellen von fachlichen und technischen Dashboards genutzt.
+Grafana kennen einige vielleicht auch aus anderen Kontexten.
+Es ist eine grafische Oberfläche zur Darstellung von Diagrammen und wird häufig als Tool zum Erstellen von fachlichen und technischen Dashboards genutzt.
 Loki kann aber auch sehr leicht in Grafana eingebunden werden.
-Der komplette Grafana-Loki-Stack ist auf Containerisierung ausgelegt, darum werde ich in diesem Artikel das Aufsetzen von dem Stack mit Docker zeigen.
+Der komplette Grafana-Loki-Stack ist auf Containerisierung ausgelegt. 
+Darum werde ich in diesem Artikel das Aufsetzen von dem Stack mit Docker zeigen.
 
 ## Promtail
 Schauen wir uns zunächst Promtail an.
@@ -51,12 +52,12 @@ servces:
       - ./promtail.yml:/etc/promtail/config.yml:ro
       - /var/log/:/var/log/:ro
 ```
-Wir ordnen Promtail zunächst dem plg-Netzwerk hinzu, damit die Kommunikation unter den Services funktioniert.
-Die Portfreigabe ist nützlich für den eingebauten Webserver, in der wir die Konfiguration und gefundenen Dienste sehen können.
+Wir ordnen Promtail zunächst dem plg-Netzwerk zu, damit die Kommunikation unter den Services funktioniert.
+Die Portfreigabe ist nützlich für den eingebauten Webserver, der die Konfiguration und gefundenen Dienste auf einer Website darstellt.
 Der Port muss für die fehlerfreie Funktion nicht unbedingt freigegeben werden und kann in Produktivsystemen auch sicherheitshalber abgeschaltet werden.
 Unter der Portfreigabe sehen wir noch zwei Volumen.
 Das erste Volumen mounted unsere Konfigurationsdatei in den Container.
-Das zweite gibt hier zum ausprobieren einfach einmal die Systemlogdateien an Promtail weiter.
+Das zweite gibt hier in unserem Beispiel einfach einmal die Systemlogdateien an Promtail weiter.
 In der Praxis würden wir hier natürlich die Logdateien unserer Services weitergeben und überwachen.
 
 Hier sehen wir einmal die in den Container gemountete Konfigurationsdatei von Promtail:
@@ -82,10 +83,10 @@ scrape_configs:
 ```
 Der Server-Block konfiguriert den Webserver und gibt die Weboberfläche auf Port 9080 frei.
 Der `positions`-Block konfiguriert eine Datei, in der gespeichert wird, wie weit Promtail in den Logdateien schon gelesen hat.
-Beim Neustarten von Promtail, geht diese Information sonst verloren und Logeinträge erscheinen doppelt.
+Beim Neustarten von Promtail geht diese Information sonst verloren und Logeinträge erscheinen doppelt.
 Normalerweise sollte diese Datei auch in einem Dockervolumen liegen, aber für unser Testbeispiel liegt die Datei einfach im Container.
-Unter `cients` wird die Loki-Instanz konifiguriert, welche Promtail verwenden soll.
-In unserem Beispiel verwenden wir `loki` als Hostnamen, da dieser über Docker so aufgelöst wird.
+Unter `cients` wird die Loki-Instanz konfiguriert, welche Promtail verwenden soll.
+In unserem Beispiel verwenden wir `loki` als Hostnamen, da dieser über Docker so aufgelöst werden kann.
 Der `scrape_configs`-Block gibt nun die tatsächlichen Dateien an, die Promtail überwachen soll.
 Wir verwenden eine sehr einfache `scrape_config`, die nur unsere gemounteten Logs überwacht.
 Es gibt hier auch noch andere Konfigurationsoptionen, die dynamisch neue Logquellen aufdecken können.
@@ -106,12 +107,13 @@ services:
 ```
 Für Microservices ist das Plugin sehr praktisch, weil dadurch keine Anpassung in den Services selbst geschehen muss, damit die Logs in Loki gesammelt werden können.
 
-Eine weitere Alternative Logs an Loki zu schicken ist beispielsweise der (loki-logback-appender)[https://github.com/loki4j/loki-logback-appender], der in die Logging-Konfiguration der einzelnen Microservices eingebunden wird und dann selbstständig Logs zu Loki schickt.
+Eine weitere Alternative Logs an Loki zu schicken ist beispielsweise der [loki-logback-appender](https://github.com/loki4j/loki-logback-appender), der in die Logging-Konfiguration der einzelnen Microservices eingebunden wird und dann selbstständig Logs zu Loki schickt.
 
 ## Loki
 
 Im Grunde genommen, ist Loki eine Datenbank, die Logzeilen abspeichert und einen sehr schlanken Index für diese anlegt.
-Der Index wird nur über die Labels generiert, die an Loki weitergetragen werden Bspw. Log-Level oder loggender Service.
+Der Index wird nur über die Labels generiert, die an Loki weitergetragen werden.
+Zum Beispiel: Log-Level oder loggender Service.
 Loki hat grundlegend zwei Modi in denen es ausgeführt werden kann.
 Zum einen kann Loki als einzelner Server oder im Microservice-Modus laufen.
 Dazu kann man in jeder Konfigurationsdatei angeben, welche Komponenten von Loki geladen werden sollen.
@@ -134,13 +136,14 @@ services:
 ```
 
 Die docker-compose Datei für Loki sieht sehr ähnlich aus, wie die von Promtail.
-Der Container wird in das gleiche Netzwerk `plg` hinzugefügt für die Kommunikation und dem Container wird der Hostname "loki" gegeben.
+Der Container wird in das gleiche Netzwerk `plg` hinzugefügt.
+Für die Kommunikation wird dem Container der Hostname "loki" gegeben.
 Dadurch funktioniert die Namensauflösung, damit die URLs von promtail funktionieren.
 Loki läuft auf Port 3100.
 Der Port wird hier freigegeben, damit auch von außen Zugriff besteht.
 In Produktivsystemen muss dieser Port aber auch nicht nach außen freigegeben werden und sollte es auch nicht, solange wir wie hier keine Authentifizierung eingerichtet haben.
 Loki benötigt als Volumen einmal einen Ort für die Daten und die Konfigurationsdatei.
-Diese schauen wir uns im nachfolgenden an:
+Diese schauen wir uns im Nachfolgenden an:
 
 ```yaml
 auth_enabled: false
@@ -189,7 +192,7 @@ Sollten wir irgendwann eine andere Konfiguration für den Index oder Object-Stor
 Durch das `from`-Feld kann dann angegeben werden, ab wann die neue Konfiguration gilt.
 
 Normalerweise braucht Loki eine NoSQL-Datenbank, um den Index zu speichern.
-Boltdb ist eine Alternative, die auf dem Dateiensystem funktioniert, ähnlich wie SQLite in der SQL Welt.
+Boltdb ist eine Alternative, die auf dem Dateinsystem funktioniert, ähnlich wie SQLite in der SQL Welt.
 Für große Deployments von Loki wäre beispielsweise Cassandra zu bevorzugen, aber für unser Setup reicht Boltdb.
 Der `index`-Block gibt noch an, wie der Präfix für index Tabellen sein soll und wann eine neue Tabelle angefangen wird.
 
