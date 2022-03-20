@@ -220,7 +220,7 @@ Dazu einfach unter `Configuration>Data sources>Add Data source` Loki auswählen.
 In der Konfigurationsmaske muss unter `HTTP>URL` `loki:3100` eingetragen werden.
 Damit sollte Loki soweit eingerichtet sein.
 Unter Explore kann man nun Loki auswählen, um sich die Logs anzuschauen:
-![Loki Oberfläche in Grafana](https://github.com/adessoAG/devblog/raw/master/assets/images/logaggregation-loki/grafana-explore-loki.png)
+![Loki Oberfläche in Grafana](/assets/images/posts/logaggregation-loki/grafana-explore-loki.png)
 Hier sehen wir eine Anzeige, um LogQL-Queries auszuführen und können die Oberfläche verwenden, um unsere Service-Logs zu analysieren.
 Wir können hier also unsere LogQL-Queries schreiben und unsere Logs analysieren.
 Ich empfehle mit diesem Testsetup einfach mal ein wenig rumzuspielen und selbst ein paar Queries zu schreiben.
