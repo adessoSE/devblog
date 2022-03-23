@@ -197,7 +197,7 @@ Vernetzte Systeme können dabei helfen, den Energieverbrauch, die Fertigung, die
 
 Ungefähr 25 % der deutschen Schadstoffemissionen entfallen auf die Lebensmittelbranche und die Landwirtschaft als Zulieferer.
 Der Großteil davon entsteht bei der Erzeugung von Rohstoffen, also in der landwirtschaftlichen Produktion.
-Doch auch der Transport ist hier relevant, so sind Lkw für 93 % der transportbedingten Emissionen verantwortlich.
+Doch auch der Transport ist hier relevant, so sind LKW für 93 % der transportbedingten Emissionen verantwortlich.
 Transporte auf Bahn oder Binnenschiffe zu verlagern, würde diese deutlich reduzieren.
 
 Neben einem hohen Wasserverbrauch, verursacht die Lebensmittelproduktion auch Wasserbelastung.
