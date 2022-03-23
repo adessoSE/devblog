@@ -77,7 +77,7 @@ Insbesondere ist zu erwarten, dass digitale Geschäftsmodelle Car-Sharing, Ride 
 Die Treibhausgas-Emissionen der Maschinenbaubranche sind überwiegend auf die Herstellung der Vorprodukte zurückzuführen.
 Allein ein Drittel entfällt auf Prozessemissionen der Metallverarbeitung in der Lieferkette.
 Die Emissionen, die im Maschinenbau selbst entstehen, machen ein weiteres Drittel aus.
-Die übrigen Emissionen entstehen bei der Gewinnung von Rohstoffen wie z.B. Stahl oder Aluminium.
+Die übrigen Emissionen entstehen bei der Gewinnung von Rohstoffen wie Stahl oder Aluminium.
 
 Die Digitalisierung kann dazu beitragen, die Ressourcen- und Energieeffizienz zu steigern sowie den Anteil erneuerbarer Energien zu erhöhen.
 Der Querschnittscharakter der Branche ermöglicht umweltschonende Produktinnovationen.
@@ -87,36 +87,34 @@ Ebenso eröffnet die Digitalisierung neue Möglichkeit für Kraftwerksbau, Heizu
 
 ## Energiewirtschaft
 
-Es wird erwartet, dass die Energiebranche vor einem starken Strukturwandel steht.
+Auch der Energiesektor steht vor einem starken Strukturwandel.
 In Deutschland ist sie der Hauptverursacher von Treibhausgas-Emissionen.
-Die CO2-Emissionen der Kraftwerke der Energiewirtschaft werden dominiert durch Braun- und Steinkohlenkraftwerke.
+Die CO2-Emissionen der Branche werden dominiert von Braun- und Steinkohlenkraftwerken.
 Zusammen verursachen die Kohlekraftwerke 85 % der gesamten Emissionen in den Kraftwerken der Energiewirtschaft.
 
 Entsprechend kritisch ist die Ressourceninanspruchnahme.
-Dies bezieht sich auf die Beanspruchung von fossilen Rohstoffen, insbesondere Kohle, Erdöl und Erdgas.
+Dies bezieht sich auf den Verbrauch fossiler Rohstoffe, insbesondere Kohle, Erdöl und Erdgas.
 Der Anstieg der Energienachfrage erfordert, Energie effizienter zu nutzen, zuverlässig zu speichern und erneuerbare Energien weiter auszubauen.
-Ferner ist auch ein Anstieg der Nachfrage nach Biomasse ein Risiko, das die Konkurrenz um natürlichen Ressourcen und Boden erhöht.
+Ferner ist auch ein Anstieg der Nachfrage nach Biomasse ein Risiko, welches die Konkurrenz um natürliche Ressourcen und Boden erhöht.
 
 Was den Megatrend Klimawandel angeht, ist die Branche sehr vulnerabel.
 Immer häufigere und schwerere Extremwetterereignisse sowie veränderte Niederschlagsmuster werden die Energieversorgung beeinträchtigen.
 Das Risiko beginnt mit dem Nachschub an fossilen Brennstoffen und zieht sich über den Betrieb von thermischen und Wasserkraftwerken bis zu den Übertragungsleitungen.
 In Küstennähe sind Pipelines durch den Meeresanstieg gefährdet, in kalten Gegenden durch tauende Permafrostböden.
-Der Energiesektor muss daher mit Investitionen rechnen, um sich dem Klimawandel anzupassen.
+Der Energiesektor muss daher Investitionen einplanen, um sich dem Klimawandel anzupassen.
 
-Bevölkerungswachstum, Anstieg der Energienachfrage und die Digitalisierung
-sind wesentliche Megatrends, die die Zukunft der Energiewirtschaft beeinflussen.
-
-Die Digitalisierung der Energiewirtschaft fokussiert sich auf die Vernetzung von Anwendungen, Geschäftsprozessen und Geräten auf Basis von Internettechnologien unter Verwendung von Sensoren und selbststeuernden Geräten.
+Bevölkerungswachstum, Anstieg der Energienachfrage und die Digitalisierung sind wesentliche Megatrends, die die Zukunft der Energiewirtschaft beeinflussen.
+Die Digitalisierung der Energiebranche fokussiert sich auf die Vernetzung von Anwendungen, Geschäftsprozessen und Geräten auf Basis von Internettechnologien unter Verwendung von Sensoren und selbststeuernden Geräten.
 So ermöglichen Sensoren in den Kraftwerken die Fernsteuerung und vorausschauende Wartung.
 Natürlich werden auch hier die Betriebsabläufe und Arbeitsprozesse zunehmend digitalisiert.
 Für eine optimierte Steuerung und Wartung der Netze ist der Ausbau zu einem Smart Grid unerlässlich.
 
 In Folge der Digitalisierung verschieben sich die Anforderungen an die Fachkräfte.
 Intellektuelle Prozesse von A wie Abrechnung und Anlagensteuerung bis Z wie Zählerablesen werden automatisiert.
-Dem stehen jedoch neue Aufgaben wie der Netzausbau, Datenanalyse, Kundenkommunikation entgegen.
+Dem stehen jedoch neue Aufgaben wie der Netzausbau, Datenanalyse und Kundenkommunikation entgegen.
 Auch der Ausbau neuer Geschäftsmodelle im Bereich E-Mobility und Smart Home stellt neue Qualifikationsanforderungen.
 
-Als moderne Geschäftsmodelle sind auch dezentrale Erzeugungstechniken, Ladeinfrastrukturen oder individuelle Blockheizkraftwerke interessant.
+Als moderne Geschäftsmodelle sind dezentrale Erzeugungstechniken, Ladeinfrastrukturen oder individuelle Blockheizkraftwerke besonders interessant.
 Sektorkopplung von Strom und Wärme oder Mobilität und Strom, Dekarbonisierung und smarte Infrastrukturen sind aktuelle Themen mit Zukunft.
 
 Für das Erreichen der Klimaziele ist es notwendig, dass die absoluten Kohlendioxidemissionen der Stromerzeugung stark sinken.
