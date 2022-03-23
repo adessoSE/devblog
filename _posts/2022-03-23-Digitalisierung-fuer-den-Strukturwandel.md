@@ -13,9 +13,9 @@ Um herauszufinden, welche Branchen von einem Strukturwandel zu einer "Green Econ
 
 # Green Economy
 
-In einer Zeit, in der reihenweise Produkte sich "grün" nennen und Greenwashing zum Alltag ist, fällt es schwer, unter "Green Economy" mehr als ein Buzzword zu verstehen.
+In einer Zeit, in der reihenweise Produkte sich "grün" nennen und Greenwashing zum Alltag gehört, fällt es schwer, unter "Green Economy" mehr als ein Buzzword zu verstehen.
 Deshalb muss zunächst eingegrenzt werden, wann eine Wirtschaft "grün" ist.
-Das Umweltbundesamt definiert "Green Economy" als "eine mit Natur und Umwelt im Einklang stehende, innovationsorientierte Volkswirtschaft, die schädliche Emissionen und Schadstoffeinträge in alle Umweltmedien vermeidet, auf einer Weiterentwicklung der Kreislaufwirtschaft beruht und regionale Stoffkreisläufe so weit wie möglich schließt, den Einsatz nicht erneuerbarer Ressourcen absolut senkt, insbesondere durch eine effizientere Nutzung von Energie, Rohstoffen und anderen natürlichen Ressourcen und die Substitution nicht-erneuerbarer Ressourcen durch nachhaltig erzeugte erneuerbare Ressourcen, langfristig eine ausschließlich auf erneuerbaren Energien basierende Energieversorgung erreicht und die biologische Vielfalt sowie Ökosysteme und ihre Leistungen erhält, entwickelt und wiederherstellt".
+Das Umweltbundesamt definiert "Green Economy" als *eine mit Natur und Umwelt im Einklang stehende, innovationsorientierte Volkswirtschaft, die schädliche Emissionen und Schadstoffeinträge in alle Umweltmedien vermeidet, auf einer Weiterentwicklung der Kreislaufwirtschaft beruht und regionale Stoffkreisläufe so weit wie möglich schließt, den Einsatz nicht erneuerbarer Ressourcen absolut senkt, insbesondere durch eine effizientere Nutzung von Energie, Rohstoffen und anderen natürlichen Ressourcen und die Substitution nicht-erneuerbarer Ressourcen durch nachhaltig erzeugte erneuerbare Ressourcen, langfristig eine ausschließlich auf erneuerbaren Energien basierende Energieversorgung erreicht und die biologische Vielfalt sowie Ökosysteme und ihre Leistungen erhält, entwickelt und wiederherstellt*.
 
 Bei jedem Strukturwandel gibt es Branchen und Technologien, die unter Druck geraten.
 Es ist zu erwarten, dass von einem ökologischen Strukturwandel vor allem Branchen betroffen sind, die besonders ressourcen- oder emissionsintensiv sind.
