@@ -92,7 +92,7 @@ Ebenso eröffnet die Digitalisierung neue Möglichkeit für Kraftwerksbau, Heizu
 ## Energiewirtschaft
 
 Auch der Energiesektor steht vor einem starken Strukturwandel.
-In Deutschland ist sie der Hauptverursacher von Treibhausgas-Emissionen.
+In Deutschland ist sie der Hauptverursacher von Treibhausgasemissionen.
 Die CO2-Emissionen der Branche werden dominiert von Braun- und Steinkohlenkraftwerken.
 Zusammen verursachen die Kohlekraftwerke 85 % der gesamten Emissionen in den Kraftwerken der Energiewirtschaft.
 
