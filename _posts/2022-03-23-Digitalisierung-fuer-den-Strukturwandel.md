@@ -86,7 +86,7 @@ Die übrigen Emissionen entstehen bei der Gewinnung von Rohstoffen wie Stahl ode
 Die Digitalisierung kann dazu beitragen, die Ressourcen- und Energieeffizienz zu steigern sowie den Anteil erneuerbarer Energien zu erhöhen.
 Der Querschnittscharakter der Branche ermöglicht umweltschonende Produktinnovationen.
 Sie kann helfen, Anpassungstechnologien für klimafreundliche Produkte in anderen Wirtschaftssektoren zu entwickeln.
-So liefert der Maschinenbau z.B. Automatisierungsverfahren, die in der Landwirtschaft Abläufe optimieren helfen und damit zur Nachhaltigkeit beitragen.
+So liefert der Maschinenbau z.B. Automatisierungsverfahren, die dabei helfen, in der Landwirtschaft Abläufe zu optimieren, und damit zur Nachhaltigkeit beitragen.
 Ebenso eröffnet die Digitalisierung neue Möglichkeit für Kraftwerksbau, Heizungsbau und die Wassertechnologie.
 
 ## Energiewirtschaft
