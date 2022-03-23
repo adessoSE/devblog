@@ -31,8 +31,7 @@ Es folgt eine Beschreibung der Branchen, die voraussichtlich vor einem größere
 
 ## Bauwirtschaft
 
-Gebäude spielen eine wichtige Rolle bei der Gestaltung einer CO2-armen Zukunft.
-Allein Gebäudewärme verursacht jährlich CO2-Emissionen in Höhe von 183 Millionen Tonnen.
+Gebäudewärme verursacht jährlich CO2-Emissionen in Höhe von 183 Millionen Tonnen.
 Dazu kommt die Zementherstellung, bei der große Mengen an CO2 entstehen, und zwar sowohl rohstoff- als auch energiebedingt.
 Rohstoffbedingt sind sogenannte Prozess-Emissionen, denn die Umwandlung von Kalkstein zu Zementklinker setzt Kohlendioxid frei.
 Energiebedingte Emissionen entstehen sowohl direkt durch Verbrennung als auch indirekt durch den Einsatz von elektrischer Energie.
@@ -52,26 +51,25 @@ Anstelle von Roheisen kann für bestimmte Stahlprodukte ausschließlich Stahlsch
 
 Es wird erwartet, dass der Fahrzeugbau vor einem sehr starken Strukturwandel steht.
 Das Besondere an dieser Branche ist, dass es eine regionale Ballung der Produktionsstätten gibt, wodurch mögliche Beschäftigungsrückgänge regional betrachtet werden müssen.
-Der Strukturwandel in dieser Branche hat großen Einfluss auf die Beschäftigten, vor allem diejenigen Fachkräfte, die ausschließlich für Verbrennungsmotoren qualifiziert sind.
+Der Strukturwandel hat großen Einfluss auf die Beschäftigten, vor allem diejenigen Fachkräfte, die ausschließlich für Verbrennungsmotoren qualifiziert sind.
 Durch Elektrifizierung und Produktivitätssteigerung könnten in Deutschland mehr Arbeitsplätze entfallen, als für Komponenten wie Batterien oder Leistungselektronik entstehen werden.
 
 Offensichtlich ist ein relevanter Hotspot die Emission von Treibhausgasen.
-Ungefähr 70 % der produktionsbedingten THG-Emissionen bei Verbrennungs-Pkw entstehen auf den vorgelagerten Wertschöpfungsstufen, also bei der Produktion von Vorprodukten.
-In diesen dominiert der Strombezug für die Herstellung und Verarbeitung der verbauten Metalle.
-Während der Nutzungsphase der Fahrzeuge entsteht, aufgrund der Nutzung von konventionellen Kraftstoffen, nochmal etwa das Dreifache an THG-Emissionen.
-Im Fall elektrisch angetriebener Fahrzeuge ist, aufgrund der energieaufwendigen Batterieherstellung, von einer etwa doppelten Menge an THG-Emissionen aus der Herstellungsphase auszugehen.
+Ungefähr 70 % der produktionsbedingten Emissionen bei Verbrennungs-Pkw entstehen bei der Herstellung von Vorprodukten.
+Dabei dominiert der Strombezug für die Herstellung und Verarbeitung der verbauten Metalle.
+Während der Nutzungsphase der Fahrzeuge entsteht nochmal etwa das Dreifache an Treibhausgas-Emissionen.
+Im Fall elektrisch angetriebener Fahrzeuge ist von einer etwa doppelten Menge an Treibhausgas-Emissionen aus der Herstellungsphase auszugehen.
 
 Ebenso wichtig ist die Rohstoffinanspruchnahme.
 Die Branche gilt als sehr vulnerabel gegenüber dem Megatrend Ressourcenknappheit.
 Sie hat einen hohen Verbrauch an Rohstoffen, z.B. Glas und Metalle für die Vorproduktion, sowie für die in der Nutzungsphase benötigten Kraftstoffe.
-Bei der Herstellung von Elektrofahrzeugen kommt als zusätzlicher Hotspot der Bedarf an seltenen Erden hinzu.
+
+Durch den Umstieg auf Elektromobilität kommt es einerseits zu neuen Rohstoffabhängigkeiten in der Batterieproduktion, speziell bei seltenen Erden.
 Hier bestehen jedoch Möglichkeiten, Materialien nach zu nutzen und zu recyceln.
-Durch den Umstieg auf Elektromobilität kommt es einerseits zu neuen Rohstoffabhängigkeiten in der Batterieproduktion.
 Andererseits wird die Abhängigkeit von fossilen Rohstoffen in der Nutzungsphase reduziert.
 
-Globalisierung und Digitalisierung bestimmen die Entwicklung der Branche.
-Über die Zukunftsperspektiven der deutschen Automobilindustrie entscheidet unter anderem die Fachkräftesicherung.
 Die Automobilbranche, die von einer hohen Komplexität gekennzeichnet ist, wird auch in Zukunft von der Digitalisierung profitieren.
+Über ihre Zukunftsperspektiven in Deutschland entscheidet unter anderem die Fachkräftesicherung.
 Insbesondere ist zu erwarten, dass digitale Geschäftsmodelle Car-Sharing, Ride Hailing via App und die Vermittlung von Fahrgemeinschaften wachsen werden.
 
 ## Maschinenbau
