@@ -2,7 +2,7 @@
 layout: [post, post-xml]              # Pflichtfeld. Nicht ändern!
 title:  "Digitalisierung für den Strukturwandel" # Pflichtfeld. Bitte einen Titel für den Blog Post angeben.
 date:   2022-03-23 11:00              # Pflichtfeld. Format "YYYY-MM-DD HH:MM". Muss für Veröffentlichung in der Vergangenheit liegen. (Für Preview egal)
-modified_date: 2022-03-23 11:00             # Optional. Muss angegeben werden, wenn eine bestehende Datei geändert wird.
+modified_date: 2022-03-23 11:00       # Optional. Muss angegeben werden, wenn eine bestehende Datei geändert wird.
 author_ids: [cjohn]                   # Pflichtfeld. Es muss in der "authors.yml" einen Eintrag mit diesen Namen geben.
 categories: [Branchen]                # Pflichtfeld. Maximal eine der angegebenen Kategorien verwenden.
 tags: [TODO] # Bitte auf Großschreibung achten.
@@ -19,48 +19,15 @@ Das Umweltbundesamt definiert "Green Economy" als "eine mit Natur und Umwelt im 
 
 Bei jedem Strukturwandel gibt es Branchen und Technologien, die unter Druck geraten.
 Es ist zu erwarten, dass von einem ökologischen Strukturwandel vor allem Branchen betroffen sind, die besonders ressourcen- oder emissionsintensiv sind.
-Ohne frühzeitige Anpassung können Betriebe und Beschäftigte in diesen Branchen nur verlieren.
+Ohne frühzeitige Anpassung können Betriebe und Beschäftigte dort nur verlieren.
 Deshalb ist es wichtig, besser heute als morgen einen passenden Transformationsprozess zu entwickeln.
 
-Zehn Branchen wurden im Detail auf ihre Vulnerabilität in Bezug auf umweltbezogene Megatrends untersucht.
-Dabei wurden ökonomische Trends und Kriterien der Branchen wurden qualitativ berücksichtigt.
+Zehn Branchen wurden in Bezug auf Rohstoffe, Flächeninanspruchnahme und Wasserverbrauch untersucht.
+Zusätzlich wurde ihre Vulnerabilität durch die sogenannten Megatrends Digitalisierung, Klimawandel, Ressourcenknappheit, Süßwassermangel und Biodiversitätsverlust betrachtet.
 
-- Betrachtet wurden 15 Umweltdimensionen:
--- Treibhausgase
---- Summe 
---- CO2
---- CH4
---- N2O
--- Luftschadstoffe 
---- SOx
---- NOx
---- NH3
---- NMVOC
---- PM10
---- PM2.5
--- Ressourcenkonsum
---- RMC
---- TMC
---- Landnutzung
---- Wasserverbrauch
---- Wasserentnahme
-
-Hervor trat die Bauwirtschaft mit 12,9 % Anteil an den THG-Emissionen sowie 20,0 % an TMC,
-die Lebensmittelbranche mit 37,2 % Anteil an den N2O-Emissionen sowie 10,24 % an TMC und 25,52 % Anteil am Wasserverbrauch und 37,65 % Anteil an der Landnutzung.
-
-Insgesamt zeigen die Ergebnisse, dass der Megatrend Ressourcenknappheit für viele Branchen
-künftig eine große Rolle spielt. Elf von 20 Branchen wurden als sehr vulnerabel eingestuft. Des
-Weiteren wurden der Megatrend Klimawandel sowie Biodiversitätsverluste als relevant
-identifiziert. Beim Megatrend Klimawandel wurden sieben Branchen als sehr vulnerabel
-identifiziert: Forstwirtschaft, Landwirtschaft, Ernährungswirtschaft, Chemieindustrie,
-Energieversorgung, Wasserversorgung und die Automobilwirtschaft.
-
-Der Megatrend Süßwassermangel betrifft besonders die Ernährungswirtschaft, Landwirtschaft,
-Chemieindustrie, Pharmaindustrie, Forstwirtschaft, Wasserversorgung sowie Textilindustrie.
-
-Im weitergehenden Verlauf erfolgt eine tiefergehende Beschreibung, jedoch keine vollständige
-Analyse des möglichen Strukturwandels für die zehn ausgewählten „Hotspot-Branchen“.
-
+Ressourcenknappheit wird für viele Branchen künftig eine große Rolle spielen.
+Auch der Klimawandel und in Folge Süßwassermangel werden für die meisten Wirtschaftssektoren zur Herausforderung.
+Es folgt eine Beschreibung der Branchen, die voraussichtlich vor einem größeren Strukturwandel stehen.
 
 ## Bauwirtschaft
 
@@ -344,24 +311,9 @@ Weitere Einsatzfelder für digitale Prozesse sind die bessere Verarbeitung von M
 
 # Fazit
 
-Die globalen und nationalen Nachhaltigkeitsziele erfordern einen Wandel hin zu einer „Green
-Economy“, einer dekarbonisierten, emissionsarmen und ressourcenschonenden Wirtschaft
-innerhalb planetarer Grenzen. Durch den Klimaschutzplan und dem Bundesklimaschutzgesetz
-der Bundesregierung bestehen zumindest mit Blick auf Treibhausgasemissionen nun auch
-sektorspezifische Ziele für das Jahr 2030.
-Zum umweltpolitischen Handlungsdruck kommen Megatrends hinzu, an die sich Unternehmen
-anpassen müssen: ökologische Trends wie den Klimawandel und Ressourcenknappheit, aber
-auch ökonomische Trends wie die fortschreitende Globalisierung und insbesondere die
-Digitalisierung.
+Die globalen und nationalen Nachhaltigkeitsziele erfordern einen Wandel hin zu einer dekarbonisierten, emissionsarmen und ressourcenschonenden Wirtschaft.
+Das Bundesklimaschutzgesetz und ein Klimaschutzplan der Bundesregierung geben sektorspezifische Ziele für das Jahr 2030 vor.
 
-Die Analyse der zehn näher betrachteten „Hotspot-Branchen“ hat gezeigt, dass einige stark
-von einem ökologischen Strukturwandel betroffen sind.
-
-Es konnten verschiedene Strukturwandeltypen abgeleitet werden, abhängig davon, wo der
-Änderungsdruck der Branche besonders groß ist. Zum überwiegenden Teil handelt es sich
-bei den zehn „Hotspot-Branchen“ um einen (u.a.) ressourcenbezogenen Strukturwandel (8
-Nennungen), seltener ist der (u.a.) produktionstechnologische (5 Nennungen) und
-produktbezogene Strukturwandel (2 Nennungen). Fünf Branchen stehen sowohl vor einem
-ressourcen- als auch einem produkt- oder produktionsbezogenen Strukturwandel.
-Abbildung 18 ordnet die zehn „Hotspot-Branchen“ sowohl dem Strukturwandeltyp als auch
-der Stärke der Betroffenheit zu.
+Echten Handlungsdruck erzeugen die untersuchten Megatrends jedoch auch selbst.
+Um erfolgreich zu bleiben, müssen Unternehmen sich rechtzeitig an ökologische Trends wie Klimawandel und Ressourcenknappheit anpassen, genauso wie an ökonomische Trends wie Globalisierung und Digitalisierung.
+Besonders die Digitalisierung ist dabei ein Lösungsweg, da sie neue Möglichkeiten erschließt, die vorhandenen Ressourcen effizient zu nutzen und auch innovative, zukunftsfähige Produkte zu entwickeln.
