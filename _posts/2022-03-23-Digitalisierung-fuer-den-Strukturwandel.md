@@ -59,7 +59,7 @@ Durch Elektrifizierung und Produktivitätssteigerung könnten in Deutschland meh
 Offensichtlich ist ein relevanter Hotspot die Emission von Treibhausgasen.
 Ungefähr 70 % der produktionsbedingten Emissionen bei Verbrennungs-Pkw entstehen bei der Herstellung von Vorprodukten.
 Dabei dominiert der Strombezug für die Herstellung und Verarbeitung der verbauten Metalle.
-Während der Nutzungsphase der Fahrzeuge entsteht nochmal etwa das Dreifache an Treibhausgas-Emissionen.
+Während der Nutzungsphase der Fahrzeuge entsteht nochmal etwa das Dreifache an Treibhausgasemissionen.
 Im Fall elektrisch angetriebener Fahrzeuge ist von einer etwa doppelten Menge an Treibhausgas-Emissionen aus der Herstellungsphase auszugehen.
 
 Ebenso wichtig ist die Rohstoffinanspruchnahme.
