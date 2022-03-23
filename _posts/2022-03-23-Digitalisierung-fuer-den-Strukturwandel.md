@@ -255,7 +255,7 @@ Ein Beispiel dafür sind jätende Roboter zur Unkrautbekämpfung.
 
 ## Forstwirtschaft
 
-Neben der Landwirtschaft zählen die Forst- und die Holzwirtschaft mit 100.000 Beschäftigte zu den wichtigsten Produzenten nachwachsender Rohstoffe.
+Neben der Landwirtschaft zählen die Forst- und die Holzwirtschaft mit 100.000 Beschäftigten zu den wichtigsten Produzenten nachwachsender Rohstoffe.
 Ein häufiges Risiko ist der Monokulturanbau von Nadelbäumen, die vom Klimawandel sehr beeinträchtigt werden.
 Typische Folgen sind die Ausbreitung von Borkenkäferbefall oder eine hohe Windbruchanfälligkeit der Baumbestände.
 Die wichtigste Anpassungsmaßnahme ist der Waldumbau mit gemischten, angepassten Baumarten.
