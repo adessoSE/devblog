@@ -83,11 +83,12 @@ Allein ein Drittel entfällt auf Prozessemissionen der Metallverarbeitung in der
 Die Emissionen, die im Maschinenbau selbst entstehen, machen ein weiteres Drittel aus.
 Die übrigen Emissionen entstehen bei der Gewinnung von Rohstoffen wie Stahl oder Aluminium.
 
-Die Digitalisierung kann dazu beitragen, die Ressourcen- und Energieeffizienz zu steigern sowie den Anteil erneuerbarer Energien zu erhöhen.
 Der Querschnittscharakter der Branche ermöglicht umweltschonende Produktinnovationen.
-Sie kann helfen, Anpassungstechnologien für klimafreundliche Produkte in anderen Wirtschaftssektoren zu entwickeln.
-So liefert der Maschinenbau z.B. Automatisierungsverfahren, die dabei helfen, in der Landwirtschaft Abläufe zu optimieren, und damit zur Nachhaltigkeit beitragen.
+Zum Beispiel kann der Maschinenbausektor Anpassungstechnologien für klimafreundliche Produkte in anderen Wirtschaftssektoren entwickeln.
+Digitale Automatisierungsverfahren, die der Maschinenbau entwickelt, helfen in der Landwirtschaft dabei, Abläufe zu optimieren und damit zur Nachhaltigkeit beitragen.
 Ebenso eröffnet die Digitalisierung neue Möglichkeit für Kraftwerksbau, Heizungsbau und die Wassertechnologie.
+Exemplarisch seien hier [virtuelle Kraftwerke](https://www.adesso.de/de/news/blog/virtuelle-kraftwerke-buzzword-oder-paradigmenwechsel.jsp) genannt, welche die Koordination und Vermarktung regenerativer Kleinkraftwerke ermöglichen.
+Durch solche Innovationen kann die Digitalisierung im Maschinenbau helfen, in nachgelagerten Branchen die Effizienz zu steigern und den Anteil erneuerbarer Energie zu steigern.
 
 ## Energiewirtschaft
 
@@ -107,11 +108,13 @@ Das Risiko beginnt mit dem Nachschub an fossilen Brennstoffen und zieht sich üb
 In Küstennähe sind Pipelines durch den Meeresanstieg gefährdet, in kalten Gegenden durch tauende Permafrostböden.
 Der Energiesektor muss daher Investitionen einplanen, um sich dem Klimawandel anzupassen.
 
-Bevölkerungswachstum, Anstieg der Energienachfrage und die Digitalisierung sind wesentliche Megatrends, die die Zukunft der Energiewirtschaft beeinflussen.
+Das erwartete Bevölkerungswachstum, der damit verbundene Anstieg der Energienachfrage sowie die Digitalisierung sind wesentliche Megatrends, die die Zukunft der Energiewirtschaft beeinflussen.
 Die Digitalisierung der Energiebranche fokussiert sich auf die Vernetzung von Anwendungen, Geschäftsprozessen und Geräten auf Basis von Internettechnologien unter Verwendung von Sensoren und selbststeuernden Geräten.
 So ermöglichen Sensoren in den Kraftwerken die Fernsteuerung und vorausschauende Wartung.
 Natürlich werden auch hier die Betriebsabläufe und Arbeitsprozesse zunehmend digitalisiert.
 Für eine optimierte Steuerung und Wartung der Netze ist der Ausbau zu einem Smart Grid unerlässlich.
+Ein Smart Grid vernetzt Erzeugung, Speicherung und Verbrauch, so dass Verluste minimiert und Lastspitzen ausgeglichen werden.
+Damit kann die steigende Nachfrage bedient werden, ohne dass die Kraftwerkskapazitäten sofort mitwachsen.
 
 In Folge der Digitalisierung verschieben sich die Anforderungen an die Fachkräfte.
 Intellektuelle Prozesse von A wie Abrechnung und Anlagensteuerung bis Z wie Zählerablesen werden automatisiert.
