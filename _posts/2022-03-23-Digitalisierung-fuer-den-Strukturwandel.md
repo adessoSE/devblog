@@ -247,7 +247,7 @@ Im Inland standen nur 14,2 Millionen Hektar für den Anbau von Nahrungsmitteln z
 Folglich ist Deutschland Nettoimporteur von "virtueller" Agrarfläche.
 Zusätzlich werden die Ernteerträge durch Extremwetterereignisse und Dürren, dem globalen Süßwassermangel und Biodiversitätsverluste wie dem Bienensterben bedroht.
 
-Ein Strukturwandel hin zu resilienten Geschäftsmodellen sind daher dringend geboten.
+Ein Strukturwandel hin zu resilienten Geschäftsmodellen ist daher dringend geboten.
 Precision Farming mit digitalen Prozessen kann die Effizienz steigern und gleichzeitig die Kosten senken.
 Eine weitere Möglichkeit ist die Förderung der ökologischen Landwirtschaft, da sie Umweltschäden minimiert und durch Kreislaufwirtschaft die Abhängigheit von Importen verringert.
 Um den bisher geringeren Ertrag ökologischer Flächen zu steigern, muss die Bewirtschaftung präzise gesteuert werden.
