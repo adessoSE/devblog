@@ -200,7 +200,7 @@ Der Großteil davon entsteht bei der Erzeugung von Rohstoffen, also in der landw
 Doch auch der Transport ist hier relevant, so sind LKW für 93 % der transportbedingten Emissionen verantwortlich.
 Transporte auf Bahn oder Binnenschiffe zu verlagern, würde diese deutlich reduzieren.
 
-Neben einem hohen Wasserverbrauch, verursacht die Lebensmittelproduktion auch Wasserbelastung.
+Neben einem hohen Wasserverbrauch verursacht die Lebensmittelproduktion auch Wasserbelastung.
 Diese geht zu zwei Dritteln auf den Einsatz von Pestiziden und Düngemitteln zurück.
 Hinzu kommen Verpackungs- und Lebensmittelabfälle.
 Nahrungsmittel, Getränke und Heimtierfutter machten im Jahr 2015 zu etwa 60,4 % den Verpackungsmüll privater Haushalte aus.
