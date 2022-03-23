@@ -153,7 +153,7 @@ Heute betrifft das vor allem Regionen, die bereits von Wassermangel betroffen si
 Aufgrund ihres hohen Bedarfs sollte die Branche jedoch auch in Deutschland zukünftig mit knapper Wasserversorgung rechnen.
 
 Die Digitalisierung zielt hier vor allem auf Steigerung der Effizienz ab.
-Wie in anderen Branchen, liegt der Fokus auf der Verbesserung operativer Prozesse, Datenerfassung zum Marktverhalten oder dem Aufbau von digitalen Netzwerken.
+Wie in anderen Branchen, liegt der Fokus auf der Verbesserung operativer Prozesse, der Datenerfassung zum Marktverhalten oder dem Aufbau von digitalen Netzwerken.
 Laut dem Screening planen die Chemieunternehmen in den nächsten fünf Jahren mehr als eine Milliarde Euro in Digitalisierungsprojekte und neue Geschäftsmodelle zu investieren.
 Damit wird Digitalisierung ein integraler Bestandteil der Chemieindustrie.
 
