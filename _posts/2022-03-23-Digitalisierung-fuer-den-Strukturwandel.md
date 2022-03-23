@@ -184,37 +184,34 @@ Darüber hinaus entstehen Apps, um Patienten an ihr Medikament zu erinnern oder 
 ## Lebensmittel- und Ernährungswirtschaft
 
 Die Lebensmittel- und Ernährungswirtschaft in Deutschland besteht zu rund 90% aus kleinen und mittelständischen Unternehmen mit weniger als 250 Beschäftigten.
-
 In den letzten Jahren steigt die Nachfrage nach gesundheitsfördernden Lebensmitteln.
 Ein Grund dafür ist, neben Lifestyles und Trends, der Anstieg ernährungsbedingter Krankheiten wie Allergien und Diabetes.
-Die dadurch entstandenen zielgruppenspezifischen Nischenmärkte treiben Innovationen an, so z.B. vegane Lebensmittel oder Fair Trade Produkte.
+Die dadurch entstandenen zielgruppenspezifischen Nischenmärkte treiben Innovationen an, so z.B. vegane oder glutenfreie Lebensmittel.
 
-Durch Digitalisierung könnte die lückenlose Rückverfolgbarkeit der Lebensmittel sichergestellt werden.
-Vernetzte Systeme können insbesondere dabei helfen, den Energieverbrauch, die Fertigung, die Chargenverfolgung oder den Rohstoffeinsatz zu optimieren.
+Durch Digitalisierung kann die lückenlose Rückverfolgbarkeit der Lebensmittel sichergestellt werden.
+Vernetzte Systeme können dabei helfen, den Energieverbrauch, die Fertigung, die Chargenverfolgung oder den Rohstoffeinsatz zu optimieren.
 
-Mehr als die Hälfte der Treibhausgasemissionen entsteht bei der Erzeugung von Rohstoffen, also in der landwirtschaftlichen Produktion.
-Doch auch der Transport ist mit Emissionen verbunden, hier sind Lkw für 93 % der transportbedingten Emissionen verantwortlich.
-Transporte nach Möglichkeit auf Bahn oder Binnenschiffe zu verlagern, würde diese Emissionen deutlich reduzieren.
+Ungefähr 25 % der deutschen Schadstoffemissionen entfallen auf die Lebensmittelbranche und die Landwirtschaft als Zulieferer.
+Der Großteil davon entsteht bei der Erzeugung von Rohstoffen, also in der landwirtschaftlichen Produktion.
+Doch auch der Transport ist hier relevant, so sind Lkw für 93 % der transportbedingten Emissionen verantwortlich.
+Transporte auf Bahn oder Binnenschiffe zu verlagern, würde diese deutlich reduzieren.
 
-Ein hoher Ausstoß an Luftschadstoffen entsteht in der Vorkette.
-Etwa 25 % der nationalen Schadstoffemissionen entfallen auf die Lebensmittelbranche und die Landwirtschaft als Zulieferer.
 Neben einem hohen Wasserverbrauch, verursacht die Lebensmittelproduktion auch Wasserbelastung.
 Diese geht zu zwei Dritteln auf den Einsatz von Pestiziden und Düngemitteln zurück.
-
 Hinzu kommen Verpackungs- und Lebensmittelabfälle.
 Nahrungsmittel, Getränke und Heimtierfutter machten im Jahr 2015 zu etwa 60,4 % den Verpackungsmüll privater Haushalte aus.
 
-Während der Herstellung entstehen Abfälle durch Beschädigung und Verderb beim Transport und während der Lagerung
-Ebenso aber auch durch technische Störungen im Betriebsablauf durch Überproduktion.
+Während der Herstellung entstehen Abfälle durch Beschädigung und Verderb, meist beim Transport und während der Lagerung.
+Ebenso aber auch durch technische Störungen im Betriebsablauf sowie durch Überproduktion.
 Auf Qualitätssicherungsmaßnahmen und Überproduktion entfallen im Einzelfall bis zu 40 % aller entsprechenden Verluste, was auf vermeidbare Prozessverluste hinweist.
 
-Die größten Risiken sind die Megatrends Klimawandel, Süßwassermangel und Biodiversitätsverlust.
-Mit Extremwetterereignissen oder unsicherer Wasserversorgung schwanken die Ernteerträgen und damit die Preise für Rohstoffe.
+Die größten Risiken sind Klimawandel, Süßwassermangel und Biodiversitätsverlust.
+Mit Extremwetterereignissen oder unsicherer Wasserversorgung schwanken die Ernteerträge und damit die Rohstoffpreise.
 Der Verlust der Artenvielfalt, insbesondere das Bienensterben, wirkt sich negativ auf den Anbau der Rohstoffe aus.
 
-Mit Digitalisierung kann die Verarbeitung optimiert werden, um Nahrungsmittelabfälle zu vermeiden.
+Durch Digitalisierung kann die Verarbeitung optimiert werden, um Nahrungsmittelabfälle zu vermeiden.
 Zusätzlich eröffnen moderne Techologien völlig neue Geschäftsfelder, z.B. wird In-Vitro-Fleisch die Emissionen und Geschäftsrisiken der Tierzucht beheben.
-Milchfreie Lebensmittel bedienen nicht nur einen Trendmarkt, sie verringern auch die Abhängigkeit von der emissionsintensiven Rinderhaltung und ermöglichen den Einsatz kostengünstigerer Rohstoffe.
+Milchfreie Lebensmittel bedienen nicht nur einen Trendmarkt, sie mindern auch die Abhängigkeit von der emissionsintensiven Rinderhaltung und ermöglichen den Einsatz kostengünstigerer Rohstoffe.
 Insgesamt steht die Branche vor einem moderaten Strukturwandel, vor allem jedoch vor großen Chancen und Entwicklungen.
 
 ## Landwirtschaft
