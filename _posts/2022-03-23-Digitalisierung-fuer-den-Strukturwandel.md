@@ -8,21 +8,23 @@ categories: [Branchen]                # Pflichtfeld. Maximal eine der angegebene
 tags: [Digitalisierung,Strukturwandel,Green Economy,Umwelt,Zukunft] # Bitte auf Großschreibung achten.
 ---
 
-Dieser Artikel fasst das Screening des Umweltbundesamts [Strukturwandel zu einer Green Economy](https://www.umweltbundesamt.de/publikationen/strukturwandel-zu-einer-green-economy) zusammen.
+Dieser Artikel fasst das Screening "Strukturwandel zu einer Green Economy" des Umweltbundesamts zusammen.
 Um herauszufinden, welche Branchen von einem Strukturwandel zu einer "Green Economy" besonders betroffen sind, wurden die Herausforderungen für alle Wirtschaftssektoren quantitativ untersucht und dann für ausgewählte Hotpots im Detail betrachtet.
 
 # Green Economy
+
+In jedem Strukturwandel gibt es Branchen und Technologien, die unter Druck geraten.
+Das Umweltbundesamt hat in [Strukturwandel zu einer Green Economy](https://www.umweltbundesamt.de/publikationen/strukturwandel-zu-einer-green-economy) untersucht, wo der größte Handlungsdruck besteht.
+
+Von einem ökologischen Strukturwandel werden vor allem Branchen betroffen sein, die besonders ressourcen- oder emissionsintensiv sind.
+Ohne frühzeitige Anpassung können Betriebe und Beschäftigte dort nur verlieren.
+Deshalb ist es wichtig, besser heute als morgen einen passenden Transformationsprozess zu entwickeln.
 
 In einer Zeit, in der reihenweise Produkte sich "grün" nennen und Greenwashing zum Alltag gehört, fällt es schwer, unter "Green Economy" mehr als ein Buzzword zu verstehen.
 Deshalb muss zunächst eingegrenzt werden, wann eine Wirtschaft "grün" ist.
 Das Umweltbundesamt definiert "Green Economy" als "*eine mit Natur und Umwelt im Einklang stehende, innovationsorientierte Volkswirtschaft, die schädliche Emissionen und Schadstoffeinträge in alle Umweltmedien vermeidet, auf einer Weiterentwicklung der Kreislaufwirtschaft beruht und regionale Stoffkreisläufe so weit wie möglich schließt, den Einsatz nicht erneuerbarer Ressourcen absolut senkt, insbesondere durch eine effizientere Nutzung von Energie, Rohstoffen und anderen natürlichen Ressourcen und die Substitution nicht-erneuerbarer Ressourcen durch nachhaltig erzeugte erneuerbare Ressourcen, langfristig eine ausschließlich auf erneuerbaren Energien basierende Energieversorgung erreicht und die biologische Vielfalt sowie Ökosysteme und ihre Leistungen erhält, entwickelt und wiederherstellt*".
 
-Bei jedem Strukturwandel gibt es Branchen und Technologien, die unter Druck geraten.
-Es ist zu erwarten, dass von einem ökologischen Strukturwandel vor allem Branchen betroffen sind, die besonders ressourcen- oder emissionsintensiv sind.
-Ohne frühzeitige Anpassung können Betriebe und Beschäftigte dort nur verlieren.
-Deshalb ist es wichtig, besser heute als morgen einen passenden Transformationsprozess zu entwickeln.
-
-Zehn Branchen hat das Umweltbundesamt in Bezug auf Rohstoffe, Flächeninanspruchnahme und Wasserverbrauch untersucht.
+Zehn Branchen wurden in Bezug auf Rohstoffe, Flächeninanspruchnahme und Wasserverbrauch untersucht.
 Zusätzlich wurde ihre Vulnerabilität durch die sogenannten Megatrends Digitalisierung, Klimawandel, Ressourcenknappheit, Süßwassermangel, Bevölkerungswachstum und Biodiversitätsverlust betrachtet.
 
 Ressourcenknappheit wird für viele Branchen künftig eine große Rolle spielen.
