@@ -57,7 +57,7 @@ Der Strukturwandel hat großen Einfluss auf die Beschäftigten, vor allem diejen
 Durch Elektrifizierung und Produktivitätssteigerung könnten in Deutschland mehr Arbeitsplätze entfallen, als für Komponenten wie Batterien oder Leistungselektronik entstehen werden.
 
 Offensichtlich ist ein relevanter Hotspot die Emission von Treibhausgasen.
-Ungefähr 70 % der produktionsbedingten Emissionen bei Verbrennungs-Pkw entstehen bei der Herstellung von Vorprodukten.
+Ungefähr 70 % der produktionsbedingten Emissionen bei Verbrennungs-PKW entstehen bei der Herstellung von Vorprodukten.
 Dabei dominiert der Strombezug für die Herstellung und Verarbeitung der verbauten Metalle.
 Während der Nutzungsphase der Fahrzeuge entsteht nochmal etwa das Dreifache an Treibhausgasemissionen.
 Im Fall elektrisch angetriebener Fahrzeuge ist von einer etwa doppelten Menge an Treibhausgas-Emissionen aus der Herstellungsphase auszugehen.
