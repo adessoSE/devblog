@@ -129,7 +129,7 @@ Dazu gehört der weitere Ausbau der Stromerzeugung aus erneuerbaren Energien und
 Die Chemiebranche zählt zur energieintensiven Industrie.
 Bemerkenswert ist, dass sie Kohlenstoff nicht nur für die Energieversorgung nutzt, sondern als stoffliche Grundlage vieler Produkte.
 Ihr Ressourcenverbrauch verteilt sich auf 87 % fossile und nur 13 % biogene Rohstoffe.
-Im Jahre 2015 war die Grundstoffchemie der Industriesektor mit den zweithöchsten Treibhausgas-Emissionen in Deutschland.
+Im Jahre 2015 war die Grundstoffchemie der Industriesektor mit den zweithöchsten Treibhausgasemissionen in Deutschland.
 
 Relevant ist auch der Wasserverbrauch.
 So ist die Chemiebranche für rund 12 % des deutschen Abwassers verantwortlich.
