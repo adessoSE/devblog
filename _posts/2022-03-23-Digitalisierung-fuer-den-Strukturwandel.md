@@ -251,19 +251,16 @@ Ein Beispiel dafür sind jätende Roboter zur Unkrautbekämpfung.
 
 ## Forstwirtschaft
 
-Neben der Landwirtschaft zählen die Forst- und Holzwirtschaft zu den wichtigsten Produzenten nachwachsender Rohstoffe.
-Rund 100.000 Beschäftigte in Forstbetrieben erwirtschaften einen Jahresumsatz von 5 Mrd. Euro. 
-
+Neben der Landwirtschaft zählen die Forst- und die Holzwirtschaft mit 100.000 Beschäftigte zu den wichtigsten Produzenten nachwachsender Rohstoffe.
 Ein häufiges Risiko ist der Monokulturanbau von Nadelbäumen, die vom Klimawandel sehr beeinträchtigt werden.
-Häufig beobachtbare Folgen sind die Ausbreitung von Borkenkäferbefall oder eine hohe Windbruchanfälligkeit der Baumbestände.
+Typische Folgen sind die Ausbreitung von Borkenkäferbefall oder eine hohe Windbruchanfälligkeit der Baumbestände.
 Die wichtigste Anpassungsmaßnahme ist der Waldumbau mit gemischten, angepassten Baumarten.
-Derzeit sucht die Branche nach Baumarten, die sich an den Klimawandel anpassen oder unter den zu erwartenden Bedingungen gedeihen.
+Derzeit sucht die Branche nach Baumarten, die sich an den Klimawandel anpassen oder unter den erwarteten Bedingungen gedeihen.
 In waldbrandgefährdeten Gebieten ist auch der Ausbau von Überwachungs- und Bekämpfungseinrichtungen geboten.
 
-Digitale Warenwirtschaftssysteme vereinfachen den Holzverkauf.
-Auch lässt sich mit GIS-basierter Dokumentation an der Waldstraße die Bewirtschaftung des Waldes präziser koordinieren.
-Denn viele Wälder werden von Forstbetriebsgemeinschaften oder Besitzervereinigungen bewirtschaftet, die individuelle Holzeinschläge mit GIS-Technoligie leichter kontrollieren könnten.
-Außerdem können Vereinigungen ihre Sortimente digital bündeln, um wirtschaftlicher am Markt zu handeln.
+Mit GIS-basierter Dokumentation an der Waldstraße lässt sich die Bewirtschaftung eines Waldes präziser koordinieren.
+Denn viele Wälder werden von Forstbetriebsgemeinschaften oder Besitzervereinigungen bewirtschaftet, die individuelle Holzeinschläge ohne GIS-Technologie nur schwer kontrollieren können.
+Über digitale Warenwirtschaftssysteme können solche Vereinigungen ihre Sortimente bündeln, um wirtschaftlicher am Markt zu handeln.
 
 Die Digitalisierung ist also auch für die Forstwirtschaft eine Chance.
 Ein Risiko ist jedoch der fehlende Netzbausbau in ländlichen Regionen.
@@ -271,26 +268,24 @@ Ein Risiko ist jedoch der fehlende Netzbausbau in ländlichen Regionen.
 ## Wasserversorgung
 
 Die Wasserversorgung ist sehr vulnerabel in Bezug auf Klimawandel und Süßwassermangel.
-In Deutschland können Starkregenfälle zu Überlastungen des Kanalsystems und damit zeitweise zum Ausfall der Wasserversorgung im Sommer führen.
+In Deutschland können Starkregenfälle zu Überlastungen des Kanalsystems und damit zeitweise zum Ausfall der Wasserversorgung führen.
 Die Zunahme von Extremwetterereignissen wie Hochwasser und Hitzewellen stellen die Wasserversorgung vor große Herausforderungen.
-Die seit Jahren geringere Grundwasserneubildungsrate führt bereits heute zu einer Verringerung der nutzbaren Wasserressourcen.
+Die seit Jahren geringe Grundwasserneubildungsrate führt bereits heute zu einer Verringerung der nutzbaren Wasserressourcen.
 
 Digitale Leitsysteme ermöglichen die flexible Steuerung der Wasserversorgung.
 Forschungsprojekte wie [W-Net 4.0](https://www.iosb.fraunhofer.de/de/projekte-produkte/plattform-betriebsoptimierung-wassersysteme.html) arbeiten aktuell an der Betriebsoptimierung von Wassersystemen.
-
 Auch wenn der Automatisierungsgrad bereits hoch ist, können weitere Fortschritte bei Software, Hardware und Vernetzung Chancen bieten.
-Da die Wasserversorgung zu den kritischen Infrastrukturen gehört, ist bei digitalen Prozessen das Thema Sicherheit zentral.
+
+Da die Wasserversorgung zu den kritischen Infrastrukturen gehört, ist bei ihren digitalen Prozessen das Thema Sicherheit zentral.
 Die reine Dokumentation von Daten und das Einrichten zentraler ERP-Systeme reicht hier nicht aus.
 Viel mehr müssen die betrieblichen Informationen in den vielfältigen technischen und kaufmännischen Systemen ganzheitlich aufbereitet und analysiert werden.
-
 Im Bereich Echtzeitsteuerung bietet sich der Einsatz von intelligenten Netzwerken an.
 Weitere Einsatzfelder für digitale Prozesse sind die bessere Verarbeitung von Messdaten oder die automatische Registrierung von Rohrbrüchen durch Smart Metering.
 
 # Fazit
 
-Die globalen und nationalen Nachhaltigkeitsziele erfordern einen Wandel hin zu einer dekarbonisierten, emissionsarmen und ressourcenschonenden Wirtschaft.
-Das Bundesklimaschutzgesetz und ein Klimaschutzplan der Bundesregierung geben sektorspezifische Ziele für das Jahr 2030 vor.
+Um erfolgreich zu bleiben, müssen Unternehmen sich rechtzeitig an ökologische Trends wie Süßwasser- und Ressourcenknappheit anpassen.
+Die Digitalisierung ist dabei ein Lösungsweg, da sie neue Möglichkeiten erschließt, die vorhandenen Ressourcen effizient zu nutzen und auch innovative, zukunftsfähige Produkte zu entwickeln.
 
-Echten Handlungsdruck erzeugen die untersuchten Megatrends jedoch auch selbst.
-Um erfolgreich zu bleiben, müssen Unternehmen sich rechtzeitig an ökologische Trends wie Klimawandel und Ressourcenknappheit anpassen, genauso wie an ökonomische Trends wie Globalisierung und Digitalisierung.
-Besonders die Digitalisierung ist dabei ein Lösungsweg, da sie neue Möglichkeiten erschließt, die vorhandenen Ressourcen effizient zu nutzen und auch innovative, zukunftsfähige Produkte zu entwickeln.
+Darüber hinaus erfordern die nationalen Nachhaltigkeitsziele einen Wandel hin zu einer dekarbonisierten, emissionsarmen und ressourcenschonenden Wirtschaft.
+Das Bundesklimaschutzgesetz und ein [Klimaschutzplan der Bundesregierung](https://www.bundesregierung.de/breg-de/themen/klimaschutz/klimaschutzprogramm-2030-1673578) geben sektorspezifische Ziele für das Jahr 2030 vor.
