@@ -220,7 +220,7 @@ Insgesamt steht die Branche vor einem moderaten Strukturwandel, vor allem jedoch
 
 ## Landwirtschaft
 
-In 2016 waren ca. eine Million Menschen in der Landwirtschaft beschäftigt.
+In 2016 waren ca. eine Million Menschen in der deutschen Landwirtschaft beschäftigt.
 Davon sind nahezu die Hälfte Familienarbeitskräfte und Betriebsinhabende.
 Sowohl bei den Agrarexporten als auch bei den -importen steht Deutschland weltweit an dritter Stelle.
 
