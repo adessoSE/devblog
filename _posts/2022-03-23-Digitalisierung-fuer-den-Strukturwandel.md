@@ -150,7 +150,7 @@ Ziel wird voraussichtlich nicht die Substitution herkömmlicher Prozesse sein, s
 
 Kritisch ist auch der Megatrend Süßwassermangel.
 Heute betrifft das vor allem Regionen, die bereits von Wassermangel betroffen sind.
-Aufgrund ihres hohen Bedarfs, sollte die Branche jedoch auch in Deutschland zukünftig mit knapper Wasserversorgung rechnen.
+Aufgrund ihres hohen Bedarfs sollte die Branche jedoch auch in Deutschland zukünftig mit knapper Wasserversorgung rechnen.
 
 Die Digitalisierung zielt hier vor allem auf Steigerung der Effizienz ab.
 Wie in anderen Branchen, liegt der Fokus auf der Verbesserung operativer Prozesse, Datenerfassung zum Marktverhalten oder dem Aufbau von digitalen Netzwerken.
