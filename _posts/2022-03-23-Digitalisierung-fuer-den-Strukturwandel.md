@@ -78,7 +78,7 @@ Das beschleunigt Innovationszyklen und die flexible Entwicklung von Produkten.
 
 ## Maschinenbau
 
-Die Treibhausgas-Emissionen der Maschinenbaubranche sind überwiegend auf die Herstellung der Vorprodukte zurückzuführen.
+Die Treibhausgasemissionen der Maschinenbaubranche sind überwiegend auf die Herstellung der Vorprodukte zurückzuführen.
 Allein ein Drittel entfällt auf Prozessemissionen der Metallverarbeitung in der Lieferkette.
 Die Emissionen, die im Maschinenbau selbst entstehen, machen ein weiteres Drittel aus.
 Die übrigen Emissionen entstehen bei der Gewinnung von Rohstoffen wie Stahl oder Aluminium.
