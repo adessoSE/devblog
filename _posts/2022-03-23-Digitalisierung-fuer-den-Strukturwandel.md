@@ -216,12 +216,11 @@ Insgesamt steht die Branche vor einem moderaten Strukturwandel, vor allem jedoch
 
 ## Landwirtschaft
 
-In 2016 waren ca. 1 Million Menschen in der Landwirtschaft beschäftigt. Davon sind
-nahezu die Hälfte Familienarbeitskräfte und Betriebsinhaber.
-Sowohl bei den Agrarexporten als auch bei den Agrarimporten steht Deutschland
-weltweit an dritter Stelle.
+In 2016 waren ca. eine Million Menschen in der Landwirtschaft beschäftigt.
+Davon sind nahezu die Hälfte Familienarbeitskräfte und Betriebsinhabende.
+Sowohl bei den Agrarexporten als auch bei den -importen steht Deutschland weltweit an dritter Stelle.
 
-Global betrachtet steht die Landwirtschaft vor großen Herausforderungen.
+Weltweit steht die Landwirtschaft vor großen Herausforderungen.
 Durch das globale Bevölkerungswachstum müssen jedes Jahr mehr Menschen ernährt werden, während gleichzeitig sowohl Armut als auch Wohlstand zunehmen.
 Nebenher steigt die Nachfrage anderer Sektoren nach nachwachsenden Rohstoffen.
 
@@ -230,23 +229,25 @@ Wie bereits im Abschnitt Ernährungswirtschaft erwähnt, kann die Lebensmittelve
 Darüber hinaus wird es zukünftig nötig sein, tierische Lebensmittel durch pflanzliche zu ersetzen.
 
 Digitale Prozessinnovationen haben das Potenzial, unterschiedliche Bodeneigenschaften zu erkennen und die Bewirtschaftung bedarfsgerecht anzupassen.
-Das führt zu einer Erhöhung von Erträgen bei gleichzeitiger Reduzierung der Aufwendungen und damit der Umweltschäden.
+Das führt zu einer Ertragserhöhung bei gleichzeitiger Reduzierung der Aufwendungen und damit der Umweltschäden.
 Die Digitalisierung verspricht eine deutlich effizientere Produktion, ist allerdings mit hohen Investitionen verbunden.
 Das verstärkt den Druck zur Bildung größerer Betriebseinheiten.
 
-Neben Treibhausgasen, setzt die Landwirtschaft große Mengen an Luftschadstoffen frei.
-Dazu zählt insbesondere Lachgas aus der Stickstoffdüngung oder dem Grünlandumbruch.
-Eine zunehmende Quelle ist auch die Lagerung von Gärresten aus Energiepflanzen aus der Biogasproduktion.
+Neben Treibhausgasen, setzt die Landwirtschaft große Mengen anderer Luftschadstoffe frei.
+Dazu zählt insbesondere Lachgas aus Stickstoffdüngung und Grünlandumbruch.
+Eine zunehmende Quelle ist auch die Biogasproduktion, und zwar durch die Lagerung von Gärresten aus Energiepflanzen.
 
 Ein weiterer Risikofaktor ist der Flächenverbrauch.
 Deutschland nutzte 2015 für die Erzeugung pflanzlicher und tierischer Lebensmittel im In- und Ausland eine Fläche von 19,4 Millionen Hektar.
 Im Inland standen nur 14,2 Millionen Hektar für den Anbau von Nahrungsmitteln zur Verfügung.
 Folglich ist Deutschland Nettoimporteur von "virtueller" Agrarfläche.
-Zusätzlich werden die Ernteerträge durch Extremwetterereignisse und Dürren bedroht, den globalen Süßwassermangel sowie Biodiversitätsverluste wie z.B. das Bienensterben.
+Zusätzlich werden die Ernteerträge durch Extremwetterereignisse und Dürren bedroht, den globalen Süßwassermangel und Biodiversitätsverluste wie das Bienensterben.
 
-Ein Strukturwandel hin zu resilienten Geschäftsmodellen sind also dringend geboten.
+Ein Strukturwandel hin zu resilienten Geschäftsmodellen sind daher dringend geboten.
 Precision Farming mit digitalen Prozessen kann die Effizienz steigern und gleichzeitig die Kosten senken.
 Eine weitere Möglichkeit ist die Förderung der ökologischen Landwirtschaft, da sie Umweltschäden minimiert und durch Kreislaufwirtschaft die Abhängigheit von Importen verringert.
+Um den bisher geringeren Ertrag ökologischer Flächen zu steigern, muss die Bewirtschaftung präzise gesteuert werden.
+Ein Beispiel dafür sind jätende Roboter zur Unkrautbekämpfung.
 
 ## Forstwirtschaft
 
