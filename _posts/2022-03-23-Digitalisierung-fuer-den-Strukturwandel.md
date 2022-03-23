@@ -23,7 +23,7 @@ Ohne frühzeitige Anpassung können Betriebe und Beschäftigte dort nur verliere
 Deshalb ist es wichtig, besser heute als morgen einen passenden Transformationsprozess zu entwickeln.
 
 Zehn Branchen hat das Umweltbundesamt in Bezug auf Rohstoffe, Flächeninanspruchnahme und Wasserverbrauch untersucht.
-Zusätzlich wurde ihre Vulnerabilität durch die sogenannten Megatrends Digitalisierung, Klimawandel, Ressourcenknappheit, Süßwassermangel und Biodiversitätsverlust betrachtet.
+Zusätzlich wurde ihre Vulnerabilität durch die sogenannten Megatrends Digitalisierung, Klimawandel, Ressourcenknappheit, Süßwassermangel, Bevölkerungswachstum und Biodiversitätsverlust betrachtet.
 
 Ressourcenknappheit wird für viele Branchen künftig eine große Rolle spielen.
 Auch der Klimawandel und in Folge Süßwassermangel werden für die meisten Wirtschaftssektoren zur Herausforderung.
@@ -122,10 +122,10 @@ Dazu gehört der weitere Ausbau der Stromerzeugung aus erneuerbaren Energien und
 
 ## Chemieindustrie
 
-Die chemische Industrie ist eine energieintensive Industrie.
-Bemerkenswert ist, dass Kohlenstoff nicht nur für die Energieversorgung genutzt wird, sondern auch die stoffliche Grundlage vieler Produkte ist.
+Die Chemiebranche zählt zur energieintensiven Industrie.
+Bemerkenswert ist, dass sie Kohlenstoff nicht nur für die Energieversorgung nutzt, sondern als stoffliche Grundlage vieler Produkte.
 Ihr Ressourcenverbrauch verteilt sich auf 87 % fossile und nur 13 % biogene Rohstoffe.
-Im Jahre 2015 war die Grundstoffchemie der Industriesektor mit den zweithöchsten Treibhausgas-Emissionen in Deutschland, und zwar 12% aller Industrieemissionen.
+Im Jahre 2015 war die Grundstoffchemie der Industriesektor mit den zweithöchsten Treibhausgas-Emissionen in Deutschland.
 
 Relevant ist auch der Wasserverbrauch.
 So ist die Chemiebranche für rund 12 % des deutschen Abwassers verantwortlich.
@@ -142,15 +142,15 @@ Es liegt nahe, dass die Branche versucht über den Einsatz von biogenen Ressourc
 
 Allerdings bewertet der Bioökonomierat einen Systemwandel hin zu einer biobasierten Chemiewirtschaft als schwierig.
 Demnach werden biologische Verfahren und biobasierte Rohstoffe dort zum Einsatz kommen, wo die Produkte verbesserte Eigenschaften haben oder wirtschaftlicher herzustellen sind.
-Ziel wird wahrscheinlich nicht die Substitution herkömmlicher Prozesse sein, sondern zuerst die Entwicklung von neuen biobasierten Produkten.
+Ziel wird voraussichtlich nicht die Substitution herkömmlicher Prozesse sein, sondern zuerst die Entwicklung von neuen biobasierten Produkten.
 
 Kritisch ist auch der Megatrend Süßwassermangel.
 Heute betrifft das vor allem Regionen, die bereits von Wassermangel betroffen sind.
 Aufgrund ihres hohen Bedarfs, sollte die Branche jedoch auch in Deutschland zukünftig mit knapper Wasserversorgung rechnen.
 
-Die Digitalisierung zielt vor allem auf Steigerung der Effizienz ab.
+Die Digitalisierung zielt hier vor allem auf Steigerung der Effizienz ab.
 Wie in anderen Branchen, liegt der Fokus auf der Verbesserung operativer Prozesse, Datenerfassung zum Marktverhalten oder dem Aufbau von digitalen Netzwerken.
-Dafür planen die Chemieunternehmen in den nächsten fünf Jahren mehr als eine Milliarde Euro in Digitalisierungsprojekte und neue Geschäftsmodelle zu investieren.
+Laut dem Screening planen die Chemieunternehmen in den nächsten fünf Jahren mehr als eine Milliarde Euro in Digitalisierungsprojekte und neue Geschäftsmodelle zu investieren.
 Damit wird Digitalisierung ein integraler Bestandteil der Chemieindustrie.
 
 Es wird erwartet, dass die Branche vor einem starken Strukturwandel steht.
@@ -161,7 +161,7 @@ Der Fokus der Chemieindustrie muss auf Ressourceneffizienz liegen, um die Abhän
 Diese Branche profitiert vom Megatrend Bevölkerungswachstum.
 Durch die steigende Lebenserwartung steigt der Bedarf an neuen Medikamenten.
 Der Klimawandel begünstigt die Ausbreitung von Tropenkrankheiten wie Malaria.
-Die in den Industrieländern bekannten Zivilisationskrankheiten verbreiten sich in Regionen mit wachsendem Wohlstand.
+In den Industrieländern bekannte Zivilisationskrankheiten verbreiten sich in Regionen mit wachsendem Wohlstand.
 Die zunehmend globale Mobilität erhöht die Gefahr von Pandemien.
 
 Die Digitalisierung in der Pharmabranche zielt auf intelligent vernetzte Produktion.
@@ -172,12 +172,12 @@ Doch die Digitalisierung soll nicht die Effizienz steigern, sondern auch den Men
 Das birgt neue Risiken bezüglich Datenschutz und Persönlichkeitsrecht.
 Bei der Digitalisierung der Pharmabranche ist es deshalb besonders wichtig, Datensicherheit von vornherein in den Mittelpunkt zu stellen.
 
-Wie für die oben genannten Chemiebranche, sind auch hier Treibhausgas-Emissionen und Ressourceninanspruchnahme relevante Hotspots.
+Wie für die oben genannten Chemiebranche, sind auch hier Ressourcen und Emissionen relevante Hotspots.
 Kohlenstoff liefert sowohl die Energieversorgung als auch die stoffliche Grundlage für viele Produkte.
-Auch der Wasserbedarf bei der Produktion ist hoch.
-Neben dem Wasserverbrauch kann auch eine Wasserbelastung durch die chemischen Wirkstoffe und ihre Abbauprodukte entstehen.
+Ebenso ist der Wasserbedarf bei der Produktion hoch.
+Neben dem Wasserverbrauch kann auch eine Wasserbelastung durch chemische Wirkstoffe und ihre Abbauprodukte entstehen.
 
-Neue digitale Geschäftsfelder sind im Bereich 3-D-Pharmazeutika zu erwarten, die maßgeschneidert mittels 3D-Druck hergestellt werden.
+Neue digitale Geschäftsfelder sind im Bereich 3D-Pharmazeutika zu erwarten, die maßgeschneidert mittels 3D-Druck hergestellt werden.
 Der Einsatz von künstlicher Intelligenz ermöglicht unter anderem automatisierte Labore.
 Darüber hinaus entstehen Apps, um Patienten an ihr Medikament zu erinnern oder die Dosierung zu überprüfen.
 
