@@ -9,7 +9,7 @@ tags: [TODO] # Bitte auf Großschreibung achten.
 ---
 
 Dieser Artikel fasst das Screening des Umweltbundesamts [Strukturwandel zu einer Green Economy](https://www.umweltbundesamt.de/publikationen/strukturwandel-zu-einer-green-economy) zusammen.
-Um herauszufinden, welche Branchen von einem Strukturwandel zu einer "Green Economy" besonders betroffen sind, wurden die Herausforderungen unterschiedlicher Wirtschaftssektoren in 15 Umweltdimensionen untersucht.
+Um herauszufinden, welche Branchen von einem Strukturwandel zu einer "Green Economy" besonders betroffen sind, wurden die Herausforderungen für alle Wirtschaftssektoren quantitativ untersucht und dann für ausgewählte Hotpots im Detail betrachtet.
 
 # Green Economy
 
