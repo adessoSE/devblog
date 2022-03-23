@@ -237,7 +237,7 @@ Das führt zu einer Ertragserhöhung bei gleichzeitiger Reduzierung der Aufwendu
 Die Digitalisierung verspricht eine deutlich effizientere Produktion, ist allerdings mit hohen Investitionen verbunden.
 Das verstärkt den Druck zur Bildung größerer Betriebseinheiten.
 
-Neben Treibhausgasen, setzt die Landwirtschaft große Mengen anderer Luftschadstoffe frei.
+Neben Treibhausgasen setzt die Landwirtschaft große Mengen anderer Luftschadstoffe frei.
 Dazu zählt insbesondere Lachgas aus Stickstoffdüngung und Grünlandumbruch.
 Eine zunehmende Quelle ist auch die Biogasproduktion, und zwar durch die Lagerung von Gärresten aus Energiepflanzen.
 
