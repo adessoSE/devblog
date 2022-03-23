@@ -205,8 +205,7 @@ Diese geht zu zwei Dritteln auf den Einsatz von Pestiziden und Düngemitteln zur
 Hinzu kommen Verpackungs- und Lebensmittelabfälle.
 Nahrungsmittel, Getränke und Heimtierfutter machten im Jahr 2015 zu etwa 60,4 % den Verpackungsmüll privater Haushalte aus.
 
-Während der Herstellung entstehen Abfälle durch Beschädigung und Verderb, meist beim Transport und während der Lagerung.
-Ebenso aber auch durch technische Störungen im Betriebsablauf sowie durch Überproduktion.
+Während der Herstellung entstehen Abfälle durch Beschädigung und Verderb, meist beim Transport und während der Lagerung, aber auch durch technische Störungen im Betriebsablauf oder durch Überproduktion.
 Auf Qualitätssicherungsmaßnahmen und Überproduktion entfallen im Einzelfall bis zu 40 % aller entsprechenden Verluste, was auf vermeidbare Prozessverluste hinweist.
 
 Die größten Risiken sind Klimawandel, Süßwassermangel und Biodiversitätsverlust.
