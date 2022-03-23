@@ -31,39 +31,22 @@ Es folgt eine Beschreibung der Branchen, die voraussichtlich vor einem größere
 
 ## Bauwirtschaft
 
-Die Bauwirtschaft steht in Bezug auf die Emission von Treibhausgasen sowie die
-Inanspruchnahme von Ressourcen vor einem moderaten Strukturwandel.
-
 Gebäude spielen eine wichtige Rolle bei der Gestaltung einer CO2-armen Zukunft.
-Die Gebäudewärme verursacht CO2-Emissionen in Höhe von 183 Mio. t CO2.
-
-Für die Emission von Treibhausgasen ist neben der Nutzungsphase auch die Vorkette relevant. 
-Dazu gehört die Zementherstellung, bei der große Mengen an CO2 entstehen.
-Deren Emissionen sind sowohl rohstoff- als auch energiebedingt.
-Rohstoffbedingte CO2-Emissionen entstehen bei der Entsäuerung
-des Kalksteins und haben einen Anteil von etwa 60 % an den CO2-
-Gesamtemissionen. Energiebedingte Emissionen entstehen sowohl direkt durch
-Verbrennung als auch indirekt durch den Einsatz von elektrischer
-Energie. Der größere Teil sind sogenannte Prozess-Emissionen, denn die Umwandlung von Kalkstein zu Zementklinker
-in Zementöfen geht mit einer Freisetzung von Kohlendioxid einher.
+Allein Gebäudewärme verursacht jährlich CO2-Emissionen in Höhe von 183 Millionen Tonnen.
+Dazu kommt die Zementherstellung, bei der große Mengen an CO2 entstehen, und zwar sowohl rohstoff- als auch energiebedingt.
+Rohstoffbedingt sind sogenannte Prozess-Emissionen, denn die Umwandlung von Kalkstein zu Zementklinker setzt Kohlendioxid frei.
+Energiebedingte Emissionen entstehen sowohl direkt durch Verbrennung als auch indirekt durch den Einsatz von elektrischer Energie.
 
 Der Rohstoffbedarf des Bausektors wird als sehr relevanter Hotspot bewertet.
-Dazu gehören Sand für Beton und Kalkstein für die Zementherstellung, aber auch Bauxit für die Herstellung von Aluminiumbauteilen.
+Dazu gehören Sand für Beton und Kalkstein für die Zementproduktion, aber auch Bauxit für die Herstellung von Aluminiumbauteilen.
 Für die Produktion von einer Tonne Primäraluminium werden vier bis sieben Tonnen Bauxit benötigt.
+Ebenso gravierend ist der Landverbrauch für Abbau von Rohstoffen im Tagebau.
 
-Ebenso relevant wir der Flächenverbrauch bewertet, denn der Abbau von Rohstoffen im Tagebau
-geht mit Landnutzung und Flächenverbrauch einher.
-
-Der Bauboom der letzten Jahre und die wachsende Nachfrage nach Wohnraum
-bewirken einerseits ein wirtschaftliches Wachstum des Sektors,
-andererseits auch einen Anstieg der Strom- und
-Wärmenachfrage sowie einen steigenden Ressourcenbedarf.
-
-Der Sektor verursacht rund 60 % des Abfallaufkommens in Deutschland.
-Alternativen zur Abfallvermeidung bieten hier die Suche nach Recyclingtechniken, etwa für die Baustoffe Beton und Gips, sowie der Einsatz von Effizienztechniken.
+Der Bausektor verursacht rund 60 % des Abfallaufkommens in Deutschland.
+Alternativen zur Abfallvermeidung bieten hier Recyclingtechniken, etwa für die Baustoffe Beton und Gips.
 Der Einsatz von Abfall- und Reststoffen zur Herstellung von "grünem Stahl", bei dem ein innovatives Reduktionsmittel statt Koks eingesetzt wird, sollte voran gebracht werden.
 Zementähnliche Materialien lassen sich aus Nebenprodukten wie Schlacke aus der Stahlproduktion oder Flugasche aus Kohlefeuerungen herstellen.
-Anstelle von Roheisen kann für die Herstellung bestimmter Stahlprodukte ausschließlich Stahlschrott in einem Elektrolichtbogenofen eingeschmolzen werden.
+Anstelle von Roheisen kann für bestimmte Stahlprodukte ausschließlich Stahlschrott in einem Elektrolichtbogenofen eingeschmolzen werden.
 
 ## Fahrzeugbau
 
