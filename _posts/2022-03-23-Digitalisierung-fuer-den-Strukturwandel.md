@@ -64,15 +64,17 @@ Im Fall elektrisch angetriebener Fahrzeuge ist von einer etwa doppelten Menge an
 
 Ebenso wichtig ist die Rohstoffinanspruchnahme.
 Die Branche gilt als sehr vulnerabel gegenüber dem Megatrend Ressourcenknappheit.
-Sie hat einen hohen Verbrauch an Rohstoffen, z.B. Glas und Metalle für die Vorproduktion, sowie für die in der Nutzungsphase benötigten Kraftstoffe.
+Sie hat einen hohen Verbrauch an Rohstoffen in der Vorproduktion und Kraftstoffen in der Nutzungsphase.
 
-Durch den Umstieg auf Elektromobilität kommt es einerseits zu neuen Rohstoffabhängigkeiten in der Batterieproduktion, speziell bei seltenen Erden.
-Hier bestehen jedoch Möglichkeiten, Materialien nach zu nutzen und zu recyceln.
-Andererseits wird die Abhängigkeit von fossilen Rohstoffen in der Nutzungsphase reduziert.
+Durch den Umstieg auf Elektromobilität kommt es zu neuen Rohstoffabhängigkeiten in der Batterieproduktion.
+Besonders bei seltenen Erden ist mit einer globalen Verknappung zu rechnen.
+Hier bestehen jedoch Möglichkeiten, Materialien nach Ende ihrer Nutzungszeit zu recyceln oder in neuen Fahrzeugen nachzunutzen.
 
-Die Automobilbranche, die von einer hohen Komplexität gekennzeichnet ist, wird auch in Zukunft von der Digitalisierung profitieren.
-Über ihre Zukunftsperspektiven in Deutschland entscheidet unter anderem die Fachkräftesicherung.
+Über die Zukunftsperspektiven der Automobilbranche in Deutschland entscheidet unter anderem die Fachkräftesicherung.
 Insbesondere ist zu erwarten, dass digitale Geschäftsmodelle Car-Sharing, Ride Hailing via App und die Vermittlung von Fahrgemeinschaften wachsen werden.
+Dennoch wird die Branche, die von einer hohen Komplexität gekennzeichnet ist, auch in Zukunft von der Digitalisierung profitieren.
+Beispielweise können, dank "Industrie 4.0", in Niedriglohnländer ausgelagerte Produktionsprozesse automatisiert und wieder näher ans Hauptwerk geholt werden.
+Das beschleunigt Innovationszyklen und die flexible Entwicklung von Produkten.
 
 ## Maschinenbau
 
