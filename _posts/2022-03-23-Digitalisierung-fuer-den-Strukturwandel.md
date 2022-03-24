@@ -60,7 +60,7 @@ Offensichtlich ist ein relevanter Hotspot die Emission von Treibhausgasen.
 Ungefähr 70 % der produktionsbedingten Emissionen bei Verbrennungs-PKW entstehen bei der Herstellung von Vorprodukten.
 Dabei dominiert der Strombezug für die Herstellung und Verarbeitung der verbauten Metalle.
 Während der Nutzungsphase der Fahrzeuge entsteht nochmal etwa das Dreifache an Treibhausgasemissionen.
-Im Fall elektrisch angetriebener Fahrzeuge ist von einer etwa doppelten Menge an Treibhausgas-Emissionen aus der Herstellungsphase auszugehen.
+Im Fall elektrisch angetriebener Fahrzeuge ist von einer etwa doppelten Menge an Treibhausgasemissionen aus der Herstellungsphase auszugehen.
 
 Ebenso wichtig ist die Rohstoffinanspruchnahme.
 Die Branche gilt als sehr vulnerabel gegenüber dem Megatrend Ressourcenknappheit.
