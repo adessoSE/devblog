@@ -247,7 +247,7 @@ Ein weiterer Risikofaktor ist der Flächenverbrauch.
 Deutschland nutzte 2015 für die Erzeugung pflanzlicher und tierischer Lebensmittel im In- und Ausland eine Fläche von 19,4 Millionen Hektar.
 Im Inland standen nur 14,2 Millionen Hektar für den Anbau von Nahrungsmitteln zur Verfügung.
 Folglich ist Deutschland Nettoimporteur von "virtueller" Agrarfläche.
-Zusätzlich werden die Ernteerträge durch Extremwetterereignisse und Dürren, dem globalen Süßwassermangel und Biodiversitätsverluste wie dem Bienensterben bedroht.
+Zusätzlich werden die Ernteerträge durch Extremwetterereignisse und Dürren, den globalen Süßwassermangel und Biodiversitätsverluste wie dem Bienensterben bedroht.
 
 Ein Strukturwandel hin zu resilienten Geschäftsmodellen ist daher dringend geboten.
 Precision Farming mit digitalen Prozessen kann die Effizienz steigern und gleichzeitig die Kosten senken.
