@@ -113,7 +113,7 @@ Die Digitalisierung der Energiebranche fokussiert sich auf die Vernetzung von An
 So ermöglichen Sensoren in den Kraftwerken die Fernsteuerung und vorausschauende Wartung.
 Natürlich werden auch hier die Betriebsabläufe und Arbeitsprozesse zunehmend digitalisiert.
 Für eine optimierte Steuerung und Wartung der Netze ist der Ausbau zu einem Smart Grid unerlässlich.
-Ein Smart Grid vernetzt Erzeugung, Speicherung und Verbrauch, so dass Verluste minimiert und Lastspitzen ausgeglichen werden.
+Ein Smart Grid vernetzt Erzeugung, Speicherung und Verbrauch, sodass Verluste minimiert und Lastspitzen ausgeglichen werden können.
 Damit kann die steigende Nachfrage bedient werden, ohne dass die Kraftwerkskapazitäten sofort mitwachsen.
 
 In Folge der Digitalisierung verschieben sich die Anforderungen an die Fachkräfte.
