@@ -85,7 +85,7 @@ Die übrigen Emissionen entstehen bei der Gewinnung von Rohstoffen wie Stahl ode
 
 Der Querschnittscharakter der Branche ermöglicht umweltschonende Produktinnovationen.
 Zum Beispiel kann der Maschinenbausektor Anpassungstechnologien für klimafreundliche Produkte in anderen Wirtschaftssektoren entwickeln.
-Digitale Automatisierungsverfahren, die der Maschinenbau entwickelt, helfen in der Landwirtschaft dabei, Abläufe zu optimieren und damit zur Nachhaltigkeit beitragen.
+Digitale Automatisierungsverfahren, die der Maschinenbau entwickelt, helfen in der Landwirtschaft dabei, Abläufe zu optimieren und damit zur Nachhaltigkeit beizutragen.
 Ebenso eröffnet die Digitalisierung neue Möglichkeit für Kraftwerksbau, Heizungsbau und die Wassertechnologie.
 Exemplarisch seien hier [virtuelle Kraftwerke](https://www.adesso.de/de/news/blog/virtuelle-kraftwerke-buzzword-oder-paradigmenwechsel.jsp) genannt, welche die Koordination und Vermarktung regenerativer Kleinkraftwerke ermöglichen.
 Durch solche Innovationen kann die Digitalisierung im Maschinenbau helfen, in nachgelagerten Branchen die Effizienz zu steigern und den Anteil erneuerbarer Energie zu steigern.
