@@ -64,7 +64,7 @@ Im Fall elektrisch angetriebener Fahrzeuge ist von einer etwa doppelten Menge an
 
 Ebenso wichtig ist die Rohstoffinanspruchnahme.
 Die Branche gilt als sehr vulnerabel gegenüber dem Megatrend Ressourcenknappheit.
-Sie hat einen hohen Verbrauch an Rohstoffen in der Vorproduktion und Kraftstoffen in der Nutzungsphase.
+Sie hat einen hohen Verbrauch an Rohstoffen in der Vorproduktion und an Kraftstoffen in der Nutzungsphase.
 
 Durch den Umstieg auf Elektromobilität kommt es zu neuen Rohstoffabhängigkeiten in der Batterieproduktion.
 Besonders bei seltenen Erden ist mit einer globalen Verknappung zu rechnen.
