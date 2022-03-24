@@ -114,7 +114,7 @@ So ermöglichen Sensoren in den Kraftwerken die Fernsteuerung und vorausschauend
 Natürlich werden auch hier die Betriebsabläufe und Arbeitsprozesse zunehmend digitalisiert.
 Für eine optimierte Steuerung und Wartung der Netze ist der Ausbau zu einem Smart Grid unerlässlich.
 Ein Smart Grid vernetzt Erzeugung, Speicherung und Verbrauch, sodass Verluste minimiert und Lastspitzen ausgeglichen werden können.
-Damit kann die steigende Nachfrage bedient werden, ohne dass die Kraftwerkskapazitäten sofort mitwachsen.
+Damit kann die steigende Nachfrage bedient werden, ohne dass die Kraftwerkskapazitäten sofort mitwachsen müssen.
 
 In Folge der Digitalisierung verschieben sich die Anforderungen an die Fachkräfte.
 Intellektuelle Prozesse von A wie Abrechnung und Anlagensteuerung bis Z wie Zählerablesen werden automatisiert.
