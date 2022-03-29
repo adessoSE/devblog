@@ -39,7 +39,7 @@ _**Publisher:**_ Der _Publisher_ ist verantwortlich für die Veröffentlichung v
 
 _**Processor:**_ Ein _Processor_ transformiert Elemente die zwischen _Publisher_ und _Subscriber_ übertragen werden
 
-![image of reactive streams interfaces](/assets/images/posts/reaktive-programmierung-mit-spring-webflux/reativestream.png)
+![image of reactive streams interfaces](/assets/images/posts/reaktive-programmierung-mit-spring-webflux/reactivestream.png)
 
 Das Projekt Reactor bietet zwei Implementierungen des Interface _Publisher_ an, _Mono_ und _Flux_, welche in den folgenden Beispielen oft genutzt werden.
 _Flux_ ist dabei als asynchrone Abfolge von 0-N Elementen und Mono als 0-1 Element implementiert.
