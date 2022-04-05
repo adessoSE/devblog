@@ -232,8 +232,8 @@ bestimmte HTTP oder [Kafka][] Header weitergegeben werden und entsprechend weite
 
 ### Tracing mit OpenTelemetry
 
-Ohne Beispiel ist es relativ schwierig sich vorzustellen wie das ganze dann aussieht, daher hier einmal exemplarisch
-ein einfacher HTTP Request in einer [Quarkus][] Anwendung auf Basis von [OpenTelemetry][] und [Jaeger][]:
+Ohne Beispiel ist es relativ schwierig sich vorzustellen wie das ganze dann aussieht, daher hier direkt exemplarisch
+ein einfacher REST Endpoint auf Basis von [Quarkus][], [OpenTelemetry][] und [Jaeger][]:
 
 ```java
 @POST
@@ -248,11 +248,16 @@ public Response create(TodoBase todoBase) {
 }
 ```
 
-[Quarkus][] übernimmt hier den Großteil der Arbeit und wir müssen lediglich mittels [curl][] einen Request abschicken:
+[Quarkus][] übernimmt hier den Großteil der Arbeit und wir müssen hier nichts weiter ergänzen und lediglich mittels
+[curl][] einen Request abschicken:
 
 ![image](/assets/images/posts/logging-vs-tracing/jaeger_simple_trace.png)
 
-### Spans in Actions
+### Spans in Aktion
+
+Wie eingangs erwähnt bieten **Spans** die Möglichkeit weitere Informationen mitzuführen dies wollen wir uns im
+nächsten Beispiel einmal ansehen.
+Basierend auf dem vorherigen Endpoint, ergänzen wir hier Namen sowie Status und fügen einen Servicecall hinzu.
 
 ```java
 @Inject
@@ -289,8 +294,12 @@ public Response create(TodoBase todoBase, @Context UriInfo uriInfo) {
 }
 ```
 
+**<1>** Hier setzen wir zunächst den Namen des aktuellen Spans. \
+**<2>** Als nächstes rufen wir unseren neuen Service auf.
+**<3>** Abhängig vom Ergebnis des vorherigen Aufrufs setzen wir einen Status.
+
 ```java
-@WithSpan("Create todo") // <1>
+@WithSpan("Create todo") // <4>
 public Optional<Todo> create(TodoBase base) {
     Todo todo = new Todo(base);
 
@@ -298,18 +307,31 @@ public Optional<Todo> create(TodoBase base) {
 
     Span.current()
             .addEvent("Added id to todo", Attributes.of(
-                    AttributeKey.stringKey("id"), todo.getId())) // <2>
-            .setStatus(StatusCode.OK); // <3>
+                    AttributeKey.stringKey("id"), todo.getId())) // <5>
+            .setStatus(StatusCode.OK); // <6>
 
     return Optional.of(todo);
 }
 ```
 
+**<4>** Mittels dieser Annotation von [OpenTelemetry][] legen wir automatisch einen neuen Span an. \
+**<5>** Neben Status können auch Logevents mit weiteren Attributen angehangen werden. \
+**<6>** Und abschließend setzen wir auch hier den Status.
+
+Sobald wir jetzt einen erneuten Post an unseren Endpoint schicken sollten wir in [Jaeger][] folgendes vorfinden:
+
 ![image](/assets/images/posts/logging-vs-tracing/jaeger_advanced_trace.png)
+
+[Jaeger][] bietet zusätzlich noch eine experimentelle Graphensicht auf **Traces** und **Spans** an:
 
 ![image](/assets/images/posts/logging-vs-tracing/jaeger_advanced_graph.png)
 
-### Noch mehr spans
+### Spans und Eventing
+
+[Context Propagation][] erlaubt es wie bereits erwähnt einen Kontext über Servicegrenzen hinaus zu transporieren und
+dies wollen wir uns jetzt einmal mit [Kafka][] ansehen.
+Wir starten abermals mit dem bekannten Beispiel, daher sollte es bis auf den [Quarkus][]-typischen Aufruf auch keine
+Überraschungen geben:
 
 ```java
 @Inject
@@ -351,6 +373,8 @@ public Response create(TodoBase todoBase, @Context UriInfo uriInfo) {
 }
 ```
 
+**<1>** Wir rufen hier einen neuen Service, welcher die Anbindung an [Kafka][] für uns übernimmt.
+
 ```java
 public class TodoSink {
     @ConfigProperty(name = "quarkus.application.name")
@@ -361,19 +385,19 @@ public class TodoSink {
 
     @Incoming("todo-stored")
     public CompletionStage<Void> consumeStored(IncomingKafkaRecord<String, Todo> record) {
-        Optional<TracingMetadata> metadata = TracingMetadata.fromMessage(record); // <1>
+        Optional<TracingMetadata> metadata = TracingMetadata.fromMessage(record); // <2>
 
         if (metadata.isPresent()) {
-            try (Scope ignored = metadata.get().getCurrentContext().makeCurrent()) { // <2>
+            try (Scope ignored = metadata.get().getCurrentContext().makeCurrent()) { // <3>
                 Span span = GlobalOpenTelemetry.getTracer(appName)
-                        .spanBuilder("Received message from todo-stored").startSpan(); // <3>
+                        .spanBuilder("Received message from todo-stored").startSpan(); // <4>
 
                 if (this.todoService.update(record.getPayload())) {
                     span.addEvent("Updated todo", Attributes.of(
-                            AttributeKey.stringKey("id"), record.getPayload().getId())); // <4>
+                            AttributeKey.stringKey("id"), record.getPayload().getId())); // <5>
                 }
 
-                span.end();
+                span.end(); // <6>
             }
         }
 
@@ -381,9 +405,22 @@ public class TodoSink {
     }
 ```
 
+**<2>** Im Gegensatz zu [OpenTracing][] müssen wir uns bei [OpenTelemetry][] um die Übernahme des Kontext selber kümmern \
+**<3>** Daher erzeugen wir zunächst einen neuen Kontext. \
+**<4>** Und anschließend über einen Builder einen neuen Span. \
+**<5>** Jetzt setzen wir auch hier ein entsprechendes Logevent. \
+**<6>** Und schließen den Span am Schluss ab.
+
+Setzt man dieses Schema in seiner Anwendung fort bekommt man am Ende ein komplettes Bild des Durchlaufs durch die
+Anwendungen, wie beispielsweise hier zu sehen:
+
 ![image](/assets/images/posts/logging-vs-tracing/jaeger_complex_trace.png)
 
-## Logging und Tracing vereint
+## Korrelation über Tracing
+
+Leider bietet [OpenTelemetry][] derzeit keine einfache Möglichkeit die **Trace** oder **Span ID** automatisiert an
+**Logs** anzuhängen, da sich grundsätzlich die **Trace ID** als **correleation id** anbietet.
+Wir wissen aber aus dem vorherigen Beispiel mit [MDC][] undm [Interceptor][] wie wir das auch manuell vornehmen können:
 
 ```java
 @Traced
@@ -405,6 +442,8 @@ public class TracedInterceptor {
     }
 }
 ```
+
+**<1>** Hier holen wir uns die **Trace ID** und legen sie im [MDC][] ab.
 
 # Fazit
 
