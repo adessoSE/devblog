@@ -162,8 +162,10 @@ Schicken wir jetzt einen POST Request gegen unsere API, sollten wir im Log eine 
 
 ### Structured Logs
 
-Unstrukturierte Daten wie in den bisherigen Beispielen eigenen sich nur bedingt für aussagekräftige Suchanfragen.
-Eine deutliche Verbesserung erreichen wir mit der Umstellung auf ein strukturiertes Format wie [JSON][].
+Möchten wir jetzt die Suchergebnisse aussagekräftiger gestalten, stoßen wir bei _unstrukturierten_ Formaten wie die
+aus unseren Beispielen sehr schnell an eine Grenze.
+Abhilfe schafft hier ein _strukturiertes_ Format wie [JSON][] einzusetzen, welches einfacher weitere Attribute und
+Metadaten wie beispielsweise die aufrufende Klasse oder den Hostname aufnehmen kann.
 
 Hier exemplarisch die Ausgabe der [quarkus-logging-json][] Extension:
 
@@ -197,14 +199,16 @@ LOGGER.info("Created todo", kv("todo_id", todo.getId()));
 LOGGER.info("Created todo", keyValue("todo_id", todo.getId()));
 ```
 
-### Logaggregation
+### Aggregation von Logs
 
-Ziele einer Logaggregation sind alle Nachrichten an einer Stelle zu bündeln und Möglichkeiten bereitzustellen
-einfache Suchen und komplexe Analysen auf Basis der Daten ausführen zu können.
-Wie eine solche Aggregation erreicht werden kann sprengt den Rahmen dieses Artikels, allerdings finden sich im Internet
-unzählige Anleitungen für die bekannteren Stacks wie [EFK][] / [ELK][] oder auch [Grafana][].
+Eine Anwendungslandschaft besteht normalerweise nicht nur aus einer Anwendung, sondern aus vielen verschiedenen bei denen
+ebenfalls **Logs** anfallen.
+Diese möchten wir natürlich nicht verteilt über alle Systeme zusammensuchen müssen, sondern hätten gerne eine zentrale
+Instanz die diese bündelt und zudem einfache Suchen, aber auch komplexe Anfragen auf Basis der Daten anbietet.
+Hier gibt es verschiedene mögliche Stacks wie beispielsweise [EFK][] / [ELK][] oder auch [Grafana][], allerdings
+sprengt eine Anleitung dafür den Rahmen dieses Artikels und im Internet gibt es zahlreiche und ausführliche Anleitungen.
 
-In der Praxis sieht [EFK][] wie folgt aus:
+In der Praxis sieht hier ein Beispiel mit [Kibana][]:
 
 ![image](/assets/images/posts/logging-vs-tracing/kibana_log.png)
 
@@ -213,15 +217,23 @@ In der Praxis sieht [EFK][] wie folgt aus:
 ### Was ist ein Trace?
 
 Wir starten am besten erneut mit einer Definition:
-Ein **Trace** ist eine direkte Visualisierung eines Requests durch eine Anwendung oder übergreifend einer kompletten
-Anwendungslandschaft.
+Ein **Trace** ist eine direkte Visualisierung eines Requests beim Durchlauf durch eine Anwendung oder übergreifend
+einer kompletten Anwendungslandschaft.
+Hierbei wird er durch eine eindeutige **Trace ID** identifiziert und nimmt bei jedem Arbeitsschritt **Spans** auf.
 
-Die eigentlichen Arbeitsschritte werden durch **Spans** repräsentiert.
-Sie werden bei jeder durchlaufenden Station dem übergeordneten Trace zugeordnet und
-Diese **Spans** sind die kleinste Einheit des **Distributed Tracings** und bilden den eigentlichen Workflow ab.
-Hierzu zählen beispielsweise ein HTTP Request, der Aufruf einer Datenbank oder die Verarbeitung einer Nachricht beim
-Eventing.
+**Spans** sind die kleinste Einheit des **Distributed Tracings** und bilden den eigentlichen Workflow ab.
+Hierzu zählen beispielsweise HTTP Requests, der Aufruf einer Datenbank oder die Verarbeitung einer Nachricht beim
+[Eventing][].
+Analog zu einem **Trace** erhalten auch sie eine eindeutige **Span ID**, Angaben über das genaue Timing und optional
+weitere Attribute, [Events][] oder [Status][] je nach Usecase.
 
+Und passiert ein **Trace** die Grenze eines Services (Boundary), so kann dieser mittels [Context Propagation][] über
+bestimmte HTTP oder [Kafka][] Header weitergegeben werden und entsprechend weitergeführt werden.
+
+### Tracing mit OpenTelemetry
+
+Ohne Beispiel ist es relativ schwierig sich vorzustellen wie das ganze dann aussieht, daher hier einmal exemplarisch
+ein einfacher HTTP Request in einer [Quarkus][] Anwendung auf Basis von [OpenTelemetry][] und [Jaeger][]:
 
 ```java
 @POST
@@ -235,6 +247,8 @@ public Response create(TodoBase todoBase) {
     return Response.ok().build();
 }
 ```
+
+[Quarkus][] übernimmt hier den Großteil der Arbeit und wir müssen lediglich mittels [curl][] einen Request abschicken:
 
 ![image](/assets/images/posts/logging-vs-tracing/jaeger_simple_trace.png)
 
