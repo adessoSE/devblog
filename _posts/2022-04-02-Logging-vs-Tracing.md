@@ -24,10 +24,11 @@ Und abschließend vergleichen wir dann beides nochmal direkt miteinander und bet
 
 Grundsätzlich ist ein **Log** die Ausgabe eines Ereignisses, welches innerhalb einer Anwendung auf einem bestimmten
 System zu einer bestimmten Uhrzeit eingetreten ist - eine Art Journal der Ereignisse.
-Dies kann rein informativ Natur sein, beispielsweise wenn ein bestimmter Request eingegangen ist, kann aber auch
+Dies kann rein informativer Natur sein, beispielsweise wenn ein bestimmter Request eingegangen ist, kann aber auch
 hilfreiche Informationen liefern, die im Falle eines Ausfalls beim Troubleshooting helfen das Problem zu finden.
 
-Im Laufe eines Tages fallen auf diese Weise riesige Datenmengen an und es wird schwierig darin etwas konkretes zu finden.
+Jetzt fallen im Laufe eines Tages auf diese Weise riesige Datenmengen an und es wird irgendwann unmöglich darin
+etwas konkretes zu finden.
 Eine erste Vereinfachung stellt hier eine Einteilung auf Basis der Wichtigkeit in Kategorien (oder [Levels][]) wie
 **Info**, **Warn** oder **Error** da und ermöglicht eine konkretere Suche, aber auch die Erstellung von Filtern oder
 Alarme in Monitoring Tools für einen Fehlerfall.
@@ -87,17 +88,16 @@ try (MDC.MDCCloseable closable = MDC.putCloseable("todo_id", toto.getId())) {
 ```
 
 Auf diese Art und Weise können wir komfortabel eine Vielzahl an Nachrichten manuell verändern und Informationen
-zum Kontext ergänzen.
-Dies kann auch automatisiert über [Filter][], [Interceptor][] oder [Aspect-Oriented Programming][] vorgenommen
-werden.
+zum Kontext ergänzen, aber auch automatisiert über [Filter][], [Interceptor][] oder [Aspect-Oriented Programming][]
+beisteuern.
 
 ### Korrelation von Nachrichten
 
-Unseres Services verarbeiten im Normalfall irgendeine Form eingehender Requests und hier ist es durchaus interessant,
+Unsere Services verarbeiten im Normalfall irgendeine Form eingehender Requests und hier ist es durchaus interessant,
 den Lauf dieser Requests durch unsere Anwendung bei jedem Schritt zu verfolgen.
-Betrachten wir jetzt alle zusammenhängen Nachrichten spricht man auch von Korrelation.
-Eine einfache Möglichkeit dies zu erreichen besteht darin, eine neue einzigartige ID einzuführen und diese an alle
-nachfolgenden Ausgaben anzuhängen.
+Dazu ist es notwendig alle Nachrichten der zugehörigen Ereignisse zusammenzuführen - dies nennt man auch Korrelation.
+Eine einfache Möglichkeit dies zu erreichen besteht darin, eine neue einzigartige ID einzuführen und diese an allen
+nachfolgenden Ausgaben mitzugeben.
 
 Hier einmal ein Beispiel, wie wir das mit der Kombination von [MDC][] und [Interceptor][] umsetzen können:
 
@@ -162,8 +162,8 @@ Schicken wir jetzt einen POST Request gegen unsere API, sollten wir im Log eine 
 
 ### Structured Logs
 
-Möchten wir jetzt die Suchergebnisse aussagekräftiger gestalten, stoßen wir bei _unstrukturierten_ Formaten wie die
-aus unseren Beispielen sehr schnell an eine Grenze.
+Möchten wir jetzt die Suchergebnisse aussagekräftiger gestalten, stoßen wir bei _unstrukturierten_ Formaten, wie die
+unserer Beispiele, sehr schnell an eine Grenze.
 Abhilfe schafft hier ein _strukturiertes_ Format wie [JSON][] einzusetzen, welches einfacher weitere Attribute und
 Metadaten wie beispielsweise die aufrufende Klasse oder den Hostname aufnehmen kann.
 
@@ -208,7 +208,7 @@ Instanz die diese bündelt und zudem einfache Suchen, aber auch komplexe Anfrage
 Hier gibt es verschiedene mögliche Stacks wie beispielsweise [EFK][] / [ELK][] oder auch [Grafana][], allerdings
 sprengt eine Anleitung dafür den Rahmen dieses Artikels und im Internet gibt es zahlreiche und ausführliche Anleitungen.
 
-In der Praxis sieht hier ein Beispiel mit [Kibana][]:
+In der Praxis kann das ganze dann so mittels [Kibana][] aussehen:
 
 ![image](/assets/images/posts/logging-vs-tracing/kibana_log.png)
 
@@ -224,16 +224,19 @@ Hierbei wird er durch eine eindeutige **Trace ID** identifiziert und nimmt bei j
 **Spans** sind die kleinste Einheit des **Distributed Tracings** und bilden den eigentlichen Workflow ab.
 Hierzu zählen beispielsweise HTTP Requests, der Aufruf einer Datenbank oder die Verarbeitung einer Nachricht beim
 [Eventing][].
-Analog zu einem **Trace** erhalten auch sie eine eindeutige **Span ID**, Angaben über das genaue Timing und optional
-weitere Attribute, [Events][] oder [Status][] je nach Usecase.
+Analog zu einem **Trace** erhalten auch sie eine eindeutige **Span ID** und zusätzlich noch Angaben über das genaue
+Timing, optionale weitere Attribute, [Events][] oder [Status][], je nach Usecase.
 
 Und passiert ein **Trace** die Grenze eines Services (Boundary), so kann dieser mittels [Context Propagation][] über
-bestimmte HTTP oder [Kafka][] Header weitergegeben werden und entsprechend weitergeführt werden.
+bestimmte HTTP oder [Kafka][] Header weitergegeben und entsprechend weitergeführt werden.
 
 ### Tracing mit OpenTelemetry
 
-Ohne Beispiel ist es relativ schwierig sich vorzustellen wie das ganze dann aussieht, daher hier direkt exemplarisch
-ein einfacher REST Endpoint auf Basis von [Quarkus][], [OpenTelemetry][] und [Jaeger][]:
+Ohne Beispiel ist es relativ schwierig sich vorzustellen, wie das ganze dann aussieht, daher hier springen wir hier
+auch direkt zum ersten Beispiel.
+
+Unser Beispiel basiert auf einem einfachen REST Endpoints in [Quarkus][] und [OpenTelemetry][] und verwendet
+[Jaeger][] als Visualisierung:
 
 ```java
 @POST
@@ -257,7 +260,7 @@ public Response create(TodoBase todoBase) {
 
 Wie eingangs erwähnt bieten **Spans** die Möglichkeit weitere Informationen mitzuführen dies wollen wir uns im
 nächsten Beispiel einmal ansehen.
-Basierend auf dem vorherigen Endpoint, ergänzen wir hier Namen sowie Status und fügen einen Servicecall hinzu.
+Basierend auf dem vorherigen Endpoint, ergänzen wir hier Namen sowie Status und fügen einen Servicecall hinzu:
 
 ```java
 @Inject
@@ -318,7 +321,7 @@ public Optional<Todo> create(TodoBase base) {
 **<5>** Neben Status können auch Logevents mit weiteren Attributen angehangen werden. \
 **<6>** Und abschließend setzen wir auch hier den Status.
 
-Sobald wir jetzt einen erneuten Post an unseren Endpoint schicken sollten wir in [Jaeger][] folgendes vorfinden:
+Sobald wir jetzt einen erneuten Post an unseren Endpoint schicken finden wir [Jaeger][] folgendes vor:
 
 ![image](/assets/images/posts/logging-vs-tracing/jaeger_advanced_trace.png)
 
@@ -405,22 +408,24 @@ public class TodoSink {
     }
 ```
 
-**<2>** Im Gegensatz zu [OpenTracing][] müssen wir uns bei [OpenTelemetry][] um die Übernahme des Kontext selber kümmern \
+**<2>** Im Gegensatz zu [OpenTracing][] müssen wir uns bei [OpenTelemetry][] um die Übernahme des Kontext selber kümmern. \
 **<3>** Daher erzeugen wir zunächst einen neuen Kontext. \
-**<4>** Und anschließend über einen Builder einen neuen Span. \
+**<4>** Und erzeugen anschließend über einen Builder einen neuen Span. \
 **<5>** Jetzt setzen wir auch hier ein entsprechendes Logevent. \
-**<6>** Und schließen den Span am Schluss ab.
+**<6>** Und schließen den Span am Ende ab.
 
-Setzt man dieses Schema in seiner Anwendung fort bekommt man am Ende ein komplettes Bild des Durchlaufs durch die
-Anwendungen, wie beispielsweise hier zu sehen:
+Setzt man dieses Schema in seiner Anwendung fort bekommt man am Ende ein vollständiges Bild eines Requests wie
+beispielsweise hier zu sehen:
 
 ![image](/assets/images/posts/logging-vs-tracing/jaeger_complex_trace.png)
 
 ## Korrelation über Tracing
 
 Leider bietet [OpenTelemetry][] derzeit keine einfache Möglichkeit die **Trace** oder **Span ID** automatisiert an
-**Logs** anzuhängen, da sich grundsätzlich die **Trace ID** als **correleation id** anbietet.
-Wir wissen aber aus dem vorherigen Beispiel mit [MDC][] undm [Interceptor][] wie wir das auch manuell vornehmen können:
+**Logs** anzuhängen, aber grundsätzlich ist natürlich die **Trace ID** ein schöner Kandidat als **correleation id**.
+
+In einem vorherigen Beispiel haben wir gesehen, wie wir mittels [MDC][] und [Interceptor][] Informationen durchreichen
+können und das kann man ebenso mit der **Trace ID** machen:
 
 ```java
 @Traced
@@ -435,7 +440,7 @@ public class TracedInterceptor {
         try (MDC.MDCCloseable closable = MDC.putCloseable("trace_id",
                 Span.current().getSpanContext().getTraceId())) // <1>
         {
-            result = context.proceed()
+            result = context.proceed();
         }
 
         return result;
@@ -446,5 +451,15 @@ public class TracedInterceptor {
 **<1>** Hier holen wir uns die **Trace ID** und legen sie im [MDC][] ab.
 
 # Fazit
+
+| Logging                                        | Tracing                                        |
+|------------------------------------------------|------------------------------------------------|
+| Bietet Insights in einfache Anwendungen        | Hilft Requests durch Applikation zu verfolgen  |
+| Zeigt Status von Anwendungen                   | Liefert Timings und Latenzen für Requests      |
+| Kann einfach integriert werden                 | Erhöht die Komplexität des Codes               |
+| Gut geeignet für Monolithen                    | Besser geeignet für Microservicearchitekturen  |
+| Unterstützt Debugging und Diagnosen            | Unterstützt Debugging und Diagnosen            |
+
+Sämtliche Beispiele können im folgenden Repository eingesehen werden:
 
 <https://github.com/unexist/showcase-logging-tracing-quarkus>
