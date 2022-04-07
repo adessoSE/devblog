@@ -27,11 +27,12 @@ System zu einer bestimmten Uhrzeit eingetreten ist - eine Art Journal der Ereign
 Dies kann rein informativer Natur sein, beispielsweise wenn ein bestimmter Request eingegangen ist, kann aber auch
 hilfreiche Informationen liefern, die im Falle eines Ausfalls beim Troubleshooting helfen das Problem zu finden.
 
-Jetzt fallen im Laufe eines Tages auf diese Weise riesige Datenmengen an und es wird irgendwann unmöglich darin
-etwas konkretes zu finden.
-Eine erste Vereinfachung stellt hier eine Einteilung auf Basis der Wichtigkeit in Kategorien (oder [Levels][15]) wie
-**Info**, **Warn** oder **Error** da und ermöglicht eine konkretere Suche, aber auch die Erstellung von Filtern oder
-Alarme in Monitoring Tools für einen Fehlerfall.
+Jetzt fallen im Laufe eines Tages auf diese Weise riesige Datenmengen an und es wird irgendwann sehr schwierig dieser
+Herr zu werden und etwas konkretes darin  zu finden.
+Als erste Vereinfachung werden diese Logs jetzt in verschiedene Kategorien (oder [Levels][15]) wie **Info**, **Warn**
+oder **Error** eingeteilt.
+Dies ermöglicht eine konkretere Suche, aber auch die Erstellung von Filtern oder Alarme in Monitoring Tools für einen
+Fehlerfall.
 
 Hier ein einfaches Beispiel einer Nachricht:
 
@@ -47,8 +48,9 @@ LOGGER.info("Created todo");
 
 Einfache Nachrichten wie diese enthalten nicht besonders viel Kontextinformation und helfen leider nur wenig dabei
 nachzuvollziehen was hier wirklich passiert ist.
-Besser ist es daher weitere Informationen zu ergänzen, beispielsweise eigenen sich die ID des Requests oder beteiligter
-User- oder Businessobjekte immer gut dafür und ermöglichen zu dem zusammenhängende Nachrichten leichter zu finden.
+Besser ist es daher im nächsten Schritt Informationen zu ergänzen, beispielsweise eigenen sich die ID des Requests
+oder beteiligter User- oder Businessobjekte immer gut dafür und ermöglichen zudem zusammenhängende Nachrichten
+leichter zu finden.
 
 ```java
 LOGGER.info("Created todo: id={}", todo.getId());
