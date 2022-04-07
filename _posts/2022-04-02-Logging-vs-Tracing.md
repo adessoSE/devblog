@@ -452,6 +452,10 @@ public class TracedInterceptor {
 
 # Fazit
 
+Beim Einsatz von [Logging][] oder [Tracing][] gibt es hier kein echtes entweder/oder.
+Beides kann helfen Probleme einzugrenzen und bietet jeweils ein anderes Bild der Vorgänge mit einem Satz komplementärer
+Informationen zur Diagnose.
+
 | Logging                                        | Tracing                                        |
 |------------------------------------------------|------------------------------------------------|
 | Bietet Insights in einfache Anwendungen        | Hilft Requests durch Applikation zu verfolgen  |
@@ -459,6 +463,11 @@ public class TracedInterceptor {
 | Kann einfach integriert werden                 | Erhöht die Komplexität des Codes               |
 | Gut geeignet für Monolithen                    | Besser geeignet für Microservicearchitekturen  |
 | Unterstützt Debugging und Diagnosen            | Unterstützt Debugging und Diagnosen            |
+
+Während sich [Logging][] sehr gut für den normalen Monolithen eignet, lohnt sich die erhöhte Komplexität durch
+[Tracing][] gerade innerhalb einer Microservicearchitektur.
+Beides zusammen bilden die ersten beiden Säulen der [Three Pillars of Observability][] und unterstützen
+Entwicklungsteams dabei Fehler zu debuggen, Diagnosen zu erstellen und allgemein robustere Systeme zu bauen.
 
 Sämtliche Beispiele können im folgenden Repository eingesehen werden:
 
