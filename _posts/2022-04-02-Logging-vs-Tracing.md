@@ -29,7 +29,7 @@ hilfreiche Informationen liefern, die im Falle eines Ausfalls beim Troubleshooti
 
 Jetzt fallen im Laufe eines Tages auf diese Weise riesige Datenmengen an und es wird irgendwann unmöglich darin
 etwas konkretes zu finden.
-Eine erste Vereinfachung stellt hier eine Einteilung auf Basis der Wichtigkeit in Kategorien (oder [Levels][]) wie
+Eine erste Vereinfachung stellt hier eine Einteilung auf Basis der Wichtigkeit in Kategorien (oder [Levels][15]) wie
 **Info**, **Warn** oder **Error** da und ermöglicht eine konkretere Suche, aber auch die Erstellung von Filtern oder
 Alarme in Monitoring Tools für einen Fehlerfall.
 
@@ -67,7 +67,7 @@ LOGGER.info("Created todo: id ={}", todo.getId());
 
 ### Mapped Diagnostic Context
 
-Eine bessere Möglichkeit bietet [MDC][], welches von den meisten **Logging** Bibliotheken direkt unterstützt wird.
+Eine bessere Möglichkeit bietet [MDC][17], welches von den meisten **Logging** Bibliotheken direkt unterstützt wird.
 Hiermit können wir mittels einer Reihe statischer Methoden Informationen zu einem thread-basierten Kontext hinzufügen
 und diesen mit einem entsprechend konfigurierten Logger automatisch an nachfolgende Nachrichten anhängen lassen.
 
@@ -88,7 +88,7 @@ try (MDC.MDCCloseable closable = MDC.putCloseable("todo_id", toto.getId())) {
 ```
 
 Auf diese Art und Weise können wir komfortabel eine Vielzahl an Nachrichten manuell verändern und Informationen
-zum Kontext ergänzen, aber auch automatisiert über [Filter][], [Interceptor][] oder [Aspect-Oriented Programming][]
+zum Kontext ergänzen, aber auch automatisiert über [Filter][8], [Interceptor][10] oder [Aspect-Oriented Programming][1]
 beisteuern.
 
 ### Korrelation von Nachrichten
@@ -99,7 +99,7 @@ Dazu ist es notwendig alle Nachrichten der zugehörigen Ereignisse zusammenzufü
 Eine einfache Möglichkeit dies zu erreichen besteht darin, eine neue einzigartige ID einzuführen und diese an allen
 nachfolgenden Ausgaben mitzugeben.
 
-Hier einmal ein Beispiel, wie wir das mit der Kombination von [MDC][] und [Interceptor][] umsetzen können:
+Hier einmal ein Beispiel, wie wir das mit der Kombination von [MDC][17] und [Interceptor][10] umsetzen können:
 
 ```java
 @Target({ METHOD })
@@ -164,10 +164,10 @@ Schicken wir jetzt einen POST Request gegen unsere API, sollten wir im Log eine 
 
 Möchten wir jetzt die Suchergebnisse aussagekräftiger gestalten, stoßen wir bei _unstrukturierten_ Formaten, wie die
 unserer Beispiele, sehr schnell an eine Grenze.
-Abhilfe schafft hier ein _strukturiertes_ Format wie [JSON][] einzusetzen, welches einfacher weitere Attribute und
+Abhilfe schafft hier ein _strukturiertes_ Format wie [JSON][12] einzusetzen, welches einfacher weitere Attribute und
 Metadaten wie beispielsweise die aufrufende Klasse oder den Hostname aufnehmen kann.
 
-Hier exemplarisch die Ausgabe der [quarkus-logging-json][] Extension:
+Hier exemplarisch die Ausgabe der [quarkus-logging-json][20] Extension:
 
 ```json
 {
@@ -188,7 +188,7 @@ Hier exemplarisch die Ausgabe der [quarkus-logging-json][] Extension:
 }
 ```
 
-Die meisten modernen **Logging** Bibliotheken unterstützen [JSON][] von Hause aus und bringen zusätzlich diverse
+Die meisten modernen **Logging** Bibliotheken unterstützen [JSON][12] von Hause aus und bringen zusätzlich diverse
 Helfer mit, mit denen Key-Value Paare bequem ergänzt werden können:
 
 ```java
@@ -205,10 +205,10 @@ Eine Anwendungslandschaft besteht normalerweise nicht nur aus einer Anwendung, s
 ebenfalls **Logs** anfallen.
 Diese möchten wir natürlich nicht verteilt über alle Systeme zusammensuchen müssen, sondern hätten gerne eine zentrale
 Instanz die diese bündelt und zudem einfache Suchen, aber auch komplexe Anfragen auf Basis der Daten anbietet.
-Hier gibt es verschiedene mögliche Stacks wie beispielsweise [EFK][] / [ELK][] oder auch [Grafana][], allerdings
+Hier gibt es verschiedene mögliche Stacks wie beispielsweise [EFK][4] / [ELK][5] oder auch [Grafana][9], allerdings
 sprengt eine Anleitung dafür den Rahmen dieses Artikels und im Internet gibt es zahlreiche und ausführliche Anleitungen.
 
-In der Praxis kann das ganze dann so mittels [Kibana][] aussehen:
+In der Praxis kann das ganze dann so mittels [Kibana][14] aussehen:
 
 ![image](/assets/images/posts/logging-vs-tracing/kibana_log.png)
 
@@ -223,20 +223,20 @@ Hierbei wird er durch eine eindeutige **Trace ID** identifiziert und nimmt bei j
 
 **Spans** sind die kleinste Einheit des **Distributed Tracings** und bilden den eigentlichen Workflow ab.
 Hierzu zählen beispielsweise HTTP Requests, der Aufruf einer Datenbank oder die Verarbeitung einer Nachricht beim
-[Eventing][].
+[Eventing][6].
 Analog zu einem **Trace** erhalten auch sie eine eindeutige **Span ID** und zusätzlich noch Angaben über das genaue
-Timing, optionale weitere Attribute, [Events][] oder [Status][], je nach Usecase.
+Timing, optionale weitere Attribute, [Events][7] oder [Status][22], je nach Usecase.
 
-Und passiert ein **Trace** die Grenze eines Services (Boundary), so kann dieser mittels [Context Propagation][] über
-bestimmte HTTP oder [Kafka][] Header weitergegeben und entsprechend weitergeführt werden.
+Und passiert ein **Trace** die Grenze eines Services (Boundary), so kann dieser mittels [Context Propagation][2] über
+bestimmte HTTP oder [Kafka][13] Header weitergegeben und entsprechend weitergeführt werden.
 
 ### Tracing mit OpenTelemetry
 
 Ohne Beispiel ist es relativ schwierig sich vorzustellen, wie das ganze dann aussieht, daher hier springen wir hier
 auch direkt zum ersten Beispiel.
 
-Unser Beispiel basiert auf einem einfachen REST Endpoints in [Quarkus][] und [OpenTelemetry][] und verwendet
-[Jaeger][] als Visualisierung:
+Unser Beispiel basiert auf einem einfachen REST Endpoints in [Quarkus][21] und [OpenTelemetry][18] und verwendet
+[Jaeger][11] als Visualisierung:
 
 ```java
 @POST
@@ -251,8 +251,8 @@ public Response create(TodoBase todoBase) {
 }
 ```
 
-[Quarkus][] übernimmt hier den Großteil der Arbeit und wir müssen hier nichts weiter ergänzen und lediglich mittels
-[curl][] einen Request abschicken:
+[Quarkus][21] übernimmt hier den Großteil der Arbeit und wir müssen hier nichts weiter ergänzen und lediglich mittels
+[curl][3] einen Request abschicken:
 
 ![image](/assets/images/posts/logging-vs-tracing/jaeger_simple_trace.png)
 
@@ -317,23 +317,23 @@ public Optional<Todo> create(TodoBase base) {
 }
 ```
 
-**<4>** Mittels dieser Annotation von [OpenTelemetry][] legen wir automatisch einen neuen Span an. \
+**<4>** Mittels dieser Annotation von [OpenTelemetry][18] legen wir automatisch einen neuen Span an. \
 **<5>** Neben Status können auch Logevents mit weiteren Attributen angehangen werden. \
 **<6>** Und abschließend setzen wir auch hier den Status.
 
-Sobald wir jetzt einen erneuten Post an unseren Endpoint schicken finden wir [Jaeger][] folgendes vor:
+Sobald wir jetzt einen erneuten Post an unseren Endpoint schicken finden wir [Jaeger][11] folgendes vor:
 
 ![image](/assets/images/posts/logging-vs-tracing/jaeger_advanced_trace.png)
 
-[Jaeger][] bietet zusätzlich noch eine experimentelle Graphensicht auf **Traces** und **Spans** an:
+[Jaeger][11] bietet zusätzlich noch eine experimentelle Graphensicht auf **Traces** und **Spans** an:
 
 ![image](/assets/images/posts/logging-vs-tracing/jaeger_advanced_graph.png)
 
 ### Spans und Eventing
 
-[Context Propagation][] erlaubt es wie bereits erwähnt einen Kontext über Servicegrenzen hinaus zu transporieren und
-dies wollen wir uns jetzt einmal mit [Kafka][] ansehen.
-Wir starten abermals mit dem bekannten Beispiel, daher sollte es bis auf den [Quarkus][]-typischen Aufruf auch keine
+[Context Propagation][2] erlaubt es wie bereits erwähnt einen Kontext über Servicegrenzen hinaus zu transporieren und
+dies wollen wir uns jetzt einmal mit [Kafka][13] ansehen.
+Wir starten abermals mit dem bekannten Beispiel, daher sollte es bis auf den [Quarkus][21]-typischen Aufruf auch keine
 Überraschungen geben:
 
 ```java
@@ -376,7 +376,7 @@ public Response create(TodoBase todoBase, @Context UriInfo uriInfo) {
 }
 ```
 
-**<1>** Wir rufen hier einen neuen Service, welcher die Anbindung an [Kafka][] für uns übernimmt.
+**<1>** Wir rufen hier einen neuen Service, welcher die Anbindung an [Kafka][13] für uns übernimmt.
 
 ```java
 public class TodoSink {
@@ -408,7 +408,7 @@ public class TodoSink {
     }
 ```
 
-**<2>** Im Gegensatz zu [OpenTracing][] müssen wir uns bei [OpenTelemetry][] um die Übernahme des Kontext selber kümmern. \
+**<2>** Im Gegensatz zu [OpenTracing][19] müssen wir uns bei [OpenTelemetry][18] um die Übernahme des Kontext selber kümmern. \
 **<3>** Daher erzeugen wir zunächst einen neuen Kontext. \
 **<4>** Und erzeugen anschließend über einen Builder einen neuen Span. \
 **<5>** Jetzt setzen wir auch hier ein entsprechendes Logevent. \
@@ -421,10 +421,10 @@ beispielsweise hier zu sehen:
 
 ## Korrelation über Tracing
 
-Leider bietet [OpenTelemetry][] derzeit keine einfache Möglichkeit die **Trace** oder **Span ID** automatisiert an
+Leider bietet [OpenTelemetry][18] derzeit keine einfache Möglichkeit die **Trace** oder **Span ID** automatisiert an
 **Logs** anzuhängen, aber grundsätzlich ist natürlich die **Trace ID** ein schöner Kandidat als **correleation id**.
 
-In einem vorherigen Beispiel haben wir gesehen, wie wir mittels [MDC][] und [Interceptor][] Informationen durchreichen
+In einem vorherigen Beispiel haben wir gesehen, wie wir mittels [MDC][17] und [Interceptor][10] Informationen durchreichen
 können und das kann man ebenso mit der **Trace ID** machen:
 
 ```java
@@ -448,11 +448,11 @@ public class TracedInterceptor {
 }
 ```
 
-**<1>** Hier holen wir uns die **Trace ID** und legen sie im [MDC][] ab.
+**<1>** Hier holen wir uns die **Trace ID** und legen sie im [MDC][17] ab.
 
 # Fazit
 
-Beim Einsatz von [Logging][] oder [Tracing][] gibt es hier kein echtes entweder/oder.
+Beim Einsatz von [Logging][16] oder [Tracing][24] gibt es hier kein echtes entweder/oder.
 Beides kann helfen Probleme einzugrenzen und bietet jeweils ein anderes Bild der Vorgänge mit einem Satz komplementärer
 Informationen zur Diagnose.
 
@@ -464,11 +464,36 @@ Informationen zur Diagnose.
 | Gut geeignet für Monolithen                    | Besser geeignet für Microservicearchitekturen  |
 | Unterstützt Debugging und Diagnosen            | Unterstützt Debugging und Diagnosen            |
 
-Während sich [Logging][] sehr gut für den normalen Monolithen eignet, lohnt sich die erhöhte Komplexität durch
-[Tracing][] gerade innerhalb einer Microservicearchitektur.
-Beides zusammen bilden die ersten beiden Säulen der [Three Pillars of Observability][] und unterstützen
+Während sich [Logging][16] sehr gut für den normalen Monolithen eignet, lohnt sich die erhöhte Komplexität durch
+[Tracing][24] gerade innerhalb einer Microservicearchitektur.
+Beides zusammen bilden die ersten beiden Säulen der [Three Pillars of Observability][23] und unterstützen
 Entwicklungsteams dabei Fehler zu debuggen, Diagnosen zu erstellen und allgemein robustere Systeme zu bauen.
 
 Sämtliche Beispiele können im folgenden Repository eingesehen werden:
 
 <https://github.com/unexist/showcase-logging-tracing-quarkus>
+
+[1]: https://en.wikipedia.org/wiki/Aspect-oriented_programming
+[2]: https://opentelemetry.io/docs/instrumentation/java/manual/#context-propagation
+[3]: https://curl.se/
+[4]: https://www.digitalocean.com/community/tutorials/how-to-set-up-an-elasticsearch-fluentd-and-kibana-efk-logging-stack-on-kubernetes
+[5]: https://www.elastic.co/what-is/elk-stack
+[6]: https://docs.microsoft.com/en-us/events/dotnetconf-focus-on-microservices/beyond-rest-and-rpc-asynchronous-eventing-and-messaging-patterns
+[7]: https://opentelemetry.io/docs/reference/specification/trace/api/#add-events
+[8]: https://blog.adamgamboa.dev/understanding-jax-rs-filters/
+[9]: https://grafana.com/
+[10]: https://www.baeldung.com/cdi-interceptor-vs-spring-aspectj
+[11]: https://www.jaegertracing.io/
+[12]: https://www.json.org/json-en.html
+[13]: https://kafka.apache.org/
+[14]: https://www.elastic.co/kibana/
+[15]: https://www.papertrail.com/solution/tips/logging-in-java-best-practices-and-tips/
+[16]: https://en.wikipedia.org/wiki/Logging
+[17]: https://logback.qos.ch/manual/mdc.hml
+[18]: https://opentelemetry.io
+[19]: https://opentracing.io/
+[20]: https://github.com/quarkiverse/quarkus-logging-json
+[21]: https://quarkus.io/
+[22]: https://opentelemetry.lightstep.com/spans/
+[23]: https://www.oreilly.com/library/view/distributed-systems-observability/9781492033431/ch04.html
+[24]: https://en.wikipedia.org/wiki/Tracing_(software)
