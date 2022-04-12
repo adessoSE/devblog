@@ -135,7 +135,7 @@ public class CorrelatedInterceptor {
 }
 ```
 
-**<2>** Als nächstes erzeugen wir eine neue ID und legen sie im MDC ab.
+**<2>** Als nächstes erzeugen wir eine neue ID und legen sie im MDC ab.<br />
 **<3>** Jetzt rufen wir die ursprüngliche Methode auf und reichen unsere neue ID weiter.
 
 ```java
@@ -299,8 +299,8 @@ public Response create(TodoBase todoBase, @Context UriInfo uriInfo) {
 }
 ```
 
-**<1>** Hier setzen wir zunächst den Namen des aktuellen Spans.
-**<2>** Als nächstes rufen wir unseren neuen Service auf.
+**<1>** Hier setzen wir zunächst den Namen des aktuellen Spans.<br />
+**<2>** Als nächstes rufen wir unseren neuen Service auf.<br />
 **<3>** Abhängig vom Ergebnis des vorherigen Aufrufs setzen wir einen Status.
 
 ```java
@@ -319,8 +319,8 @@ public Optional<Todo> create(TodoBase base) {
 }
 ```
 
-**<4>** Mittels dieser Annotation von [OpenTelemetry][18] legen wir automatisch einen neuen Span an.
-**<5>** Neben Status können auch Logevents mit weiteren Attributen angehangen werden.
+**<4>** Mittels dieser Annotation von [OpenTelemetry][18] legen wir automatisch einen neuen Span an.<br />
+**<5>** Neben Status können auch Logevents mit weiteren Attributen angehangen werden.<br />
 **<6>** Und abschließend setzen wir auch hier den Status.
 
 Sobald wir jetzt einen erneuten Post an unseren Endpoint schicken, finden wir in [Jaeger][11] folgendes vor:
@@ -410,10 +410,10 @@ public class TodoSink {
     }
 ```
 
-**<2>** Im Gegensatz zu [OpenTracing][19] müssen wir uns bei [OpenTelemetry][18] um die Übernahme des Kontext selber kümmern.
-**<3>** Daher erzeugen wir zunächst einen neuen Kontext.
-**<4>** Und erzeugen anschließend über einen Builder einen neuen Span.
-**<5>** Jetzt setzen wir auch hier ein entsprechendes Logevent.
+**<2>** Im Gegensatz zu [OpenTracing][19] müssen wir uns bei [OpenTelemetry][18] um die Übernahme des Kontext selber kümmern.<br />
+**<3>** Daher erzeugen wir zunächst einen neuen Kontext.<br />
+**<4>** Und erzeugen anschließend über einen Builder einen neuen Span.<br />
+**<5>** Jetzt setzen wir auch hier ein entsprechendes Logevent.<br />
 **<6>** Am Ende schließen wir den Span ab.
 
 Setzt man dieses Schema in seiner Anwendung fort, bekommt man am Ende ein vollständiges Bild eines Requests wie
