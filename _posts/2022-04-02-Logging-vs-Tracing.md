@@ -2,7 +2,7 @@
 layout:			[post, post-xml]											# Pflichtfeld. Nicht ändern!
 title:			"Logging vs Tracing"                                        # Pflichtfeld. Bitte einen Titel für den Blog Post angeben.
 date:			2022-04-02 18:00											# Pflichtfeld. Format "YYYY-MM-DD HH:MM". Muss für Veröffentlichung in der Vergangenheit liegen. (Für Preview egal)
-modified_date: 	2022-04-02 18:00											# Optional. Muss angegeben werden, wenn eine bestehende Datei geändert wird.
+modified_date: 	2022-04-12 11:00											# Optional. Muss angegeben werden, wenn eine bestehende Datei geändert wird.
 author_ids:			[unexist]								                # Pflichtfeld. Es muss in der "authors.yml" einen Eintrag mit diesem Namen geben.
 categories: 	[Softwareentwicklung]										# Pflichtfeld. Maximal eine der angegebenen Kategorien verwenden.
 tags:			[Logging, Kibana, Tracing, OpenTelemetry, Jaeger]	        # Bitte auf Großschreibung achten.
@@ -135,7 +135,7 @@ public class CorrelatedInterceptor {
 }
 ```
 
-**<2>** Als nächstes erzeugen wir eine neue ID und legen sie im MDC ab. \
+**<2>** Als nächstes erzeugen wir eine neue ID und legen sie im MDC ab.
 **<3>** Jetzt rufen wir die ursprüngliche Methode auf und reichen unsere neue ID weiter.
 
 ```java
@@ -299,7 +299,7 @@ public Response create(TodoBase todoBase, @Context UriInfo uriInfo) {
 }
 ```
 
-**<1>** Hier setzen wir zunächst den Namen des aktuellen Spans. \
+**<1>** Hier setzen wir zunächst den Namen des aktuellen Spans.
 **<2>** Als nächstes rufen wir unseren neuen Service auf.
 **<3>** Abhängig vom Ergebnis des vorherigen Aufrufs setzen wir einen Status.
 
@@ -319,8 +319,8 @@ public Optional<Todo> create(TodoBase base) {
 }
 ```
 
-**<4>** Mittels dieser Annotation von [OpenTelemetry][18] legen wir automatisch einen neuen Span an. \
-**<5>** Neben Status können auch Logevents mit weiteren Attributen angehangen werden. \
+**<4>** Mittels dieser Annotation von [OpenTelemetry][18] legen wir automatisch einen neuen Span an.
+**<5>** Neben Status können auch Logevents mit weiteren Attributen angehangen werden.
 **<6>** Und abschließend setzen wir auch hier den Status.
 
 Sobald wir jetzt einen erneuten Post an unseren Endpoint schicken, finden wir in [Jaeger][11] folgendes vor:
@@ -410,10 +410,10 @@ public class TodoSink {
     }
 ```
 
-**<2>** Im Gegensatz zu [OpenTracing][19] müssen wir uns bei [OpenTelemetry][18] um die Übernahme des Kontext selber kümmern. \
-**<3>** Daher erzeugen wir zunächst einen neuen Kontext. \
-**<4>** Und erzeugen anschließend über einen Builder einen neuen Span. \
-**<5>** Jetzt setzen wir auch hier ein entsprechendes Logevent. \
+**<2>** Im Gegensatz zu [OpenTracing][19] müssen wir uns bei [OpenTelemetry][18] um die Übernahme des Kontext selber kümmern.
+**<3>** Daher erzeugen wir zunächst einen neuen Kontext.
+**<4>** Und erzeugen anschließend über einen Builder einen neuen Span.
+**<5>** Jetzt setzen wir auch hier ein entsprechendes Logevent.
 **<6>** Am Ende schließen wir den Span ab.
 
 Setzt man dieses Schema in seiner Anwendung fort, bekommt man am Ende ein vollständiges Bild eines Requests wie
@@ -458,13 +458,13 @@ Beim Einsatz von [Logging][16] oder [Tracing][24] gibt es hier kein echtes entwe
 Beides kann helfen, Probleme einzugrenzen, und bietet jeweils ein anderes Bild der Vorgänge mit einem Satz komplementärer
 Informationen zur Diagnose.
 
-| Logging                                        | Tracing                                        |
-|------------------------------------------------|------------------------------------------------|
-| Bietet Insights in einfache Anwendungen        | Hilft, Requests durch Applikationen zu verfolgen |
-| Zeigt Status von Anwendungen                   | Liefert Timings und Latenzen für Requests      |
-| Kann einfach integriert werden                 | Erhöht die Komplexität des Codes               |
-| Gut geeignet für Monolithen                    | Besser geeignet für Microservicearchitekturen  |
-| Unterstützt Debugging und Diagnosen            | Unterstützt Debugging und Diagnosen            |
+| Logging                                          | Tracing                                          |
+|--------------------------------------------------|--------------------------------------------------|
+| Bietet Insights in einfache Anwendungen          | Hilft, Requests durch Applikationen zu verfolgen |
+| Zeigt Status von Anwendungen                     | Liefert Timings und Latenzen für Requests        |
+| Kann einfach integriert werden                   | Erhöht die Komplexität des Codes                 |
+| Gut geeignet für Monolithen                      | Besser geeignet für Microservicearchitekturen    |
+| Unterstützt Debugging und Diagnosen              | Unterstützt Debugging und Diagnosen              |
 
 Während sich [Logging][16] sehr gut für den normalen Monolithen eignet, lohnt sich die erhöhte Komplexität durch
 [Tracing][24] gerade innerhalb einer Microservicearchitektur.
