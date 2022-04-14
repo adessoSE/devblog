@@ -1,8 +1,8 @@
 ---
 layout: [post, post-xml]              
 title:  "Rust Rocks"                  
-date:   2021-11-28 14:00              
-modified_date: 2021-11-28 14:00       
+date:   2022-04-14 09:00              
+modified_date: 2022-04-14 09:00       
 author_ids: [christianlunau]          
 categories: [Softwareentwicklung]     
 tags: [Rust, Nachhaltigkeit, Energieeffizienz, Performance]                          
