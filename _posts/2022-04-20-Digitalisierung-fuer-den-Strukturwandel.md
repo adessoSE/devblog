@@ -1,11 +1,11 @@
 ---
 layout: [post, post-xml]              # Pflichtfeld. Nicht ändern!
 title:  "Digitalisierung für den Strukturwandel" # Pflichtfeld. Bitte einen Titel für den Blog Post angeben.
-date:   2022-03-23 11:00              # Pflichtfeld. Format "YYYY-MM-DD HH:MM". Muss für Veröffentlichung in der Vergangenheit liegen. (Für Preview egal)
-modified_date: 2022-03-23 11:00       # Optional. Muss angegeben werden, wenn eine bestehende Datei geändert wird.
+date:   2022-04-20 11:00              # Pflichtfeld. Format "YYYY-MM-DD HH:MM". Muss für Veröffentlichung in der Vergangenheit liegen. (Für Preview egal)
+modified_date: 2022-04-20 11:00       # Optional. Muss angegeben werden, wenn eine bestehende Datei geändert wird.
 author_ids: [cjohn]                   # Pflichtfeld. Es muss in der "authors.yml" einen Eintrag mit diesen Namen geben.
 categories: [Branchen]                # Pflichtfeld. Maximal eine der angegebenen Kategorien verwenden.
-tags: [Digitalisierung,Strukturwandel,Green Economy,Umwelt,Zukunft] # Bitte auf Großschreibung achten.
+tags: [Digitalisierung,Strukturwandel,Green Economy,Nachhaltigkeit] # Bitte auf Großschreibung achten.
 ---
 
 Dieser Artikel fasst das Screening "Strukturwandel zu einer Green Economy" des Umweltbundesamts zusammen.
