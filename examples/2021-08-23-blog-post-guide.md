@@ -64,7 +64,6 @@ johndoe:
   first_name: John
   last_name: Doe
   github_username: johndoe
-  email: johndoe@email.com
   bio: "2-3 Sätze als Kurzbiographie, die als Beschreibung unter deinen Blog-Posts erscheinen."
   avatar_url: /assets/images/avatars/johndoe.png
   github: https://github.com/johndoe
