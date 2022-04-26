@@ -11,7 +11,7 @@ on:
 
 jobs:
   pull-and-run-jekyll2cms-docker-image:
-    if: github.repository == 'adessoag/devblog'
+    if: github.repository == 'adessoSE/devblog'
     runs-on: ubuntu-latest
 
     steps:
