@@ -25,6 +25,8 @@ Sobald die entsprechende Bedingung erfüllt ist, wird eine Aktion ausgeführt.
 Dies kann zum Beispiel eine Skalierungsaktion für den entsprechenden Service oder auch das Senden eines Events z.B. an ein Topic im Simple Notification Service sein.
 Landen die Alarm-Events einmal in einem Topic ist es ein leichtes die Information via E-Mail an alle Entwickler zu verteilen, die darauf reagieren sollten.
 
+![Aufbau der Infrastruktur](/assets/images/posts/Alarmeboard_mit_Jira_und_Cloudwatch/Alarme_Konzept.png)
+
 # Alarme mit Terraform erzeugen und an ein Topic schicken
 
 Als Beispiel soll hier ein Alarm dienen, der immer dann ein Event an ein konfigurierbares Topic sendet, wenn eine Message in einer Dead Letter Queue gelandet ist:
@@ -67,15 +69,43 @@ Und auch die Lesbarkeit der Mails lässt zu wünschen übrig.
 Es sind zwar alle notwendigen technischen Informationen enthalten, aber es beschleunigt die Bearbeitung ungemein, wenn man zum Beispiel einen Stacktrace aus den Logs direkt im Anhang findet.
 
 # Lambdas für die Erzeugung der Jira-Tickets nutzen
-
 Jira bietet eine [REST-Schnittstelle](https://developer.atlassian.com/server/jira/platform/rest-apis/) an, die dafür genutzt werden kann, Alarme in Tickets zu gießen.
 
+* Motivation für 2 Lambdas
+* DLQ mit Alarm auf Email, um sicherzustellen, dass keine Alarme verloren gehen.
 
 ## Ticket anlegen
+* Immer Fallback auf Message
+* Konventionen machen das Leben einfacher
+
+SNS-Event besteht aus Subject und Message
+
+Nachdem wir den JSON-String, der als Message übertragen wurde, via ObjectMapper in ein Alarm-Object geparsed haben, können wir aus diesem die einzelnen Absätze für die Beschreibung des Tickets erzeugen.
+```java
+private static Description mapToDescription(Alarm alarm) {
+    ParagraphContent description = ParagraphContent.simple(alarm.getDescription());
+    ParagraphContent reason = ParagraphContent.simple(alarm.getReason());
+    ParagraphContent stateChangeTime = ParagraphContent.simple(alarm.getStateChangeTime());
+    ParagraphContent deepLinkToAWSConsole =
+            ParagraphContent.link("AWS Cloudwatch - Alarm Deeplink", createDeeplinkToAWSConsole(alarm.getName()));
+    return new Description(asList(description, reason, stateChangeTime, deepLinkToAWSConsole));
+}
+```
+Leider liefert Amazon bis Dato keine vorgefertigten Methoden zur Erzeugung eines Links auf 
+
+Die Anbindung der Schnittstelle für das Anlegen eines Tickets in Jira ist dank Retrofit durch einfachen Interface erledigt.
+```java
+import retrofit2.Call;
+import retrofit2.http.Body;
+import retrofit2.http.POST;
+
+public interface JiraAPI {
+    @POST("rest/api/3/issue")
+    Call<CreateIssueResponseDTO> createIssue(@Body CreateIssueDTO createIssueDTO);
+}
+```
 
 ## Logs als Kommentar ergänzen
-
-## JIRA Rest-API
 
 # Automatisierung in Jira nutzen
 
