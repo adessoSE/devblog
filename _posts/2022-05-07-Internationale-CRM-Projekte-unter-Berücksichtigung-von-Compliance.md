@@ -33,12 +33,12 @@ Die Balance zwischen den drei Instanzen ist hier abgebildet:
 Beispielhaft sind hier Empfehlungen von uns aufgelistet beim Vorgehen:
 
 * Primär Anforderungen vom Fachbereich "verstehen" und nach dem "Warum?" fragen
-* Alignment von Compliance, Fachbereich und Technik elementar
+* Alignment von Compliance, Fachbereich und Technik sind elementar
 * Einbindung von Compliance-Experten so früh wie möglich
 * Abstimmtes Konstrukt mit konkreten Anforderungen festgelegen -> "schwammige Aussage und Grauzonen vermeiden"
-* Analyse der aktuellen Technologiestandes bpsw. siehe "Nützliche Links"– welcher Service ist wo verfügbar?
+* Analyse der aktuellen Technologiestandes bspw. siehe "Nützliche Links"– welcher Service ist wo verfügbar?
 * Integrationen bspw. mit Azure unterliegen den gleichen Anforderungen
-* Kreative Lösungsarchitekturen erforderliche, jeodch sollten diese dem „KISS-Prinzip“ folgen
+* Kreative Lösungsarchitekturen erforderlich, jeodch sollten diese dem „KISS-Prinzip“ folgen
 
 
 # Stärken der Microsoft Power Platform
