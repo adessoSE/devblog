@@ -5,11 +5,11 @@ date:   2022-05-07 12:00              # Pflichtfeld. Format "YYYY-MM-DD HH:MM". 
 modified_date: 2022-05-07 12:00             # Optional. Muss angegeben werden, wenn eine bestehende Datei geändert wird.
 author_ids: [mschulz-adesso]                       # Pflichtfeld. Es muss in der "authors.yml" einen Eintrag mit diesem Namen geben.
 categories: [Architektur]                    # Pflichtfeld. Maximal eine der angegebenen Kategorien verwenden.
-tags: [Microsoft, Power Platform, CRM, Dynamics 365, Architektur, International, Compliance]         # Bitte auf Großschreibung achten.
+tags: [Microsoft, Power Platform, CRM, Dynamics 365, Architektur, International, GDPR, Datenlokation, Compliance]         # Bitte auf Großschreibung achten.
 ---
 
 Bei internationalen CRM-Systemen, die auf Microsoft Dynamics 365 basieren, ist es elementar die Compliance-Anforderungen der Länder zu erfüllen. 
-CRM-Systeme, die dabei auch Länder außerhalb der EU wie bspw. China, Brasilien & USA umfassen, müssen aus Compliance-Sicht einen Schritt weitergehen bzw. anders verglichen mit DSGVO (GDPR), um die Anforderungen bspw. für die Datenlokation zu erfüllen.
+CRM-Systeme, die dabei auch Länder außerhalb der EU wie bspw. China, Brasilien & USA umfassen, müssen aus Compliance-Sicht einen "Schritt weitergehen" verglichen mit EU-DSGVO (GDPR), um die Anforderungen bspw. für die Datenlokation zu erfüllen.
 
 Dabei sind verschiedene Compliance-Aspekte zu betrachten. 
 In diesem Blog-Beitrag geht es beispielhaft um die Speicherung von personenbezogenen Daten bzw. den dazugehörigen Speicherort, da diese strengen Compliance-Anforderungen unterliegen.
@@ -26,7 +26,7 @@ In Projekten geht es hierbei auch die Balance zu wahren aus
 Kommunikation und strukturiertes Vorgehen ist hierbei ein kritischer Erfolgsfaktor.
 
 Die Balance zwischen den drei Instanzen ist hier abgebildet:
-![Balance.png](/assets/images/posts/Internationale-CRM-Projekte-unter-Berücksichtigung-von-Compliance/Balance.png)
+/assets/images/posts/Internationale-CRM-Projekte-unter-Berücksichtigung-von-Compliance/Balance.png
 
 # Stärken der Microsoft Power Platform
 
