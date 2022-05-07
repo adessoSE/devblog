@@ -2,7 +2,7 @@
 layout: [post, post-xml]
 title:  "Apache Kafka als Streaming Plattform"
 date:   2018-11-08 08:00
-author: swindisch
+author_ids: [swindisch]
 categories: [Architektur]
 tags: [Microservice, Message-Queue, Java]
 ---

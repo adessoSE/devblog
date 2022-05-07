@@ -2,7 +2,7 @@
 layout: [post, post-xml]              
 title:  "Deploy Keras models to production level easily"        
 date:   2020-02-04 09:00
-author: s-gbz
+author_ids: [s-gbz]
 categories: [Softwareentwicklung]                    
 tags: [Deep Learning, Künstliche Intelligenz, Keras, Flask]
 ---

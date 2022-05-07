@@ -17,14 +17,8 @@ Dabei schauen wir uns Komponenten einer Toolchain an und erfahren wie wir diese 
         <field name="date_date"><![CDATA[2020-03-25T09:00:00+01:00]]></field>
         <field name="date_l"><![CDATA[1585123200000]]></field>
         <field name="change_date"><![CDATA[1585123200000]]></field>
-        <!--Picture-->
-        <!-- Not in use at the moment-->
         <!--Author Information-->
-        <field name="author_first_name"><![CDATA[Jan]]></field>
-        <field name="author_last_name"><![CDATA[Schneider]]></field>
-        <field name="author_id"><![CDATA[JanSchneider1]]></field>
-        <field name="author_picture_stored_only"><![CDATA[http://localhost:4000/assets/images/avatars/jschneider.jpg]]></field>
-        <!--Postcontent-->
+        <field name="author_id"><![CDATA[JanSchneider1]]></field><!--Postcontent-->
         <field name="headlines"><![CDATA[Griff in die Werkzeugkiste: Eine Toolchain für React]]></field>
         <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
             <p>Toolchains fördern Flexibilität und vereinfachen den Entwicklungsprozess - In diesem Blog-Post bauen wir eine Toolchain für die beliebte Frontend-Technologie React. 

@@ -3,9 +3,9 @@ layout: [post, post-xml]              # Pflichtfeld. Nicht ändern!
 title:  "Blog Post Anleitung"         # Pflichtfeld. Bitte einen Titel für den Blog Post angeben.
 date:   2017-08-10 10:25              # Pflichtfeld. Format "YYYY-MM-DD HH:MM". Muss für Veröffentlichung in der Vergangenheit liegen. (Für Preview egal)
 modified_date: 2017-08-18             # Optional. Muss angegeben werden, wenn eine bestehende Datei geändert wird.
-author: johndoe                       # Pflichtfeld. Es muss in der "authors.yml" einen Eintrag mit diesem Namen geben.
-categories: [Java]                    # Pflichtfeld. Maximal eine der angegebenen Kategorien verwenden.
-tags: [Spring, Microservices]         # Bitte auf Großschreibung achten.
+author_ids: [johndoe]                 # Pflichtfeld. Es muss in der "authors.yml" einen Eintrag mit diesen Namen geben.
+categories: [Softwareentwicklung]     # Pflichtfeld. Maximal eine der angegebenen Kategorien verwenden.
+tags: [Spring, Microservices, Java]   # Bitte auf Großschreibung achten.
 ---
 
 Wenn du das hier liest, bist du vermutlich daran interessiert einen Blog Post für den
@@ -20,6 +20,20 @@ wo einige Tipps für einen erfolgreichen Beitrag gesammelt wurden.
 
 Sollte es noch fragen geben, kannst du dich an den Verteiler [devblog@adesso.de](mailto:devblog@adesso.de)
 wenden.
+
+# Wichtig: Update 23.08.2021
+Ab dem Update 23.08.2021 wurden die Metadaten der Artikel angepasst.
+Von nun an gibt es den Eintrag `author` nicht mehr.
+Stattdessen gibt es ein Array `author_ids`.
+Diese Umstellung beruht auf einer Umstellung im adesso-Blog zur Anzeige mehrerer Autoren.
+Bei einem Autor wird dieser als einziges Element in das Array eingefügt:
+```yaml
+author_ids: [johndoe]
+```
+Bei mehreren Autoren müsst ihr nun keinen Kombinationseintrag mehr anlegen, stattdessen werden beide Autoren in dem Array angegeben:
+```yaml
+author_ids: [johndoe, janedoe]
+```
 
 # Einen Blog Post erstellen
 
@@ -50,7 +64,6 @@ johndoe:
   first_name: John
   last_name: Doe
   github_username: johndoe
-  email: johndoe@email.com
   bio: "2-3 Sätze als Kurzbiographie, die als Beschreibung unter deinen Blog-Posts erscheinen."
   avatar_url: /assets/images/avatars/johndoe.png
   github: https://github.com/johndoe
@@ -58,21 +71,22 @@ johndoe:
 
 ## Metadaten
 
-Jede Blog Post Markdown-Datei beginnt mit einem kurzen Abschnitt, in dem einige Metadaten enthalten
-sind. Dieser Abschnitt ist mit `---` vom eigentlichen Inhalt getrennt und ist als YAML formatiert.
+Jede Blog Post Markdown-Datei beginnt mit einem kurzen Abschnitt, in dem einige Metadaten enthalten sind.
+Dieser Abschnitt ist mit `---` vom eigentlichen Inhalt getrennt und ist als YAML formatiert.
 Hier sind einige Pflichtfelder auszufüllen. 
-Schau dir einfach den [Header dieser Datei](https://github.com/adessoAG/devblog/edit/master/examples/2017-08-10-blog-post-guide.md) als Beispiel an.
+Schau dir einfach den [Header dieser Datei](https://github.com/adessoAG/devblog/edit/master/examples/2021-08-23-blog-post-guide.md) als Beispiel an.
 
 ### Ein Satz pro Zeile
 Damit die Reviewer ihre Kommentare und Verbesserungsvorschläge an konkreter Stelle hinterlassen können, sollte **jeder Satz** auf je **eine Zeile** verteilt sein.
 Da Absätze in Markdown erst bei zwei Zeilenumbrüchen entstehen, werden **einzeilige Umbrüche zusammengefügt**.
 
-Bitte achtet beim Schreiben drauf, da der Reviewprozess somit beidseitig erleichtert wird.
+Bitte achtet beim Schreiben darauf, da der Reviewprozess somit beidseitig erleichtert wird.
 
 ## Einleitung / Teaser
 
-Der erste Absatz (also alles bis zur ersten Leerzeile in der Markdown-Datei) wird als Einleitung / Teaser übernommen. Der erste Absatz
-sollte also höchstens ein paar Sätze lang sein und keine Überschriften beinhalten. **Bitte keine Links im Teaser verwenden!**
+Der erste Absatz (also alles bis zur ersten Leerzeile in der Markdown-Datei) wird als Einleitung / Teaser übernommen.
+Der erste Absatz sollte also höchstens ein paar Sätze lang sein und keine Überschriften beinhalten.
+**Bitte keine Links im Teaser verwenden!**
 
 ## Überschriften
 
@@ -85,12 +99,13 @@ Es können bis zu 3 Überschriften-Ebenen genutzt werden:
 
 ### Dritte Ebene (resultiert in einem h6 Tag)
 ```
-Alles über drei Rauten resultiert in einem h6 HTML-Tag. Die Übschriften-Ebenen h1 bis h3 sind für den Blog selbst nicht vorgegeben.
+Alles über drei Rauten resultiert in einem h6 HTML-Tag.
+Die Überschriften-Ebenen h1 bis h3 sind für den Blog selbst nicht vorgegeben.
 
 ## Syntax Highlighting
 
-Markdown unterstützt Syntax-Highlighting. Für die Darstellung im Blog wird [PrismJS](http://prismjs.com/#languages-list)
-eingesetzt, so dass du alle von PrismJS unterstützten Sprachen verwenden kannst. Beispiel für Java-Code:
+Markdown unterstützt Syntax-Highlighting. Für die Darstellung im Blog wird [PrismJS](http://prismjs.com/#languages-list) eingesetzt, sodass du alle von PrismJS unterstützten Sprachen verwenden kannst.
+Beispiel für Java-Code:
 
 ```java
 public class HelloWorld {
@@ -116,24 +131,24 @@ Verwendet dazu den `raw`-[Tag](https://shopify.github.io/liquid/tags/raw/).
 
 ## Bilder
 
-Um ein Bild zu verwenden, lege die Bild-Datei im Ordner `/assets/images/posts/titel-deines-blog-posts/` ab und
-verlinke sie dann in der Markdown-Datei wie in diesem Beispiel:
+Um ein Bild zu verwenden, lege die Bild-Datei im Ordner `/assets/images/posts/titel-deines-blog-posts/` ab und verlinke sie dann in der Markdown-Datei wie in diesem Beispiel:
 
 ![Logo der adesso AG](https://github.com/adessoAG/devblog/raw/master/assets/images/blog-post-guide/logo.png)
 
-**Hinweis:** im Gegensatz zum Beispiel-Bild oben muss der Pfad zum Bild in einem Blog Post erst bei "assets" beginnen,
-müsste also so aussehen: "/assets/images/posts/titel-deines-blog-posts/bild.png". Wichtig dabei ist, dass der Pfad mit einem **"/"** beginnt, ansonsten funktionieren die Bilder zwar in der Vorschau, allerdings nicht im eigentlichen Blog. Wichtig ist auch, dass ihr bei den Bildern auf die Groß- und Kleinschriebung der Dateiendung achtet. In der Preview funktioniert beides, im eigentlichen Blog ist die Dateiendung case-sensitiv.
+**Hinweis:** im Gegensatz zum Beispiel-Bild oben muss der Pfad zum Bild in einem Blog Post erst bei "assets" beginnen.
+Der Pfad müsste also so aussehen: "/assets/images/posts/titel-deines-blog-posts/bild.png".
+Wichtig dabei ist, dass der Pfad mit einem **"/"** beginnt, ansonsten funktionieren die Bilder zwar in der Vorschau, allerdings nicht im eigentlichen Blog.
+Wichtig ist auch, dass ihr bei den Bildern auf die Groß- und Kleinschreibung der Dateiendung achtet.
+In der Preview funktioniert beides, im eigentlichen Blog ist die Dateiendung case-sensitiv.
 
 # GitHub Fork & Pull Workflow
 
-Solltest du noch nicht mit Pull Requests und dem GitHub-Workflow vertraut sein, hilft dir die folgende
-Anleitung weiter.
+Solltest du noch nicht mit Pull Requests und dem GitHub-Workflow vertraut sein, hilft dir die folgende Anleitung weiter.
 
-Um Änderungen am Source Code vorzunehmen, erzeugst du zunächst einen Fork dieses Repositories
-über den "Fork"-Button in der GitHub Weboberfläche. Diesen Fork checkst du lokal aus (`git clone`) und machst
-die Änderungen am Source Code. Die geänderten Dateien checkst du dann wieder in den Fork ein (`git commit` + `git push`).
-Navigierst du im Browser in der GitHub Weboberfläche dann zu deinem Fork, wird dir ein Button angeboten, mit dem du einen Pull
-Request erstellen kannst.
+Um Änderungen am Source Code vorzunehmen, erzeugst du zunächst einen Fork dieses Repositories über den "Fork"-Button in der GitHub Weboberfläche.
+Diesen Fork checkst du lokal aus (`git clone`) und machst die Änderungen am Source Code.
+Die geänderten Dateien checkst du dann wieder in den Fork ein (`git commit` + `git push`).
+Navigierst du im Browser in der GitHub Weboberfläche dann zu deinem Fork, wird dir ein Button angeboten, mit dem du einen Pull Request erstellen kannst.
 
 Die Änderungen in deinem Pull Request werden dann von einem Entwickler/Architekten-Kollegen gereviewed.
 Ggf. werden Korrekturwünsche als Kommentare im Pull Request ergänzt, die du dann vornehmen und ebenfalls auf den Fork pushen kannst.
@@ -146,29 +161,27 @@ Detailliertere Informationen zu diesem Workflow sind hier zu finden:
 
 # Online Preview 
 
-Wenn ein Pull Request mit einem neuen Blog Post eingegangen ist, wird automatisch ein Build angestoßen,
-der eine Vorschau auf einem Vorschauserver bereitstellt. Um die Vorschau anzusehen, klicke auf den Pull
-Request in der Github GUI und dort auf den Link "Details" neben dem Check "deploy/netlify". Ggf. müssen
-die Checks erst über den Button "Show all checks" aufgeklappt werden.
+Wenn ein Pull Request mit einem neuen Blog Post eingegangen ist, wird automatisch ein Build angestoßen, der eine Vorschau auf einem Vorschauserver bereitstellt.
+Um die Vorschau anzusehen, klicke auf den Pull Request in der Github GUI und dort auf den Link "Details" neben dem Check "deploy/netlify".
+Ggf. müssen die Checks erst über den Button "Show all checks" aufgeklappt werden.
 
 # Freigabeprozess
 
-Der Artikel im eingegangenen Pull Request wird von einem Kollegen gereviewed. Ggf. gibt es dann noch ein
-paar Verbesserungsvorschläge, die eingearbeitet werden. 
+Der Artikel im eingegangenen Pull Request wird von einem Kollegen gereviewed. 
+Ggf. gibt es dann noch ein paar Verbesserungsvorschläge, die eingearbeitet werden. 
 
 Vor der Freigabe leitet der Reviewer einige Infos an CCO weiter:
 
 * Titel des Blogs
-* das Kürzel des Autoren aus der `authors.yml`
+* das Kürzel des Autors aus der `authors.yml`
 * die Kurz-Bio 
 
 Dann sollte noch ein Tag gewartet werden, damit CCO die Daten verarbeiten kann, bevor der Pull Request gemergt wird.
 
-Nachdem der Pull Request gemergt ist, wird der Blog Post automatisch mit der nächsten Synchronisation
-in den adesso Blog integriert.
+Nachdem der Pull Request gemergt ist, wird der Blog Post automatisch mit der nächsten Synchronisation in den adesso Blog integriert.
 
 Um die Freigabe zu vereinfachen, sollte die folgende Checkliste verwendet werden. 
-Diese ist auch in die Pull-Request-Template eingebunden, sodass Du dort deine Änderungen bequem für alle Beteiligten sichtbar, abhaken kannst.
+Diese ist auch in das Pull-Request-Template eingebunden, sodass du dort deine Änderungen bequem für alle Beteiligten sichtbar, abhaken kannst.
 
 
 ## Publish Checkliste
@@ -183,7 +196,8 @@ Diese ist auch in die Pull-Request-Template eingebunden, sodass Du dort deine Ä
 3. Dateien angepasst:
   * [Autorinfo gepflegt](https://github.com/adessoAG/devblog/blob/master/examples/2017-08-10-blog-post-guide.md#autoren-informationen)
 4. Artikel überprüfen:
-  Du musst alle Anforderungen aus dem [Pull-Request-Template](https://github.com/adessoAG/devblog/blob/master/.github/pull_request_template.md) erfüllen. Dieses Template wird automatisch in deinen PR eingebunden, so kannst du die einzelnen Punkte ganz einfach abhaken.
+  Du musst alle Anforderungen aus dem [Pull-Request-Template](https://github.com/adessoAG/devblog/blob/master/.github/pull_request_template.md) erfüllen.
+  Dieses Template wird automatisch in deinen PR eingebunden, so kannst du die einzelnen Punkte ganz einfach abhaken.
   
 # Nachträgliche Änderungen am Post
 Es können auch nach Veröffentlichung nachträglich Änderungen an einem Post durchgeführt werden, wenn beispielsweise Bilder nicht korrekt dargestellt werden oder sich ein Fehler im Text eingeschlichen hat, der vorher nicht aufgefallen ist.
@@ -199,10 +213,22 @@ CMS ausgelesen und in den Blog integriert.
 # Known Issues:
 
 ## Teaser beinhaltet ganzen Post
-Die Zeilenumbrüche im Markdown-File sind wahrscheinlich im falschen Format. Als Zeilenumbruch wird `\n` erwartet. `\r\n` führt dazu, dass der Teaser nicht extrahiert werden kann. Um das Problem zu lösen, kann das Markdown-File mit einem Editor wie Notepad++ geöffnet werden. Mit "Ansicht -> Symbole anzeigen -> Alle anzeigen" werden die Steuerzeichen aktiviert. Als Nächstes kann man mit "Suchen und Ersetzen" in der aktuellen Datei alle `\r` durch einen blanken String ersetzen. Die Änderungen werden anschließend committed.
+Die Zeilenumbrüche im Markdown-File sind wahrscheinlich im falschen Format. Als Zeilenumbruch wird `\n` erwartet.
+`\r\n` führt dazu, dass der Teaser nicht extrahiert werden kann.
+Um das Problem zu lösen, kann das Markdown-File mit einem Editor wie Notepad++ geöffnet werden.
+Mit "Ansicht -> Symbole anzeigen -> Alle anzeigen" werden die Steuerzeichen aktiviert.
+Als Nächstes kann man mit "Suchen und Ersetzen" in der aktuellen Datei alle `\r` durch einen blanken String ersetzen.
+Die Änderungen werden anschließend committed.
 
 ## Leere Commit-Nachricht
-Es kann passieren, dass die Nachricht eines Commits ein leerer String ist. Dies ist der Fall, wenn keine Dateien in dem Commit durch jekyll2cms entfernt oder hinzugefügt wurden.
+Es kann passieren, dass die Nachricht eines Commits ein leerer String ist.
+Dies ist der Fall, wenn keine Dateien in dem Commit durch jekyll2cms entfernt oder hinzugefügt wurden.
 
 ## jekyll2cms pusht nicht auf den master
-In diesem Fall ist jekyll2cms wahrscheinlich nicht als Contributor mit Admin-Rechten in dem Repository. In den Settings kann der GitHub-Account jekyll2cms als Contributor hinzugefügt werden. Anschließend muss dieser die Einladung noch annehmen.
+In diesem Fall ist jekyll2cms wahrscheinlich nicht als Contributor mit Admin-Rechten in dem Repository.
+In den Settings kann der GitHub-Account jekyll2cms als Contributor hinzugefügt werden. 
+Anschließend muss dieser die Einladung noch annehmen.
+
+## jekyll2cms hat keine Berechtigung, um auf den Master zu pushen
+Im August 2021 hat GitHub die Authentifizierung via Nutzername und Passwort für das Pushen von Änderungen deaktiviert (vgl. [Token authentication requirements for Git operations](https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/)).
+Stattdessen muss der Access Token des Nutzers jekyll2cms verwendet werden.

@@ -2,10 +2,10 @@
 layout:         [post, post-xml]              
 title:          "Systemüberwachung mit den Spring Boot Health Checks"
 date:           2018-08-22 13:57
-modified_date: 
-author:         roland 
-categories:     [Java]
-tags:           [Spring, Microservices]
+modified_date:  2021-03-08 14:50
+author_ids: [roland] 
+categories:     [Softwareentwicklung]
+tags:           [Spring, Microservices, Java]
 ---
 
 Bei der Entwicklung von Anwendungen in einer Microservice-Architektur  muss man mit wesentlich komplexeren 
@@ -181,6 +181,5 @@ Gerade am Anfang des Projekts, wenn sowohl die eigene Software als auch
  die Infrastruktur (Containermanagement, Loadbalancer, 
 Firewalls, etc.) noch nicht stabil sind, hilft eine solche Seite bei
  der schnellen Problemanalyse.
- 
  
  

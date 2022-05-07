@@ -1,0 +1,409 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<documents>
+    <document uid="6b22bf2e3c14236534f500631aa10be4">
+        <field name="title"><![CDATA[Contract-Driven Development: Hands-On am Beispiel von Spring Cloud Contract]]></field>
+        <field name="subline"><![CDATA[]]></field>
+        <field name="teaser"><![CDATA[<p>In modernen Softwaresystemen kommt man mittlerweile kaum noch daran vorbei, mit anderen Systemen zu kommunizieren. 
+Je mehr Parteien beteiligt sind, desto mehr Schnittstellen müssen abgestimmt und angebunden werden.
+Doch wie können wir die korrekte Integration von Schnittstellen zu jeder Zeit sicherstellen?
+Dazu bietet sich Contract-Driven Development an, welches wir uns mittels Spring Cloud Contract näher anschauen wollen.</p>
+
+]]></field>
+        <field name="language_multi_keyword"><![CDATA[de]]></field>
+        <field name="content_type_multi_keyword"><![CDATA[blog]]></field>
+        <field name="mime_type_multi_keyword"><![CDATA[text/html]]></field>
+        <field name="category_multi_keyword"><![CDATA[Softwareentwicklung]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Spring]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Cloud]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Contract-Driven Development]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Microservices]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Java]]></field>
+        <field name="date_date"><![CDATA[2021-07-15T08:00:00+02:00]]></field>
+        <field name="date_l"><![CDATA[1626328800000]]></field>
+        <field name="change_date"><![CDATA[1626328800000]]></field>
+        <!--Author Information-->
+        <field name="author_id"><![CDATA[g-stone7]]></field><!--Postcontent-->
+        <field name="headlines"><![CDATA[Contract-Driven Development: Hands-On am Beispiel von Spring Cloud Contract]]></field>
+        <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
+            <p>In modernen Softwaresystemen kommt man mittlerweile kaum noch daran vorbei, mit anderen Systemen zu kommunizieren. 
+Je mehr Parteien beteiligt sind, desto mehr Schnittstellen müssen abgestimmt und angebunden werden.
+Doch wie können wir die korrekte Integration von Schnittstellen zu jeder Zeit sicherstellen?
+Dazu bietet sich Contract-Driven Development an, welches wir uns mittels Spring Cloud Contract näher anschauen wollen.</p>
+
+</div>]]></field>
+        <field name="content"><![CDATA[<div class="adesso-text-formate">
+<div class="row p-t-2">
+<div class="adesso-container">
+<div class="col-xl-8 adesso-center p-b-1 p-l-0 p-r-0">
+    <p>In modernen Softwaresystemen kommt man mittlerweile kaum noch daran vorbei, mit anderen Systemen zu kommunizieren. 
+Je mehr Parteien beteiligt sind, desto mehr Schnittstellen müssen abgestimmt und angebunden werden.
+Doch wie können wir die korrekte Integration von Schnittstellen zu jeder Zeit sicherstellen?
+Dazu bietet sich Contract-Driven Development an, welches wir uns mittels Spring Cloud Contract näher anschauen wollen.</p>
+
+<h4 id="spring-cloud-contract">Spring Cloud Contract</h4>
+<p>Führt eine Partei eine nicht kompatible Änderung einer angebotenen Schnittstelle durch, so führt dies zwangsweise zu Fehlern, im schlimmsten Falle sogar zum Ausfall des Gesamtsystems.
+Um dem entgegenzuwirken, bietet es sich an, Schnittstellenverträge (Contracts) zwischen den beteiligten Systemen auszuhandeln.
+Daraus ergibt sich die Möglichkeit für Nutzende (Consumer) und Anbietende (Producer) Contract-Tests zu entwickeln, um die korrekte Anbindung und Funktionalität von Schnittstellen sicherzustellen.
+Spring Cloud Contract ist ein Spring Cloud Projekt, welches eine einfache und strukturierte Möglichkeit bietet, Contract-Tests umzusetzen.
+Contracts lassen sich über eine domänenspezifische Sprache (DSL) in Form von Groovy oder YAML definieren.
+Im Folgenden schauen wir uns einmal an, wie Contracts in auf Spring basierenden Services mittels Kommunikation über HTTP umgesetzt werden können.</p>
+
+<h5 id="ausgangsszenario">Ausgangsszenario</h5>
+<p>Ein Service benötigt in seinem Kontext die Information, dass ein bestimmtes Jahr ein Schaltjahr ist.
+Dazu bietet ein anderer Service eine Schnittstelle an, welche das Jahr entgegennimmt und prüft, ob es ein Schaltjahr ist.
+Wir bezeichnen den anfragenden Service daher als Consumer und den Service, der die Schnittstelle anbietet, als Producer. 
+Der Consumer konsumiert also die Schnittstelle des Producers. 
+Zu Demonstrationszwecken bietet der Consumer auch eine Schnittstelle an, die lediglich das Ergebnis der Anfrage an den Client zurückgibt.
+Im Folgenden schauen wir uns eine mögliche Umsetzung von Contracts mittels Spring Cloud Contract an.</p>
+
+<h5 id="producer-setup">Producer Setup</h5>
+<p>Der Producer ist in unserem Beispiel ein Spring Boot Microservice.</p>
+
+<h6 id="get-schnittstelle">GET-Schnittstelle</h6>
+<p>Der Producer bietet die folgende GET-Schnittstelle an.
+Diese gibt unter Angabe des Parameters <code>year</code> an, ob das angefragte Jahr ein Schaltjahr ist:</p>
+
+<pre><code class="language-java">@RestController
+public class LeapYearController {
+
+  @GetMapping(value = "/leap-year", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+  public LeapYearResponse checkLeap(@RequestParam(value = "year") int year) {
+    final LeapYearResponse response = new LeapYearResponse();
+    final boolean isLeap = year % 4 == 0 &amp;&amp; (year % 100 != 0 || year % 400 == 0);
+    response.setLeap(isLeap);
+    return response;
+  }
+
+}
+</code></pre>
+
+<p>Anhand dieser Schnittstelle können wir unterschiedliche Aspekte ermitteln, die für die Nutzung dieser Schnittstelle relevant sind.
+Diese Aspekte werden wir im weiteren Verlauf zur Definition der Contracts verwenden:</p>
+<ol>
+  <li>Die Schnittstelle wird mit der HTTP-Methode <code>GET</code> angefragt.</li>
+  <li>Die Schnittstelle erwartet den Pflichtparameter <code>year</code> als Zahl.</li>
+  <li>Die Schnittstelle antwortet im JSON-Format.</li>
+  <li>Das Response-JSON enthält das Feld <code>leap</code> vom Typ <code>boolean</code>.</li>
+</ol>
+
+<h6 id="basisklasse-für-tests">Basisklasse für Tests</h6>
+<p>Um nun Contracts zu definieren, müssen wir zunächst das Setup dafür aufbauen. 
+Dazu definieren wir eine Basisklasse für Tests, um den Spring Kontext zu laden.
+Die aus den Contracts automatisch generierten Tests werden von dieser Klasse erben.</p>
+
+<pre><code class="language-java">@SpringBootTest
+public class BaseTestClass {
+
+  @Autowired
+  private WebApplicationContext webApplicationContext;
+
+  @BeforeEach
+  public void setup() {
+    RestAssuredMockMvc.webAppContextSetup(webApplicationContext);
+  }
+
+}
+</code></pre>
+
+<h6 id="gradle-setup">Gradle Setup</h6>
+<p>Im Producer-Service benötigen wir das Plugin <a href="https://plugins.gradle.org/plugin/org.springframework.cloud.contract">spring-cloud-contract-gradle-plugin</a>.
+Das Plugin wird sich um die Generierung der Tests und Stubs kümmern:</p>
+
+<pre><code class="language-yaml">buildscript {
+  dependencies {
+    classpath 'org.springframework.cloud:spring-cloud-contract-gradle-plugin:3.0.2'
+  }
+}
+
+plugins {
+  id "org.springframework.cloud.contract" version "3.0.2"
+}
+</code></pre>
+
+<p>Anschließend müssen wir das Plugin konfigurieren, indem das zu verwendende Testframework und die zuvor definierte Testbasisklasse angegeben wird:</p>
+
+<pre><code class="language-yaml">contracts {
+  testFramework = TestFramework.JUNIT5
+  baseClassForTests = 'com.adesso.contract.producer.BaseTestClass'
+}
+</code></pre>
+
+<p>Die generierten Stubs müssen allen potenziellen Consumer-Services zur Verfügung gestellt werden.
+In realen Umgebungen würde man die Stubs üblicherweise in ein Artifactory o. ä. hochladen.
+Es gibt auch die Möglichkeit, sie in Form von Docker-Containern auszuliefern (siehe auch <a href="https://cloud.spring.io/spring-cloud-contract/reference/html/docker-project.html">Spring Cloud Contract - Docker Project</a>).
+Wir verwenden jedoch für die Generierung der Stubs der Einfachheit halber das lokale Maven-Repository:</p>
+
+<pre><code class="language-yaml">plugins {
+  id 'maven-publish'
+}
+
+ext {
+  contractsDir = file("mappings")
+  stubsOutputDirRoot = file("${project.buildDir}/production/${project.name}-stubs/")
+}
+
+publishing {
+  publications {
+    stubs(MavenPublication) {
+      artifactId "${project.name}"
+      artifact verifierStubsJar
+    }
+  }
+}
+</code></pre>
+
+<h6 id="producer-contract">Producer Contract</h6>
+<p>Da nun das Setup im Producer-Service steht, können wir den Contract definieren.
+Der Contract sollte alle relevanten Aspekte enthalten, die zur Kommunikation relevant sind wie z.B. HTTP-Methode oder verpflichtende Parameter.
+All jene Aspekte, die jedoch irrelevant sind, sollten auch nicht Teil des Contracts sein (z.B. nicht ausgewertete Header), da diese zu unerwarteten Vertragsbrüchen führen können.
+Man sollte immer im Hinterkopf behalten, dass ein Contract nicht das Schema, sondern eher den Anwendungsfall abbilden soll.
+Die relevanten Aspekte hatten wir ja bereits bei Betrachtung der GET-Schnittstelle ermittelt.
+Daher definieren wir nun folgenden Contract:</p>
+
+<pre><code class="language-yaml">description: Given a year it returns the leap year information for that year
+name: shouldReturnLeapYearInfo
+request:
+  method: GET
+  url: /leap-year
+  headers:
+    Content-Type: application/json
+  queryParameters:
+    year: 2020
+  matchers:
+    queryParameters:
+      - key: year
+        type: matching
+        value: "(\\d)+"
+response:
+  status: 200
+  body:
+    leap: true
+  matchers:
+    body:
+      - path: $.['leap']
+        type: by_type
+        value: any_boolean
+  headers:
+    Content-Type: application/json
+</code></pre>
+
+<p>Mit diesem Contract wird die folgende Vereinbarung geschlossen:</p>
+
+<p><em>Für eine <strong>GET-Anfrage</strong> unter der URL<code>/leap-year</code> mit dem Parameter <code>year</code>, welcher eine Ganzzahl sein muss, besteht die <strong>Antwort</strong> aus dem HTTP-Status 200 und einem JSON, welches das Attribut <code>leap</code> mit einem booleschen Wert enthalten muss.</em></p>
+
+<p>Zu Beachten ist hierbei, dass wir mit den expliziten Angaben (z.B. <code>year: 2020</code> oder <code>leap: true</code>) konkrete Beispiele und mit <code>matchers</code> die erlaubten Datenformate von Request- oder Response-Parametern angeben können.</p>
+
+<p>Falls es für die Integration der beteiligten Parteien notwendig ist, können wir auch Fehlerfälle in Form von Contracts abbilden.
+Hier haben wir beispielsweise einen Contract, der aussagt, dass beim Fehlen des Query-Parameters <code>year</code> mit einem Fehler geantwortet wird:</p>
+<pre><code class="language-yaml">description: Not given a year it returns a bad request error
+name: shouldReturnBadRequestWhenRequestParamMissing
+request:
+  method: GET
+  url: /leap-year
+  headers:
+    Content-Type: application/json
+response:
+  status: 400
+</code></pre>
+
+<h6 id="generierung-der-tests-und-stubs">Generierung der Tests und Stubs</h6>
+<p>Da nun alle Contracts geschrieben sind, können wir anhand der Contracts die Tests generieren und ausführen lassen:</p>
+<pre><code class="language-console">gradle clean build publishToMavenLocal
+</code></pre>
+
+<p>Spring Cloud erstellt nun aus allen existierenden Contracts Tests und führt diese anschließend aus.
+Hier sehen wir die automatisch generierten Tests aus den zwei zuvor definierten Contracts:</p>
+<pre><code class="language-java">public class LeapYearControllerTest extends BaseTestClass {
+
+  @Test
+  public void validate_shouldReturnBadRequestWhenRequestParamMissing() throws Exception {
+    // given:
+    MockMvcRequestSpecification request = given()
+      .header("Content-Type", "application/json");
+
+    // when:
+    ResponseOptions response = given().spec(request)
+        .get("/leap-year");
+
+    // then:
+    assertThat(response.statusCode()).isEqualTo(400);
+  }
+
+  @Test
+  public void validate_shouldReturnLeapYearInfo() throws Exception {
+    // given:
+    MockMvcRequestSpecification request = given()
+        .header("Content-Type", "application/json");
+
+    // when:
+    ResponseOptions response = given().spec(request)
+        .queryParam("year","2020")
+        .get("/leap-year");
+
+    // then:
+    assertThat(response.statusCode()).isEqualTo(200);
+    assertThat(response.header("Content-Type")).isEqualTo("application/json");
+
+    // and:
+    DocumentContext parsedJson = JsonPath.parse(response.getBody().asString());
+
+    // and:
+    assertThat((Object) parsedJson.read("$.['leap']")).isInstanceOf(java.lang.Boolean.class);
+  }
+
+}
+</code></pre>
+
+<p>Im Producer-Service haben wir nun sichergestellt, dass die angebotene Schnittstelle gemäß dem Contract funktioniert.
+Ganz wichtig zu verstehen ist, dass der Test nicht sicherstellt, dass die Schnittstelle fachlich korrekt arbeitet, also dass 2020 tatsächlich ein Schaltjahr ist.
+Es geht stattdessen darum, dass das Antwortformat sichergestellt ist.</p>
+
+<p>Außerdem werden Stubs in Form einer Jar-Datei generiert.
+Die Stubs können nun in Consumer-Services verwendet werden, in welchen wiederum gegen den Contract implementiert werden kann.</p>
+
+<h5 id="consumer-setup">Consumer Setup</h5>
+<p>Schauen wir uns daher die Perspektive im Consumer-Service an.
+Der Consumer-Service soll nun die Schnittstelle des Producer-Service konsumieren und die generierten Stubs in Tests integrieren.</p>
+
+<h6 id="consumer-schnittstelle">Consumer-Schnittstelle</h6>
+<p>Wir implementieren nun zu Demonstrationszwecken eine GET-Schnittstelle, welche die Schnittstelle des Producer-Service konsumiert:</p>
+<pre><code class="language-java">@RestController
+public class YearCheckerController {
+
+  private final Logger logger = LoggerFactory.getLogger(YearCheckerController.class);
+  private WebClient webClient;
+
+  @PostConstruct
+  private void initWebClient() {
+    webClient = WebClient.builder()
+        .baseUrl("http://localhost:7000")
+        .defaultHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
+        .build();
+  }
+
+  @GetMapping(value = "/check-leap-year", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+  public ResponseEntity&lt;LeapYearResponse&gt; checkLeap(@RequestParam(value = "year", required = false) Integer year) {
+    try {
+      final LeapYearResponse leapYearResponse = webClient.get()
+          .uri(uriBuilder -&gt; {
+            uriBuilder = uriBuilder.path("/leap-year");
+            if (year != null) {
+              uriBuilder = uriBuilder.queryParam("year", year);
+            }
+            return uriBuilder.build();
+          })
+          .retrieve()
+          .bodyToMono(LeapYearResponse.class)
+          .block();
+      return ResponseEntity.ok(leapYearResponse);
+    } catch (WebClientResponseException e) {
+      logger.warn("Could not receive response while checking leap year", e);
+      return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+    }
+  }
+
+}
+</code></pre>
+
+<p>Die Schnittstelle nimmt einen optionalen <code>year</code> Parameter entgegen und fragt damit den Producer-Service an.
+Bei einer erfolgreichen Antwort wird diese an den anfragenden Client durchgestellt oder bei Fehlern mit einem <code>500 Internal Server Error</code> geantwortet.</p>
+
+<h6 id="gradle-setup-1">Gradle Setup</h6>
+<p>Im Gradle Setup des Consume-Service ergänzen wir das lokale Maven-Repository als Quelle:</p>
+
+<pre><code class="language-yaml">buildscript {
+  repositories {
+    mavenCentral()
+    mavenLocal()
+  }
+}
+repositories {
+  mavenCentral()
+  mavenLocal()
+}
+</code></pre>
+
+<p>Außerdem benötigen wir noch die Abhängigkeiten zum <a href="https://cloud.spring.io/spring-cloud-contract/2.1.x/multi/multi__spring_cloud_contract_stub_runner.html">spring-cloud-contract-stub-runner</a> und zu den Stubs des Producer-Service:</p>
+
+<pre><code class="language-yaml">dependencies {
+  testImplementation 'org.springframework.cloud:spring-cloud-contract-stub-runner'
+  testImplementation("com.adesso.contract:producer:+:stubs") {
+    transitive = false
+  }
+}
+</code></pre>
+
+<h6 id="test-setup">Test Setup</h6>
+<p>Nun wollen wir sicherstellen, dass der Producer-Service korrekt angebunden wurde.
+Üblicherweise würde man nun für den Producer-Service händisch Mocks anlegen.
+Stattdessen verwenden wir für die Mocks aber die generierten Stubs des Producer-Service.
+Dazu bietet Spring Cloud Contract die Möglichkeit von sogenannten <a href="https://cloud.spring.io/spring-cloud-contract/2.1.x/multi/multi__spring_cloud_contract_stub_runner.html">Contract Stub Runnern</a>.
+Diese vereinfachen die Integration von extern generierten Stubs in die Testumgebung.
+Dies erfolgt, indem die benötigten Stubs automatisch zur Testlaufzeit heruntergeladen und ausgeführt werden.
+Bei der Quelle der Stubs hat man unterschiedliche Auswahlmöglichkeiten:</p>
+<ul>
+  <li><code>CLASSPATH</code>: Die Stubs werden vom Java-Klassenpfad geladen.</li>
+  <li><code>LOCAL</code>: Die Stubs werden von dem lokalen Maven-Repository (.m2 Verzeichnis) geladen.</li>
+  <li><code>REMOTE</code>: Die Stubs werden von einer externen Quelle geladen (z.B. Artifactory)</li>
+</ul>
+
+<p>Der Einfachheit halber verwenden wir das lokale Maven-Repository.
+Die Testklasse sieht daher wie folgt aus:</p>
+
+<pre><code class="language-java">@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.MOCK)
+@AutoConfigureMockMvc
+@AutoConfigureJsonTesters
+@AutoConfigureStubRunner(
+    stubsMode = StubRunnerProperties.StubsMode.LOCAL,
+    ids = "com.adesso.contract:producer:+:stubs:7000")
+class YearCheckerControllerTest {
+
+  @Autowired
+  private MockMvc mockMvc;
+
+  @Test
+  void given_WhenPassLeapYear_ThenReturnTrue() throws Exception {
+    mockMvc.perform(MockMvcRequestBuilders.get("/check-leap-year")
+        .queryParam("year", "2020")
+        .contentType(MediaType.APPLICATION_JSON))
+        .andExpect(status().isOk())
+        .andExpect(content().string(containsString("true")));
+  }
+
+  @Test
+  void given_WhenYearParameterMissing_ThenReturnInternalServerError() throws Exception {
+    mockMvc.perform(MockMvcRequestBuilders.get("/check-leap-year")
+        .contentType(MediaType.APPLICATION_JSON))
+        .andExpect(status().isInternalServerError());
+  }
+}
+</code></pre>
+
+<p>Nun können wir die Consumer-Tests ausführen:</p>
+<pre><code class="language-console">gradle clean test
+</code></pre>
+
+<p>Wie man sieht, benötigen wir kein händisches Mocking des Producer-Service.
+Im Build-Prozess werden automatisch die Producer-Stubs integriert.
+Dadurch fällt nun jede Änderung aufseiten des Producer-Service bei Ausführung der Consumer-Tests auf.
+Dies ist natürlich nur der Fall, sofern der Contract gebrochen wurde.
+Das hier beschriebene Setup lässt sich als <em>Producer-Driven Contract Testing</em> beschreiben.
+Denn die Contracts sind ausgehend vom Producer-Service definiert und Stubs angeboten worden.
+Ebenso könnte man das Verfahren umkehren, sodass der Consumer-Service seine Anforderungen in Form von Contracts an den Producer-Service mitteilt.
+Dies nennt man <em>Consumer-Driven Contract Testing</em>.
+Die technische Umsetzung dazu wäre analog zu dem hier gezeigten.</p>
+
+<h5 id="fazit">Fazit</h5>
+<p>Wir haben nach ein wenig Konfigurationsaufwand gesehen, dass das Contract-Driven Development mit Spring Cloud Contract recht unkompliziert möglich ist.
+Contracts bieten den Vorteil im laufenden Entwicklungsprozess Breaking-Changes früher (oder überhaupt) erkennen zu können.
+Spring Cloud Contract bietet die technische Möglichkeit sowohl den Ansatz des Consumer-Driven als auch des Producer-Driven Contract Testings umzusetzen.
+Für welchen der beiden Wege man sich letztlich entscheidet, sollte im jeweiligen Projektkontext mit den beteiligten Parteien abgestimmt werden.</p>
+
+<p>Das vollständige Beispielprojekt steht in <a href="https://github.com/g-stone7/spring-cloud-contract-showroom">Github</a> zur Verfügung.</p>
+
+</div>
+</div>
+</div>
+</div>]]></field>
+    </document>
+</documents>

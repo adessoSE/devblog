@@ -18,14 +18,8 @@ In diesem Teil der Serie möchte ich auf zwei weitere, wichtige Aspekte des Fram
         <field name="date_date"><![CDATA[2020-05-13T16:00:00+02:00]]></field>
         <field name="date_l"><![CDATA[1589378400000]]></field>
         <field name="change_date"><![CDATA[1590674400000]]></field>
-        <!--Picture-->
-        <!-- Not in use at the moment-->
         <!--Author Information-->
-        <field name="author_first_name"><![CDATA[Kilian]]></field>
-        <field name="author_last_name"><![CDATA[Krause]]></field>
-        <field name="author_id"><![CDATA[KilianKrause]]></field>
-        <field name="author_picture_stored_only"><![CDATA[http://localhost:4000/assets/images/avatars/kiliankrause.jpg]]></field>
-        <!--Postcontent-->
+        <field name="author_id"><![CDATA[KilianKrause]]></field><!--Postcontent-->
         <field name="headlines"><![CDATA[Rust für Java-Entwickler - Teil 2]]></field>
         <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
             <p>Im ersten Teil dieser Serie haben wir unsere REST-API definiert und implementiert.

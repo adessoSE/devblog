@@ -16,14 +16,8 @@
         <field name="date_date"><![CDATA[2019-06-28T10:25:00+02:00]]></field>
         <field name="date_l"><![CDATA[1561710300000]]></field>
         <field name="change_date"><![CDATA[1561710300000]]></field>
-        <!--Picture-->
-        <!-- Not in use at the moment-->
         <!--Author Information-->
-        <field name="author_first_name"><![CDATA[Christoph]]></field>
-        <field name="author_last_name"><![CDATA[Hoffmann]]></field>
-        <field name="author_id"><![CDATA[no0x9d]]></field>
-        <field name="author_picture_stored_only"><![CDATA[http://localhost:4000/assets/images/avatars/christophhoffmann.jpg]]></field>
-        <!--Postcontent-->
+        <field name="author_id"><![CDATA[no0x9d]]></field><!--Postcontent-->
         <field name="headlines"><![CDATA[Typisierte Forms in Angular]]></field>
         <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
             <p>In fast jeder Angular Applikation wird man früher oder später Eingaben von Nutzern annehmen und verarbeiten wollen. Reactive Forms haben den Vorteil, dass die Strukturen und alle Validierungen an einem Platz definiert werden und feldübergreifende Validierungen so sehr einfach umsetzbar sind. Für den Nachteil, dass sämtliche Typinformationen über die Formulardaten verloren gehen, soll hier eine Alternative aufgezeigt werden.</p>

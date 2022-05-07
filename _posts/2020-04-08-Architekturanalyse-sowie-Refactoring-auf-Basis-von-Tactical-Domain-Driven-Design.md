@@ -2,10 +2,10 @@
 layout: [post, post-xml]
 title:  "Architekturanalyse sowie Refactoring auf Basis von Tactical Domain-Driven Design"
 date:   2020-04-08 09:00
-modified_date: 2020-04-08 09:00
-author: DanielKraft
-categories: [Java]
-tags: [Domain-Driven Design, Refactoring, Micronaut,jQAssistant]
+modified_date: 2021-03-08 14:50
+author_ids: [DanielKraft]
+categories: [Softwareentwicklung]
+tags: [Domain-Driven Design, Refactoring, Micronaut, jQAssistant, Java]
 ---
 
 Zurzeit wird das Domain-Driven Design gerne in der Softwareentwicklung
