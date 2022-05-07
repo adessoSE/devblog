@@ -10,24 +10,24 @@ tags: [Microsoft, Power Platform, CRM, Dynamics 365, Architektur, International,
 
 Bei internationalen CRM-Systemen, die auf Microsoft Dynamics 365 basieren, ist es elementar die Compliance-Anforderungen der Länder zu erfüllen. 
 CRM-Systeme, die dabei auch Länder außerhalb der EU wie bspw. China, Brasilien & USA umfassen, müssen aus Compliance-Sicht einen "Schritt weitergehen" verglichen mit EU-DSGVO (GDPR), um die Anforderungen bspw. für die Datenlokation zu erfüllen.
-
 Dabei sind verschiedene Compliance-Aspekte zu betrachten. 
-In diesem Blog-Beitrag geht es beispielhaft um die Speicherung von personenbezogenen Daten bzw. den dazugehörigen Speicherort, da diese strengen Compliance-Anforderungen unterliegen.
+
+In diesem Blog-Beitrag geht es um die Datenlokation und die passende Systemarchitektur, da bspw. personenbezogene Daten strengen Compliance-Anforderungen unterliegen.
 
 
 # Vorgehen
 
-Dies ist weder ein ausschließliches Compliance-Thema noch ist nur rein technisch zu betrachten.
-In Projekten geht es hierbei auch die Balance zu wahren aus 
+In Projekten geht es hierbei um die Balance zu wahren aus 
 * fachlichen Anforderungen und den daraus resultierenden Business Value
 * Anforderungen aus Compliance-Sicht bspw. Ort der primären Datenspeicherung
 * Technische Machbarkeit & Rahmenbedingungen
 
-Kommunikation und strukturiertes Vorgehen ist hierbei ein kritischer Erfolgsfaktor.
+Kommunikation und strukturiertes Vorgehen sind hierbei ein kritischer Erfolgsfaktor.
 
 Die Balance zwischen den drei Instanzen ist hier abgebildet:
 
 ![Balance.png](/assets/images/posts/Internationale-CRM-Projekte-unter-Beruecksichtigung-von-Compliance/Balance.png)
+
 
 # Stärken der Microsoft Power Platform
 
@@ -63,7 +63,7 @@ Die Tenant-Architektur ist beliebig ausbaubau, d.h. Multi-Tenants sind möglich 
 
 # Wo ist was verfügbar
 
-Darüber hinaus ist es beim Entwurf einer Umgebungs-Architektur wichtig die Produktverfügbarkeit der Power Platform und die Datenspeicherungslokationen zu bestimmen, eine passende technischen Grundgerüst zu kreieren.
+Darüber hinaus ist es beim Entwurf einer Umgebungs-Architektur wichtig die Produktverfügbarkeit der Power Platform und die Datenspeicherungslokationen zu bestimmen.
 
 Die Produktverfügbarkeit ist einem dynamischen Power-BI-Report jederzeit nachvollziehbar:
 
