@@ -17,17 +17,12 @@ lauffähige und erweiterbarte Software ausgeliefert werden kann und ich zeige, w
         <field name="tag_multi_keyword"><![CDATA[FaaS]]></field>
         <field name="tag_multi_keyword"><![CDATA[AWS]]></field>
         <field name="tag_multi_keyword"><![CDATA[Cloud Computing]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Cloud]]></field>
         <field name="date_date"><![CDATA[2020-10-19T08:00:00+02:00]]></field>
         <field name="date_l"><![CDATA[1603087200000]]></field>
-        <field name="change_date"><![CDATA[1603087200000]]></field>
-        <!--Picture-->
-        <!-- Not in use at the moment-->
+        <field name="change_date"><![CDATA[1623999600000]]></field>
         <!--Author Information-->
-        <field name="author_first_name"><![CDATA[Christian]]></field>
-        <field name="author_last_name"><![CDATA[Bachmann]]></field>
-        <field name="author_id"><![CDATA[c-bachmann]]></field>
-        <field name="author_picture_stored_only"><![CDATA[http://localhost:4000/assets/images/avatars/c-bachmann.jpg]]></field>
-        <!--Postcontent-->
+        <field name="author_id"><![CDATA[c-bachmann]]></field><!--Postcontent-->
         <field name="headlines"><![CDATA[Cloud native Migration mit der Rearchitecting Strategie]]></field>
         <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
             <p>Mit der Rearchitecting Strategie kann eine Anwendung in eine Cloud native Anwendung überführt werden, die das volle Potential der Cloud nutzt.

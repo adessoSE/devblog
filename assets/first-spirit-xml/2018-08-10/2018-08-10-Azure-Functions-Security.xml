@@ -9,22 +9,17 @@
         <field name="language_multi_keyword"><![CDATA[de]]></field>
         <field name="content_type_multi_keyword"><![CDATA[blog]]></field>
         <field name="mime_type_multi_keyword"><![CDATA[text/html]]></field>
-        <field name="category_multi_keyword"><![CDATA[Microsoft]]></field>
+        <field name="category_multi_keyword"><![CDATA[Softwareentwicklung]]></field>
         <field name="tag_multi_keyword"><![CDATA[azure]]></field>
         <field name="tag_multi_keyword"><![CDATA[functions]]></field>
         <field name="tag_multi_keyword"><![CDATA[security]]></field>
         <field name="tag_multi_keyword"><![CDATA[paas]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Microsoft]]></field>
         <field name="date_date"><![CDATA[2018-08-10T12:42:00+02:00]]></field>
         <field name="date_l"><![CDATA[1533897720000]]></field>
-        <field name="change_date"><![CDATA[1533897720000]]></field>
-        <!--Picture-->
-        <!-- Not in use at the moment-->
+        <field name="change_date"><![CDATA[1615211400000]]></field>
         <!--Author Information-->
-        <field name="author_first_name"><![CDATA[Nils]]></field>
-        <field name="author_last_name"><![CDATA[Andresen]]></field>
-        <field name="author_id"><![CDATA[nils-a]]></field>
-        <field name="author_picture_stored_only"><![CDATA[http://localhost:4000/assets/images/avatars/nilsa.jpg]]></field>
-        <!--Postcontent-->
+        <field name="author_id"><![CDATA[nils-a]]></field><!--Postcontent-->
         <field name="headlines"><![CDATA[Absichern von Azure Funktionen]]></field>
         <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
             <p>Gibt es “Sicherheit” bei Azure Funktionen? Sind diese immer öffentlich zugänglich? Können Funktionen mit Benutzer-Autorisierung abgesichert werden? Dieser Beitrag versucht diesen und anderen Fragen nachzugehen.</p>

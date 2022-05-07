@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<documents>
+    <document uid="ff083321f27be044d569d0e9bb9d36fc">
+        <field name="title"><![CDATA[Hands-on Entwicklung eines Discord-Bots]]></field>
+        <field name="subline"><![CDATA[]]></field>
+        <field name="teaser"><![CDATA[<p>Unter Gamern ist Discord ein schon lange verbreitetes Tool, um sich beim Spielen zu unterhalten.
+Aber auch außerhalb der Gamer-Community wird Discord immer häufiger genutzt, um sich mit Freunden zu unterhalten oder auch nur um zu Schreiben.
+Dadurch, dass Discord nicht nur als Client auf dem Computer genutzt werden kann,
+sondern auch als App für Android und iOS verfügbar ist und über den Browser verwendet werden kann,
+ist es ohne große Hürden möglich, sich mit anderen Menschen zu verknüpfen.</p>
+
+]]></field>
+        <field name="language_multi_keyword"><![CDATA[de]]></field>
+        <field name="content_type_multi_keyword"><![CDATA[blog]]></field>
+        <field name="mime_type_multi_keyword"><![CDATA[text/html]]></field>
+        <field name="category_multi_keyword"><![CDATA[Softwareentwicklung]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Java]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Discord]]></field>
+        <field name="date_date"><![CDATA[2022-02-25T10:25:00+01:00]]></field>
+        <field name="date_l"><![CDATA[1645781100000]]></field>
+        <field name="change_date"><![CDATA[1645781100000]]></field>
+        <!--Author Information-->
+        <field name="author_id"><![CDATA[bolsei]]></field><!--Postcontent-->
+        <field name="headlines"><![CDATA[Hands-on Entwicklung eines Discord-Bots]]></field>
+        <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
+            <p>Unter Gamern ist Discord ein schon lange verbreitetes Tool, um sich beim Spielen zu unterhalten.
+Aber auch außerhalb der Gamer-Community wird Discord immer häufiger genutzt, um sich mit Freunden zu unterhalten oder auch nur um zu Schreiben.
+Dadurch, dass Discord nicht nur als Client auf dem Computer genutzt werden kann,
+sondern auch als App für Android und iOS verfügbar ist und über den Browser verwendet werden kann,
+ist es ohne große Hürden möglich, sich mit anderen Menschen zu verknüpfen.</p>
+
+</div>]]></field>
+        <field name="content"><![CDATA[<div class="adesso-text-formate">
+<div class="row p-t-2">
+<div class="adesso-container">
+<div class="col-xl-8 adesso-center p-b-1 p-l-0 p-r-0">
+    <p>Unter Gamern ist Discord ein schon lange verbreitetes Tool, um sich beim Spielen zu unterhalten.
+Aber auch außerhalb der Gamer-Community wird Discord immer häufiger genutzt, um sich mit Freunden zu unterhalten oder auch nur um zu Schreiben.
+Dadurch, dass Discord nicht nur als Client auf dem Computer genutzt werden kann,
+sondern auch als App für Android und iOS verfügbar ist und über den Browser verwendet werden kann,
+ist es ohne große Hürden möglich, sich mit anderen Menschen zu verknüpfen.</p>
+
+<p>Discord ermöglicht es einem auch für seine eigenen Zwecke einen Server zu erstellen, um mit seiner eigenen Community kommunizieren zu können.
+Um sich die Administration von seinem eigenen Server zu vereinfachen, gibt es die Möglichkeit Bots zu nutzen.</p>
+
+<p>In diesem Artikel möchte ich mit euch die ersten Schritte machen, um solch einen Bot in Java zu programmieren.
+Und natürlich zeige ich euch auch, welche weiteren Schritte nötig sind.</p>
+
+<p>Zur Erstellung und Programmierung benötigen wir folgende Dinge:</p>
+
+<ul>
+  <li>IDE</li>
+  <li>Java Version 9+</li>
+  <li>Apache Maven</li>
+  <li>Discord Account</li>
+</ul>
+
+<h4 id="den-bot-im-web-vorbereiten">Den Bot im Web vorbereiten</h4>
+
+<p>Bevor wir mit der programmatischen Umsetzung beginnen können, müssen wir zunächst einiges vorbereiten.
+Als erstes müssen wir den Bot im Web erstellen.
+Dazu müssen wir uns auf der <a href="https://discord.com/">Discord-Seite</a> anmelden und die <a href="https://discord.com/developers/applications">Applikationsseite</a> aufrufen.
+Auf dieser Seite können wir über den Button “New Application” oben rechts eine neue Applikation erzeugen.
+Um die so erstellte Applikation in einen Bot umzuwandeln, müssen wir über den linken Baum in den Zweig Bot navigieren.
+Dort können wir über “Add Bot” die Applikation nun in einen Bot umwandeln.</p>
+
+<p>Nach der Umwandlung gibt es auf der Seite über einen Button “Copy” die Möglichkeit einen Token zu kopieren.
+Diesen sollten wir uns für später schon einmal abspeichern.</p>
+
+<p>Die Default-Einstellung von einem neu erstellten Bot ist public.
+Der Bot könnte somit von jedem auf seinen Server geholt werden.
+Damit das nicht passiert sollten wir diese Einstellung daher erst einmal auf private stellen.</p>
+
+<h4 id="die-entwicklung-des-bots">Die Entwicklung des Bots</h4>
+
+<p>Bevor wir mit der Implementierung beginnen können müssen wir ein Maven-Projekt anlegen.</p>
+
+<p>Zunächst müssen wir die <code>pom.xml</code> erweitern, damit wir Abhängigkeiten zur Discord API erfolgreich einbinden können.
+Da sich die Discord API nicht im zentralen Maven-Repository befindet, müssen wir das Discord-Repository in die <code>pom.xml</code> aufnehmen:</p>
+
+<pre><code class="language-xml">&lt;repository&gt;
+  &lt;id&gt;dv8tion&lt;/id&gt;
+  &lt;name&gt;m2-dv8tion&lt;/name&gt;
+  &lt;url&gt;https://m2.dv8tion.net/releases&lt;/url&gt;
+&lt;/repository&gt;
+</code></pre>
+
+<p>Danach können wir die eigentliche Abhängigkeit zur API ergänzen:</p>
+
+<pre><code class="language-xml">&lt;dependency&gt;
+  &lt;groupId&gt;net.dv8tion&lt;/groupId&gt;
+  &lt;artifactId&gt;JDA&lt;/artifactId&gt;
+  &lt;version&gt;4.2.1_253&lt;/version&gt;
+  &lt;exclusions&gt;
+    &lt;exclusion&gt;
+      &lt;groupId&gt;club.minnced&lt;/groupId&gt;
+      &lt;artifactId&gt;opus-java&lt;/artifactId&gt;
+    &lt;/exclusion&gt;
+  &lt;/exclusions&gt;
+&lt;/dependency&gt;
+</code></pre>
+
+<p>Für die ersten Ansäzte benötigen wir nur zwei Klassen <code>BotStartUp.java</code> und <code>AdessoBot.java</code>.
+Diese packen wir beide in das Package <code>de.adesso.discordbot</code>.</p>
+
+<p>Zusätzlich brauchen wir auf der <code>package</code>-Ebene die <code>module-info.java</code>.
+In der müssen wir unserem Modul einen Namen geben und das Package eintragen, das wir von der Discord API benutzen wollen.
+Im Anschluss daran sieht unsere <code>module-info.java</code> wie folgt aus:</p>
+
+<pre><code class="language-java">module de.adesso.discordbot { 
+  requires net.dv8tion.jda;
+}
+</code></pre>
+
+<h4 id="das-coding-beginnt">Das Coding beginnt</h4>
+
+<p>Jetzt können wir endlich die erste Zeile Code schreiben.
+Wir brauchen nicht viel, damit unser erster Bot funktioniert.
+Als Erstes erstellen wir in der Klasse <code>AdessoBot.java</code> die Methode <code>startBot()</code>.</p>
+
+<p>Anschließend können wir die Discord API nutzen, um den Bot zu erzeugen.
+Dafür bekommen wir den <code>DefaultShardManagerBuilder</code> mit der Methode <code>createDefault(String token)</code> zur Verfügung gestellt.
+Der Token, der hier als Parameter erwartet wird, ist unser Token, den wir uns zuvor schon kopiert hatten.</p>
+
+<pre><code class="language-java">DefaultShardManagerBuilder builder = DefaultShardManagerBuilder.createDefault("Unser Token");
+</code></pre>
+
+<p>Damit unser Bot nach dem Starten auch schon ein kleines Lebenszeichen von sich gibt, können wir die Aktivität über folgende Zeile setzen:</p>
+
+<pre><code class="language-java">builder.setActivity(Activity.playing("Solitäre"));
+</code></pre>
+
+<p>Zum Starten des Bots müssen wir jetzt nur noch den ShardManager über die <code>build()</code>-Methode erzeugen lassen.</p>
+
+<p>Unsere komplette Klasse sieht dann so aus:</p>
+
+<pre><code class="language-java">package de.adesso.discordbot;
+
+import javax.security.auth.login.LoginException;
+
+import net.dv8tion.jda.api.entities.Activity;
+import net.dv8tion.jda.api.sharding.DefaultShardManagerBuilder;
+import net.dv8tion.jda.api.sharding.ShardManager;
+
+public class AdessoBot {
+
+    public ShardManager startBot() throws LoginException, IllegalArgumentException {
+        DefaultShardManagerBuilder builder = DefaultShardManagerBuilder.createDefault("Token");
+        builder.setActivity(Activity.playing("Solitäre"));
+        
+        return builder.build();
+    }
+}
+</code></pre>
+
+<p>Um unsere Applikation jetzt noch starten zu können benötigt unsere Klasse <code>BotStartUp.java</code> nur noch eine <code>main()</code>-Methode.
+In dieser erzeugen wir ein <code>AdessoBot</code>-Objeket und rufen die <code>startBot()</code>-Methode auf.</p>
+
+<h4 id="die-ersten-lebenszeichen-des-bots">Die ersten Lebenszeichen des Bots</h4>
+
+<p>Damit wir unseren Bot am Ende auch testen können, benötigen wir einen Server, auf dem wir die Rechte haben, einen Bot hinzuzufügen.
+Am einfachsten ist es, wenn wir für den Test einen eigenen Server anlegen.</p>
+
+<p>Über die Discord-Anwendung können wir das ganz einfach über das Plus auf der linken Seite erledigen.
+Über die folgende URL können wir unseren programmierten Bot nun dem Server zuweisen.</p>
+
+<p><a href="https://discord.com/oauth2/authorize?client_id=unsereClientId&amp;scope=bot&amp;permissions=8">https://discord.com/oauth2/authorize?client_id=unsereClientId&amp;scope=bot&amp;permissions=8</a></p>
+
+<p>Die <code>client_id</code> ist eine eindeutige Application Id von unserer Discord-Applikation.
+Diese finden wir unter dem Reiter “General Information”.</p>
+
+<p>Bei der 8 handelt es sich um einen Permission Integer.
+Mit einem Permission Integer wird angegeben, welche Rechte unser Bot auf dem Server besitzt.
+Die 8 steht für Administrator.
+Auf der <a href="https://discord.com/developers/applications">Applikationsseite</a> gibt es nach dem Auswählen des Bots unter dem Reiter Bot ein Tool, mit dem wir uns die Permission Integer abhängig von den benötigen Rechten ermitteln lassen können.</p>
+
+<p>Nach dem Aufruf der URL müssen wir nur noch bestätigen, dass der Bot unserem Server beitreten darf.</p>
+
+<p>Wenn wir nun die Applikation starten, autorisiert sich unser Bot mit dem Token, den wir dem SharedManager übergeben haben, am Discord-System.
+Sollten wir keine Fehler gemachten haben, können wir jetzt sehen, wie unser Bot gemütlich eine Runde Solitäre spielt.</p>
+
+<h4 id="der-bot-mag-auch-ein-integrationstests">Der Bot mag auch ein Integrationstests</h4>
+
+<p>Natürlich ist es schön, zu sehen, dass der Bot auf unserem Discord-Server Solitäre spielt.
+Zu einem guten Projekt gehören aber natürlich auch selbst geschriebene Tests.
+Für den Anfang wollen wir einen kleinen Integrationstest schreiben.</p>
+
+<p>Durch unseren erstellen Server können wir für diesen Test einfach das JUnit-Framework nutzen.
+Zusätzlich nutzen wir auch noch AssertJ, mit diesem Framework lassen sich schöne fließende Vergleiche schreiben.</p>
+
+<p>Da beide APIs nicht zum Java-Standard gehören, müssen wir als erstes die Abhängigkeiten in unsere <code>pom.xml</code> aufnehmen.</p>
+
+<pre><code class="language-xml">&lt;dependency&gt;
+  &lt;groupId&gt;org.junit.jupiter&lt;/groupId&gt;
+  &lt;artifactId&gt;junit-jupiter-api&lt;/artifactId&gt;
+  &lt;version&gt;5.8.2&lt;/version&gt;
+  &lt;scope&gt;test&lt;/scope&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+  &lt;groupId&gt;org.assertj&lt;/groupId&gt;
+  &lt;artifactId&gt;assertj-core&lt;/artifactId&gt;
+  &lt;version&gt;3.22.0&lt;/version&gt;
+  &lt;scope&gt;test&lt;/scope&gt;
+&lt;/dependency&gt;
+</code></pre>
+
+<p>Jetzt erstellen wir unsere Test Klasse <code>AdessoBotTest.java</code> mit unserer Testmethode.
+Der Name der Methode ist für die Ausführung des Tests nicht relevant, wir sollten trotzdem einen sprechenden Namen wählen.
+Wichtig ist aber, dass wir unsere Methode mit der Annotation <code>@Test</code> versehen.
+Zusätzlich können wir durch die Annotation <code>@DisplayName</code> noch einen gut leserlichen Namen vergeben.</p>
+
+<p>Mit unserem Test wollen wir die folgenden Dinge prüfen:</p>
+
+<ul>
+  <li>Der Bot ist online</li>
+  <li>Er ist aktiv und spielt Solitäre</li>
+</ul>
+
+<p>Damit wir diese Dinge prüfen können, müssen wir uns den <code>ShardManager</code> angucken, der vom <code>DefaultShardManagerBuilder</code> erzeugt wurde.
+Vom <code>SharedManager</code> können wir uns über die <code>getShards()</code>-Methode alle Shards zurückgeben lassen, die durch <code>JDA</code>-Objekte dargestellt werden.
+Für den Anfang haben wir nur einen Shard, dass heißt über ein <code>get(0)</code> bekommen wir unser <code>JDA</code>-Objekt mit dem wir unsere Tests durchführen können.</p>
+
+<h4 id="ist-der-bot-online">Ist der Bot online?</h4>
+
+<p>Als erstes wollen wir wissen, ob unser Bot auch online ist, wenn die Methode <code>startBot()</code> aufgerufen wurde.
+Für diesen Test brauchen wir den Status von unserem Shard, den wir über die Methode <code>getStatus()</code> bekommen.
+Der Status wird über ein eigenes <code>enum</code> dargestellt und wir wollen prüfen, ob unser Shard den Status <code>CONNECTED</code> hat.
+Dafür nutzen wir das vorher eingebunden Framework assertj, um folgenden Code zu schreiben:</p>
+
+<pre><code class="language-java">Status status = jda.getStatus();
+assertThat(status).isEqualTo(Status.CONNECTED);
+</code></pre>
+
+<h4 id="spielt-der-bot-solitäre">Spielt der Bot Solitäre?</h4>
+
+<p>Nun wollen wir noch gucken, ob der Bot auch aktiv ist und wirklich Solitäre spielt.
+Die Aktivität selber wird in einem <code>Presence</code>-Objekt gespeichert, wir müssen also von unserem Shard ein <code>Presence</code>-Objekt bekommen.
+Das bekommen wir auch über die <code>getPresence()</code>-Methode.
+Nachdem wir nun das <code>Presence</code>-Objekt haben, können wir uns die Aktivität holen und prüfen, ob sie unseren Erwartungen entspricht.</p>
+
+<pre><code class="language-java">Activity activity = jda.getPresence().getActivity();
+assertThat(activity.getType()).isEqualTo(ActivityType.COMPETING);
+assertThat(activity.getName()).isEqualTo("Solitär"));
+</code></pre>
+
+<h4 id="die-vollständige-test-klasse">Die vollständige Test Klasse</h4>
+
+<p>Die neuste Version von JUnit ermöglicht es uns, alle unsere Prüfungen auszuführen ohne, dass der Test abbricht sobald eine Prüfung nicht erfolgreich ist.
+Dafür können wir die Metode <code>assertAll(Executable...)</code> nutzen.
+Am Ende sieht unser Test also so aus:</p>
+
+<pre><code class="language-java">@Test
+@DisplayName("AdessoBot ist online und spielt Solitäre")
+void adessoBotIsOnline() throws LoginException, IllegalArgumentException, InterruptedException {
+	AdessoBot adessoBot = new AdessoBot();
+	ShardManager shardManager = adessoBot.startBot();
+	assertThat(shards.size()).isEqualTo(1);
+	shardManager.getShards().get(0).awaitReady();
+	List&lt;JDA&gt; shards = shardManager.getShards();
+	assertThat(shards.size()).isEqualTo(1);
+	JDA jda = shards.get(0);
+	Status status = jda.getStatus();
+
+	Activity activity = jda.getPresence().getActivity();
+
+	assertAll(
+		() -&gt; assertThat(status).isEqualTo(Status.CONNECTED),
+		() -&gt; assertThat(activity.getType()).isEqualTo(ActivityType.COMPETING),
+		() -&gt; assertThat(activity.getName()).isEqualTo("Solitär"));
+}
+</code></pre>
+
+<p><strong>Quellen:</strong></p>
+<ul>
+  <li><a href="https://maven.apache.org/index.html">Apache Maven</a></li>
+  <li><a href="https://discord.com/developers/docs/intro">Discord Documentation</a></li>
+  <li><a href="https://www.java.com/de/">Java</a></li>
+  <li><a href="https://junit.org/junit5/">JUnit</a></li>
+  <li><a href="https://assertj.github.io/doc/">AssertJ</a></li>
+</ul>
+
+</div>
+</div>
+</div>
+</div>]]></field>
+    </document>
+</documents>

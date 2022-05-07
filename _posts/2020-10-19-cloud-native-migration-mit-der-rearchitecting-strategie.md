@@ -1,10 +1,11 @@
 ---
 layout: [post, post-xml]                          
 title:  "Cloud native Migration mit der Rearchitecting Strategie"         
-date:   2020-10-19 08:00                   
-author: c-bachmann                                  
+date:   2020-10-19 08:00           
+modified_date:  2021-06-18 09:00
+author_ids: [c-bachmann]                                  
 categories: [Architektur]                        
-tags: [Architektur, Serverless, FaaS, AWS, Cloud Computing]       
+tags: [Architektur, Serverless, FaaS, AWS, Cloud Computing, Cloud]       
 ---
 
 Mit der Rearchitecting Strategie kann eine Anwendung in eine Cloud native Anwendung überführt werden, die das volle Potential der Cloud nutzt.

@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<documents>
+    <document uid="1947c065d5fdb72b15e1990719af2d4a">
+        <field name="title"><![CDATA[Adressierung von Herausforderungen in der Domänenmodellierung]]></field>
+        <field name="subline"><![CDATA[]]></field>
+        <field name="teaser"><![CDATA[<p>Von zentraler Bedeutung für die Softwareentwicklung ist die Modellierung der Fachdomäne.
+<em>Domain Driven Design</em>, kurz DDD, ist eine Sammlung von Werkzeugen, um die Modellierung der Domäne zu unterstützen.
+DDD wurde erstmalig durch Eric Evans in seinem Buch <em>Domain Driven Design - Tackling Complexity in the Heart of Software</em> beschrieben.</p>
+
+]]></field>
+        <field name="language_multi_keyword"><![CDATA[de]]></field>
+        <field name="content_type_multi_keyword"><![CDATA[blog]]></field>
+        <field name="mime_type_multi_keyword"><![CDATA[text/html]]></field>
+        <field name="category_multi_keyword"><![CDATA[Architektur]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Domain Driven Design]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Modellierung]]></field>
+        <field name="date_date"><![CDATA[2021-06-16T13:00:00+02:00]]></field>
+        <field name="date_l"><![CDATA[1623841200000]]></field>
+        <field name="change_date"><![CDATA[1623841200000]]></field>
+        <!--Author Information-->
+        <field name="author_id"><![CDATA[viktor-mucha]]></field><!--Postcontent-->
+        <field name="headlines"><![CDATA[Adressierung von Herausforderungen in der Domänenmodellierung]]></field>
+        <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
+            <p>Von zentraler Bedeutung für die Softwareentwicklung ist die Modellierung der Fachdomäne.
+<em>Domain Driven Design</em>, kurz DDD, ist eine Sammlung von Werkzeugen, um die Modellierung der Domäne zu unterstützen.
+DDD wurde erstmalig durch Eric Evans in seinem Buch <em>Domain Driven Design - Tackling Complexity in the Heart of Software</em> beschrieben.</p>
+
+</div>]]></field>
+        <field name="content"><![CDATA[<div class="adesso-text-formate">
+<div class="row p-t-2">
+<div class="adesso-container">
+<div class="col-xl-8 adesso-center p-b-1 p-l-0 p-r-0">
+    <p>Von zentraler Bedeutung für die Softwareentwicklung ist die Modellierung der Fachdomäne.
+<em>Domain Driven Design</em>, kurz DDD, ist eine Sammlung von Werkzeugen, um die Modellierung der Domäne zu unterstützen.
+DDD wurde erstmalig durch Eric Evans in seinem Buch <em>Domain Driven Design - Tackling Complexity in the Heart of Software</em> beschrieben.</p>
+
+<p>In dem adesso Blog <a href="https://www.adesso.de/de/news/blog/herausforderungen-in-der-domaenenmodellierung.jsp">Herausforderungen in der Domänenmodellierung</a> werden einige Herausforderungen in der Domänenmodellierung nach DDD beschrieben.
+Es wird die Notwendigkeit für ein gemeinsames Domänenverständnis innerhalb der Projektteams aufgezeigt.
+Zudem wird auf die Möglichkeit einer hohen Domänenkomplexität hingewiesen.
+In der Detailmodellierung ist die Modellierung der Domänenelemente notwendig.
+Weiterhin ist das Gestalten der Abhängigkeiten zwischen den zuvor ermittelten Domänenelementen zu betrachten.</p>
+
+<p>In DDD stehen Werkzeuge zur Verfügung, diese Herausforderungen zu adressieren.
+Dieser Artikel beschreibt diese Werkzeuge, sowie deren Anwendung, anhand eines fiktiven Beispiels.
+Es wird die Entwicklung einer Software zur Verwaltung und Abrechnung von Reisebuchungen betrachtet.</p>
+
+<h5 id="ubiquitous-language-und-bounded-context">Ubiquitous Language und Bounded Context</h5>
+
+<p>Die Herausforderung für ein gemeinsames Domänenverständnis können wir in DDD durch Anwendung einer gemeinsamen Domänensprache adressieren.
+Diese wird als <em>Ubiquitous Language</em>, also <em>allgegenwärtige Sprache</em>, bezeichnet. 
+Sie beinhaltet die in der Domäne wichtigen Begriffe und Funktionen, die in einem begrenzten fachlichen Kontext zu modellieren sind.
+In DDD wird für den Kontext der Begriff <em>Bounded Context</em> verwendet.
+Die Begriffe und Funktionen können wir unter den Teams bekannt machen, die an dem Projekt beteiligt sind.
+Dies sind insbesondere die Teams aus der Entwicklung, die das fachliche Modell erstellen, und die Teams aus der Fachabteilung mit Domänenexpertise, die zur Anforderungsanalyse zur Verfügung stehen.
+Das gemeinsame Domänenverständnis wird somit durch Anwendung der gemeinsamen Domänensprache erreicht.</p>
+
+<p>In dem Beispiel der Reisebuchungen sind mindestens die Begriffe <em>Reisebuchung</em>, <em>Rechnung</em>, <em>Kunde</em> und <em>Reise-Betrieb</em> relevant. 
+Wir betrachten zunächst den Begriff <em>Reisebuchung</em>.
+Sowohl die Teams aus der Entwicklung als auch aus der Fachabteilung müssen ein gemeinsames Verständnis für die fachlichen Eigenschaften einer Reisebuchung haben.
+In unserem einfachen Beispiel beinhaltet eine <em>Reisebuchung</em> ein <em>Startdatum</em> und <em>Enddatum</em>, ein <em>Startpunkt</em> und <em>Endpunkt</em>, sowie optionale <em>Zwischenstationen</em>.
+Die weiteren Begriffe und die sie betreffenden Funktionen müssen wir ebenfalls definieren und modellieren.</p>
+
+<p>Der <em>Bounded Context</em> legt nun für uns fest, welche fachlichen Funktionen in einem Kontext abgedeckt sind.
+In unserem Beispiel gibt es die Anforderungen <em>Reisebuchungen</em> und <em>Rechnungen</em> zu verwalten.
+Eine Mitarbeiterin oder ein Mitarbeiter des Fachbereichs möchte eine <em>Reisebuchung</em> erstellen, die von einem <em>Kunden</em> in Auftrag gegeben wird.
+Weiterhin ist mindestens ein <em>Reise-Betrieb</em> zur Durchführung der Reise festzulegen.
+Hat nun die <em>Rechnung</em> in diesem Aufgabenfeld keine Relevanz, ist die <em>Rechnung</em> nicht Teil des Kontexts zur Erstellung einer <em>Reisebuchung</em>.</p>
+
+<p>Die <em>Ubiquitous Language</em> kann durch wiederkehrende Meetings zwischen den Teams aus der Fachabteilung und der Entwicklung aufgebaut werden. 
+In den Meetings stellen die Mitarbeiterinnen und Mitarbeiter der Fachabteilung die Anforderungen an das System durch Beschreibung der eigenen Aufgaben vor.
+Die Entwicklerinnen und Entwickler greifen die in den Anforderungen erwähnten fachlichen Begriffe und Funktionen auf und teilen ihr Verständnis hiervon durch Modellierung der Domäne mit.
+Der Fachbereich überprüft und korrigiert das von den Entwicklerinnen und Entwicklern aufgenommene Verständnis.
+Die Korrekturen können sich auf die fachliche Bedeutung der aufgegriffenen Begriffe und Funktionen beziehen.
+Es kann aber auch zur Ergänzung neuer Begriffe und Funktionen kommen.
+So kann sich im Verlauf der Gespräche unseres Beispiels herausstellen, dass ein <em>Verkehrsmittel</em> zu Planungszwecken relevant sein kann.</p>
+
+<p><img src="/assets/images/posts/Adressierung-von-Herausforderungen-in-der-Domaenenmodellierung/bild_01_initiales_domaenenmodell.png" alt="Initiales Domänenmodell" /></p>
+
+<p>Die Effekte durch Anwendung der <em>Ubiquitous Language</em> sind nach DDD ein erhöhtes Verständnis der Entwicklerinnen und Entwickler für die Domäne.
+Dies wiederum reduziert das Risiko für Missverständnisse während der Entwicklung.
+Demnach wird der <em>Ubiquitous Language</em> eine zentrale Rolle bei der Entwicklung einer Software zugeschrieben.</p>
+
+<h5 id="subdomains">Subdomains</h5>
+
+<p>Ab einer gewissen Größe und Komplexität der Domäne wird die Modellierung dieser zunehmend aufwändig.
+Für diesen Fall wird in DDD die Unterteilung in einzelne Teilbereiche empfohlen, die als <em>Subdomains</em> bezeichnet werden.
+Die Unterteilung wird notwendig, wenn unterschiedliche Elemente der <em>Ubiquitous Language</em> nicht in einen gemeinsamen <em>Bounded Context</em> fallen.
+Die Herausforderung besteht dabei nicht nur in der Erkennung einer Unterteilung in Teilbereiche, sondern insbesondere in der Festlegung dieser.</p>
+
+<p>In unserem Beispiel können wir zunächst die <em>Subdomain</em> <em>Verwaltung Reisebuchung</em> definieren.
+Wie wir weiterhin gesehen haben, ist unter anderem der Begriff <em>Rechnung</em> relevant.
+Allerdings ist in den Gesprächen mit den Teams aus der Fachabteilung erkennbar, dass die <em>Rechnung</em> bei der Zusammenstellung einer Reisebuchung keine direkte Rolle spielt.
+Die <em>Rechnung</em> ist in diesem einfachen Beispiel viel mehr eine Folge der Zusammenstellung einer Reisebuchung.
+Da die <em>Rechnung</em> aber weiterhin Relevanz hat, ist es sinnvoll, diese in eine eigene <em>Subdomain</em> <em>Abrechnung</em> mit einem entsprechenden <em>Bounded Context</em> zu legen.
+Die Definition des <em>Bounded Context</em> legt somit den Umfang der <em>Subdomains</em> <em>Verwaltung Reisebuchung</em> und <em>Abrechnung</em> fest.
+Dies entspricht der geforderten Festlegung der Unterteilung von fachlichen Teilbereichen.</p>
+
+<p>DDD bietet neben der Adressierung einer sinnvollen Unterteilung auch ein Werkzeug zur Kommunikation der <em>Subdomains</em> untereinander.
+Hierzu werden Schnittstellen einer <em>Subdomain</em> definiert, welche von einer anderen <em>Subdomain</em> verwendet werden.
+In DDD wurde für die Festlegung dieser Schnittstellen der Begriff <em>Context Map</em> eingeführt.</p>
+
+<p>Aus den Gesprächen mit den Teams aus der Fachabteilung wissen wir, dass die Erstellung einer <em>Reisebuchung</em> zur Erstellung einer <em>Rechnung</em> führt.
+Wir benötigen somit eine Schnittstelle in der <em>Subdomain</em> <em>Abrechnung</em>, welche Daten der <em>Reisebuchung</em> entgegen nimmt, die für die Erstellung der <em>Rechnung</em> benötigt werden.</p>
+
+<p><img src="/assets/images/posts/Adressierung-von-Herausforderungen-in-der-Domaenenmodellierung/bild_02_subdomains_und_context_map.png" alt="Subdomains und Context Map" /></p>
+
+<p>Die Unterteilung der Domäne in <em>Subdomains</em> reduziert die Komplexität innerhalb eines Kontexts, da nicht direkt im Kontext beteiligte Domänenelemente ausgeklammert werden.</p>
+
+<h5 id="entitites-und-values">Entitites und Values</h5>
+
+<p>Die Domänenelemente haben wir bereits implizit bei Erstellung der <em>Ubiquitous Language</em> definiert.
+Die Herausforderung in der Detailmodellierung ist nun, wie wir diese Elemente in einem fachlichen Kontext modellieren.
+DDD bietet hier das Konzept der <em>Entities</em> und <em>Values</em>.
+Zunächst stellen sowohl <em>Entities</em> als auch <em>Values</em> fachliche Elemente mit bestimmten Eigenschaften dar.
+<em>Entities</em> haben in der Fachlichkeit eine eindeutige Identität.
+Wenn Veränderungen einer <em>Entity</em> erforderlich sind, erfolgen sie in den Eigenschaften dieser.
+<em>Values</em> hingegen definieren sich ausschließlich über ihre Eigenschaften und besitzen keine eindeutige Identität.
+Tritt die Erfordernis nach geänderten Eigenschaften auf, wird das bestehende <em>Value</em> durch ein neues <em>Value</em> mit den geänderten Eigenschaften ersetzt.</p>
+
+<p>In unserem Beispiel sind die Elemente <em>Reisebuchung</em>, <em>Kunde</em> und <em>Reise-Betrieb</em> als <em>Entities</em> zu modellieren.
+Ein <em>Kunde</em> beispielsweise definiert sich nicht ausschließlich über seine Eigenschaften, wie Vor- und Nachname.
+Ein <em>Verkehrsmittel</em> hat die Eigenschaften <em>Verkehrs-Typ</em>, <em>Startpunkt</em> und <em>Endpunkt</em>.
+In unserem vereinfachten Beispiel dient das Element lediglich zu optionalen Planungszwecken in der Endanwendung.
+Die Fachabteilung benötigt hier keine eindeutige Identifikation und das <em>Verkehrsmittel</em> kann als <em>Value</em> modelliert werden.</p>
+
+<p>Durch die Modellierung in <em>Entities</em> und <em>Values</em> rückt der fachliche Zweck der einzelnen Domänenelemente in den Vordergrund.</p>
+
+<h5 id="aggregates">Aggregates</h5>
+
+<p>Wir stehen weiterhin vor der Herausforderung, wie die Abhängigkeiten unter den zuvor modellierten Domänenelementen zu gestalten sind.
+DDD bietet hierzu das Konzept der <em>Aggregates</em>.
+Ein <em>Aggregate</em> fasst ein oder mehrere Domänenelemente zusammen, die fachlich gemeinsam relevant sind.
+Dies kann bedeuten, dass ein <em>Aggregate</em> aus lediglich einer <em>Entity</em> besteht, da diese separat betrachtet werden kann.
+Jedoch ist es auch möglich, dass eine <em>Entity</em> oder ein <em>Value</em> nur dann fachlich relevant ist, wenn bereits eine andere <em>Entity</em> betrachtet wird.
+In diesem Fall ist eine Zusammenfassung in einem <em>Aggregate</em> sinnvoll.
+Die <em>Entity</em>, die hierbei vordergründig betrachtet wird, dient als Einstiegspunkt für das <em>Aggregate</em> und wird als <em>Aggregate-Root</em> bezeichnet.
+Dies bedeutet insbesondere, dass ein Zugriff auf ein anderes Element des <em>Aggregates</em> nur über das <em>Aggregate-Root</em> möglich ist.
+Weiterhin wird im <em>Aggregate-Root</em> eine fachliche Invariantenprüfung der Eigenschaften aller <em>Aggregate</em>-Elemente durchgeführt.</p>
+
+<p>In unserem Beispiel sehen wir zunächst, dass die Teams aus der Fachabteilung eine <em>Reisebuchung</em> ohne Notwendigkeit weiterer <em>Entities</em> betrachten.
+Wir erkennen weiter, dass ein <em>Kunde</em>, ein <em>Reise-Betrieb</em> und ein <em>Verkehrsmittel</em> nur dann fachlich relevant sind, wenn eine <em>Reisebuchung</em> gegeben ist.
+Wir fassen somit die <em>Entities</em> <em>Reisebuchung</em>, <em>Kunde</em>, <em>Reise-Betrieb</em> und <em>Verkehrsmittel</em> in einem <em>Aggregate</em> zusammen.
+Die <em>Reisebuchung</em> modellieren wir hierbei als <em>Aggregate-Root</em>.
+Als fachliche Invariantenprüfung können wir uns beispielsweise vorstellen, dass das <em>Startdatum</em> einer <em>Reisebuchung</em> vor dem <em>Enddatum</em> liegen muss.</p>
+
+<p><img src="/assets/images/posts/Adressierung-von-Herausforderungen-in-der-Domaenenmodellierung/bild_03_aggregate_reisebuchung.png" alt="Aggregate Reisebuchung" /></p>
+
+<p>Die Verwendung von <em>Aggregates</em> ermöglicht eine fachliche Gruppierung der Domänenelemente sowie eine lose Kopplung dieser innerhalb einer <em>Subdomain</em>.
+Die lose Kopplung wird dadurch erreicht, dass nur das <em>Aggregate-Root</em> für Abhängigkeiten außerhalb des <em>Aggregates</em> verwendet wird.
+Außerdem wird die fachliche Konsistenz erhöht, da eine Invariantenprüfung in den <em>Aggregates</em> angewandt wird.</p>
+
+<h5 id="fazit">Fazit</h5>
+
+<p>In diesem Blogartikel wurden wiederkehrende Herausforderungen in der Domänenmodellierung nach DDD aufgegriffen.
+Es wurden Maßnahmen vorgestellt, die diese wiederkehrenden Herausforderungen adressieren.
+Die Herausforderung eines gemeinsamen Domänenverständnisses wird mit der <em>Ubiquitous Language</em> und dem <em>Bounded Context</em> adressiert.
+Der Möglichkeit einer hohen Domänenkomplexität wird mit Verwendung mehrerer <em>Subdomains</em> begegnet.
+Diese kommunizieren über Schnittstellen, die zusammengefasst als <em>Context Map</em> bezeichnet werden.
+Die Detailmodellierung in einer <em>Subdomain</em> wird mit dem Konzept der <em>Entities</em> und <em>Values</em> adressiert.
+Schließlich dienen <em>Aggregates</em> zur Festlegung der Abhängigkeiten von <em>Entities</em> und <em>Values</em> in einer <em>Subdomain</em>.
+Anhand des Beispiels zur Verwaltung und Abrechnung von Reisebuchungen wurde dargelegt, wie die Konzepte angewendet werden können.</p>
+
+</div>
+</div>
+</div>
+</div>]]></field>
+    </document>
+</documents>

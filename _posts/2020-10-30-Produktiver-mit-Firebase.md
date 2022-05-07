@@ -2,7 +2,7 @@
 layout: [post, post-xml]
 title: "Produktiver mit Firebase"
 date: 2020-10-30 12:00
-author: daklassen
+author_ids: [daklassen]
 categories: [Softwareentwicklung]
 tags: [Angular, Firebase, Cloud Hosting]
 ---

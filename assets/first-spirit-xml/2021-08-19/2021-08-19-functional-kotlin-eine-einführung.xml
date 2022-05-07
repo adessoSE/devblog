@@ -1,0 +1,389 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<documents>
+    <document uid="97988a58d734040fdde2c52947bc3071">
+        <field name="title"><![CDATA[Functional Kotlin - Eine Einführung]]></field>
+        <field name="subline"><![CDATA[]]></field>
+        <field name="teaser"><![CDATA[<p>In diesem Blogeintrag widmen wir uns der Programmiersprache Kotlin.
+Wir werfen einen kurzen Blick auf die Ursprünge der Sprache, wie sie aufgebaut ist und mit welchen Designprinzipien im Hinterkopf sie entworfen wurde. 
+An Beispielen betrachten wir die Best Practices und stellen uns dabei die Frage: Was hat das mit funktionaler Programmierung zu tun?</p>
+
+]]></field>
+        <field name="language_multi_keyword"><![CDATA[de]]></field>
+        <field name="content_type_multi_keyword"><![CDATA[blog]]></field>
+        <field name="mime_type_multi_keyword"><![CDATA[text/html]]></field>
+        <field name="category_multi_keyword"><![CDATA[Softwareentwicklung]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Kotlin]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Funktionale Programmierung]]></field>
+        <field name="date_date"><![CDATA[2021-08-19T13:00:00+02:00]]></field>
+        <field name="date_l"><![CDATA[1629370800000]]></field>
+        <field name="change_date"><![CDATA[1629370800000]]></field>
+        <!--Author Information-->
+        <field name="author_id"><![CDATA[VolkertF]]></field><!--Postcontent-->
+        <field name="headlines"><![CDATA[Functional Kotlin - Eine Einführung]]></field>
+        <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
+            <p>In diesem Blogeintrag widmen wir uns der Programmiersprache Kotlin.
+Wir werfen einen kurzen Blick auf die Ursprünge der Sprache, wie sie aufgebaut ist und mit welchen Designprinzipien im Hinterkopf sie entworfen wurde. 
+An Beispielen betrachten wir die Best Practices und stellen uns dabei die Frage: Was hat das mit funktionaler Programmierung zu tun?</p>
+
+</div>]]></field>
+        <field name="content"><![CDATA[<div class="adesso-text-formate">
+<div class="row p-t-2">
+<div class="adesso-container">
+<div class="col-xl-8 adesso-center p-b-1 p-l-0 p-r-0">
+    <p>In diesem Blogeintrag widmen wir uns der Programmiersprache Kotlin.
+Wir werfen einen kurzen Blick auf die Ursprünge der Sprache, wie sie aufgebaut ist und mit welchen Designprinzipien im Hinterkopf sie entworfen wurde. 
+An Beispielen betrachten wir die Best Practices und stellen uns dabei die Frage: Was hat das mit funktionaler Programmierung zu tun?</p>
+
+<h4 id="kotlin">Kotlin</h4>
+
+<p>Vor zehn Jahren (2011) stellte JetBrains erstmals die Open-Source Programmiersprache Kotlin auf dem <a href="https://blog.jetbrains.com/kotlin/2011/07/hello-world-2/">JVM Language Summit</a> vor – “Eine Sprache einfach genug für den gewöhnlichen Entwickler und produktiv genug für moderne Anforderungen an Projekte”. 
+Die Sprache setzt auf der Java Virtual Machine (JVM) auf und erschien 2016 in der ersten Release-Version. 
+Seit 2017 wird sie von Google offiziell zur Entwicklung von Android-Apps unterstützt und ist seit 2019 Googles bevorzugte Sprache für diese Plattform.</p>
+
+<p>Im <a href="https://www.tiobe.com/tiobe-index/">TIOBE-Index</a><sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup> rangiert Kotlin aktuell (Juli 2021) auf Platz 38 der beliebtesten Programmiersprachen. 
+Betrachtet man ausschließlich die JVM-spezifischen Sprachen steht Kotlin dort auf Platz 4 (übertrumpft von #36 Scala, #15 Groovy und #2 Java).</p>
+
+<p>Im <a href="https://pypl.github.io/PYPL.html">PYPL-Index</a><sup id="fnref:2"><a href="#fn:2" class="footnote">2</a></sup> belegt Kotlin den 11. Platz.</p>
+
+<p>Kotlin, eine statisch typisierte Programmiersprache, ist voll interoperabel zu Java-Programmen und -Bibliotheken und kann ohne aufwändige Integration in bereits bestehende Projekte eingepflegt werden.</p>
+
+<h5 id="grundlagen">Grundlagen</h5>
+<p>Jeder Einstieg in eine Programmiersprache fängt gleich an. 
+Man muss sich an die Syntax gewöhnen. 
+Folgendes Beispiel zeigt ein kleines, in Kotlin geschriebenes Programm, welches zuerst das Ergebnis einer Instanzmethode und dann das einer statischen Methode ausgibt:</p>
+<pre><code class="language-kotlin">fun main(){
+    val mainClassInstance = MainClass("instanceString")
+    println(mainClassInstance.instanceMethod())
+    println(MainClass.staticMethod(3))
+}
+
+class MainClass(private var member: String){
+    companion object{
+        fun staticMethod(parameter:Int):Int{
+            return parameter*2
+        }
+    }
+    
+    public fun instanceMethod():String{
+        return "A"
+    }
+}
+</code></pre>
+
+<p>Das <a href="https://kotlinlang.org/docs/object-declarations.html#companion-objects"><code>companion object</code></a> ist, wie der Name es andeutet, ein Begleiterobjekt zu dieser Klasse und verhält sich ähnlich der statischen Initialisierung in Java (auch wenn das Begleiterobjekt noch einiges mehr kann, auf das ich hier nicht eingehen werde).
+Anders als in Java werden die Rückgabewerte von Methoden am Ende des Methodenkopfs plaziert und auch für Wertdefinitionen und Parameter wird der jeweilige Typ durch einen “:” getrennt auf die rechte Seite gestellt. 
+Kotlin unterstützt <a href="https://kotlinlang.org/spec/type-inference.html">Typinferenz</a>, weswegen die Typdefinitionen in den meisten Fällen auch weggelassen werden können.
+Was – anders als bei Java – hier auch auffällt, ist, dass ich die <em>Properties</em> der <code>MainClass</code> direkt hinter den Klassennamen in “( )” definieren kann und sie nicht im Codeblock schreiben muss (, aber auch das könnte ich). 
+Kotlin generiert für die Variablen Getter- und Setter-Methoden und für die Values nur Getter-Methoden.
+Auf den Unterschied komme ich im Abschnitt <a href="#immutabilität">Immutabilität</a> zu sprechen.
+Wie das Beispiel oben auch zeigt, habe ich einen primären Konstruktor für die <code>MainClass</code>geschrieben, der sich direkt im Header befindet. 
+Die in den Klammern des Konstruktors angegebenen Properties (hier <em>member</em>) entsprechen direkt einer Deklaration dieser als Teil der Klasse.
+Auch die Semikolons können wir in den meisten Fällen weglassen.</p>
+
+<h5 id="nullsicherheit">Nullsicherheit</h5>
+<p>Eine Ärgerlichkeit, mit der wir uns im Entwicklungsalltag häufig auseinandersetzen müssen, ist das Behandeln von Nullpointer-Exceptions, also dem Fehlen von Daten an Stellen, an denen das Programm welche erwartet hat.
+Tony Hoare, der Erfinder der Null-Referenz, hielt 2009 einen Vortrag und nannte als Grund für dessen Einführung die Einfachheit, mit der sie zu implementieren gewesen sei.
+Er bezeichnet seine Entscheidung inzwischen als “Milliarde-Dollar-Fehler”:
+(<a href="https://www.infoq.com/presentations/Null-References-The-Billion-Dollar-Mistake-Tony-Hoare/">My billion-dollar mistake</a>)
+Kotlin behandelt dieses Problem aus meiner Sicht pragmatisch (<a href="https://kotlinlang.org/docs/null-safety.html">Null-Safety</a>), indem, wenn nicht anders angegeben, Werte einfach nicht null sein dürfen.
+Betrachten wir folgendes kleines Beispiel eines Produkts, für das ein Preis mit Steuer berechnet werden soll.</p>
+<pre><code class="language-kotlin">fun main() {
+    val product = Product(4.99)
+    val vat: Double = null
+    product.getConsumerPrice(vat)
+}
+
+class Product(private val price: Double) {
+    fun getConsumerPrice(vat: Double): Double {
+        val tempValue = helperFunction(vat)
+        return tempValue * this.price
+    }
+    ...
+}
+</code></pre>
+<p>Was tendenziell in Java und vielen anderen Sprachen funktioniert wird hier vom Compiler mit einer Fehlermeldung quittiert, da der Wert <code>val vat: Double</code> als Double mit Wert definiert und null dort nicht erlaubt ist.
+So werden wir bei der Entwicklung immer informiert, wenn Daten potentiell undefinierte Zustände annehmen könnten:
+<code>"Kotlin: Null can not be a value of a non-null type Double"</code>
+Manchmal lässt es sich allerdings auch nicht vermeiden oder ist erwünscht, dass ein null Wert übernommen wird;
+Das kann zum Beispiel an Schnittstellen der Fall sein, an denen ein Standardwert keinen Sinn ergibt (auch wenn sich hier wieder darüber streiten lässt, ob ein Standardwert wirklich nicht die bessere Entscheidung ist).
+Wir können die Werte mit einem <code>?</code> markieren, um kenntlich zu machen, dass sie null (<em>nullable</em>) sein dürfen: 
+<code>val vat: Double? = null</code>
+Hier kommt die Arbeit zum Vorschein, die uns der Compiler durch diese kleine Änderung abnimmt: <code>product.getConsumerPrice(vat)</code> wird mit dem <code>Double?</code>aufgerufen, aber <code>getConsumerPrice(vat: Double)</code> erwartet einen Wert, der nicht null ist.
+Auch das erkennt der Compiler und gibt <code>Type mismatch: inferred type is Double? but Double was expected</code>zurück.
+So sind wir gezwungen, uns um diesen Fall zu kümmern und entweder vorher sicherzustellen, dass <code>vat</code> nicht null sein kann, oder einen Nullwert als Eingabeparameter zu erlauben, wodurch sich die Fehlermeldung auf nachfolgende Aufrufe von <code>vat</code> verbreitet.</p>
+
+<p>Ein anderes Beispiel zeigt, wie wir uns beim Programmieren mit Nullwerten in Kotlin viel Boilerplate-Code sparen können.
+Dafür schauen wir uns zunächst ein Problem in Java und anschließend eine Lösung in Kotlin an:</p>
+<pre><code class="language-java">class Head {
+    public Node next;
+}
+class Node {
+    public Node next;
+    String value = null;
+}
+...
+head.next.next.value;
+</code></pre>
+<p>Die Suche von <code>value</code> in dem Beispiel kann, wenn einer der Zwischenaufrufe null ist, zu einer <code>NullpointerException</code> führen.
+Um dieses Problem zu umgehen, müssen wir zwischen den Aufrufen null-Checks einführen. 
+Um Platz zu sparen schreibe ich die Prüfungen direkt als ternäre Operationen:</p>
+<pre><code class="language-java">Head head = new Head();
+Node nodeA = head.next != null? head.next :null;
+Node nodeB = nodeA.next != null? nodeA.next :null;
+String value = nodeB != null? nodeB.value: null;
+</code></pre>
+<p>In Kotlin kann bei potentiellen Nullwerten <code>?</code> eingesetzt werden, um diese zu erlauben:</p>
+<pre><code class="language-java">class Head(val next: Node?)
+class Node(val next: Node?, val value: String)
+...
+val head = Head(null) // Bei der Initialisierung muss ich den Wert für 'next' direkt angeben und kann ihn nicht unbestimmt lassen
+val string = head.next?.next?.value
+</code></pre>
+<p>Dieser Aufruf führt zu keiner <code>NullpointerException</code>, sondern weist <code>string</code> null zu, da bereits der Aufruf von <code>head.next?</code> null zurückgibt. 
+Der Wert ist dabei implizit vom Typ <code>String?</code>, wodurch auch alle folgenden Aufrufe vom Compiler wieder geprüft werden.</p>
+
+<p>Alternativ kann der Elvis-Opeator <code>?:</code> genutzt werden, um in solchen Fällen direkt einen Standardwert zuzuweisen, sodass statt <code>String?</code> der Typ <code>String</code> inferiert wird.</p>
+<pre><code class="language-Kotlin">val string = head.next?.next?.value?:"default"
+</code></pre>
+
+<p>So kann sichergestellt werden, dass Nullwerte innerhalb der Anwendung angemessen behandelt werden können.</p>
+
+<h5 id="immutabilität">Immutabilität</h5>
+<p>In den beiden Beispielen der vorherigenen Sektionen habe ich das <code>val</code>- und das <code>var</code>-Schlüsselwort zur Definition von Werten genutzt. 
+<code>val</code> wird genutzt um einen zur Laufzeit unveränderlichen Wert zu definieren (anders noch als <code>const</code>, welches für unveränderliche, zur Kompilierzeit bekannte, Werte steht). 
+Es ist vergleichbar mit <code>final</code> aus Java.
+Auf der anderen Seite steht das <code>var</code>-Schlüsselwort mit dem herkömmliche Variablen beschrieben werden können.
+Immutabilität hilft während der Entwicklung Nebeneffekte im Code auf ein Minimum zu reduzieren und schafft so Sicherheit vor allem für Parallelität.
+Betrachten wir folgendes Beispiel in Java:</p>
+<pre><code class="language-Java">class SideEffect {
+    public int member = 0;
+
+    public int someCalculation(int input) {
+        int aux = member + 2;
+        int result = member + aux + input;
+        member++;
+        return result;
+    }
+}
+</code></pre>
+<p><code>someCalculation</code> nutzt die Variable <code>member</code> für einige Berechnungen. 
+In einer synchronen Umgebung ist dies problemlos möglich. 
+Soll die Methode allerdings parallel ausgeführt werden, kann es zu inkonsistentem Verhalten kommen, da <code>member</code> zu verschiedenen Zeitpunkten innerhalb der Ausführung der Methode unterschiedliche Werte annehmen kann.
+Besser ist hier eine Lösung, die <code>someCalculation</code> weitestgehend unabhängig vom aktuellen Wert von <code>member</code>macht. 
+Denkbar ist:</p>
+<pre><code class="language-Java">public int someCalculation(int input, int memberVal) {
+    int aux = memberVal + 2;
+    int result = memberVal + aux + input;
+    member++;
+    return result;
+}
+</code></pre>
+<p>Durch das Verlagern des für die Berechnung genutzten Wertes ist sichergestellt, dass die Methode, selbst wenn sich <code>member</code> zur Laufzeit ändert, innerhalb ihres Ausführungskontextes einen konsistenten Zustand einhält.
+An dieser Stelle bediene ich mich zusätzlich an einigen Punkten, auf die man zum Thema Immutabilität im Internet immer wieder trifft:</p>
+<ul>
+  <li>Threadsicherheit (Durch Zugriff auf Werte, die sich nicht ändern)</li>
+  <li>Keine versteckten Nebeneffekte (Es gibt kein Risiko, dass Methoden unbemerkt Werte an anderen Stellen ändern)</li>
+  <li>Sicherheit vor Nullwerten (Wenn ein Wert einmal überprüft wurde, behält er seine Gültigkeit)</li>
+  <li>Leichteres Caching (Wenn ein Wert einmal geladen wurde und sich Rahmenbedingungen ändern, ist sichergestellt, dass dieser Wert nach wie vor gültig ist und nicht neu geladen werden muss)</li>
+  <li>Bessere Kapselung von Methoden und Klassen (Es ist sichergestellt, dass Methoden und Klassen, die untereinander kommunizieren, sich nicht gegenseitig verändern)</li>
+  <li>Einfacher zu Testen (Durch feste Werte und fehlende Nebeneffekte sind die Punkte, die es bei Fehlern zu überprüfen gilt, weniger und einfacher)</li>
+  <li>Leichtere Lesbarkeit und Wartbarkeit (Geht einher mit der leichteren Testbarkeit)</li>
+  <li>Vorhersagbarkeit (Wenn Werte konkret sind, können zuverlässige Annahmen getroffen werden)</li>
+</ul>
+
+<p>Diese Auflistung zeigt, dass der Aufwand für Immutabilität im Verältnis zu den Vorteilen in den meisten Fällen gering ausfällt.</p>
+
+<h4 id="funktionale-programmierung">Funktionale Programmierung</h4>
+<p>An dieser Stelle macht es Sinn, die funktionalen Programmierung ins Spiel zu bringen. 
+Was ist funktionale Programmierung und wie kann sie uns bei unserer Arbeit helfen?
+Die funktionale Programmierung ist ein Ansatz der Programmierung, die Verarbeitung von Daten nicht anweisungsgetrieben (imperativ, wie z.B. in Java) zu konzipieren, sondern aus einer mathematischen Perspektive heraus – funktional – zu betrachten.
+Also statt dass wir ein Problem aus der Perspektive betrachten, jeden Schritt einzeln durchzugehen, arbeiten wir mit einer Menge von Daten, auf die Operationen angewandt werden und die mitunter eine neue Menge von Daten erzeugt.
+Die funktionale Programmierung ist etwas, was in vielen großen Programmiersprachen immer mehr Einzug hält, auch weil die Rechenleistung heutiger Computer so hoch ist, dass die schlechtere Performance, die durch diesen Ansatz erreicht wird, nicht mehr ins Gewicht fällt.
+Theoretische Grundlage der funktionalen Programmierung ist das Lambda-Kalkül, welches in den 30er Jahren von Church und Kleene zur Beschreibung von Funktionen eingeführt wurde.
+Ein einfacher Lambda-Ausdruck sieht dabei wie folgt aus und beschreibt hier f(x)=x+2:</p>
+<pre><code>λx.x+2
+</code></pre>
+<p>Lambda-Ausdrücke kennen wir aus der Entwicklung im Java-Kontext hauptsächlich in Form von Lambda-Ausdrücken (ab Java 8 in 2014). 
+Collections müssen dazu erst in einen <em>stream</em> konvertiert, transformiert und dann dann wieder zurück konvertiert werden:</p>
+<pre><code class="language-Java">strings
+  .stream()
+  .filter(s -&gt; s.length() == 5)
+  .collect(Collectors.toList());
+</code></pre>
+<p>Lambda-Ausdrücke gibt es auch in Kotlin und werden dort viel häufiger verwendet. 
+Gibt es nur einen Wert im Lambda-Ausdruck der gebunden werden muss, kann der implizite Name <em>it</em> benutzt werden, statt dem Laufwert einen konkreten Namen geben zu müssen.</p>
+<pre><code class="language-Kotlin">strings.filter { it.length == 5 }
+</code></pre>
+<p>Auch wenn beide Beispiele hier nur einfache sind, empfinde ich persönlich die Kotlin-seitigen Lösungen häufig intuitiver und kürzer als das bei Java der Fall ist. 
+Allein der Wegfall der Konvertierungen reduziert den Boilerplate-Code und erleichtert damit die Wartung der Software.</p>
+
+<h5 id="map-reduce-filter-">map, reduce, filter, …</h5>
+<p>Die <code>filter</code>-Methode haben wir gerade eben kennengelernt. 
+Wie der Name beschreibt, kann sie genutzt werden, um Elemente aus einer Menge an Daten herauszufiltern.
+Die zwei wichtigen anderen Methoden, die häufig eingesetzt werden, sind die <code>map</code>- und die <code>reduce</code>-Methode.
+<code>map</code> iteriert über jedes Element einer Menge von Daten und wendet eine Funktion auf dieses an. 
+Heraus kommt dabei eine neue Menge von Daten, die möglicherweise geändert wurden. 
+(Ich sage möglicherweise, weil die identische Abbildung f(x)=x existiert)</p>
+<pre><code class="language-Kotlin">productList.map { product -&gt; product.getConsumerPrice(0.19) }
+</code></pre>
+<p>Obiges Beispiel zeigt, wie eine Liste von Produkten in eine Liste von Preisen konvertiert wird, indem von jedem Produkt-Element der Konsumentenpreis geholt wird.
+Die <code>reduce</code>-Methode verhält sich ähnlich zur <code>map</code>-Methode, mit dem Unterschied, dass das Ergebnis ein einzelnes Element ist. 
+Auch hier wird auf jedes Element der Menge eine Funktion angewandt.
+Das folgende Beispiel zeigt, wie aus unserer Preisliste eine Summe über alle Preise gebildet wird. 
+<code>sum</code> definiert dabei das Akkumulator-Element im ersten Parameter.
+<code>price</code> ist die Laufvariable (eher Laufwert) für die einzelnen Preise, über die iteriert wird.</p>
+<pre><code class="language-Kotlin">priceList.reduce { sum, price -&gt; sum+price }
+</code></pre>
+<p>Statt uns mit der Iteration beschäftigen zu müssen, erlaubt diese Heransgehensweise uns das eigentliche Problem behandeln zu können.
+<code>map</code>, <code>filter</code> und <code>reduce</code> sind Beispiele für sogenannte <a href="https://kotlinlang.org/docs/lambdas.html">Funktionen höherer Ordnung</a>, denn sie nehmen nicht nur einfache Werte als Parameter entgegen, sondern erwarten Funktionen, die sie während ihrer Ausführung aufrufen können.
+Ihre Flexibilität im Kern, während sie einen klaren Rahmen für die Verarbeitung von Daten in einer bestimmten Art und Weise schaffen, machen sie zu mächtigen Werkzeugen.</p>
+
+<h5 id="extension-functions">Extension Functions</h5>
+
+<pre><code class="language-Kotlin">inline fun &lt;S, T : S&gt; Iterable&lt;T&gt;.reduce(
+    operation: (acc: S, T) -&gt; S
+): S
+</code></pre>
+<p><em>Definition der reduce Extensionfunktion mit Generics</em></p>
+
+<p>Zwei Dinge, die an dem obigen Beispiel auffallen, sind der Einsatz von Generics zur Verallgemeinerung der Anwendbarkeit der Funktion;
+Und dass es sich hierbei um eine sogenannte <a href="https://kotlinlang.org/docs/extensions.html"><em>Extension-Function</em></a> handelt, die – in diesem Fall – Iterable um eine Methode erweitert.
+Extension-Functions können genutzt werden um Klassen zu erweitern, ohne neue Klassen oder Interfaces definieren zu müssen, die von der Grundklasse erben.
+Hier gibt es mehr Informationen zu <a href="https://kotlinlang.org/docs/inline-functions.html">inline-Funktionen</a>.</p>
+
+<p>Hier ist ein Beispiel aus einem Projekt in dem ich gearbeitet habe. 
+Dort haben wir Extension-Functions häufig genutzt, um vor allem die Lesbarkeit unseres Codes zu erhöhen.</p>
+<pre><code class="language-Kotlin">data class Partner(
+        val name: String,
+        ...
+)
+
+fun Partner.toDto(): PartnerDto = PartnerDto(
+        name,
+        ...
+)
+...
+partner01.toDto()
+</code></pre>
+<p>Natürlich lässt sich die Konvertierung in ein DTO auch klassisch lösen:</p>
+<pre><code class="language-Kotlin">fun createPartnerDto(partner:Partner):PartnerDto {
+        return PartnerDto(
+                partner.name,
+                ...
+        )
+}
+
+createPartnerDto(partner01)
+</code></pre>
+<p>Allerdings erhöht die erste Variante die Lesbarkeit des Codes, wenn es um <a href="https://en.wikipedia.org/wiki/Method_chaining">Methodenverkettung</a> geht (wie oben zu sehen, gibt es dieses Konzept auch in Java).</p>
+
+<p>Klassische Funktionen:</p>
+<pre><code class="language-Java">prepareSend(enrichWithData(createFromPartnerDto(partner01), data), destination)
+</code></pre>
+<p>Extension-Functions:</p>
+<pre><code class="language-Kotlin">partner01.toDTO().enrichWithData(data).prepareSend(destination)
+</code></pre>
+<p>Ein anderes Beispiel zeigt, dass wir auch Klassen erweitern können, die wir nicht selber geschrieben haben.
+(Das Schlüsselwort <code>suspend</code> kann ignoriert werden. 
+Bei Interesse empfehle ich die Einführung in <a href="https://kotlinlang.org/docs/coroutines-basics.html">Coroutines</a>.)
+Hier haben wir String um eine domänenspezifische Funktion erweitert, um zu diesem eine zugehörige Klasse zu finden:</p>
+<pre><code class="language-Kotlin">private suspend fun String.getCategoryByCategoryId(): Category?
+...
+val category = item.category?.getCategoryByCategoryId()
+</code></pre>
+
+<h4 id="funktionales-testen-mit-property-based-testing">Funktionales Testen mit Property Based Testing</h4>
+
+<p><img src="/assets/images/posts/functional-kotlin-eine-einführung/available-automated-test-technics.png" alt="Available automated test technics" /></p>
+
+<p><a href="https://medium.com/criteo-engineering/introduction-to-property-based-testing-f5236229d237">Bildquelle</a></p>
+
+<p>Nehmen wir das, was wir bis jetzt betrachtet haben, ergeben sich daraus auch neue Möglichkeiten Softwarequalität sicherzustellen. 
+Die Standardvorgehensweise für das Schreiben von Tests auf unterster Ebene sind die Unit-Tests. 
+Kleine Blöcke, die die Funktionalität einzelner, isolierter Code-Ausschnitte überprüfen sollen, indem wir feste Vorgabewerte definieren und an die jeweilige Funktion übergeben.
+An dieser Stelle tritt das Property based testing aus der funktionalen Programmierung auf den Plan.
+Dahinter verbirgt sich die Idee, statt einige feste Werte auf bestimmte Ergebnisse zu überprüfen (und damit Fehlerräume an den Stellen zu lassen, die man nicht testet), gemeinsame Eigenschaften in Gruppen von Eigabeparametern zu finden, die anschließend randomisiert überprüft werden können. 
+Schauen wir uns für ein besseres Verständnis ein einfaches Beispiel an.
+Die folgende Funktion konkateniert zwei Strings miteinander (Man beachte, dass die geschweiften Klammern weggelassen werden können, wenn es sich bei der Funktion um eine einzelne Operation handelt):</p>
+<pre><code class="language-kotlin">public fun concatenate(string1: String, string2: String): String = string1 + string2
+</code></pre>
+<p>In klassischer Herangehensweise würden wir beim Testen neben den Grenzfällen (leerer String, Nullstring), einen “normalen” Methodenaufruf testen.
+Eine andere Art und Weise an den Test heranszugehen ist, sich zu überlegen, welche Eigenschaft die Ergebnisse des Methodenaufrufs gemein haben.
+Eigenschaften lassen sich dabei nach folgender Form beschreiben:</p>
+
+<p><em>Für Werte … gilt, wenn … zutrifft, dass … wahr/falsch ist</em></p>
+
+<p>In diesem Fall können wir also sagen:</p>
+
+<p><em>Für alle Strings string1 und string2 gilt, dass die Konkatenation von string1 und string2 mit string1 anfängt und mit string2 endet</em></p>
+
+<p>In <a href="https://kotest.io/">Kotest</a> könnte der Test dann so aussehen:</p>
+<pre><code class="language-kotlin">class StringConcatTest: StringSpec({
+   "Alle konkatenierten Strings starten mit string1 und enden mit string2" {
+      forAll&lt;String, String&gt; { string1, string2 -&gt; {
+         val concat = concatenate(string1, string2)
+         return concat.startsWith(string1) &amp;&amp; concat.endsWith(string2)
+         }
+      }
+   }
+})
+</code></pre>
+<p>Kotest würde mit seinem Standardgenerator diesen Test für 1000 Werte durchspielen und die Ergebnisse prüfen.
+Selbstverständlich können auch eigene Generatoren geschrieben werden, die an die eigenen Bedürfnisse angepasst sind.
+In diesem Beispiel mag der Test trivial sein, da auch die Fachlichkeit sehr simpel ist. 
+Je komplexer allerdings die Methode, desto schwieriger kann es sein herauszufinden, welche Menge von Daten eigentlich welche Eigenschaften erfüllen soll.
+Ein netter Nebeneffekt: 
+Tests so zu schreiben zwingt uns damit nochmal auf eine andere Art und Weise über die Korrektheit einer Methode nachzudenken.</p>
+
+<h4 id="abschluss">Abschluss</h4>
+<p>Für mich persönlich, mit Java-Erfahrung seit 2012, war mein erster praktischer Kontakt mit Kotlin in 2019 wie eine kleine Offenbarung.
+Möglicherweise ist es der Gewöhnungseffekt, dass Kotlin für mich in vielen Punkten durchdachter als Java scheint.
+Sicherlich wird dabei auch das noch recht junge Alter der Sprache und die Erfahrungen, die in sie hineingeflossen sind, eine Rolle spielen.
+Das funktionale Paradigma und Kotlin in seiner Ausprägung, ich habe es schon vorher geschrieben, kommen mir häufig leichtgängiger vor und es bereitet mir viel Freude, so zu programmieren.
+Wir sollten uns dabei aber auch immer bewusst sein, dass dies zu einem gewissen Preis geschieht.
+Der Preis, den wir hier zahlen, sind Effizienzeinbußen (die in vielen Projekten allerdings vernachlässigbar sein werden) gegenüber zum Beispiel einer optimierten Programmierlösung in C, sowie der Aufwand, den es für uns mit sich bringt, sich an diese <em>neue</em> Art zu denken zu gewöhnen.
+Es hat einen Grund, dass sich viele Sprachen heutzutage an funktionaler Programmierung orientieren und diese sehr populär ist.
+Ich hoffe, dass ich euch einen kleinen Einblick in Kotlin und die funktionale Welt geben konnte.</p>
+
+<p>Wenn ihr an dieser Stelle neugierig geworden seid und euch weiter mit der Sprache beschäftigen möchtet, dann empfehle ich ausdrücklich die <a href="https://kotlinlang.org/docs/koans.html">Kotlin Koans</a>.
+Kotlin Koans sind sehr gute offizielle Tutorial-Reihe, die sich unter anderem mit den Inhalten beschäftigt, die wir hier nur oberflächlich betrachten konnten, und auch noch viel weiter in die Details der Sprache eintaucht.</p>
+
+<p>Im Allgemeinen empfehle ich auch den <a href="https://play.kotlinlang.org/">Kotlin Playground</a> zum schnellen und unkomplizierten herumprobieren und programmieren im Webbrowser eurer Wahl, wenn ihr Kotlin nicht lokal ausführen wollt.</p>
+
+<p>Ein anderer spannender Blogeintrag zum Thema Kotlin bei adesso zum direkt Weiterlesen:
+<a href="https://www.adesso.de/de/news/blog/vorteile-von-kotlin-fuer-die-businesslogik-von-android-und-ios-apps.jsp">Kotlin Multiplattform Mobile</a>
+oder direkt an der Quelle:
+<a href="https://blog.jetbrains.com/kotlin/">The Kotlin Blog</a></p>
+
+<p>Quellen:</p>
+<ul>
+  <li><a href="https://de.wikipedia.org/wiki/Kotlin_(Programmiersprache)">Kotlin-Wikipedia</a></li>
+  <li><a href="https://de.wikipedia.org/wiki/Funktionale_Programmierung">Funktionale Programmierung-Wikipedia</a></li>
+  <li><a href="https://de.wikipedia.org/wiki/Lambda-Kalk%C3%BCl">Lambda Kalkül-Wikipedia</a></li>
+  <li><a href="https://kotlinlang.org/docs/properties.html">Kotlin Dokumentation</a></li>
+  <li><a href="https://www.learningjournal.guru/article/scala/functional-programming/immutability-in-functional-programming/">Learning Journal</a></li>
+  <li><a href="https://www.baeldung.com/kotlin/const-var-and-val-keywords">Baeldung</a></li>
+  <li><a href="https://phauer.com/2017/idiomatic-kotlin-best-practices/#functional-programming">Philipp Hauer’s Blog</a></li>
+  <li><a href="https://medium.com/criteo-engineering/introduction-to-property-based-testing-f5236229d237">Medium</a></li>
+  <li><a href="https://kotest.io/docs/proptest/property-test-functions.html">Kotest</a></li>
+  <li><a href="https://www.leadingagile.com/2018/03/immutability-in-java/">Leading Agile</a></li>
+  <li><a href="https://hackernoon.com/5-benefits-of-immutable-objects-worth-considering-for-your-next-project-f98e7e85b6ac">Hackernoon</a></li>
+  <li><a href="https://stackoverflow.com/questions/34385243/why-is-immutability-so-important-or-needed-in-javascript">Stackoverflow</a></li>
+</ul>
+<div class="footnotes">
+  <ol>
+    <li id="fn:1">
+      <p>TIOBE zählt die gefundenen Ergebnisse zu Programmiersprachen aus verschiedenen Suchmaschinen. <a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:2">
+      <p>PYPL nutzt Google Trends für Tutorial-Suchanfragen. <a href="#fnref:2" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+
+</div>
+</div>
+</div>
+</div>]]></field>
+    </document>
+</documents>

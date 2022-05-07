@@ -16,14 +16,8 @@ In diesem Artikel stelle ich das Studium am IT-Center vor und teile meine Erfahr
         <field name="date_date"><![CDATA[2019-05-31T08:37:00+02:00]]></field>
         <field name="date_l"><![CDATA[1559284620000]]></field>
         <field name="change_date"><![CDATA[1586172960000]]></field>
-        <!--Picture-->
-        <!-- Not in use at the moment-->
         <!--Author Information-->
-        <field name="author_first_name"><![CDATA[Cem]]></field>
-        <field name="author_last_name"><![CDATA[Caylak]]></field>
-        <field name="author_id"><![CDATA[ccaylak]]></field>
-        <field name="author_picture_stored_only"><![CDATA[http://localhost:4000/assets/images/avatars/ccaylak.png]]></field>
-        <!--Postcontent-->
+        <field name="author_id"><![CDATA[ccaylak]]></field><!--Postcontent-->
         <field name="headlines"><![CDATA[Duales Studium am IT-Center Dortmund mit adesso als Partner]]></field>
         <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
             <p>Du bist demnächst mit dem Abitur fertig und denkst über ein Studium in der Welt der Informatik nach?

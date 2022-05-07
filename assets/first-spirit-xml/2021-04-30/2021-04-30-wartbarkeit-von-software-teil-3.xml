@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<documents>
+    <document uid="8a315237f21515087bef62e8c74a3d7d">
+        <field name="title"><![CDATA[Wartbarkeit von Software – Teil 3: Qualität und Automatisierung]]></field>
+        <field name="subline"><![CDATA[]]></field>
+        <field name="teaser"><![CDATA[<p>Eine gut wartbare Software minimiert den Aufwand für Fehlerbehebung, adaptive Wartung und folgende Change Requests deutlich.
+Aber was zeichnet gute Wartbarkeit aus und wie können wir diese erreichen?
+Nachdem wir uns in den ersten beiden Teilen der Reihe “Wartbarkeit von Software” mit der Dokumentation und den Tests beschäftigt haben, wollen wir uns nun im letzten Teil zuerst kurz mit der Code-Qualität beschäftigen und dann näher auf das Automatisieren von Prozessen im Rahmen von Continuous Integration und Deployment eingehen.</p>
+
+]]></field>
+        <field name="language_multi_keyword"><![CDATA[de]]></field>
+        <field name="content_type_multi_keyword"><![CDATA[blog]]></field>
+        <field name="mime_type_multi_keyword"><![CDATA[text/html]]></field>
+        <field name="category_multi_keyword"><![CDATA[Softwareentwicklung]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Wartbarkeit]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Qualität]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Continuous Integration]]></field>
+        <field name="date_date"><![CDATA[2021-04-30T10:00:00+02:00]]></field>
+        <field name="date_l"><![CDATA[1619769600000]]></field>
+        <field name="change_date"><![CDATA[1619769600000]]></field>
+        <!--Author Information-->
+        <field name="author_id"><![CDATA[anbeth]]></field><field name="author_id"><![CDATA[ThiloLange]]></field><!--Postcontent-->
+        <field name="headlines"><![CDATA[Wartbarkeit von Software – Teil 3: Qualität und Automatisierung]]></field>
+        <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
+            <p>Eine gut wartbare Software minimiert den Aufwand für Fehlerbehebung, adaptive Wartung und folgende Change Requests deutlich.
+Aber was zeichnet gute Wartbarkeit aus und wie können wir diese erreichen?
+Nachdem wir uns in den ersten beiden Teilen der Reihe “Wartbarkeit von Software” mit der Dokumentation und den Tests beschäftigt haben, wollen wir uns nun im letzten Teil zuerst kurz mit der Code-Qualität beschäftigen und dann näher auf das Automatisieren von Prozessen im Rahmen von Continuous Integration und Deployment eingehen.</p>
+
+</div>]]></field>
+        <field name="content"><![CDATA[<div class="adesso-text-formate">
+<div class="row p-t-2">
+<div class="adesso-container">
+<div class="col-xl-8 adesso-center p-b-1 p-l-0 p-r-0">
+    <p>Eine gut wartbare Software minimiert den Aufwand für Fehlerbehebung, adaptive Wartung und folgende Change Requests deutlich.
+Aber was zeichnet gute Wartbarkeit aus und wie können wir diese erreichen?
+Nachdem wir uns in den ersten beiden Teilen der Reihe “Wartbarkeit von Software” mit der Dokumentation und den Tests beschäftigt haben, wollen wir uns nun im letzten Teil zuerst kurz mit der Code-Qualität beschäftigen und dann näher auf das Automatisieren von Prozessen im Rahmen von Continuous Integration und Deployment eingehen.</p>
+
+<h4 id="code-qualität">Code-Qualität</h4>
+
+<p>Bei der Übergabe der entwickelten Anwendung erwartet das Wartungsteam eine entsprechende Code-Qualität.
+Um die Code-Qualität im Projekt sicherzustellen, muss diese werkzeuggestützt geprüft werden.
+Es gibt unterschiedliche Open-Source Werkzeuge (z.B. Sonarqube, ESLint) für verschiedene Programmiersprachen.</p>
+
+<p>Die Konfiguration des eingesetzten Werkzeuges sollte zu Beginn des Projektes zentral erstellt und an das gesamte Entwicklungsteam verteilt werden, so dass der gesamte Code immer auf die gleichen Qualitätsziele geprüft wird.
+Abweichungen von der Standardkonfiguration wie z.B. der Ausschluss von bestimmten Prüfregeln müssen dann mit einer kurzen Begründung dokumentiert werden.</p>
+
+<p>Im besten Fall erfolgt die Prüfung der Code-Qualität zentral durch die Integration in ein CI-Tool, z.B. mit SonarQube im Jenkins oder GitLab.
+Nach unserer Erfahrung sollte der Buildprozess dabei so konfiguriert werden, das der Build automatisch scheitert, sobald die vorgegebenen Qualitätsziele nicht eingehalten werden.
+Somit wird sichergestellt, dass die definierten Qualitätsziele stets erfüllt werden.</p>
+
+<p>Falls die automatisierte Prüfung durch ein CI-Tool nicht möglich sein sollte, muss darauf geachtet werden, dass das gesamte Entwicklungsteam die Werkzeuge selbst einsetzt.
+Die gefundenen Mängel müssen korrigiert werden, bevor der Quellcode in die Versionsverwaltung eingecheckt wird.
+Die Prüfung der Code-Qualität sollte in diesem Fall als separater Schritt in die Definition of Done und in die Review-Checkliste aufgenommen werden, damit die Code-Qualität fest in den Entwicklungsprozess verankert wird.</p>
+
+<p>Bei der Übergabe an das Wartungsteam sollten die folgenden Grenzwerte eingehalten sein (Beispiel SonarQube):</p>
+
+<ul>
+  <li>Keine offenen Bugs</li>
+  <li>Keine offenen Vulnerabilities</li>
+  <li>Keine Code Smells vom Typ “Blocker”</li>
+  <li>Keine Code Smells vom Typ “Critical”</li>
+  <li>Der Anteil von doppeltem Code liegt unter 5%</li>
+</ul>
+
+<p><strong>Wenn Ausnahmen doch einmal notwendig sein sollten, müssen diese entweder im Quellcode oder im Werkzeug nachvollziehbar begründet sein!</strong></p>
+
+<h4 id="continuous-integration-und-deployment">Continuous Integration und Deployment</h4>
+
+<p>Es gibt gute Gründe, all diejenigen Prozesse, die in einem Entwicklungsprojekt regelmäßig durchzuführen sind und sich im Projektverlauf selten ändern, im Rahmen der Continuous Integration (CI) und des Continuous Deploymens (CD) zu automatisieren.
+Der Aufwand, diese Prozesse zu Beginn eines Entwicklungsprojektes einmalig zu automatisieren und dann bei Konfigurationsänderungen anzupassen, ist meist geringer, als der Aufwand, diese Prozesse immer wieder manuell durchführen zu müssen.</p>
+
+<p>Zusätzlich senkt eine Automatisierung das Risiko, Fehler bei der manuellen Durchführung der Prozesse zu begehen und stellt sicher, dass die Prozesse immer auf derselben Umgebung und Konfiguration durchgeführt werden.</p>
+
+<p>Es ist zu bedenken, dass das Ende des initialen Entwicklungsprojektes nicht auch das Ende der Anpassungen an der entwickelten Software ist.
+In der anschließenden Wartungs- und Betriebsphase sind weiterhin Fehler zu beheben und es wird nicht selten das Verhalten einer Applikation durch folgende Change Requests erweitert und/oder verändert.
+Das Wartungsteam wird die bereits etablierte Automatisierung dann übernehmen und weiterverwenden.
+Für eine reibungslose Übergabe ist an zentraler Stelle zu dokumentieren, welche Prozesse automatisiert wurden, wie sie konfiguriert sind und wie diese auszuführen sind.</p>
+
+<p>Zur Unterstützung der Automatisierung gibt es Werkzeuge (z.B. Jenkins, GitLab oder Bamboo), die die Erstellung, Konfiguration, Verwaltung und Durchführung zeitgesteuerter oder auch anders getriggerter Prozesse (Jobs) erlauben.
+In Unternehmen mit mehreren Entwicklungsprojekten wird häufig ein solches Werkzeug zentral bereitgestellt.
+Dieses sollte im besten Fall auch verwendet werden, um ansonsten anfallende Einarbeitungszeit bei der Übergabe an das Wartungsteam zu sparen.
+Zusätzlich entfallen bei Verwendung eines zentral bereitgestellten Werkzeugs die Aufwände und Ressourcen für die Installation, Konfiguration, Aktualisierungen, Berechtigungs-Management und Backup eines eigens für das Projekt eingesetzten Werkzeugs.</p>
+
+<p>Die folgende Grafik zeigt beispielhaft ein Jenkins-Projekt, in dem mehrere Prozesse automatisiert wurden:</p>
+
+<p><img src="/assets/images/posts/wartbarkeit-von-software-teil-3/jenkins-job-list.png" alt="Speicherbedarf unter Last" /></p>
+
+<p>Aber welche Prozesse aus Entwicklung, Build, Test und Deployment sind zu automatisieren?
+Wie eingangs bereits erwähnt, bieten sich hierfür alle regelmäßig durchzuführenden, sich selten ändernden Prozesse an.
+Im Folgenden zeigen wir eine Konfiguration mehrerer Jobs für eine Automatisierung der Prozesse eines Beispiel-Projekts:</p>
+
+<h5 id="build-branch">Build Branch</h5>
+
+<p>Nach jedem Push in der Entwicklung muss der Quelltext des zugehörigen Branches von einem Build-Job automatisch kompiliert werden.
+Basierend darauf werden dann die Komponententests (z.B. JUnit) und zusätzliche statische Code-Analysen (z.B. SonarQube, SpotBugs, Checkstyle) durchgeführt.
+Arbeitet das Entwicklungsteam mit dem empfohlenen Branch-Modell nach Gitflow lässt sich hierfür im CI/CD-Werkzeug ein Job einrichten, der die unterschiedlichen Branches (feature, bugfix, release…) erkennen kann.
+Im Jenkins gibt es dafür z.B. das Job-Element Multibranch Pipeline, andere CI/CD-Werkzeuge bieten mittlerweile ähnlich funktionierende Features an.</p>
+
+<p>Der aktuelle Build-Status für einen Branch sollte sich im SCM (z.B. BitBucket) widerspiegeln, dazu sollte der Build-Job im CI/CD-Werkzeug zumindest bei Start, Abbruch und erfolgreichen Durchlauf den Build-Status im SCM-Werkzeug aktualisieren.
+Das SCM-Werkzeug wiederum kann dann so eingestellt werden, dass ein Merge des Feature-Branches in den Haupt-Branch erst dann erlaubt ist, wenn mindestens ein erfolgreicher Build durchgeführt wurde.</p>
+
+<p>Die folgende Grafik zeigt beispielhaft einen Pull Request im Bitbucket, bei dem der letzte Build fehlgeschlagenen ist:</p>
+
+<p><img src="/assets/images/posts/wartbarkeit-von-software-teil-3/bitbucket-pr-failed.png" alt="Bitbucket PR fehlgeschlagen" /></p>
+
+<h5 id="build-version">Build Version</h5>
+
+<p>Täglich bis wöchentlich, im besten Fall schon nach jeder Änderung des Branches mit dem aktuellen Entwicklungsstand (z.B. development) sollte zusätzlich zu den oben genannten Aufgaben ein weiterer Job eine aktuelle Version der Software zusammenstellen (assemble).
+Das Ergebnis dieses Prozesses sind ein oder mehrere Artefakte, die auf dieselbe Art gebaut und zusammengestellt werden, wie die Release-Artefakte für das Produktivsystem.
+Das erstellte Artefakt dieser Version sollte anschließend automatisiert abgelegt werden (z.B. im Nexus oder Artifactory), um weiteren nachgelagerten Prozessen den Zugriff darauf zu ermöglichen.
+Zusätzlich können bereits in diesem Schritt weitere Prüfungen wie z.B. Security- (OWASP) und/oder License-Checks automatisiert durchgeführt werden.
+Außerdem kann die Version im SCM mit einem entsprechenden Tag markiert werden.
+Im besten Fall können die mit dieser Version erstellten Artefakte als Release Candidate bezeichnet und nach erfolgreichen Tests direkt als Release ausgeliefert werden.</p>
+
+<p>Die folgende Grafik zeigt beispielhaft ein Jenkins-Projekt, in dem mehrere Prozesse automatisiert wurden:</p>
+
+<p><img src="/assets/images/posts/wartbarkeit-von-software-teil-3/jenkins-job-create-rc.png" alt="Speicherbedarf unter Last" /></p>
+
+<h5 id="deployments">Deployments</h5>
+
+<p>Täglich bis wöchentlich sollte ein Job den aktuellen Entwicklungsstand auf einer Testumgebung ausrollen, um darauf manuelle Tests durchführen zu können, Fehler reproduzieren zu können oder den Arbeitsfortschritt z.B. in einem Sprint Review präsentieren zu können.
+Dazu wird durch einen Job die Testumgebung (z.B. mit Docker oder Ansible) mit der zuvor gebauten aktuellen Version der Software vorbereitet oder komplett neu erstellt, dann konfiguriert und gestartet.</p>
+
+<p>Zusätzlich sollte ein weiterer Job regelmäßig nach jedem Release eine Umgebung mit der aktuell in Produktion ausgerollten Version bereitstellen, um hierauf jederzeit gemeldete Fehler nachstellen und Hotfixes bearbeiten zu können.</p>
+
+<h5 id="run-tests">Run Tests</h5>
+
+<p>Wöchentlich bis monatlich, zumindest jedoch vor jedem Release, führen ein oder mehrere Jobs Integrations- und Schnittstellentests (z.B. Selenium) sowie Last- und Performance-Tests durch.
+Dazu wird durch einen Job automatisiert eine Testumgebung (z.B. mit Docker oder Ansible) mit der zuvor gebauten Version vorbereitet oder komplett neu erstellt, konfiguriert und gestartet.
+Dann werden die dem Test zugrundeliegenden Testdaten darauf importiert oder generiert, der Test durchgeführt und abschließend die Testergebnisse gesammelt und abgelegt.
+Diese Test-Jobs können z.B. so konfiguriert werden, dass sie direkt nach jedem erfolgreichen Build einer neuen Version ausgeführt werden.</p>
+
+<h4 id="fazit">Fazit</h4>
+
+<p>Im letzten Teil der Serie zur Wartbarkeit von Software haben wir uns mit verschiedenen Kriterien beschäftigt, die einen Einfluss auf die Code-Qualität haben und gezeigt, mit welchen Werkzeugen und Prozessen diese während der Entwicklung gemessen und überprüft werden können.
+Außerdem haben wir dargestellt, welche Prozesse im Entwicklungsprojekt werkzeuggestützt automatisiert werden sollten.
+Die Automatisierung hilft, die Produktivität zu steigern, Fehler rechtzeitig zu erkennen bzw. gar nicht erst zu machen.</p>
+
+<p>Die beiden ersten Teile verpasst?</p>
+
+<p><a href="https://www.adesso.de/de/news/blog/wartbarkeit-von-software-teil-1-dokumentation.jsp">Hier geht es zu Teil 1 - Dokumentation</a></p>
+
+<p><a href="https://www.adesso.de/de/news/blog/wartbarkeit-von-software-teil-2-tests.jsp">Hier geht es zu Teil 2 - Tests</a></p>
+
+<h4 id="checkliste">Checkliste</h4>
+
+<p>Zur Prüfung, ob alle in dieser Serie genannten Kriterien im Projekt umgesetzt wurden, könnt ihr hier eine Checkliste im PDF-Format herunterladen.</p>
+
+<p><a href="/assets/images/posts/wartbarkeit-von-software-teil-3/checkliste.pdf">Checkliste</a></p>
+
+</div>
+</div>
+</div>
+</div>]]></field>
+    </document>
+</documents>

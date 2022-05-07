@@ -1,0 +1,52 @@
+#Run blogpost-checker in a Docker container to validate the new blogpost
+name: validate-blogpost
+
+on:
+  pull_request_target:
+    branches:
+      - master
+
+jobs:
+  pull-and-run-blogpost-checker-image:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+    
+    steps:
+      - name: Inject env
+        uses: rlespinasse/github-slug-action@v3.x
+  
+      - uses: actions/checkout@v2
+
+      - name: git log
+        run: |
+          BASE_COMMIT=`git log --pretty="format:%H" | head -1`
+          BRANCHNAME=`echo pr-${{github.event.number}}`
+          git fetch origin pull/${{github.event.number}}/head:$BRANCHNAME
+          git checkout $BRANCHNAME
+          HEAD_COMMIT=`git log --pretty="format:%H" | head -1`
+          export HEAD_COMMIT="$HEAD_COMMIT"
+          export BASE_COMMIT="$BASE_COMMIT"
+          echo "::set-env name=HEAD_COMMIT::$HEAD_COMMIT"
+          echo "::set-env name=BASE_COMMIT::$BASE_COMMIT"
+        env:
+          ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
+        working-directory: /home/runner/work/devblog/devblog
+              
+      - uses: actions/checkout@v2
+        with:
+          repository: ${{ github.event.pull_request.user.login }}/${{ env.GITHUB_REPOSITORY_NAME_PART }}
+          ref: ${{ env.HEAD_COMMIT }}
+          fetch-depth: 0
+          
+      - name: Run Docker image
+        run: |
+          docker run \
+          --env BASE_COMMIT='${{ env.BASE_COMMIT }}' \
+          --env HEAD_COMMIT='${{ env.HEAD_COMMIT }}' \
+          --env LOCAL_REPO_PATH=repo \
+          --env PR_NUMBER='${{ github.event.number }}' \
+          --env TOKEN='${{ secrets.REPOSITORY_LOCAL_USER_TOKEN }}' \
+          -v /home/runner/work/devblog/devblog:/repo \
+          jekyll2cms/blogpost-checker:1.1.0
+

@@ -2,10 +2,10 @@
 layout:         [post, post-xml]              
 title:          "Echtzeitdatenverarbeitung von Eventströmen"
 date:           2019-03-01 09:30
-modified_date:  2019-03-01 09:30
-author:         ceverke 
-categories:     [Java]
-tags:           [BRMS, Business Rules, Geschäftsregeln, Drools, Complex Event Processing]
+modified_date:  2021-03-08 14:50
+author_ids: [ceverke] 
+categories:     [Softwareentwicklung]
+tags:           [BRMS, Business Rules, Geschäftsregeln, Drools, Complex Event Processing, Java]
 ---
 
 Ereignisse, im Englischen als Events bezeichnet, dienen im Software Engineering zur Steuerung des Programmablaufes von Software und werden durch Aktionen ausgelöst oder lösen selbst Aktionen aus. Neben technischen Events ist es auch möglich, fachliche Aktionen aus Events zu herzuleiten. In diesem Blogbeitrag widmen wir uns der Fragestellung, wie eingehende Events in Echtzeit ausgewertet werden können. Dazu greifen wir auf die Konzepte des Complex Event Processings (CEP) zurück, die als *Drools* *Fusion* in dem Business-Rules-Management-System *Drools* enthalten sind. Ein Beispiel aus der Banking-Branche zeigt ein mögliches und realistisches Szenario, in dem die hier vorgestellten Konzepte, Ideen und Technologien Anwendung finden könnten. 

@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<documents>
+    <document uid="b83213df04a870865eb81711ee4f8502">
+        <field name="title"><![CDATA[Java und SAP in der Box]]></field>
+        <field name="subline"><![CDATA[]]></field>
+        <field name="teaser"><![CDATA[<p>Irgendwann kommen viele Java-Projekte an den Punkt, an dem sie die schöne Welt von Mikroservices und REST-Schnittstellen verlassen und auf ein Backend-System zugreifen müssen. 
+Wir wollen hier den Zugriff auf SAP betrachten. 
+Besonderes Augenmerk gilt der Konfiguration und dem Build, da diese ein paar Besonderheiten aufweisen.</p>
+
+]]></field>
+        <field name="language_multi_keyword"><![CDATA[de]]></field>
+        <field name="content_type_multi_keyword"><![CDATA[blog]]></field>
+        <field name="mime_type_multi_keyword"><![CDATA[text/html]]></field>
+        <field name="category_multi_keyword"><![CDATA[Softwareentwicklung]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Java]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Spring]]></field>
+        <field name="tag_multi_keyword"><![CDATA[SAP]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Docker]]></field>
+        <field name="date_date"><![CDATA[2021-12-29T12:00:00+01:00]]></field>
+        <field name="date_l"><![CDATA[1640775600000]]></field>
+        <field name="change_date"><![CDATA[1640775600000]]></field>
+        <!--Author Information-->
+        <field name="author_id"><![CDATA[janstefan42]]></field><!--Postcontent-->
+        <field name="headlines"><![CDATA[Java und SAP in der Box]]></field>
+        <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
+            <p>Irgendwann kommen viele Java-Projekte an den Punkt, an dem sie die schöne Welt von Mikroservices und REST-Schnittstellen verlassen und auf ein Backend-System zugreifen müssen. 
+Wir wollen hier den Zugriff auf SAP betrachten. 
+Besonderes Augenmerk gilt der Konfiguration und dem Build, da diese ein paar Besonderheiten aufweisen.</p>
+
+</div>]]></field>
+        <field name="content"><![CDATA[<div class="adesso-text-formate">
+<div class="row p-t-2">
+<div class="adesso-container">
+<div class="col-xl-8 adesso-center p-b-1 p-l-0 p-r-0">
+    <p>Irgendwann kommen viele Java-Projekte an den Punkt, an dem sie die schöne Welt von Mikroservices und REST-Schnittstellen verlassen und auf ein Backend-System zugreifen müssen. 
+Wir wollen hier den Zugriff auf SAP betrachten. 
+Besonderes Augenmerk gilt der Konfiguration und dem Build, da diese ein paar Besonderheiten aufweisen.</p>
+
+<h4 id="das-ziel">Das Ziel</h4>
+<p>Ziel ist es, aus einer <a href="https://spring.io/projects/spring-boot">Spring-Boot</a>-Anwendung heraus eine RFC-Schnittstelle (Remote-Function-Call-Schnittstelle) von SAP ansprechen zu können und von dort beispielsweise Vertragsinformationen auszulesen.
+Das Projekt soll mit Maven gebaut und als Docker Image ausgeliefert werden können.</p>
+
+<h4 id="die-bibliothek">Die Bibliothek</h4>
+<p>Der Zugriff auf RFC-Schnittstellen erfolgt über die SAP-eigene Bibliothek <a href="https://support.sap.com/en/product/connectors/jco.html">SAP Java Connector</a>, der Einfachheit halber im Folgenden <em>SAP JCo</em> genannt.
+Die Bibliothek besteht aus einer jar-Datei und einem dynamisch gebundenen Anteil, der spezifisch je Betriebssystem ist. Es werden Windows, Linux, MacOS und einige weitere unterstützt.</p>
+
+<p>Der <em>SAP JCo</em> ist nicht unter einer freien Lizenz verfügbar und steht Kunden nur über das SAP-Downloadportal zur Verfügung. 
+Das bedeutet auch, dass <em>SAP JCo</em> nicht (bzw. nur in veralteten oder nicht offiziellen Versionen) im zentralen Maven Repository enthalten ist und während bes Build Prozesses nicht automatisch geladen werden kann.
+Abhilfe schafft die Möglichkeit, lokale Bibliotheken als Abhängigkeiten in Maven zu definieren.</p>
+<pre><code class="language-xml">&lt;dependency&gt;
+    &lt;groupId&gt;com.sap.conn.jco&lt;/groupId&gt;
+    &lt;artifactId&gt;sapjco3&lt;/artifactId&gt;
+    &lt;version&gt;3.0.14&lt;/version&gt;
+    &lt;scope&gt;system&lt;/scope&gt;
+    &lt;systemPath&gt;${project.basedir}/libs/sapjco3.jar&lt;/systemPath&gt;
+&lt;/dependency&gt;
+</code></pre>
+<p>Was der ungewöhnliche system Scope bedeutet und warum er an dieser Stelle sogar mehr als nur eine Notlösung ist, zeigt sich, wenn das ausführbare <a href="#Das Repackage Problem">Artefakt gebaut</a> werden soll.</p>
+<h4 id="die-konfiguration">Die Konfiguration</h4>
+<p><em>SAP JCo</em> wird über spezielle Properties konfiguriert, die im Detail im Interface <code>DestinationDataProvider</code> definiert sind.
+Spring Boot verwendet in der Regel eine Datei namens <code>application.properties</code> oder <code>application.yml</code> zur Konfiguration.</p>
+<pre><code class="language-json">jco:
+  client:
+    ashost: [SAP-HOST]
+    sysnr: 00
+    client: 100
+    user: [SAP-BENUTZER]
+    passwd: [SAP-PASSWORT]
+    lang: de
+</code></pre>
+<p>Die Klasse <code>SapConfigurationProperties</code> nutzt die <a href="https://docs.spring.io/spring-boot/docs/current/reference/html/features.html#features.external-config">Spring Annotation</a> <code>@ConfigurationProperties(prefix = "jco.client")</code>, um diese Konfiguration zu lesen und innerhalb der Setter in die erforderlichen Properties zu schreiben.
+Die Annoation bewirkt, dass Spring beim Start der Anwendung Konfigurationswerte auf Basis ihres Namens an Properties eine Instanz.
+Das Schreiben der Werte in die Instanz erfolgt über den Aufruf der entsprechenden Setter.</p>
+
+<p>Da <em>SAP JCo</em> keine Beans zur Konfiguration nutzt, sondern Properties verwendet, füllen die Setter in diesem Fall eine Properties Instanz mit den Werte, die in der Folge verwendet werden können.</p>
+<pre><code class="language-java">@Configuration
+@ConfigurationProperties(prefix = "jco.client")
+public class SapConfigurationProperties {
+
+  private final Properties properties = new Properties();
+
+  public void setAshost(String ashost) {
+    this.properties.setProperty(DestinationDataProvider.JCO_ASHOST, ashost);
+  }
+
+  public void setSysnr(String sysnr) {
+    this.properties.setProperty(DestinationDataProvider.JCO_SYSNR, sysnr);
+  }
+
+  public void setClient(String client) {
+    this.properties.setProperty(DestinationDataProvider.JCO_CLIENT, client);
+  }
+
+  public void setUser(String user) {
+    this.properties.setProperty(DestinationDataProvider.JCO_USER, user);
+  }
+
+  public void setPasswd(String passwd) {
+    this.properties.setProperty(DestinationDataProvider.JCO_PASSWD, passwd);
+  }
+
+  public void setLang(String lang) {
+    this.properties.setProperty(DestinationDataProvider.JCO_LANG, lang);
+  }
+
+  public Properties getProperties() {
+    return properties;
+  }
+}
+
+</code></pre>
+
+<p>Der <code>SapDestinationProvider</code> stellt <em>SAP JCo</em> diese Konfiguration als ein Ziel zur Verfügung. Ein Ziel ist die Darstellung eines SAP-Systems innerhalb von <em>SAP JCo</em>.
+Grundsätzlich können beliebig viele Ziele verwaltet werden. 
+Das Beispiel beschränkt sich auf eines.
+Da der Provider eine <code>@Component</code> ist, wird er bei Bedarf von Spring instanziiert und das Ziel somit in <em>SAP JCo</em> registriert. 
+Der <code>InMemoryDestinationDataProvider</code> dient dabei der einfachen Ablage der Konfiguration im Speicher.</p>
+<pre><code class="language-java">@Component
+@RequiredArgsConstructor
+@Slf4j
+public class SapDestinationProvider {
+
+  private static final String DESTINATION_NAME = "Test-SAP";
+
+  private final SapConfigurationProperties configurationProperties;
+
+  @PostConstruct
+  public void init() {
+    var memoryProvider = new InMemoryDestinationDataProvider();
+
+    // Registriert den Provider in der JCo-Umgebung.
+    // Fängt IllegalStateException, wenn eine Instanz bereits registriert ist.
+    try {
+      Environment.registerDestinationDataProvider(memoryProvider);
+    } catch (IllegalStateException providerAlreadyRegisteredException) {
+      log.warn("Die Implementierung ist bereits registriert.", providerAlreadyRegisteredException);
+    }
+
+    memoryProvider.changeProperties(DESTINATION_NAME, configurationProperties.getProperties());
+  }
+
+  public JCoDestination getDestination() throws JCoException {
+    return JCoDestinationManager.getDestination(DESTINATION_NAME);
+  }
+}
+</code></pre>
+<p>Jede Anwendung, die <em>SAP JCo</em> verwendet, behandelt Ziele. 
+Ein Ziel stellt eine logische Adresse eines SAP-Systems dar und trennt somit die Konfiguration von der eigentlichen Anwendungslogik.</p>
+
+<p><em>SAP JCo</em> ruft die zur Laufzeit erforderlichen Parameter aus dem in der Laufzeitumgebung registrierten DestinationDataProvider ab. 
+Wenn kein Provider registriert ist, verwendet <em>SAP JCo</em> eine Standardimplementierung, die die Konfiguration aus einer Properties-Datei liest.</p>
+
+<h4 id="das-repackage-problem">Das Repackage-Problem</h4>
+<p>Das <code>spring-boot-maven-plugin</code> stellt innerhalb des Build-Prozesse ein ausführbares Archiv zusammen, das die komplette Anwendung enthält.
+Durch die Direktive <code>&lt;packaging&gt;jar&lt;/packaging&gt;</code> entsteht in diesem Beispiel ein <code>jar</code>-Archiv.
+Einer der Schritte dieses Prozesses ist das Umbenennen der verwendeten Bibliotheken.
+Der Dateiname wird um die Version ergänzt. 
+So wird z.B. aus <code>jakarta.el.jar</code> in der Version 3.0.3 <code>jakarta.el-3.0.3.jar</code>.
+Da der Name einer jar-Datei in der Regel keine Rollen spielt, hat die Umbenennung keine negativen Auswirkungen.</p>
+
+<p><em>SAP JCo</em> prüft jedoch, ob der Name der jar-Datei genau <code>sapjco3.jar</code> ist. 
+Wenn wir oder das Spring Maven Plugin ihn ändern, führt das zu einem Fehler in der Art von</p>
+<pre><code class="language-java">JCo initialization fails with java.lang.ExceptionInInitializerError: Illegal JCo archive "sap-jco-3.0.11.jar".
+It is not allowed to rename or repackage the original archive "sapjco3.jar"
+</code></pre>
+
+<p>Die augenblickliche Lösung ist die Verwendung des Scope <code>system</code> für die Abhängigkeit. 
+Augenblicklich deswegen, weil der Scope <code>deprecated</code> also als veraltet markiert ist. 
+In der aktuellen Version unterstützt Maven den Scope aber noch. 
+Maven geht nun davon aus, dass die entsprechende Abhängigkeit auf irgendeine Weise im classpath vorhanden ist. 
+Das Spring-Boot-Plugin kennt die jar-Datei somit nicht, sie wird folglich auch nicht umbenannt.</p>
+
+<h4 id="was-ist-mit-tests">Was ist mit Tests?</h4>
+<p>Die Struktur, mit der auf SAP zugegriffen wird, lässt sich gut durch Mock-Objekte ersetzen.
+Somit sind Test auf verschieneden Ebenen möglich.
+Das folgende Beispiel abstrahiert sehr weit und testet lediglich die Antwort-Verarbeitung.
+Nach diesem Vorbild lassen aich auch beliebige komplexere Test realisieren, die zum Beispiel konkrete Ein- und Ausgabeparameter oder Fehlerantworten testen.</p>
+
+<pre><code class="language-java">@ExtendWith(SpringExtension.class)
+@SpringBootTest()
+class SapVertragClientTest {
+
+    @MockBean
+    SapDestinationProvider sapDestinationProvider;
+
+    @Autowired
+    private SapVertragClient client;
+    private JCoParameterList exportParameterList;
+
+    @BeforeEach
+    void init() throws JCoException {
+        exportParameterList = mock(JCoParameterList.class);
+
+        var importParameterList = mock(JCoParameterList.class);
+        when(importParameterList.getStructure("IS_READ_PM_KEY")).thenReturn(mock(JCoStructure.class));
+
+        var jCoFunction = mock(JCoFunction.class);
+        when(jCoFunction.getExportParameterList()).thenReturn(exportParameterList);
+        when(jCoFunction.getImportParameterList()).thenReturn(importParameterList);
+
+        var jCoRepository = mock(JCoRepository.class);
+        when(jCoRepository.getFunction("/PM0/ABT_CM_GET_CONTRACT_DATA")).thenReturn(jCoFunction);
+
+        var jCoDestination = mock(JCoDestination.class);
+        when(jCoDestination.getRepository()).thenReturn(jCoRepository);
+
+        when(sapDestinationProvider.getDestination()).thenReturn(jCoDestination);
+    }
+
+    @Test
+    void police1000_sollVertragLiefern() throws JCoException {
+        when(exportParameterList.toJSON()).thenReturn("{}");
+
+        assertEquals(Optional.of("{}"), client.leseVertrag("1000", "1000"));
+    }
+
+    @Test
+    void police2000_sollKeinErgebnis() throws JCoException {
+        when(exportParameterList.toJSON()).thenReturn(null);
+
+        assertEquals(Optional.empty(), client.leseVertrag("2000", "2000"));
+    }
+
+}
+</code></pre>
+
+<h4 id="docker---in-die-box">Docker - In die Box</h4>
+<p>Das Dockerfile Plugin von Spotify verwendet ein externes Dockerfile zur Erzeugung eines Image. 
+Somit können aus dem Docker-Umfeld gewohnte Mechanismen auch innerhalb eines Maven-Build-Prozesses verwendet werden.</p>
+<pre><code class="language-xml">&lt;plugin&gt;
+    &lt;groupId&gt;com.spotify&lt;/groupId&gt;
+    &lt;artifactId&gt;dockerfile-maven-plugin&lt;/artifactId&gt;
+    &lt;version&gt;1.4.13&lt;/version&gt;
+    &lt;executions&gt;
+        [...]
+    &lt;/executions&gt;
+    &lt;configuration&gt;
+        &lt;repository&gt;${docker.registry}/instanceof42/${project.name}&lt;/repository&gt;
+        &lt;tag&gt;1.0.0-SNAPSHOT&lt;/tag&gt;
+        &lt;buildArgs&gt;
+            &lt;JAR_FILE&gt;target/${project.build.finalName}.jar&lt;/JAR_FILE&gt;
+        &lt;/buildArgs&gt;
+        &lt;forceCreation&gt;true&lt;/forceCreation&gt;
+        &lt;useMavenSettingsForAuth&gt;true&lt;/useMavenSettingsForAuth&gt;
+    &lt;/configuration&gt;
+&lt;/plugin&gt;
+</code></pre>
+
+<p>Das Plugin erwartet das <code>DOCKERFILE</code> im selben Verzeichnis wie die <code>pom.xml</code>.</p>
+<pre><code class="language-dockerfile">FROM adoptopenjdk/openjdk13
+ARG JAR_FILE
+COPY ${JAR_FILE} app.jar
+RUN mkdir -p /libs
+COPY libs/* /libs/
+ENTRYPOINT java -cp app.jar -Dloader.path=/libs/ org.springframework.boot.loader.PropertiesLauncher -Djava.security.egd=file:/dev/./urandom
+EXPOSE 8080
+</code></pre>
+<p>Das Ergebnis des vorherigen Build wird über das BuildArgument <code>JAR_FILE</code> an das Dockerfile übergeben.</p>
+
+<p>Der Versuch, das bis hier hin entstandenen <code>spring-sap.jar</code> auszuführen, scheitert daran, dass die Klassen der <em>SAP-JCo</em>-Bibliothek nicht gefunden werden. 
+Die Fehlermeldung lautet</p>
+<pre><code class="language-bash">java.lang.NoClassDefFoundError: com/sap/conn/jco/ext/DestinationDataProvider
+</code></pre>
+<p>oder ähnlich.</p>
+
+<p>Die Zeile <code>COPY libs/* /libs/</code> übernimmt alle <em>SAP-JCo</em>-Dateien aus dem Projekt in das Docker Image. 
+Der Parameter <code>-Dloader.path=/libs/</code> des <code>java</code>-Aufrufs sogt dann dafür, dass sie alle Teil des Classpath werden und die Applikation sie verwenden kann.</p>
+
+<p>Die letzte Besonderheit ist der <code>PropertiesLauncher</code>, der es im Gegensatz zum häufig für Spring-Boot-Applikationen in Docker Containern verwendeten <code>ENTRYPOINT java -jar /app.jar</code> erlaubt, einen eigenen Classpath zu verwenden.</p>
+
+<p>Wenn das Docker Image weiterverteilt werden soll, erlaubt es die <em>SAP-JCo</em>-Lizenz nicht, die notwendigen Dateien mit auszuliefern.
+In diesem Falle ermöglicht es die starke Trennung der eigentlichen Anwendung von der Bibliothek, dieses z.B. in Form eines Volume nachträglich einzubinden.</p>
+
+<h4 id="das-komplette-beispiel">Das komplette Beispiel</h4>
+<p>Das komplette Beispiel steht auf <a href="https://github.com/janstefan42/spring-sap">github</a> zur Verfügung.
+Die eigentliche SAP-Bibliothek ist aus Lizenzgründen nicht Teil des Beispiels, wird aber ebenso wie ein SAP-System für die Funktion im Verzeichnis <code>/libs</code> des Projekts erwartet.
+Ich werde hier nur die Ausschnitte darstellen, die für die Beschreibung relevant sind.</p>
+
+<h4 id="fazit">Fazit</h4>
+<p>Das Zusammenspiel von Spring Boot mit SAP ist nicht ohne Besonderheiten.
+Speziell die Verwendung des Scope <code>system</code> hinterlässt nicht das allerbeste Gefühl, ist aber für mich der beste Weg mit dem Umbenennungsverbot umzugehen.
+Hat man diese Hürde aber einmal überwunden, bietet <em>SAP JCo</em> einen für Java-Entwickler gewohnten Weg, auf Daten aus SAP zuzugreifen oder sie dorthin zu übertragen.
+Die Verbindung mit SAP bietet ein breites Spektrum an Funktionen, zeigt nach meinen Erfahrungen keine Probleme auch mit größeren Datenmengen und läuft sehr stabil.</p>
+
+</div>
+</div>
+</div>
+</div>]]></field>
+    </document>
+</documents>

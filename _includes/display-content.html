@@ -1,4 +1,3 @@
-{% assign author = site.data.authors[page.author] %}
 {% assign adesso_url = "https://www.adesso.de" %}
 
 {% capture de_date %}
@@ -13,23 +12,29 @@
                 <div class="blog-entry-information adesso-text-formate adesso-secondary-orange col-md-12 col-xl-8 adesso-center">
                         {% if page.categories %}
                         {% for category in page.categories  %}
-                        {% if category == "Softwareentwicklung" %}
-                                <span class="adesso-blog-category softwaredev">{{ category }}</span>
+                        {% if category == "Architektur" %}
+                                <span class="adesso-blog-category architecture">{{ category }}</span>
                         {% endif %}
-                        {% if category == "Microsoft" %}
-                                <span class="adesso-blog-category microsoft">{{ category }}</span>
+                        {% if category == "Branchen" %}
+                                <span class="adesso-blog-category bap">{{ category }}</span>
                         {% endif %}
-                        {% if category == "Java" %}
-                                <span class="adesso-blog-category java">{{ category }}</span>
+                        {% if category == "Cloud" %}
+                                <span class="adesso-blog-category cloud">{{ category }}</span>
+                        {% endif %}
+                        {% if category == "Digital Experience" %}
+                                <span class="adesso-blog-category de">{{ category }}</span>
+                        {% endif %}
+                        {% if category == "Inside adesso" %}
+                                <span class="adesso-blog-category adesso-inside">{{ category }}</span>
+                        {% endif %}
+                        {% if category == "KI" %}
+                                <span class="adesso-blog-category ki">{{ category }}</span>
                         {% endif %}
                         {% if category == "Methodik" %}
                                 <span class="adesso-blog-category methodik">{{ category }}</span>
                         {% endif %}
-                        {% if category == "Architektur" %}
-                                <span class="adesso-blog-category architecture">{{ category }}</span>
-                        {% endif %}
-                        {% if category == "Branchen & People" %}
-                                <span class="adesso-blog-category bap">{{ category }}</span>
+                        {% if category == "Softwareentwicklung" %}
+                                <span class="adesso-blog-category softwaredev">{{ category }}</span>
                         {% endif %}
                         {% endfor %}
                         {% endif %}
@@ -38,7 +43,20 @@
 
                         {% endif %}
 
-                        <p><span>{{ de_date }}</span>von {{author.first_name}} {{author.last_name}}</p>
+                        <p><span>{{ de_date }}</span>von
+                                {% for author_id in page.author_ids %}
+                                        {% assign author = site.data.authors[author_id] %}
+                                        {% if author %}
+                                                {{author.first_name}} {{author.last_name}}
+                                                {% if forloop.rindex0 > 1 %}
+                                                ,
+                                                {% endif %}
+                                                {% if forloop.rindex0 == 1 %}
+                                                und
+                                                {% endif %}
+                                        {%  endif %}
+                                {% endfor %}
+                        </p>
                         <h1>
                                 {% if  page.layout == 'post' and page.title %}
                                 {{ page.title }}

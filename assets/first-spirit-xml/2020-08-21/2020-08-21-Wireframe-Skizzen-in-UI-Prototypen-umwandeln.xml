@@ -18,14 +18,8 @@ In diesem Blog-Post möchte ich einen Ansatz vorstellen, mit dem man diesen Schr
         <field name="date_date"><![CDATA[2020-08-21T11:00:00+02:00]]></field>
         <field name="date_l"><![CDATA[1598000400000]]></field>
         <field name="change_date"><![CDATA[1598000400000]]></field>
-        <!--Picture-->
-        <!-- Not in use at the moment-->
         <!--Author Information-->
-        <field name="author_first_name"><![CDATA[Vincent]]></field>
-        <field name="author_last_name"><![CDATA[Mathis]]></field>
-        <field name="author_id"><![CDATA[vincentmathis]]></field>
-        <field name="author_picture_stored_only"><![CDATA[http://localhost:4000/assets/images/avatars/vincentmathis.jpg]]></field>
-        <!--Postcontent-->
+        <field name="author_id"><![CDATA[vincentmathis]]></field><!--Postcontent-->
         <field name="headlines"><![CDATA[UI-Prototyping - Wie man aus Wireframe Skizzen Prototypen generieren kann]]></field>
         <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
             <p>Prototyping ist essenziell für die Entwicklung von guten User-Interfaces.

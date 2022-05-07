@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<documents>
+    <document uid="9ad4a8fc7165844e788e734e758d7885">
+        <field name="title"><![CDATA[Mit QGIS eine Fotolandkarte erstellen]]></field>
+        <field name="subline"><![CDATA[]]></field>
+        <field name="teaser"><![CDATA[<p>Dieser Artikel zeigt, wie Bilder mit Standortdaten auf einer Karte angeordnet werden.
+Mit dem freien Desktop-Geoinformationssystem <a href="https://www.qgis.org">QGIS</a> und ein paar Kacheln aus <a href="https://www.osm.org">OpenStreetMap</a>
+geht das ohne Cookies, ohne Cloud und ohne undurchsichtige Nutzungsbedingungen wegzuklicken.</p>
+
+]]></field>
+        <field name="language_multi_keyword"><![CDATA[de]]></field>
+        <field name="content_type_multi_keyword"><![CDATA[blog]]></field>
+        <field name="mime_type_multi_keyword"><![CDATA[text/html]]></field>
+        <field name="category_multi_keyword"><![CDATA[Branchen]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Open Source]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Applications]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Gis]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Geodata]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Photo]]></field>
+        <field name="date_date"><![CDATA[2022-03-10T11:00:00+01:00]]></field>
+        <field name="date_l"><![CDATA[1646906400000]]></field>
+        <field name="change_date"><![CDATA[1646906400000]]></field>
+        <!--Author Information-->
+        <field name="author_id"><![CDATA[c0c0bird]]></field><!--Postcontent-->
+        <field name="headlines"><![CDATA[Mit QGIS eine Fotolandkarte erstellen]]></field>
+        <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
+            <p>Dieser Artikel zeigt, wie Bilder mit Standortdaten auf einer Karte angeordnet werden.
+Mit dem freien Desktop-Geoinformationssystem <a href="https://www.qgis.org">QGIS</a> und ein paar Kacheln aus <a href="https://www.osm.org">OpenStreetMap</a>
+geht das ohne Cookies, ohne Cloud und ohne undurchsichtige Nutzungsbedingungen wegzuklicken.</p>
+
+</div>]]></field>
+        <field name="content"><![CDATA[<div class="adesso-text-formate">
+<div class="row p-t-2">
+<div class="adesso-container">
+<div class="col-xl-8 adesso-center p-b-1 p-l-0 p-r-0">
+    <p>Dieser Artikel zeigt, wie Bilder mit Standortdaten auf einer Karte angeordnet werden.
+Mit dem freien Desktop-Geoinformationssystem <a href="https://www.qgis.org">QGIS</a> und ein paar Kacheln aus <a href="https://www.osm.org">OpenStreetMap</a>
+geht das ohne Cookies, ohne Cloud und ohne undurchsichtige Nutzungsbedingungen wegzuklicken.</p>
+
+<h4 id="geodaten-sind-überall">Geodaten sind überall</h4>
+
+<p>Geoinformationssysteme verwalten räumliche Daten.
+Im einfachsten Fall werden Dinge aus der realen Welt an den jeweiligen Orten dargestellt, damit User sie auswerten können.
+Beispiele hierfür sind Gebäude und Straßen in einer Stadt oder die Positionen einer Fahrzeugflotte.</p>
+
+<p>Dieser Artikel demonstriert die Anzeige von Fotos am Aufnahmeort.
+Die Datenerfassung ist denkbar einfach:
+Mit einem handelsüblichen Smartphone werden Orte fotografiert, dabei werden die Geokoordinaten automatisch in den Metadaten der Bilder gespeichert.</p>
+
+<h5 id="problematische-abhängigkeiten">Problematische Abhängigkeiten</h5>
+
+<p>Die häufigste Weiterverarbeitung zeigt die Abhängigkeit von scheinbar kostenlosen Cloud-Diensten:
+Oft sendet man alle Fotos an einen Speicherdienst wie z.B. Google Drive und lässt sie als Marker auf Google Maps anzeigen.
+Damit hat man nicht nur sämtliche Bilder ins Internet entlassen, man unterwirft sich auch den Geschäftsbedingungen und macht sich abhängig von der Verfügbarkeit dieser Dienste.</p>
+
+<p>Für kritische Daten wie etwa Sicherheitsmängel auf einem Betriebsgelände oder Bilder fremder Personen ist das keine Lösung.
+Darüber hinaus steht eine schnelle Internetverbindung nicht an jedem Ort jederzeit zur Verfügung.
+Vielleicht wird auch eine Reduzierung von Abhängigkeiten angestrebt, um die eigene Softwareumgebung durchschaubar zu halten.</p>
+
+<h5 id="das-beispiel">Das Beispiel</h5>
+
+<p>Deshalb wird hier eine Lösung gezeigt, die mit freier Software auskommt und das Internet nur zum Lesen aus OpenStreetMap nutzt.
+Sämtliche Fotos, Positions- und Metadaten bleiben offline auf dem eigenen Gerät.</p>
+
+<p>Als Anwendungsfall dient hier eine Kartierung von Tierspuren in freier Landschaft.
+Die Daten werden von der öffentlichen Verwaltung benötigt, um die Ausbreitung des Bibers in Niedersachsen zu verfolgen.
+Doch sie sollen keinesfalls veröffentlicht werden, weil zu befürchten ist, dass Sensationssuchende die Tiere aufscheuchen oder die Landwirtschaft sie aus Angst vor Schäden vergrämt.</p>
+
+<p>Die Kartierenden laufen ein Gewässer ab und fotografieren jede Tierspur mit der Foto-App des eigenen Smartphones.
+Um zurückzumelden, wo sich Biber angesiedelt haben, werden die gesammelten Fotos in eine Landkarte importiert.
+Die abschließende Bewertung ist dann auf einen Blick möglich.</p>
+
+<p><img src="/assets/images/posts/Mit-QGIS-eine-Fotolandkarte-erstellen/qgis_screen_fake.jpg" alt="Eine Foto-Landkarte offline selbst erstellen" /></p>
+
+<h4 id="vorbereitung">Vorbereitung</h4>
+<h5 id="installation-von-qgis">Installation von QGIS</h5>
+
+<p>QGIS wird für die Betriebssysteme Windows, Linux, macOS und BSD angeboten sowie als mobile Feldvariante für Android.
+Auf der <a href="https://www.qgis.org/de/site/forusers/download.html">Downloadseite</a> können Sie zwischen einer Version mit Langzeitsupport und einer aktuellen Version wählen.
+Diese Anleitung bezieht sich auf Version 3.22 für Windows.</p>
+
+<p>Falls dies Ihr erstes Experiment mit QGIS ist, laden Sie den Installer herunter und akzeptieren Sie die Voreinstellungen.
+QGIS wird automatisch für den üblichen Bedarf eingerichtet.</p>
+
+<h5 id="fotos-sammeln">Fotos sammeln</h5>
+
+<p>Aktivieren Sie Standortdaten in der Foto-App Ihres Telefons. Das ist alles, nun sind Sie gerüstet für das Sammeln von Geodaten.
+Falls Sie zusätzlich den gelaufenen Weg aufzeichnen möchten, empfiehlt sich die App <a href="https://learnosm.org/en/mobile-mapping/osmtracker/">OSM Tracker</a>.
+Sie verwendet ausschließlich die GPS-Funktion des Geräts, um offline einen Track aufzuzeichnen, in den man bei Bedarf ortsbezogene Kommentare, Sprachnotizen etc. einfügen kann.</p>
+
+<p>In unserem Beispiel ziehen Sie die Wanderstiefel an und stapfen mit dem Handy durchs Gebüsch.
+Jede Spur eines Bibers wird kurz fotografiert, dann verschwindet das Gerät schnell wieder in der Tasche, bevor es in den Schlamm fällt.
+Und ziehen Sie den Handschuh wieder an, denn aus ökologischen Gründen wird im Winter kartiert.
+Fertig?
+Sicher können Sie es kaum erwarten, endlich wieder am Schreibtisch zu sitzen.</p>
+
+<h4 id="die-erste-karte">Die erste Karte</h4>
+
+<p>Wählen Sie nach dem Start von QGIS “Neues leeres Projekt” aus.
+In der weißen Fläche, die Sie nun sehen, sind alle Punkte der Erde enthalten.
+Es fehlt nur eine Landkarte, um sich zu orientieren.
+Eine schlichte Basiskarte aus OpenStreetMap eignet sich als Grundlage für fast jedes Kartenprojekt.
+Dafür wird im GIS-Browser unter “XYZ Tiles” mit einem Klick die OpenStreetMap-Ebene ins Projekt eingefügt.
+Sie lädt keine Details über die Objekte, sie liegt nur wie ein Hintergrundbild unter der Welt.</p>
+
+<p><img src="/assets/images/posts/Mit-QGIS-eine-Fotolandkarte-erstellen/qgis_menu.png" alt="Menüpunkte für den Import von OSM und Fotos" /></p>
+
+<h5 id="fotos-herunterladen">Fotos herunterladen</h5>
+
+<p>Schließen Sie das Smartphone per USB-Kabel an den PC. Im Datei-Explorer wird es wie ein Dateisystem angezeigt.
+Die aktuellen Fotos können aus dem Ordner “DCIM” kopiert und in ein Verzeichnis auf der Festplatte eingefügt werden.</p>
+
+<h6 id="optional-track-exportieren">Optional: Track exportieren</h6>
+
+<p>Falls Sie OSM Tracker verwenden, lässt sich mit dem Kontextmenü “Als GPX exportieren” die Route als XML-Datei abspeichern.
+Danach können Sie den kompletten Ordner “/osmtracker/2022-01-23_10-21-24” vom Handy auf den PC kopieren. Der Ordnername ist jeweils der Startzeitpunkt der Route.</p>
+
+<p>Der kopierte Ordner enthält eine GPX-Datei und alle unterwegs gesammelten Fotos. GPX steht für “Global Positioning System Exchange Format”.
+Ziehen Sie diese Datei aus dem Dateiexplorer aufs QGIS-Fenster, um den Import zu starten.
+Nun entsteht unter anderem der Layer “tracks”, der den gelaufenen Weg als Linie enthält.</p>
+
+<h5 id="fotos-in-qgis-anzeigen">Fotos in QGIS anzeigen</h5>
+
+<p>In der Toolbox “Verarbeitungsdialoge” liegt unter “Vektorerzeugung” das Werkzeug “Geogetaggte Fotos importieren”.
+Per Doppelklick gestartet, fragt es nach dem Eingabeverzeichnis.
+Geben Sie hier den Ordner mit den Fotos an, der restliche Dialog kann leer bleiben.
+Dadurch entsteht ein Layer, das für jedes Foto einen Punkt enthält.</p>
+
+<p>Die Karte ist jetzt gepunktet, doch von den Bildern ist noch nichts zu sehen.
+Suchen Sie in der Layers-Toolbox die neue Ebene “Fotos” und öffnen Sie ihre Eigenschaften.
+Bei “Symbolisierung” ist ein einfacher Marker mit einem bunten Kreis eingestellt.
+Ändern Sie den Symbollayertyp in “Rasterbildmarkierung” – der untere Dialogteil verschiebt sich und eine leere Vorschau wird eingeblendet.</p>
+
+<p>Auf den ersten Blick scheint der Dialog nur feste Dateinamen für das Punktsymbol anzunehmen.
+Was wir stattdessen brauchen, ist eine sogenannte “datendefinierte Übersteuerung”.
+Wie in der Abbildung markiert, finden Sie ein Menü ganz rechts neben dem Dateinamenfeld unter “Bearbeiten”.
+Das öffnet den Ausdruckseditor.</p>
+
+<p><img src="/assets/images/posts/Mit-QGIS-eine-Fotolandkarte-erstellen/qgis_screen_rasterbildmarkierung_ausschnitt.png" alt="Symbolisierung mit Rasterbildmarkierung" /></p>
+
+<p>Der gesuchte Dateiname ist ein Attribut des Fotopunkts.
+Scrollen Sie also zu “Felder und Werte” und suchen Sie aus allen Eigenschaften der Fotos das Feld “photo” heraus.
+Es enthält den vollständigen Dateipfad des Bildes.
+Außerdem stehen hier die Geokoordinaten und der Zeitstempel zur Auswahl sowie getrennte Felder für Verzeichnis und Dateinamen, die wir teils später noch benötigen werden.</p>
+
+<p>Damit ist der einfache Ausdruck “photo” auch schon vollständig.
+Bestätigen Sie den Dialog, um zu den Layereigenschaften zurückzukehren.
+Die Symbolgröße steht noch auf wenige Millimeter, was für den bunten Kreis angemessen war, aber nicht für ein Foto reicht.
+Ändern Sie die Breite auf 25 Millimeter, übernehmen Sie alles mit dem Button “Anwenden”, atmen Sie tief durch und … die Fotos liegen auf der Karte, genau an ihren Aufnahmeorten!
+Die feine Linie des Track-Layers markiert im Hintergrund den Weg, auf dem die Orte besucht wurden.</p>
+
+<p><img src="/assets/images/posts/Mit-QGIS-eine-Fotolandkarte-erstellen/qgis_screen_rasterbildmarkierung_detail.png" alt="Der Ausdruck &quot;photo&quot; liefert den Inhalt des gleichnamigen Felds" /></p>
+
+<h5 id="kartenhinweise-einblenden">Kartenhinweise einblenden</h5>
+
+<p>Jetzt fehlt noch eine große Ansicht, die sich beim Klick auf ein Vorschaubild öffnet.
+Solche Pop-ups heißen in QGIS Kartenhinweise und werden in den Layereigenschaften unter “Anzeigen” konfiguriert.
+Dabei darf HTML verwendet werden, die Felder aus den Punktattributen werden mit spitzer Klammer und Prozentzeichen eingefasst.
+In diesem Fall soll die Detailansicht den Dateinamen ohne Pfad und darunter das Foto anzeigen.
+Tippen Sie also in die große Box “HTML-Kartenhinweis” ein:</p>
+
+<pre><code class="language-html">[% filename %]
+&lt;img src="file:///[% photo %]" width="500px"/&gt;
+</code></pre>
+
+<p>Nachdem der Dialog mit OK geschlossen wurde, sind die Thumbnails interaktiv:
+Sobald eines per Objektauswahl aktiviert wird, springt ein Pop-up mit dem großen Bild und dem Dateinamen auf.
+Welche Magie steckt dahinter?
+Alle Daten stammen aus den EXIF-Einträgen in den Fotos selbst.
+Natürlich hat QGIS nicht alle importiert, sondern nur die für Ort und Ausrichtung relevanten.
+Markieren Sie mit dem Objektauswahl-Werkzeug ein paar Fotos und klicken Sie auf “Attributtabelle öffnen”.
+Jetzt sehen Sie alle Eigenschaften der ausgewählten Punkte:
+Neben Dateipfad und Koordinaten gibt es “rotation” für die Drehung des Smartphones bei der Aufnahme und “timestamp” für den Aufnahmezeitpunkt.
+Viel Spaß beim Ausprobieren, was sich damit anstellen lässt!</p>
+
+<h4 id="fazit">Fazit</h4>
+
+<p>QGIS ist ein umfangreiches Werkzeug, das für eine steile Lernkurve bekannt ist.
+ Für einfache Anwendungsfälle wie diesen ist es aber mit wenigen Klicks einsatzbereit.
+ Da offline auf eigenen Geräten gearbeitet wird, treten viele Datenschutzfragen gar nicht erst auf.
+ Und nach kurzer Einarbeitung ermöglicht das volle Potenzial von QGIS komplexe Anwendungen, an die mit den bekannten Internet-Diensten kaum zu denken wäre.</p>
+
+<p>Ein Nachteil der Desktopanwendung ist, dass nur eine Person gleichzeitig an den Kartendateien arbeiten kann.
+ Um eine Karte als Team zu nutzen, lohnt sich ein Blick auf den Web-Map-Service <a href="https://www.qgis.org/de/site/about/features.html#qgis-server">QGIS Server</a>.</p>
+
+</div>
+</div>
+</div>
+</div>]]></field>
+    </document>
+</documents>
