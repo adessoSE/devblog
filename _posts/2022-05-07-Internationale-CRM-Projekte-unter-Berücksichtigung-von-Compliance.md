@@ -27,7 +27,7 @@ Kommunikation und strukturiertes Vorgehen ist hierbei ein kritischer Erfolgsfakt
 
 Die Balance zwischen den drei Instanzen ist hier abgebildet:
 
-![Balance.png]/assets/images/posts/Internationale-CRM-Projekte-unter-Beruecksichtigung-von-Compliance/Balance.png
+![Balance.png](/assets/images/posts/Internationale-CRM-Projekte-unter-Beruecksichtigung-von-Compliance/Balance.png)
 
 # Stärken der Microsoft Power Platform
 
@@ -61,7 +61,6 @@ Die eingesetzten Microservices basierend auf Azure Functions werden ebenfalls in
 
 Die Tenant-Architektur ist beliebig ausbaubau, d.h. Multi-Tenants sind möglich aber auch andere hybride Integrationsmuster.
 
-
 # Wo ist was verfügbar
 
 Darüber hinaus ist es beim Entwurf einer Umgebungs-Architektur wichtig die Produktverfügbarkeit der Power Platform und die Datenspeicherungslokationen zu bestimmen, eine passende technischen Grundgerüst zu kreieren.
@@ -71,6 +70,13 @@ Die Produktverfügbarkeit ist einem dynamischen Power-BI-Report jederzeit nachvo
 ![Availability.png](/assets/images/posts/Internationale-CRM-Projekte-unter-Beruecksichtigung-von-Compliance/Availability.png)
 
 Dies betrifft auch Komponenten in Azure bspw. für Integrationen zu D365.
+
+Nützliche Links
+* [D365 & Power Platform GEO] (https://dynamics.microsoft.com/de-de/availability-reports/georeport/)
+* [D365 & Power Platform PDF](https://aka.ms/dynamics_365_international_availability_deck)
+* [M365 Mandant Docs] (https://docs.microsoft.com/de-de/microsoft-365/enterprise/o365-data-locations?view=o365-worldwide)
+* [Azure GEO] (https://azure.microsoft.com/de-de/global-infrastructure/geographies/#geographies)
+
 
 # Fazit
 
