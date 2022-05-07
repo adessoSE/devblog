@@ -28,10 +28,22 @@ Die Balance zwischen den drei Instanzen ist hier abgebildet:
 
 ![Balance.png](/assets/images/posts/Internationale-CRM-Projekte-unter-Beruecksichtigung-von-Compliance/Balance.png)
 
+## Best practices
+
+Beispielhaft sind hier Empfehlungen von uns aufgelistet beim Vorgehen:
+
+* Primär Anforderungen vom Fachbereich "verstehen" und nach dem "Warum?" fragen
+* Alignment von Compliance, Fachbereich und Technik elementar
+* Einbindung von Compliance-Experten so früh wie möglich
+* Abstimmtes Konstrukt mit konkreten Anforderungen festgelegen -> "schwammige Aussage und Grauzonen vermeiden"
+* Analyse der aktuellen Technologiestandes bpsw. siehe "Nützliche Links"– welcher Service ist wo verfügbar?
+* Integrationen bspw. mit Azure unterliegen den gleichen Anforderungen
+* Kreative Lösungsarchitekturen erforderliche, jeodch sollten diese dem „KISS-Prinzip“ folgen
+
 
 # Stärken der Microsoft Power Platform
 
-Microsoft Dynamics 365 Sales und die dazugehörige Power Platform bieten hierbei einzigartige Features.
+Microsoft Dynamics 365 Sales und die dazugehörige Power Platform bieten u.a. beim Thema Datenlokation einzigartige Features.
 
 Zum einen ist es möglich das D365 Sales Online (MS Cloud) und OnPremise zu betreiben.
  
@@ -42,7 +54,7 @@ Ein CRM-System könnte bei einem Staging wie folgt aussehen:
 ![Staging.png](/assets/images/posts/Internationale-CRM-Projekte-unter-Beruecksichtigung-von-Compliance/Staging.png)
 
 Sowohl DEV, als auch UAT und PROD sind in getrennten CRM-Instanzen abgebildet (Environment/Umgebung). 
-Dabei ist jeder Umgebung eine Region zugeordnet, die bestimmt, wo die das CRM gehostet wird.
+Dabei ist jeder Umgebung eine Region zugeordnet, die bestimmt, wo das CRM gehostet wird.
 
 Die Benutzer, Lizenzen und Sicherheitsgruppen werden zentral in einem Tenant verwaltet.
 
@@ -81,7 +93,7 @@ Nützliche Links
 # Fazit
 
 Die oben gezeigten Beispiele und Erläuterungen sollen das Verständnis vermitteln, dass die Microsoft Power Platform bereits im Standard elementare Compliance-Funktionen bietet.
- Abhängig von der Komplexität des Anforderungen bedarf es im konkreten Projekteinsatz weiterer von uns bewährter Lösungen.
+ Abhängig von der Komplexität des Anforderungen bedarf es im konkreten Projekteinsatz weitere von uns bewährter Lösungen.
 
 Dabei ist es wichtig die Anforderungen zu verstehen und die Gegebenheiten der Technologien zu kennen.
 Hierbei hat sich bewährt, dass sich ein kleines Kompetenzteam bildet aus:
