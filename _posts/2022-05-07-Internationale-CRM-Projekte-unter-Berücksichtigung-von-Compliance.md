@@ -26,7 +26,8 @@ In Projekten geht es hierbei auch die Balance zu wahren aus
 Kommunikation und strukturiertes Vorgehen ist hierbei ein kritischer Erfolgsfaktor.
 
 Die Balance zwischen den drei Instanzen ist hier abgebildet:
-/assets/images/posts/Internationale-CRM-Projekte-unter-Berücksichtigung-von-Compliance/Balance.png
+
+![Balance.png]/assets/images/posts/Internationale-CRM-Projekte-unter-Beruecksichtigung-von-Compliance/Balance.png
 
 # Stärken der Microsoft Power Platform
 
@@ -37,7 +38,8 @@ Zum einen ist es möglich das D365 Sales Online (MS Cloud) und OnPremise zu betr
 Zum anderen bietet die Power Platform die Möglichkeit in ein und demselben Tenant die Datenlokation für diverse Länder zu bestimmen. Dies hat den Vorteil die Verwaltungsaufwand von mehreren Tenants elementar zu senken und u.a. sind die Lizenzen im ganzen Tenant gültig.
 
 Ein CRM-System könnte bei einem Staging wie folgt aussehen:
-![Staging.png](/assets/images/posts/Internationale-CRM-Projekte-unter-Berücksichtigung-von-Compliance/Staging.png)
+
+![Staging.png](/assets/images/posts/Internationale-CRM-Projekte-unter-Beruecksichtigung-von-Compliance/Staging.png)
 
 Sowohl DEV, als auch UAT und PROD sind in getrennten CRM-Instanzen abgebildet (Environment/Umgebung). 
 Dabei ist jeder Umgebung eine Region zugeordnet, die bestimmt, wo die das CRM gehostet wird.
@@ -49,7 +51,8 @@ Die Benutzer, Lizenzen und Sicherheitsgruppen werden zentral in einem Tenant ver
 In einigen Szenarien ist es erforderlich eine hybride Architektur für die Umgebungs-Infrastruktur und der Integration zu entwerfen, d.h. sowohl Cloud als auch OnPremise Komponenten einzusetzen.
 
 Eine solche Architektur ist hier beispielhaft dargestellt:
-![Integration.png](/assets/images/posts/Internationale-CRM-Projekte-unter-Berücksichtigung-von-Compliance/Integration.png)
+
+![Integration.png](/assets/images/posts/Internationale-CRM-Projekte-unter-Beruecksichtigung-von-Compliance/Integration.png)
 
 In dem hier dargestellten Diagramm werden personenbezogene Daten primär in einem Land ihrer Wahl gespeichert und gleichzeitig unter zusätzlicher Einhaltung von rechtlichen Grundlagen über länderspezifische Clouddienste in OnPremise-Systeme transferriert.
 
@@ -64,7 +67,8 @@ Die Tenant-Architektur ist beliebig ausbaubau, d.h. Multi-Tenants sind möglich 
 Darüber hinaus ist es beim Entwurf einer Umgebungs-Architektur wichtig die Produktverfügbarkeit der Power Platform und die Datenspeicherungslokationen zu bestimmen, eine passende technischen Grundgerüst zu kreieren.
 
 Die Produktverfügbarkeit ist einem dynamischen Power-BI-Report jederzeit nachvollziehbar:
-![Availability.png](/assets/images/posts/Internationale-CRM-Projekte-unter-Berücksichtigung-von-Compliance/Availability.png)
+
+![Availability.png](/assets/images/posts/Internationale-CRM-Projekte-unter-Beruecksichtigung-von-Compliance/Availability.png)
 
 Dies betrifft auch Komponenten in Azure bspw. für Integrationen zu D365.
 
