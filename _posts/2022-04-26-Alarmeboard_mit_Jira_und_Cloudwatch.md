@@ -69,10 +69,11 @@ Und auch die Lesbarkeit der Mails lässt zu wünschen übrig.
 Es sind zwar alle notwendigen technischen Informationen enthalten, aber es beschleunigt die Bearbeitung ungemein, wenn man zum Beispiel einen Stacktrace aus den Logs direkt im Anhang findet.
 
 # Lambdas für die Erzeugung der Jira-Tickets nutzen
-Jira bietet eine [REST-Schnittstelle](https://developer.atlassian.com/server/jira/platform/rest-apis/) an, die dafür genutzt werden kann, Alarme in Tickets zu gießen.
 
-* Motivation für 2 Lambdas
-* DLQ mit Alarm auf Email, um sicherzustellen, dass keine Alarme verloren gehen.
+> ### Outline
+> Jira bietet eine [REST-Schnittstelle](https://developer.atlassian.com/server/jira/platform/rest-apis/) an, die dafür genutzt werden kann, Alarme in Tickets zu gießen.
+> * Motivation für 2 Lambdas
+> * DLQ mit Alarm auf Email, um sicherzustellen, dass keine Alarme verloren gehen.
 
 ## Ticket anlegen
 
@@ -173,6 +174,38 @@ Kann ein SNS-Event nicht erfolgreich verarbeitet werden, so wird die Lambda-Funk
 Für diese DLQ kann wiederum eine E-Mail-Benachrichtigung gelegt werden, sodass wir eine zuverlässige Fallback-Möglichkeit haben, um über Alarme informiert zu werden.
 
 ## Logs als Kommentar ergänzen
+Nachdem das Alarm-Ticket angelegt wurde, kann dieses um weitere Informationen angereichert werden, welche nicht im Alarm-Event selbst enthalten sind.
+Für die schnelle Fehleranalyse ist es beispielsweise sehr hilfreich, die Logs, welche von der Anwendung geschrieben wurden, als der Alarm ausgelöst wurde,
+bereits am Ticket selbst zu sehen und diese nicht erst selbst aus dem Log-System heraussuchen zu müssen.
 
+Im Folgenden schauen wir uns an, wie wir die entsprechenden Logs aus Cloudwatch auslesen und als Kommentar an das Alarm-Ticket anhängen können.
+
+Mithilfe des Amazon SDKs können wir auf einfache Art und Weise Logs aus einer Log-Gruppe auslesen.
+Hierfür müssen wir lediglich den Namen der Log-Gruppe sowie das anzuwendende Filter-Muster angeben. Optional können wir auch den Zeitraum angeben, in dem gesucht werden soll.
+Die Informationen zu dem Zeitraum sowie den Namen der Log-Gruppe erhalten wir direkt aus dem auslösenden SNS-Event (siehe [vorheriger Abschnitt](#aus-einem-sns-event-wird-ein-ticket)).
+Das Filter-Muster müssen wir zunächst mithilfe einer weiteren SDK-Funktion (describeMetricFilters) ermitteln.
+
+Eine naive Implementierung könnte wie folgt aussehen (eine korrekte Fehlerbehandlung und die sichere Ermittlung des Filter-Patterns wurde für eine bessere Lesbarkeit ausgelassen):
+```java
+public List<FilteredLogEvent> retrieveLogsFor(String logGroupName,
+                                              String metricName, 
+                                              String metricNamespace,
+                                              long searchStartTimeInMs,
+                                              long searchEndTimeInMs) {
+   final DescribeMetricFiltersResponse metricFilters =
+                       cloudwatchClient.describeMetricFilters(metricName, metricNamespace, searchStartTimeInMs);
+   final String filterPattern = metricFilters.metricFilters().get(0).filterPattern();
+   final FilterLogEventsRequest filterLogEventsRequest = FilterLogEventsRequest.builder()
+           .logGroupName(logGroupName))
+           .filterPattern(filterPattern);
+           .startTime(searchStartTimeInMs)
+           .endTime(searchEndTimeInMs)
+           .build();
+   return cloudwatchClient.filterLogEvents(filterLogEventsRequest).events();
+}
+```
+> ### Todo für diesen Abschnitt:
+> 1. Stolpersteine (Rate-Limit, lange Suchzeit)
+> 2. Anlegen des Kommentars mittels JIRA API [POST /rest/api/3/issue/{issueIdOrKey}/comment](https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-issue-comments/#api-rest-api-3-issue-issueidorkey-comment-post)
 # Automatisierung in Jira nutzen
 
