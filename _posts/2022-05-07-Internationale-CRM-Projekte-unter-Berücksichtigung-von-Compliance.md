@@ -66,7 +66,7 @@ Das oben abgebildete Staging kann weiter ausgebaut werden, um auch in einem Sing
 
 ![AdvancedStaging.png](/assets/images/posts/Internationale-CRM-Projekte-unter-Beruecksichtigung-von-Compliance/AdvancedStaging.png)
 
-# Integrations-Acrhitektur
+# Integrationsarchitektur
 
 In einigen Szenarien ist es erforderlich eine hybride Architektur für die Umgebungs-Infrastruktur und der Integration zu entwerfen, d.h. sowohl Cloud als auch OnPremise Komponenten einzusetzen.
 
