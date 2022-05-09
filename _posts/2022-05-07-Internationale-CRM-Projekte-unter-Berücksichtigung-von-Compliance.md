@@ -8,7 +8,7 @@ categories: [Architektur]                    # Pflichtfeld. Maximal eine der ang
 tags: [Microsoft, Power Platform, CRM, Dynamics 365, Architektur, International, GDPR, Datenlokation, Compliance]         # Bitte auf Großschreibung achten.
 ---
 
-Bei internationalen CRM-Systemen, die auf Microsoft Dynamics 365 basieren, ist es elementar die Compliance-Anforderungen der Länder zu erfüllen. 
+Bei internationalen CRM-Systemen, die auf Microsoft Dynamics 365 basieren, ist es elementar, die Compliance-Anforderungen der Länder zu erfüllen. 
 CRM-Systeme, die dabei auch Länder außerhalb der EU wie bspw. China, Brasilien & USA umfassen, müssen aus Compliance-Sicht einen "Schritt weitergehen" verglichen mit EU-DSGVO (GDPR), um die Anforderungen bspw. für die Datenlokation zu erfüllen.
 Dabei sind verschiedene Compliance-Aspekte zu betrachten. 
 
