@@ -17,7 +17,7 @@ In diesem Blog-Beitrag geht es um die Datenlokation und die passende Systemarchi
 
 # Vorgehen
 
-In Projekten geht es hierbei um die Balance zu wahren aus 
+In Projekten geht es hierbei darum, die Balance zu wahren aus 
 * fachlichen Anforderungen und den daraus resultierenden Business Values,
 * Anforderungen aus Compliance-Sicht bspw. Ort der primären Datenspeicherung
 * Technische Machbarkeit & Rahmenbedingungen
