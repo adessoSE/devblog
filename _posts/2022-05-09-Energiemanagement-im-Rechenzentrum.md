@@ -10,6 +10,7 @@ tags: [Energie,Energiemanagement,Effizienz,Green IT,Nachhaltigkeit] # Bitte auf 
 
 Wer IT-Dienstleistungen anbietet, wird immer öfter nach der Nachhaltigkeit des Betriebs gefragt.
 Um die eigene Energieeffizienz jederzeit nachweisen zu können, ist fortlaufendes Energiemanagement notwendig.
+Diverse Normen und Richtlinien geben den Rahmen dafür vor.
 
 # Audit im Rechenzentrum
 
