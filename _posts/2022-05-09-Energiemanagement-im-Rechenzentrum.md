@@ -93,7 +93,7 @@ Was die Durchsetzung von Verbesserungsmaßnahmen angeht, müssen geeignete Vorge
 Die Energieeffizienz einer Cloud-Anwendung lässt sich nicht direkt messen.
 Führende Anbieter von Cloud-Hosting haben die Nachfrage aber erkannt und bieten Energierechner an.
 
-* Wer die Google Cloud nutzt, kann sich mit dem gleichnaimgen Tool einen [Carbon Footprint](https://cloud.google.com/carbon-footprint) berechnen lassen.
+* Wer die Google Cloud nutzt, kann sich mit dem gleichnamigen Tool einen [Carbon Footprint](https://cloud.google.com/carbon-footprint) berechnen lassen.
 
 * Für Microsofts Azure Cloud steht ein [Sustainability Calculator](https://azure.microsoft.com/en-us/blog/microsoft-sustainability-calculator-helps-enterprises-analyze-the-carbon-emissions-of-their-it-infrastructure/) zur Verfügung.
 
