@@ -126,3 +126,4 @@ Ob die geplanten Verbesserungen tatsächlich erreicht wurden, muss regelmäßig 
 
 Als Ersatz für ein regelmäßig wiederholtes Energieaudit zählt nur ein ISO 50001 Energiemanagementsysteme oder ein EMAS Umweltmanagementsystem.
 Ein ISO 14001 Umweltmanagementsystem allein befreit nicht von der Pflicht, alle vier Jahre ein neues Audit durchzuführen; auch dann nicht, wenn es um ein ISO 9001 Qualitätsmanagementsystem ergänzt wird.
+Ein Upgrade der Managementsysteme auf EMAS ist daher dringend geboten.
