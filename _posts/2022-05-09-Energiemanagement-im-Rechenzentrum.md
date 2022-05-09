@@ -42,14 +42,15 @@ Der Leitfaden [Energiemanagementsysteme in der Praxis](https://www.umweltbundesa
 
 Ausgangspunkt ist immer das Ergebnis eines Audits nach EN 16247.
 Die Sammlung und Bewertung von Energieleistungskennzahlen muss dann in die Unternehmensprozesse integriert werden.
-Das ermöglicht fortlaufende Verbesserungen der Effizienz, während eine eventuelle Verschlechterung des Strombedarfs schnell erkannt und verhindert werden kann.
+Das ermöglicht fortlaufende Verbesserungen der Effizienz, während eine eventuelle Verschlechterung des Strombedarfs schnell erkannt und behoben werden kann.
 
-Energieleistungskennzahlen sind relative Größen, das heißt sie setzen eine absolute Kennzahl zu einer anderen Größe in Beziehung.
+Energieleistungskennzahlen sind relative Größen, das heißt, sie setzen eine absolute Kennzahl zu einer anderen Größe in Beziehung.
 Absolute Energiekennzahlen sind zum Beispiel die Energiekosten, der Primärenergieverbrauch oder die Treibhausgasemissionen.
-Andere absolute Kennzahlen über das Unternehmen wären etwa Umsatz, Gebäudefläche, Anzahl Mitarbeitende oder Produktionszahlen.
+Andere absolute Kennzahlen über das Unternehmen wären etwa der Umsatz, die Gebäudefläche, die Anzahl an Mitarbeitenden oder die Produktionszahlen.
+Andere absolute Kennzahlen über das Unternehmen wären etwa Umsatz, Gebäudefläche, Anzahl an Mitarbeitenden oder die Produktionszahlen.
 Über die Effizienz eines Unternehmens sagen sie erst etwas aus, wenn man sie dividiert.
-Das ergibt beispielsweise den Primärenergieverbrauch pro Quadratmeter Gebäudefläche, die Treibhausgasemissionen je produzierte Menge oder die Energiekosten pro Euro Umsatz.
-Die wohl häufigste Kennzahl ist der spezifische Energieverbrauch; das ist der Gesamtenergieverbrauch im Verhältnis zu einer anderen Größe wie Bürofläche, Personenanzahl oder produzierte Stücke.
+Das ergibt beispielsweise den Primärenergieverbrauch pro Quadratmeter Gebäudefläche, die Treibhausgasemissionen je produzierter Menge oder die Energiekosten pro Euro Umsatz.
+Die wohl häufigste Kennzahl ist der spezifische Energieverbrauch; das ist der Gesamtenergieverbrauch im Verhältnis zu einer anderen Größe wie Bürofläche, Personenanzahl oder die Anzahl produzierter Stücke.
 
 Richtig eingesetzt kann ein Energiemanagementsystem dazu beitragen, den Wert eines Unternehmens systematisch zu steigern, wenn folgende sechs Punke beachtet werden.
 
@@ -61,7 +62,7 @@ Dort sind die umfangreichsten Einsparpotenziale zu vermuten.
 ## Selbststeuerung durch Etablierung von Regelkreisen
 
 Berechnen Sie für die ausgewählten Betriebsprozesse zunächst Energieleistungskennzahlen und bestimmen Sie für jede Kennzahl eine verantwortliche Person.
-Die Verantwortlichen entwickeln regelmäßig Ideen für Maßnahmen zur Einsparung von Energie und Verbesserung der Energieeffizienz.
+Die Verantwortlichen entwickeln regelmäßig Ideen für Maßnahmen zur Einsparung von Energie und zur Verbesserung der Energieeffizienz.
 Vereinbaren Sie mit ihnen anspruchsvolle, aber erreichbare Planwerte als Ziele.
 Setzen Sie wirtschaftlich sinnvolle Effizienzverbesserungsmaßnahmen auch wirklich um!
 Mit regelmäßigen Abweichungsanalysen können Sie die Zielerreichung prüfen und gegebenenfalls Abhilfemaßnahmen ergreifen.
@@ -110,4 +111,4 @@ Darüber hinaus sind sie relevant für den eigenen Nachhaltigkeitsbericht.
 Aus Kundensicht ist Nachhaltigkeit zunehmend ein Auswahlkriterium.
 Darüber hinaus ist die Senkung des Stromverbrauchs eng mit der Optimierung von Betriebsprozessen und laufenden Kosten gekoppelt.
 Energieaudits und die entsprechenden Zertifikate sind daher auch dann nützlich, wenn sie nicht gesetzlich vorgeschrieben sind.
-Besonders ein fest in die Abläufe integriertes Energiemanagement nach ISO 50001 steigert Unternehmenswert und Image gleichermaßen.
+Besonders ein fest in die Abläufe integriertes Energiemanagement nach ISO 50001 steigert den Unternehmenswert und das Image gleichermaßen.
