@@ -21,6 +21,12 @@ wo einige Tipps für einen erfolgreichen Beitrag gesammelt wurden.
 Sollte es noch fragen geben, kannst du dich an den Verteiler [devblog@adesso.de](mailto:devblog@adesso.de)
 wenden.
 
+# Wichtig: Update 09.05.2022
+Ab dem Update 09.05.2022 wurden die Metadaten der Autoren angepasst.
+Von nun an gibt es den Eintrag `email` nicht mehr.
+Dadurch reduzieren wir die in diesem öffentlichen Repository gespeicherten personenbezogenen Daten.
+Bitte achtet bei euren Commits darauf, diesen Eintrag **NICHT** zu setzen.
+
 # Wichtig: Update 23.08.2021
 Ab dem Update 23.08.2021 wurden die Metadaten der Artikel angepasst.
 Von nun an gibt es den Eintrag `author` nicht mehr.
