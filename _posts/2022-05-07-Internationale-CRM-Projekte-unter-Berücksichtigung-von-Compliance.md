@@ -62,7 +62,7 @@ Dabei ist jeder Umgebung eine Region zugeordnet, die bestimmt, wo das CRM gehost
 Die Benutzer, Lizenzen und Sicherheitsgruppen werden zentral in einem Tenant verwaltet.
 
 
-Das oben abgebildete Staging kann weiter ausgebaut werden, um auch in einem Single-Tenant weitere Anforderungen des Datenschutzes zu erfüllen:
+Das oben abgebildete Staging kann weiter ausgebaut werden, um auch in einem Single-Tenant-System weitere Anforderungen des Datenschutzes zu erfüllen:
 
 ![AdvancedStaging.png](/assets/images/posts/Internationale-CRM-Projekte-unter-Beruecksichtigung-von-Compliance/AdvancedStaging.png)
 
