@@ -108,6 +108,6 @@ Dabei ist es wichtig, die Anforderungen zu verstehen und die Gegebenheiten der T
 Hierbei hat sich bewährt, dass sich ein kleines Kompetenzteam bildet, bestehend aus folgenden Personen:
 * Compliance-Experte oder -Expertin
 * Product Owner
-* Solution Architekt/in
+* Solution Architect
 
 Wir bei adesso unterstützen Sie gerne bei Ihrem internationalen CRM-Vorhaben und finden mit Ihnen die beste Lösung, um die Balance zwischen Fachlichkeit/Business Value, Anforderung aus der Compliance-Sicht und der technischen Machbarkeit zu wahren.
