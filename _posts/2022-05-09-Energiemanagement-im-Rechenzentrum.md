@@ -15,11 +15,11 @@ Um die Energieeffizienz der IT jederzeit nachweisen zu können, ist fortlaufende
 
 Das eigene Rechenzentrum ist ein Stromfresser.
 Gezielte Maßnahmen können den Energiehunger jedoch deutlich senken, was gleichzeitig die Kosten senkt und Umweltbewusstsein beweist.
-Für Großunternehmen schreibt die Energieeffizienz-Richtlinie (2012/27/EU) ein regelmäßiges Audit vor; alternativ ist ein Energiemanagementsystem nach [ISO 50001](https://www.umweltbundesamt.de/energiemanagementsysteme-iso-50001) nachzuweisen, beziehungsweise ein Umweltmanagementsystem nach [EMAS](https://www.emas.de/rechtliches/).
+Für Großunternehmen schreibt die Energieeffizienzrichtlinie (2012/27/EU) ein regelmäßiges Audit vor; alternativ ist ein Energiemanagementsystem nach [ISO 50001](https://www.umweltbundesamt.de/energiemanagementsysteme-iso-50001) nachzuweisen, beziehungsweise ein Umweltmanagementsystem nach [EMAS](https://www.emas.de/rechtliches/).
 Auch für kleine und mittlere Unternehmen kann ein Energieaudit nach der europäischen Norm EN 16247 sinnvoll sein.
 
 Am Anfang aller Optimierungen steht immer die Sichtung des Status Quo.
-Dabei wird zuerst die Dokumentation des Rechenzentrums gesichtet, aus der die Leistungsaufnahme aller Geräte hervorgehen sollte.
+Dabei wird zuerst die Dokumentation des Rechenzentrums ausgewertet, aus der die Leistungsaufnahme aller Geräte hervorgehen sollte.
 Anschließend werden die Energieflüsse im laufenden Betrieb gemessen.
 Auf Basis der gesammelten Fakten werden Einsparpotenziale analysiert und ein Maßnahmenplan vorgeschlagen.
 
@@ -31,7 +31,7 @@ Gängige Zertifikate sind zum Beispiel:
 
 # Energiemanagement
 
-Statt alle vier Jahre ein neues Audit durchführen zu lassen, bietet sich die Einführung eines Energiemanagementsystems an.
+Statt regelmäßig ein neues Audit durchführen zu lassen, bietet sich die Einführung eines Energiemanagementsystems an.
 Es muss zwar auch alle drei Jahre neu zertifiziert werden, allerdings werden dann nur noch Stichproben geprüft.
 Der Leitfaden [Energiemanagementsysteme in der Praxis](https://www.umweltbundesamt.de/publikationen/energiemanagementsysteme-in-praxis) hilft mit konkreten Tipps und Praxisbeispielen.
 
@@ -41,12 +41,12 @@ Das ermöglicht fortlaufende Verbesserungen der Effizienz, während eine eventue
 
 Richtig eingesetzt kann ein Energiemanagementsystem dazu beitragen, den Wert eines Unternehmens systematisch zu steigern, wenn folgende sechs Punke beachtet werden.
 
-1. Orientierung am Wesentlichen
+## Orientierung am Wesentlichen
 
 Stellen Sie die zwei bis drei Betriebsprozesse, die den größten Energieverbrauch aufweisen, in den Mittelpunkt.
 Dort sind die umfangreichsten Einsparpotentiale zu vermuten.
 
-2. Selbststeuerung durch Etablierung von Regelkreisen
+## Selbststeuerung durch Etablierung von Regelkreisen
 
 Berechnen Sie für die ausgewählten Betriebsprozesse zunächst Energieleistungskennzahlen und bestimmen Sie für jede Kennzahl eine verantwortliche Person.
 Die Verantwortlichen entwickeln regelmäßig Ideen für Maßnahmen zur Einsparung von Energie und Verbesserung der Energieeffizienz.
@@ -54,26 +54,26 @@ Vereinbaren Sie mit ihnen anspruchsvolle, aber erreichbare Planwerte als Ziele.
 Setzen Sie wirtschaftliche sinnvolle Effizienzverbesserungsmaßnahmen auch wirklich um!
 Mit regelmäßigen Abweichungsanalysen sollten Sie die Zielerreichung prüfen und gegebenenfalls Abhilfemaßnahmen ergreifen.
 
-3. Bottom-Up-Festlegung von Energieeinsparzielen und Motivationsanreize für Betroffene
+## Bottom-Up-Festlegung von Energieeinsparzielen und Motivationsanreize für Betroffene
 
 Einsparziele sollten anspruchsvoll, aber vor allem erreichbar sein.
 Überlegungen zur Zielerreichbarkeit setzen prozessbezogenes Wissen voraus, das eher bei den Prozessverantwortlichen liegt als bei der Unternehmensleitung.
 Entwickeln Sie also Anreize, um die Mitarbeitenden dazu zu bewegen, anspruchsvolle Ideen zur Reduzierung des Energieverbrauchs zu entwickeln und auch umzusetzen.
 
-4. Integration in vorhandene Steuerungsstrukturen
+## Integration in vorhandene Steuerungsstrukturen
 
 Vermeiden Sie eine aufwendige Insellösung im Unternehmen!
 Häufig bietet es sich an, das Energiemanagement ins vorhandene Controlling oder andere etablierte Abläufe zu integrieren.
 Wichtig ist, dass das Energiemanagementsystem nicht als reine Dokumentationsaufgabe verstanden wird.
 Es darf auch keine Parallelstruktur neben den eigentlichen Unternehmensprozessen bilden.
 
-5. Festlegung von Effizienzmaßnahmen mit Fokus auf betriebswirtschaftlichem Nettoerfolg
+## Festlegung von Effizienzmaßnahmen mit Fokus auf betriebswirtschaftlichem Nettoerfolg
 
 Die Ausrichtung auf den Unternehmenserfolg verlangt, Energieeffizienzmaßnahmen nur dann umzusetzen, wenn ein betriebswirtschaftlicher Nettoerfolg zu erwarten ist.
 Als Bewertungsinstrument empfhielt der Leitfaden die Kapitalwertmethode, um den Nettoerfolg als Steigerungsbeitrag des Unternehmenswertes zu ermitteln.
 Von der Amortisationszeitmethode wird abgeraten, weil sie systematische Schwächen aufweist, die sich speziell im Energieeffizienzbereich auswirken.
 
-6. Schaffung geeigneter Rahmenbedingungen
+## Schaffung geeigneter Rahmenbedingungen
 
 Ideen und deren Bewertungen sollten zu Entscheidungsvorlagen aufbereitet werden.
 Auf welche Weise Verbesserungsideen ökonomisch bewertet werden sollen, sollte möglichst früh feststehen.
