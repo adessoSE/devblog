@@ -74,7 +74,7 @@ Eine solche Architektur ist hier beispielhaft dargestellt:
 
 ![Integration.png](/assets/images/posts/Internationale-CRM-Projekte-unter-Beruecksichtigung-von-Compliance/Integration.png)
 
-In dem hier dargestellten Diagramm werden personenbezogene Daten primär in einem Land ihrer Wahl gespeichert und gleichzeitig unter zusätzlicher Einhaltung von rechtlichen Grundlagen über länderspezifische Clouddienste in OnPremise-Systeme transferriert.
+In dem hier dargestellten Diagramm werden personenbezogene Daten primär in einem Land ihrer Wahl gespeichert und gleichzeitig unter zusätzlicher Einhaltung von rechtlichen Rahmenbedingungen über länderspezifische Clouddienste in On-Premise-Systeme transferiert.
 
 Dabei werden beispielhaft die CRM-Instanzen in verschiedenen Umgebungen gehosted. 
 Die eingesetzten Microservices basierend auf Azure Functions werden ebenfalls in den dazugehörigen Ländern gehostet.
