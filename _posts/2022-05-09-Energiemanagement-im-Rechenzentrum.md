@@ -8,13 +8,13 @@ categories: [Branchen]                # Pflichtfeld. Maximal eine der angegebene
 tags: [Energie,Energiemanagement,Effizienz,Green IT,Nachhaltigkeit] # Bitte auf Großschreibung achten.
 ---
 
-TODO Intro 
+Wer IT-Dienstleistungen anbietet, wird immer öfter nach der Nachhaltigkeit des Betriebs gefragt.
+Um die Energieeffizienz der IT jederzeit nachweisen zu können, ist fortlaufendes Energiemanagement notwendig.
 
-# Rechenzentren
+# Audit im Rechenzentrum
 
 Das eigene Rechenzentrum ist ein Stromfresser.
 Gezielte Maßnahmen können den Energiehunger jedoch deutlich senken, was gleichzeitig die Kosten senkt und Umweltbewusstsein beweist.
-
 Für Großunternehmen schreibt die Energieeffizienz-Richtlinie (2012/27/EU) ein regelmäßiges Audit vor; alternativ ist ein Energiemanagementsystem nach [ISO 50001](https://www.umweltbundesamt.de/energiemanagementsysteme-iso-50001) nachzuweisen, beziehungsweise ein Umweltmanagementsystem nach [EMAS](https://www.emas.de/rechtliches/).
 Auch für kleine und mittlere Unternehmen kann ein Energieaudit nach der europäischen Norm EN 16247 sinnvoll sein.
 
@@ -29,8 +29,11 @@ Gängige Zertifikate sind zum Beispiel:
 * [TÜV Rheinland: Energieeffizientes Rechenzentrum](https://www.tuv.com/germany/de/green-it-und-green-energy.html)
 * [Blauer Engel: Energieeffizienter Rechenzentrumsbetrieb](https://produktinfo.blauer-engel.de/uploads/criteriafile/de/DE-UZ%20161-201502-de%20Kriterien.pdf)
 
+# Energiemanagement
+
 Statt alle vier Jahre ein neues Audit durchführen zu lassen, bietet sich die Einführung eines Energiemanagementsystems an.
-Dabei hilft der Leitfaden [Energiemanagementsysteme in der Praxis](https://www.umweltbundesamt.de/publikationen/energiemanagementsysteme-in-praxis) bei der Orientierung.
+Es muss zwar auch alle drei Jahre neu zertifiziert werden, allerdings werden dann nur noch Stichproben geprüft.
+Der Leitfaden [Energiemanagementsysteme in der Praxis](https://www.umweltbundesamt.de/publikationen/energiemanagementsysteme-in-praxis) hilft mit konkreten Tipps und Praxisbeispielen.
 
 Ausgangspunkt ist immer das Ergebnis eines Audits nach EN 16247.
 Die Sammlung und Bewertung von Energieleistungskennzahlen muss dann in die Unternehmensprozesse integriert werden.
@@ -81,8 +84,9 @@ Was die Durchsetzung von Verbesserungsmaßnahmen angeht, müssen geeignete Vorge
 Die Energieeffizienz einer Cloud-Anwendung lässt sich nicht direkt messen.
 Führende Cloud-Dienstleister haben die Nachfrage aber erkannt und bieten Energierechner an.
 
-Wer die [Google Cloud](https://cloud.google.com/carbon-footprint) nutzt, kann sich einen CO2-Fußabdruck berechnen lassen. 
-Für Microsofts [Azure Cloud](https://azure.microsoft.com/en-us/blog/microsoft-sustainability-calculator-helps-enterprises-analyze-the-carbon-emissions-of-their-it-infrastructure/) steht ebenfalls ein "Sustainability Calculator" zur Verfügung.
+Wer die Google Cloud nutzt, kann sich mit dem gleichnaimgen Tool einen [Carbon Footprint](https://cloud.google.com/carbon-footprint) berechnen lassen.
+Für Microsofts Azure Cloud steht ein [Sustainability Calculator](https://azure.microsoft.com/en-us/blog/microsoft-sustainability-calculator-helps-enterprises-analyze-the-carbon-emissions-of-their-it-infrastructure/) zur Verfügung.
+Amazon bietet für seine AWS Cloud das [Customer Carbon Footprint Tool](https://aws.amazon.com/de/aws-cost-management/aws-customer-carbon-footprint-tool/) an.
 
 Ein damit ermitteltes Emissionsprofil verdeutlicht die Bruttoemissionen in der Cloud im Laufe der Zeit nach Projekt, Produkt und Region.
 Diese Messwerte können dem Entwicklungsteam helfen, die CO2-Bilanz ihrer Anwendungen zu verbessern.
@@ -90,4 +94,7 @@ Darüber hinaus sind sie relevant für den eigenen Nachhaltigkeitsbericht.
 
 # Fazit
 
-TODO Kommentar
+Aus Kundensicht ist Nachhaltigkeit zunehmend ein Auswahlkriterium.
+Darüber hinaus ist die Senkung des Stromverbrauchs eng mit der Optimierung von Betriebsprozessen und laufenden Kosten gekoppelt.
+Energieaudits und die entsprechenden Zertifikate sind daher auch dann nützlich, wenn sie nicht gesetzlich vorgeschrieben sind.
+Das heißt, ein fest in die Abläufe integriertes Energiemanagement nach ISO 50001 steigert Unternehmenswert und Image gleichermaßen.
