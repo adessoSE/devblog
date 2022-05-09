@@ -32,7 +32,7 @@ Die Balance zwischen den drei Instanzen ist hier abgebildet:
 
 Beispielhaft haben wir hier Empfehlungen zum Vorgehen aufgelistet:
 
-* Primär Anforderungen vom Fachbereich "verstehen" und nach dem "Warum?" fragen
+* Primäre Anforderungen vom Fachbereich "verstehen" und nach dem "Warum" fragen
 * Alignment von Compliance, Fachbereich und Technik sind elementar
 * Einbindung von Compliance-Experten so früh wie möglich
 * Abstimmtes Konstrukt mit konkreten Anforderungen festgelegen -> "schwammige Aussage und Grauzonen vermeiden"
