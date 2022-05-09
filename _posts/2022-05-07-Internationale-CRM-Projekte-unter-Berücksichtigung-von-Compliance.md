@@ -49,7 +49,10 @@ Zum einen ist es möglich das D365 Sales Online (MS Cloud) und OnPremise zu betr
  
 Zum anderen bietet die Power Platform die Möglichkeit in ein und demselben Tenant die Datenlokation für diverse Länder zu bestimmen. Dies hat den Vorteil die Verwaltungsaufwand von mehreren Tenants elementar zu senken und u.a. sind die Lizenzen im ganzen Tenant gültig.
 
-Ein CRM-System könnte bei einem Staging wie folgt aussehen:
+Als weitere Lösungsoption könnte eine Multi-Tenant-Strategie dienen, wenn erweiterte Anforderungen hinsichtlich Skalierbarkeit, Abbildung von komplexen Unternehmensstrukturen oder auch sehr starke Ausprägung von Datenschutzanforderungen gegenben sind.
+
+
+In diesem Beispiel wird weiter die Single-Tenant-Strategie beschrieben, in der das Staging für ein CRM-System wie folgt aussehen könnte:
 
 ![Staging.png](/assets/images/posts/Internationale-CRM-Projekte-unter-Beruecksichtigung-von-Compliance/Staging.png)
 
@@ -57,6 +60,11 @@ Sowohl DEV, als auch UAT und PROD sind in getrennten CRM-Instanzen abgebildet (E
 Dabei ist jeder Umgebung eine Region zugeordnet, die bestimmt, wo das CRM gehostet wird.
 
 Die Benutzer, Lizenzen und Sicherheitsgruppen werden zentral in einem Tenant verwaltet.
+
+
+Das oben abgebildete Staging kann weiter ausgebaut werden, um auch in einem Single-Tenant weitere Anforderungen des Datenschutzes zu erfüllen:
+
+![AdvancedStaging.png](/assets/images/posts/Internationale-CRM-Projekte-unter-Beruecksichtigung-von-Compliance/AdvancedStaging.png)
 
 # Integrations-Acrhitektur
 
@@ -87,6 +95,7 @@ Nützliche Links
 * [D365 & Power Platform GEO](https://dynamics.microsoft.com/de-de/availability-reports/georeport/)
 * [D365 & Power Platform PDF](https://aka.ms/dynamics_365_international_availability_deck) 
 * [M365 Mandant Docs](https://docs.microsoft.com/de-de/microsoft-365/enterprise/o365-data-locations?view=o365-worldwide)
+* [Multi-Tenant Docs](https://docs.microsoft.com/de-de/power-platform/admin/multiple-online-environments-tenants)
 * [Azure GEO](https://azure.microsoft.com/de-de/global-infrastructure/geographies/#geographies)
 
 
