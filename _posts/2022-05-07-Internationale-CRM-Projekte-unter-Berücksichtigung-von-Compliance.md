@@ -68,7 +68,7 @@ Das oben abgebildete Staging kann weiter ausgebaut werden, um auch in einem Sing
 
 # Integrationsarchitektur
 
-In einigen Szenarien ist es erforderlich eine hybride Architektur für die Umgebungs-Infrastruktur und der Integration zu entwerfen, d.h. sowohl Cloud als auch OnPremise Komponenten einzusetzen.
+In einigen Szenarien ist es erforderlich, eine hybride Architektur für die Umgebungsinfrastruktur und die Integration zu entwerfen, d.h., es sind sowohl Cloud- als auch On-Premise-Komponenten einzusetzen.
 
 Eine solche Architektur ist hier beispielhaft dargestellt:
 
