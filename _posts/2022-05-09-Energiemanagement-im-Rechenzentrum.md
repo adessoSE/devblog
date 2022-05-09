@@ -113,9 +113,9 @@ Darüber hinaus ist die Senkung des Stromverbrauchs eng mit der Optimierung von 
 Energieaudits und die entsprechenden Zertifikate sind daher auch dann nützlich, wenn sie nicht gesetzlich vorgeschrieben sind.
 Besonders ein fest in die Abläufe integriertes Energiemanagement nach ISO 50001 steigert den Unternehmenswert und das Image gleichermaßen.
 
-Alle Unternehmen, die nicht unter die Kriterien für kleine und mittlere Unternehmen des Bundesamtes für Wirtschaft und Ausfuhrkontrolle fallen, sind gesetzlich verpflichtet, mindestens alle vier Jahre ein Energieaudit durchzuführen.
+Alle Unternehmen, die nicht unter die Kriterien für kleine und mittlere Unternehmen des Bundesamtes für Wirtschaft und Ausfuhrkontrolle fallen, sind gesetzlich verpflichtet, mindestens alle vier Jahre ein Energieaudit durchzuführen oder ein zertifiziertes Managementsystem zu implementieren.
 In vielen Betrieben sind bereits ein ISO 9001 Qualitätsmanagementsystem sowie ein ISO 14001 Umweltmanagementsystem implementiert. Sie können diese und das Ergebnis ihres letzten Energieaudits nutzen, um mit relativ geringem Aufwand ein Energiemanagementsystem nach ISO 50001 aufzubauen.
-Wenn nur ein ISO 14001 Umweltmanagementsystem zur Verfügung steht, liegt die die Weiterentwicklung zum EMAS-Umweltmanagementsystem nahe.
+Wenn nur ein ISO 14001 Umweltmanagementsystem zur Verfügung steht, liegt die Weiterentwicklung zum EMAS-Umweltmanagementsystem nahe.
 Nur für Unternehmen, die noch kein derartiges Managementsystem haben, lohnt sich ein reines Energieaudit nach EN 16247.
 
 Umweltmanagementsysteme nach EMAS und nach ISO 14001 dürfen nicht verwechselt werden, auch wenn sie eine große Schnittmenge aufweisen.
