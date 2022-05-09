@@ -77,7 +77,7 @@ Eine solche Architektur ist hier beispielhaft dargestellt:
 In dem hier dargestellten Diagramm werden personenbezogene Daten primär in einem Land ihrer Wahl gespeichert und gleichzeitig unter zusätzlicher Einhaltung von rechtlichen Rahmenbedingungen über länderspezifische Clouddienste in On-Premise-Systeme transferiert.
 
 Dabei werden beispielhaft die CRM-Instanzen in verschiedenen Umgebungen gehosted. 
-Die eingesetzten Microservices basierend auf Azure Functions werden ebenfalls in den dazugehörigen Ländern gehostet.
+Die eingesetzten Microservices, die auf auf Azure Functions basieren, werden ebenfalls in den dazugehörigen Ländern gehostet.
 
 Die Tenant-Architektur ist beliebig ausbaubau, d.h. Multi-Tenants sind möglich aber auch andere hybride Integrationsmuster.
 
