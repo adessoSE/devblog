@@ -62,7 +62,7 @@ Entwickeln Sie also Anreize, um die Mitarbeitenden dazu zu bewegen, anspruchsvol
 
 ## Integration in vorhandene Steuerungsstrukturen
 
-Vermeiden Sie eine aufwendige Insellösung im Unternehmen!
+Vermeiden Sie eine aufwändige Insellösung im Unternehmen!
 Häufig bietet es sich an, das Energiemanagement ins vorhandene Controlling oder andere etablierte Abläufe zu integrieren.
 Wichtig ist, dass das Energiemanagementsystem nicht als reine Dokumentationsaufgabe verstanden wird.
 Es darf auch keine Parallelstruktur neben den eigentlichen Unternehmensprozessen bilden.
