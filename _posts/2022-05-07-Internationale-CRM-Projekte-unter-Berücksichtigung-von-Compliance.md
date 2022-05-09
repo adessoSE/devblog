@@ -105,7 +105,7 @@ Die oben gezeigten Beispiele und Erläuterungen sollen das Verständnis vermitte
  Abhängig von der Komplexität des Anforderungen bedarf es im konkreten Projekteinsatz weitere von uns bewährter Lösungen.
 
 Dabei ist es wichtig die Anforderungen zu verstehen und die Gegebenheiten der Technologien zu kennen.
-Hierbei hat sich bewährt, dass sich ein kleines Kompetenzteam bildet aus:
+Hierbei hat sich bewährt, dass sich ein kleines Kompetenzteam bildet, bestehend aus folgenden Personen:
 * Compliance-Experte oder -Expertin
 * Product Owner
 * Solution Architekt/in
