@@ -79,7 +79,7 @@ In dem hier dargestellten Diagramm werden personenbezogene Daten primär in eine
 Dabei werden beispielhaft die CRM-Instanzen in verschiedenen Umgebungen gehosted. 
 Die eingesetzten Microservices, die auf auf Azure Functions basieren, werden ebenfalls in den dazugehörigen Ländern gehostet.
 
-Die Tenant-Architektur ist beliebig ausbaubau, d.h. Multi-Tenants sind möglich aber auch andere hybride Integrationsmuster.
+Die Tenant-Architektur ist beliebig ausbaubar, d.h. Multi-Tenants aber auch andere hybride Integrationsmuster sind möglich.
 
 # Wo ist was verfügbar
 
