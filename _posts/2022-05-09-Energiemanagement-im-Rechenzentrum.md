@@ -14,10 +14,10 @@ Um die Energieeffizienz der IT jederzeit nachweisen zu können, ist fortlaufende
 # Audit im Rechenzentrum
 
 Das eigene Rechenzentrum ist ein Stromfresser.
-Gezielte Maßnahmen können den Energiehunger jedoch deutlich senken, was gleichzeitig die Kosten senkt und Umweltbewusstsein beweist.
+Gezielte Maßnahmen können den Energiehunger jedoch deutlich senken.
 Für Großunternehmen schreibt die Energieeffizienzrichtlinie (2012/27/EU) ein regelmäßiges Audit vor.
 Alternativ ist ein Energiemanagementsystem nach [ISO 50001](https://www.umweltbundesamt.de/energiemanagementsysteme-iso-50001) nachzuweisen, beziehungsweise ein Umweltmanagementsystem nach [EMAS](https://www.emas.de/rechtliches/).
-Für kleine und mittlere Unternehmen kann ein freiwilliges Energieaudit nach der europäischen Norm EN 16247 sinnvoll sein; es beweist die eigene Nachhaltigkeit und hilft Kosten zu senken.
+Für kleine und mittlere Unternehmen kann ein freiwilliges Energieaudit nach der europäischen Norm EN 16247 sinnvoll sein, denn es hilft Kosten zu senken und das Zertifikat beweist Umweltbewusstsein.
 
 Am Anfang aller Optimierungen steht immer die Sichtung des Status Quo.
 Dabei wird zuerst die Dokumentation des Rechenzentrums ausgewertet, aus der die Leistungsaufnahme aller Geräte hervorgehen sollte.
