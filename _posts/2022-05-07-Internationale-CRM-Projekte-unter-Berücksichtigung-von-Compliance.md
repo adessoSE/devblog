@@ -56,7 +56,7 @@ In diesem Beispiel wird weiter die Single-Tenant-Strategie beschrieben, in der d
 
 ![Staging.png](/assets/images/posts/Internationale-CRM-Projekte-unter-Beruecksichtigung-von-Compliance/Staging.png)
 
-Sowohl DEV, als auch UAT und PROD sind in getrennten CRM-Instanzen abgebildet (Environment/Umgebung). 
+DEV, UAT und PROD sind in getrennten CRM-Instanzen abgebildet (Environment/Umgebung). 
 Dabei ist jeder Umgebung eine Region zugeordnet, die bestimmt, wo das CRM gehostet wird.
 
 Die Benutzer, Lizenzen und Sicherheitsgruppen werden zentral in einem Tenant verwaltet.
