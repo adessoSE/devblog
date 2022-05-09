@@ -83,7 +83,7 @@ Die Tenant-Architektur ist beliebig ausbaubau, d.h. Multi-Tenants sind möglich 
 
 # Wo ist was verfügbar
 
-Darüber hinaus ist es beim Entwurf einer Umgebungs-Architektur wichtig die Produktverfügbarkeit der Power Platform und die Datenspeicherungslokationen zu bestimmen.
+Darüber hinaus ist es beim Entwurf einer Umgebungsarchitektur wichtig, die Produktverfügbarkeit der Power Platform und die Datenspeicherungslokationen zu bestimmen.
 
 Die Produktverfügbarkeit ist einem dynamischen Power-BI-Report jederzeit nachvollziehbar:
 
