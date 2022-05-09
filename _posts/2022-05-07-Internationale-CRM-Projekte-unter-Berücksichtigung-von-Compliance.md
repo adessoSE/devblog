@@ -30,7 +30,7 @@ Die Balance zwischen den drei Instanzen ist hier abgebildet:
 
 ## Best practices
 
-Beispielhaft sind hier Empfehlungen von uns aufgelistet beim Vorgehen:
+Beispielhaft haben wir hier Empfehlungen zum Vorgehen aufgelistet:
 
 * Primär Anforderungen vom Fachbereich "verstehen" und nach dem "Warum?" fragen
 * Alignment von Compliance, Fachbereich und Technik sind elementar
