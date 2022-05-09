@@ -37,7 +37,7 @@ Beispielhaft haben wir hier Empfehlungen zum Vorgehen aufgelistet:
 * Einbindung von Compliance-Experten so früh wie möglich
 * Abgestimmtes Konstrukt mit konkreten Anforderungen festgelegen -> "schwammige Aussage und Grauzonen vermeiden"
 * Analyse des aktuellen Technologiestandes, bspw. siehe "Nützliche Links"– welcher Service ist wo verfügbar?
-* Integrationen bspw. mit Azure unterliegen den gleichen Anforderungen
+* Integrationen, bspw. mit Azure, unterliegen den gleichen Anforderungen
 * Kreative Lösungsarchitekturen erforderlich, jedoch sollten diese dem "KISS-Prinzip" folgen
 
 
