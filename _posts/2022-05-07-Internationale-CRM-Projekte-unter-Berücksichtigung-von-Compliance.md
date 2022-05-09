@@ -110,4 +110,4 @@ Hierbei hat sich bewährt, dass sich ein kleines Kompetenzteam bildet aus:
 * Product Owner
 * Solution Architekt/in
 
-Wir bei adesso unterstützen Sie gerne bei ihrem internationalen CRM-Vorhaben und finden mit Ihnen die beste Lösung, um die Balance zwischen Fachlichkeit/Business Value, Anforderung aus der Compliance-Sicht und technische Machbarkeit zu wahren.
+Wir bei adesso unterstützen Sie gerne bei Ihrem internationalen CRM-Vorhaben und finden mit Ihnen die beste Lösung, um die Balance zwischen Fachlichkeit/Business Value, Anforderung aus der Compliance-Sicht und der technischen Machbarkeit zu wahren.
