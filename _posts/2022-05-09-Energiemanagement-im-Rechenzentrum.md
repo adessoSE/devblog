@@ -59,8 +59,8 @@ Dort sind die umfangreichsten Einsparpotenziale zu vermuten.
 Berechnen Sie für die ausgewählten Betriebsprozesse zunächst Energieleistungskennzahlen und bestimmen Sie für jede Kennzahl eine verantwortliche Person.
 Die Verantwortlichen entwickeln regelmäßig Ideen für Maßnahmen zur Einsparung von Energie und Verbesserung der Energieeffizienz.
 Vereinbaren Sie mit ihnen anspruchsvolle, aber erreichbare Planwerte als Ziele.
-Setzen Sie wirtschaftliche sinnvolle Effizienzverbesserungsmaßnahmen auch wirklich um!
-Mit regelmäßigen Abweichungsanalysen sollten Sie die Zielerreichung prüfen und gegebenenfalls Abhilfemaßnahmen ergreifen.
+Setzen Sie wirtschaftlich sinnvolle Effizienzverbesserungsmaßnahmen auch wirklich um!
+Mit regelmäßigen Abweichungsanalysen können Sie die Zielerreichung prüfen und gegebenenfalls Abhilfemaßnahmen ergreifen.
 
 ## Bottom-Up-Festlegung von Energieeinsparzielen
 
@@ -85,6 +85,7 @@ Von der Amortisationszeitmethode wird abgeraten, weil sie systematische Schwäch
 
 Ideen und deren Bewertungen sollten zu Entscheidungsvorlagen aufbereitet werden.
 Auf welche Weise Verbesserungsideen ökonomisch bewertet werden, sollte möglichst früh feststehen.
+Das vermeidet Frustration bei den Verantwortlichen, wenn ihre Vorschläge aufgrund neu erfundener Kriterien abgewiesen werden.
 Was die Durchsetzung von Verbesserungsmaßnahmen angeht, müssen geeignete Vorgehensweisen etabliert werden.
 
 # In der Cloud
