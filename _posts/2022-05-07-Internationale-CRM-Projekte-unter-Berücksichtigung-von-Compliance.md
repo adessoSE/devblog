@@ -45,7 +45,7 @@ Beispielhaft haben wir hier Empfehlungen zum Vorgehen aufgelistet:
 
 Microsoft Dynamics 365 Sales und die dazugehörige Power Platform bieten u.a. beim Thema Datenlokation einzigartige Features.
 
-Zum einen ist es möglich das D365 Sales Online (MS Cloud) und OnPremise zu betreiben.
+Zum einen ist es möglich, das D365 Sales Online in der MS Cloud und On-Premise zu betreiben.
  
 Zum anderen bietet die Power Platform die Möglichkeit, in ein und demselben Tenant die Datenlokation für diverse Länder zu bestimmen. Dies hat den Vorteil, den Verwaltungsaufwand von mehreren Tenants elementar zu senken und u.a. sind die Lizenzen im ganzen Tenant gültig.
 
