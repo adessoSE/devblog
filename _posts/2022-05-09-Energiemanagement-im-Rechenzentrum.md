@@ -67,26 +67,26 @@ Häufig bietet es sich an, das Energiemanagement ins vorhandene Controlling oder
 Wichtig ist, dass das Energiemanagementsystem nicht als reine Dokumentationsaufgabe verstanden wird.
 Es darf auch keine Parallelstruktur neben den eigentlichen Unternehmensprozessen bilden.
 
-## Festlegung von Effizienzmaßnahmen mit Fokus auf betriebswirtschaftlichem Nettoerfolg
+## Fokus auf betriebswirtschaftlichem Nettoerfolg
 
 Die Ausrichtung auf den Unternehmenserfolg verlangt, Energieeffizienzmaßnahmen nur dann umzusetzen, wenn ein betriebswirtschaftlicher Nettoerfolg zu erwarten ist.
-Als Bewertungsinstrument empfhielt der Leitfaden die Kapitalwertmethode, um den Nettoerfolg als Steigerungsbeitrag des Unternehmenswertes zu ermitteln.
+Als Bewertungsinstrument empfiehlt der Leitfaden die Kapitalwertmethode, um den Nettoerfolg als Steigerungsbeitrag des Unternehmenswertes zu ermitteln.
 Von der Amortisationszeitmethode wird abgeraten, weil sie systematische Schwächen aufweist, die sich speziell im Energieeffizienzbereich auswirken.
 
 ## Schaffung geeigneter Rahmenbedingungen
 
 Ideen und deren Bewertungen sollten zu Entscheidungsvorlagen aufbereitet werden.
-Auf welche Weise Verbesserungsideen ökonomisch bewertet werden sollen, sollte möglichst früh feststehen.
+Auf welche Weise Verbesserungsideen ökonomisch bewertet werden, sollte möglichst früh feststehen.
 Was die Durchsetzung von Verbesserungsmaßnahmen angeht, müssen geeignete Vorgehensweisen etabliert werden.
 
 # In der Cloud
 
 Die Energieeffizienz einer Cloud-Anwendung lässt sich nicht direkt messen.
-Führende Cloud-Dienstleister haben die Nachfrage aber erkannt und bieten Energierechner an.
+Führende Anbieter von Cloud-Hosting haben die Nachfrage aber erkannt und bieten Energierechner an.
 
-Wer die Google Cloud nutzt, kann sich mit dem gleichnaimgen Tool einen [Carbon Footprint](https://cloud.google.com/carbon-footprint) berechnen lassen.
-Für Microsofts Azure Cloud steht ein [Sustainability Calculator](https://azure.microsoft.com/en-us/blog/microsoft-sustainability-calculator-helps-enterprises-analyze-the-carbon-emissions-of-their-it-infrastructure/) zur Verfügung.
-Amazon bietet für seine AWS Cloud das [Customer Carbon Footprint Tool](https://aws.amazon.com/de/aws-cost-management/aws-customer-carbon-footprint-tool/) an.
+* Wer die Google Cloud nutzt, kann sich mit dem gleichnaimgen Tool einen [Carbon Footprint](https://cloud.google.com/carbon-footprint) berechnen lassen.
+*Für Microsofts Azure Cloud steht ein [Sustainability Calculator](https://azure.microsoft.com/en-us/blog/microsoft-sustainability-calculator-helps-enterprises-analyze-the-carbon-emissions-of-their-it-infrastructure/) zur Verfügung.
+*Amazon bietet für seine AWS Cloud das [Customer Carbon Footprint Tool](https://aws.amazon.com/de/aws-cost-management/aws-customer-carbon-footprint-tool/) an.
 
 Ein damit ermitteltes Emissionsprofil verdeutlicht die Bruttoemissionen in der Cloud im Laufe der Zeit nach Projekt, Produkt und Region.
 Diese Messwerte können dem Entwicklungsteam helfen, die CO2-Bilanz ihrer Anwendungen zu verbessern.
