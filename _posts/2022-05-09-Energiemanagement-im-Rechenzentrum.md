@@ -30,9 +30,8 @@ Auf Basis der gesammelten Fakten werden Einsparpotenziale analysiert und ein Ma�
 
 Die Umsetzung des Maßnahmenplans ist nun der Betreiberfirma überlassen.
 Anschließend liegt es nahe, das optimierte, energieffizente Rechenzentrum zertifizieren zu lassen.
-Gängige Zertifikate sind zum Beispiel:
-* [TÜV Rheinland: Energieeffizientes Rechenzentrum](https://www.tuv.com/germany/de/green-it-und-green-energy.html)
-* [Blauer Engel: Energieeffizienter Rechenzentrumsbetrieb](https://produktinfo.blauer-engel.de/uploads/criteriafile/de/DE-UZ%20161-201502-de%20Kriterien.pdf)
+Ein gängiges Zertifikat ist zum Beispiel das [Energieeffiziente Rechenzentrum](https://www.tuv.com/germany/de/green-it-und-green-energy.html) vom TÜV Rheinland.
+Wenn das Rechenzentrum auch über den reinen Stromverbrauch hinaus umweltfreundlich betrieben wird, lohnt ein Blick auf den Blauen Engel [Energieeffizienter Rechenzentrumsbetrieb](https://www.blauer-engel.de/de/produktwelt/rechenzentren).
 
 # Energiemanagement
 
