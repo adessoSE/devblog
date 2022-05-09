@@ -106,7 +106,7 @@ Die oben gezeigten Beispiele und Erläuterungen sollen das Verständnis vermitte
 
 Dabei ist es wichtig die Anforderungen zu verstehen und die Gegebenheiten der Technologien zu kennen.
 Hierbei hat sich bewährt, dass sich ein kleines Kompetenzteam bildet aus:
-* Compliance-Experte/in
+* Compliance-Experte oder -Expertin
 * Product Owner
 * Solution Architekt/in
 
