@@ -19,6 +19,10 @@ Für Großunternehmen schreibt die Energieeffizienzrichtlinie (2012/27/EU) ein r
 Alternativ ist ein Energiemanagementsystem nach [ISO 50001](https://www.umweltbundesamt.de/energiemanagementsysteme-iso-50001) nachzuweisen, beziehungsweise ein Umweltmanagementsystem nach [EMAS](https://www.emas.de/rechtliches/).
 Für kleine und mittlere Unternehmen kann ein freiwilliges Energieaudit nach der europäischen Norm EN 16247 sinnvoll sein, denn es hilft Kosten zu senken und das Zertifikat beweist Umweltbewusstsein.
 
+Sowohl ein Energieaudit nach EN 16247 als auch die Zertifizierung eines Managementsystems nach ISO 50001 müssen von einer unabhängigen, qualifizierten Auditgesellschaft durchgeführt werden.
+Für eine freiwillige Sache klingt das teuer.
+Bis zu 80% der Kosten werden jedoch vom Bundesamt für Wirtschaft und Ausfuhrkontrolle übernommen, wenn sich das Unternehmen für die [Bundesförderung für Energieberatung für Nichtwohngebäude, Anlagen und Systeme](https://www.bafa.de/DE/Energie/Energieberatung/Nichtwohngebaeude_Anlagen_Systeme/Modul1_Energieaudit/modul1_energieaudit_node.html) qualifiziert.
+
 Am Anfang aller Optimierungen steht immer die Sichtung des Status Quo.
 Dabei wird zuerst die Dokumentation des Rechenzentrums ausgewertet, aus der die Leistungsaufnahme aller Geräte hervorgehen sollte.
 Anschließend werden die Energieflüsse im laufenden Betrieb gemessen.
@@ -32,8 +36,8 @@ Gängige Zertifikate sind zum Beispiel:
 
 # Energiemanagement
 
-Statt regelmäßig ein neues Audit durchführen zu lassen, bietet sich die Einführung eines Energiemanagementsystems an.
-Es muss zwar auch alle drei Jahre neu zertifiziert werden, allerdings werden dann nur noch Stichproben geprüft.
+Statt alle vier Jahre ein neues Audit durchführen zu lassen, bietet sich die Einführung eines Energiemanagementsystems an.
+Es muss zwar jedes dritte Jahr neu zertifiziert werden, allerdings werden dann nur noch Stichproben geprüft.
 Der Leitfaden [Energiemanagementsysteme in der Praxis](https://www.umweltbundesamt.de/publikationen/energiemanagementsysteme-in-praxis) hilft mit konkreten Tipps und Praxisbeispielen.
 
 Ausgangspunkt ist immer das Ergebnis eines Audits nach EN 16247.
