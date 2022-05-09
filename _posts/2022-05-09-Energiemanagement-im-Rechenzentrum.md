@@ -52,7 +52,7 @@ Richtig eingesetzt kann ein Energiemanagementsystem dazu beitragen, den Wert ein
 ## Orientierung am Wesentlichen
 
 Stellen Sie die zwei bis drei Betriebsprozesse, die den größten Energieverbrauch aufweisen, in den Mittelpunkt.
-Dort sind die umfangreichsten Einsparpotentiale zu vermuten.
+Dort sind die umfangreichsten Einsparpotenziale zu vermuten.
 
 ## Selbststeuerung durch Etablierung von Regelkreisen
 
@@ -62,7 +62,7 @@ Vereinbaren Sie mit ihnen anspruchsvolle, aber erreichbare Planwerte als Ziele.
 Setzen Sie wirtschaftliche sinnvolle Effizienzverbesserungsmaßnahmen auch wirklich um!
 Mit regelmäßigen Abweichungsanalysen sollten Sie die Zielerreichung prüfen und gegebenenfalls Abhilfemaßnahmen ergreifen.
 
-## Bottom-Up-Festlegung von Energieeinsparzielen und Motivationsanreize für Betroffene
+## Bottom-Up-Festlegung von Energieeinsparzielen
 
 Einsparziele sollten anspruchsvoll, aber vor allem erreichbar sein.
 Überlegungen zur Zielerreichbarkeit setzen prozessbezogenes Wissen voraus, das eher bei den Prozessverantwortlichen liegt als bei der Unternehmensleitung.
