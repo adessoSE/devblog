@@ -20,7 +20,7 @@ In diesem Blog-Beitrag geht es um die Datenlokation und die passende Systemarchi
 In Projekten geht es hierbei darum, die Balance zu wahren aus 
 * fachlichen Anforderungen und den daraus resultierenden Business Values,
 * Anforderungen aus Compliance-Sicht, bspw. Ort der primären Datenspeicherung,
-* Technische Machbarkeit & Rahmenbedingungen
+* technische Machbarkeit und Rahmenbedingungen.
 
 Kommunikation und strukturiertes Vorgehen sind hierbei ein kritischer Erfolgsfaktor.
 
