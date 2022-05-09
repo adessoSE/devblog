@@ -9,7 +9,7 @@ tags: [Energie,Energiemanagement,Effizienz,Green IT,Nachhaltigkeit] # Bitte auf 
 ---
 
 Wer IT-Dienstleistungen anbietet, wird immer öfter nach der Nachhaltigkeit des Betriebs gefragt.
-Um die Energieeffizienz der IT jederzeit nachweisen zu können, ist fortlaufendes Energiemanagement notwendig.
+Um die eigene Energieeffizienz jederzeit nachweisen zu können, ist fortlaufendes Energiemanagement notwendig.
 
 # Audit im Rechenzentrum
 
@@ -111,4 +111,4 @@ Darüber hinaus sind sie relevant für den eigenen Nachhaltigkeitsbericht.
 Aus Kundensicht ist Nachhaltigkeit zunehmend ein Auswahlkriterium.
 Darüber hinaus ist die Senkung des Stromverbrauchs eng mit der Optimierung von Betriebsprozessen und laufenden Kosten gekoppelt.
 Energieaudits und die entsprechenden Zertifikate sind daher auch dann nützlich, wenn sie nicht gesetzlich vorgeschrieben sind.
-Das heißt, ein fest in die Abläufe integriertes Energiemanagement nach ISO 50001 steigert Unternehmenswert und Image gleichermaßen.
+Besonders ein fest in die Abläufe integriertes Energiemanagement nach ISO 50001 steigert Unternehmenswert und Image gleichermaßen.
