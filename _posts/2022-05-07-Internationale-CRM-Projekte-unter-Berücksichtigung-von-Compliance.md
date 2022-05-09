@@ -35,7 +35,7 @@ Beispielhaft haben wir hier Empfehlungen zum Vorgehen aufgelistet:
 * Primäre Anforderungen vom Fachbereich "verstehen" und nach dem "Warum" fragen
 * Alignment von Compliance, Fachbereich und Technik sind elementar
 * Einbindung von Compliance-Experten so früh wie möglich
-* Abstimmtes Konstrukt mit konkreten Anforderungen festgelegen -> "schwammige Aussage und Grauzonen vermeiden"
+* Abgestimmtes Konstrukt mit konkreten Anforderungen festgelegen -> "schwammige Aussage und Grauzonen vermeiden"
 * Analyse des aktuellen Technologiestandes, bspw. siehe "Nützliche Links"– welcher Service ist wo verfügbar?
 * Integrationen bspw. mit Azure unterliegen den gleichen Anforderungen
 * Kreative Lösungsarchitekturen erforderlich, jeodch sollten diese dem „KISS-Prinzip“ folgen
