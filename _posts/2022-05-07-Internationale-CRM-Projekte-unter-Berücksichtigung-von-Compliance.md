@@ -89,7 +89,7 @@ Die Produktverfügbarkeit ist einem dynamischen Power-BI-Report jederzeit nachvo
 
 ![Availability.png](/assets/images/posts/Internationale-CRM-Projekte-unter-Beruecksichtigung-von-Compliance/Availability.png)
 
-Dies betrifft auch Komponenten in Azure bspw. für Integrationen zu D365.
+Dies betrifft auch Komponenten in Azure, bspw. für die Integrationen von D365.
 
 Nützliche Links
 * [D365 & Power Platform GEO](https://dynamics.microsoft.com/de-de/availability-reports/georeport/)
