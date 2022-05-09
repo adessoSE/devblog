@@ -18,7 +18,7 @@ Das eigene Rechenzentrum ist ein Stromfresser.
 Gezielte Maßnahmen können den Energiehunger jedoch deutlich senken.
 Für Großunternehmen schreibt die Energieeffizienzrichtlinie (2012/27/EU) ein regelmäßiges Audit vor.
 Alternativ ist ein Energiemanagementsystem nach [ISO 50001](https://www.umweltbundesamt.de/energiemanagementsysteme-iso-50001) nachzuweisen, beziehungsweise ein Umweltmanagementsystem nach [EMAS](https://www.emas.de/rechtliches/).
-Für kleine und mittlere Unternehmen kann ein freiwilliges Energieaudit nach der europäischen Norm EN 16247 sinnvoll sein, denn es hilft Kosten zu senken und das Zertifikat beweist Umweltbewusstsein.
+Für kleine und mittlere Unternehmen kann ein freiwilliges Energieaudit nach der europäischen Norm EN 16247 sinnvoll sein, denn es hilft, Kosten zu senken, und das Zertifikat beweist Umweltbewusstsein.
 
 Sowohl ein Energieaudit nach EN 16247 als auch die Zertifizierung eines Managementsystems nach ISO 50001 müssen von einer unabhängigen, qualifizierten Auditgesellschaft durchgeführt werden.
 Für eine freiwillige Sache klingt das teuer.
