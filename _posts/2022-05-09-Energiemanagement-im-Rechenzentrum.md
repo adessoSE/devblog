@@ -47,7 +47,6 @@ Das ermöglicht fortlaufende Verbesserungen der Effizienz, während eine eventue
 Energieleistungskennzahlen sind relative Größen, das heißt, sie setzen eine absolute Kennzahl zu einer anderen Größe in Beziehung.
 Absolute Energiekennzahlen sind zum Beispiel die Energiekosten, der Primärenergieverbrauch oder die Treibhausgasemissionen.
 Andere absolute Kennzahlen über das Unternehmen wären etwa der Umsatz, die Gebäudefläche, die Anzahl an Mitarbeitenden oder die Produktionszahlen.
-Andere absolute Kennzahlen über das Unternehmen wären etwa Umsatz, Gebäudefläche, Anzahl an Mitarbeitenden oder die Produktionszahlen.
 Über die Effizienz eines Unternehmens sagen sie erst etwas aus, wenn man sie dividiert.
 Das ergibt beispielsweise den Primärenergieverbrauch pro Quadratmeter Gebäudefläche, die Treibhausgasemissionen je produzierter Menge oder die Energiekosten pro Euro Umsatz.
 Die wohl häufigste Kennzahl ist der spezifische Energieverbrauch; das ist der Gesamtenergieverbrauch im Verhältnis zu einer anderen Größe wie Bürofläche, Personenanzahl oder die Anzahl produzierter Stücke.
@@ -114,8 +113,8 @@ Energieaudits und die entsprechenden Zertifikate sind daher auch dann nützlich,
 Besonders ein fest in die Abläufe integriertes Energiemanagement nach ISO 50001 steigert den Unternehmenswert und das Image gleichermaßen.
 
 Alle Unternehmen, die nicht unter die Kriterien für kleine und mittlere Unternehmen des Bundesamtes für Wirtschaft und Ausfuhrkontrolle fallen, sind gesetzlich verpflichtet, mindestens alle vier Jahre ein Energieaudit durchzuführen oder ein zertifiziertes Managementsystem zu implementieren.
-In vielen Betrieben sind bereits ein ISO 9001 Qualitätsmanagementsystem sowie ein ISO 14001 Umweltmanagementsystem implementiert. Sie können diese und das Ergebnis ihres letzten Energieaudits nutzen, um mit relativ geringem Aufwand ein Energiemanagementsystem nach ISO 50001 aufzubauen.
-Wenn nur ein ISO 14001 Umweltmanagementsystem zur Verfügung steht, liegt die Weiterentwicklung zum EMAS-Umweltmanagementsystem nahe.
+In vielen Betrieben sind bereits ein ISO-9001-Qualitätsmanagementsystem sowie ein ISO-14001-Umweltmanagementsystem implementiert. Sie können diese und das Ergebnis ihres letzten Energieaudits nutzen, um mit relativ geringem Aufwand ein Energiemanagementsystem nach ISO 50001 aufzubauen.
+Wenn nur ein ISO-14001-Umweltmanagementsystem zur Verfügung steht, liegt die Weiterentwicklung zum EMAS-Umweltmanagementsystem nahe.
 Nur für Unternehmen, die noch kein derartiges Managementsystem haben, lohnt sich ein reines Energieaudit nach EN 16247.
 
 Umweltmanagementsysteme nach EMAS und nach ISO 14001 dürfen nicht verwechselt werden, auch wenn sie eine große Schnittmenge aufweisen.
@@ -124,6 +123,6 @@ Das heißt, EMAS umfasst ISO 14001, geht jedoch darüber hinaus:
 EMAS-zertifizierte Organisationen verpflichten sich zu einer kontinuierlichen Verbesserung ihrer Umweltleistung.
 Ob die geplanten Verbesserungen tatsächlich erreicht wurden, muss regelmäßig überprüft werden.
 
-Als Ersatz für ein regelmäßig wiederholtes Energieaudit zählt nur ein ISO 50001 Energiemanagementsysteme oder ein EMAS Umweltmanagementsystem.
-Ein ISO 14001 Umweltmanagementsystem allein befreit nicht von der Pflicht, alle vier Jahre ein neues Audit durchzuführen; auch dann nicht, wenn es um ein ISO 9001 Qualitätsmanagementsystem ergänzt wird.
+Als Ersatz für ein regelmäßig wiederholtes Energieaudit zählt nur ein ISO-50001-Energiemanagementsysteme oder ein EMAS-Umweltmanagementsystem.
+Ein ISO-14001-Umweltmanagementsystem allein befreit nicht von der Pflicht, alle vier Jahre ein neues Audit durchzuführen; auch dann nicht, wenn es um ein ISO-9001-Qualitätsmanagementsystem ergänzt wird.
 Ein Upgrade der Managementsysteme auf EMAS ist daher dringend geboten.
