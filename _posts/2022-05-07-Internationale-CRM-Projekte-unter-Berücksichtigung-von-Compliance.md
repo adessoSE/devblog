@@ -102,7 +102,7 @@ Nützliche Links
 # Fazit
 
 Die oben gezeigten Beispiele und Erläuterungen sollen das Verständnis vermitteln, dass die Microsoft Power Platform bereits im Standard elementare Compliance-Funktionen bietet.
-Abhängig von der Komplexität des Anforderungen bedarf es im konkreten Projekteinsatz weitere Lösungen.
+Abhängig von der Komplexität des Anforderungen bedarf es im konkreten Projekteinsatz weiterer Lösungen.
 
 Dabei ist es wichtig, die Anforderungen zu verstehen und die Gegebenheiten der Technologien zu kennen.
 Hierbei hat sich bewährt, dass sich ein kleines Kompetenzteam bildet, bestehend aus folgenden Personen:
