@@ -79,17 +79,16 @@ Hier ist die Gesetzgebung gefragt, ein Mindestmaß an Recyclingmaterial in Neuge
 # Alternative Quellen
 
 Bisher bewegt sich die Recyclingquote bei einem Prozent. Bestenfalls werden Magnetmaterialien wiederverwertet.
-In Elektrogeräten ist die Konzentration meistens so gering, dass Recycling mit den bekannten Verfahren unrentabel ist.
+In Elektrogeräten ist die Konzentration seltener Erden meistens so gering, dass Recycling mit den bekannten Verfahren unrentabel ist.
 
 Eine aktuelle Hoffnung ist das neu entwickelte Verfahren [Flash-Joule-Heating](https://www.scinexx.de/news/technik/blitz-verdampfen-recycelt-metalle/), das mit geringem Energieeinsatz den Großteil aller Metalle zurückgewinnt und störendes Plastik verkohlt.
 Bisher ist das Verfahren jedoch nur im Labor erprobt.
 Die erste Anlage im kommerziellen Maßstab befindet sich noch in der Entwicklung.
-Langfristig hat Flash-Joule-Heating vermutlich das Potenzial, "Urban Mining" auf eine neues Niveau zu heben.
-Bis es soweit ist, werden aber noch viele Seltene Erden in der Müllverbrennung landen.
+Langfristig hat Flash-Joule-Heating vermutlich das Potenzial, Urban Mining auf eine neues Niveau zu heben.
 
 Ein weiterer Ansatz ist [Lanmodulin](https://www.spektrum.de/news/recycling-protein-filtert-seltene-erden-aus-elektronikschrott/1941247).
-Dabei handelt es sich um ein von Bakterien produziertes Protein, das seltene Erden aus einer Lösung zu bindet.
-Im Experiment gelang es, aus einer ähnlich wie Elektroschrott zusammengesetzten Mischung die Seltenerdelemente Neodym und Dysprosium zu je 80 Pozent sauber getrennt zurückzugewinnen.
+Dabei handelt es sich um ein von Bakterien produziertes Protein, das seltene Erden aus einer Lösung bindet.
+Im Experiment gelang es, aus einer ähnlich wie Elektroschrott zusammengesetzten Mischung die Elemente Neodym und Dysprosium zu je 80 Pozent sauber getrennt zurückzugewinnen.
 Da Lanmodulin erstaunlich stabil ist, kann das Absorbermaterial sogar mehrfach wiederverwendet werden.
 
 Bakterien haben natürliche Feinde, und zwar [Bakteriophagen](https://www.ingenieur.de/technik/fachbereiche/rohstoffe/wertvoller-elektronikschrott-viren-recyceln-seltene-erden/).
