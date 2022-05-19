@@ -121,28 +121,25 @@ Alle 17 Elemente werden im Folgenden kurz vorgestellt.
 
 ## 1. Scandium
 
-In Form von Scandiumiodid leuchtet es in Hochleistungs-​Hochdruck-​Quecksilberdampflampen, zum Beispiel als Stadionbeleuchtung.
-Denn zusammen mit Holmium und Dysprosium lässt sich eine Lichtfrbe mischen, die dem sehr nahe kommt.
-Scandium wird auch in magnetischen Datenspeichern und zur Herstellung von Laserkristallen verwendet.
-Hochwerigen Fahrradrahmen aus Aluminium wird ein Prozent Scandium zugesetzt, um die Zugfestigkeit der Legierung zu erhöhen.
+Scandium leuchtet in Hochleistungs-​Hochdruck-​Quecksilberdampflampen, zum Beispiel als Stadionbeleuchtung.
+Denn zusammen mit Holmium und Dysprosium lässt sich eine Lichtfrbe mischen, die dem Tageslicht sehr nahe kommt.
+Es wird auch in magnetischen Datenspeichern und zur Herstellung von Laserkristallen verwendet.
+Hochwertigen Fahrradrahmen aus Aluminium wird ein Prozent Scandium zugesetzt, um die Zugfestigkeit der Legierung zu erhöhen.
 Benannt wurde es nach Skandinavien, wo es entdeckt wurde.
 
 ## 2. Yttrium
 
-Mit Yttrium stabilisiertes Zirconiumdioxid dient als Elektrolyt in Brennstoffzellen.
 Seine wichtigste Verwendung findet es, kombiniert mit Europium und Thulium, in Leuchtstoffen für Leuchtstofflampen und Bildröhren.
 Yttrium-Keramiken und -Legierungen werden auch in Lambda-Sonden, Supraleitern und Zündkerzen verbaut.
 In Legierung mit Cobalt dient es als Permanentmagnet.
-
 Der Name kommt - wie auch Ytterbium, Terbium und Erbium - vom Ort Ytterby in Schweden, wo es entdeckt wurde.
 
 ## 3. Lanthan
 
-Hochreines Lanthanoxid wird zur Herstellung von Gläsern mit hohem Brechungsindex benötigt, zum Beispiel für Kamera- oder Teleskoplinsen und für Brillengläser.
+Lanthan wird zur Herstellung von Gläsern mit hohem Brechungsindex benötigt, zum Beispiel für Kamera- oder Teleskoplinsen und für Brillengläser.
 Es wird auch in Kathoden für Brennstoffzellen verbaut.
 Lanthan-Nickel wird als Wasserstoffspeicher in Nickel-Metallhydrid-Akkumulatoren eingesetzt.
 Darüber hinaus ersetzt es giftige Bleiverbindungen in Kristallglas und Porzellanglasuren.
- 
 Der Name ist abgeleitet vom griechischen Wort "lanthanein", das soviel wie "versteckt sein" bedeutet.
 
 ## 4. Cerium (Cer)
@@ -151,7 +148,6 @@ Cerhaltige Fluoreszenzmittel stecken in Monitoren und Leuchtstofflampen.
 In der Glasherstellung ermöglicht es eine selektive Blockade von UV-Licht.
 Das meiste Cerium wird als Poliermittel Ceroxid verwendet, um optische Präzisionskomponenten und Siliziumwafer für Mikrochips zu polieren.
 Außerdem wird es als Katalysator in Kraftfahrzeugen, in der Erdölraffination und in Brennstoffzellen eingesetzt.
-
 Benannt wurde es nach dem kurz zuvor entdeckten Zwergplaneten Ceres.
 
 ## 5. Praseodym
@@ -169,7 +165,6 @@ Praseodym ist also der grün schimmernde Zwilling von Lanthan.
 Extrem starke Magnete für Kernspintomographen, Mikromotoren und Festplatten werden aus Neodym-Eisen-Borverbindungen hergestellt.
 Diese finden auch Verwendung in Dauermagnetrotoren für Schritt- und Servomotoren, in einigen Windkraftanlagentypen sowie zum Antrieb von Elektrofahrzeugen.
 Man findet sie auch in Linearmotoren für CNC-Maschinen oder in hochwertigen Lautsprechern und Kopfhörern.
-
 Die Elementbezeichnung leitet sich vom griechischen "neos" für "neu" und "didymos" für "Zwilling" ab.
 Damit heißt es einfach "neuer Zwilling von Lanthan".
 
@@ -178,14 +173,12 @@ Damit heißt es einfach "neuer Zwilling von Lanthan".
 Aufgrund seiner Kurzlebigkeit und Knappheit wird Promethium kaum verwendet.
 Bei der radiometrischen Dicken- und Füllstandsmessung nutzt man es als Betastrahler.
 In der Raumfahrt, etwa an Bord von Satelliten, wird es in Radionuklidbatterien eingesetzt.
-
 Benannt wurde es nach Prometheus aus der griechischen Mythologie.
 
 ## 8. Samarium
 
 Aus diesem Element stellt man Permanentmagnete her, die einen hohen Widerstand gegen Entmagnetisierung besitzen.
 Verbaut werden sie in Schrittmotoren für Kleingeräte und Festplattenlaufwerke, in Kopfhörern und in manchen Sensoren.
-
 Der Name geht auf den Bergingenieur Samarski zurück, der das Mineral Samarskit entdeckte.
 
 ## 9. Europium
@@ -196,14 +189,12 @@ Bei Temperaturen über 150 °C entzündet es sich, in Wasser reagiert es zum Hyd
 
 Es wird in Plasmabildschirmen genutzt, wo europiumdotierte Leuchtstoffe die vakuumultraviolette Strahlung in sichtbares rotes und blaues Licht umwandeln.
 In Eurobanknoten wird die Europium-Fluoreszenz gegen Fälschungen eingesetzt.
-
 Benannt ist es einfach nach dem Kontinent Europa.
 
 ## 10. Gadolinium
 
 Gadoliniumverbindungen haben ein Einsatzgebiet in der Herstellung von wiederbeschreibbaren Compact Discs.
 Darüber hinaus dienen sie als Kontrastmittel bei medizinischen Untersuchungen im Kernspintomographen.
-
 Der Name geht auf den Chemiker Gadolin zurück, der das Mineral Gadolinit entdeckte.
 
 ## 11. Terbium
@@ -212,21 +203,18 @@ Terbium wird zum Dotieren von Halbleitern verwendet.
 Außerdem stabilisiert es das Gefüge von Hochtemperaturbrennstoffzellen.
 Ebenso findet es sich in Bildröhren und Leuchtstofflampen.
 Es wird auch Neodym-Eisen-Bor-Magneten zugesetzt, um die Resistenz gegen Entmagnetisierung zu verbessern. 
-
 Benannt wurde es - wie auch Yttrium, Ytterbium und Erbium - nach seinem Entdeckungsort Ytterby in Schweden.
 
 ## 12. Dysprosium
 
 Das meiste Dysprosium wird in Magneten für Windkraftanlagen verbaut.
 Desweiteren findet man es, mit Blei legiert, als Abschirmmaterial in Kernreaktoren.
-
 Name stammt vom griechischen Wort "dysprositos" für "unzugänglich".
 
 ## 13. Holmium
 
 Die ferromagnetischen Eigenschaften von Holmium sind denen von Eisen weit überlegen; es ist quasi das magnetischste natürlich vorkommende Element.
 Deshalb verwendet man es für Hochleistungsmagnete, aber auch in Steuerstäben von Brutreaktoren, für Festkörperlaser und in Mikrowellenbauteilen.
-
 Sein Name würdigst die Stadt Stockholm.
 
 ## 14. Erbium
@@ -235,14 +223,12 @@ Erbium wirkt als optischer Verstärker.
 Damit dotierte Gläser und Kristalle werden als Glasfasern und als Verstärker in faseroptischen Kommunikationssystemen verwendet.
 Sie sind in der Lage, ein Lichtsignal zu verstärken, ohne es zuvor in ein elektrisches Signal zu wandeln.
 Erbium-Laser finden sich in der Dermatologie und Dentaltechnik, stärkere Erbium-Ytterbium-Laser sogar beim Metallschneiden und Schweißen.
-
 Der Name geht - wie auch bei Yttrium, Ytterbium und Terbium - auf Ytterby in Schweden zurück, wo es entdeckt wurde.
 
 ## 15. Thulium
 
 Thuliumdotierte Stoffe ermöglichen Röntgenverstärkerfolien, sie finden sich auch in Leuchtschirmen in der Röntgentechnik.
 Thuliumverbindungen stecken außerdem in Personendosimetern zur Messung niedriger Strahlendosen.
-
 Benannt wurde es nach der mythischen Insel Thule.
 
 ## 16. Ytterbium
@@ -250,14 +236,12 @@ Benannt wurde es nach der mythischen Insel Thule.
 Ytterbium verbessert die mechanischen Eigenschaften von rostfreiem Stahl.
 Als Legierung mit anderen Metallen bildet es hochwertige Dauermagnete.
 Ansonsten ist seine technische Bedeutung eher gering.
-
 So wie Yttrium, Terbium und Erbium, ist es nach seinem Entdeckungsort Ytterby in Schweden benannt.
 
 ## 17. Lutetium
 
 Lutetium wird in der Positronen-Emissions-Tomographie verwendet.
 Es kann auch als Katalysator für das Cracken von Erdöl eingesetzt werden.
-
 Benannt wurde nach der antiken Stadt Lutetia, aus der sich das heutige Paris entwickelte.
 
 # Fazit
