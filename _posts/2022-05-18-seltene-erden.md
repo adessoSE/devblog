@@ -25,7 +25,7 @@ Daher ist der Abbau seltener Erden, obwohl sie überall auf der Welt vorkommen, 
 Eine wirtschaftliche Quelle sollte mehr als 5 Gewichtsprozent seltene Erden enthalten.
 Aus gemischten Erzen können sie zusammen mit einem anderen Element wie Zirkonium oder Eisen gewonnen werden; dieses Vorgehen ist schon ab 0,5 Gewichtsprozent rentabel.
 
-In der Elektronik werden Kleinstmengen bennötigt, zum Beispiel für Halbleiter, Bildschirme und Speichermedien.
+In der Elektronik werden Kleinstmengen benötigt, zum Beispiel für Halbleiter, Bildschirme und Speichermedien.
 Große Mengen hingegen verbauen Windkraftbranche und Fahrzeugbau.
 Denn Permanentmagnete aus seltenen Erden sind unverzichtbar, um Energie in Elektromotoren oder Generatoren effizient zu wandeln.
 So enthält jedes Elektroauto rund ein Pfund Neodym, Dysprosium oder Praseodym.
@@ -39,8 +39,8 @@ Bei Magnetmaterial zeigt sich die Abhängigkeit noch deutlicher: 98 Prozent der 
 Dabei lagern dort nur 30 Prozent der weltweiten Vorkommen.
 Andere Länder, die Seltenerdmetalle gewinnen und veredeln, sind Australien, Brasilien, Indien, Kasachstan, Malaysia, Russland, Südafrika und die USA.
 
-Laut dem Institut für seltene Erden und strategische Metalle [ISE](https://institut-seltene-erden.de/seltene-erden-und-metalle/seltene-erden/) würden die weltweit bekannten Reserven für mehr als 900 Jahre ausreichen, wenn die Nachfrage auf dem Stand von 2017 bleiben würde.
-Da die Nachfrage nach Seltenerdmetallen jedoch um 10 Prozent pro Jahr steigt, könnten die bekannten Weltreserven in der zweiten Hälfte des laufenden Jahrhunderts erschöpft sein.
+Laut dem Institut für seltene Erden und strategische Metalle ([ISE](https://institut-seltene-erden.de/seltene-erden-und-metalle/seltene-erden/)) würden die weltweit bekannten Reserven für mehr als 900 Jahre ausreichen, wenn die Nachfrage auf dem Stand von 2017 bleiben würde.
+Da der Bedarf an Seltenerdmetallen jedoch um 10 Prozent pro Jahr steigt, könnten die bekannten Weltreserven in der zweiten Hälfte des laufenden Jahrhunderts erschöpft sein.
 Dann hilft nur noch Recycling, was derzeit noch eine technische Herausforderung ist.
 
 # Warum werden sie nur in China gewonnen?
