@@ -47,14 +47,14 @@ Dann hilft nur noch Recycling, was derzeit noch eine technische Herausforderung 
 
 Um aus den Mineralgemischen die Metalle zu separieren, werden unterschiedliche Säuren eingesetzt.
 Zurück bleiben Abwässer, die starke Säuren enthalten und auch radioaktiv sein können.
-Eine fachgerechte Entsorgung der toxischen Schlämme wäre sehr aufwendig; eher werden sie in Absetzbecken dauerhaft deponiert.
+
 In China sind die Umweltauflagen für den Bergbau sehr nachlässig.
-Laut einer [Fallstudie zu den Umwelt- und Sozialauswirkungen](https://www.umweltbundesamt.de/sites/default/files/medien/378/dokumente/umsoress_fallstudie_seltene_erden_china_bayan_obo.pdf) werden die Abwässer ungefiltert in Flüsse geleitet, während giftige Abgase sich als saurer Regen weiträumig niederschlagen.
-Die meisten Länder haben die Gewinnung Seltener Erden deshalb in den 1990er Jahren eingestellt.
-Der Import aus China war finanziell günstiger und die Umweltprobleme blieben weit weg.
+Eine fachgerechte Entsorgung der toxischen Schlämme ist die Ausnahme, eher werden sie in Absetzbecken dauerhaft deponiert.
+Laut einer [Fallstudie zu den Umwelt- und Sozialauswirkungen](https://www.umweltbundesamt.de/sites/default/files/medien/378/dokumente/umsoress_fallstudie_seltene_erden_china_bayan_obo.pdf) werden die Abwässer auch ungefiltert in Flüsse geleitet, während giftige Abgase sich als saurer Regen weiträumig niederschlagen.
+Die meisten Länder haben die Gewinnung seltener Erden in den 1990er Jahren eingestellt, weil der Import aus China billiger war und die Umweltprobleme weit weg blieben.
 
 Ein Problembewusstsein für die Abhängigkeit von nur einem Exportland entwickelte sich erst mit der Einführung von Exportquoten im Jahr 1999:
-Jährlich legte das chinesische Handelsministerium fest, wie viele Tonnen Seltene Erden exportiert werden durften.
+Jährlich legte das chinesische Handelsministerium fest, wie viele Tonnen seltene Erden exportiert werden durften.
 Trotzdem entstanden nicht überall auf der Welt neue Minen.
 Denn vor dem Aufbau einer eigenen Versorgung stehen mehrere Hindernisse:
 * Für den Veredelungsprozess vom Mineralgemisch zu getrennten Metallen sind aufwendige Anlagen notwendig.
