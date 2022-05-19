@@ -10,7 +10,7 @@ tags: [Ressourcen,Elektronik,Recycling,Nachhaltigkeit] # Bitte auf Großschreibu
 
 Seltenen Erden machen Digitaltechnik erst möglich.
 Obwohl sie überall vorkommen, hängt der Weltmarkt von China ab.
-Dringend benötigte Recyclingverfahren brauchen Hilfe, um sich kommerziell zu etablieren.
+Dringend benötigte Recyclingverfahren brauchen Förderung, um sich kommerziell zu etablieren.
 
 # Was sind seltene Erden?
 
@@ -18,7 +18,7 @@ Seltene Erden sind häufig. Der Name stammt daher, dass sie im späten 18. Jahrh
 Es handelt sich schlicht um die chemischen Elemente Scandium, Yttrium, Lanthan und die Lanthanoide.
 Das sind weiche, silberweiße Metalle, die an der Luft schnell anlaufen.
 In der Natur kommen sie nur in oxidierter Form vor - komplexe Oxide nannte man früher Erden, daher der Name seltene Erden.
-Wenn sind die Minerale selbst, sondern nur ihre Metalle gefragt sind, ist der richtige Begriff eigentlich Seltenerdmetalle.
+Wenn nicht die Minerale selbst, sondern nur ihre Metalle gefragt sind, ist der richtige Begriff eigentlich Seltenerdmetalle.
 
 Tatsächlich sind sie nicht selten, sondern nur fein verteilt, ohne große zusammenhängende Lagerstätten.
 Daher ist der Abbau seltener Erden, obwohl sie überall auf der Welt vorkommen, selten rentabel.
