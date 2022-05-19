@@ -88,7 +88,7 @@ Langfristig hat Flash-Joule-Heating vermutlich das Potenzial, Urban Mining auf e
 
 Ein weiterer Ansatz ist [Lanmodulin](https://www.spektrum.de/news/recycling-protein-filtert-seltene-erden-aus-elektronikschrott/1941247).
 Dabei handelt es sich um ein von Bakterien produziertes Protein, das seltene Erden aus einer Lösung bindet.
-Im Experiment gelang es, aus einer ähnlich wie Elektroschrott zusammengesetzten Mischung die Elemente Neodym und Dysprosium zu je 80 Pozent sauber getrennt zurückzugewinnen.
+Im Experiment gelang es, aus einer ähnlich wie Elektroschrott zusammengesetzten Mischung die Elemente Neodym und Dysprosium zu je 80 Prozent sauber getrennt zurückzugewinnen.
 Da Lanmodulin erstaunlich stabil ist, kann das Absorbermaterial sogar mehrfach wiederverwendet werden.
 
 Bakterien haben natürliche Feinde, und zwar [Bakteriophagen](https://www.ingenieur.de/technik/fachbereiche/rohstoffe/wertvoller-elektronikschrott-viren-recyceln-seltene-erden/).
@@ -111,7 +111,7 @@ Insgesamt gibt es 17 Seltene Erden.
 Allerdings kommen nur 16 davon natürlich vor.
 
 Das zuletzt entdeckte, Promethium, ist radioaktiv mit einer Halbwertszeit von 17,7 Jahren.
-Es wurde zwar in Form von Spuren in radioaktiven Erzen nachgewiesen, nennenswerte Mengen müssen jedoch künstlich als Spaltprodukt von Uran gewonnen werden.
+Es wurde zwar in Form von Spuren in radioaktiven Erzen nachgewiesen, nennenswerte Mengen müssen jedoch künstlich als Spaltprodukt von Uran hergestellt werden.
 Entsprechend gering ist seine wirtschaftliche Bedeutung.
 
 Bemerkenswert sind Gadolinium, Dysprosium, Holmium, Erbium und Terbium.
