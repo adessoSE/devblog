@@ -157,7 +157,7 @@ In Legierung mit Cobalt oder Eisen ergibt es starke Dauermagnete.
 Praseodymverbindungen werden zum Grünfärben von Glas verwendet, etwa in grünen Scheinwerfergläsern in der Beleuchtungstechnik und in Augenschutzgläsern zum Schweißen.
 
 Daher stammt auch sein Name:
-Das griechische Wort "prásinos" bedeutet "lauchgrün"; "didymos" heißt "Zwilling".
+Das griechische Wort "prasinos" bedeutet "lauchgrün", "didymos" heißt "Zwilling".
 Praseodym ist also der grün schimmernde Zwilling von Lanthan.
 
 ## 6. Neodym
@@ -184,11 +184,11 @@ Der Name geht auf den Bergingenieur Samarski zurück, der das Mineral Samarskit 
 ## 9. Europium
 
 Europium gehört zu den reaktivsten Metallen der seltenen Erden.
-An Luft läuft es sofort an, Metallstäube sind feuer- und explosionsgefährlich.
+An der Luft läuft es sofort an, Metallstäube sind feuer- und explosionsgefährlich.
 Bei Temperaturen über 150 °C entzündet es sich, in Wasser reagiert es zum Hydroxid.
 
 Es wird in Plasmabildschirmen genutzt, wo europiumdotierte Leuchtstoffe die vakuumultraviolette Strahlung in sichtbares rotes und blaues Licht umwandeln.
-In Eurobanknoten wird die Europium-Fluoreszenz gegen Fälschungen eingesetzt.
+In Eurobanknoten wird seine Fluoreszenz gegen Fälschungen eingesetzt.
 Benannt ist es einfach nach dem Kontinent Europa.
 
 ## 10. Gadolinium
