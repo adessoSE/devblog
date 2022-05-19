@@ -31,7 +31,7 @@ Denn Permanentmagnete aus seltenen Erden sind unverzichtbar, um Energie in Elekt
 So enthält jedes Elektroauto rund ein Pfund Neodym, Dysprosium oder Praseodym.
 In einer Windenergieanlage stecken gut 200 Kilogramm pro Megawatt.
 
-# Wo werden seltene Erden produziert?
+# Wo werden seltene Erden abgebaut?
 
 Rund 90% Prozent der weltweit abgebauten seltenen Erden stammen aus China.
 Mit diesem Marktanteil kontrolliert China praktisch den Zugang zu dieser Ressource.
@@ -43,7 +43,7 @@ Laut dem Institut für seltene Erden und strategische Metalle ([ISE](https://ins
 Da der Bedarf an Seltenerdmetallen jedoch um 10 Prozent pro Jahr steigt, könnten die bekannten Weltreserven in der zweiten Hälfte des laufenden Jahrhunderts erschöpft sein.
 Dann hilft nur noch Recycling, was derzeit noch eine technische Herausforderung ist.
 
-# Warum werden sie nur in China gewonnen?
+# Warum hat Europa keine eigene Produktion?
 
 Um aus den Mineralgemischen die Metalle zu separieren, werden unterschiedliche Säuren eingesetzt.
 Zurück bleiben Abwässer, die starke Säuren enthalten und auch radioaktiv sein können.
@@ -69,9 +69,12 @@ Niedrige Weltmarktpreise und Umweltbedenken verhindern darüber hinaus, dass ein
 (Quelle: [Wissenschaftliche Dienste des deutschen Bundestags](https://www.bundestag.de/resource/blob/886424/16cb4318a6eaf7b2e5d2221d85e81927/WD-5-003-22-pdf-data.pdf))
 
 Anfang 2015 wurden die Exportbegrenzungen wieder abgeschafft.
-Doch angesichts des steigenden Bedarfs für die Energiewende und Elektrofahrzeuge, arbeitet die EU an einer unabhängigen Versorgung.
+Doch angesichts des steigenden Bedarfs für die Energiewende und die Umstellung von Verbrennungs- auf Elektromotoren, arbeitet die EU an einer unabhängigen Versorgung.
 Im Jahr 2020 rief die Europäische Kommission die European Raw Materials Alliance ([ERMA](https://erma.eu/)) ins Leben.
 Sie hat die Aufgaben, heimische Quellen für seltene Erden aufzutun, Recycling zu etablieren sowie die Importe aus Drittländern zu diversifizieren.
+
+Solange kein Gesetz eine Rezyklatquote vorschreibt, müssen sekundäre Rohstoffe jedoch billiger sein als Neuware.
+Hier ist die Gesetzgebung gefragt, ein Mindestmaß an Recyclingmaterial in Neugeräten vorzuschreiben, sobald es am Markt verfügbar ist.
 
 # Alternative Quellen
 
@@ -264,8 +267,3 @@ Die Metalle der seltenen Erden sind in der Elektronik unersetzlich.
 Sie kommen weltweit vor, ihr Abbau ist jedoch so aufwendig und umweltschädlich, dass sich die meisten Länder auf Exporte aus China verlassen.
 Derzeit befinden sich unterschiedliche Recyclingverfahren in der Entwicklung.
 Sobald eines davon am Markt etabliert ist, wird sich ein Teil der steigenden Nachfrage aus bisher nicht verwertbaren Abfällen decken lassen.
-
-Solange kein Gesetz eine Rezyklatquote vorschreibt, müssen sekundäre Rohstoffe jedoch billiger sein als Neuware.
-Hier ist einerseits die Gesetzgebung gefragt, ein Mindestmaß an Recyclingmaterial in Neugeräten vorzuschreiben.
-Genauso verantwortlich sind natürlich die verarbeitenden Betriebe.
-Sobald Rezyklate in nennenswerer Menge verfügbar sind, müssen sie gegenüber den gewohnten Importen bevorzugt werden.
