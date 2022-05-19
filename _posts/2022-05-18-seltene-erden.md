@@ -129,8 +129,8 @@ Benannt wurde es nach Skandinavien, wo es entdeckt wurde.
 
 ## 2. Yttrium
 
-Seine wichtigste Verwendung findet es, kombiniert mit Europium und Thulium, in Leuchtstoffen für Leuchtstofflampen und Bildröhren.
-Yttrium-Keramiken und -Legierungen werden auch in Lambda-Sonden, Supraleitern und Zündkerzen verbaut.
+Seine wichtigste Verwendung findet Yttrium, kombiniert mit Europium und Thulium, in Leuchtstoffen für Leuchtstofflampen und Bildröhren.
+Es wird auch in Lambdasonden, Supraleitern und Zündkerzen verbaut.
 In Legierung mit Cobalt dient es als Permanentmagnet.
 Der Name kommt - wie auch Ytterbium, Terbium und Erbium - vom Ort Ytterby in Schweden, wo es entdeckt wurde.
 
