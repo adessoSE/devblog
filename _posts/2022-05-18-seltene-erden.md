@@ -202,14 +202,14 @@ Der Name geht auf den Chemiker Gadolin zurück, der das Mineral Gadolinit entdec
 Terbium wird zum Dotieren von Halbleitern verwendet.
 Außerdem stabilisiert es das Gefüge von Hochtemperaturbrennstoffzellen.
 Ebenso findet es sich in Bildröhren und Leuchtstofflampen.
-Es wird auch Neodym-Eisen-Bor-Magneten zugesetzt, um die Resistenz gegen Entmagnetisierung zu verbessern. 
+Neodym-Eisen-Bor-Magneten wird es zugesetzt, um die Resistenz gegen Entmagnetisierung zu verbessern. 
 Benannt wurde es - wie auch Yttrium, Ytterbium und Erbium - nach seinem Entdeckungsort Ytterby in Schweden.
 
 ## 12. Dysprosium
 
 Das meiste Dysprosium wird in Magneten für Windkraftanlagen verbaut.
 Desweiteren findet man es, mit Blei legiert, als Abschirmmaterial in Kernreaktoren.
-Name stammt vom griechischen Wort "dysprositos" für "unzugänglich".
+Sein Name stammt vom griechischen Wort "dysprositos" für "unzugänglich".
 
 ## 13. Holmium
 
@@ -219,11 +219,10 @@ Sein Name würdigst die Stadt Stockholm.
 
 ## 14. Erbium
 
-Erbium wirkt als optischer Verstärker.
+Erbium wirkt als optischer Verstärker, das heißt, sie sind in der Lage, ein Lichtsignal zu verstärken, ohne es zuvor in ein elektrisches Signal zu wandeln.
 Damit dotierte Gläser und Kristalle werden als Glasfasern und als Verstärker in faseroptischen Kommunikationssystemen verwendet.
-Sie sind in der Lage, ein Lichtsignal zu verstärken, ohne es zuvor in ein elektrisches Signal zu wandeln.
-Erbium-Laser finden sich in der Dermatologie und Dentaltechnik, stärkere Erbium-Ytterbium-Laser sogar beim Metallschneiden und Schweißen.
-Der Name geht - wie auch bei Yttrium, Ytterbium und Terbium - auf Ytterby in Schweden zurück, wo es entdeckt wurde.
+Erbium-Laser finden sich in der Dermatologie und Dentaltechnik, stärkere Erbium-Ytterbium-Laser auch beim Metallschneiden und Schweißen.
+Der Name geht - wie bei Yttrium, Ytterbium und Terbium - auf Ytterby in Schweden zurück, wo es entdeckt wurde.
 
 ## 15. Thulium
 
