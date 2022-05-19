@@ -25,10 +25,17 @@ Daher ist der Abbau seltener Erden, obwohl sie überall auf der Welt vorkommen, 
 Eine wirtschaftliche Quelle sollte mehr als 5 Gewichtsprozent seltene Erden enthalten.
 Aus gemischten Erzen können sie zusammen mit einem anderen Element wie Zirkonium oder Eisen gewonnen werden; dieses Vorgehen ist schon ab 0,5 Gewichtsprozent rentabel.
 
+In der Elektronik werden Kleinstmengen bennötigt, zum Beispiel für Halbleiter, Bildschirme und Speichermedien.
+Große Mengen hingegen verbauen Windkraftbranche und Fahrzeugbau.
+Denn Permanentmagnete aus seltenen Erden sind unverzichtbar, um Energie in Elektromotoren oder Generatoren effizient zu wandeln.
+So enthält jedes Elektroauto rund ein Pfund Neodym, Dysprosium oder Praseodym.
+In einer Windenergieanlage stecken gut 200 Kilogramm pro Megawatt.
+
 # Wo werden seltene Erden produziert?
 
 Rund 90% Prozent der weltweit abgebauten seltenen Erden stammen aus China.
 Mit diesem Marktanteil kontrolliert China praktisch den Zugang zu dieser Ressource.
+Bei Magnetmaterial zeigt sich die Abhängigkeit noch deutlicher: 98 Prozent der Seltenerdmagnete auf dem EU-Markt stammen aus chinesischer Herstellung.
 Dabei lagern dort nur 30 Prozent der weltweiten Vorkommen.
 Andere Länder, die Seltenerdmetalle gewinnen und veredeln, sind Australien, Brasilien, Indien, Kasachstan, Malaysia, Russland, Südafrika und die USA.
 
@@ -43,27 +50,32 @@ Zurück bleiben Abwässer, die starke Säuren enthalten und auch radioaktiv sein
 Eine fachgerechte Entsorgung der toxischen Schlämme wäre sehr aufwendig; eher werden sie in Absetzbecken dauerhaft deponiert.
 In China sind die Umweltauflagen für den Bergbau sehr nachlässig.
 Laut einer [Fallstudie zu den Umwelt- und Sozialauswirkungen](https://www.umweltbundesamt.de/sites/default/files/medien/378/dokumente/umsoress_fallstudie_seltene_erden_china_bayan_obo.pdf) werden die Abwässer ungefiltert in Flüsse geleitet, während giftige Abgase sich als saurer Regen weiträumig niederschlagen.
-
-Die meisten Unternehmen haben die Gewinnung Seltener Erden deshalb in den 1990er Jahren eingestellt.
+Die meisten Länder haben die Gewinnung Seltener Erden deshalb in den 1990er Jahren eingestellt.
 Der Import aus China war finanziell günstiger und die Umweltprobleme blieben weit weg.
-Ein Problembewusstsein für die Abhängigkeit von nur einem Exportland entwickelte sich erst mit der Einführung von Exportquoten:
-Im Halbjahrestakt legt das chinesische Handelsministerium fest, wie viele Tonnen Seltene Erden exportiert werden dürfen.
-Trotzdem entstehen nicht überall auf der Welt neue Minen.
+
+Ein Problembewusstsein für die Abhängigkeit von nur einem Exportland entwickelte sich erst mit der Einführung von Exportquoten im Jahr 1999:
+Jährlich legte das chinesische Handelsministerium fest, wie viele Tonnen Seltene Erden exportiert werden durften.
+Trotzdem entstanden nicht überall auf der Welt neue Minen.
 Denn vor dem Aufbau einer eigenen Versorgung stehen mehrere Hindernisse:
 * Für den Veredelungsprozess vom Mineralgemisch zu getrennten Metallen sind aufwendige Anlagen notwendig.
 * Durch das steigende Angebot würde der Marktwert der Metalle sinken, das heißt, die neuen Anlagen wären weniger wirtschaftlich.
 * Eine saubere Produktion ohne Umweltzerstörung ist kaum möglich.
 
 Laut Bundesanstalt für Geowissenschaften und Rohstoffe stellt sich das Verhältnis vorhandener Ressourcen zur Jahresproduktion von seltenen Erden wie folgt dar:
-"Die Ressourcen von seltenen Erden betragen mehr als das 1.000-fache der derzeitigen Jahresproduktion und sind somit deutlich höher als bei allen anderen wirtschaftsstrategischen Metallen.
+"Die Ressourcen von seltenen Erden betragen mehr als das Tausendfache der derzeitigen Jahresproduktion und sind somit deutlich höher als bei allen anderen wirtschaftsstrategischen Metallen.
 Allerdings findet ein Abbau in Ländern mit großen Ressourcen, wie in Brasilien oder Russland, derzeit nur sehr begrenzt oder gar nicht statt.
 Problematisch ist in erster Linie die Wirtschaftlichkeit von Seltenerdprojekten, da insbesondere die benötigten Anlagen für die Weiterverarbeitung sehr komplex und somit kostenintensiv sind.
 Niedrige Weltmarktpreise und Umweltbedenken verhindern darüber hinaus, dass eines der zahlreichen gut exponierten Seltenerdprojekte außerhalb Chinas in Produktion geht."
 (Quelle: [Wissenschaftliche Dienste des deutschen Bundestags](https://www.bundestag.de/resource/blob/886424/16cb4318a6eaf7b2e5d2221d85e81927/WD-5-003-22-pdf-data.pdf))
 
+Anfang 2015 wurden die Exportbegrenzungen wieder abgeschafft.
+Doch angesichts des steigenden Bedarfs für die Energiewende und Elektrofahrzeuge, arbeitet die EU an einer unabhängigen Versorgung.
+Im Jahr 2020 rief die Europäische Kommission die European Raw Materials Alliance ([ERMA](https://erma.eu/)) ins Leben.
+Sie hat die Aufgaben, heimische Quellen für seltene Erden aufzutun, Recycling zu etablieren sowie die Importe aus Drittländern zu diversifizieren.
+
 # Alternative Quellen
 
-Bisher bewegt sich die Recyclingquote bei unter 2 Prozent. Allenfalls werden Magnetmaterialien wiederverwertet.
+Bisher bewegt sich die Recyclingquote bei einem Prozent. Bestenfalls werden Magnetmaterialien wiederverwertet.
 In Elektrogeräten ist die Konzentration meistens so gering, dass Recycling mit den bekannten Verfahren unrentabel ist.
 
 Eine aktuelle Hoffnung ist das neu entwickelte Verfahren [Flash-Joule-Heating](https://www.scinexx.de/news/technik/blitz-verdampfen-recycelt-metalle/), das mit geringem Energieeinsatz den Großteil aller Metalle zurückgewinnt und störendes Plastik verkohlt.
@@ -76,6 +88,12 @@ Ein weiterer Ansatz ist [Lanmodulin](https://www.spektrum.de/news/recycling-prot
 Dabei handelt es sich um ein von Bakterien produziertes Protein, das seltene Erden aus einer Lösung zu bindet.
 Im Experiment gelang es, aus einer ähnlich wie Elektroschrott zusammengesetzten Mischung die Seltenerdelemente Neodym und Dysprosium zu je 80 Pozent sauber getrennt zurückzugewinnen.
 Da Lanmodulin erstaunlich stabil ist, kann das Absorbermaterial sogar mehrfach wiederverwendet werden.
+
+Bakterien haben natürliche Feinde, und zwar [Bakteriophagen](https://www.ingenieur.de/technik/fachbereiche/rohstoffe/wertvoller-elektronikschrott-viren-recyceln-seltene-erden/).
+Diese Viren, die in der Natur auf Bakterien spezialisiert sind, setzt das Helmholtz-Zentrums Dresden-Rossendorf auf magnetische Schwermetalle an.
+Dafür wurden sie auf Magnetkügelchen verankert und so verändert, dass sie Ionen einer bestimmten Größe binden.
+Verrührt man sie in Wasser mit dem pulverisierten Elektroschrott, so bleibt das das gesuchte Metall kleben und wird anschließend mit einem Magenten aus der Lösung gefischt.
+Dieses Verfahren könnte zukünftig sogar die Säuren im Bergbau ersetzen.
 
 Auch Abfälle aus der Produktion enthalten noch so viele Metalle, dass sich die Filterung lohnt.
 Zum Beispiel wurden im Abwasser eines Betriebs in Deutschland, der Katalysatoren für die Erdölindustrie herstellt, 50 mg/l Lanthan gemessen.
@@ -248,6 +266,6 @@ Derzeit befinden sich unterschiedliche Recyclingverfahren in der Entwicklung.
 Sobald eines davon am Markt etabliert ist, wird sich ein Teil der steigenden Nachfrage aus bisher nicht verwertbaren Abfällen decken lassen.
 
 Solange kein Gesetz eine Rezyklatquote vorschreibt, müssen sekundäre Rohstoffe jedoch billiger sein als Neuware.
-Hier ist einerseits die Gesetzgebung gefragt, ein Mindestmaß an Recycling vorzuschreiben.
+Hier ist einerseits die Gesetzgebung gefragt, ein Mindestmaß an Recyclingmaterial in Neugeräten vorzuschreiben.
 Genauso verantwortlich sind natürlich die verarbeitenden Betriebe.
 Sobald Rezyklate in nennenswerer Menge verfügbar sind, müssen sie gegenüber den gewohnten Importen bevorzugt werden.
