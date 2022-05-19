@@ -247,5 +247,8 @@ Benannt wurde nach der antiken Stadt Lutetia, aus der sich das heutige Paris ent
 
 Die Metalle der seltenen Erden sind in der Elektronik unersetzlich.
 Sie kommen weltweit vor, ihr Abbau ist jedoch so aufwendig und umweltschädlich, dass sich die meisten Länder auf Exporte aus China verlassen.
+
 Derzeit befinden sich unterschiedliche Recyclingverfahren in der Entwicklung.
 Sobald eines davon am Markt etabliert ist, wird sich ein Teil der steigenden Nachfrage aus bisher nicht verwertbaren Abfällen decken lassen.
+Damit Elektroschrott zukünftig direkt in Europa wiederverwertet wird, ist möglichst zeitnah ein Förderprogramm für die Entwicklung marktreifer Anlagen notwendig.
+Darüber hinaus kann es sinnvoll sein, wertvollen Schrott wie zum Beispiel Magnete aus Windrädern und Fahrzeugen in Europa zu lagern, bis sie hier gewinnbringend zerlegt werden können.
