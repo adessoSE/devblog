@@ -18,9 +18,9 @@ Seltene Erden sind häufig. Der Name stammt daher, dass sie im späten 18. Jahrh
 Es handelt sich schlicht um die chemischen Elemente Scandium, Yttrium, Lanthan und die Lanthanoide.
 Das sind weiche, silberweiße Metalle, die an der Luft schnell anlaufen.
 In der Natur kommen sie nur in oxidierter Form vor - komplexe Oxide nannte man früher Erden, daher der Name seltene Erden.
-Wenn nicht die Minerale selbst, sondern nur ihre Metalle gefragt sind, ist der richtige Begriff eigentlich Seltenerdmetalle.
+Wenn nicht die Minerale selbst, sondern ihre Metalle gefragt sind, ist der richtige Begriff eigentlich Seltenerdmetalle.
 
-Tatsächlich sind sie nicht selten, sondern nur fein verteilt, ohne große zusammenhängende Lagerstätten.
+Tatsächlich sind sie nicht selten, sondern fein verteilt, ohne große zusammenhängende Lagerstätten.
 Daher ist der Abbau seltener Erden, obwohl sie überall auf der Welt vorkommen, selten rentabel.
 Eine wirtschaftliche Quelle sollte mehr als 5 Gewichtsprozent seltene Erden enthalten.
 Aus gemischten Erzen können sie zusammen mit einem anderen Element wie Zirkonium oder Eisen gewonnen werden; dieses Vorgehen ist schon ab 0,5 Gewichtsprozent rentabel.
