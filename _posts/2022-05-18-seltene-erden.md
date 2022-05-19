@@ -50,7 +50,7 @@ Zurück bleiben Abwässer, die starke Säuren enthalten und auch radioaktiv sein
 
 In China sind die Umweltauflagen für den Bergbau sehr nachlässig.
 Eine fachgerechte Entsorgung der toxischen Schlämme ist die Ausnahme, eher werden sie in Absetzbecken dauerhaft deponiert.
-Laut einer [Fallstudie zu den Umwelt- und Sozialauswirkungen](https://www.umweltbundesamt.de/sites/default/files/medien/378/dokumente/umsoress_fallstudie_seltene_erden_china_bayan_obo.pdf) werden die Abwässer auch ungefiltert in Flüsse geleitet, während giftige Abgase sich als saurer Regen weiträumig niederschlagen.
+Laut einer [Fallstudie zu den Umwelt- und Sozialauswirkungen](https://www.umweltbundesamt.de/sites/default/files/medien/378/dokumente/umsoress_fallstudie_seltene_erden_china_bayan_obo.pdf), werden die Abwässer auch ungefiltert in Flüsse geleitet, während giftige Abgase sich als saurer Regen weiträumig niederschlagen.
 Die meisten Länder haben die Gewinnung seltener Erden in den 1990er Jahren eingestellt, weil der Import aus China billiger war und die Umweltprobleme weit weg blieben.
 
 Ein Problembewusstsein für die Abhängigkeit von nur einem Exportland entwickelte sich erst mit der Einführung von Exportquoten im Jahr 1999:
@@ -58,7 +58,7 @@ Jährlich legte das chinesische Handelsministerium fest, wie viele Tonnen selten
 Trotzdem entstanden nicht überall auf der Welt neue Minen.
 Denn vor dem Aufbau einer eigenen Versorgung stehen mehrere Hindernisse:
 * Für den Veredelungsprozess vom Mineralgemisch zu getrennten Metallen sind aufwendige Anlagen notwendig.
-* Durch das steigende Angebot würde der Marktwert der Metalle sinken, das heißt, die neuen Anlagen wären weniger wirtschaftlich.
+* Durch das steigende Angebot würde der Marktwert der Metalle sinken, das heißt, die neuen Anlagen wären kaum wirtschaftlich.
 * Eine saubere Produktion ohne Umweltzerstörung ist kaum möglich.
 
 Laut Bundesanstalt für Geowissenschaften und Rohstoffe stellt sich das Verhältnis vorhandener Ressourcen zur Jahresproduktion von seltenen Erden wie folgt dar:
