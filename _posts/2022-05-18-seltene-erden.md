@@ -96,7 +96,7 @@ Diese Viren, die in der Natur auf Bakterien spezialisiert sind, setzt das Helmho
 Dafür wurden sie auf Magnetkügelchen verankert und so verändert, dass sie Ionen einer bestimmten Größe binden.
 Verrührt man sie in Wasser mit dem pulverisierten Elektroschrott, so bleibt das das gesuchte Metall kleben und wird anschließend mit einem Magenten aus der Lösung gefischt.
 
-Dieses Verfahren könnte zukünftig sogar die Säuren im Bergbau ersetzen, um die in Skandinavien lagernden Erze umweltfreundlich abzubauen.
+Biotechnologische Verfahren könnten zukünftig die Säuren im Bergbau ersetzen, um die in Skandinavien lagernden Erze umweltfreundlich abzubauen.
 Sogar die bisher als unrenatabel geltende [Quelle im sächsischen Erzgebirge](https://circular-technology.com/bergbau-mit-bakterien-seltene-erden-aus-sachsen/), wo Indium und seltenen Erden gemischt lagern, soll mit Hilfe von Bakterien wirtschaftlich erschlossen werden.
 
 Auch Abfälle aus der Produktion enthalten noch so viel Metall, dass sich die Filterung bald lohnen könnte.
