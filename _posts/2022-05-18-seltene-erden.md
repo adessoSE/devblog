@@ -252,5 +252,8 @@ Sie kommen weltweit vor, ihr Abbau ist jedoch so aufwendig und umweltschädlich,
 
 Derzeit befinden sich unterschiedliche Recyclingverfahren in der Entwicklung.
 Sobald eines davon am Markt etabliert ist, wird sich ein Teil der steigenden Nachfrage aus bisher nicht verwertbaren Abfällen decken lassen.
-Damit Elektroschrott zukünftig direkt in Europa wiederverwertet wird, ist möglichst zeitnah ein Förderprogramm für die Entwicklung marktreifer Anlagen notwendig.
+Damit Elektroschrott zukünftig direkt in Europa wiederverwertet wird, sind möglichst zeitnah Investitionen in die Entwicklung marktreifer Anlagen notwendig.
 Darüber hinaus kann es sinnvoll sein, wertvollen Schrott wie zum Beispiel Magnete aus Windrädern und Fahrzeugen in Europa zu lagern, bis sie hier gewinnbringend zerlegt werden können.
+
+Um die europäischen Erzvorkommen zu erschließen, wurden biotechologische Verfahren entwickelt.
+Das heißt, der Transfer dieser Methoden in einen neuen europäischen Bergbau bietet langfristige Investitionschancen.
