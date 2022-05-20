@@ -61,13 +61,6 @@ Denn vor dem Aufbau einer eigenen Versorgung stehen mehrere Hindernisse:
 * Durch das steigende Angebot würde der Marktwert der Metalle sinken, das heißt, die neuen Anlagen wären kaum wirtschaftlich.
 * Eine saubere Produktion ohne Umweltzerstörung ist kaum möglich.
 
-Laut Bundesanstalt für Geowissenschaften und Rohstoffe stellt sich das Verhältnis vorhandener Ressourcen zur Jahresproduktion von seltenen Erden wie folgt dar:
-"Die Ressourcen von seltenen Erden betragen mehr als das Tausendfache der derzeitigen Jahresproduktion und sind somit deutlich höher als bei allen anderen wirtschaftsstrategischen Metallen.
-Allerdings findet ein Abbau in Ländern mit großen Ressourcen, wie in Brasilien oder Russland, derzeit nur sehr begrenzt oder gar nicht statt.
-Problematisch ist in erster Linie die Wirtschaftlichkeit von Seltenerdprojekten, da insbesondere die benötigten Anlagen für die Weiterverarbeitung sehr komplex und somit kostenintensiv sind.
-Niedrige Weltmarktpreise und Umweltbedenken verhindern darüber hinaus, dass eines der zahlreichen gut exponierten Seltenerdprojekte außerhalb Chinas in Produktion geht."
-(Quelle: [Wissenschaftliche Dienste des deutschen Bundestags](https://www.bundestag.de/resource/blob/886424/16cb4318a6eaf7b2e5d2221d85e81927/WD-5-003-22-pdf-data.pdf))
-
 Anfang 2015 wurden die Exportbegrenzungen wieder abgeschafft.
 Doch angesichts des steigenden Bedarfs für die Energiewende und die Umstellung von Verbrennungs- auf Elektromotoren, arbeitet die EU an einer unabhängigen Versorgung.
 Im Jahr 2020 rief die Europäische Kommission die European Raw Materials Alliance ([ERMA](https://erma.eu/)) ins Leben.
@@ -75,6 +68,13 @@ Sie hat die Aufgaben, heimische Quellen für seltene Erden aufzutun, Recycling z
 
 Solange kein Gesetz eine Rezyklatquote vorschreibt, müssen sekundäre Rohstoffe jedoch billiger sein als Neuware.
 Hier ist die Gesetzgebung gefragt, ein Mindestmaß an Recyclingmaterial in Neugeräten vorzuschreiben, sobald es am Markt verfügbar ist.
+
+Laut Bundesanstalt für Geowissenschaften und Rohstoffe stellt sich das Verhältnis vorhandener Ressourcen zur Jahresproduktion von seltenen Erden wie folgt dar:
+"Die Ressourcen von seltenen Erden betragen mehr als das Tausendfache der derzeitigen Jahresproduktion und sind somit deutlich höher als bei allen anderen wirtschaftsstrategischen Metallen.
+Allerdings findet ein Abbau in Ländern mit großen Ressourcen, wie in Brasilien oder Russland, derzeit nur sehr begrenzt oder gar nicht statt.
+Problematisch ist in erster Linie die Wirtschaftlichkeit von Seltenerdprojekten, da insbesondere die benötigten Anlagen für die Weiterverarbeitung sehr komplex und somit kostenintensiv sind.
+Niedrige Weltmarktpreise und Umweltbedenken verhindern darüber hinaus, dass eines der zahlreichen gut exponierten Seltenerdprojekte außerhalb Chinas in Produktion geht."
+(Quelle: [Wissenschaftliche Dienste des deutschen Bundestags](https://www.bundestag.de/resource/blob/886424/16cb4318a6eaf7b2e5d2221d85e81927/WD-5-003-22-pdf-data.pdf))
 
 # Alternative Quellen
 
