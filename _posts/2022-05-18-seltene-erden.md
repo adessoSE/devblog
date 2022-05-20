@@ -97,7 +97,7 @@ Dafür wurden sie auf Magnetkügelchen verankert und so verändert, dass sie Ion
 Verrührt man sie in Wasser mit dem pulverisierten Elektroschrott, so bleibt das das gesuchte Metall kleben und wird anschließend mit einem Magenten aus der Lösung gefischt.
 
 Biotechnologische Verfahren könnten zukünftig die Säuren im Bergbau ersetzen, um die in Skandinavien lagernden Erze umweltfreundlich abzubauen.
-Sogar die bisher als unrenatabel geltende [Quelle im sächsischen Erzgebirge](https://circular-technology.com/bergbau-mit-bakterien-seltene-erden-aus-sachsen/), wo Indium und seltenen Erden gemischt lagern, soll mit Hilfe von Bakterien wirtschaftlich erschlossen werden.
+Sogar die bisher als unrenatabel geltende Quelle im sächsischen Erzgebirge, wo Indium und seltenen Erden gemischt lagern, soll mit Hilfe von Bakterien wirtschaftlich erschlossen werden. [Quelle: Circular Technology](https://circular-technology.com/bergbau-mit-bakterien-seltene-erden-aus-sachsen/)
 
 Auch Abfälle aus der Produktion enthalten noch so viel Metall, dass sich die Filterung bald lohnen könnte.
 Zum Beispiel wurden im Abwasser eines Betriebs in Deutschland, der Katalysatoren für die Erdölindustrie herstellt, 50 mg/l Lanthan gemessen.
