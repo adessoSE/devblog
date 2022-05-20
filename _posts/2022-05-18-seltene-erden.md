@@ -25,7 +25,7 @@ Daher ist der Abbau seltener Erden, obwohl sie überall auf der Welt vorkommen, 
 Eine wirtschaftliche Quelle sollte mehr als 5 Gewichtsprozent seltene Erden enthalten.
 Aus gemischten Erzen können sie zusammen mit einem anderen Element wie Zirkonium oder Eisen gewonnen werden; dieses Vorgehen ist schon ab 0,5 Gewichtsprozent rentabel.
 
-In der Elektronik werden Kleinstmengen benötigt, zum Beispiel für Halbleiter, Bildschirme und Speichermedien.
+In der Elektronik werden Kleinstmengen benötigt, zum Beispiel für Halbleiter, Leuchtdioden, Bildschirme und Speichermedien.
 Große Mengen hingegen verbauen Windkraftbranche und Fahrzeugbau.
 Denn Permanentmagnete aus seltenen Erden sind unverzichtbar, um Energie in Elektromotoren oder Generatoren effizient zu wandeln.
 So enthält jedes Elektroauto rund ein Pfund Neodym, Dysprosium oder Praseodym.
