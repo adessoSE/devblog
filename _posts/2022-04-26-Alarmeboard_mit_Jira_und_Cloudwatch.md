@@ -25,8 +25,6 @@ Sobald die entsprechende Bedingung erfüllt ist, wird eine Aktion ausgeführt.
 Dies kann zum Beispiel eine Skalierungsaktion für den entsprechenden Service oder auch das Senden eines Events z.B. an ein Topic im Simple Notification Service sein.
 Landen die Alarm-Events einmal in einem Topic ist es ein leichtes die Information via E-Mail an alle Entwickler zu verteilen, die darauf reagieren sollten.
 
-![Aufbau der Infrastruktur](/assets/images/posts/Alarmeboard_mit_Jira_und_Cloudwatch/Alarme_Konzept.png)
-
 # Alarme mit Terraform erzeugen und an ein Topic schicken
 
 Als Beispiel soll hier ein Alarm dienen, der immer dann ein Event an ein konfigurierbares Topic sendet, wenn eine Message in einer Dead Letter Queue gelandet ist:
@@ -72,7 +70,6 @@ Es sind zwar alle notwendigen technischen Informationen enthalten, aber es besch
 > ### Outline
 > Jira bietet eine [REST-Schnittstelle](https://developer.atlassian.com/server/jira/platform/rest-apis/) an, die dafür genutzt werden kann, Alarme in Tickets zu gießen.
 > * Motivation für 2 Lambdas
-> * DLQ mit Alarm auf Email, um sicherzustellen, dass keine Alarme verloren gehen.
 
 ## Ein Jira-Ticket anlegen
 
@@ -213,5 +210,19 @@ public List<FilteredLogEvent> retrieveLogsFor(String logGroupName,
 > ### Todo für diesen Abschnitt:
 > 1. Stolpersteine (Rate-Limit, lange Suchzeit)
 > 2. Anlegen des Kommentars mittels JIRA API [POST /rest/api/3/issue/{issueIdOrKey}/comment](https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-issue-comments/#api-rest-api-3-issue-issueidorkey-comment-post)
+
+## Zusammenspiel der Komponenten
+
+![Aufbau der Infrastruktur](/assets/images/posts/Alarmeboard_mit_Jira_und_Cloudwatch/Alarme_Konzept.png)
+
+### Kosten
+
 # Automatisierung in Jira nutzen
 
+# Alternativen
+
+## AWS eigenes Tool
+
+## Was von Jira
+
+# Fazit

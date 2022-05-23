@@ -474,14 +474,6 @@ kaythielmann:
   avatar_url: /assets/images/avatars/kaythielmann.jpg
   github: https://github.com/kthielma
 
-kaythielmann:
-  first_name: Kay
-  last_name: Thielmann
-  github_username: kthielma
-  bio: "Kay Thielmann arbeitet als Software Architect bei Adesso in Dortmund. Seine Schwerpunkte liegen zur Zeit im Bereich e-Commerce, wo er diverse Applikationen in der AWS-Cloud mit betreut und weiterentwickelt."
-  avatar_url: /assets/images/avatars/kaythielmann.jpg
-  github: https://github.com/kthielma
-
 unexist:
   first_name: Christoph
   last_name: Kappel
