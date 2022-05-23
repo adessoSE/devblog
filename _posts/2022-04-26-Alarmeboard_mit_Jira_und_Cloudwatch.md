@@ -13,7 +13,7 @@ Dabei den Überblick zu behalten, wichtige Alarme direkt zu priorisieren und die
 Natürlich darf nichts unter den Tisch fallen und es sollte sichergestellt sein, dass klar ist, wer gerade welchen Alarm bearbeitet.
 
 Mit Jira ist ein Tool gegeben, welches sowieso schon in vielen Projekten Einsatz findet. 
-Wie dieses genutzt werden kann um die Alarme und ihren Status zu visualisieren will ich im Folgenden beschreiben.
+Wie dieses genutzt werden kann um die Alarme und ihren Status zu visualisieren wollen wir im Folgenden beschreiben.
 
 # Wie entstand der Bedarf an der Lösung?
 DevOps ist ein Thema, welches in unterschiedlichsten Teams, auf unterschiedliche Art gelebt wird. 
@@ -27,27 +27,26 @@ Landen die Alarm-Events einmal in einem Topic ist es ein leichtes die Informatio
 
 # Alarme mit Terraform erzeugen und an ein Topic schicken
 
-Als Beispiel soll hier ein Alarm dienen, der immer dann ein Event an ein konfigurierbares Topic sendet, wenn eine Message in einer Dead Letter Queue gelandet ist:
+Als Beispiel soll uns hier ein Alarm dienen, der immer dann ein Event an ein konfigurierbares Topic sendet, wenn eine Message in einer Dead Letter Queue (kurz DLQ) gelandet ist:
 ```terraform
 resource "aws_cloudwatch_metric_alarm" "dlq_alarm" {
-  for_each                  = aws_sqs_queue.dlq
-  alarm_name                = each.value.name
-  comparison_operator       = "GreaterThanOrEqualToThreshold"
-  evaluation_periods        = 1
-  metric_name               = "ApproximateNumberOfMessagesVisible"
-  namespace                 = "AWS/SQS"
-  period                    = "60"
-  statistic                 = "Sum"
-  threshold                 = "1"
-  ok_actions                = []
-  insufficient_data_actions = []
-  datapoints_to_alarm       = 1
-  alarm_description         = "This Alarm triggers when there are messages, which could not be published"
-  dimensions = {
-    "QueueName" = each.value.name
-  }
-  alarm_actions = [var.alarmTopicSns]
-  tags          = var.tags
+   alarm_name                = "MyProject-DlqAlarm-Stage"
+   comparison_operator       = "GreaterThanOrEqualToThreshold"
+   evaluation_periods        = 1
+   metric_name               = "ApproximateNumberOfMessagesVisible"
+   namespace                 = "AWS/SQS"
+   period                    = "60"
+   statistic                 = "Sum"
+   threshold                 = "1"
+   ok_actions                = []
+   insufficient_data_actions = []
+   datapoints_to_alarm       = 1
+   alarm_description         = "Sends an event when there are messages in the DLQ"
+   dimensions = {
+      "QueueName" = aws_sqs_queue.dlq.name
+   }
+   alarm_actions = [var.alarmTopicSns]
+   tags          = var.tags
 }
 ```
 Damit könnte man meinen das Thema sei durch.
@@ -212,10 +211,25 @@ public List<FilteredLogEvent> retrieveLogsFor(String logGroupName,
 > 2. Anlegen des Kommentars mittels JIRA API [POST /rest/api/3/issue/{issueIdOrKey}/comment](https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-issue-comments/#api-rest-api-3-issue-issueidorkey-comment-post)
 
 ## Zusammenspiel der Komponenten
+Wenn wir die hier erstellten Komponenten zusammen betrachten, ergibt sich folgendes Gesamtbild der technischen Infrastruktur:
 
-![Aufbau der Infrastruktur](/assets/images/posts/Alarmeboard_mit_Jira_und_Cloudwatch/Alarme_Konzept.png)
+![Aufbau der technischen Infrastruktur](/assets/images/posts/Alarmeboard_mit_Jira_und_Cloudwatch/Alarme_Konzept.png)
+Eine nahezu beliebige Anzahl von Alarmen können auf Basis von Metriken oder Protokollfiltern definiert werden und senden ihre Events an ein SNS-Topic ("Create Ticket").
+Dieses stößt unsere erste Lambda an, die dafür zuständig ist das Ticket im Jira initial anzulegen.
+Sobald dies erfolgreich erledigt wurde, kann das Event an ein weiteres SNS-Topic ("Add Logs") weitergeleitet werden.
+Die dadurch ausgelöste Lambdafunktion ergänzt das Ticket um die Logs, die zu dem Alarm geführt haben.
+Dazu wird auf die Logs in Cloudwatch anhand der Parameter aus dem Event zugegriffen.
+Sollte es an einer beliebigen Stelle innerhalb dieses Prozesses zu einem Fehler kommen, sind beide Lambdas durch eine DLQ abgesichert, so dass keine Daten verloren gehen können.
+Wenn zum Beispiel Jira kurzfristig nicht erreichbar war, können die Events aus der DLQ später wieder eingespielt werden.
+
+Die benötigten Komponenten aus dem Werkzeugkasten von AWS sind somit sehr überschaubar.
+Auch, wenn Alarme aus viele Projekte daran angeschlossen werden, skaliert diese Lösung problemlos mit.
 
 ### Kosten
+* Lambdas nur bei Alarm
+* SNS pro Event
+* Alarm-Metriken (fallen eigentlich nicht mehr an, als im Projekt sowieso notwendig, also keine zusätzlichen Kosten)
+* DLQ pro Message
 
 # Automatisierung in Jira nutzen
 
