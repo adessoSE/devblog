@@ -154,34 +154,41 @@ Das Event, welches als Auslöser der Lambda-Funktion dient, ist wie folgt aufgeb
 ```
 
 Bei genauerer Betrachtung des Events stellen wir fest, dass insbesondere die Felder "AlarmName", "AlarmDescription", "NewStateReason" sowie "StateChangeTime" besonders interessant sind.
-Wenn der Cloudwatch Alarm Name dem gewünschten Namensschema der Jira-Alarm-Tickets entsprechen, so kann dieser genau so übernommen werden. Andernfalls muss dieser in das gewünschte Format übertragen werden. Konventionen unterstützen bei diesem Schritt sehr.
-Zudem ist es hilfreich, in den Cloudwatch-Alarm-Namen die betroffene Stage aufzunehmen. Diese Stage-Information kann anschließend verwendet werden, um dem Ticket eine Priorität zuzuordnen (Prod-Alarme können so bspw. höher priorisiert werden als Dev-Alarme. Mehr dazu unter [Automatisierung in Jira nutzen](#automatisierung-in-jira-nutzen)) 
+Wenn der Cloudwatch Alarm Name dem gewünschten Namensschema der Jira-Alarm-Tickets entsprechen, so kann dieser genau so übernommen werden. Andernfalls muss dieser in das gewünschte Format übertragen werden. 
+Konventionen unterstützen bei diesem Schritt sehr.
+Zudem ist es hilfreich, in den Cloudwatch-Alarm-Namen die betroffene Stage aufzunehmen. 
+Diese Stage-Information kann anschließend verwendet werden, um dem Ticket eine Priorität zuzuordnen (Prod-Alarme können so bspw. höher priorisiert werden als Dev-Alarme. 
+Mehr dazu unter [Automatisierung in Jira nutzen](#automatisierung-in-jira-nutzen)) 
 
 Aus den Feldern "AlarmDescription", "NewStateReason" und "StateChangeTime" lässt sich eine aussagekräftige Ticket-Beschreibung zusammensetzen. 
 
 Werden weitere Informationen über die Alarm-Schwellwerte benötigt, so kann die Beschreibung um Informationen aus dem "Trigger"-Objekt angereichert werden. 
 Sind mehrere AWS-Accounts im Einsatz oder ist das Projekt in mehreren Regionen deployed, so sind auch die Felder "AWSAccountId" und "Region" besonders interessant.
 
-Bei der Bearbeitung eines Alarm-Tickets kann es hilfreich sein, zu sehen, ob der Vorfall weiterhin anhält oder in der Vergangenheit schon einmal aufgetreten ist. Diese Informationen lassen sich sehr schnell direkt in der AWS-Konsole ablesen – ein Link zu dem Cloudwatch-Alarm kann auf einfache Weise zur Ticket-Beschreibung hinzugefügt werden, da dieser folgendes Format besitzt:
-` https://<AWS-REGION>.console.aws.amazon.com/cloudwatch/deeplink.js?region=<AWS-REGION>#alarmsV2:alarm/<ALARM-NAME>`
+Bei der Bearbeitung eines Alarm-Tickets kann es hilfreich sein, zu sehen, ob der Vorfall weiterhin anhält oder in der Vergangenheit schon einmal aufgetreten ist. 
+Diese Informationen lassen sich sehr schnell direkt in der AWS-Konsole ablesen – ein Link zu dem Cloudwatch-Alarm kann auf einfache Weise zur Ticket-Beschreibung hinzugefügt werden, da dieser folgendes Format besitzt:
+`https://<AWS-REGION>.console.aws.amazon.com/cloudwatch/deeplink.js?region=<AWS-REGION>#alarmsV2:alarm/<ALARM-NAME>`
 
 Nachdem das SNS-Event in einen Ticket-Name und eine aussagekräftige Beschreibung überführt wurde, kann die [Jira-REST-API](https://developer.atlassian.com/server/jira/platform/rest-apis/) (inbesondere [POST /rest/api/3/issue](https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-issues/#api-rest-api-3-issue-post)) verwendet werden, um ein Jira-Ticket anzulegen.
 
 ### Was passiert im Fehlerfall?
-Was passiert, wenn Jira nicht erreichbar ist? Wir wollen auf keinen Fall, dass ein Alarm ausgelöst wird, aber wir nicht über diesen informiert werden. Zum Glück bietet AWS hierfür eine einfache Lösungsmöglichkeit an: 
+Was passiert, wenn Jira nicht erreichbar ist? 
+Wir wollen auf keinen Fall, dass ein Alarm ausgelöst wird, aber wir nicht über diesen informiert werden. 
+Zum Glück bietet AWS hierfür eine einfache Lösungsmöglichkeit an: 
 Es ist möglich, eine Dead-Letter-Queue (DLQ) für eine Lambda-Funktion zu konfigurieren. 
-Kann ein SNS-Event nicht erfolgreich verarbeitet werden, so wird die Lambda-Funktion für eine konfigurierbare Anzahl an Versuchen mit demselben Event neu ausgelöst. Ist auch dies nicht erfolgreich, so wird das Event in die DLQ geschrieben. 
+Kann ein SNS-Event nicht erfolgreich verarbeitet werden, so wird die Lambda-Funktion für eine konfigurierbare Anzahl an Versuchen mit demselben Event neu ausgelöst. 
+Ist auch dies nicht erfolgreich, so wird das Event in die DLQ geschrieben. 
 Für diese DLQ kann wiederum eine E-Mail-Benachrichtigung gelegt werden, sodass wir eine zuverlässige Fallback-Möglichkeit haben, um über Alarme informiert zu werden.
 
 ## Logs als Kommentar ergänzen
 Nachdem das Alarm-Ticket angelegt wurde, kann dieses um weitere Informationen angereichert werden, welche nicht im Alarm-Event selbst enthalten sind.
-Für die schnelle Fehleranalyse ist es beispielsweise sehr hilfreich, die Logs, welche von der Anwendung geschrieben wurden, als der Alarm ausgelöst wurde,
-bereits am Ticket selbst zu sehen und diese nicht erst selbst aus dem Log-System heraussuchen zu müssen.
+Für die schnelle Fehleranalyse ist es beispielsweise sehr hilfreich, die Logs, welche von der Anwendung geschrieben wurden, als der Alarm ausgelöst wurde, bereits am Ticket selbst zu sehen und diese nicht erst selbst aus dem Log-System heraussuchen zu müssen.
 
 Im Folgenden schauen wir uns an, wie wir die entsprechenden Logs aus Cloudwatch auslesen und als Kommentar an das Alarm-Ticket anhängen können.
 
 Mithilfe des Amazon SDKs können wir auf einfache Art und Weise Logs aus einer Log-Gruppe auslesen.
-Hierfür müssen wir lediglich den Namen der Log-Gruppe sowie das anzuwendende Filter-Muster angeben. Optional können wir auch den Zeitraum angeben, in dem gesucht werden soll.
+Hierfür müssen wir lediglich den Namen der Log-Gruppe sowie das anzuwendende Filter-Muster angeben. 
+Optional können wir auch den Zeitraum angeben, in dem gesucht werden soll.
 Die Informationen zu dem Zeitraum sowie den Namen der Log-Gruppe erhalten wir direkt aus dem auslösenden SNS-Event (siehe [vorheriger Abschnitt](#aus-einem-sns-event-wird-ein-ticket)).
 Das Filter-Muster müssen wir zunächst mithilfe einer weiteren SDK-Funktion (describeMetricFilters) ermitteln.
 
