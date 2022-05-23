@@ -16,7 +16,7 @@ Mit Jira ist ein Tool gegeben, welches sowieso schon in vielen Projekten Einsatz
 Wie dieses genutzt werden kann um die Alarme und ihren Status zu visualisieren will ich im Folgenden beschreiben.
 
 # Wie entstand der Bedarf an der Lösung?
-DevOps ist ein Thema, welches in unterschiedlichsten Teams, auf unterschiedliche Art gehandhabt wird. 
+DevOps ist ein Thema, welches in unterschiedlichsten Teams, auf unterschiedliche Art gelebt wird. 
 Mal gibt es eigene DevOps Teams, mal wird der Betrieb einer Lösung im Entwicklungsteam parallel zur Weiterentwicklung gehandhabt.
 
 Aber egal wie man das Thema angeht, steht am Anfang das Bedürfnis danach direkt und ohne manuelle Tätigkeit über Fehlerzustände der Systeme informiert zu werden.
@@ -52,10 +52,9 @@ resource "aws_cloudwatch_metric_alarm" "dlq_alarm" {
   tags          = var.tags
 }
 ```
-
 Damit könnte man meinen das Thema sei durch.
 Alle Entwickler, die mit ihrer E-Mail das Topic abonniert haben, wissen Bescheid.
-Ziel erreicht.
+Ziel erreicht!
 
 Es ergeben sich aber tatsächlich mehrere Probleme, für die Abhilfe geschaffen werden kann:
 1. Wer bearbeitet das Problem eigentlich konkret?
@@ -75,7 +74,7 @@ Es sind zwar alle notwendigen technischen Informationen enthalten, aber es besch
 > * Motivation für 2 Lambdas
 > * DLQ mit Alarm auf Email, um sicherzustellen, dass keine Alarme verloren gehen.
 
-## Ticket anlegen
+## Ein Jira-Ticket anlegen
 
 Die Cloudwatch-Alarme werden so konfiguriert, dass sie eine Nachricht in ein SNS-Topic schreiben, sobald sie auslösen. 
 Auf dieses SNS-Topic horcht eine Lambda-Funktion, welche die Aufgabe übernimmt, auf SNS-Events zu reagieren und daraus ein Jira-Ticket zu erzeugen.
