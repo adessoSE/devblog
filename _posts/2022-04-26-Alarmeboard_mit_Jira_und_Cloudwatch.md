@@ -153,7 +153,7 @@ Wenn der Cloudwatch Alarm Name dem gewünschten Namensschema der Jira-Alarm-Tick
 Konventionen unterstützen bei diesem Schritt sehr.
 Zudem ist es hilfreich, in den Cloudwatch-Alarm-Namen die betroffene Stage aufzunehmen. 
 Diese Stage-Information kann anschließend verwendet werden, um dem Ticket eine Priorität zuzuordnen (Prod-Alarme können so bspw. höher priorisiert werden als Dev-Alarme. 
-Mehr dazu unter [Automatisierung in Jira nutzen](#automatisierung-in-jira-nutzen)) 
+Mehr dazu unter [Automatisierung in Jira nutzen](#automatisierung-in-jira-nutzen))
 
 Aus den Feldern "AlarmDescription", "NewStateReason" und "StateChangeTime" lässt sich eine aussagekräftige Ticket-Beschreibung zusammensetzen. 
 
@@ -232,6 +232,8 @@ Auch, wenn Alarme aus viele Projekte daran angeschlossen werden, skaliert diese 
 * DLQ pro Message
 
 # Automatisierung in Jira nutzen
+* Kanban Board
+* 
 
 # Alternativen
 
