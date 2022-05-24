@@ -89,7 +89,9 @@ Das Event, welches als Auslöser der Lambda-Funktion dient, ist wie folgt aufgeb
 
 *(Der Inhalt von Records.\*.Sns.Message wurde zur besseren Lesbarkeit in einen eigenen Block extrahiert; in der Realität ist das JSON in escapter Form im Message-Feld enthalten)*
 
-*(Das folgende Beispiel bezieht sich auf einen Cloudwatch-Metrik-Alarm. Grundsätzlich gibt es auch andere Formen von Alarmen (bspw. für RDS), bei denen das Message-Attribut eine leicht abweichende Form aufweist. Diese Alarme werden in diesem Blog nicht weiter betrachtet)*
+*(Das folgende Beispiel bezieht sich auf einen Cloudwatch-Metrik-Alarm. 
+Grundsätzlich gibt es auch andere Formen von Alarmen (bspw. für RDS), bei denen das Message-Attribut eine leicht abweichende Form aufweist. 
+Diese Alarme werden in diesem Blog nicht weiter betrachtet)*
 ```json
 {
   "Records": [
@@ -149,7 +151,8 @@ Das Event, welches als Auslöser der Lambda-Funktion dient, ist wie folgt aufgeb
 ```
 
 Bei genauerer Betrachtung des Events stellen wir fest, dass insbesondere die Felder "AlarmName", "AlarmDescription", "NewStateReason" sowie "StateChangeTime" besonders interessant sind.
-Wenn der Cloudwatch Alarm Name dem gewünschten Namensschema der Jira-Alarm-Tickets entsprechen, so kann dieser genau so übernommen werden. Andernfalls muss dieser in das gewünschte Format übertragen werden. 
+Wenn der Cloudwatch Alarm Name dem gewünschten Namensschema der Jira-Alarm-Tickets entsprechen, so kann dieser genau so übernommen werden. 
+Andernfalls muss dieser in das gewünschte Format übertragen werden. 
 Konventionen unterstützen bei diesem Schritt sehr.
 Zudem ist es hilfreich, in den Cloudwatch-Alarm-Namen die betroffene Stage aufzunehmen. 
 Diese Stage-Information kann anschließend verwendet werden, um dem Ticket eine Priorität zuzuordnen (Prod-Alarme können so bspw. höher priorisiert werden als Dev-Alarme. 
@@ -189,11 +192,17 @@ Das Filter-Muster müssen wir zunächst mithilfe einer weiteren SDK-Funktion (de
 
 Eine naive Implementierung könnte wie folgt aussehen (eine korrekte Fehlerbehandlung und die sichere Ermittlung des Filter-Patterns wurde für eine bessere Lesbarkeit ausgelassen):
 ```java
+import software.amazon.awssdk.services.cloudwatchlogs.CloudWatchLogsClient;
+import software.amazon.awssdk.services.cloudwatchlogs.model.DescribeMetricFiltersResponse;
+import software.amazon.awssdk.services.cloudwatchlogs.model.FilterLogEventsRequest;
+import software.amazon.awssdk.services.cloudwatchlogs.model.FilteredLogEvent;
+
 public List<FilteredLogEvent> retrieveLogsFor(String logGroupName,
                                               String metricName, 
                                               String metricNamespace,
                                               long searchStartTimeInMs,
                                               long searchEndTimeInMs) {
+   final CloudWatchLogsClient cloudwatchClient = CloudWatchLogsClient.builder().build();
    final DescribeMetricFiltersResponse metricFilters =
                        cloudwatchClient.describeMetricFilters(metricName, metricNamespace, searchStartTimeInMs);
    final String filterPattern = metricFilters.metricFilters().get(0).filterPattern();
@@ -206,8 +215,60 @@ public List<FilteredLogEvent> retrieveLogsFor(String logGroupName,
    return cloudwatchClient.filterLogEvents(filterLogEventsRequest).events();
 }
 ```
+
+### Stolpersteine
+Auch wenn sich mithilfe des oben gezeigten Code-Ausschnitts die entsprechenden Logs zu einem Alarm finden lassen, so gibt es einige Stolpersteine, auf die man spätestens im Produktiveinsatz stößt.
+
+#### Stolperstein 1: Die Logs sind nicht in der Antwort enthalten
+Es kann vorkommen, dass in der Antwort von `cloudwatchClient#filterLogEvents(FilterLogEventsRequest)`  keine Logs enthalten sind.
+Zum einen kann dies passieren, wenn für die Anfrage tatsächlich keine passenden Log-Einträge gefunden werden, viel wahrscheinlicher ist aber der Fall, wenn zu viele Log-Einträge in dem angegebenen Zeitraum durchsucht werden müssen.
+
+Betrachten wir einmal folgenden Fall: Wir suchen nach einem ERROR-Log innerhalb der letzten 60 Minuten.
+In diesem Zeitraum werden von der Anwendung 1000 Logs geschrieben. 
+Der gesuchte Log-Eintrag wurde vor einer Minute geschrieben.
+
+Die Log-Einträge werden in der richtigen zeitlichen Reihenfolge gesucht. 
+Dies bedeutet, dass zunächst die Einträge gefunden werden, die 60 Minuten zurückliegen, dann die, welche 59 Minuten zurückliegen, etc.
+Der obige Aufruf durchsucht nur eine bestimmte Anzahl an Log-Einträgen.
+Wird hierbei nicht der geforderte Suchzeitraum komplett abgedeckt, ist in der Antwort ein "Next-Token" enthalten, welches für weitere Anfragen verwendet werden kann.
+Das bedeutet, dass wir die "filterLogEvents"-Anfrage so oft wiederholen müssen, bis in der Antwort kein "Next-Token" enthalten ist, um sicherzustellen, dass wirklich alle Logs des angeforderten Zeitraums durchsucht wurden:
+```java
+FilterLogEventsResponse response = cloudwatchClient.filterLogEvents(filterLogEventsRequest);
+List<FilteredLogEvent> foundLogs = new ArrayList<>();
+do {
+    response = cloudwatchClient.filterLogEvents(filterLogEventsRequest, response.nextToken());
+    foundLogs.addAll(response.events());
+} while(response.nextToken() != null);
+```
+
+#### Stolperstein 2: Die Suche der Logeinträge kann lange dauern
+Wenn die zu durchsuchende Cloudwatch Loggruppe sehr viele Logeinträge beinhaltet oder der Suchzeitraum sehr groß ist, kann die Suche der Log-Einträge sehr lange dauern.
+Es ist wichtig, diese Tatsache zu berücksichtigen.
+Wird die Anwendung als AWS Lambda Funktion bereitgestellt, so besitzt sie eine maximale Laufzeit von 15 Minuten.
+Das kann unter Umständen nicht ausreichen, um alle Log-Einträge zu durchsuchen.
+In der Anwendung müssen wir daher dafür sorgen, dass die Suche rechtzeitig beendet wird.
+Eine Möglichkeit dies zu tun ist etwa, die Abbruchbedingung der obigen do-while-Schleife so zu erweitern, dass sie die verbleibende Zeit der Lambda-Funktion mit berücksichtigt.
+Diese Information bekommen wir aus dem "Context"-Objekt, welches der Lambda-Funktion beim Auslösen übergeben wird.
+Um einen einzelnen Suchvorgang zu beschleunigen, können wir zudem die maximale Anzahl der durchsuchten Logeinträge pro Abfrage begrenzen:
+```java
+import com.amazonaws.services.lambda.runtime.Context;
+// ...
+final FilterLogEventsRequest filterLogEventsRequest = FilterLogEventsRequest.builder()
+        .limit(25) // durchsuchte Einträge begrenzen
+        // weitere Konfigurationen (siehe oben)
+        .build();
+        do {
+        // Logs suchen (siehe oben)
+        } while(response.nextToken() != null && context.getRemainingTimeInMillis() > TimeUnit.MINUTES.toMillis(1L)); // rechtzeitig abbrechen
+```
+
+#### Stolperstein 3: Ratelimits
+Werden zu viele Suchabfragen in zu kurzer Zeit gestellt kann das Ratelimit der Cloudwatch-API überschritten werden.
+In diesem Fall wird eine `CloudwatchLogException` bei dem Aufruf von `cloudwatchClient#filterLogEvents(FilterLogEventsRequest)` geworfen.
+Kommt es zu einer solchen Exception können wir diese einfach fangen und die Suchanfrage nach einer kurzen Pause erneut absetzen.
+
+
 > ### Todo für diesen Abschnitt:
-> 1. Stolpersteine (Rate-Limit, lange Suchzeit)
 > 2. Anlegen des Kommentars mittels JIRA API [POST /rest/api/3/issue/{issueIdOrKey}/comment](https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-issue-comments/#api-rest-api-3-issue-issueidorkey-comment-post)
 
 ## Zusammenspiel der Komponenten
