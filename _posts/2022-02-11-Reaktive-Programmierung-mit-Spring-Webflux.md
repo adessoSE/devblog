@@ -69,6 +69,8 @@ private Mono<Blogpost> getBlogpostById(@PathVariable String id) {
     return blogpostService.findBlogpostById(id);
 }
 ```
+In diesem Fall registriert sich der Rest-Controller automatisch als Subscriber auf die jeweilige Service-Methode,
+und schreibt das Ergebnis wie gewohnt in den Body der Response des HTTP-Requests.
 Voraussetzung ist natürlich, dass der ``BlogpostService`` auch ein Mono, statt eines einfachen ``Blogpost`` zurückgibt.
 Und das ist auch die Ebene, wo das Ganze unserer Meinung nach spannend wird. Wie gehe ich auf Serviceebene mit Mono und Flux um,
 und wie realisiere ich Geschäftslogik, die über einfaches Weiterreichen von Daten hinausgeht? 
