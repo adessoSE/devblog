@@ -192,7 +192,7 @@ Wenn ihr Anwendungsfälle habt, die hier nicht abgedeckt wurden, können wir euc
 erwähnte [Operatorenübersicht](https://projectreactor.io/docs/core/release/reference/#which-operator) aus dem 
 Project-Reactor-Handbuch empfehlen.
 
-Mit ein wenig Einarbeitungszeit wird euch die reaktive Programmierung immer leichter von der Hand gehen, allerdings lässt sich nicht verneinen,
+Mit ein wenig Einarbeitungszeit wird euch die reaktive Programmierung immer leichter und intuitiver von der Hand gehen, allerdings lässt sich auch nicht verneinen,
 dass sie zu teils komplizierterem und schlechter lesbarem Code führt.
 Daher sollte man sich vor Beginn eines Projekts gründlich überlegen, ob die Vorteile, die Spring Webflux mit sich bringt,
 diese zusätzliche Komplexität aufwiegen.
