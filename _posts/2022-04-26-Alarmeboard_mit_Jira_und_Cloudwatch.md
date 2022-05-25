@@ -310,14 +310,26 @@ Die benötigten Komponenten aus dem Werkzeugkasten von AWS sind somit sehr über
 Auch, wenn Alarme aus viele Projekte daran angeschlossen werden, skaliert diese Lösung problemlos mit.
 
 ### Kosten
-* Lambdas nur bei Alarm
-* SNS pro Event
-* Alarm-Metriken (fallen eigentlich nicht mehr an, als im Projekt sowieso notwendig, also keine zusätzlichen Kosten)
-* DLQ pro Message
+Mit diesem Gesamtbild vor Augen kommen wir schnell auf die Frage, ob das nicht ein bisschen teuer werden könnte.
+Denn am Ende soll sich die Investition ja auch wieder lohnen. 
+Dabei spielen zwei Faktoren eine wesentliche Rolle.
+Zum einen müssen wir betrachten wie viele Alarme bearbeitet werden müssen und wie stark das Team dadurch gebunden wird.
+Damit ist hier ein Faktor gegeben, den jedes Projekt für sich selbst beantworten muss.
+Aber die laufenden Kosten können wir hier zumindest grob überschlagen:
+* Lambdas verursachen nur zur Laufzeit kosten.
+  Selbst wenn wir hier deutlich überzogene 1.000 Aufrufe mit 15.000 ms Laufzeit und 512MB Speicher veranschlagen, kommen wir ohne Berücksichtigung des Freetiers auf gerade einem 0,12 USD Kosten pro Monat.
+* Für SNS und SQS gilt ähnliches.
+  Wenn man hier den Freetier von 1.000.000 Notifications pro Monat bei SNS und SQS verlässt, entstehen pro Request nur 0.0000005 USD an Kosten.
+  Das sollte bei der Summe der erwarteten Alarme nie einen nennenswerten Betrag ergeben.
+* Alarm-Metriken verursachen Kosten. 
+  Diese sollten aber nicht dieser Lösung angerechnet werde, da sie in den zu überwachenden Projekten sowieso bereits benötigt werden.
+
+Am Ende können wir sagen, dass die laufenden Kosten für die hier verwendeten Komponenten selbst jenseits des Freetiers zu vernachlässigen sind.
 
 # Automatisierung in Jira nutzen
-* Kanban Board
-* 
+* eigenes Kanban Board
+* Priorisierung für prod
+* Mailbenachrichtigung, wenn Ticket zu lange unbearbeitet.
 
 # Alternativen
 
