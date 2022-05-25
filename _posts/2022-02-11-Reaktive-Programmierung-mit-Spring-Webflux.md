@@ -186,8 +186,13 @@ public Mono<String> getAbbreviatedName(String userId) {
 
 private String buildAbbreviatedName(UserData userData){[...]}
 ```
-
+#Fazit
 Mithilfe dieser 9 Methoden solltet ihr für den Start in die Programmierung mit Spring Webflux gerüstet sein.
-Wenn ihr Anwendungsfälle habt, die hier nicht abgedeckt wurden, können wir euch die bereits eingangs in diesem Kapitel
-erwähnte [Operatorenübersicht](https://projectreactor.io/docs/core/release/reference/#which-operator) aus dem Project-Reactor-
-Handbuch empfehlen.
+Wenn ihr Anwendungsfälle habt, die hier nicht abgedeckt wurden, können wir euch die bereits eingangs im letzten Kapitel
+erwähnte [Operatorenübersicht](https://projectreactor.io/docs/core/release/reference/#which-operator) aus dem 
+Project-Reactor-Handbuch empfehlen.
+
+Mit ein wenig Einarbeitungszeit wird euch die reaktive Programmierung immer leichter von der Hand gehen, allerdings lässt sich nicht verneinen,
+dass sie zu teils komplizierterem und schlechter lesbarem Code führt.
+Daher sollte man sich vor Beginn eines Projekts gründlich überlegen, ob die Vorteile, die Spring Webflux mit sich bringt,
+diese zusätzliche Komplexität aufwiegen.
