@@ -19,16 +19,16 @@ Seit Version 5 unterstützt das Spring-Framework reaktive Programmierung und bie
 Datenbankzugriffe, Security und streambasierte Datenverarbeitung.
 
 Klassische Programmiermodelle wie z.B. in Spring MVC nutzen für jeden Request jeweils einen Thread und belegen ihn 
-so lange, bis die aktuelle Aufgabe abgeschlossen ist und geben ihn dann wieder frei.
-Muss während der Codeverarbeitung z.B. eine Datenbank oder ein entferntes System angesprochen werden, welche eine langsame Antwortzeit hat, muss der Thread lange blockieren.
-Um die Antwortbereitschaft aufrecht zu halten wird oft ein größerer Threadpool vorgehalten, 
-je nach Szenario kann ein Java Thread auch schnell mal 1MB Speicher allokieren, welches gerade in Cloudumgebungen schnell mit erhöhten Kosten einhergeht. 
+so lange, bis die aktuelle Aufgabe abgeschlossen ist, und geben ihn dann wieder frei.
+Muss während der Codeverarbeitung z.B. eine Datenbank oder ein entferntes System angesprochen werden, wobei eine langsame Antwortzeit erwartet werden kann, muss der Thread lange blockieren.
+Um die Antwortbereitschaft aufrecht zu halten wird oft ein größerer Threadpool vorgehalten.
+Je nach Szenario kann ein Java Thread auch schnell mal 1MB Speicher allokieren, was gerade in Cloudumgebungen schnell mit erhöhten Kosten einhergeht. 
 
 ## Project Reactor
 Das Spring Framework nutzt das Open-Source-Projekt Reactor als Basis für die Umsetzung der reaktiven Programmierung.
-Reactor ist eine nicht blockierende (non-blocking) reaktive Open Source Programmiergrundlage für die Java Virtual Machine, welche auf der Reactive-Streams-Spezifikation basiert.
+Reactor ist eine nicht blockierende (non-blocking) reaktive Open-Source-Programmiergrundlage für die Java Virtual Machine, welche auf der Reactive-Streams-Spezifikation basiert.
 Es setzt direkt auf den funktionalen APIs von Java 8 auf und nutzt konsequent CompletableFuture, Stream und Duration.
-Zusätzlich unterstützt Reactor mit dem reactor-netty Projekt eine nicht blockierende Interprozesskommunikation, welche eine Backpressure-fähige Netzwerkengine für HTTP bietet.
+Zusätzlich unterstützt Reactor mit dem reactor-netty-Projekt eine nicht blockierende Interprozesskommunikation, welche eine Backpressure-fähige Netzwerkengine für HTTP bietet.
 Die Reactive-Streams-Spezifikation sieht eine gewisse Standardisierung für die JVM aber auch Javascript vor und basiert auf folgenden Interfaces:
 
 _**Subscriber:**_ Der _Subscriber_ abonniert einen _Publisher_ und wird mittels Callbacks über Neuerungen informiert
@@ -37,7 +37,7 @@ _**Subscription:**_ Die _Subscription_ beschreibt die Beziehung zwischen _Subscr
 
 _**Publisher:**_ Der _Publisher_ ist verantwortlich für die Veröffentlichung von Daten an die angemeldeten _Subscriber_
 
-_**Processor:**_ Ein _Processor_ transformiert Elemente die zwischen _Publisher_ und _Subscriber_ übertragen werden
+_**Processor:**_ Ein _Processor_ transformiert Elemente, die zwischen _Publisher_ und _Subscriber_ übertragen werden
 
 ![image of reactive streams interfaces](/assets/images/posts/reaktive-programmierung-mit-spring-webflux/reactivestream.png)
 
@@ -45,13 +45,13 @@ Das Projekt Reactor bietet zwei Implementierungen des Interface _Publisher_ an, 
 _Flux_ ist dabei als asynchrone Abfolge von 0-N Elementen und Mono als 0-1 Element implementiert.
 
 # Wie arbeite ich mit Spring Webflux?
-Die Reactor-API bietet eine sehr große Anzahl an Methoden.
+Die Reactor API bietet eine sehr große Anzahl an Methoden.
 Es existiert zwar eine Art [Anleitung](https://projectreactor.io/docs/core/release/reference/#which-operator),
-wann welche zu nutzen ist, die kann aber insbesondere beim Einstieg in Webflux erschlagend wirken.
+die kann aber insbesondere beim Einstieg in Webflux erschlagend wirken.
 
 
 Es existieren bereits viele Tutorials auf den üblichen Webseiten, wie mit Spring Webflux gearbeitet werden kann. 
-Diese beschränken sich jedoch oft auf die Kommunikation nach außen, also auf Controller, Datenbank-Repositories und Webclients, die andere Rest-APIs konsumieren.
+Diese beschränken sich jedoch oft auf die Kommunikation nach außen, also auf Controller, Datenbank-Repositories und Webclients, die andere REST APIs konsumieren.
 Unserer Erfahrung nach ist das aber eher der unproblematischere Teil, da hier ein Großteil der Arbeit bereits damit getan ist,
 die jeweils relevanten Dependencies mit Spring Webflux zu ersetzen und die Methodensignaturen entsprechend anzupassen. Die Umstellung
 einer Controller-Methode könnte etwa so aussehen:
@@ -91,12 +91,12 @@ public Mono<String> getAbbreviatedName(String userId) {
 
 private String buildAbbreviatedName(UserData userData){[...]}
 ```
-In der Methode, die innerhalb des map-Befehls aufgerufen wird (Hier `buildAbbreviatedName`),
+In der Methode, die innerhalb des `map`-Befehls aufgerufen wird (hier `buildAbbreviatedName`),
 muss nicht mit den Webflux-Publishern gearbeitet werden,
 die eigentliche Geschäftslogik kann also mit gewöhnlichem Java-Code implementiert werden.
 
-Der Operator flatMap unterscheidet sich insofern von map, als er als Rückgabewert der übergebenen Methode wieder einen Publisher erwartet.
-Das ist etwa dann sinnvoll, wenn diese Methode ihrerseits wieder einen API-Call absetzen muss. 
+Der Operator `flatMap` unterscheidet sich insofern von `map`, als dass er als Rückgabewert der übergebenen Methode wieder einen Publisher erwartet.
+Das ist etwa dann sinnvoll, wenn diese Methode ihrerseits wieder einen API-Aufruf absetzen muss. 
 In unserem Beispiel könnte ein Blogbeitrag mit den Daten des Nutzers angelegt werden.
 ``` Java
 public Mono<BlogpostWithAuthor> saveBlogpost(Blogpost blogpost, String userId) {
@@ -108,8 +108,8 @@ public Mono<BlogpostWithAuthor> saveBlogpost(Blogpost blogpost, String userId) {
 private Mono<BlogpostWithAuthor> saveBlogpost(Blogpost blogpost, UserData userData){[...]}
 ```
 ## zipWhen und zipWith
-Wir können also mit map und flatMap Ergebnisse eines Publishers umwandeln. Aber was, wenn die Daten zweier oder mehrerer Publisher kombiniert benötigt werden?
-In diesem Fall können die Methoden zipWith und zipWhen genutzt werden. In folgendem Beispiel wird die Methode zipWith genutzt, 
+Wir können also mit `map` und `flatMap` Ergebnisse eines Publishers umwandeln. Aber was, wenn die Daten zweier oder mehrerer Publisher kombiniert benötigt werden?
+In diesem Fall können die Methoden `zipWith` und `zipWhen` genutzt werden. In folgendem Beispiel wird die Methode `zipWith` genutzt, 
 um die Daten eines Blogposts und eines Users zu kombinieren und daraus einen ``BlogpostWithAuthor`` zu bauen.
 
 ``` Java
@@ -126,8 +126,8 @@ private BlogpostWithAuthor buildBlogpostWithAuthor(Blogpost blogpost, UserData u
 ```
 
 Denkbar ist in diesem Szenario auch, dass die ``authorId`` nicht explizit mitgegeben werden muss, sondern Teil des ``Blogpost``-Objekts ist.
-Dann müssten wir mit Informationen aus der Response des Blogpost-Clients den UserClient aufrufen, um anschließend wieder mit beiden Ergebnissen
-weiterzuarbeiten. Hier kommt ``zipWhen`` ins Spiel. Mit dieser Methode kann man ähnlich wie mit ``flatMap``
+Dann müssten wir mit Informationen aus der Response des `BlogpostClients` den `UserClient` aufrufen, um anschließend wieder mit beiden Ergebnissen
+weiterzuarbeiten. Hier kommt ``zipWhen`` ins Spiel. Mit dieser Methode kann man, ähnlich wie mit ``flatMap``,
 das Ergebnis eines Publishers transformieren, mit dem Unterschied, dass man anschließend wieder ein Tuple2 mit dem
 ursprünglichen und dem transformierten Ergebnis erhält.
 
