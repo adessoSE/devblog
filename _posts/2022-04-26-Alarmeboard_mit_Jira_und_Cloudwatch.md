@@ -167,7 +167,7 @@ Bei der Bearbeitung eines Alarm-Tickets kann es hilfreich sein, zu sehen, ob der
 Diese Informationen lassen sich sehr schnell direkt in der AWS-Konsole ablesen – ein Link zu dem Cloudwatch-Alarm kann auf einfache Weise zur Ticket-Beschreibung hinzugefügt werden, da dieser folgendes Format besitzt:
 `https://<AWS-REGION>.console.aws.amazon.com/cloudwatch/deeplink.js?region=<AWS-REGION>#alarmsV2:alarm/<ALARM-NAME>`
 
-Nachdem das SNS-Event in einen Ticket-Name und eine aussagekräftige Beschreibung überführt wurde, kann die [Jira-REST-API](https://developer.atlassian.com/server/jira/platform/rest-apis/) (inbesondere [POST /rest/api/3/issue](https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-issues/#api-rest-api-3-issue-post)) verwendet werden, um ein Jira-Ticket anzulegen.
+Nachdem das SNS-Event in einen Ticket-Namen und eine aussagekräftige Beschreibung überführt wurde, kann die [Jira-REST-API](https://developer.atlassian.com/server/jira/platform/rest-apis/) (inbesondere [POST /rest/api/3/issue](https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-issues/#api-rest-api-3-issue-post)) verwendet werden, um ein Jira-Ticket anzulegen.
 
 ### Was passiert im Fehlerfall?
 Was passiert, wenn Jira nicht erreichbar ist? 
@@ -267,10 +267,33 @@ Werden zu viele Suchabfragen in zu kurzer Zeit gestellt kann das Ratelimit der C
 In diesem Fall wird eine `CloudwatchLogException` bei dem Aufruf von `cloudwatchClient#filterLogEvents(FilterLogEventsRequest)` geworfen.
 Kommt es zu einer solchen Exception können wir diese einfach fangen und die Suchanfrage nach einer kurzen Pause erneut absetzen.
 
+### Erzeugen des Kommentars
+Nachdem wir alle passenden Logs gefunden haben, können wir diese als Kommentar an das Jira-Alarm-Ticket anhängen.
+Hierbei können wir abermals auf die [Jira-REST-API](https://developer.atlassian.com/server/jira/platform/rest-apis/) (diesmal [POST /rest/api/3/issue/{issueIdOrKey}/comment](https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-issue-comments/#api-rest-api-3-issue-issueidorkey-comment-post)) zurückgreifen.
+Die benötigte Ticketnummer (Pfadvariable "issueIdOrKey") bekommen wir als Rückgabe, nachdem wir das Ticket angelegt haben (siehe [Aus einem SNS Event wird ein Ticket](#aus-einem-sns-event-wird-ein-ticket)).
+Für eine bessere Lesbarkeit der Logeinträge innerhalb des Jira-Kommentars bietet es sich an, diese als Code-Block darzustellen.
+Damit alle Logeinträge innerhalb desselben Codeblocks angezeigt werden, müssen sie `\n`-separiert im Text-Attribut angegeben werden.
 
-> ### Todo für diesen Abschnitt:
-> 2. Anlegen des Kommentars mittels JIRA API [POST /rest/api/3/issue/{issueIdOrKey}/comment](https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-issue-comments/#api-rest-api-3-issue-issueidorkey-comment-post)
-
+Ein Aufruf der JIRA-API für zwei Logeinträge könnte also wie folgt aussehen:
+```json
+{
+    "body": {
+        "type": "doc",
+        "version": 1,
+        "content": [
+            {
+                "type": "codeBlock",
+                "content": [
+                    {
+                        "type": "text",
+                        "text": "Logeintrag 1\\nLogEintrag 2"
+                    }
+                ]
+            }
+        ]
+    }
+}
+```
 ## Zusammenspiel der Komponenten
 Wenn wir die hier erstellten Komponenten zusammen betrachten, ergibt sich folgendes Gesamtbild der technischen Infrastruktur:
 
