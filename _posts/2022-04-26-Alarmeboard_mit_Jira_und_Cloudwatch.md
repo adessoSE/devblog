@@ -332,10 +332,5 @@ Am Ende können wir sagen, dass die laufenden Kosten für die hier verwendeten K
 * Priorisierung für prod
 * Mailbenachrichtigung, wenn Ticket zu lange unbearbeitet.
 
-# Alternativen
-
-## AWS eigenes Tool
-
-## Was von Jira
 
 # Fazit
