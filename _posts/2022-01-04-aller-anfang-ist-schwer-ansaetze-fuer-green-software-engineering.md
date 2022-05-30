@@ -2,9 +2,10 @@
 layout: [post, post-xml]
 title: "Aller Anfang ist schwer: Ansätze für Green Software-Engineering"         # Pflichtfeld. Bitte einen Titel für den Blog Post angeben.
 date: 2022-01-04 08:00
+modified_date: 2022-04-06 08:00
 author_ids: [gaboratarithnea]   
 categories: [Softwareentwicklung]  
-tags: [Green Software, Kotlin, Microframeworks] 
+tags: [Green Software, Kotlin, Microframeworks, Nachhaltigkeit] 
 ---
 
 Im Jahr 2021 muss man niemandem mehr erklären, dass alle Bereiche der Gesellschaft und Wirtschaft Verantwortung für eine nachhaltige Nutzung unserer Ressourcen tragen.
