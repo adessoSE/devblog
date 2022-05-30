@@ -24,6 +24,9 @@ layout: null
         {% for cat in post.categories %}
         <category>{{ cat | xml_escape }}</category>
         {% endfor %}
+        {% for author_id in post.author_ids %}
+        <author_id>{{ author_id | xml_escape }}</author_id>
+        {% endfor %}
       </item>
     {% endfor %}
   </channel>

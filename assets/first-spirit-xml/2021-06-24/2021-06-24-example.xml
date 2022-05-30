@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<documents>
+    <document uid="be1a13fc3f52f95322800e7eb2498778">
+        <field name="title"><![CDATA[Testartikel]]></field>
+        <field name="subline"><![CDATA[]]></field>
+        <field name="teaser"><![CDATA[<p>Welche Möglichkeiten haben wir, wenn neben einer REST-API auch eine SOAP-Schnittstelle zur Verfügung stehen soll?
+In diesem Artikel wird eine Methode vorgestellt, wie man diese Anforderung mit Hilfe von Kong umsetzen kann.</p>
+
+]]></field>
+        <field name="language_multi_keyword"><![CDATA[de]]></field>
+        <field name="content_type_multi_keyword"><![CDATA[blog]]></field>
+        <field name="mime_type_multi_keyword"><![CDATA[text/html]]></field>
+        <field name="category_multi_keyword"><![CDATA[Softwareentwicklung]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Kong]]></field>
+        <field name="tag_multi_keyword"><![CDATA[SOAP]]></field>
+        <field name="tag_multi_keyword"><![CDATA[REST]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Lua]]></field>
+        <field name="date_date"><![CDATA[2021-06-24T16:00:00+02:00]]></field>
+        <field name="date_l"><![CDATA[1624543200000]]></field>
+        <field name="change_date"><![CDATA[1624543200000]]></field>
+        <!--Author Information-->
+        
+        <field name="author_id"><![CDATA[DanielKraft]]></field>
+        <field name="author_id"><![CDATA[jo2]]></field><!--Postcontent-->
+        <field name="headlines"><![CDATA[Testartikel]]></field>
+        <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
+            <p>Welche Möglichkeiten haben wir, wenn neben einer REST-API auch eine SOAP-Schnittstelle zur Verfügung stehen soll?
+In diesem Artikel wird eine Methode vorgestellt, wie man diese Anforderung mit Hilfe von Kong umsetzen kann.</p>
+
+</div>]]></field>
+        <field name="content"><![CDATA[<div class="adesso-text-formate">
+<div class="row p-t-2">
+<div class="adesso-container">
+<div class="col-xl-8 adesso-center p-b-1 p-l-0 p-r-0">
+    <p>Welche Möglichkeiten haben wir, wenn neben einer REST-API auch eine SOAP-Schnittstelle zur Verfügung stehen soll?
+In diesem Artikel wird eine Methode vorgestellt, wie man diese Anforderung mit Hilfe von Kong umsetzen kann.</p>
+
+<h4 id="motivation">Motivation</h4>
+<p>Wie bereist beschrieben, kann es manchmal gewollt sein, dass eine Schnittstelle über REST und SOAP erreichbar ist.
+Hier stellt sich nun die Frage wie man diese Anforderung realisiert.</p>
+
+<p>Eine intuitive Herangehensweise wäre es, für den Service die zwei Schnittstellen getrennt zu implementieren.
+Diese Lösung hat allerdings den Nachteil, dass die Schnittstellen sich durch die getrennte Implementierung unterschiedlich verhalten könnten.
+Außerdem müssen bei einer Änderung des Service beide Schnittstellen verändert werden, womit zusätzlicher Arbeitsaufwand verbunden wäre.</p>
+
+<p>Um diese Probleme zu vermeiden, könnten wir für den Service nur eine Schnittstelle implementieren, zum Beispiel eine REST-API, da diese heutzutage häufig verwendet wird.
+Die SOAP-Schnittstelle hingegen könnten wir anschließend aus der REST-API generieren.</p>
+
+<h4 id="vorstellung-der-architektur">Vorstellung der Architektur</h4>
+<p>Für die Realisierung beider Schnittstellen wird ein <a href="https://konghq.com/kong/">Kong API Gateway</a> mit dem Kong Plugin <a href="https://github.com/adessoAG/kong-plugin-soap2rest">soap2rest</a> sowie ein REST-Service benötigt.</p>
+
+<p><img src="/assets/images/posts/Konvertierung-einer-REST-API-zu-einer-SOAP-Schnittstelle-mithilfe-von-Kong/Architektur.png" alt="Architektur Skizze" /></p>
+
+<p>Die Abbildung zeigt, wie die einzelnen Komponenten miteinander verknüpft sind.
+Das Kong API Gateway verwaltet den Zugriff auf den REST-Service.
+Für den Fall, dass wir eine Anfrage über die REST-Schnittstelle stellen, wird diese Anfrage an den Service weitergeleitet und bearbeitet.</p>
+
+<p>Für die Verarbeitung von SOAP-Anfragen wird das Kong Plugin soap2rest verwendet.
+Das Plugin benötigt zur Konfiguration zwei Dateien.
+Damit das Plugin die SOAP-Anfragen richtig verarbeiten kann, benötigt es die WSDL der SOAP-Schnittstelle.
+Und um die Konvertierung von SOAP zu REST Anfragen korrekt durchzuführen, wird zusätzlich die OpenAPI-Spezifikation der REST-API benötigt.</p>
+
+<h4 id="funktionsablauf-des-plugins">Funktionsablauf des Plugins</h4>
+<p><img src="/assets/images/posts/Konvertierung-einer-REST-API-zu-einer-SOAP-Schnittstelle-mithilfe-von-Kong/Ablauf.png" alt="Funktionsablauf des Plugins" /></p>
+
+<p>Diese Abbildung zeigt den Fall, dass eine Anfrage über die SOAP-Schnittstelle gestellt wird.
+Sobald Kong eine Anfrage über die Route der SOAP-Schnittstelle registriert, wird das Plugin soap2rest ausgeführt.
+Das Plugin konvertiert die Anfrage in eine gültige REST-Anfrage und sendet diese an den REST-Service.
+Nachdem der REST-Service geantwortet hat, wird die Antwort in eine gültige SOAP-Antwort übersetzt und zurückgegeben.</p>
+
+<p>Anhand des folgenden Beispiels lässt sich der Ablauf näher verdeutlichen.
+Angenommen, folgende Anfrage wird an die SOAP-Schnittstelle gestellt.</p>
+
+<pre><code class="language-xml">&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;soap:Envelope
+    xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"
+    xmlns:tns="http://www.w3.org/2001/XMLSchema"&gt;
+    &lt;soap:Body&gt;
+        &lt;tns:GetPetByPetid_InputMessage&gt;
+            &lt;tns:petId&gt;1&lt;/tns:petId&gt;
+        &lt;/tns:GetPetByPetid_InputMessage&gt;
+    &lt;/soap:Body&gt;
+&lt;/soap:Envelope&gt;
+</code></pre>
+
+<p>Aus dieser Anfrage lassen sich verschiedene Informationen ableiten.
+Zum einen wird mit dieser Anfrage die SOAP-Action <code>GetPetByPetid</code> ausgeführt.
+Zusätzlich beinhaltet die Anfrage den Parameter <code>petId</code> mit dem Wert <code>1</code>.
+Anhand dieser Informationen kann die Anfrage der passenden REST Anfrage zugeordnet werden.
+In diesem Fall entspricht die Anfrage dem Pfad <code>/pet/1</code>.</p>
+
+<p>Nachdem das Plugin die generierte Anfrage an die REST-API gestellt hat, bekommt es folgende Antwort:</p>
+
+<pre><code class="language-json">{
+  "id": 1,
+  "name": "doggie",
+  "photoUrls": [],
+  "tags": [],
+  "status": "available"
+}
+</code></pre>
+
+<p>Anschließend wird diese Antwort vom Plugin in gültiges XML umgewandelt und in eine SOAP-Antwort eingesetzt, welche anschließend zurückgegeben wird.</p>
+
+<pre><code class="language-xml">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;soap:Envelope
+  xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"
+  xmlns:tns="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;soap:Body&gt;
+    &lt;tns:GetPetByPetid_OutputMessage&gt;
+        &lt;tns:Pet&gt;
+            &lt;tns:id&gt;1&lt;/tns:id&gt;
+            &lt;tns:name&gt;doggie&lt;/tns:name&gt;
+            &lt;tns:photoUrls&gt;&lt;/tns:photoUrls&gt;
+            &lt;tns:tags&gt;&lt;/tns:tags&gt;
+            &lt;tns:status&gt;available&lt;/tns:status&gt;
+        &lt;/tns:Pet&gt;
+    &lt;/tns:GetPetByPetid_OutputMessage&gt;
+  &lt;/soap:Body&gt;
+&lt;/soap:Envelope&gt;
+</code></pre>
+
+<h4 id="besonderheiten-des-kong-plugins-soap2rest">Besonderheiten des Kong Plugins soap2rest</h4>
+<h5 id="analyse-der-schnittstellen-spezifikationen">Analyse der Schnittstellen-Spezifikationen</h5>
+<p>Die Analyse der WSDL und der OpenAPI ist ein wichtiger Bestandteil des Plugins.
+Sie wird nur einmal vor der ersten Anfrage an die SOAP-Schnittstelle ausgeführt, um die Schnittstelle zu konfigurieren.
+Dadurch verzögert sich die Antwort der ersten Anfrage im Durchschnitt um 200 Millisekunden.
+Anschließend wird diese Konfiguration für die Verarbeitung aller folgenden Anfragen verwendet.</p>
+
+<p>Bei der Analyse der WSDL werden wichtige Merkmale der SOAP-Schnittstelle ausgelesen.
+Dazu gehören zum Beispiel das Auslesen der verschiedenen Operationen und ihrer zugehörigen Rückgabetypen und Faults.
+Es wird besonders die Struktur der Rückgabetypen betrachtet, damit das Plugin später gültige SOAP-Antworten generieren kann.</p>
+
+<p>Nachdem die WSDL analysiert wurde, wird die Konfiguration des Plugins mit der OpenAPI-Spezifikation der REST-API vervollständigt.
+Dabei werden den SOAP-Operationen die passenden Pfade der REST-API automatisiert zugeordnet.
+Außerdem werden jeder Operation die passenden Content-Types zugeordnet, damit die HTTP-Header bei der Weiterleitung der Anfragen an die REST-API korrekt gesetzt werden können.</p>
+
+<h5 id="request-und-response-konvertierung">Request und Response Konvertierung</h5>
+<p>Bei der Konvertierung von eingehenden SOAP-Anfragen, werden diese in den meisten Fällen direkt von XML in JSON überführt.
+Manchmal müssen davor aber noch andere Verarbeitungsschritte durchgeführt werden.
+Zum Beispiel werden sämtliche SOAP-Header in HTTP-Header überführt.
+Außerdem werden Dateiuploads in Multipart Bodys überführt und den Dateien wird mit Hilfe einer Mime Type Analyse der richtige Content-Type zugeordnet.</p>
+
+<p>Auch bei der Konvertierung der REST-Antworten werden verschiedene Zwischenschritte benötigt.
+Wenn die REST-API nicht den Statuscode 200 zurückgibt, wird die Antwort in ein gültiges SOAP-Fault umgewandelt.</p>
+
+<p>Bei der Umwandlung der Antwort in XML wird besonders darauf geachtet, dass die Reihenfolge der Attribute des Rückgabetyps mit der Reihenfolge in der WSDL übereinstimmen.
+Dafür wird die automatisch generierte Konfiguration des Plugins verwendet.</p>
+
+<h4 id="auswirkungen-auf-die-verfügbarkeit">Auswirkungen auf die Verfügbarkeit</h4>
+<p>Damit der Einsatz des Plugins sich lohnt, sollte die Verfügbarkeit der Schnittstelle nicht unter dem Einsatz des Plugins leiden.
+Um die Auswirkungen des Plugins auf die Verfügbarkeit der Schnittstelle zu testen, wurde ein Performance- und ein Lasttest vorgenommen.</p>
+
+<h5 id="durchführung-eines-performancetests">Durchführung eines Performancetests</h5>
+<p>Der Performancetest besteht aus vier verschiedenen Anfragen, welche jeweils 10-mal wiederholt wurden.
+Zwei der vier Anfragen liefern nur einen HTTP Status Code von 200 und 300 zurück.
+Die dritte Anfrage sendet mit einem HTTP POST ein kleines JSON Objekt an die Schnittstelle.
+Und die vierte Anfrage versucht die Grenzen der Schnittstelle auszuloten, indem eine Datei an die Schnittstelle gesendet wird.</p>
+
+<p>Die nachfolgende Grafik zeigt links die Ergebnisse des Performancetests auf die REST-API und rechts die Ergebnisse der SOAP-Schnittstelle.</p>
+
+<p><img src="/assets/images/posts/Konvertierung-einer-REST-API-zu-einer-SOAP-Schnittstelle-mithilfe-von-Kong/Performancetest.png" alt="Vergleich der Anfragezeiten" /></p>
+
+<p>Im direkten Vergleich fällt auf, dass die Performance nur beim Senden von Dateien leidet.
+Die Performance aller andern Anfragen verändert sich nur geringfügig.</p>
+
+<p>Der Anstieg der Antwortzeit ist darauf zurückzuführen, dass bei SOAP-Anfragen deutlich mehr Daten an die Schnittstelle gesendet werden müssen.</p>
+
+<h5 id="durchführung-eines-lasttests">Durchführung eines Lasttests</h5>
+<p>Im Gegensatz zum Performancetest wurden die vier Anfragen 250-mal parallel ausgeführt.
+Um ein aussagekräftiges Ergebnis zu erhalten wurde dieser 10-mal wiederholt.</p>
+
+<p>Die folgende Grafik zeigt die Ergebnisse des Lasttests.</p>
+
+<p><img src="/assets/images/posts/Konvertierung-einer-REST-API-zu-einer-SOAP-Schnittstelle-mithilfe-von-Kong/Lasttest.png" alt="Lasttest" /></p>
+
+<p>Auf den ersten Blick fällt auf, dass die SOAP-Schnittstelle bei vielen parallelen Anfragen längere Antwortzeiten aufweist, als die REST-API.
+Vor allem das Senden von Dateien führt zu einem deutlichen Anstieg der Antwortzeit.
+Der Kommunikationsaufwand in Verbindung mit den vielen gleichzeitigen Anfragen auf die Schnittstelle ist für die langsamere Antwortzeit verantwortlich.</p>
+
+<h4 id="fazit">Fazit</h4>
+<p>Zusammenfassend lässt sich sagen, dass die Nutzung dieses Kong Plugins den Vorteil hat, dass nicht beide Schnittstellen implementiert werden müssen.
+Ein Nachteil ist die zusätzliche Wartezeit auf die Antwort der Schnittstelle, da sich hinter jeder SOAP-Anfrage eine Anfrage auf die REST-API verbirgt.
+Diese Verzögerung kann allerdings vernachlässigt werden, da erst bei vielen parallelen Anfragen ein deutlich längere Wartezeit entsteht.
+Im Großen und Ganzen überwiegen die Vorteile des Plugins die Nachteile.</p>
+
+</div>
+</div>
+</div>
+</div>]]></field>
+    </document>
+</documents>

@@ -11,11 +11,11 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       issues: write
-    
+
     steps:
       - name: Inject env
         uses: rlespinasse/github-slug-action@v3.x
-  
+
       - uses: actions/checkout@v2
 
       - name: git log
@@ -32,7 +32,7 @@ jobs:
         env:
           ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
         working-directory: /home/runner/work/devblog/devblog
-              
+
       - uses: actions/checkout@v2
         with:
           repository: ${{ github.event.pull_request.user.login }}/${{ env.GITHUB_REPOSITORY_NAME_PART }}
