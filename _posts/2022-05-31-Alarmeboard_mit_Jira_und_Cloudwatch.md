@@ -340,7 +340,7 @@ Dabei ist es möglich die Bedingung der Regel auf Tickets einzuschränken, die s
 
 Über den Then-Part der Regel lässt sich dann eine E-Mail auslösen, die an einen Verteiler gerichtet werden kann und direkt auf die noch zu bearbeitenden Tickets referenziert:
 ```html
-Bitte den Alarm bearbeiten: <a href="https://karstadt.atlassian.net/browse/{{issue.key}}">{{issue.key}}</a>
+Bitte den Alarm bearbeiten: <a href="https://myproject.atlassian.net/browse/{{issue.key}}">{{issue.key}}</a>
 ```
 
 **Projektbezogene Zuweisung von Tickets**
