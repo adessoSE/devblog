@@ -12,7 +12,7 @@ In diesem Blogbeitrag wollen wir euch eine kurze Übersicht zu Spring Webflux ge
 Zusätzlich gibt der Beitrag eine kleine Starthilfe mit einer Auswahl an Codebeispielen, damit ihr erfolgreich im Projekt durchstarten könnt.
 
 >In Wikipedia ist reaktive Programmierung wie folgt beschrieben:
-Bei der Datenverarbeitung ist Reaktive Programmierung ein Programmierparadigma, das sich an Datenflüssen orientiert.
+Bei der Datenverarbeitung ist reaktive Programmierung ein Programmierparadigma, das sich an Datenflüssen orientiert.
 Das zugrunde liegende Ausführungsmodell propagiert Änderungen in den Datenflüssen automatisch.
 
 Seit Version 5 unterstützt das Spring-Framework reaktive Programmierung und bietet reaktive Implementierungen für Webanwendungen, 
