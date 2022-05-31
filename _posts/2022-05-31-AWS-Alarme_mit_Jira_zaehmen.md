@@ -1,7 +1,7 @@
 ---
 layout: [post, post-xml]              
-title:  "Automatisiert Jira-Tickets aus AWS-Alarmen erzeugen"         
-date:   2022-04-26 10:00              
+title:  "Tame the beast - AWS-Alarme mit Jira zähmen"         
+date:   2022-05-31 10:00              
 author_ids: [kaythielmann,sczubek]
 categories: [Softwareentwicklung]           
 tags: [DevOps, Lambda, Cloudwatch, Jira, AWS, Cloud]        
@@ -301,7 +301,7 @@ Ein Aufruf der Jira API für zwei Log-Einträge könnte also wie folgt aussehen:
 ## Zusammenspiel der Komponenten
 Wenn wir die hier erstellten Komponenten zusammen betrachten, ergibt sich folgendes Gesamtbild der technischen Infrastruktur:
 
-![Aufbau der technischen Infrastruktur](/assets/images/posts/Alarmeboard_mit_Jira_und_Cloudwatch/Alarme_Konzept.png)
+![Aufbau der technischen Infrastruktur](/assets/images/posts/AWS_Alarme_mit_Jira_zaehmen/Alarme_Konzept.png)
 Eine nahezu beliebige Anzahl von Alarmen können auf Basis von Metriken oder Protokollfiltern definiert werden und senden ihre Events an ein SNS Topic ("Create Ticket").
 Dieses stößt unsere erste Lambda an, die dafür zuständig ist das Ticket im Jira initial anzulegen.
 Sobald dies erfolgreich erledigt wurde, kann das Event an ein weiteres SNS Topic ("Add Logs") weitergeleitet werden.
