@@ -298,7 +298,7 @@ Ein Aufruf der JIRA-API für zwei Logeinträge könnte also wie folgt aussehen:
 ## Zusammenspiel der Komponenten
 Wenn wir die hier erstellten Komponenten zusammen betrachten, ergibt sich folgendes Gesamtbild der technischen Infrastruktur:
 
-![Aufbau der technischen Infrastruktur](..\assets\images\posts\Alarmeboard_mit_Jira_und_Cloudwatch\Alarme_Konzept.png)
+![Aufbau der technischen Infrastruktur](/assets/images/posts/Alarmeboard_mit_Jira_und_Cloudwatch/Alarme_Konzept.png)
 Eine nahezu beliebige Anzahl von Alarmen können auf Basis von Metriken oder Protokollfiltern definiert werden und senden ihre Events an ein SNS-Topic ("Create Ticket").
 Dieses stößt unsere erste Lambda an, die dafür zuständig ist das Ticket im Jira initial anzulegen.
 Sobald dies erfolgreich erledigt wurde, kann das Event an ein weiteres SNS-Topic ("Add Logs") weitergeleitet werden.
