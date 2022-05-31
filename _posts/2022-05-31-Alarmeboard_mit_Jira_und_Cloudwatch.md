@@ -348,7 +348,7 @@ Bitte den Alarm bearbeiten: <a href="https://myproject.atlassian.net/browse/{{is
 In einigen Fällen mag es sinnvoll sein, dass bestimmte Tickets immer bei einem bestimmten Entwickler landen sollen.
 Über den Trigger "Vorgang erstellt", bekommt Jira mit, wenn ein neues Ticket angelegt wird.
 Damit lassen sich dann wieder Bedingungen verknüpfen.
-Zum Beispiel kann das Feld "Stichwort", in welches wir in der Lambda den Projektnamen geschrieben haben, nach einem bestimmten Wert durchsucht werden.
+Zum Beispiel kann das Feld "Stichwort", in welches wir unter dem technischen Namen "subject" in der Lambda den Projektnamen geschrieben haben, nach einem bestimmten Wert durchsucht werden.
 Wird das Projekt gefunden, so können wir den Vorgang einem Entwickler zuweisen und sogar direkt in den Status "In Progress" verschieben.
 
 **Weitere Ideen**
