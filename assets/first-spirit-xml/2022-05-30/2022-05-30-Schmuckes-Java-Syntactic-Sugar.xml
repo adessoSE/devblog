@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<documents>
+    <document uid="c8b9b94efb0dfd8214c73cf11bf94be2">
+        <field name="title"><![CDATA[Schmuckes Java - Syntactic Sugar von Project Amber]]></field>
+        <field name="subline"><![CDATA[]]></field>
+        <field name="teaser"><![CDATA[<p>Javas Sprachfeatures gelten als gealtert und benötigt viel Boilerplate-Code.
+Das OpenJDK Project Amber greift diese Schwächen von Java u.a. mit Syntactic Sugar an.</p>
+
+]]></field>
+        <field name="language_multi_keyword"><![CDATA[de]]></field>
+        <field name="content_type_multi_keyword"><![CDATA[blog]]></field>
+        <field name="mime_type_multi_keyword"><![CDATA[text/html]]></field>
+        <field name="category_multi_keyword"><![CDATA[Softwareentwicklung]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Java]]></field>
+        <field name="tag_multi_keyword"><![CDATA[OpenJDK]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Project Amber]]></field>
+        <field name="date_date"><![CDATA[2022-05-30T13:00:00+02:00]]></field>
+        <field name="date_l"><![CDATA[1653908400000]]></field>
+        <field name="change_date"><![CDATA[1653908400000]]></field>
+        <!--Author Information-->
+        <field name="author_id"><![CDATA[MBoegers]]></field><!--Postcontent-->
+        <field name="headlines"><![CDATA[Schmuckes Java - Syntactic Sugar von Project Amber]]></field>
+        <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
+            <p>Javas Sprachfeatures gelten als gealtert und benötigt viel Boilerplate-Code.
+Das OpenJDK Project Amber greift diese Schwächen von Java u.a. mit Syntactic Sugar an.</p>
+
+</div>]]></field>
+        <field name="content"><![CDATA[<div class="adesso-text-formate">
+<div class="row p-t-2">
+<div class="adesso-container">
+<div class="col-xl-8 adesso-center p-b-1 p-l-0 p-r-0">
+    <p>Javas Sprachfeatures gelten als gealtert und benötigt viel Boilerplate-Code.
+Das OpenJDK Project Amber greift diese Schwächen von Java u.a. mit Syntactic Sugar an.</p>
+
+<p>Langer Quellcode und Workarounds senken die Lesbarkeit, Verständlichkeit und nicht zuletzt die Produktivität während der Entwicklung mit Java.
+Mit auf den ersten Blick unbedeutend wirkenden Erweiterungen modernisiert Project Amber die Sprache Java und verbessert die Produktivität in der Entwicklung.
+In diesem Blogbeitrag zeige ich euch den Syntactic Sugar, den Project Amber mitbringt, und möchte euch motivieren, diesen auszuprobieren.
+In weiteren Beiträgen werden wir noch die anderen Änderungen beleuchten.</p>
+
+<h4 id="was-ist-ein-openjdk-project">Was ist ein OpenJDK Project?</h4>
+<p>OpenJDK ist eine Community von Entwicklerinnen und Entwicklern aus dem Open-Source-Bereich, die sich mit der Weiterentwicklung der Java-Plattform beschäftigen.
+Die OpenJDK-Community besteht aus ständigen <a href="https://openjdk.java.net/groups/">Gruppen</a>, die sich jeweils um einen eigenen Themenbereich, beispielsweise den Compiler, kümmern.
+Neben den Gruppen gibt es noch <a href="https://openjdk.java.net/projects/">Projekte</a>, deren Ziel es ist, eigene Artefakte beizusteuern, und die von mindestens einer Gruppe gefördert werden.
+Diese Artefakte können Tools, Dokumentationen oder Sprachfeatures sein und werden über <strong>J</strong>DK <strong>E</strong>nhancement <strong>P</strong>roposals (JEP) umgesetzt.
+Der Prozess, den ein JEP dabei durchläuft, könnt ihr auf der OpenJDK-Seite unter <a href="https://openjdk.java.net/jeps/1">JEP-1</a> nachlesen.
+Bevor wir uns die einzelnen JEPs von Project Amber genauer ansehen, lasst uns noch kurz einen Blick auf die Zielsetzung von Project Amber werfen.</p>
+
+<h4 id="was-macht-project-amber">Was macht Project Amber?</h4>
+<p><a href="https://openjdk.java.net/projects/amber/">Project Amber</a> wurde von Brian Goetz und Gavin Bierman ca. Mitte 2017 initiiert.
+Seitdem arbeitet das Project Amber daran, kleine und Produktivität steigernde Java Sprachfeatures zu erforschen und zu implementieren.
+Das durch die Compiler Group geförderte Vorhaben nutzt hierbei einen mehrstufigen Preview-Prozess.
+Dieser Prozess soll verhindern, dass Sprachfeatures übernommen werden, welche nicht die Anforderungen der Community befriedigt.
+Einige dieser <em>Preview-Features</em> werden wir in den nächsten Blogeinträg sehen.
+Nicolai Parlog hat einen sehr guten <a href="https://nipafx.dev/enable-preview-language-features/">Artikel</a> dazu verfasst, in dem er zeigt, wie Preview-Features auch mit Buildtools genutzt werden kann.</p>
+
+<p>Im Folgenden werden wir uns die einzelnen JEPs ansehen, dabei orientieren wir uns an einer inhaltlichen Gruppierung und nicht an der zeitlichen Reihenfolge nach Erscheinen der JEPs.</p>
+
+<h4 id="was-project-amber-geliefert-hat">Was Project Amber geliefert hat</h4>
+<p>Die bisherigen JEPs des Project Amber lassen sich grob in drei Gruppen aufteilen:</p>
+<ol>
+  <li><em>Syntactic Sugar</em>, um die Entwicklung angenehmer zu gestalten</li>
+  <li><em>Erweiterung am Java Typ System</em>, um mit algebraischen Datentypen die Grundlage für Pattern Matching zu legen</li>
+  <li><em>Pattern Matching für Java</em>, um Java um ein mächtiges Werkzeug aus der funktionalen Programmierung zu erweitern</li>
+</ol>
+
+<p>In diesem Teil kümmern wir und um den Syntactic Sugar, den uns das Project Amber liefert.</p>
+
+<h4 id="syntactic-sugar-für-java">Syntactic Sugar für Java</h4>
+<p>In der Gruppe Syntactic Sugar habe ich die JEPs zusammengefasst, welche als Ziel haben, die kognitive Last während der Entwicklung zu verringern.
+Neben der automatischen Typinferenz für lokale Variablen finden wir in dieser Gruppe auch noch mehrzeilige Strings und eine neue Art der <code>switch</code>-Anweisung.</p>
+
+<h5 id="jep-286-local-variable-type-inference">JEP-286: Local-Variable Type Inference</h5>
+<p>Bei der lokalen Typinferenz wird der Compiler durch das Keyword <code>var</code> angewiesen, den Typ von lokalen Variablen automatisch zu bestimmen.
+Das Keyword <code>var</code> kann nur in Verbindung mit einer direkten Zuweisung verwendet werden und es kann mit dem <code>final</code> Keyword kombiniert werden.
+Im Übrigen ist <code>var</code> das erste konditionale Keyword und ist nur im Rahmen der Variablendefinition geschützt.
+Als Name von Variablen, Methoden oder Klassen ist es zulässig.
+Seid <a href="https://openjdk.java.net/jeps/286">JEP-286</a> und dem finalen Stand von Java 10 ist es nicht mehr notwendig, Typinformationen zu doppeln oder komplexe generische Typen auszuschreiben.</p>
+<pre><code class="language-java">// repeated information
+List&lt;String&gt; lineList = new ArrayList&lt;String&gt;();
+// no duplications
+var lines = new ArrayList&lt;String&gt;();
+final var readLines = lines.size();
+</code></pre>
+
+<h5 id="jep-323-local-variable-syntax-for-lambda-parameters">JEP 323: Local-Variable Syntax for Lambda Parameters</h5>
+<p>Mit <a href="https://openjdk.java.net/jeps/323">JEP-323</a> in Java 11 ist es möglich, das Keyword <code>var</code> auch bei der Definition von Lambda-Parametern zu verwenden.
+Damit ist die Syntax von Lambdas angeglichen worden und es ist möglich, Lambda-Parameter mit Annotationen zu versehen.</p>
+<pre><code class="language-java">BiConsumer&lt;String&gt;, String&gt; safeSink = (@Nonnull var x, final var y) -&gt; x.accept(y);
+</code></pre>
+
+<h5 id="jep-378-text-blocks">JEP 378: Text Blocks</h5>
+<p>Bei der Verwendung von mehrzeiligen Strings geht es meistens darum, die Lesbarkeit im Sourcecode sowie bei der Verwendung zu verbessern.
+Vor Java 15 und <a href="https://openjdk.java.net/jeps/378">JEP-378</a> waren formatierte mehrzeilige Strings nur unter Verwendung von vielen <code>+</code>, <code>\n</code> und <code>\t</code> möglich.
+Seit Java 15 und JEP-378 beginnt und endet ein Textblock mit <code>"""</code> sowie einem Zeilenumbruch.</p>
+<pre><code class="language-java">String helloWorldResponse = """
+    &lt;html&gt;
+        &lt;body&gt;
+            &lt;p&gt;Hello, world&lt;/p&gt;
+        &lt;/body&gt;
+    &lt;/html&gt;""";
+</code></pre>
+<p>Die Einrückung des Blocks wird dabei nicht in das Ergebnis übernommen.
+Jim Laskey und Stuart Marks haben mit dem <a href="https://openjdk.java.net/projects/amber/guides/text-blocks-guide">Programmer’s Guide to Textblocks</a> eine genaue Beschreibung veröffentlicht.</p>
+
+<h5 id="jep-361-switch-expressions">JEP 361: Switch Expressions</h5>
+<p>Die <code>switch</code>-Anweisung hat in ihrer Geschichte einige Verbesserungen erlebt, es gibt aber auch berechtigte Kritik.
+Neben der leicht zu übersehenden Fall-Through-Semantik und der unhandlichen Fehlerbehandlung ist es auch nicht möglich, dass die <code>switch</code>-Anweisung einen Wert zurückgibt.
+Seid Java 14 und dem <a href="https://openjdk.java.net/jeps/361">JEP-361</a> löst switch <em>on steroids</em> diese Kritik in Luft auf.</p>
+<pre><code class="language-java">int j = switch (day) {// enum Days {MONDAY, …}
+  case MONDAY, null -&gt; 0;
+  case TUESDAY -&gt; 1;
+  default -&gt; {
+    int k = day.toString().length();
+    yield k;
+  }
+};
+</code></pre>
+<p>In dem Listing sehen wir alle Änderungen in einem Codeblock, wir gehen sie aber einzeln durch:</p>
+<ul>
+  <li>Die <strong><code>switch</code>-Anweisung</strong> liefert einen Wert zurück, welcher in <code>j</code> gespeichert wird. Bei einzeiligen <code>case</code>-Blöcken kann der Wert einfach ausgeschrieben werden, bei mehrzeiligen Blöcken muss das Keyword <code>yield</code> verwendet werden.</li>
+  <li>Auf die <strong>Fall-Through-Semantik</strong> wird mit <code>-&gt;</code> verzichtet. Hier können mit Komma getrennt eine Liste von Case Labels angegeben werden, um mehrere Zweige zu gruppieren.</li>
+  <li>Die <strong>Fehlerbehandlung</strong> kann explizit geschehen, da <code>null</code> jetzt ein legales Case Label ist. Wird der case <code>null</code> nicht explizite behandelt, so verhält sich die <code>switch</code>-Anweisung wie gewohnt.</li>
+  <li>Es müssen alle möglichen Cases abgedeckt oder default verwendet werden. Dies funktioniert auch für die neuen Sealed Classes.</li>
+</ul>
+
+<h5 id="pläne-für-die-zukunft">Pläne für die Zukunft</h5>
+<p>Anhand von Entwürfen und JEPs, die noch keine Zielversion haben, lässt sich erahnen, auf welche Neuerungen wir in Zukunft hoffen können.</p>
+
+<h6 id="jep-302-lambda-leftovers">JEP-302: Lambda Leftovers</h6>
+<p><a href="https://openjdk.java.net/jeps/302">JEP-302: Lambda Leftovers</a> soll die Benutzbarkeit von Lambdas verbessen, indem nicht genutzte Parameter nicht definiert werden müssen und Lambda-Parameter keine lokalen Variablen mehr überschreiben können.
+Im Listing unten wird der zweite Parameter nicht verwendet und mit <code>_</code> als ungenutzt markiert.
+Die lokale Variable <code>String key</code> wird nicht durch den Lambda-Parameter <code>Integer key</code> überschrieben.</p>
+<pre><code class="language-java">String key = "Not shadowed"
+BiFunction&lt;Integer, String, String&gt; bliss = (key,_) -&gt; String.valueOf(key);
+</code></pre>
+<h6 id="jep-draft-concise-method-bodies">JEP draft: Concise Method Bodies</h6>
+<p>Mit <a href="https://openjdk.java.net/jeps/8209434">Concise Method Bodies</a> soll die Schreibweise für einzeilige Methoden vereinfacht werden.
+Dadurch sollen Klassen mit vielen einfachen Methoden besser lesbar gemacht werden.
+Dieses JEP ist noch ein Entwurf und es ist nicht sicher, ob diese Änderung jemals Teil der Sprache Java wird.</p>
+<pre><code class="language-java">class IntegerValue {
+    final Integer value;
+    String toString() = value::toString;
+    Integer add(int i) -&gt; Integer.valueOf(value + i);
+}
+</code></pre>
+
+<h6 id="jep-draft-string-templates">JEP draft: String Templates</h6>
+<p><a href="https://openjdk.java.net/jeps/8273943">String Templates</a> sollen Java um String Templates erweitern.
+Durch eine Änderung in der Syntax von Strings sollen lokal sichtbare Variablen in Strings eingebunden werden können.
+Für dieses JEP ist noch nicht klar, ob und wie dieses Feature in Java integriert werden soll.</p>
+
+<h4 id="zusammenfassung">Zusammenfassung</h4>
+<p>Wir haben gesehen, welche neuen Sprachkonstrukte Project Amber eingebracht hat.
+Alle diese Konstrukte tragen zum <em>neuen Java</em> bei und vereinfachen die Arbeit mit der Sprache.
+Die Aussichten auf die noch kommenden JEP lässt auf eine sehr moderne Sprache Java hoffen.
+In den nächsten Teilen werden wir uns den Erweiterungen am Java Type System und dem Pattern Matching für Java widmen.</p>
+
+</div>
+</div>
+</div>
+</div>]]></field>
+    </document>
+</documents>
