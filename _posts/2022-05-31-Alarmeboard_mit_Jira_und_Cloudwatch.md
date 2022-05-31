@@ -148,7 +148,7 @@ Der Inhalt von Records.*.Sns.Message wurde zur besseren Lesbarkeit in einen eige
 }
 ```
 
-Bei genauerer Betrachtung des Events stellen wir fest, dass insbesondere die Felder "AlarmName", "AlarmDescription", "NewStateReason" sowie "StateChangeTime" besonders interessant sind.
+Bei genauerer Betrachtung des Events stellen wir fest, dass insbesondere die Felder "AlarmName", "AlarmDescription", "NewStateReason" sowie "StateChangeTime" interessant sind.
 Wenn der Cloudwatch-Alarmname dem gewünschten Namensschema der Jira-Alarmtickets entspricht, so kann dieser genau so übernommen werden. 
 Andernfalls muss dieser in das gewünschte Format übertragen werden. 
 Konventionen unterstützen bei diesem Schritt sehr.
