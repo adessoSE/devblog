@@ -20,8 +20,8 @@ DevOps ist ein Thema, welches in unterschiedlichsten Teams auf unterschiedliche 
 Mal gibt es eigene DevOps Teams, mal wird der Betrieb der Anwendung im Entwicklungsteam parallel zu deren Weiterentwicklung gehandhabt.
 
 Aber egal wie man das Thema angeht: Am Anfang steht das Bedürfnis, direkt und automatisiert über Fehlerzustände der Systeme informiert zu werden.
-Das gängige Mittel der Wahl unter AWS sind Cloudwatch-Alarme, die Bedingungen an Metriken oder Protokollfilter knüpfen können.
-Sobald die entsprechende Bedingung erfüllt ist, wird eine Aktion ausgeführt.
+Das gängige Mittel der Wahl unter AWS sind Cloudwatch-Alarme, die mit Metriken oder Protokollen verknüpft werden können.
+Sobald die Alarmbedingung erfüllt ist (beispielsweise wird ein bestimmter Schwellwert gebrochen oder ein Error-Log taucht im Protokoll auf), wird eine Aktion ausgeführt.
 Dies kann zum Beispiel eine Skalierungsaktion für den entsprechenden Service oder auch das Senden eines Events z.B. an ein Topic im Simple Notification Service sein.
 Landen die Alarm-Events einmal in einem Topic ist es ein leichtes die Information via E-Mail an alle Entwickler zu verteilen, die darauf reagieren sollten.
 
