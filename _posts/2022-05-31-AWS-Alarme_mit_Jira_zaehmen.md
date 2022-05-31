@@ -266,7 +266,7 @@ final FilterLogEventsRequest filterLogEventsRequest = FilterLogEventsRequest.bui
         } while(response.nextToken() != null && context.getRemainingTimeInMillis() > TimeUnit.MINUTES.toMillis(1L)); // rechtzeitig abbrechen
 ```
 
-#### Stolperstein 3: Ratelimits
+**Stolperstein 3: Ratelimits**
 Werden zu viele Suchabfragen in zu kurzer Zeit gestellt kann das Ratelimit der Cloudwatch API überschritten werden.
 In diesem Fall wird eine `CloudwatchLogException` bei dem Aufruf von `cloudwatchClient#filterLogEvents(FilterLogEventsRequest)` geworfen.
 Kommt es zu einer solchen Exception können wir diese einfach fangen und die Suchanfrage nach einer kurzen Pause erneut absetzen.
