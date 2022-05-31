@@ -81,7 +81,7 @@ Ausgenommen hiervon ist die Methode ``zipWhen``, die nur für Monos implementier
 
 ## map und flatMap
 Diese Methoden werden allen, die schon mit Java Streams oder funktionalen Programmiersprachen gearbeitet haben, bekannt vorkommen.
-Sie sollten immer dann genutzt werden, wenn man das Ergebnis eines Monos oder Fluxes weiter verarbeiten möchte.
+Sie sollten immer dann genutzt werden, wenn man das Ergebnis eines Mono oder Flux weiter verarbeiten möchte.
 Angenommen, ich habe in einem Request die Daten eines Nutzers in einer API abgefragt, brauche im Folgenden aber nur das Kürzel,
 das aus Vor- und Nachname gebildet werden kann.
 ``` Java
