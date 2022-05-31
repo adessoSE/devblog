@@ -325,7 +325,7 @@ Aber die laufenden Kosten können wir hier zumindest grob überschlagen:
 Am Ende können wir sagen, dass die laufenden Kosten für die hier verwendeten Komponenten selbst jenseits des Freetiers zu vernachlässigen sind.
 
 # Automatisierung in Jira nutzen
-Für die Bearbeitung von Alarmen in Jira bietet sich ein Kanban Board spontan an.
+Für die Bearbeitung von Alarmen in Jira bietet sich ein Kanban Board an.
 Für das Board lassen sich Automatisierungen einrichten, die die Arbeit mit den Alarmtickets weiter erleichtern.
 Folgende Ideen lassen sich mit wenigen Klicks umsetzen:
 
