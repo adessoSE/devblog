@@ -16,7 +16,7 @@ Mit Jira ist ein Tool gegeben, welches sowieso schon in vielen Projekten Einsatz
 Wie dieses genutzt werden kann um die Alarme und ihren Status zu visualisieren wollen wir im Folgenden beschreiben.
 
 # Wie entstand der Bedarf an der Lösung?
-DevOps ist ein Thema, welches in unterschiedlichsten Teams, auf unterschiedliche Art gelebt wird. 
+DevOps ist ein Thema, welches in unterschiedlichsten Teams auf unterschiedliche Art gelebt wird. 
 Mal gibt es eigene DevOps Teams, mal wird der Betrieb einer Lösung im Entwicklungsteam parallel zur Weiterentwicklung gehandhabt.
 
 Aber egal wie man das Thema angeht, steht am Anfang das Bedürfnis danach direkt und ohne manuelle Tätigkeit über Fehlerzustände der Systeme informiert zu werden.
