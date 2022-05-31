@@ -581,7 +581,6 @@ scarstenen:
 schroeerth:
   first_name: Thomas
   last_name: Schröer
-  email: thomas.schroeer@adesso.de
   bio: "Thomas Schröer ist Fullstack Senior Software Engineer im Bereich Manufacturing Industry. Sein Schwerpunkt liegt in der Backendentwicklung mit Java und Spring."
   avatar_url: /assets/images/avatars/thomas_schroeer.jpg
   github_username: schroeerth
@@ -590,7 +589,6 @@ schroeerth:
 friggej:
   first_name: Jens
   last_name: Frigge
-  email: jens.frigge@adesso.de
   bio: "Jens Frigge ist Senior Software Engineer im Bereich Manufacturing Industry mit dem Schwerpunkt auf Java-Backendentwicklung."
   avatar_url: /assets/images/avatars/friggej.png
   github_username: JensFriggeAdesso
