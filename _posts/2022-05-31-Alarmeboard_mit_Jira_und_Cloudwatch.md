@@ -29,6 +29,10 @@ Landen die Alarm-Events einmal in einem Topic ist es ein leichtes die Informatio
 
 Als Beispiel soll uns hier ein Alarm dienen, der immer dann ein Event an ein konfigurierbares Topic sendet, wenn eine Message in einer Dead Letter Queue (kurz DLQ) gelandet ist:
 ```terraform
+resource "aws_sns_topic" "alarm" {
+  name = "MyProject-Alarme-Stage"
+}
+
 resource "aws_cloudwatch_metric_alarm" "dlq_alarm" {
    alarm_name                = "MyProject-DlqAlarm-Stage"
    comparison_operator       = "GreaterThanOrEqualToThreshold"
@@ -37,16 +41,13 @@ resource "aws_cloudwatch_metric_alarm" "dlq_alarm" {
    namespace                 = "AWS/SQS"
    period                    = "60"
    statistic                 = "Sum"
-   threshold                 = "1"
-   ok_actions                = []
-   insufficient_data_actions = []
+   threshold                 = 1
    datapoints_to_alarm       = 1
    alarm_description         = "Sends an event when there are messages in the DLQ"
    dimensions = {
       "QueueName" = aws_sqs_queue.dlq.name
    }
-   alarm_actions = [var.alarmTopicSns]
-   tags          = var.tags
+   alarm_actions = [aws_sns_topic.alarm.arn]
 }
 ```
 Damit könnte man meinen das Thema sei durch.
