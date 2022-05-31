@@ -11,9 +11,11 @@ tags: [Java, Spring, Webflux, Reaktive Programmierung] # Bitte auf Großschreibu
 In diesem Blogbeitrag wollen wir euch eine kurze Übersicht zu Spring Webflux geben.
 Zusätzlich gibt der Beitrag eine kleine Starthilfe mit einer Auswahl an Codebeispielen, damit ihr erfolgreich im Projekt durchstarten könnt.
 
->In Wikipedia ist reaktive Programmierung wie folgt beschrieben:
+```
+In Wikipedia ist reaktive Programmierung wie folgt beschrieben:
 Bei der Datenverarbeitung ist reaktive Programmierung ein Programmierparadigma, das sich an Datenflüssen orientiert.
 Das zugrunde liegende Ausführungsmodell propagiert Änderungen in den Datenflüssen automatisch.
+```
 
 Seit Version 5 unterstützt das Spring-Framework reaktive Programmierung und bietet reaktive Implementierungen für Webanwendungen, 
 Datenbankzugriffe, Security und streambasierte Datenverarbeitung.
@@ -40,6 +42,7 @@ _**Publisher:**_ Der _Publisher_ ist verantwortlich für die Veröffentlichung v
 _**Processor:**_ Ein _Processor_ transformiert Elemente, die zwischen _Publisher_ und _Subscriber_ übertragen werden
 
 ![image of reactive streams interfaces](/assets/images/posts/reaktive-programmierung-mit-spring-webflux/reactivestream.png)
+![image of reactive streams sequence](/assets/images/posts/reaktive-programmierung-mit-spring-webflux/reactiveStreamSequence.png)
 
 Das Projekt Reactor bietet zwei Implementierungen des Interface _Publisher_ an, _Mono_ und _Flux_, welche in den folgenden Beispielen oft genutzt werden.
 _Flux_ ist dabei als asynchrone Abfolge von 0-N Elementen und Mono als 0-1 Element implementiert.
