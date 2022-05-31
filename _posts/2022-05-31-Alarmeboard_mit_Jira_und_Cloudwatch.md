@@ -19,7 +19,7 @@ Wie dieses genutzt werden kann um die Alarme und ihren Status zu visualisieren w
 DevOps ist ein Thema, welches in unterschiedlichsten Teams auf unterschiedliche Art gelebt wird. 
 Mal gibt es eigene DevOps Teams, mal wird der Betrieb der Anwendung im Entwicklungsteam parallel zu deren Weiterentwicklung gehandhabt.
 
-Aber egal wie man das Thema angeht, steht am Anfang das Bedürfnis danach direkt und ohne manuelle Tätigkeit über Fehlerzustände der Systeme informiert zu werden.
+Aber egal wie man das Thema angeht: Am Anfang steht das Bedürfnis, direkt und automatisiert über Fehlerzustände der Systeme informiert zu werden.
 Das gängige Mittel der Wahl unter AWS sind Cloudwatch-Alarme, die Bedingungen an Metriken oder Protokollfilter knüpfen können.
 Sobald die entsprechende Bedingung erfüllt ist, wird eine Aktion ausgeführt.
 Dies kann zum Beispiel eine Skalierungsaktion für den entsprechenden Service oder auch das Senden eines Events z.B. an ein Topic im Simple Notification Service sein.
