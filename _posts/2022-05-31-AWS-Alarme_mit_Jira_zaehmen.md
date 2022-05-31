@@ -13,7 +13,7 @@ Dabei den Überblick zu behalten, wichtige Alarme direkt zu priorisieren und die
 Natürlich darf nichts unter den Tisch fallen, und es sollte sichergestellt sein, dass klar ist, wer gerade welchen Alarm bearbeitet.
 
 Mit Jira ist ein Tool gegeben, welches sowieso schon in vielen Projekten Einsatz findet. 
-Wie dieses genutzt werden kann, um die Alarme und ihren Status zu visualisieren wollen wir im Folgenden beschreiben.
+Wie dieses genutzt werden kann, um die Alarme und ihren Status in den Griff zu bekommen wollen wir im Folgenden beschreiben.
 
 # Wie entstand der Bedarf an der Lösung?
 DevOps ist ein Thema, welches in unterschiedlichsten Teams auf unterschiedliche Art gelebt wird. 
