@@ -60,7 +60,7 @@ Es ergeben sich aber tatsächlich mehrere Probleme, für die Abhilfe geschaffen 
 3. Wie lesbar und damit wie schnell bearbeitbar sind diese erzeugten E-Mails überhaupt?
 
 Tatsache ist, dass wir hier auf ein Problem gestoßen sind.
-Es gibt immer wieder Alarme, die mehrfach auslösen, sodass es dazu kommen kann, dass mehrere Entwickler am gleichen Alarm arbeiten, ohne das kurzfristig zu erkennen.
+Es gibt immer wieder Alarme, die durch die gleiche Ursache ausgelöst wurden, sodass es dazu kommen kann, dass mehrere Entwickler am gleichen Thema arbeiten, ohne das kurzfristig zu erkennen.
 Gibt es mal eine größere Anzahl von Alarmen, ist das E-Mail-Postfach nicht der Ort, an dem man übersichtlich sicherstellen kann, dass alle Alarme bereits bearbeitet wurden.
 Und auch die Lesbarkeit der Mails lässt zu wünschen übrig.
 Es sind zwar alle notwendigen technischen Informationen enthalten, aber es beschleunigt die Bearbeitung ungemein, wenn man zum Beispiel einen Stacktrace aus den Logs direkt im Anhang findet.
