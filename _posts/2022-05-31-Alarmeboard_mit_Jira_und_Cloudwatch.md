@@ -67,6 +67,12 @@ Es sind zwar alle notwendigen technischen Informationen enthalten, aber es besch
 
 # Lambdas für die Erzeugung der Jira-Tickets nutzen
 
+Wir teilen die Aufgaben für die Erzeugung und Anreicherung der Jira-Tickets in zwei Lambdas auf.
+Damit erhöhen wir sowohl die Flexibilität als auch die Ausfallsicherheit der Lösung.
+Sobald die erste Lambda für das initiale Anlegen eines Jira-Tickets erfolgreich durchgelaufen ist, können wir dieses Ticket um Zusatzinformationen, deren Beschaffung dann auch langläufiger oder komplizierter sein kann, erweitern.
+In unserem Fall erweitern wir die Tickets bei protokollbasierten Alarmen im zweiten Schritt um den auslösenden Log-Eintrag.
+Der Ansatz an sich ist aber offen für Erweiterungen, die aus den Anforderungen anderer Projekte entstehen könnten.
+
 ## Ein Jira-Ticket anlegen
 
 Die Cloudwatch-Alarme werden so konfiguriert, dass sie eine Nachricht in ein SNS Topic schreiben, sobald sie auslösen. 
