@@ -50,7 +50,7 @@ Zurück bleiben Abwässer, die starke Säuren enthalten und auch radioaktiv sein
 
 In China sind die Umweltauflagen für den Bergbau sehr nachlässig.
 Eine fachgerechte Entsorgung der toxischen Schlämme ist die Ausnahme, eher werden sie in Absetzbecken dauerhaft deponiert.
-Laut einer [Fallstudie zu den Umwelt- und Sozialauswirkungen](https://www.umweltbundesamt.de/sites/default/files/medien/378/dokumente/umsoress_fallstudie_seltene_erden_china_bayan_obo.pdf), werden die Abwässer auch ungefiltert in Flüsse geleitet, während giftige Abgase sich als saurer Regen weiträumig niederschlagen.
+Laut einer [Fallstudie zu den Umwelt- und Sozialauswirkungen](https://www.umweltbundesamt.de/sites/default/files/medien/378/dokumente/umsoress_fallstudie_seltene_erden_china_bayan_obo.pdf) werden die Abwässer auch ungefiltert in Flüsse geleitet, während giftige Abgase sich als saurer Regen weiträumig niederschlagen.
 Die meisten Länder haben die Gewinnung seltener Erden in den 1990er Jahren eingestellt, weil der Import aus China billiger war und die Umweltprobleme weit weg blieben.
 
 Ein Problembewusstsein für die Abhängigkeit von nur einem Exportland entwickelte sich erst mit der Einführung von Exportquoten im Jahr 1999:
@@ -71,7 +71,7 @@ Hier ist die Gesetzgebung gefragt, ein Mindestmaß an Recyclingmaterial in Neuge
 
 Laut Bundesanstalt für Geowissenschaften und Rohstoffe stellt sich das Verhältnis vorhandener Ressourcen zur Jahresproduktion von seltenen Erden wie folgt dar:
 "Die Ressourcen von seltenen Erden betragen mehr als das Tausendfache der derzeitigen Jahresproduktion und sind somit deutlich höher als bei allen anderen wirtschaftsstrategischen Metallen.
-Allerdings findet ein Abbau in Ländern mit großen Ressourcen, wie in Brasilien oder Russland, derzeit nur sehr begrenzt oder gar nicht statt.
+Allerdings findet ein Abbau in Ländern mit großen Ressourcen wie in Brasilien oder Russland derzeit nur sehr begrenzt oder gar nicht statt.
 Problematisch ist in erster Linie die Wirtschaftlichkeit von Seltenerdprojekten, da insbesondere die benötigten Anlagen für die Weiterverarbeitung sehr komplex und somit kostenintensiv sind.
 Niedrige Weltmarktpreise und Umweltbedenken verhindern darüber hinaus, dass eines der zahlreichen gut exponierten Seltenerdprojekte außerhalb Chinas in Produktion geht."
 (Quelle: [Wissenschaftliche Dienste des deutschen Bundestags](https://www.bundestag.de/resource/blob/886424/16cb4318a6eaf7b2e5d2221d85e81927/WD-5-003-22-pdf-data.pdf))
@@ -84,7 +84,7 @@ In Elektrogeräten ist die Konzentration seltener Erden meistens so gering, dass
 Eine aktuelle Hoffnung ist das neu entwickelte Verfahren [Flash-Joule-Heating](https://www.scinexx.de/news/technik/blitz-verdampfen-recycelt-metalle/), das mit geringem Energieeinsatz den Großteil aller Metalle zurückgewinnt und störendes Plastik verkohlt.
 Bisher ist das Verfahren jedoch nur im Labor erprobt.
 Die erste Anlage im kommerziellen Maßstab befindet sich noch in der Entwicklung.
-Langfristig hat Flash-Joule-Heating vermutlich das Potenzial, Urban Mining auf eine neues Niveau zu heben.
+Langfristig hat Flash-Joule-Heating vermutlich das Potenzial, Urban Mining auf ein neues Niveau zu heben.
 
 Ein weiterer Ansatz ist [Lanmodulin](https://www.spektrum.de/news/recycling-protein-filtert-seltene-erden-aus-elektronikschrott/1941247).
 Dabei handelt es sich um ein von Bakterien produziertes Protein, das seltene Erden aus einer Lösung bindet.
@@ -92,12 +92,12 @@ Im Experiment gelang es, aus einer ähnlich wie Elektroschrott zusammengesetzten
 Da Lanmodulin erstaunlich stabil ist, kann das Absorbermaterial sogar mehrfach wiederverwendet werden.
 
 Bakterien haben natürliche Feinde, und zwar [Bakteriophagen](https://www.ingenieur.de/technik/fachbereiche/rohstoffe/wertvoller-elektronikschrott-viren-recyceln-seltene-erden/).
-Diese Viren, die in der Natur auf Bakterien spezialisiert sind, setzt das Helmholtz-Zentrums Dresden-Rossendorf auf magnetische Schwermetalle an.
+Diese Viren, die in der Natur auf Bakterien spezialisiert sind, setzt das Helmholtz-Zentrum Dresden-Rossendorf auf magnetische Schwermetalle an.
 Dafür wurden sie auf Magnetkügelchen verankert und so verändert, dass sie Ionen einer bestimmten Größe binden.
-Verrührt man sie in Wasser mit dem pulverisierten Elektroschrott, so bleibt das das gesuchte Metall kleben und wird anschließend mit einem Magenten aus der Lösung gefischt.
+Verrührt man sie in Wasser mit dem pulverisierten Elektroschrott, so bleibt das gesuchte Metall kleben und wird anschließend mit einem Magneten aus der Lösung gefischt.
 
 Biotechnologische Verfahren könnten zukünftig die Säuren im Bergbau ersetzen, um die in Skandinavien lagernden Erze umweltfreundlich abzubauen.
-Sogar die bisher als unrenatabel geltende Quelle im sächsischen Erzgebirge, wo Indium und seltenen Erden gemischt lagern, soll mit Hilfe von Bakterien wirtschaftlich erschlossen werden. ([Quelle: Circular Technology](https://circular-technology.com/bergbau-mit-bakterien-seltene-erden-aus-sachsen/))
+Sogar die bisher als unrentabel geltende Quelle im sächsischen Erzgebirge, wo Indium und seltene Erden gemischt lagern, soll mit Hilfe von Bakterien wirtschaftlich erschlossen werden. ([Quelle: Circular Technology](https://circular-technology.com/bergbau-mit-bakterien-seltene-erden-aus-sachsen/))
 
 Auch Abfälle aus der Produktion enthalten noch so viel Metall, dass sich die Filterung bald lohnen könnte.
 Zum Beispiel wurden im Abwasser eines Betriebs in Deutschland, der Katalysatoren für die Erdölindustrie herstellt, 50 mg/l Lanthan gemessen.
@@ -109,10 +109,10 @@ Ein Verfahren, um sie aus dem Schlick abzutrennen, wird derzeit entwickelt.
 
 # Welche Seltenerdmetalle gibt es?
 
-Insgesamt gibt es 17 Seltene Erden.
+Insgesamt gibt es 17 seltene Erden.
 Allerdings kommen nur 16 davon natürlich vor.
 
-Das zuletzt entdeckte, Promethium, ist radioaktiv mit einer Halbwertszeit von 17,7 Jahren.
+Das zuletzt entdeckte Promethium ist radioaktiv mit einer Halbwertszeit von 17,7 Jahren.
 Es wurde zwar in Form von Spuren in radioaktiven Erzen nachgewiesen, nennenswerte Mengen müssen jedoch künstlich als Spaltprodukt von Uran hergestellt werden.
 Entsprechend gering ist seine wirtschaftliche Bedeutung.
 
@@ -124,7 +124,7 @@ Alle 17 Elemente werden im Folgenden kurz vorgestellt.
 ## 1. Scandium
 
 Scandium leuchtet in Hochleistungs-​Hochdruck-​Quecksilberdampflampen, zum Beispiel als Stadionbeleuchtung.
-Denn zusammen mit Holmium und Dysprosium lässt sich eine Lichtfrbe mischen, die dem Tageslicht sehr nahe kommt.
+Denn zusammen mit Holmium und Dysprosium lässt sich eine Lichtfarbe mischen, die dem Tageslicht sehr nahe kommt.
 Es wird auch in magnetischen Datenspeichern und zur Herstellung von Laserkristallen verwendet.
 Hochwertigen Fahrradrahmen aus Aluminium wird ein Prozent Scandium zugesetzt, um die Zugfestigkeit der Legierung zu erhöhen.
 Benannt wurde es nach Skandinavien, wo es entdeckt wurde.
@@ -204,24 +204,24 @@ Der Name geht auf den Chemiker Gadolin zurück, der das Mineral Gadolinit entdec
 Terbium wird zum Dotieren von Halbleitern verwendet.
 Außerdem stabilisiert es das Gefüge von Hochtemperaturbrennstoffzellen.
 Ebenso findet es sich in Bildröhren und Leuchtstofflampen.
-Neodym-Eisen-Bor-Magneten wird es zugesetzt, um die Resistenz gegen Entmagnetisierung zu verbessern. 
+In Neodym-Eisen-Bor-Magneten wird es zugesetzt, um die Resistenz gegen Entmagnetisierung zu verbessern. 
 Benannt wurde es - wie auch Yttrium, Ytterbium und Erbium - nach seinem Entdeckungsort Ytterby in Schweden.
 
 ## 12. Dysprosium
 
 Das meiste Dysprosium wird in Magneten für Windkraftanlagen verbaut.
-Desweiteren findet man es, mit Blei legiert, als Abschirmmaterial in Kernreaktoren.
+Darüber hinaus findet man es, mit Blei legiert, als Abschirmmaterial in Kernreaktoren.
 Sein Name stammt vom griechischen Wort "dysprositos" für "unzugänglich".
 
 ## 13. Holmium
 
 Die ferromagnetischen Eigenschaften von Holmium sind denen von Eisen weit überlegen; es ist quasi das magnetischste natürlich vorkommende Element.
 Deshalb verwendet man es für Hochleistungsmagnete, aber auch in Steuerstäben von Brutreaktoren, für Festkörperlaser und in Mikrowellenbauteilen.
-Sein Name würdigst die Stadt Stockholm.
+Sein Name würdigt die Stadt Stockholm.
 
 ## 14. Erbium
 
-Erbium wirkt als optischer Verstärker, das heißt, sie sind in der Lage, ein Lichtsignal zu verstärken, ohne es zuvor in ein elektrisches Signal zu wandeln.
+Erbium wirkt als optischer Verstärker, das heißt, es ist in der Lage, ein Lichtsignal zu verstärken, ohne es zuvor in ein elektrisches Signal zu wandeln.
 Damit dotierte Gläser und Kristalle werden als Glasfasern und als Verstärker in faseroptischen Kommunikationssystemen verwendet.
 Erbium-Laser finden sich in der Dermatologie und Dentaltechnik, stärkere Erbium-Ytterbium-Laser auch beim Metallschneiden und Schweißen.
 Der Name geht - wie bei Yttrium, Ytterbium und Terbium - auf Ytterby in Schweden zurück, wo es entdeckt wurde.
