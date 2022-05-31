@@ -74,7 +74,7 @@ Auf dieses SNS Topic horcht eine Lambda-Funktion, welche die Aufgabe übernimmt,
 Um den Workflow zu beschleunigen und zu vereinfachen, sollen die erzeugten Jira-Tickets so aufgebaut sein, dass sie möglichst viele Informationen, die für die Bearbeitung des Alarms notwendig sind, auf einen Blick liefern.
 Des Weiteren sollen natürlich keine Alarme verloren gehen, beispielsweise wenn es Probleme in der Kommunikation zwischen Jira und der Lambda-Funktion gibt.
 Konkret bedeutet das, dass die Lambda-Funktion folgende Anforderungen erfüllen muss:
-1. Erzeugte Alarm-Tickets sollen einem festen Namensschema entsprechen. Hierdurch lässt sich schnell erkennen, welches Teilprojekt / welche Komponente den Alarm ausgelöst hat.
+1. Erzeugte Alarmtickets sollen einem festen Namensschema entsprechen. Hierdurch lässt sich schnell erkennen, welches Teilprojekt / welche Komponente den Alarm ausgelöst hat.
    Ein mögliches Namensschema ist hier beispielsweise: 
    *[Projekt - Teilprojekt/Komponente - Stage] Alarm-Name*
 2. In der Ticketbeschreibung sollen möglichst viele Informationen enthalten sein, die bei der Bearbeitung des Alarms nützlich sind (z.b. wann löste der Alarm aus?, was ist passiert?, was ist zutun?)
@@ -148,7 +148,7 @@ Der Inhalt von Records.*.Sns.Message wurde zur besseren Lesbarkeit in einen eige
 ```
 
 Bei genauerer Betrachtung des Events stellen wir fest, dass insbesondere die Felder "AlarmName", "AlarmDescription", "NewStateReason" sowie "StateChangeTime" besonders interessant sind.
-Wenn der Cloudwatch-Alarmname dem gewünschten Namensschema der Jira-Alarm-Tickets entspricht, so kann dieser genau so übernommen werden. 
+Wenn der Cloudwatch-Alarmname dem gewünschten Namensschema der Jira-Alarmtickets entspricht, so kann dieser genau so übernommen werden. 
 Andernfalls muss dieser in das gewünschte Format übertragen werden. 
 Konventionen unterstützen bei diesem Schritt sehr.
 Zudem ist es hilfreich, in den Cloudwatch-Alarmnamen die betroffene Stage aufzunehmen. 
@@ -160,7 +160,7 @@ Aus den Feldern "AlarmDescription", "NewStateReason" und "StateChangeTime" läss
 Werden weitere Informationen über die Alarm-Schwellwerte benötigt, so kann die Beschreibung um Informationen aus dem "Trigger"-Objekt angereichert werden. 
 Sind mehrere AWS Accounts im Einsatz oder ist das Projekt in mehreren Regionen deployed, so sind auch die Felder "AWSAccountId" und "Region" besonders interessant.
 
-Bei der Bearbeitung eines Alarm-Tickets kann es hilfreich sein, zu sehen, ob der Vorfall weiterhin anhält oder in der Vergangenheit schon einmal aufgetreten ist. 
+Bei der Bearbeitung eines Alarmtickets kann es hilfreich sein, zu sehen, ob der Vorfall weiterhin anhält oder in der Vergangenheit schon einmal aufgetreten ist. 
 Diese Informationen lassen sich sehr schnell direkt in der AWS-Konsole ablesen – ein Link zu dem Cloudwatch-Alarm kann auf einfache Weise zur Ticketbeschreibung hinzugefügt werden, da dieser folgendes Format besitzt:
 `https://<AWS-REGION>.console.aws.amazon.com/cloudwatch/deeplink.js?region=<AWS-REGION>#alarmsV2:alarm/<ALARM-NAME>`
 
@@ -176,10 +176,10 @@ Ist auch dies nicht erfolgreich, so wird das Event in die DLQ geschrieben.
 Für diese DLQ kann wiederum eine E-Mail-Benachrichtigung angelegt werden, sodass wir eine zuverlässige Fallback-Möglichkeit haben, um über Alarme informiert zu werden.
 
 ## Logs als Kommentar ergänzen
-Nachdem das Alarm-Ticket angelegt wurde, kann dieses um weitere Informationen angereichert werden, welche nicht im Alarm Event selbst enthalten sind.
+Nachdem das Alarmticket angelegt wurde, kann dieses um weitere Informationen angereichert werden, welche nicht im Alarm Event selbst enthalten sind.
 Für die schnelle Fehleranalyse ist es beispielsweise sehr hilfreich, die Logs, welche von der Anwendung geschrieben wurden, als der Alarm ausgelöst wurde, bereits am Ticket selbst zu sehen und diese nicht erst selbst aus dem Log System heraussuchen zu müssen.
 
-Im Folgenden schauen wir uns an, wie wir die entsprechenden Logs aus Cloudwatch auslesen und als Kommentar an das Alarm-Ticket anhängen können.
+Im Folgenden schauen wir uns an, wie wir die entsprechenden Logs aus Cloudwatch auslesen und als Kommentar an das Alarmticket anhängen können.
 
 Mithilfe des Amazon SDKs können wir auf einfache Art und Weise Logs aus einer Log-Gruppe auslesen.
 Hierfür müssen wir lediglich den Namen der Log-Gruppe sowie das anzuwendende Filtermuster angeben. 
@@ -265,7 +265,7 @@ In diesem Fall wird eine `CloudwatchLogException` bei dem Aufruf von `cloudwatch
 Kommt es zu einer solchen Exception können wir diese einfach fangen und die Suchanfrage nach einer kurzen Pause erneut absetzen.
 
 ### Erzeugen des Kommentars
-Nachdem wir alle passenden Logs gefunden haben, können wir diese als Kommentar an das Jira-Alarm-Ticket anhängen.
+Nachdem wir alle passenden Logs gefunden haben, können wir diese als Kommentar an das Jira-Alarmticket anhängen.
 Hierbei greifen wir abermals auf die [Jira-REST-API](https://developer.atlassian.com/server/jira/platform/rest-apis/) ([POST /rest/api/3/issue/{issueIdOrKey}/comment](https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-issue-comments/#api-rest-api-3-issue-issueidorkey-comment-post)) zurück.
 Die benötigte Ticketnummer (Pfadvariable "issueIdOrKey") bekommen wir als Rückgabe, nachdem wir das Ticket angelegt haben (siehe [Aus einem SNS Event wird ein Ticket](#aus-einem-sns-event-wird-ein-ticket)).
 Für eine bessere Lesbarkeit der Log-Einträge innerhalb des Jira-Kommentars bietet es sich an, diese als Code-Block darzustellen.
