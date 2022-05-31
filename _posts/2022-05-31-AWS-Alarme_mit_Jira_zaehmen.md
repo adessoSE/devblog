@@ -224,6 +224,7 @@ public List<FilteredLogEvent> retrieveLogsFor(String logGroupName,
 Auch wenn sich mithilfe des oben gezeigten Code-Ausschnitts die entsprechenden Logs zu einem Alarm finden lassen, so gibt es einige Stolpersteine, auf die man spätestens im Produktiveinsatz stößt.
 
 **Stolperstein 1: Die Logs sind nicht in der Antwort enthalten**
+
 Es kann vorkommen, dass in der Antwort von `cloudwatchClient#filterLogEvents(FilterLogEventsRequest)`  keine Logs enthalten sind.
 Zum einen kann dies passieren, wenn für die Anfrage tatsächlich keine passenden Log-Einträge gefunden werden, viel wahrscheinlicher ist aber der Fall, wenn zu viele Log-Einträge in dem angegebenen Zeitraum durchsucht werden müssen.
 
@@ -246,6 +247,7 @@ while(response.nextToken() != null) {
 ```
 
 **Stolperstein 2: Die Suche der Logeinträge kann lange dauern**
+
 Wenn die zu durchsuchende Cloudwatch Log-Gruppe viele Log-Einträge beinhaltet oder der Suchzeitraum sehr groß ist, kann die Suche der Log-Einträge sehr lange dauern.
 Es ist wichtig, diese Tatsache zu berücksichtigen.
 Wird die Anwendung als AWS Lambda Funktion bereitgestellt, so besitzt sie eine maximale Laufzeit von 15 Minuten.
@@ -267,6 +269,7 @@ final FilterLogEventsRequest filterLogEventsRequest = FilterLogEventsRequest.bui
 ```
 
 **Stolperstein 3: Ratelimits**
+
 Werden zu viele Suchabfragen in zu kurzer Zeit gestellt kann das Ratelimit der Cloudwatch API überschritten werden.
 In diesem Fall wird eine `CloudwatchLogException` bei dem Aufruf von `cloudwatchClient#filterLogEvents(FilterLogEventsRequest)` geworfen.
 Kommt es zu einer solchen Exception können wir diese einfach fangen und die Suchanfrage nach einer kurzen Pause erneut absetzen.
@@ -302,6 +305,7 @@ Ein Aufruf der Jira API für zwei Log-Einträge könnte also wie folgt aussehen:
 Wenn wir die hier erstellten Komponenten zusammen betrachten, ergibt sich folgendes Gesamtbild der technischen Infrastruktur:
 
 ![Aufbau der technischen Infrastruktur](/assets/images/posts/AWS_Alarme_mit_Jira_zaehmen/Alarme_Konzept.png)
+
 Eine nahezu beliebige Anzahl von Alarmen können auf Basis von Metriken oder Protokollfiltern definiert werden und senden ihre Events an ein SNS Topic ("Create Ticket").
 Dieses stößt unsere erste Lambda an, die dafür zuständig ist das Ticket im Jira initial anzulegen.
 Sobald dies erfolgreich erledigt wurde, kann das Event an ein weiteres SNS Topic ("Add Logs") weitergeleitet werden.
