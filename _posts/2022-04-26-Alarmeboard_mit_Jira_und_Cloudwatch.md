@@ -304,7 +304,7 @@ Dieses stößt unsere erste Lambda an, die dafür zuständig ist das Ticket im J
 Sobald dies erfolgreich erledigt wurde, kann das Event an ein weiteres SNS-Topic ("Add Logs") weitergeleitet werden.
 Die dadurch ausgelöste Lambdafunktion ergänzt das Ticket um die Logs, die zu dem Alarm geführt haben.
 Dazu wird auf die Logs in Cloudwatch anhand der Parameter aus dem Event zugegriffen.
-Sollte es an einer beliebigen Stelle innerhalb dieses Prozesses zu einem Fehler kommen, sind beide Lambdas durch eine DLQ abgesichert, so dass keine Daten verloren gehen können.
+Sollte es an einer beliebigen Stelle innerhalb dieses Prozesses zu einem Fehler kommen, sind beide Lambdas durch eine DLQ abgesichert, sodass keine Daten verloren gehen können.
 Wenn zum Beispiel Jira kurzfristig nicht erreichbar war, können die Events aus der DLQ später wieder eingespielt werden.
 
 Die benötigten Komponenten aus dem Werkzeugkasten von AWS sind somit sehr überschaubar.
@@ -328,9 +328,35 @@ Aber die laufenden Kosten können wir hier zumindest grob überschlagen:
 Am Ende können wir sagen, dass die laufenden Kosten für die hier verwendeten Komponenten selbst jenseits des Freetiers zu vernachlässigen sind.
 
 # Automatisierung in Jira nutzen
-* eigenes Kanban Board
-* Priorisierung für prod
-* Mailbenachrichtigung, wenn Ticket zu lange unbearbeitet.
+Für die Bearbeitung von Alarmen in Jira bietet sich ein Kanban Board spontan an.
+Für das Board lassen sich Automatisierungen einrichten, die die Arbeit mit den Alarmtickets weiter erleichtern.
+Folgende Ideen lassen sich mit wenigen Klicks umsetzen:
 
+**Erinnerung an Tickets, die nach 24 Stunden noch nicht bearbeitet wurden**
+
+Hierfür lassen wir eine Automatisierung geplant jede Stunde eine Suche ausführen, die nach allen Tickets sucht, die in unserem Alarme-Board länger als 24 Stunden im Status "New" geblieben sind.
+Das kann als JQL folgendermaßen aussehen:
+```jql
+createdDate <= -1d  AND statuscategory = "New" AND project = "Alarme"
+```
+Dabei ist es möglich die Bedingung der Regel auf Tickets einzuschränken, die seit dem letzten Lauf dazugekommen sind.
+
+Über den Then-Part der Regel lässt sich dann eine E-Mail auslösen, die an einen Verteiler gerichtet werden kann und direkt auf die noch zu bearbeitenden Tickets referenziert:
+```html
+Bitte den Alarm bearbeiten: <a href="https://karstadt.atlassian.net/browse/{{issue.key}}">{{issue.key}}</a>
+```
+
+**Projektbezogene Zuweisung von Tickets**
+
+In einigen Fällen mag es sinnvoll sein, dass bestimmte Tickets immer bei einem bestimmten Entwickler landen sollen.
+Über den Trigger "Vorgang erstellt", bekommt Jira mit, wenn ein neues Ticket angelegt wird.
+Damit lassen sich dann wieder Bedingungen verknüpfen.
+Zum Beispiel kann das Feld "Stichwort", in welches wir in der Lambda den Projektnamen geschrieben haben, nach einem bestimmten Wert durchsucht werden.
+Wird das Projekt gefunden, so können wir den Vorgang direkt zuweisen und sogar direkt in den Status "In Progress" verschieben.
+
+**Weitere Ideen**
+* Ähnlich wie die Erinnerung nach 24 Stunden ließe sich auch eine Erinnerung einrichten, wenn ein Ticket über einen bestimmten Zeitraum keine Updates mehr erfährt.
+* In Ausnahmefällen wäre es denkbar bestimmte Alarme automatisiert zu ignorieren.
+  Wenn zum Beispiel ein System noch nicht produktiv genutzt wird, weil benötigte Rahmenbedingungen noch nicht gegeben sind, aber die Alarme schon aktiviert wurden, können die Tickets mit einem Kommentar versehen und nach "Done" verschoben werden. 
 
 # Fazit
