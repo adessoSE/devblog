@@ -352,7 +352,7 @@ In einigen Fällen mag es sinnvoll sein, dass bestimmte Tickets immer bei einem 
 Über den Trigger "Vorgang erstellt", bekommt Jira mit, wenn ein neues Ticket angelegt wird.
 Damit lassen sich dann wieder Bedingungen verknüpfen.
 Zum Beispiel kann das Feld "Stichwort", in welches wir in der Lambda den Projektnamen geschrieben haben, nach einem bestimmten Wert durchsucht werden.
-Wird das Projekt gefunden, so können wir den Vorgang direkt zuweisen und sogar direkt in den Status "In Progress" verschieben.
+Wird das Projekt gefunden, so können wir den Vorgang einem Entwickler zuweisen und sogar direkt in den Status "In Progress" verschieben.
 
 **Weitere Ideen**
 * Ähnlich wie die Erinnerung nach 24 Stunden ließe sich auch eine Erinnerung einrichten, wenn ein Ticket über einen bestimmten Zeitraum keine Updates mehr erfährt.
@@ -360,3 +360,10 @@ Wird das Projekt gefunden, so können wir den Vorgang direkt zuweisen und sogar 
   Wenn zum Beispiel ein System noch nicht produktiv genutzt wird, weil benötigte Rahmenbedingungen noch nicht gegeben sind, aber die Alarme schon aktiviert wurden, können die Tickets mit einem Kommentar versehen und nach "Done" verschoben werden. 
 
 # Fazit
+Alarme schnell und gründlich zu bearbeiten ist notwendig, aber keineswegs die Lieblingsbeschäftigung vieler Entwickler.
+Dieses notwendige Übel zu vereinfachen und dabei noch ein kleines Projekt aufzusetzen, das seinen eigenen technischen Reiz mitbringt, dürfte die Motivation an dieser Stelle bereits verbessern.
+Die Übersichtlichkeit und mögliche Automatisierung in Jira, ist eine in vielen Projekten bereits gerne genutzte Selbstverständlichkeit geworden, die hier um ein neues Anwendungsfeld erweitert wird.
+Die laufenden Kosten sind marginal.
+
+Am Ende muss der Aufwand, den ein Team in die Bearbeitung von Alarmen steckt, gegen den Aufwand der Entwicklung dieser Lambdas und deren Infrastruktur abgewogen werden.
+Für uns hat es sich trotz einer überschaubaren Anzahl von Alarmen als äußerst lohnend erwiesen.
