@@ -1,8 +1,8 @@
 ---
 layout: [post, post-xml]              # Pflichtfeld. Nicht ändern!
 title:  "Internationale CRM-Projekte unter Berücksichtigung von Compliance"         # Pflichtfeld. Bitte einen Titel für den Blog Post angeben.
-date:   2022-05-07 12:00              # Pflichtfeld. Format "YYYY-MM-DD HH:MM". Muss für Veröffentlichung in der Vergangenheit liegen. (Für Preview egal)
-modified_date: 2022-05-07 12:00             # Optional. Muss angegeben werden, wenn eine bestehende Datei geändert wird.
+date:   2022-05-31 10:00              # Pflichtfeld. Format "YYYY-MM-DD HH:MM". Muss für Veröffentlichung in der Vergangenheit liegen. (Für Preview egal)
+modified_date: 2022-05-31 10:00             # Optional. Muss angegeben werden, wenn eine bestehende Datei geändert wird.
 author_ids: [mschulz-adesso]                       # Pflichtfeld. Es muss in der "authors.yml" einen Eintrag mit diesem Namen geben.
 categories: [Architektur]                    # Pflichtfeld. Maximal eine der angegebenen Kategorien verwenden.
 tags: [Microsoft, Power Platform, CRM, Dynamics 365, Architektur, International, GDPR, Datenlokation, Compliance]         # Bitte auf Großschreibung achten.
