@@ -21,7 +21,7 @@ Datenbankzugriffe, Security und streambasierte Datenverarbeitung.
 Klassische Programmiermodelle wie z.B. in Spring MVC nutzen für jeden Request jeweils einen Thread und belegen ihn 
 so lange, bis die aktuelle Aufgabe abgeschlossen ist, und geben ihn dann wieder frei.
 Muss während der Codeverarbeitung z.B. eine Datenbank oder ein entferntes System angesprochen werden, wobei eine langsame Antwortzeit erwartet werden kann, muss der Thread lange blockieren.
-Um die Antwortbereitschaft aufrecht zu halten wird oft ein größerer Threadpool vorgehalten.
+Um die Antwortbereitschaft aufrecht zu halten, wird oft ein größerer Threadpool vorgehalten.
 Je nach Szenario kann ein Java Thread auch schnell mal 1MB Speicher allokieren, was gerade in Cloudumgebungen schnell mit erhöhten Kosten einhergeht. 
 
 ## Project Reactor
