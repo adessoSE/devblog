@@ -13,7 +13,7 @@ Dabei den Überblick zu behalten, wichtige Alarme direkt zu priorisieren und die
 Natürlich darf nichts unter den Tisch fallen, und es sollte sichergestellt sein, dass klar ist, wer gerade welchen Alarm bearbeitet.
 
 Mit Jira ist ein Tool gegeben, welches sowieso schon in vielen Projekten Einsatz findet. 
-Wie dieses genutzt werden kann um die Alarme und ihren Status zu visualisieren wollen wir im Folgenden beschreiben.
+Wie dieses genutzt werden kann, um die Alarme und ihren Status zu visualisieren wollen wir im Folgenden beschreiben.
 
 # Wie entstand der Bedarf an der Lösung?
 DevOps ist ein Thema, welches in unterschiedlichsten Teams auf unterschiedliche Art gelebt wird. 
@@ -84,7 +84,7 @@ Konkret bedeutet das, dass die Lambda-Funktion folgende Anforderungen erfüllen 
 1. Erzeugte Alarmtickets sollen einem festen Namensschema entsprechen. Hierdurch lässt sich schnell erkennen, welches Teilprojekt / welche Komponente den Alarm ausgelöst hat.
    Ein mögliches Namensschema ist hier beispielsweise: 
    *[Projekt - Teilprojekt/Komponente - Stage] Alarm-Name*
-2. In der Ticketbeschreibung sollen möglichst viele Informationen enthalten sein, die bei der Bearbeitung des Alarms nützlich sind (z.b. wann löste der Alarm aus?, was ist passiert?, was ist zutun?)
+2. In der Ticketbeschreibung sollen möglichst viele Informationen enthalten sein, die bei der Bearbeitung des Alarms nützlich sind (z.B. Wann löste der Alarm aus? Was ist passiert? Was ist zu tun?)
 3. Alarmtickets sollen mit einer Priorität versehen werden.
 4. Alarme dürfen unter keinen Umständen verloren gehen
 
@@ -155,7 +155,7 @@ Der Inhalt von Records.*.Sns.Message wurde zur besseren Lesbarkeit in einen eige
 ```
 
 Bei genauerer Betrachtung des Events stellen wir fest, dass insbesondere die Felder "AlarmName", "AlarmDescription", "NewStateReason" sowie "StateChangeTime" interessant sind.
-Wenn der Cloudwatch-Alarmname dem gewünschten Namensschema der Jira-Alarmtickets entspricht, so kann dieser genau so übernommen werden. 
+Wenn der Cloudwatch-Alarmname dem gewünschten Namensschema der Jira-Alarmtickets entspricht, so kann dieser genauso übernommen werden. 
 Andernfalls muss dieser in das gewünschte Format übertragen werden. 
 Konventionen unterstützen bei diesem Schritt sehr.
 Zudem ist es hilfreich, in den Cloudwatch-Alarmnamen die betroffene Stage aufzunehmen. 
@@ -171,7 +171,7 @@ Bei der Bearbeitung eines Alarmtickets kann es hilfreich sein, zu sehen, ob der 
 Diese Informationen lassen sich sehr schnell direkt in der AWS-Konsole ablesen – ein Link zu dem Cloudwatch-Alarm kann auf einfache Weise zur Ticketbeschreibung hinzugefügt werden, da dieser folgendes Format besitzt:
 `https://<AWS-REGION>.console.aws.amazon.com/cloudwatch/deeplink.js?region=<AWS-REGION>#alarmsV2:alarm/<ALARM-NAME>`
 
-Nachdem das SNS Event in einen Ticketnamen und eine aussagekräftige Beschreibung überführt wurde, kann die [Jira-REST-API](https://developer.atlassian.com/server/jira/platform/rest-apis/) (inbesondere [POST /rest/api/3/issue](https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-issues/#api-rest-api-3-issue-post)) verwendet werden, um ein Jira-Ticket anzulegen.
+Nachdem das SNS Event in einen Ticketnamen und eine aussagekräftige Beschreibung überführt wurde, kann die [Jira-REST-API](https://developer.atlassian.com/server/jira/platform/rest-apis/) (insbesondere [POST /rest/api/3/issue](https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-issues/#api-rest-api-3-issue-post)) verwendet werden, um ein Jira-Ticket anzulegen.
 
 ### Was passiert im Fehlerfall?
 Was passiert, wenn Jira nicht erreichbar ist? 
