@@ -160,7 +160,7 @@ public Mono<Blogpost> getBlogpost(String blogpostId) {
 
 private Mono<Integer> incrementViewCount(Blogpost blogpost){[...]}
 ```
-Zu beachten ist hier, auch wenn sich am eigentlichen Inhalt des Monos nichts ändert, muss dennoch der Rückgabewert der ``doOnNext``-Methode
+Zu beachten ist hier, auch wenn sich am eigentlichen Inhalt des Mono nichts ändert, muss dennoch der Rückgabewert der ``doOnNext``-Methode
 weiter verwendet werden, damit die Methode auch Teil der Ausführungssequenz wird.
 
 Außerdem ist der Aufruf von `incrementViewCount` wieder asynchron. Das bedeutet, dass man nicht davon ausgehen kann, dass der Zähler
