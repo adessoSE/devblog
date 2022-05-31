@@ -245,7 +245,7 @@ while(response.nextToken() != null) {
 }
 ```
 
-#### Stolperstein 2: Die Suche der Logeinträge kann lange dauern
+**Stolperstein 2: Die Suche der Logeinträge kann lange dauern**
 Wenn die zu durchsuchende Cloudwatch Log-Gruppe viele Log-Einträge beinhaltet oder der Suchzeitraum sehr groß ist, kann die Suche der Log-Einträge sehr lange dauern.
 Es ist wichtig, diese Tatsache zu berücksichtigen.
 Wird die Anwendung als AWS Lambda Funktion bereitgestellt, so besitzt sie eine maximale Laufzeit von 15 Minuten.
