@@ -25,7 +25,7 @@ Um die Antwortbereitschaft aufrecht zu halten, wird oft ein größerer Threadpoo
 Je nach Szenario kann ein Java Thread auch schnell mal 1MB Speicher allokieren, was gerade in Cloudumgebungen schnell mit erhöhten Kosten einhergeht. 
 
 ## Project Reactor
-Das Spring Framework nutzt das Open-Source-Projekt Reactor als Basis für die Umsetzung der reaktiven Programmierung.
+Das Spring-Framework nutzt das Open-Source-Projekt Reactor als Basis für die Umsetzung der reaktiven Programmierung.
 Reactor ist eine nicht blockierende (non-blocking) reaktive Open-Source-Programmiergrundlage für die Java Virtual Machine, welche auf der Reactive-Streams-Spezifikation basiert.
 Es setzt direkt auf den funktionalen APIs von Java 8 auf und nutzt konsequent CompletableFuture, Stream und Duration.
 Zusätzlich unterstützt Reactor mit dem reactor-netty-Projekt eine nicht blockierende Interprozesskommunikation, welche eine Backpressure-fähige Netzwerkengine für HTTP bietet.
