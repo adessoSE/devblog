@@ -223,7 +223,7 @@ public List<FilteredLogEvent> retrieveLogsFor(String logGroupName,
 ### Stolpersteine
 Auch wenn sich mithilfe des oben gezeigten Code-Ausschnitts die entsprechenden Logs zu einem Alarm finden lassen, so gibt es einige Stolpersteine, auf die man spätestens im Produktiveinsatz stößt.
 
-#### Stolperstein 1: Die Logs sind nicht in der Antwort enthalten
+**Stolperstein 1: Die Logs sind nicht in der Antwort enthalten**
 Es kann vorkommen, dass in der Antwort von `cloudwatchClient#filterLogEvents(FilterLogEventsRequest)`  keine Logs enthalten sind.
 Zum einen kann dies passieren, wenn für die Anfrage tatsächlich keine passenden Log-Einträge gefunden werden, viel wahrscheinlicher ist aber der Fall, wenn zu viele Log-Einträge in dem angegebenen Zeitraum durchsucht werden müssen.
 
