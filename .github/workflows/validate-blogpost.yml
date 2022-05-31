@@ -48,5 +48,5 @@ jobs:
           --env PR_NUMBER='${{ github.event.number }}' \
           --env TOKEN='${{ secrets.REPOSITORY_LOCAL_USER_TOKEN }}' \
           -v /home/runner/work/devblog/devblog:/repo \
-          jekyll2cms/blogpost-checker:1.1.0
+          jekyll2cms/blogpost-checker:1.1.2
 

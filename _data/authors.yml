@@ -529,3 +529,10 @@ bolsei:
   avatar_url: /assets/images/avatars/trudersdorf.jpg
   github: https://github.com/bolsei
 
+mboegers:
+  first_name: Merlin
+  last_name: Bögershausen
+  github_username: MBoegers
+  bio: "Merlin Bögershausen ist Software Entwickler, Speaker und Author bei adesso am Standort Aachen. Er beschäftigt sich mit Neuerungen im Java-Universum und der Softwareentwicklung im Public-Bereich."
+  avatar_url: /assets/images/avatars/mboegers.jpg
+  github: https://github.com/mboegers

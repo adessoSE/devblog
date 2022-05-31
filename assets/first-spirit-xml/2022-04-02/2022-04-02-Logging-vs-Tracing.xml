@@ -1,0 +1,517 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<documents>
+    <document uid="4889ebad8ce62b39bc32084a50f3a6d5">
+        <field name="title"><![CDATA[Logging vs Tracing]]></field>
+        <field name="subline"><![CDATA[]]></field>
+        <field name="teaser"><![CDATA[<p>Wenn wir im normalen Betrieb unserer Anwendung sehen möchten, ob sie ihren Job fehlerfrei erledigt, genügt normalerweise
+ein Blick in die Logs.
+Darin können wir meistens schnell erkennen, ob alles reibungslos läuft oder ob sich Fehler häufen.
+Dies klappt bei einfachen Anwendungen ziemlich gut, aber wie sieht es bei komplexeren oder gar verteilten
+Anwendungen aus?</p>
+
+]]></field>
+        <field name="language_multi_keyword"><![CDATA[de]]></field>
+        <field name="content_type_multi_keyword"><![CDATA[blog]]></field>
+        <field name="mime_type_multi_keyword"><![CDATA[text/html]]></field>
+        <field name="category_multi_keyword"><![CDATA[Softwareentwicklung]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Logging]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Kibana]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Tracing]]></field>
+        <field name="tag_multi_keyword"><![CDATA[OpenTelemetry]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Jaeger]]></field>
+        <field name="date_date"><![CDATA[2022-04-02T18:00:00+02:00]]></field>
+        <field name="date_l"><![CDATA[1648915200000]]></field>
+        <field name="change_date"><![CDATA[1649754000000]]></field>
+        <!--Author Information-->
+        <field name="author_id"><![CDATA[unexist]]></field><!--Postcontent-->
+        <field name="headlines"><![CDATA[Logging vs Tracing]]></field>
+        <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
+            <p>Wenn wir im normalen Betrieb unserer Anwendung sehen möchten, ob sie ihren Job fehlerfrei erledigt, genügt normalerweise
+ein Blick in die Logs.
+Darin können wir meistens schnell erkennen, ob alles reibungslos läuft oder ob sich Fehler häufen.
+Dies klappt bei einfachen Anwendungen ziemlich gut, aber wie sieht es bei komplexeren oder gar verteilten
+Anwendungen aus?</p>
+
+</div>]]></field>
+        <field name="content"><![CDATA[<div class="adesso-text-formate">
+<div class="row p-t-2">
+<div class="adesso-container">
+<div class="col-xl-8 adesso-center p-b-1 p-l-0 p-r-0">
+    <p>Wenn wir im normalen Betrieb unserer Anwendung sehen möchten, ob sie ihren Job fehlerfrei erledigt, genügt normalerweise
+ein Blick in die Logs.
+Darin können wir meistens schnell erkennen, ob alles reibungslos läuft oder ob sich Fehler häufen.
+Dies klappt bei einfachen Anwendungen ziemlich gut, aber wie sieht es bei komplexeren oder gar verteilten
+Anwendungen aus?</p>
+
+<p>In diesem Artikel beschäftigen wir uns zunächst allgemein mit <strong>Logging</strong> und <strong>Tracing</strong>, sehen uns anhand von
+Beispielen verschiedene Einsatzmöglichkeiten an und sprechen über Good Practices.
+Und abschließend vergleichen wir dann beides nochmal direkt miteinander und betrachten verschiedene Use Cases.</p>
+
+<h5 id="logging">Logging</h5>
+
+<h6 id="was-ist-ein-log">Was ist ein Log?</h6>
+
+<p>Grundsätzlich ist ein <strong>Log</strong> die Ausgabe eines Ereignisses, welches innerhalb einer Anwendung auf einem bestimmten
+System zu einer bestimmten Uhrzeit eingetreten ist - eine Art Journal der Ereignisse.
+Dies kann rein informativer Natur sein, beispielsweise wenn ein bestimmter Request eingegangen ist, kann aber auch
+hilfreiche Informationen liefern, die im Falle eines Ausfalls beim Troubleshooting helfen, das Problem zu finden.</p>
+
+<p>Jetzt fallen im Laufe eines Tages auf diese Weise riesige Datenmengen an und es wird irgendwann sehr schwierig, dieser
+Herr zu werden und etwas konkretes darin zu finden.
+Als erste Vereinfachung werden diese Logs jetzt in verschiedene Kategorien (oder <a href="https://www.papertrail.com/solution/tips/logging-in-java-best-practices-and-tips/">Levels</a>) wie <strong>Info</strong>, <strong>Warn</strong>
+oder <strong>Error</strong> eingeteilt.
+Dies ermöglicht eine konkretere Suche, aber auch die Erstellung von Filtern oder Alarmen in Monitoring Tools für einen
+Fehlerfall.</p>
+
+<p>Hier ist ein einfaches Beispiel einer Nachricht:</p>
+
+<pre><code class="language-java">LOGGER.info("Created todo");
+</code></pre>
+
+<pre><code class="language-log">2022-01-19 16:46:14,298 INFO  [dev.une.sho.tod.ada.TodoResource] (executor-thread-0) Created todo
+</code></pre>
+
+<h6 id="erweiterter-kontext">Erweiterter Kontext</h6>
+
+<p>Einfache Nachrichten wie diese enthalten nicht besonders viel Kontextinformation und helfen leider nur wenig dabei,
+nachzuvollziehen was hier wirklich passiert ist.
+Besser ist es daher, im nächsten Schritt Informationen zu ergänzen, beispielsweise eignen sich die ID des Request
+oder beteiligter User- oder Businessobjekte immer gut dafür und sie ermöglichen es zudem, zusammenhängende Nachrichten
+leichter zu finden.</p>
+
+<pre><code class="language-java">LOGGER.info("Created todo: id={}", todo.getId());
+</code></pre>
+
+<pre><code class="language-log">2022-01-19 16:46:14,298 INFO  [dev.une.sho.tod.ada.TodoResource] (executor-thread-0) Created todo: id=8659a492-1b3b-42f6-b25c-3f542ab11562
+</code></pre>
+
+<p>Möchten wir hier nur einzelne Nachrichten verändern, so ist dies schnell erledigt, allerdings schleichen sich bei
+hunderten von Anpassungen schnell Fehler ein und erschweren dadurch wieder eine Suche:</p>
+
+<pre><code class="language-java">LOGGER.info("Created todo: id ={}", todo.getId());
+</code></pre>
+
+<h6 id="mapped-diagnostic-context">Mapped Diagnostic Context</h6>
+
+<p>Eine bessere Möglichkeit bietet <a href="https://logback.qos.ch/manual/mdc.hml">MDC</a>, welches von den meisten <strong>Logging</strong>-Bibliotheken direkt unterstützt wird.
+Hiermit können wir mittels einer Reihe statischer Methoden Informationen zu einem thread-basierten Kontext hinzufügen
+und diesen mit einem entsprechend konfigurierten Logger automatisch an nachfolgende Nachrichten anhängen lassen.</p>
+
+<pre><code class="language-java">/* Manuelles MDC Handling */
+MDC.put("todo_id", todo.getId());
+LOGGER.info("Created todo");
+MDC.remove("todo_id");
+
+/* try-with-resources Block */
+try (MDC.MDCCloseable closable = MDC.putCloseable("todo_id", toto.getId())) {
+    LOGGER.info("Created todo");
+}
+</code></pre>
+
+<pre><code class="language-log">2022-01-19 16:46:14,298 INFO  [de.un.sh.to.ad.TodoResource] (executor-thread-0) {todo_id=8659a492-1b3b-42f6-b25c-3f542ab11562} Created todo
+</code></pre>
+
+<p>Auf diese Art und Weise können wir komfortabel eine Vielzahl an Nachrichten manuell verändern und Informationen
+zum Kontext ergänzen, aber auch automatisiert über <a href="https://blog.adamgamboa.dev/understanding-jax-rs-filters/">Filter</a>, [Interceptors<a href="https://www.baeldung.com/cdi-interceptor-vs-spring-aspectj">10</a> oder <a href="https://en.wikipedia.org/wiki/Aspect-oriented_programming">Aspect-Oriented Programming</a>
+beisteuern.</p>
+
+<h6 id="korrelation-von-nachrichten">Korrelation von Nachrichten</h6>
+
+<p>Unsere Services verarbeiten im Normalfall irgendeine Form eingehender Requests und hier ist es durchaus interessant,
+den Lauf dieser Requests durch unsere Anwendung bei jedem Schritt zu verfolgen.
+Dazu ist es notwendig, alle Nachrichten der zugehörigen Ereignisse zusammenzuführen - dies nennt man auch Korrelation.
+Eine einfache Möglichkeit, dies zu erreichen, besteht darin, eine neue einzigartige ID einzuführen und diese in allen
+nachfolgenden Ausgaben mitzugeben.</p>
+
+<p>Hier seht ihr ein Beispiel, wie wir das mit der Kombination von <a href="https://logback.qos.ch/manual/mdc.hml">MDC</a> und <a href="https://www.baeldung.com/cdi-interceptor-vs-spring-aspectj">Interceptor</a> umsetzen können:</p>
+
+<pre><code class="language-java">@Target({ METHOD })
+@Retention(RUNTIME)
+@Documented
+@InterceptorBinding
+public @interface Correlated { // &lt;1&gt;
+}
+</code></pre>
+
+<p><strong>&lt;1&gt;</strong> Wir legen zunächst eine Marker-Annotation für unseren Interceptor an.</p>
+
+<pre><code class="language-java">@Correlated
+@Priority(10)
+@Interceptor
+public class CorrelatedInterceptor {
+
+    @AroundInvoke
+    public Object correlate(InvocationContext context) throws Exception {
+        Object result = null;
+
+        try (MDC.MDCCloseable closable = MDC.putCloseable("correlation_id",
+                UUID.randomUUID().toString())) // &lt;2&gt;
+        {
+            result = context.proceed(); // &lt;3&gt;
+        }
+
+        return result;
+    }
+}
+</code></pre>
+
+<p><strong>&lt;2&gt;</strong> Als nächstes erzeugen wir eine neue ID und legen sie im MDC ab.<br />
+<strong>&lt;3&gt;</strong> Jetzt rufen wir die ursprüngliche Methode auf und reichen unsere neue ID weiter.</p>
+
+<pre><code class="language-java">@POST
+@Consumes(MediaType.APPLICATION_JSON)
+@Operation(summary = "Create new todo")
+@Tag(name = "Todo")
+@APIResponses({
+        @APIResponse(responseCode = "200", description = "Todo created")
+}
+@Correlated // &lt;4&gt;
+public Response create(TodoBase todoBase) {
+    LOGGER.log("Received post request");
+
+    return Response.ok().build();
+}
+</code></pre>
+
+<p><strong>&lt;4&gt;</strong> Und zum Schluss markieren wir die Funktion mit unserer Annotation.</p>
+
+<p>Schicken wir jetzt einen POST Request gegen unsere API, sollten wir im Log eine Ausgabe wie diese finden:</p>
+
+<pre><code class="language-log">2022-03-05 14:30:06,274 INFO  [de.un.sh.to.ad.TodoResource] (executor-thread-0) {correlation_id=f825c6981cb0dc603eb509189ed141b6} Received post request
+</code></pre>
+
+<h6 id="structured-logs">Structured Logs</h6>
+
+<p>Möchten wir jetzt die Suchergebnisse aussagekräftiger gestalten, stoßen wir bei <em>unstrukturierten</em> Formaten wie in
+unseren Beispielen sehr schnell an eine Grenze.
+Abhilfe schafft hier, ein <em>strukturiertes</em> Format wie <a href="https://www.json.org/json-en.html">JSON</a> einzusetzen, welches einfacher weitere Attribute und
+Metadaten wie beispielsweise die aufrufende Klasse oder den Hostname aufnehmen kann.</p>
+
+<p>Hier sehen wir exemplarisch die Ausgabe der <a href="https://github.com/quarkiverse/quarkus-logging-json">quarkus-logging-json</a> Extension:</p>
+
+<pre><code class="language-json">{
+  "timestamp": "2022-02-04T17:23:34.674+01:00",
+  "sequence": 1987,
+  "loggerClassName": "org.slf4j.impl.Slf4jLogger",
+  "loggerName": "dev.unexist.showcase.todo.adapter.TodoResource",
+  "level": "INFO",
+  "message": "Created todo",
+  "threadName": "executor-thread-0",
+  "threadId": 104,
+  "mdc": {
+    "todo_id": "8659a492-1b3b-42f6-b25c-3f542ab11562"
+  },
+  "hostName": "c02fq379md6r",
+  "processName": "todo-service-create-dev.jar",
+  "processId": 97284
+}
+</code></pre>
+
+<p>Die meisten modernen <strong>Logging</strong>-Bibliotheken unterstützen <a href="https://www.json.org/json-en.html">JSON</a> von Hause aus und bringen zusätzlich diverse
+Helfer mit, mit denen Key-Value-Paare bequem ergänzt werden können:</p>
+
+<pre><code class="language-java">/* quarkus-logging-json */
+LOGGER.info("Created todo", kv("todo_id", todo.getId()));
+
+/* Logstash */
+LOGGER.info("Created todo", keyValue("todo_id", todo.getId()));
+</code></pre>
+
+<h6 id="aggregation-von-logs">Aggregation von Logs</h6>
+
+<p>Eine Anwendungslandschaft besteht normalerweise nicht nur aus einer Anwendung, sondern aus vielen verschiedenen bei denen
+ebenfalls <strong>Logs</strong> anfallen.
+Diese möchten wir natürlich nicht verteilt über alle Systeme zusammensuchen müssen, sondern hätten gerne eine zentrale
+Instanz, die die Logausgaben bündelt und zudem einfache Suchen, aber auch komplexe Anfragen auf Basis der Daten anbietet.
+Hier gibt es verschiedene mögliche Stacks wie beispielsweise <a href="https://www.digitalocean.com/community/tutorials/how-to-set-up-an-elasticsearch-fluentd-and-kibana-efk-logging-stack-on-kubernetes">EFK</a> / <a href="https://www.elastic.co/what-is/elk-stack">ELK</a> oder auch <a href="https://grafana.com/">Grafana</a>, allerdings
+sprengt eine Anleitung dafür den Rahmen dieses Artikels und im Internet gibt es zahlreiche und ausführliche Anleitungen.</p>
+
+<p>In der Praxis kann das ganze dann mittels <a href="https://www.elastic.co/kibana/">Kibana</a> wie folgt aussehen:</p>
+
+<p><img src="/assets/images/posts/logging-vs-tracing/kibana_log.png" alt="image" /></p>
+
+<h5 id="tracing">Tracing</h5>
+
+<h6 id="was-ist-ein-trace">Was ist ein Trace?</h6>
+
+<p>Wir starten am besten erneut mit einer Definition:
+Ein <strong>Trace</strong> ist eine direkte Visualisierung eines Requests beim Durchlauf durch eine Anwendung oder
+einer kompletten Anwendungslandschaft.
+Hierbei wird er durch eine eindeutige <strong>Trace ID</strong> identifiziert und nimmt bei jedem Arbeitsschritt <strong>Spans</strong> auf.</p>
+
+<p><strong>Spans</strong> sind die kleinste Einheit des <strong>Distributed Tracings</strong> und bilden den eigentlichen Workflow ab.
+Hierzu zählen beispielsweise HTTP Requests, der Aufruf einer Datenbank oder die Verarbeitung einer Nachricht beim
+<a href="https://docs.microsoft.com/en-us/events/dotnetconf-focus-on-microservices/beyond-rest-and-rpc-asynchronous-eventing-and-messaging-patterns">Eventing</a>.
+Analog zu einem <strong>Trace</strong> erhalten auch sie eine eindeutige <strong>Span ID</strong> und zusätzlich noch Angaben über das genaue
+Timing, optionale weitere Attribute, <a href="https://opentelemetry.io/docs/reference/specification/trace/api/#add-events">Events</a> oder <a href="https://opentelemetry.lightstep.com/spans/">Status</a>, je nach Use Case.</p>
+
+<p>Und passiert ein <strong>Trace</strong> die Grenze eines Service (Boundary), so kann dieser mittels <a href="https://opentelemetry.io/docs/instrumentation/java/manual/#context-propagation">Context Propagation</a> über
+bestimmte HTTP oder <a href="https://kafka.apache.org/">Kafka</a> Header weitergegeben und entsprechend weitergeführt werden.</p>
+
+<h6 id="tracing-mit-opentelemetry">Tracing mit OpenTelemetry</h6>
+
+<p>Ohne Beispiel ist es relativ schwierig, sich vorzustellen, wie das ganze dann aussieht, daher springen wir hier
+auch direkt zum ersten Beispiel.</p>
+
+<p>Unser Beispiel basiert auf einem einfachen REST Endpoints in <a href="https://quarkus.io/">Quarkus</a> und <a href="https://opentelemetry.io">OpenTelemetry</a> und verwendet
+<a href="https://www.jaegertracing.io/">Jaeger</a> als Visualisierung:</p>
+
+<pre><code class="language-java">@POST
+@Consumes(MediaType.APPLICATION_JSON)
+@Operation(summary = "Create new todo")
+@Tag(name = "Todo")
+@APIResponses({
+        @APIResponse(responseCode = "200", description = "Todo created")
+})
+public Response create(TodoBase todoBase) {
+    return Response.ok().build();
+}
+</code></pre>
+
+<p><a href="https://quarkus.io/">Quarkus</a> übernimmt hier den Großteil der Arbeit, wir müssen hier nichts weiter ergänzen und lediglich mittels
+<a href="https://curl.se/">curl</a> einen Request abschicken:</p>
+
+<p><img src="/assets/images/posts/logging-vs-tracing/jaeger_simple_trace.png" alt="image" /></p>
+
+<h6 id="spans-in-aktion">Spans in Aktion</h6>
+
+<p>Wie eingangs erwähnt bieten <strong>Spans</strong> die Möglichkeit, weitere Informationen mitzuführen. Dies wollen wir uns im
+nächsten Beispiel einmal ansehen.
+Basierend auf dem vorherigen Endpoint, ergänzen wir hier Namen sowie Status und fügen einen Service-Call hinzu:</p>
+
+<pre><code class="language-java">@Inject
+TodoService todoService;
+
+@POST
+@Consumes(MediaType.APPLICATION_JSON)
+@Produces(MediaType.APPLICATION_JSON)
+@Operation(summary = "Create new todo")
+@Tag(name = "Todo")
+@APIResponses({
+        @APIResponse(responseCode = "201", description = "Todo created"),
+})
+public Response create(TodoBase todoBase, @Context UriInfo uriInfo) {
+    Response.ResponseBuilder response;
+
+    Span.current()
+            .updateName("Received post request"); // &lt;1&gt;
+
+    Optional&lt;Todo&gt; todo = this.todoService.create(todoBase); // &lt;2&gt;
+
+    if (todo.isPresent()) {
+        Span.current()
+                .setStatus(StatusCode.OK, todo.get().getId()); // &lt;3&gt;
+
+        URI uri = uriInfo.getAbsolutePathBuilder()
+                .path(todo.get().getId())
+                .build();
+
+        response = Response.created(uri);
+    }
+
+    return response.build();
+}
+</code></pre>
+
+<p><strong>&lt;1&gt;</strong> Hier setzen wir zunächst den Namen des aktuellen Spans.<br />
+<strong>&lt;2&gt;</strong> Als nächstes rufen wir unseren neuen Service auf.<br />
+<strong>&lt;3&gt;</strong> Abhängig vom Ergebnis des vorherigen Aufrufs setzen wir einen Status.</p>
+
+<pre><code class="language-java">@WithSpan("Create todo") // &lt;4&gt;
+public Optional&lt;Todo&gt; create(TodoBase base) {
+    Todo todo = new Todo(base);
+
+    todo.setId(UUID.randomUUID().toString());
+
+    Span.current()
+            .addEvent("Added id to todo", Attributes.of(
+                    AttributeKey.stringKey("id"), todo.getId())) // &lt;5&gt;
+            .setStatus(StatusCode.OK); // &lt;6&gt;
+
+    return Optional.of(todo);
+}
+</code></pre>
+
+<p><strong>&lt;4&gt;</strong> Mittels dieser Annotation von <a href="https://opentelemetry.io">OpenTelemetry</a> legen wir automatisch einen neuen Span an.<br />
+<strong>&lt;5&gt;</strong> Neben Status können auch Logevents mit weiteren Attributen angehangen werden.<br />
+<strong>&lt;6&gt;</strong> Und abschließend setzen wir auch hier den Status.</p>
+
+<p>Sobald wir jetzt einen erneuten Post an unseren Endpoint schicken, finden wir in <a href="https://www.jaegertracing.io/">Jaeger</a> folgendes vor:</p>
+
+<p><img src="/assets/images/posts/logging-vs-tracing/jaeger_advanced_trace.png" alt="image" /></p>
+
+<p><a href="https://www.jaegertracing.io/">Jaeger</a> bietet zusätzlich noch eine experimentelle Graphansicht auf <strong>Traces</strong> und <strong>Spans</strong> an:</p>
+
+<p><img src="/assets/images/posts/logging-vs-tracing/jaeger_advanced_graph.png" alt="image" /></p>
+
+<h6 id="spans-und-eventing">Spans und Eventing</h6>
+
+<p><a href="https://opentelemetry.io/docs/instrumentation/java/manual/#context-propagation">Context Propagation</a> erlaubt es, wie bereits erwähnt, einen Kontext über Servicegrenzen hinaus zu transportieren und
+dies wollen wir uns jetzt einmal mit <a href="https://kafka.apache.org/">Kafka</a> ansehen.
+Wir starten abermals mit dem bekannten Beispiel, daher sollte es bis auf den <a href="https://quarkus.io/">Quarkus</a>-typischen Aufruf auch keine
+Überraschungen geben:</p>
+
+<pre><code class="language-java">@Inject
+TodoService todoService;
+
+@Inject
+TodoSource todoSource;
+
+@POST
+@Consumes(MediaType.APPLICATION_JSON)
+@Produces(MediaType.APPLICATION_JSON)
+@Operation(summary = "Create new todo")
+@Tag(name = "Todo")
+@APIResponses({
+        @APIResponse(responseCode = "201", description = "Todo created"),
+})
+public Response create(TodoBase todoBase, @Context UriInfo uriInfo) {
+    Response.ResponseBuilder response;
+
+    Span.current()
+            .updateName("Received post request");
+
+    Optional&lt;Todo&gt; todo = this.todoService.create(todoBase);
+
+    if (todo.isPresent()) {
+        Span.current()
+                .setStatus(StatusCode.OK, todo.get().getId());
+
+        this.todoSource.send(todo.get()); // &lt;1&gt;
+
+        URI uri = uriInfo.getAbsolutePathBuilder()
+                .path(todo.get().getId())
+                .build();
+
+        response = Response.created(uri);
+    }
+
+    return response.build();
+}
+</code></pre>
+
+<p><strong>&lt;1&gt;</strong> Wir rufen hier einen neuen Service auf, welcher die Anbindung an <a href="https://kafka.apache.org/">Kafka</a> für uns übernimmt.</p>
+
+<pre><code class="language-java">public class TodoSink {
+    @ConfigProperty(name = "quarkus.application.name")
+    String appName;
+
+    @Inject
+    TodoService todoService;
+
+    @Incoming("todo-stored")
+    public CompletionStage&lt;Void&gt; consumeStored(IncomingKafkaRecord&lt;String, Todo&gt; record) {
+        Optional&lt;TracingMetadata&gt; metadata = TracingMetadata.fromMessage(record); // &lt;2&gt;
+
+        if (metadata.isPresent()) {
+            try (Scope ignored = metadata.get().getCurrentContext().makeCurrent()) { // &lt;3&gt;
+                Span span = GlobalOpenTelemetry.getTracer(appName)
+                        .spanBuilder("Received message from todo-stored").startSpan(); // &lt;4&gt;
+
+                if (this.todoService.update(record.getPayload())) {
+                    span.addEvent("Updated todo", Attributes.of(
+                            AttributeKey.stringKey("id"), record.getPayload().getId())); // &lt;5&gt;
+                }
+
+                span.end(); // &lt;6&gt;
+            }
+        }
+
+        return record.ack();
+    }
+</code></pre>
+
+<p><strong>&lt;2&gt;</strong> Im Gegensatz zu <a href="https://opentracing.io/">OpenTracing</a> müssen wir uns bei <a href="https://opentelemetry.io">OpenTelemetry</a> um die Übernahme des Kontext selber kümmern.<br />
+<strong>&lt;3&gt;</strong> Daher erzeugen wir zunächst einen neuen Kontext.<br />
+<strong>&lt;4&gt;</strong> Und erzeugen anschließend über einen Builder einen neuen Span.<br />
+<strong>&lt;5&gt;</strong> Jetzt setzen wir auch hier ein entsprechendes Logevent.<br />
+<strong>&lt;6&gt;</strong> Am Ende schließen wir den Span ab.</p>
+
+<p>Setzt man dieses Schema in seiner Anwendung fort, bekommt man am Ende ein vollständiges Bild eines Requests wie
+beispielsweise hier zu sehen:</p>
+
+<p><img src="/assets/images/posts/logging-vs-tracing/jaeger_complex_trace.png" alt="image" /></p>
+
+<h5 id="korrelation-über-tracing">Korrelation über Tracing</h5>
+
+<p>Leider bietet <a href="https://opentelemetry.io">OpenTelemetry</a> derzeit keine einfache Möglichkeit, die <strong>Trace ID</strong> oder <strong>Span ID</strong> automatisiert an
+<strong>Logs</strong> anzuhängen, aber grundsätzlich ist natürlich die <strong>Trace ID</strong> ein schöner Kandidat für eine <strong>correleation ID</strong>.</p>
+
+<p>In einem vorherigen Beispiel haben wir gesehen, wie wir mittels <a href="https://logback.qos.ch/manual/mdc.hml">MDC</a> und <a href="https://www.baeldung.com/cdi-interceptor-vs-spring-aspectj">Interceptor</a> Informationen durchreichen
+können und das kann man ebenso mit der <strong>Trace ID</strong> machen:</p>
+
+<pre><code class="language-java">@Traced
+@Priority(10)
+@Interceptor
+public class TracedInterceptor {
+
+    @AroundInvoke
+    public Object trace(InvocationContext context) throws Exception {
+        Object result = null;
+
+        try (MDC.MDCCloseable closable = MDC.putCloseable("trace_id",
+                Span.current().getSpanContext().getTraceId())) // &lt;1&gt;
+        {
+            result = context.proceed();
+        }
+
+        return result;
+    }
+}
+</code></pre>
+
+<p><strong>&lt;1&gt;</strong> Hier holen wir uns die <strong>Trace ID</strong> und legen sie im <a href="https://logback.qos.ch/manual/mdc.hml">MDC</a> ab.</p>
+
+<h4 id="fazit">Fazit</h4>
+
+<p>Beim Einsatz von <a href="https://en.wikipedia.org/wiki/Logging">Logging</a> oder <a href="https://en.wikipedia.org/wiki/Tracing_(software)">Tracing</a> gibt es hier kein echtes entweder/oder.
+Beides kann helfen, Probleme einzugrenzen, und bietet jeweils ein anderes Bild der Vorgänge mit einem Satz komplementärer
+Informationen zur Diagnose.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Logging</th>
+      <th>Tracing</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Bietet Insights in einfache Anwendungen</td>
+      <td>Hilft, Requests durch Applikationen zu verfolgen</td>
+    </tr>
+    <tr>
+      <td>Zeigt Status von Anwendungen</td>
+      <td>Liefert Timings und Latenzen für Requests</td>
+    </tr>
+    <tr>
+      <td>Kann einfach integriert werden</td>
+      <td>Erhöht die Komplexität des Codes</td>
+    </tr>
+    <tr>
+      <td>Gut geeignet für Monolithen</td>
+      <td>Besser geeignet für Microservicearchitekturen</td>
+    </tr>
+    <tr>
+      <td>Unterstützt Debugging und Diagnosen</td>
+      <td>Unterstützt Debugging und Diagnosen</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Während sich <a href="https://en.wikipedia.org/wiki/Logging">Logging</a> sehr gut für den normalen Monolithen eignet, lohnt sich die erhöhte Komplexität durch
+<a href="https://en.wikipedia.org/wiki/Tracing_(software)">Tracing</a> gerade innerhalb einer Microservicearchitektur.
+Beide zusammen bilden die ersten beiden Säulen der <a href="https://www.oreilly.com/library/view/distributed-systems-observability/9781492033431/ch04.html">Three Pillars of Observability</a> und unterstützen
+Entwicklungsteams dabei, Fehler zu debuggen, Diagnosen zu erstellen und allgemein robustere Systeme zu bauen.</p>
+
+<p>Sämtliche Beispiele können im folgenden Repository eingesehen werden:</p>
+
+<p><a href="https://github.com/unexist/showcase-logging-tracing-quarkus">https://github.com/unexist/showcase-logging-tracing-quarkus</a></p>
+
+
+</div>
+</div>
+</div>
+</div>]]></field>
+    </document>
+</documents>
