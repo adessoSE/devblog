@@ -325,11 +325,11 @@ Zum einen müssen wir betrachten wie viele Alarme bearbeitet werden müssen und 
 Damit ist hier ein Faktor gegeben, den jedes Projekt für sich selbst beantworten muss.
 Aber die laufenden Kosten können wir hier zumindest grob überschlagen:
 * Lambdas verursachen nur zur Laufzeit kosten.
-  Selbst wenn wir hier deutlich überzogene 1.000 Aufrufe mit 15.000 ms Laufzeit und 512MB Speicher veranschlagen, kommen wir ohne Berücksichtigung des Freetiers auf gerade einem 0,12 USD Kosten pro Monat.
+  Selbst wenn wir hier deutlich hoch gegriffene 1.000 Aufrufe mit 15.000 ms Laufzeit und 512MB Speicher veranschlagen, kommen wir ohne Berücksichtigung des Freetiers auf gerade einmal 0,12 USD Kosten pro Monat.
 * Für SNS und SQS gilt ähnliches.
   Wenn man hier den Freetier von 1.000.000 Notifications pro Monat bei SNS und SQS verlässt, entstehen pro Request nur 0.0000005 USD an Kosten.
   Das sollte bei der Summe der erwarteten Alarme nie einen nennenswerten Betrag ergeben.
-* Alarm-Metriken verursachen Kosten. 
+* Alarm-Metriken verursachen auch Kosten. 
   Diese sollten aber nicht dieser Lösung angerechnet werde, da sie in den zu überwachenden Projekten sowieso bereits benötigt werden.
 
 Am Ende können wir sagen, dass die laufenden Kosten für die hier verwendeten Komponenten selbst jenseits des Freetiers zu vernachlässigen sind.
