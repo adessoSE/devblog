@@ -176,7 +176,7 @@ Dieses Signal wird wie eine normale `RuntimeException` so lange an die nächsten
 
 Mit ``onErrorMap`` kann eine Exception abgefangen und eine andere Exception geworfen werden.
 Über ``onErrorReturn`` kann beim Autreten einer Exception ein Standardwert zurückgegeben werden, 
-``onErrorResume ``ruft einen alternativen Publisher auf. 
+``onErrorResume`` ruft einen alternativen Publisher auf. 
 Jeder dieser Methoden kann außerdem die Klasse der zu behandelnden Exception übergeben werden, um einzuschränken, welche Exceptions behandelt werden soll.
 
 Wenn in der Kürzelmethode aus dem ersten Beispiel des Kapitels einfach der Standard-String "Unbekannt" zurückgegeben werden soll, 
@@ -191,7 +191,7 @@ public Mono<String> getAbbreviatedName(String userId) {
 
 private String buildAbbreviatedName(UserData userData){[...]}
 ```
-#Fazit
+# Fazit
 Mithilfe dieser 9 Methoden solltet ihr für den Start in die Programmierung mit Spring Webflux gerüstet sein.
 Wenn ihr Anwendungsfälle habt, die hier nicht abgedeckt wurden, können wir euch die bereits eingangs im letzten Kapitel
 erwähnte [Operatorenübersicht](https://projectreactor.io/docs/core/release/reference/#which-operator) aus dem 
