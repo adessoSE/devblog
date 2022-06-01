@@ -24,7 +24,7 @@ Klassische Programmiermodelle wie z.B. in Spring MVC nutzen für jeden Request j
 so lange, bis die aktuelle Aufgabe abgeschlossen ist, und geben ihn dann wieder frei.
 Muss während der Codeverarbeitung z.B. eine Datenbank oder ein entferntes System angesprochen werden, wobei eine langsame Antwortzeit erwartet werden kann, muss der Thread lange blockieren.
 Um die Antwortbereitschaft aufrecht zu halten, wird oft ein größerer Threadpool vorgehalten.
-Je nach Szenario kann ein Java Thread auch schnell mal 1MB Speicher allokieren, was gerade in Cloudumgebungen schnell mit erhöhten Kosten einhergeht. 
+Je nach Szenario kann ein Java Thread auch schnell mal 1MB Speicher allokieren, was gerade in Cloud-Umgebungen schnell mit erhöhten Kosten einhergeht. 
 
 ## Project Reactor
 Das Spring-Framework nutzt das Open-Source-Projekt Reactor als Basis für die Umsetzung der reaktiven Programmierung.
@@ -175,7 +175,7 @@ Wenn in der Ausführungssequenz eine Methode einen Fehler wirft, gibt der Publis
 Dieses Signal wird wie eine normale `RuntimeException` so lange an die nächsten Subscriber weitergereicht, bis es irgendwo explizit behandelt wird.
 
 Mit ``onErrorMap`` kann eine Exception abgefangen und eine andere Exception geworfen werden.
-Über ``onErrorReturn`` kann beim Autreten einer Exception ein Standardwert zurückgegeben werden, 
+Über ``onErrorReturn`` kann beim Auftreten einer Exception ein Standardwert zurückgegeben werden, 
 ``onErrorResume`` ruft einen alternativen Publisher auf. 
 Jeder dieser Methoden kann außerdem die Klasse der zu behandelnden Exception übergeben werden, um einzuschränken, welche Exceptions behandelt werden soll.
 
