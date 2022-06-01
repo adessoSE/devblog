@@ -7,7 +7,7 @@ categories: [Softwareentwicklung]
 tags: [DevOps, Lambda, Cloudwatch, Jira, AWS, Cloud]        
 ---
 
-Im Rahmen eines Projekts, in dem eine ganze Reihe von Microservices entwickelt und betrieben werden, hat sich eine Idee entwickelt, die Bearbeitung der Alarme zu verbessern.
+Im Rahmen eines Projekts, in dem eine ganze Reihe von Microservices entwickelt und betrieben werden, ist eine Idee entstanden, die Bearbeitung der Alarme zu verbessern.
 Basierend auf Cloudwatch-Alarmen und einem Topic im Simple Notification Service von AWS, ist bei mehreren betriebenen Microservices sowie diversen Queues und anderen Komponenten schnell eine große Menge von Alarmen konfiguriert, die auf Protokollfiltern oder Metriken der Services beruhen können.
 Dabei den Überblick zu behalten, wichtige Alarme direkt zu priorisieren und die Analyse zu vereinfachen ist nicht immer einfach.
 Natürlich darf nichts unter den Tisch fallen, und es sollte sichergestellt sein, dass klar ist, wer gerade welchen Alarm bearbeitet.
@@ -60,7 +60,7 @@ Es ergeben sich aber tatsächlich mehrere Probleme, für die Abhilfe geschaffen 
 3. Wie lesbar und damit wie schnell bearbeitbar sind diese erzeugten E-Mails überhaupt?
 
 Tatsache ist, dass wir hier auf ein Problem gestoßen sind.
-Es gibt immer wieder Alarme, die durch die gleiche Ursache ausgelöst wurden, sodass es dazu kommen kann, dass mehrere Entwickler am gleichen Thema arbeiten, ohne das kurzfristig zu erkennen.
+Es gibt immer wieder unterschiedliche Alarme, die aber durch die gleiche Ursache ausgelöst wurden, sodass es dazu kommen kann, dass mehrere Entwickler am gleichen Thema arbeiten, ohne das kurzfristig zu erkennen.
 Gibt es mal eine größere Anzahl von Alarmen, ist das E-Mail-Postfach nicht der Ort, an dem man übersichtlich sicherstellen kann, dass alle Alarme bereits bearbeitet wurden.
 Und auch die Lesbarkeit der Mails lässt zu wünschen übrig.
 Es sind zwar alle notwendigen technischen Informationen enthalten, aber es beschleunigt die Bearbeitung ungemein, wenn man zum Beispiel einen Stacktrace aus den Logs direkt im Anhang findet.
@@ -69,8 +69,8 @@ Es sind zwar alle notwendigen technischen Informationen enthalten, aber es besch
 
 Wir teilen die Aufgaben für die Erzeugung und Anreicherung der Jira-Tickets in zwei Lambdas auf.
 Damit erhöhen wir sowohl die Flexibilität als auch die Ausfallsicherheit der Lösung.
-Sobald die erste Lambda für das initiale Anlegen eines Jira-Tickets erfolgreich durchgelaufen ist, können wir dieses Ticket um Zusatzinformationen, deren Beschaffung dann auch langläufiger oder komplizierter sein kann, erweitern.
-In unserem Fall erweitern wir die Tickets bei protokollbasierten Alarmen im zweiten Schritt um den auslösenden Log-Eintrag.
+Sobald die erste Lambda für das initiale Anlegen eines Jira-Tickets erfolgreich durchgelaufen ist, können wir dieses Ticket um Zusatzinformationen, deren Beschaffung dann auch langläufiger oder komplizierter sein kann, erweitern ohne dadurch ein Risiko beim Anlegen einzugehen.
+In unserem Fall ergänzen wir die Tickets bei protokollbasierten Alarmen im zweiten Schritt um den auslösenden Log-Eintrag.
 Der Ansatz an sich ist aber offen für Erweiterungen, die aus den Anforderungen anderer Projekte entstehen könnten.
 
 ## Ein Jira-Ticket anlegen
