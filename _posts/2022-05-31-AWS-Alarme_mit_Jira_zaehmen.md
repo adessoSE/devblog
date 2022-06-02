@@ -165,7 +165,7 @@ Mehr dazu unter [Automatisierung in Jira nutzen](#automatisierung-in-jira-nutzen
 Aus den Feldern "AlarmDescription", "NewStateReason" und "StateChangeTime" lässt sich eine aussagekräftige Ticket-Beschreibung zusammensetzen. 
 
 Werden weitere Informationen über die Alarm-Schwellenwerte benötigt, so kann die Beschreibung um Informationen aus dem "Trigger"-Objekt angereichert werden. 
-Sind mehrere AWS Accounts im Einsatz oder ist das Projekt in mehreren Regionen deployed, so sind auch die Felder "AWSAccountId" und "Region" besonders interessant.
+Sind mehrere AWS Accounts im Einsatz oder ist das Projekt in mehreren Regionen deployt, so sind auch die Felder "AWSAccountId" und "Region" besonders interessant.
 
 Bei der Bearbeitung eines Alarmtickets kann es hilfreich sein, zu sehen, ob der Vorfall weiterhin anhält oder in der Vergangenheit schon einmal aufgetreten ist. 
 Diese Informationen lassen sich sehr schnell direkt in der AWS-Konsole ablesen – ein Link zu dem Cloudwatch-Alarm kann auf einfache Weise zur Ticketbeschreibung hinzugefügt werden, da dieser folgendes Format besitzt:
