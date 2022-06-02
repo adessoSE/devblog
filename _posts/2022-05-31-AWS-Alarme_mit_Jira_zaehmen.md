@@ -339,7 +339,7 @@ Für die Bearbeitung von Alarmen in Jira bietet sich ein Kanban Board an.
 Für das Board lassen sich Automatisierungen einrichten, die die Arbeit mit den Alarmtickets weiter erleichtern.
 Folgende Ideen lassen sich mit wenigen Klicks umsetzen:
 
-**Erinnerung an Tickets, die nach 24 Stunden noch nicht bearbeitet wurden**
+## Erinnerung an Tickets, die nach 24 Stunden noch nicht bearbeitet wurden
 
 Hierfür lassen wir eine Automatisierung geplant jede Stunde eine Suche ausführen, die nach allen Tickets sucht, die in unserem Alarme-Board länger als 24 Stunden im Status "New" geblieben sind.
 Das kann in JQL folgendermaßen aussehen:
@@ -358,7 +358,7 @@ Bitte den Alarm bearbeiten:
 {% endraw %}
 ```
 
-**Projektbezogene Zuweisung von Tickets**
+## Projektbezogene Zuweisung von Tickets
 
 In einigen Fällen mag es sinnvoll sein, dass bestimmte Tickets immer bei einem bestimmten Entwickler landen sollen.
 Über den Trigger "Vorgang erstellt", bekommt Jira mit, wenn ein neues Ticket angelegt wird.
@@ -366,7 +366,7 @@ Damit lassen sich dann wieder Bedingungen verknüpfen.
 Zum Beispiel kann das Feld "Stichwort", in welches wir unter dem technischen Namen "subject" in der Lambda den Projektnamen geschrieben haben, nach einem bestimmten Wert durchsucht werden.
 Wird das Projekt gefunden, so können wir den Vorgang einem bestimmten Teammitglied zuweisen und sogar direkt in den Status "In Progress" verschieben.
 
-**Weitere Ideen**
+## Weitere Ideen
 * Ähnlich wie die Erinnerung nach 24 Stunden ließe sich auch eine Erinnerung einrichten, wenn ein Ticket über einen bestimmten Zeitraum keine Updates mehr erfährt.
 * In Ausnahmefällen wäre es denkbar bestimmte Alarme automatisiert zu ignorieren.
   Wenn zum Beispiel ein System noch nicht produktiv genutzt wird, weil benötigte Rahmenbedingungen noch nicht gegeben sind, aber die Alarme schon aktiviert wurden, können die Tickets mit einem Kommentar versehen und nach "Done" verschoben werden. 
