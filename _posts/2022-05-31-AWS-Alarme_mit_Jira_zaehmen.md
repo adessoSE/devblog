@@ -10,7 +10,7 @@ tags: [DevOps, Lambda, Cloudwatch, Jira, AWS, Cloud]
 Im Rahmen eines Projekts, in dem eine ganze Reihe von Microservices entwickelt und betrieben werden, ist eine Idee entstanden, die Bearbeitung der Alarme zu verbessern.
 Basierend auf Cloudwatch-Alarmen und einem Topic im Simple Notification Service von AWS, ist bei mehreren betriebenen Microservices sowie diversen Queues und anderen Komponenten schnell eine große Menge von Alarmen konfiguriert, die auf Protokollfiltern oder Metriken der Services beruhen können.
 Dabei den Überblick zu behalten, wichtige Alarme direkt zu priorisieren und die Analyse zu vereinfachen, ist nicht immer einfach.
-Natürlich darf nichts unter den Tisch fallen, und es sollte sichergestellt sein, dass klar ist, wer gerade welchen Alarm bearbeitet.
+Natürlich darf nichts unter den Tisch fallen und es sollte sichergestellt sein, dass klar ist, wer gerade welchen Alarm bearbeitet.
 
 Mit Jira ist ein Tool gegeben, welches sowieso schon in vielen Projekten Einsatz findet. 
 Wie dieses genutzt werden kann, um die Alarme und ihren Status in den Griff zu bekommen wollen wir im Folgenden beschreiben.
