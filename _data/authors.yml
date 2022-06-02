@@ -469,7 +469,6 @@ kaythielmann:
   first_name: Kay
   last_name: Thielmann
   github_username: kthielma
-  email: Kay.Thielmann@adesso.de
   bio: "Kay Thielmann arbeitet als Software Architect bei Adesso in Dortmund. Seine Schwerpunkte liegen zur Zeit im Bereich e-Commerce, wo er diverse Applikationen in der AWS-Cloud mit betreut und weiterentwickelt."
   avatar_url: /assets/images/avatars/kaythielmann.jpg
   github: https://github.com/kthielma
@@ -534,7 +533,6 @@ sczubek:
   first_name: Stefan
   last_name: Czubek
   github_username: StefanCzubek
-  email: stefan.czubek@adesso.de
   bio: "Stefan Czubek arbeitet als Software Engineer bei adesso in Dortmund. Dort unterstützt er den Bereich Retail als Entwickler mit einem Schwerpunkt auf AWS."
   avatar_url: /assets/images/avatars/stefanczubek.png
   github: https://github.com/StefanCzubek
