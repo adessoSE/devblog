@@ -17,11 +17,11 @@ Wie dieses genutzt werden kann, um die Alarme und ihren jeweiligen Status in den
 
 # Wie entstand der Bedarf an der Lösung?
 DevOps ist ein Thema, welches in unterschiedlichsten Teams auf unterschiedliche Art gelebt wird. 
-Mal gibt es eigene DevOps Teams, mal wird der Betrieb der Anwendung im Entwicklungsteam parallel zu deren Weiterentwicklung gehandhabt.
+Mal gibt es eigene DevOps-Teams, mal wird der Betrieb der Anwendung im Entwicklungsteam parallel zu deren Weiterentwicklung gehandhabt.
 
 Aber egal wie man das Thema angeht: Am Anfang steht das Bedürfnis, direkt und automatisiert über Fehlerzustände der Systeme informiert zu werden.
 Das gängige Mittel der Wahl unter AWS sind Cloudwatch-Alarme, die mit Metriken oder Protokollen verknüpft werden können.
-Sobald die Alarmbedingung erfüllt ist (beispielsweise wird ein bestimmter Schwellwert gebrochen oder ein Error-Log taucht im Protokoll auf), wird eine Aktion ausgeführt.
+Sobald die Alarmbedingung erfüllt ist, beispielsweise wird ein bestimmter Schwellenwert gebrochen oder ein Error-Log taucht im Protokoll auf, wird eine Aktion ausgeführt.
 Dies kann zum Beispiel eine Skalierungsaktion für den entsprechenden Service oder auch das Senden eines Events, z.B. an ein Topic im Simple Notification Service, sein.
 Landen die Alarm-Events einmal in einem Topic ist es ein leichtes, die Information via E-Mail an das gesamte Entwicklungsteam zu verteilen, die darauf reagieren sollten.
 
@@ -164,7 +164,7 @@ Mehr dazu unter [Automatisierung in Jira nutzen](#automatisierung-in-jira-nutzen
 
 Aus den Feldern "AlarmDescription", "NewStateReason" und "StateChangeTime" lässt sich eine aussagekräftige Ticket-Beschreibung zusammensetzen. 
 
-Werden weitere Informationen über die Alarm-Schwellwerte benötigt, so kann die Beschreibung um Informationen aus dem "Trigger"-Objekt angereichert werden. 
+Werden weitere Informationen über die Alarm-Schwellenwerte benötigt, so kann die Beschreibung um Informationen aus dem "Trigger"-Objekt angereichert werden. 
 Sind mehrere AWS Accounts im Einsatz oder ist das Projekt in mehreren Regionen deployed, so sind auch die Felder "AWSAccountId" und "Region" besonders interessant.
 
 Bei der Bearbeitung eines Alarmtickets kann es hilfreich sein, zu sehen, ob der Vorfall weiterhin anhält oder in der Vergangenheit schon einmal aufgetreten ist. 
@@ -183,8 +183,8 @@ Ist auch dies nicht erfolgreich, so wird das Event in die DLQ geschrieben.
 Für diese DLQ kann wiederum eine E-Mail-Benachrichtigung angelegt werden, sodass wir eine zuverlässige Fallback-Möglichkeit haben, um über Alarme informiert zu werden.
 
 ## Logs als Kommentar ergänzen
-Nachdem das Alarmticket angelegt wurde, kann dieses um weitere Informationen angereichert werden, welche nicht im Alarm Event selbst enthalten sind.
-Für die schnelle Fehleranalyse ist es beispielsweise sehr hilfreich, die Logs, welche von der Anwendung geschrieben wurden, als der Alarm ausgelöst wurde, bereits am Ticket selbst zu sehen und diese nicht erst selbst aus dem Log System heraussuchen zu müssen.
+Nachdem das Alarmticket angelegt wurde, kann dieses um weitere Informationen angereichert werden, welche nicht im Alarm-Event selbst enthalten sind.
+Für die schnelle Fehleranalyse ist es beispielsweise sehr hilfreich, die Logs, welche von der Anwendung geschrieben wurden, als der Alarm ausgelöst wurde, bereits am Ticket selbst zu sehen und diese nicht erst selbst aus dem Log-System heraussuchen zu müssen.
 
 Im Folgenden schauen wir uns an, wie wir die entsprechenden Logs aus Cloudwatch auslesen und als Kommentar an das Alarmticket anhängen können.
 
@@ -228,7 +228,7 @@ Auch wenn sich mit Hilfe des oben gezeigten Code-Ausschnitts die entsprechenden 
 Es kann vorkommen, dass in der Antwort von `cloudwatchClient#filterLogEvents(FilterLogEventsRequest)`  keine Logs enthalten sind.
 Zum einen kann dies passieren, wenn für die Anfrage tatsächlich keine passenden Log-Einträge gefunden werden, viel wahrscheinlicher ist aber der Fall, wenn zu viele Log-Einträge in dem angegebenen Zeitraum durchsucht werden müssen.
 
-Betrachten wir einmal folgenden Fall: Wir suchen nach einem ERROR Log innerhalb der letzten 60 Minuten.
+Betrachten wir einmal folgenden Fall: Wir suchen nach einem ERROR-Log innerhalb der letzten 60 Minuten.
 In diesem Zeitraum werden von der Anwendung 1000 Logs geschrieben. 
 Der gesuchte Log-Eintrag wurde vor einer Minute geschrieben.
 
@@ -250,7 +250,7 @@ while(response.nextToken() != null) {
 
 Wenn die zu durchsuchende Cloudwatch Log-Gruppe viele Log-Einträge beinhaltet oder der Suchzeitraum sehr groß ist, kann die Suche der Log-Einträge sehr lange dauern.
 Es ist wichtig, diese Tatsache zu berücksichtigen.
-Wird die Anwendung als AWS Lambda Funktion bereitgestellt, so besitzt sie eine maximale Laufzeit von 15 Minuten.
+Wird die Anwendung als AWS-Lambda-Funktion bereitgestellt, so besitzt sie eine maximale Laufzeit von 15 Minuten.
 Das kann unter Umständen nicht ausreichen, um alle Log-Einträge zu durchsuchen.
 In der Anwendung müssen wir daher dafür sorgen, dass die Suche rechtzeitig beendet wird.
 Eine Möglichkeit ist etwa, die Abbruchbedingung der obigen while-Schleife so zu erweitern, dass sie die verbleibende Zeit der Lambda-Funktion mit berücksichtigt.
