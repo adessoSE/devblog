@@ -169,7 +169,9 @@ Sind mehrere AWS Accounts im Einsatz oder ist das Projekt in mehreren Regionen d
 
 Bei der Bearbeitung eines Alarmtickets kann es hilfreich sein, zu sehen, ob der Vorfall weiterhin anhält oder in der Vergangenheit schon einmal aufgetreten ist. 
 Diese Informationen lassen sich sehr schnell direkt in der AWS-Konsole ablesen – ein Link zu dem Cloudwatch-Alarm kann auf einfache Weise zur Ticketbeschreibung hinzugefügt werden, da dieser folgendes Format besitzt:
-```https://<AWS-REGION>.console.aws.amazon.com/cloudwatch/deeplink.js?region=<AWS-REGION>#alarmsV2:alarm/<ALARM-NAME>```
+```
+https://<AWS-REGION>.console.aws.amazon.com/cloudwatch/deeplink.js?region=<AWS-REGION>#alarmsV2:alarm/<ALARM-NAME>
+```
 
 Nachdem das SNS Event in einen Ticketnamen und eine aussagekräftige Beschreibung überführt wurde, kann die [Jira-REST-API](https://developer.atlassian.com/server/jira/platform/rest-apis/) (insbesondere [POST /rest/api/3/issue](https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-issues/#api-rest-api-3-issue-post)) verwendet werden, um ein Jira-Ticket anzulegen.
 Es bietet sich an, einen technischen Benutzer anzulegen, welcher dann über OAuth 1.0a, Basic Auth oder Personal Access Token auf die Jira-REST-API zugreift. Mehr Informationen dazu sind in der [Jira Dokumentation](https://developer.atlassian.com/server/jira/platform/rest-apis/#authentication-and-authorization) zu finden.
