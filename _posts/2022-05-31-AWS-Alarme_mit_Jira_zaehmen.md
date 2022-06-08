@@ -172,6 +172,8 @@ Diese Informationen lassen sich sehr schnell direkt in der AWS-Konsole ablesen �
 ```https://<AWS-REGION>.console.aws.amazon.com/cloudwatch/deeplink.js?region=<AWS-REGION>#alarmsV2:alarm/<ALARM-NAME>```
 
 Nachdem das SNS Event in einen Ticketnamen und eine aussagekräftige Beschreibung überführt wurde, kann die [Jira-REST-API](https://developer.atlassian.com/server/jira/platform/rest-apis/) (insbesondere [POST /rest/api/3/issue](https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-issues/#api-rest-api-3-issue-post)) verwendet werden, um ein Jira-Ticket anzulegen.
+Es bietet sich an, einen technischen Benutzer anzulegen, welcher dann über OAuth 1.0a, Basic Auth oder Personal Access Token auf die Jira-REST-API zugreift. Mehr Informationen dazu sind in der [Jira Dokumentation](https://developer.atlassian.com/server/jira/platform/rest-apis/#authentication-and-authorization) zu finden.
+Der Benutzer benötigt für das Anlegen eines Tickets folgende Berechtigungen: `Browse projects` und auf Projekt-Ebene `Create issues`.
 
 ### Was passiert im Fehlerfall?
 Was passiert, wenn Jira nicht erreichbar ist? 
@@ -277,6 +279,7 @@ Kommt es zu einer solchen Exception, können wir diese einfach fangen und die Su
 ### Erzeugen des Kommentars
 Nachdem wir alle passenden Logs gefunden haben, können wir diese als Kommentar an das Jira-Alarmticket anhängen.
 Hierbei greifen wir abermals auf die [Jira-REST-API](https://developer.atlassian.com/server/jira/platform/rest-apis/) ([POST /rest/api/3/issue/{issueIdOrKey}/comment](https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-issue-comments/#api-rest-api-3-issue-issueidorkey-comment-post)) zurück.
+Um einen Kommentar anzulegen, werden folgende Jira-Berechtigungen benötigt: `Browse projects` und auf Projektebene `Add comments`.
 Die benötigte Ticketnummer (Pfadvariable "issueIdOrKey") bekommen wir als Rückgabe, nachdem wir das Ticket angelegt haben (siehe [Aus einem SNS Event wird ein Ticket](#aus-einem-sns-event-wird-ein-ticket)).
 Für eine bessere Lesbarkeit der Log-Einträge innerhalb des Jira-Kommentars bietet es sich an, diese als Code-Block darzustellen.
 Damit alle Log-Einträge innerhalb desselben Code-Blocks angezeigt werden, müssen sie `\n`-separiert im Text-Attribut angegeben werden.
@@ -331,6 +334,9 @@ Aber die laufenden Kosten können wir hier zumindest grob überschlagen:
   Das sollte bei der Summe der erwarteten Alarme nie einen nennenswerten Betrag ergeben.
 * Alarm-Metriken verursachen auch Kosten. 
   Diese sollten aber nicht dieser Lösung angerechnet werde, da sie in den zu überwachenden Projekten sowieso bereits benötigt werden.
+* Das Durchsuchen der Cloudwatch-Logs schlägt mit 0,0063 USD pro GB gescannter Daten zu Buche.
+  Die tatsächlichen Kosten hängen somit stark davon ab, wie viele Logs von dem System geschrieben werden.
+  Da die Cloudwatch-Logs unabhängig davon, ob die hier vorgestellte Lösung Anwendung findet oder nicht, immer für eine Alarmanalyse benötigt werden, sollten diese Kosten auch nicht in die Gesamtkosten eingerechnet werden.
 
 Am Ende können wir sagen, dass die laufenden Kosten für die hier verwendeten Komponenten selbst jenseits des Freetiers zu vernachlässigen sind.
 
