@@ -175,7 +175,7 @@ https://<AWS-REGION>.console.aws.amazon.com/cloudwatch/deeplink.js?region=<AWS-R
 
 Nachdem das SNS Event in einen Ticketnamen und eine aussagekräftige Beschreibung überführt wurde, kann die [Jira-REST-API](https://developer.atlassian.com/server/jira/platform/rest-apis/) (insbesondere [POST /rest/api/3/issue](https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-issues/#api-rest-api-3-issue-post)) verwendet werden, um ein Jira-Ticket anzulegen.
 Es bietet sich an, einen technischen Benutzer anzulegen, welcher dann über OAuth 1.0a, Basic Auth oder Personal Access Token auf die Jira-REST-API zugreift. Mehr Informationen dazu sind in der [Jira Dokumentation](https://developer.atlassian.com/server/jira/platform/rest-apis/#authentication-and-authorization) zu finden.
-Der Benutzer benötigt für das Anlegen eines Tickets folgende Berechtigungen: `Browse projects` und auf Projekt-Ebene `Create issues`.
+Der Benutzer benötigt für das Anlegen eines Tickets folgende Berechtigungen: auf Plattformebene `Browse projects` und auf Projektebene `Create issues`.
 
 ### Was passiert im Fehlerfall?
 Was passiert, wenn Jira nicht erreichbar ist? 
