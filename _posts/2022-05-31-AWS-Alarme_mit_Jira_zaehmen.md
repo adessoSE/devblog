@@ -281,7 +281,7 @@ Kommt es zu einer solchen Exception, können wir diese einfach fangen und die Su
 ### Erzeugen des Kommentars
 Nachdem wir alle passenden Logs gefunden haben, können wir diese als Kommentar an das Jira-Alarmticket anhängen.
 Hierbei greifen wir abermals auf die [Jira-REST-API](https://developer.atlassian.com/server/jira/platform/rest-apis/) ([POST /rest/api/3/issue/{issueIdOrKey}/comment](https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-issue-comments/#api-rest-api-3-issue-issueidorkey-comment-post)) zurück.
-Um einen Kommentar anzulegen, werden folgende Jira-Berechtigungen benötigt: `Browse projects` und auf Projektebene `Add comments`.
+Um einen Kommentar anzulegen, werden folgende Jira-Berechtigungen benötigt: auf Plattformebene `Browse projects` und auf Projektebene `Add comments`.
 Die benötigte Ticketnummer (Pfadvariable "issueIdOrKey") bekommen wir als Rückgabe, nachdem wir das Ticket angelegt haben (siehe [Aus einem SNS Event wird ein Ticket](#aus-einem-sns-event-wird-ein-ticket)).
 Für eine bessere Lesbarkeit der Log-Einträge innerhalb des Jira-Kommentars bietet es sich an, diese als Code-Block darzustellen.
 Damit alle Log-Einträge innerhalb desselben Code-Blocks angezeigt werden, müssen sie `\n`-separiert im Text-Attribut angegeben werden.
