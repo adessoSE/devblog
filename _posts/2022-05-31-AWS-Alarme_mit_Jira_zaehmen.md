@@ -88,7 +88,7 @@ Konkret bedeutet das, dass die Lambda-Funktion folgende Anforderungen erfüllen 
 3. Alarmtickets sollen mit einer Priorität versehen werden.
 4. Alarme dürfen unter keinen Umständen verloren gehen
 
-### Aus einem SNS-Event wird ein Ticket
+### Aus einem SNS Event wird ein Ticket
 Das Event, welches als Auslöser der Lambda-Funktion dient, ist wie folgt aufgebaut:
 
 *(Das folgende Beispiel bezieht sich auf einen Cloudwatch-Metrik-Alarm. 
