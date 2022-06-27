@@ -20,8 +20,9 @@ zwischen verteilten Services.</p>
         <field name="change_date"><![CDATA[1530865800000]]></field>
 
         <!--Author Information-->
-        
-        <field name="author_id"><![CDATA[thombergs]]></field><!--Postcontent-->
+        <field name="author_ids"><![CDATA[thombergs]]></field>
+
+        <!--Postcontent-->
         <field name="headlines"><![CDATA[Kommunikationsmuster in verteilten Systemen]]></field>
         <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
             <p>In einer verteilten Architektur spielt die Kommunikation der verteilten Services eine zentrale Rolle.

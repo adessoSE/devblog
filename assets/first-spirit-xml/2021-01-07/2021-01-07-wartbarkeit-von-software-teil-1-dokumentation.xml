@@ -18,9 +18,9 @@ Im Gegenteil, nun muss sie sich im realen Einsatz bewähren.</p>
         <field name="change_date"><![CDATA[1620036000000]]></field>
 
         <!--Author Information-->
-        
-        <field name="author_id"><![CDATA[anbeth]]></field>
-        <field name="author_id"><![CDATA[tlange]]></field><!--Postcontent-->
+        <field name="author_ids"><![CDATA[anbethtlange]]></field>
+
+        <!--Postcontent-->
         <field name="headlines"><![CDATA[Wartbarkeit von Software – Teil 1: Dokumentation]]></field>
         <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
             <p>Nach dem Ende eines Entwicklungsprojektes und dem erfolgreichen Go-Live der entwickelten Software ist deren Lebenszyklus noch lange nicht beendet. 
