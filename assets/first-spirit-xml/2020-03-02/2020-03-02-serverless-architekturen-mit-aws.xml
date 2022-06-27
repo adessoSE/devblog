@@ -22,7 +22,9 @@ Services geschickt zu Anwendungen zusammengesetzt werden können.</p>
         <field name="date_date"><![CDATA[2020-03-02T13:00:00+01:00]]></field>
         <field name="date_l"><![CDATA[1583150400000]]></field>
         <field name="change_date"><![CDATA[1583150400000]]></field>
+
         <!--Author Information-->
+        
         <field name="author_id"><![CDATA[c-bachmann]]></field><!--Postcontent-->
         <field name="headlines"><![CDATA[Serverless Architekturen mit AWS]]></field>
         <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">

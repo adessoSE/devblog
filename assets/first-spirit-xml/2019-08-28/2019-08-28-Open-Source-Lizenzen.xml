@@ -17,7 +17,9 @@ Dieser Blogpost soll dabei helfen, die richtige Lizenz für das eigene Projekt z
         <field name="date_date"><![CDATA[2019-08-28T09:30:00+02:00]]></field>
         <field name="date_l"><![CDATA[1566977400000]]></field>
         <field name="change_date"><![CDATA[1566977400000]]></field>
+
         <!--Author Information-->
+        
         <field name="author_id"><![CDATA[jo2]]></field><!--Postcontent-->
         <field name="headlines"><![CDATA[Open-Source-Lizenzen und was ich damit machen darf]]></field>
         <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">

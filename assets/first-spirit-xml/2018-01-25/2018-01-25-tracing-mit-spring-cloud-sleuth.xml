@@ -23,7 +23,9 @@ umzusetzen.</p>
         <field name="date_date"><![CDATA[2018-01-25T12:01:00+01:00]]></field>
         <field name="date_l"><![CDATA[1516878060000]]></field>
         <field name="change_date"><![CDATA[1615211400000]]></field>
+
         <!--Author Information-->
+        
         <field name="author_id"><![CDATA[thombergs]]></field><!--Postcontent-->
         <field name="headlines"><![CDATA[Tracing in verteilten Systemen mit Spring Cloud Sleuth]]></field>
         <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
