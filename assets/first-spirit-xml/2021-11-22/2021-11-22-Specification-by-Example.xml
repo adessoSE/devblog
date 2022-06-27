@@ -24,9 +24,8 @@ zu erstellen.</p>
         <field name="change_date"><![CDATA[1634464800000]]></field>
 
         <!--Author Information-->
-        <field name="author_id"><![CDATA[unexist]]></field>
-
-        <!--Postcontent-->
+        
+        <field name="author_id"><![CDATA[unexist]]></field><!--Postcontent-->
         <field name="headlines"><![CDATA[Specification by Example]]></field>
         <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
             <p><strong>Knowledge Sharing</strong> ist eines der Kernprobleme unserer Branche und zentraler Bestandteil vieler moderner Methodiken

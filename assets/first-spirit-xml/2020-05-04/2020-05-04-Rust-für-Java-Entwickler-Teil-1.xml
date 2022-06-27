@@ -20,9 +20,8 @@ In diesem Artikel wollen wir uns Einblick in die (noch junge) Programmiersprache
         <field name="change_date"><![CDATA[1588597200000]]></field>
 
         <!--Author Information-->
-        <field name="author_id"><![CDATA[kiliankrause]]></field>
-
-        <!--Postcontent-->
+        
+        <field name="author_id"><![CDATA[kiliankrause]]></field><!--Postcontent-->
         <field name="headlines"><![CDATA[Rust für Java-Entwickler - Teil 1]]></field>
         <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
             <p>Wenn wir darüber nachdenken in welcher Sprache bzw. mit welchem Framework wir eine REST-API implementieren wollen, sind Technologien wie Java und Spring vermutlich sehr weit vorne.

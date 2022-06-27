@@ -16,9 +16,8 @@
         <field name="change_date"><![CDATA[1637838000000]]></field>
 
         <!--Author Information-->
-        <field name="author_id"><![CDATA[stwacker]]></field>
-
-        <!--Postcontent-->
+        
+        <field name="author_id"><![CDATA[stwacker]]></field><!--Postcontent-->
         <field name="headlines"><![CDATA[adesso testing day 2021]]></field>
         <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
             <p>Um es mit der Herrin Galadriel aus Tolkiens “Der Herr der Ringe” zu sagen: “Die Welt ist im Wandel.” Zugegeben: das galt für die IT schon immer. Aber gerade die aktuellen Techniken und Trends stellen den Bereich Software Testing vor neue Herausforderungen. Um diesen Herausforderungen zu begegnen und das Wissen im Unternehmen aktuell und frisch zu halten, veranstaltet adesso jährlich den adesso testing day. In diesem Jahr im September fand er zum achten Mal statt.</p>

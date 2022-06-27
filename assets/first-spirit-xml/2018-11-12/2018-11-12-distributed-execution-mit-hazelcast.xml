@@ -19,9 +19,8 @@
         <field name="change_date"><![CDATA[1544572800000]]></field>
 
         <!--Author Information-->
-        <field name="author_id"><![CDATA[karnik]]></field>
-
-        <!--Postcontent-->
+        
+        <field name="author_id"><![CDATA[karnik]]></field><!--Postcontent-->
         <field name="headlines"><![CDATA[Distributed Execution mit Hazelcast]]></field>
         <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
             <p>Bei der Migration von Legacy-Anwendungen vom IBM Mainframe in eine Linux basierte Infrastruktur stellen einen die meist rechenintensiven und damit häufig auch langläufigen Batch-Verarbeitungen bzw. Tasks vor die Aufgabe der Definition einer geeigneten Zielarchitektur. Eine mögliche Antwort gibt dieser Blog-Artikel.</p>

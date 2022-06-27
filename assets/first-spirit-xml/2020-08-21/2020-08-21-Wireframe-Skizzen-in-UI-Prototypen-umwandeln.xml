@@ -20,9 +20,8 @@ In diesem Blog-Post möchte ich einen Ansatz vorstellen, mit dem man diesen Schr
         <field name="change_date"><![CDATA[1598000400000]]></field>
 
         <!--Author Information-->
-        <field name="author_id"><![CDATA[vincentmathis]]></field>
-
-        <!--Postcontent-->
+        
+        <field name="author_id"><![CDATA[vincentmathis]]></field><!--Postcontent-->
         <field name="headlines"><![CDATA[UI-Prototyping - Wie man aus Wireframe Skizzen Prototypen generieren kann]]></field>
         <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
             <p>Prototyping ist essenziell für die Entwicklung von guten User-Interfaces.
