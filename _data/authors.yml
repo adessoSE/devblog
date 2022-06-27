@@ -536,3 +536,12 @@ mboegers:
   bio: "Merlin Bögershausen ist Software Entwickler, Speaker und Author bei adesso am Standort Aachen. Er beschäftigt sich mit Neuerungen im Java-Universum und der Softwareentwicklung im Public-Bereich."
   avatar_url: /assets/images/avatars/mboegers.jpg
   github: https://github.com/mboegers
+
+
+nirumand:
+  first_name: Reza
+  last_name: Nirumand
+  github_username: rezanirumand
+  bio: "Reza Nirumand is a Senior Software Engineer by adesso located in Dortmund. He is involved in various projects in the Banking industry for designing and delivery of Cloud-Native applications."
+  avatar_url: /assets/images/avatars/nirumand.jpg
+  github: https://github.com/rezanirumand
