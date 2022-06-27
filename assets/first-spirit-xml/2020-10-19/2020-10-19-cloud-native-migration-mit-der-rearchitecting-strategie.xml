@@ -23,7 +23,7 @@ lauffähige und erweiterbarte Software ausgeliefert werden kann und ich zeige, w
         <field name="change_date"><![CDATA[1623999600000]]></field>
 
         <!--Author Information-->
-        <field name="author_ids"><![CDATA[c-bachmann]]></field>
+        <field name="author_id"><![CDATA[c-bachmann]]></field>
 
         <!--Postcontent-->
         <field name="headlines"><![CDATA[Cloud native Migration mit der Rearchitecting Strategie]]></field>

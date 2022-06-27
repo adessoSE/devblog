@@ -20,7 +20,7 @@ Nachdem wir uns in den ersten beiden Teilen der Reihe “Wartbarkeit von Softwar
         <field name="change_date"><![CDATA[1619769600000]]></field>
 
         <!--Author Information-->
-        <field name="author_ids"><![CDATA[anbeth,tlange]]></field>
+        <field name="author_id"><![CDATA[anbeth,tlange]]></field>
 
         <!--Postcontent-->
         <field name="headlines"><![CDATA[Wartbarkeit von Software – Teil 3: Qualität und Automatisierung]]></field>

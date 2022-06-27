@@ -19,7 +19,7 @@ In diesem Blog-Beitrag betrachten wir den nicht weit verbreiteten git-Befehl git
         <field name="change_date"><![CDATA[1578999600000]]></field>
 
         <!--Author Information-->
-        <field name="author_ids"><![CDATA[smsnheck]]></field>
+        <field name="author_id"><![CDATA[smsnheck]]></field>
 
         <!--Postcontent-->
         <field name="headlines"><![CDATA[git worktree - Effizientes Arbeiten mit mehreren Arbeitskopien]]></field>

@@ -21,7 +21,7 @@ Rust ist eine solche seltene Sprache.</p>
         <field name="change_date"><![CDATA[1649919600000]]></field>
 
         <!--Author Information-->
-        <field name="author_ids"><![CDATA[christianlunau]]></field>
+        <field name="author_id"><![CDATA[christianlunau]]></field>
 
         <!--Postcontent-->
         <field name="headlines"><![CDATA[Rust Rocks]]></field>

@@ -18,7 +18,7 @@
         <field name="change_date"><![CDATA[1561710300000]]></field>
 
         <!--Author Information-->
-        <field name="author_ids"><![CDATA[no0x9d]]></field>
+        <field name="author_id"><![CDATA[no0x9d]]></field>
 
         <!--Postcontent-->
         <field name="headlines"><![CDATA[Typisierte Forms in Angular]]></field>

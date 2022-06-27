@@ -21,7 +21,7 @@ Diese Sammlung von Werkzeugen ist seitdem unter dem Begriff Domain Driven Design
         <field name="change_date"><![CDATA[1601028000000]]></field>
 
         <!--Author Information-->
-        <field name="author_ids"><![CDATA[viktor-mucha]]></field>
+        <field name="author_id"><![CDATA[viktor-mucha]]></field>
 
         <!--Postcontent-->
         <field name="headlines"><![CDATA[Herausforderungen in der Domänenmodellierung]]></field>

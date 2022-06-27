@@ -20,7 +20,7 @@ In diesem Artikel wird dazu beispielhaft gezeigt, wie ein einfaches Liniendiagra
         <field name="change_date"><![CDATA[1615211400000]]></field>
 
         <!--Author Information-->
-        <field name="author_ids"><![CDATA[maximAtanasov]]></field>
+        <field name="author_id"><![CDATA[maximAtanasov]]></field>
 
         <!--Postcontent-->
         <field name="headlines"><![CDATA[Wicked Charts - JavaScript Charts mit Apache Wicket]]></field>

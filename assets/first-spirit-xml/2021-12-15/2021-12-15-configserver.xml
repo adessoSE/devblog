@@ -23,7 +23,7 @@ Einige Möglichkeiten, diese Werte zentral zu verwalten, sowie deren Vor- und Na
         <field name="change_date"><![CDATA[1639558800000]]></field>
 
         <!--Author Information-->
-        <field name="author_ids"><![CDATA[kaythielmann]]></field>
+        <field name="author_id"><![CDATA[kaythielmann]]></field>
 
         <!--Postcontent-->
         <field name="headlines"><![CDATA[Welcher Config-Server passt zu meinem Projekt?]]></field>
