@@ -23,7 +23,7 @@ Dieser Artikel beschreibt die Idee hinter FaaS und zeigt, wie man Funktionen mit
         <field name="change_date"><![CDATA[1623999600000]]></field>
 
         <!--Author Information-->
-        <field name="author_ids"><![CDATA[hartmann42]]></field>
+        <field name="author_id"><![CDATA[hartmann42]]></field>
 
         <!--Postcontent-->
         <field name="headlines"><![CDATA[Serverless Computing – Betrieb wirklich ohne Server]]></field>

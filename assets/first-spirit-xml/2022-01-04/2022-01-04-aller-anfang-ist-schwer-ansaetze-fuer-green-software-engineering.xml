@@ -21,7 +21,7 @@ In diesem Beitrag werden einige Ansätze dazu für den Entwicklungsalltag bei Ja
         <field name="change_date"><![CDATA[1649224800000]]></field>
 
         <!--Author Information-->
-        <field name="author_ids"><![CDATA[gaboratarithnea]]></field>
+        <field name="author_id"><![CDATA[gaboratarithnea]]></field>
 
         <!--Postcontent-->
         <field name="headlines"><![CDATA[Aller Anfang ist schwer: Ansätze für Green Software-Engineering]]></field>

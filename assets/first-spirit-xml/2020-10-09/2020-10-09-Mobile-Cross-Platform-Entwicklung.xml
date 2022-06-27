@@ -22,7 +22,7 @@ Cross-Platform-Frameworks versprechen, die mobile Anwendungsentwicklung zu verei
         <field name="change_date"><![CDATA[1602226800000]]></field>
 
         <!--Author Information-->
-        <field name="author_ids"><![CDATA[vincentlipschinski]]></field>
+        <field name="author_id"><![CDATA[vincentlipschinski]]></field>
 
         <!--Postcontent-->
         <field name="headlines"><![CDATA[Mobile Cross Platform Entwicklung]]></field>

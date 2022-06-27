@@ -18,7 +18,7 @@
         <field name="change_date"><![CDATA[1584532800000]]></field>
 
         <!--Author Information-->
-        <field name="author_ids"><![CDATA[frenzel]]></field>
+        <field name="author_id"><![CDATA[frenzel]]></field>
 
         <!--Postcontent-->
         <field name="headlines"><![CDATA[Dependency Injection mit Google Guice]]></field>

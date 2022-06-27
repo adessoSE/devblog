@@ -24,7 +24,7 @@ Anwendungen aus?</p>
         <field name="change_date"><![CDATA[1652954400000]]></field>
 
         <!--Author Information-->
-        <field name="author_ids"><![CDATA[unexist]]></field>
+        <field name="author_id"><![CDATA[unexist]]></field>
 
         <!--Postcontent-->
         <field name="headlines"><![CDATA[Logging vs Tracing]]></field>

@@ -22,7 +22,7 @@ Daneben gibt es das Tolerant Reader Pattern, dass den Mehraufwand, eine Schnitts
         <field name="change_date"><![CDATA[1615211400000]]></field>
 
         <!--Author Information-->
-        <field name="author_ids"><![CDATA[stefanmueller]]></field>
+        <field name="author_id"><![CDATA[stefanmueller]]></field>
 
         <!--Postcontent-->
         <field name="headlines"><![CDATA[Mehraufwand reduzieren durch das Tolerant Reader Pattern]]></field>

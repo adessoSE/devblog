@@ -24,7 +24,7 @@ Services geschickt zu Anwendungen zusammengesetzt werden können.</p>
         <field name="change_date"><![CDATA[1583150400000]]></field>
 
         <!--Author Information-->
-        <field name="author_ids"><![CDATA[c-bachmann]]></field>
+        <field name="author_id"><![CDATA[c-bachmann]]></field>
 
         <!--Postcontent-->
         <field name="headlines"><![CDATA[Serverless Architekturen mit AWS]]></field>

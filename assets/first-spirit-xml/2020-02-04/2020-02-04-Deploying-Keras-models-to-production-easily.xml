@@ -20,7 +20,7 @@ After endless research I’m most glad to serve you an easy to execute guide for
         <field name="change_date"><![CDATA[1580803200000]]></field>
 
         <!--Author Information-->
-        <field name="author_ids"><![CDATA[s-gbz]]></field>
+        <field name="author_id"><![CDATA[s-gbz]]></field>
 
         <!--Postcontent-->
         <field name="headlines"><![CDATA[Deploy Keras models to production level easily]]></field>

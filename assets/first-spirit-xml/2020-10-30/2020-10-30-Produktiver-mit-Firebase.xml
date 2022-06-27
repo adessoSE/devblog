@@ -20,7 +20,7 @@ Wie fast immer kommen sämtliche Vorteile aber auch mit entsprechenden Nachteile
         <field name="change_date"><![CDATA[1604055600000]]></field>
 
         <!--Author Information-->
-        <field name="author_ids"><![CDATA[daklassen]]></field>
+        <field name="author_id"><![CDATA[daklassen]]></field>
 
         <!--Postcontent-->
         <field name="headlines"><![CDATA[Produktiver mit Firebase]]></field>

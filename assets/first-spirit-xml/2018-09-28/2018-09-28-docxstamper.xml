@@ -21,7 +21,7 @@ Templates erzeugt oder manuell nachbearbeitet werden. Dieser Artikel zeigt, wie 
         <field name="change_date"><![CDATA[1615211400000]]></field>
 
         <!--Author Information-->
-        <field name="author_ids"><![CDATA[thombergs]]></field>
+        <field name="author_id"><![CDATA[thombergs]]></field>
 
         <!--Postcontent-->
         <field name="headlines"><![CDATA[Word-Dokumente aus Templates Erzeugen mit DocxStamper]]></field>
