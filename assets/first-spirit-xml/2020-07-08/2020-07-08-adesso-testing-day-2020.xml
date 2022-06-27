@@ -16,9 +16,8 @@
         <field name="change_date"><![CDATA[1594213200000]]></field>
 
         <!--Author Information-->
-        <field name="author_id"><![CDATA[stwacker]]></field>
-
-        <!--Postcontent-->
+        
+        <field name="author_id"><![CDATA[stwacker]]></field><!--Postcontent-->
         <field name="headlines"><![CDATA[adesso testing day 2020]]></field>
         <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
             <p>Das Coronavirus hat viele Auswirkungen - auch der adesso testing day mit seiner inzwischen siebten Auflage war betroffen. Beim adesso testing day handelt es sich um eine adesso-interne Konferenz zum Austausch zwischen allen am Thema Testing interessierten adessi – Bereichs- und Geschäftsstellenübergreifend.</p>

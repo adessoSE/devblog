@@ -22,9 +22,8 @@ Abschließend schauen wir uns die automatisierte Release-Erzeugung an.</p>
         <field name="change_date"><![CDATA[1615211400000]]></field>
 
         <!--Author Information-->
-        <field name="author_id"><![CDATA[ccaylak]]></field>
-
-        <!--Postcontent-->
+        
+        <field name="author_id"><![CDATA[ccaylak]]></field><!--Postcontent-->
         <field name="headlines"><![CDATA[GitHub Actions im Java Projekt]]></field>
         <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
             <p>In diesem Blogpost wirst du lernen, wie ein Java Projekt mit GitHub Actions ausgestattet wird.
