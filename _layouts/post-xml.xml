@@ -20,17 +20,18 @@
         <field name="date_date"><![CDATA[{{page.date | date_to_xmlschema}}]]></field>
         <field name="date_l"><![CDATA[{{page.date | date: "%s%L"}}]]></field>
         <field name="change_date"><![CDATA[
-            {%- if page.modified_date -%} 
+            {%- if page.modified_date -%}
             {{page.modified_date | date: "%s%L"}}
             {%- else -%}
             {{page.date | date: "%s%L"}}
             {%- endif -%}
             ]]></field>
+
         <!--Author Information-->
         {% for id in page.author_ids %}
-        {%- assign author = site.data.authors[id] -%}
-        <field name="author_id"><![CDATA[{{ author.github_username }}]]></field>
+        <field name="author_id"><![CDATA[{{ id }}]]></field>
         {%- endfor -%}
+
         <!--Postcontent-->
         <field name="headlines"><![CDATA[{{ page.title }}]]></field>
         <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
