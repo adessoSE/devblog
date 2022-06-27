@@ -19,7 +19,9 @@ Operationen vorgestellt mit denen du deine Historie aufräumen kannst.</p>
         <field name="date_date"><![CDATA[2019-08-12T00:00:00+02:00]]></field>
         <field name="date_l"><![CDATA[1565560800000]]></field>
         <field name="change_date"><![CDATA[1565560800000]]></field>
+
         <!--Author Information-->
+        
         <field name="author_id"><![CDATA[czarnecki]]></field><!--Postcontent-->
         <field name="headlines"><![CDATA[Alte Geschichte Neu Schreiben mit Git]]></field>
         <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
