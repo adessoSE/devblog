@@ -24,8 +24,9 @@ Anwendungen aus?</p>
         <field name="change_date"><![CDATA[1652954400000]]></field>
 
         <!--Author Information-->
-        
-        <field name="author_id"><![CDATA[unexist]]></field><!--Postcontent-->
+        <field name="author_ids"><![CDATA[unexist]]></field>
+
+        <!--Postcontent-->
         <field name="headlines"><![CDATA[Logging vs Tracing]]></field>
         <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
             <p>Wenn wir im normalen Betrieb unserer Anwendung sehen möchten, ob sie ihren Job fehlerfrei erledigt, genügt normalerweise
