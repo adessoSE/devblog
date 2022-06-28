@@ -136,7 +136,8 @@ public void Moq_AddressBook_Should_Find_Person()
                     Age = age });
   var testResult = addressBook.Object.FindPerson("Kay", 42);
   mock.Verify(x => x.FindPerson("Kay", 42));
-}```
+}
+```
 
 ## Lising 2: NSubstitute im Einsatz
 
@@ -151,7 +152,8 @@ public void NSubstitute_AddressBook_Should_Find_Person()
                  Age = callInfo.ArgAt<int?>(1) });
   var testResult = addressBook.FindPerson("Kay", 42);
   addressBook.Received().FindPerson("Kay", 42);
-}```
+}
+```
 
 ## Listing 3: FakeItEasy im Einsatz
 
@@ -167,7 +169,8 @@ public void FakeItEasy_AddressBook_Should_Find_Person()
                     Age = age });
   var testResult = addressBook.FindPerson("Kay", 42);
   A.CallTo(() => addressBook.FindPerson("Kay", 42)).MustHaveHappened();
-}```
+}
+```
 
 # Fazit
 
