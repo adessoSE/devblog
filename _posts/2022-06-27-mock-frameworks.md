@@ -8,8 +8,9 @@ categories: [Branchen]                # Pflichtfeld. Maximal eine der angegebene
 tags: [Software,Entwicklung,Testing,Frameworks] # Bitte auf Großschreibung achten.
 ---
 
-Ein Unit Test soll genau das ausgewähltes Stück Code testen.
-Wenn die zu testende Methode externe Services oder Datenbanken aufruft, können Mocks die Abhängigkeiten durch Platzhalter ersetzen.
+Ein Unit Test soll genau das ausgewählte Stück Code testen.
+Doch oft ruft die zu testende Methode externe Services oder Datenbanken auf.
+Mocks können solche Abhängigkeiten durch Platzhalter ersetzen.
 Die drei in der Microsoft-Welt beliebten Mocking-Frameworks Moq, NSubstitute und FakeItEasy werden hier gegenübergestellt.
 
 # Was Mocking-Frameworks können
