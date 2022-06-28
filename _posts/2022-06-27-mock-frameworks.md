@@ -105,7 +105,7 @@ Das Ausmaß des Performance-Einbruchs lässt sich mit einem einfachen Lasttest a
 * Ein Unit Test faked das Interface mit 50 identischen Methoden, die den Parameter wieder ausgeben, dann ruft er jede dieser Methoden 100 Mal auf.
 * Eine Stopwatch schreibt die Millisekunden für Setup und jeden einzelnen Call mit.
 
-![Zeit pro Call](/assets/images/mock-frameworks/mock-frameworks.png)
+![Zeit pro Call](/assets/images/posts/mock-frameworks/mock-frameworks.png)
 
 Bei allen Durchläufen stieg die Dauer pro Call mit der Anzahl vorheriger Calls an.
 Die Abbildung veranschaulicht die Verläufe pro Framework.
