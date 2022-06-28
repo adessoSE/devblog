@@ -53,7 +53,7 @@ Stattdessen werfen sie bei fehlgeschlagener Verifikation eine jeweils frameworks
 Damit unzulässige Tests früh auffallen, bieten NSubstitute und FakeItEasy einen Roslyn-Analyzer an.
 Beide überprüfen die Unit Tests auf Überschreiben eines nicht-virtuellen Members sowie Bezug auf Argumente außerhalb des für die Methode spezifizierten Bereichs.
 Der Analyzer von FakeItEasy macht mit seinen nur fünf Prüfregeln zwar einen rudimentären Eindruck gegenüber dem NSubstitute-Analyzer mit 24 Regeln.
-Praktisch dürfte der Nutzen jedoch ohnehin gering sein, schließlich fallen Fehler bei der ersten Testausführung sofort auf.
+Praktisch dürfte der Nutzen ohnehin gering sein, schließlich fallen Fehler bei der ersten Testausführung sofort auf.
 
 ## Besonderheiten von Moq
 
@@ -61,6 +61,7 @@ Moq ist der Klassiker unter den Mocking Frameworks, sein Name steht für "Mock y
 Sein Alleinstellungsmerkmal sind die syntaktischen Geschmacksrichtungen beim Testaufbau.
 So lässt sich, wie gewohnt, jede Funktion einzeln mit `mock.Setup().Returns()` ersetzen.
 Alternativ kann der komplette Mock auch in einem großen LINQ-Ausdruck definiert werden, was bei Fakes mit eigener Logik allerdings auf Kosten der Lesbarkeit geht.
+
 Bei etwas umfangreicheren Interfaces oder wiederholten Methodenaufrufen geht die Performance von Moq leider schnell in die Knie.
 Auch daran zeigt sich, dass Moq sein Spezialgebiet bei kurzen Wegwerf-Mocks hat, die wenige Methoden mit Konstanten überschreiben und nach ein paar Aufrufen verworfen werden.
 
@@ -72,7 +73,7 @@ Die Eleganz endet, sobald Funktionsargumente in der Fake-Logik benutzt werden so
 Denn diese werden in einem `CallInfo` Objekt verpackt übergeben und sind zunächst alle vom Typ Object.
 
 Um eine Klasse statt einer Schnittstelle zu ersetzen, müssen bei NSubstitute - genauso wie bei Moq - alle Konstruktor-Parameter angegeben werden.
-Sollten sie in der Testumgebung nicht zur Verfügung stehen, muss auch hier für jedes als Parameter benötigte Objekt vorher ein Substitut erzeugt werden.
+Sollten sie in der Testumgebung nicht zur Verfügung stehen, muss auch hier für jeden Parameter vorher ein Substitut erzeugt werden.
 Zu beachten sind auch die Warnungen in der Dokumentation, dass man im Regelfall nur Schnittstellen substituieren soll und nur im Ausnahmefall eine Klasse.
 Vom Konstruktor abgesehen, ruft NSubstitute die echte Implementierung einer substituierten Klasse nie auf.
 Das heißt, `Substitute.For<T>()` erzeugt immer einen strikten Fake.
@@ -87,7 +88,7 @@ Man erzeugt `A.Fake` und dafür `A.CallTo` mit Argumenten `A<T>`.
 
 Wenn mit einer Klasse statt einer Schnittstelle gearbeitet wird, muss auch FakeItEasy den echten Konstruktor mit allen geforderten Parametern aufrufen.
 Dafür erzeugt das Framework sogenannte Dummies:
-Für jeden nicht angegebenen Konstruktor-Parameter wird automatisch ein Objekt eingesetzt, das den passenden Typ hat und nichts tut.
+Für jeden nicht angegebenen Konstruktorparameter wird automatisch ein Objekt eingesetzt, das den passenden Typ hat und nichts tut.
 Auf das Konzept der Dummies kann überall zurückgegriffen werden, wo ein Objekt eines bestimmten Typs benötigt wird, dessen Verhalten egal ist.
 Mit `A.CollectionOfDummy<T>(count)` kann sogar eine Liste mit untätigen Fakes gefüllt werden.
 
