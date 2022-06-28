@@ -57,7 +57,7 @@ Praktisch dürfte der Nutzen ohnehin gering sein, schließlich fallen Fehler bei
 
 ## Besonderheiten von Moq
 
-Moq ist der Klassiker unter den Mocking Frameworks, sein Name steht für "Mock you".
+Moq ist der Klassiker unter den Mocking-Frameworks, sein Name steht für "Mock you".
 Sein Alleinstellungsmerkmal sind die syntaktischen Geschmacksrichtungen beim Testaufbau.
 So lässt sich, wie gewohnt, jede Funktion einzeln mit `mock.Setup().Returns()` ersetzen.
 Alternativ kann der komplette Mock auch in einem großen LINQ-Ausdruck definiert werden, was bei Fakes mit eigener Logik allerdings auf Kosten der Lesbarkeit geht.
@@ -114,7 +114,7 @@ FakeItEasy pendelt sich nach einer Aufwärmzeit bei einer Steigung von 0,01 ein.
 Moq hingegen tanzt aus der Reihe:
 Bei sehr wenigen Calls arbeitet das Framework noch so zügig wie NSubstitute, ab ca. 1000 Methodenaufrufen eskaliert die Zeit pro Call jedoch.
 Schuld daran ist eine Steigerung um den Faktor 0,03.
-Das heißt, die Performance skaliert über längere Unit Tests dreimal schlechter als die anderer Mocking Frameworks.
+Das heißt, die Performance skaliert über längere Unit Tests dreimal schlechter als die anderer Mocking-Frameworks.
 
 # Beispiele
 
