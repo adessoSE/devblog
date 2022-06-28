@@ -122,7 +122,7 @@ Um die theoretischen Betrachtungen abzurunden, folgt hier für jedes Framework e
 Darin wird jeweils dieselbe Schnittstelle `IAddressBook` so gemockt, dass die Suche ein zur Eingabe passendes Ergebnis simuliert, ohne dass ein echtes Adressbuch verfügbar sein muss.
 Anschließend werden die erwarteten Aufrufe verifiziert.
 
-## Listing 1: Moq im Einsatz
+## Listing 1: Moq
 
 ```csharp
 public void Moq_AddressBook_Should_Find_Person()
@@ -139,7 +139,7 @@ public void Moq_AddressBook_Should_Find_Person()
 }
 ```
 
-## Lising 2: NSubstitute im Einsatz
+## Lising 2: NSubstitute
 
 ```csharp
 public void NSubstitute_AddressBook_Should_Find_Person()
@@ -155,7 +155,7 @@ public void NSubstitute_AddressBook_Should_Find_Person()
 }
 ```
 
-## Listing 3: FakeItEasy im Einsatz
+## Listing 3: FakeItEasy
 
 ```csharp
 public void FakeItEasy_AddressBook_Should_Find_Person()
@@ -175,11 +175,12 @@ public void FakeItEasy_AddressBook_Should_Find_Person()
 # Fazit
 
 Insgesamt macht NSubstitute den solidesten Eindruck.
-Alle häufig benötigten Features sind vorhanden, das Mock-Setup über Extensions ergibt sauber lesbaren Code.
+Alle häufig benötigten Features sind vorhanden, der Testaufbau über Extensions ergibt sauber lesbaren Code.
 Zur Laufzeit überzeugt die Geschwindigkeit.
 
 Solange die in FakeItEasy fehlenden Features nicht gebraucht werden, ist die Wahl aber Geschmackssache.
-Das Mock-Setup wird dadurch unleserlich, dass jede Zeile mit "A.CallTo" beginnt.
+
+Bei FakeItEasy wird der Testaufbau dadurch unleserlich, dass jede Zeile mit "A.CallTo" beginnt.
 Im Gegenzug ist der Zugriff auf Funktionsargumente schöner gelöst.
 Ein Spezialgebiet von FakeItEasy ist die gute Unterstützung von Fakes konkreter Klassen.
 Wenn teils Originalcode getestet werden soll, sind die Dummies eine große Hilfe.
