@@ -13,7 +13,7 @@ Doch oft ruft die zu testende Methode externe Services oder Datenbanken auf.
 Mocks können solche Abhängigkeiten durch Platzhalter ersetzen.
 Die drei in der Microsoft-Welt beliebten Mocking-Frameworks Moq, NSubstitute und FakeItEasy werden hier gegenübergestellt.
 
-# Was Mocking-Frameworks können
+# Was Mocks können
 
 Ein Mock ersetzt Abhängigkeiten, die in der Testumgebung nicht zur Verfügung stehen, durch Platzhalter.
 Er fängt Methodenaufrufe ab, ersetzt sie durch eigenen Code und füttert den Aufrufer mit Testdaten.
@@ -22,8 +22,8 @@ Mocks sind erweiterte Stubs, die überprüfen können, ob eine abgefangene Metho
 In der Praxis spielt diese Unterscheidung kaum eine Rolle.
 
 Die drei hier betrachteten Frameworks sind alle in der Lage, gemockte Methoden mit einer sinnvollen Implementierung zu hinterlegen.
-Im Alltag ist das zum Beispiel nützlich, um vom Testobjekt erzeugte Daten zu sammeln, die im Betrieb etwa an eine Datenbank gesendet würden.
-Ein wohlüberlegt definierter Fake kann außerdem flexibler eingesetzt werden, wenn er auf unterschiedliche Eingaben passend reagiert.
+Im Alltag ist das zum Beispiel nützlich, um vom Testobjekt erzeugte Daten zu sammeln, die im Betrieb an eine Datenbank gesendet würden.
+Ein wohlüberlegt definierter Fake kann flexibel eingesetzt werden, wenn er auf unterschiedliche Eingaben passend reagiert.
 
 # Das Gleiche, nur anders
 
