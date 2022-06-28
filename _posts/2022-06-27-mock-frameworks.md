@@ -75,6 +75,7 @@ Denn diese werden in einem `CallInfo` Objekt verpackt übergeben und sind zunäc
 Um eine Klasse statt einer Schnittstelle zu ersetzen, müssen bei NSubstitute - genauso wie bei Moq - alle Konstruktor-Parameter angegeben werden.
 Sollten sie in der Testumgebung nicht zur Verfügung stehen, muss auch hier für jeden Parameter vorher ein Substitut erzeugt werden.
 Zu beachten sind auch die Warnungen in der Dokumentation, dass man im Regelfall nur Schnittstellen substituieren soll und nur im Ausnahmefall eine Klasse.
+
 Vom Konstruktor abgesehen, ruft NSubstitute die echte Implementierung einer substituierten Klasse nie auf.
 Das heißt, `Substitute.For<T>()` erzeugt immer einen strikten Fake.
 Wo das nicht gewünscht ist, muss ausdrücklich mit `Substitute.ForPartsOf<T>()` ein partielles Substitut erzeugt werden.
@@ -97,11 +98,11 @@ Ein strikter Mock ruft nur Basismethoden auf, die ausdrücklich mit `CallsBaseMe
 
 ## Performance
 
-In der täglichen Arbeit fällt auf, dass Moq bei komplexeren Tests langsamer wird.
-Das Ausmaß des Performance-Einbruchs lässt sich mit einem einfachen Test abschätzen:
+In der täglichen Arbeit fällt auf, dass Moq bei umfangreichen Tests langsamer wird.
+Das Ausmaß des Performance-Einbruchs lässt sich mit einem einfachen Lasttest abschätzen:
 
-* Ein Interface hat 50 Methoden, jede nimmt einen int an und gibt einen zurück.
-* Ein Unit Test faked das Interface mit 50 identischen Methoden, die den int-Parameter wieder ausgeben, dann ruft er jede dieser Methoden 100 Mal auf.
+* Ein Interface hat 50 Methoden, jede nimmt einen `int` an und gibt einen zurück.
+* Ein Unit Test faked das Interface mit 50 identischen Methoden, die den Parameter wieder ausgeben, dann ruft er jede dieser Methoden 100 Mal auf.
 * Eine Stopwatch schreibt die Millisekunden für Setup und jeden einzelnen Call mit.
 
 ![Zeit pro Call](/assets/images/mock-frameworks/mock-frameworks.png)
