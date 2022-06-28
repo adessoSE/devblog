@@ -175,10 +175,8 @@ public void FakeItEasy_AddressBook_Should_Find_Person()
 # Fazit
 
 Insgesamt macht NSubstitute den solidesten Eindruck.
-Alle häufig benötigten Features sind vorhanden, der Testaufbau über Extensions ergibt sauber lesbaren Code.
+Alle häufig benötigten Features sind vorhanden, der Testaufbau über Extensions ergibt leicht lesbaren Code.
 Zur Laufzeit überzeugt die Geschwindigkeit.
-
-Solange die in FakeItEasy fehlenden Features nicht gebraucht werden, ist die Wahl aber Geschmackssache.
 
 Bei FakeItEasy wird der Testaufbau dadurch unleserlich, dass jede Zeile mit "A.CallTo" beginnt.
 Im Gegenzug ist der Zugriff auf Funktionsargumente schöner gelöst.
