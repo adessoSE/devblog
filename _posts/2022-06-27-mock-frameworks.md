@@ -29,7 +29,9 @@ Ein wohlüberlegt definierter Fake kann flexibel eingesetzt werden, wenn er auf 
 
 Die weit verbreitete Frameworks [Moq](https://github.com/moq), [NSubstitute](https://nsubstitute.github.io) und [FakeItEasy](https://fakeiteasy.github.io) stellen sich hier dem Vergleich.
 Alle davon verwenden intern DynamicProxy aus dem Castle Project, um von der zu testenden Schnittstelle oder Klasse eine Proxyklasse abzuleiten.
-Damit unterliegen alle den gleichen Grenzen: DynamicProxy erzeugt Proxy-Objekte für Interfaces oder Klassen, indem es eine neue Klasse davon ableitet.
+Damit unterliegen alle den gleichen Grenzen:
+DynamicProxy erzeugt Proxy-Objekte für Interfaces oder Klassen, indem es eine neue Klasse davon ableitet.
+
 Ein Proxy für eine konkrete Klasse kann naturgemäß nur die virtuellen Methoden abfangen.
 Von statischen oder versiegelten Klassen ist kein Proxy ableitbar, sie können also nicht gemockt werden.
 Generell empfiehlt sich, nur auf Interface-Ebene zu testen.
@@ -38,8 +40,10 @@ Denn ein Mock für eine Klasse ruft zumindest einen echten Konstruktor auf, bei 
 ## Gemeinsamkeiten
 
 Alle Frameworks werden als NuGet-Paket installiert.
-Auch das Grundprinzip ist immer gleich: In der Proxy-Klasse werden für jede einzelne Methode die Rückgabewerte festgelegt.
+Das Grundprinzip ist immer gleich:
+In der Proxy-Klasse werden für jede einzelne Methode die Rückgabewerte festgelegt.
 Das kann eine Konstante sein, ein Wert pro erwartete Argument-Kombination oder auch eine Ersatzimplementierung.
+
 Anschließend kann überprüft werden, ob ein erwarteter Aufruf im Testlauf stattgefunden hat.
 Leider sieht kein Framework eine direkte Abfragemöglichkeit vor.
 Stattdessen werfen sie bei fehlgeschlagener Verifikation eine jeweils eine frameworkspezifische Exception.
