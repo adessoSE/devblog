@@ -27,7 +27,7 @@ Ein wohlüberlegt definierter Fake kann flexibel eingesetzt werden, wenn er auf 
 
 # Das Gleiche, nur anders
 
-Die weit verbreitete Frameworks [Moq](https://github.com/moq), [NSubstitute](https://nsubstitute.github.io) und [FakeItEasy](https://fakeiteasy.github.io) stellen sich hier dem Vergleich.
+Die weit verbreiteten Frameworks [Moq](https://github.com/moq), [NSubstitute](https://nsubstitute.github.io) und [FakeItEasy](https://fakeiteasy.github.io) stellen sich hier dem Vergleich.
 Alle davon verwenden intern DynamicProxy aus dem Castle Project, um von der zu testenden Schnittstelle oder Klasse eine Proxyklasse abzuleiten.
 Damit unterliegen alle den gleichen Grenzen:
 DynamicProxy erzeugt Proxy-Objekte für Interfaces oder Klassen, indem es eine neue Klasse davon ableitet.
@@ -124,7 +124,7 @@ Anschließend werden die erwarteten Aufrufe verifiziert.
 
 ## Listing 1: Moq im Einsatz
 
-```[Test]
+```csharp
 public void Moq_AddressBook_Should_Find_Person()
 {
   var addressBook = new Mock<IAddressBook>();
@@ -140,7 +140,7 @@ public void Moq_AddressBook_Should_Find_Person()
 
 ## Lising 2: NSubstitute im Einsatz
 
-```[Test]
+```csharp
 public void NSubstitute_AddressBook_Should_Find_Person()
 {
   var addressBook = Substitute.For<IAddressBook>();
@@ -155,7 +155,7 @@ public void NSubstitute_AddressBook_Should_Find_Person()
 
 ## Listing 3: FakeItEasy im Einsatz
 
-```[Test]
+```csharp
 public void FakeItEasy_AddressBook_Should_Find_Person()
 {
 
