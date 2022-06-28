@@ -4,7 +4,7 @@ title:  "Mock-Frameworks im Vergleich" # Pflichtfeld. Bitte einen Titel für den
 date:   2022-06-28 11:00              # Pflichtfeld. Format "YYYY-MM-DD HH:MM". Muss für Veröffentlichung in der Vergangenheit liegen. (Für Preview egal)
 modified_date: 2022-06-28 11:00       # Optional. Muss angegeben werden, wenn eine bestehende Datei geändert wird.
 author_ids: [cjohn]                   # Pflichtfeld. Es muss in der "authors.yml" einen Eintrag mit diesen Namen geben.
-categories: [Branchen]                # Pflichtfeld. Maximal eine der angegebenen Kategorien verwenden.
+categories: [Softwareentwicklung]     # Pflichtfeld. Maximal eine der angegebenen Kategorien verwenden.
 tags: [Software,Entwicklung,Testing,Frameworks] # Bitte auf Großschreibung achten.
 ---
 
