@@ -46,14 +46,14 @@ Das kann eine Konstante sein, ein Wert pro erwartete Argument-Kombination oder a
 
 Anschließend kann überprüft werden, ob ein erwarteter Aufruf im Testlauf stattgefunden hat.
 Leider sieht kein Framework eine direkte Abfragemöglichkeit vor.
-Stattdessen werfen sie bei fehlgeschlagener Verifikation eine jeweils eine frameworkspezifische Exception.
+Stattdessen werfen sie bei fehlgeschlagener Verifikation eine jeweils frameworkspezifische Exception.
 
 ## Analyzer
 
-Damit unzulässige Verwendungen früh auffallen, bieten NSubstitute und FakeItEasy einen Roslyn-Analyzer an.
-Der Analyzer von FakeItEasy macht mit seinen nur fünf Prüfregeln allerdings einen rudimentären Eindruck gegenüber dem NSubstitute-Analyzer mit 24 Regeln.
-Beide überprüfen die Unit Tests mindestens auf unzulässiges Überschreiben eines nicht-virtuellen Members sowie Bezug auf Argumente außerhalb des für die Methode spezifizierten Bereichs.
-Der Nutzen dürfte bei kleinen bis mittleren Projekten jedoch eher gering sein, schließlich fallen Fehler bei der ersten Testausführung sofort auf.
+Damit unzulässige Tests früh auffallen, bieten NSubstitute und FakeItEasy einen Roslyn-Analyzer an.
+Beide überprüfen die Unit Tests auf Überschreiben eines nicht-virtuellen Members sowie Bezug auf Argumente außerhalb des für die Methode spezifizierten Bereichs.
+Der Analyzer von FakeItEasy macht mit seinen nur fünf Prüfregeln zwar einen rudimentären Eindruck gegenüber dem NSubstitute-Analyzer mit 24 Regeln.
+Praktisch dürfte der Nutzen jedoch ohnehin gering sein, schließlich fallen Fehler bei der ersten Testausführung sofort auf.
 
 ## Besonderheiten von Moq
 
