@@ -513,6 +513,22 @@ scarstenen:
   avatar_url: /assets/images/avatars/scarstensen.jpg
   github: https://github.com/janstefan42
 
+schroeerth:
+  first_name: Thomas
+  last_name: Schröer
+  bio: "Thomas Schröer ist Fullstack Senior Software Engineer im Bereich Manufacturing Industry. Sein Schwerpunkt liegt in der Backendentwicklung mit Java und Spring."
+  avatar_url: /assets/images/avatars/thomas_schroeer.jpg
+  github_username: schroeerth
+  github: https://github.com/schroeerth
+
+friggej:
+  first_name: Jens
+  last_name: Frigge
+  bio: "Jens Frigge ist Senior Software Engineer im Bereich Manufacturing Industry mit dem Schwerpunkt auf Java-Backendentwicklung."
+  avatar_url: /assets/images/avatars/friggej.png
+  github_username: JensFriggeAdesso
+  github: https://github.com/JensFriggeAdesso
+
 cjohn:
   first_name: Corinna
   last_name: John
