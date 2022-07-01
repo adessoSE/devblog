@@ -1,8 +1,8 @@
 ---
 layout: [post, post-xml] # Pflichtfeld. Nicht ändern!
 title: 'Reaktive Programmierung mit Spring Webflux' # Pflichtfeld. Bitte einen Titel für den Blog Post angeben.
-date: 2022-02-11 18:00 # Pflichtfeld. Format "YYYY-MM-DD HH:MM". Muss für Veröffentlichung in der Vergangenheit liegen. (Für Preview egal)
-modified_date: 2022-02-11 18:00 # Optional. Muss angegeben werden, wenn eine bestehende Datei geändert wird.
+date: 2022-07-01 15:00 # Pflichtfeld. Format "YYYY-MM-DD HH:MM". Muss für Veröffentlichung in der Vergangenheit liegen. (Für Preview egal)
+modified_date: 2022-07-01 15:00 # Optional. Muss angegeben werden, wenn eine bestehende Datei geändert wird.
 author_ids: [schroeerth,friggej] # Pflichtfeld. Es muss in der "authors.yml" einen Eintrag mit diesem Namen geben.
 categories: [Softwareentwicklung] # Pflichtfeld. Maximal eine der angegebenen Kategorien verwenden.
 tags: [Java, Spring, Webflux, Reaktive Programmierung] # Bitte auf Großschreibung achten.
@@ -11,8 +11,9 @@ tags: [Java, Spring, Webflux, Reaktive Programmierung] # Bitte auf Großschreibu
 In diesem Blogbeitrag wollen wir euch eine kurze Übersicht zu Spring Webflux geben.
 Zusätzlich gibt der Beitrag eine kleine Starthilfe mit einer Auswahl an Codebeispielen, damit ihr erfolgreich im Projekt durchstarten könnt.
 
-```
 In Wikipedia ist reaktive Programmierung wie folgt beschrieben:
+
+```
 Bei der Datenverarbeitung ist reaktive Programmierung ein Programmierparadigma, das sich an Datenflüssen orientiert.
 Das zugrunde liegende Ausführungsmodell propagiert Änderungen in den Datenflüssen automatisch.
 ```
@@ -65,13 +66,14 @@ einer Controller-Methode könnte etwa so aussehen:
 private Blogpost getBlogpostById(@PathVariable String id) {
     return blogpostService.findBlogpostById(id);
 }
----
+
 //Spring Webflux
 @GetMapping("/{id}")
 private Mono<Blogpost> getBlogpostById(@PathVariable String id) {
     return blogpostService.findBlogpostById(id);
 }
 ```
+
 In diesem Fall registriert sich der Rest-Controller automatisch als Subscriber auf die jeweilige Service-Methode,
 und schreibt das Ergebnis wie gewohnt in den Body der Response des HTTP-Requests.
 Voraussetzung ist natürlich, dass der ``BlogpostService`` auch ein Mono, statt eines einfachen ``Blogpost`` zurückgibt.
@@ -96,6 +98,7 @@ public Mono<String> getAbbreviatedName(String userId) {
 
 private String buildAbbreviatedName(UserData userData){[...]}
 ```
+
 In der Methode, die innerhalb des `map`-Befehls aufgerufen wird (hier `buildAbbreviatedName`),
 muss nicht mit den Webflux-Publishern gearbeitet werden,
 die eigentliche Geschäftslogik kann also mit gewöhnlichem Java-Code implementiert werden.
@@ -103,6 +106,7 @@ die eigentliche Geschäftslogik kann also mit gewöhnlichem Java-Code implementi
 Der Operator `flatMap` unterscheidet sich insofern von `map`, als dass er als Rückgabewert der übergebenen Methode wieder einen Publisher erwartet.
 Das ist etwa dann sinnvoll, wenn diese Methode ihrerseits wieder einen API-Aufruf absetzen muss. 
 In unserem Beispiel könnte ein Blogbeitrag mit den Daten des Nutzers angelegt werden.
+
 ``` Java
 public Mono<BlogpostWithAuthor> saveBlogpost(Blogpost blogpost, String userId) {
     Mono<UserData> userDataMono = userClient.getUser(userId);
@@ -112,6 +116,7 @@ public Mono<BlogpostWithAuthor> saveBlogpost(Blogpost blogpost, String userId) {
 
 private Mono<BlogpostWithAuthor> saveBlogpost(Blogpost blogpost, UserData userData){[...]}
 ```
+
 ## zipWhen und zipWith
 Wir können also mit `map` und `flatMap` Ergebnisse eines Publishers umwandeln. Aber was, wenn die Daten zweier oder mehrerer Publisher kombiniert benötigt werden?
 In diesem Fall können die Methoden `zipWith` und `zipWhen` genutzt werden. In folgendem Beispiel wird die Methode `zipWith` genutzt, 
@@ -163,6 +168,7 @@ public Mono<Blogpost> getBlogpost(String blogpostId) {
 
 private Mono<Integer> incrementViewCount(Blogpost blogpost){[...]}
 ```
+
 Zu beachten ist hier, auch wenn sich am eigentlichen Inhalt des Mono nichts ändert, muss dennoch der Rückgabewert der ``doOnNext``-Methode
 weiter verwendet werden, damit die Methode auch Teil der Ausführungssequenz wird.
 
@@ -191,6 +197,7 @@ public Mono<String> getAbbreviatedName(String userId) {
 
 private String buildAbbreviatedName(UserData userData){[...]}
 ```
+
 # Fazit
 Mithilfe dieser 9 Methoden solltet ihr für den Start in die Programmierung mit Spring Webflux gerüstet sein.
 Wenn ihr Anwendungsfälle habt, die hier nicht abgedeckt wurden, können wir euch die bereits eingangs im letzten Kapitel
