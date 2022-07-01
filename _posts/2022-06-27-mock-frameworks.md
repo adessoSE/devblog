@@ -51,7 +51,7 @@ Stattdessen werfen sie bei fehlgeschlagener Verifikation eine jeweils frameworks
 ## Analyzer
 
 Damit unzulässige Tests früh auffallen, bieten NSubstitute und FakeItEasy einen Roslyn-Analyzer an.
-Beide überprüfen die Unit-Tests auf Überschreiben eines nicht-virtuellen Members sowie Bezug auf Argumente außerhalb des für die Methode spezifizierten Bereichs.
+Beide überprüfen die Unit-Tests auf das Überschreiben eines nicht-virtuellen Members sowie auf den Bezug auf Argumente außerhalb des für die Methode spezifizierten Bereichs.
 Der Analyzer von FakeItEasy macht mit seinen nur fünf Prüfregeln zwar einen rudimentären Eindruck gegenüber dem NSubstitute-Analyzer mit 24 Regeln.
 Aber praktisch dürfte der Nutzen ohnehin gering sein, schließlich fallen Fehler bei der ersten Testausführung sofort auf.
 
