@@ -8,7 +8,7 @@ categories: [Softwareentwicklung]     # Pflichtfeld. Maximal eine der angegebene
 tags: [Software,Entwicklung,Testing,Frameworks] # Bitte auf Großschreibung achten.
 ---
 
-Ein Unit Test soll genau das ausgewählte Stück Code testen.
+Ein Unit-Test soll genau das ausgewählte Stück Code testen.
 Doch oft ruft die zu testende Methode externe Services oder Datenbanken auf.
 Mocks können solche Abhängigkeiten durch Platzhalter ersetzen.
 Die drei in der Microsoft-Welt beliebten Mocking-Frameworks Moq, NSubstitute und FakeItEasy werden hier gegenübergestellt.
@@ -28,9 +28,9 @@ Ein wohlüberlegt definierter Fake kann flexibel eingesetzt werden, wenn er auf 
 # Das Gleiche, nur anders
 
 Die weit verbreiteten Frameworks [Moq](https://github.com/moq), [NSubstitute](https://nsubstitute.github.io) und [FakeItEasy](https://fakeiteasy.github.io) stellen sich hier dem Vergleich.
-Alle davon verwenden intern DynamicProxy aus dem Castle Project, um von der zu testenden Schnittstelle oder Klasse eine Proxyklasse abzuleiten.
+Alle davon verwenden intern [DynamicProxy](http://www.castleproject.org/projects/dynamicproxy/) aus dem "Castle Project", um von der zu testenden Schnittstelle oder Klasse eine Proxyklasse abzuleiten.
 Damit unterliegen alle den gleichen Grenzen:
-DynamicProxy erzeugt Proxy-Objekte für Interfaces oder Klassen, indem es eine neue Klasse davon ableitet.
+"DynamicProxy" erzeugt Proxy-Objekte für Interfaces oder Klassen, indem es eine neue Klasse davon ableitet.
 
 Ein Proxy für eine konkrete Klasse kann naturgemäß nur die virtuellen Methoden abfangen.
 Von statischen oder versiegelten Klassen ist kein Proxy ableitbar, sie können also nicht gemockt werden.
@@ -51,9 +51,9 @@ Stattdessen werfen sie bei fehlgeschlagener Verifikation eine jeweils frameworks
 ## Analyzer
 
 Damit unzulässige Tests früh auffallen, bieten NSubstitute und FakeItEasy einen Roslyn-Analyzer an.
-Beide überprüfen die Unit Tests auf Überschreiben eines nicht-virtuellen Members sowie Bezug auf Argumente außerhalb des für die Methode spezifizierten Bereichs.
+Beide überprüfen die Unit-Tests auf Überschreiben eines nicht-virtuellen Members sowie Bezug auf Argumente außerhalb des für die Methode spezifizierten Bereichs.
 Der Analyzer von FakeItEasy macht mit seinen nur fünf Prüfregeln zwar einen rudimentären Eindruck gegenüber dem NSubstitute-Analyzer mit 24 Regeln.
-Praktisch dürfte der Nutzen ohnehin gering sein, schließlich fallen Fehler bei der ersten Testausführung sofort auf.
+Aber praktisch dürfte der Nutzen ohnehin gering sein, schließlich fallen Fehler bei der ersten Testausführung sofort auf.
 
 ## Besonderheiten von Moq
 
@@ -102,7 +102,7 @@ In der täglichen Arbeit fällt auf, dass Moq bei umfangreichen Tests langsamer 
 Das Ausmaß des Performance-Einbruchs lässt sich mit einem einfachen Lasttest abschätzen:
 
 * Ein Interface hat 50 Methoden, jede nimmt einen `int` an und gibt einen zurück.
-* Ein Unit Test faked das Interface mit 50 identischen Methoden, die den Parameter wieder ausgeben, dann ruft er jede dieser Methoden 100 Mal auf.
+* Ein Unit-Test faked das Interface mit 50 identischen Methoden, die den Parameter wieder ausgeben, dann ruft er jede dieser Methoden 100 Mal auf.
 * Eine Stopwatch schreibt die Millisekunden für Setup und jeden einzelnen Call mit.
 
 ![Zeit pro Call](/assets/images/posts/mock-frameworks/mock-frameworks.png)
@@ -114,7 +114,7 @@ FakeItEasy pendelt sich nach einer Aufwärmzeit bei einer Steigung von 0,01 ein.
 Moq hingegen tanzt aus der Reihe:
 Bei sehr wenigen Calls arbeitet das Framework noch so zügig wie NSubstitute, ab ca. 1000 Methodenaufrufen eskaliert die Zeit pro Call jedoch.
 Schuld daran ist eine Steigerung um den Faktor 0,03.
-Das heißt, die Performance skaliert über längere Unit Tests dreimal schlechter als die anderer Mocking-Frameworks.
+Das heißt, die Performance skaliert über längere Unit-Tests dreimal schlechter als die anderer Mocking-Frameworks.
 
 # Beispiele
 
