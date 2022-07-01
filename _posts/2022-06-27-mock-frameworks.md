@@ -58,19 +58,20 @@ Aber praktisch dürfte der Nutzen ohnehin gering sein, schließlich fallen Fehle
 ## Besonderheiten von Moq
 
 Moq ist der Klassiker unter den Mocking-Frameworks, sein Name steht für "Mock you".
-Sein Alleinstellungsmerkmal sind die syntaktischen Geschmacksrichtungen beim Testaufbau.
+Ein Alleinstellungsmerkmal zeichnet ihn aus:
+Beim Testaufbau werden unterschiedliche "syntaktische Geschmacksrichtungen" unterstützt.
 So lässt sich, wie gewohnt, jede Funktion einzeln mit `mock.Setup().Returns()` ersetzen.
-Alternativ kann der komplette Mock auch in einem großen LINQ-Ausdruck definiert werden, was bei Fakes mit eigener Logik allerdings auf Kosten der Lesbarkeit geht.
+Alternativ kann der komplette Mock auch in einem großen LINQ-Ausdruck definiert werden, was bei Fakes mit eigener Logik allerdings auf Kosten der Lesbarkeit geschieht.
 
 Bei etwas umfangreicheren Interfaces oder wiederholten Methodenaufrufen geht die Performance von Moq leider schnell in die Knie.
-Auch daran zeigt sich, dass Moq sein Spezialgebiet bei kurzen Wegwerf-Mocks hat, die wenige Methoden mit Konstanten überschreiben und nach ein paar Aufrufen verworfen werden.
+Auch daran zeigt sich, dass Moq sein Spezialgebiet bei kurzen Wegwerf-Mocks hat, die wenige Methoden mit Konstanten überschreiben und die nach ein paar Aufrufen verworfen werden.
 
 ## Besonderheiten von NSubstitute
 
 NSubstitute verwendet Extensions, um den Testaufbau lesbar zu halten.
 Solange der Mock streng als solcher definiert wird, behält der Testcode die schlichte Struktur `myObj.MyMethod().Returns()`.
 Die Eleganz endet, sobald Funktionsargumente in der Fake-Logik benutzt werden sollen.
-Denn diese werden in einem `CallInfo` Objekt verpackt übergeben und sind zunächst alle vom Typ Object.
+Denn diese werden in einem `CallInfo`-Objekt verpackt übergeben und sind zunächst alle vom Typ Object.
 
 Um eine Klasse statt einer Schnittstelle zu ersetzen, müssen bei NSubstitute - genauso wie bei Moq - alle Konstruktor-Parameter angegeben werden.
 Sollten sie in der Testumgebung nicht zur Verfügung stehen, muss auch hier für jeden Parameter vorher ein Substitut erzeugt werden.
@@ -102,18 +103,18 @@ In der täglichen Arbeit fällt auf, dass Moq bei umfangreichen Tests langsamer 
 Das Ausmaß des Performance-Einbruchs lässt sich mit einem einfachen Lasttest abschätzen:
 
 * Ein Interface hat 50 Methoden, jede nimmt einen `int` an und gibt einen zurück.
-* Ein Unit-Test faked das Interface mit 50 identischen Methoden, die den Parameter wieder ausgeben, dann ruft er jede dieser Methoden 100 Mal auf.
-* Eine Stopwatch schreibt die Millisekunden für Setup und jeden einzelnen Call mit.
+* Ein Unit-Test erstellt einen Fake für das Interface mit 50 identischen Methoden, die den Parameter wieder ausgeben, dann ruft er jede dieser Methoden 100 Mal auf.
+* Eine Stopwatch schreibt die Millisekunden für den Aufbau und jeden einzelnen Call mit.
 
 ![Zeit pro Call](/assets/images/posts/mock-frameworks/mock-frameworks.png)
 
 Bei allen Durchläufen stieg die Dauer pro Call mit der Anzahl vorheriger Calls an.
 Die Abbildung veranschaulicht die Verläufe pro Framework.
-Bei NSubstitute zeigt die Dauer pro Call eine konstante Steigung von harmlosen 0,008.
-FakeItEasy pendelt sich nach einer Aufwärmzeit bei einer Steigung von 0,01 ein.
+Bei NSubstitute zeigt die Dauer pro Call einer konstanter Steigungsfaktor von harmlosen 0,008.
+FakeItEasy pendelt sich nach einer Aufwärmzeit bei einem Steigungsfaktor von 0,01 ein.
 Moq hingegen tanzt aus der Reihe:
 Bei sehr wenigen Calls arbeitet das Framework noch so zügig wie NSubstitute, ab ca. 1000 Methodenaufrufen eskaliert die Zeit pro Call jedoch.
-Schuld daran ist eine Steigerung um den Faktor 0,03.
+Grund dafür ist eine Steigerung um den Faktor 0,03.
 Das heißt, die Performance skaliert über längere Unit-Tests dreimal schlechter als die anderer Mocking-Frameworks.
 
 # Beispiele
