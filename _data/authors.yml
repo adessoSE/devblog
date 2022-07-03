@@ -431,3 +431,11 @@ nirumand:
   bio: "Reza Nirumand is a Senior Software Engineer at adesso located in Dortmund. He is involved in various projects in the Banking industry and he is responsible for the designing and delivering of cloud-native applications."
   avatar_url: /assets/images/avatars/nirumand.jpg
 
+  github: https://github.com/mboegers
+sypste:
+  first_name: Simon
+  last_name: Stemper
+  github_username: sypste
+  bio: "Simon Stemper arbeitet seit 2019 als Cloud Data Engineer bei adesso in Dortmund. Im Bereich Data & Analytics berät er Kunden zu Einsatz und Betrieb von Big Data Technologien."
+  avatar_url: /assets/images/avatars/simonstemper.jpg
+  github: https://github.com/sypste
