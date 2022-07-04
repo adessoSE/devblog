@@ -28,9 +28,9 @@ Ein wohlüberlegt definierter Fake kann flexibel eingesetzt werden, wenn er auf 
 # Das Gleiche, nur anders
 
 Die weit verbreiteten Frameworks [Moq](https://github.com/moq), [NSubstitute](https://nsubstitute.github.io) und [FakeItEasy](https://fakeiteasy.github.io) stellen sich hier dem Vergleich.
-Alle davon verwenden intern [DynamicProxy](http://www.castleproject.org/projects/dynamicproxy/) aus dem "Castle Project", um von der zu testenden Schnittstelle oder Klasse eine Proxyklasse abzuleiten.
+Alle davon verwenden intern [DynamicProxy](http://www.castleproject.org/projects/dynamicproxy/) aus dem Castle Project, um von der zu testenden Schnittstelle oder Klasse eine Proxyklasse abzuleiten.
 Damit unterliegen alle den gleichen Grenzen:
-"DynamicProxy" erzeugt Proxy-Objekte für Interfaces oder Klassen, indem es eine neue Klasse davon ableitet.
+DynamicProxy erzeugt Proxy-Objekte für Interfaces oder Klassen, indem es eine neue Klasse davon ableitet.
 
 Ein Proxy für eine konkrete Klasse kann naturgemäß nur die virtuellen Methoden abfangen.
 Von statischen oder versiegelten Klassen ist kein Proxy ableitbar, sie können also nicht gemockt werden.
@@ -114,7 +114,7 @@ Bei NSubstitute zeigt die Dauer pro Call einer konstanter Steigungsfaktor von ha
 FakeItEasy pendelt sich nach einer Aufwärmzeit bei einem Steigungsfaktor von 0,01 ein.
 Moq hingegen tanzt aus der Reihe:
 Bei sehr wenigen Calls arbeitet das Framework noch so zügig wie NSubstitute, ab ca. 1000 Methodenaufrufen eskaliert die Zeit pro Call jedoch.
-Grund dafür ist eine Steigerung um den Faktor 0,03.
+Dies zeigt sich in einer Steigerung der Aufrufzeit um den Faktor 0,03.
 Das heißt, die Performance skaliert über längere Unit-Tests dreimal schlechter als die anderer Mocking-Frameworks.
 
 # Beispiele
