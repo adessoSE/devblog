@@ -20,12 +20,8 @@
         <field name="change_date"><![CDATA[1548806400000]]></field>
 
         <!--Author Information-->
-        <!--
-        <field name="author_id"><![CDATA[dariobraun]]></field>-->
-
-        <field name="author_id"><![CDATA[[dariobraun]]]></field>
-
-        <!--Postcontent-->
+        
+        <field name="author_id"><![CDATA[dariobraun]]></field><!--Postcontent-->
         <field name="headlines"><![CDATA[Git-Intel - Entwicklung eines modernen GitHub-Crawlers]]></field>
         <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
             <p>Wer sich in letzter Zeit mit dem Thema Open-Source auseinandergesetzt hat, wird festgestellt haben, dass der Hype um das Konzept und die dazugehörigen Plattformen kaum nachgelassen hat. Viele große Unternehmen werden zunehmend aktiv und lassen ihre Mitarbeiter auf GitHub und Co. los, um Projekte zu entwickeln, die der Öffentlichkeit frei zur Verfügung stehen. Wir haben einen GitHub-Crawler entwickelt, der euch alle interessanten Informationen zu Organisationen auf GitHub liefert - Git-Intel!</p>

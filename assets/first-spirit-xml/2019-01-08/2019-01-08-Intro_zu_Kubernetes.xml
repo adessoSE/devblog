@@ -19,12 +19,8 @@ Grund genug, sich einmal näher mit Kubernetes und den Konzepten dahinter zu bes
         <field name="change_date"><![CDATA[1546938000000]]></field>
 
         <!--Author Information-->
-        <!--
-        <field name="author_id"><![CDATA[t-buss]]></field>-->
-
-        <field name="author_id"><![CDATA[[t-buss]]]></field>
-
-        <!--Postcontent-->
+        
+        <field name="author_id"><![CDATA[t-buss]]></field><!--Postcontent-->
         <field name="headlines"><![CDATA[Einführung in Kubernetes]]></field>
         <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
             <p>Die Container-Orchestrierungs-Lösung Kubernetes ist eines der am stärksten gewachsenen Open-Source-Projekte der letzten Jahre.

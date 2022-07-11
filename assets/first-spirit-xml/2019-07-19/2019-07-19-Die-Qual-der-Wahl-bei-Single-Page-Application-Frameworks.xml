@@ -22,12 +22,8 @@ So unterschiedlich die Ansätze der Frameworks untereinander sind, ist das gemei
         <field name="change_date"><![CDATA[1548806400000]]></field>
 
         <!--Author Information-->
-        <!--
-        <field name="author_id"><![CDATA[frederikschlemmer]]></field>-->
-
-        <field name="author_id"><![CDATA[[frederikschlemmer]]]></field>
-
-        <!--Postcontent-->
+        
+        <field name="author_id"><![CDATA[frederikschlemmer]]></field><!--Postcontent-->
         <field name="headlines"><![CDATA[Angular, React oder Vue.js? Eine Entscheidungshilfe]]></field>
         <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
             <p>Wie wird heutzutage die Fragestellung beantwortet mit welcher Technologie eine Webanwendung umgesetzt werden soll? Angular, React oder Vue.js?

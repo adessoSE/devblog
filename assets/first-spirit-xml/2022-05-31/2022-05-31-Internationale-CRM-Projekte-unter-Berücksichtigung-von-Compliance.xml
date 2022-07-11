@@ -26,12 +26,8 @@ Dabei sind verschiedene Compliance-Aspekte zu betrachten.</p>
         <field name="change_date"><![CDATA[1653984000000]]></field>
 
         <!--Author Information-->
-        <!--
-        <field name="author_id"><![CDATA[mschulz-adesso]]></field>-->
-
-        <field name="author_id"><![CDATA[[mschulz-adesso]]]></field>
-
-        <!--Postcontent-->
+        
+        <field name="author_id"><![CDATA[mschulz-adesso]]></field><!--Postcontent-->
         <field name="headlines"><![CDATA[Internationale CRM-Projekte unter Berücksichtigung von Compliance]]></field>
         <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
             <p>Bei internationalen CRM-Systemen, die auf Microsoft Dynamics 365 basieren, ist es elementar, die Compliance-Anforderungen der Länder zu erfüllen. 

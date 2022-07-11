@@ -20,12 +20,8 @@ In diesem Artikel wird dazu beispielhaft gezeigt, wie ein einfaches Liniendiagra
         <field name="change_date"><![CDATA[1615211400000]]></field>
 
         <!--Author Information-->
-        <!--
-        <field name="author_id"><![CDATA[maximAtanasov]]></field>-->
-
-        <field name="author_id"><![CDATA[[maximAtanasov]]]></field>
-
-        <!--Postcontent-->
+        
+        <field name="author_id"><![CDATA[maximAtanasov]]></field><!--Postcontent-->
         <field name="headlines"><![CDATA[Wicked Charts - JavaScript Charts mit Apache Wicket]]></field>
         <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
             <p>Bei der Entwicklung einer Anwendung mit einem serverseitigen Webframework stellt die 
