@@ -22,8 +22,9 @@ Diverse Normen und Richtlinien geben den Rahmen dafür vor.</p>
         <field name="change_date"><![CDATA[1657098000000]]></field>
 
         <!--Author Information-->
-        
-        <field name="author_id"><![CDATA[cjohn]]></field><!--Postcontent-->
+        <field name="author_ids"><![CDATA[cjohn]]></field>
+
+        <!--Postcontent-->
         <field name="headlines"><![CDATA[Energiemanagement im Rechenzentrum]]></field>
         <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
             <p>Wer IT-Dienstleistungen anbietet, wird immer öfter nach der Nachhaltigkeit des Betriebs gefragt.

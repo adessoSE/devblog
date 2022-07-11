@@ -21,8 +21,9 @@ ist es ohne große Hürden möglich, sich mit anderen Menschen zu verknüpfen.</
         <field name="change_date"><![CDATA[1645781100000]]></field>
 
         <!--Author Information-->
-        
-        <field name="author_id"><![CDATA[bolsei]]></field><!--Postcontent-->
+        <field name="author_ids"><![CDATA[bolsei]]></field>
+
+        <!--Postcontent-->
         <field name="headlines"><![CDATA[Hands-on Entwicklung eines Discord-Bots]]></field>
         <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
             <p>Unter Gamern ist Discord ein schon lange verbreitetes Tool, um sich beim Spielen zu unterhalten.

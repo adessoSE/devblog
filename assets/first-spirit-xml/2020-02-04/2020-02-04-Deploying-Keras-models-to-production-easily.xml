@@ -20,8 +20,9 @@ After endless research I’m most glad to serve you an easy to execute guide for
         <field name="change_date"><![CDATA[1580803200000]]></field>
 
         <!--Author Information-->
-        
-        <field name="author_id"><![CDATA[s-gbz]]></field><!--Postcontent-->
+        <field name="author_ids"><![CDATA[s-gbz]]></field>
+
+        <!--Postcontent-->
         <field name="headlines"><![CDATA[Deploy Keras models to production level easily]]></field>
         <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
             <p>Moving your Deep Learning models from the developers playground to a serious production stage can be a hard feat to accomplish.

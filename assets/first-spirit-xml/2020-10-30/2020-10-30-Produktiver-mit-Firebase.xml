@@ -20,8 +20,9 @@ Wie fast immer kommen sämtliche Vorteile aber auch mit entsprechenden Nachteile
         <field name="change_date"><![CDATA[1604055600000]]></field>
 
         <!--Author Information-->
-        
-        <field name="author_id"><![CDATA[daklassen]]></field><!--Postcontent-->
+        <field name="author_ids"><![CDATA[daklassen]]></field>
+
+        <!--Postcontent-->
         <field name="headlines"><![CDATA[Produktiver mit Firebase]]></field>
         <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
             <p>Während sich Googles Frontend Framework Angular mittlerweile deutlich etabliert hat, begegne ich Googles “Backend Lösung” Firebase eher selten im Projektalltag.
