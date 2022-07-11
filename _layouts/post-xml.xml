@@ -32,7 +32,7 @@
         <field name="author_id"><![CDATA[{{ id }}]]></field>
         {%- endfor -%}-->
 
-        <field name="author_ids"><![CDATA[[{{ page.author_ids | join: "," }}]]]></field>
+        <field name="author_id"><![CDATA[[{{ page.author_ids | join: "," }}]]]></field>
 
         <!--Postcontent-->
         <field name="headlines"><![CDATA[{{ page.title }}]]></field>
