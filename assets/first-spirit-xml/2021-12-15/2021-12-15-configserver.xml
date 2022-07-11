@@ -23,8 +23,9 @@ Einige Möglichkeiten, diese Werte zentral zu verwalten, sowie deren Vor- und Na
         <field name="change_date"><![CDATA[1639558800000]]></field>
 
         <!--Author Information-->
-        
-        <field name="author_id"><![CDATA[kaythielmann]]></field><!--Postcontent-->
+        <field name="author_ids"><![CDATA[kaythielmann]]></field>
+
+        <!--Postcontent-->
         <field name="headlines"><![CDATA[Welcher Config-Server passt zu meinem Projekt?]]></field>
         <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
             <p>Konfigurationen für Artefakte von außen zu injecten, ist lang bewährte Praxis und wird in vielen Softwareprojekten so gelebt.

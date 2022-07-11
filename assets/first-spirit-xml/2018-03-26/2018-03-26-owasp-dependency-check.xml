@@ -25,8 +25,9 @@ automatisieren. In diesem Blog-Eintrag möchte ich gerne zeigen wie das funktion
         <field name="change_date"><![CDATA[1615211400000]]></field>
 
         <!--Author Information-->
-        
-        <field name="author_id"><![CDATA[saschagrebe]]></field><!--Postcontent-->
+        <field name="author_ids"><![CDATA[saschagrebe]]></field>
+
+        <!--Postcontent-->
         <field name="headlines"><![CDATA[Sicherheitslücken mit dem OWASP Dependency Check erkennen]]></field>
         <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
             <p>Moderne Software-Systeme basieren auf einer Vielzahl von Bibliotheken und Frameworks, die das Leben der 

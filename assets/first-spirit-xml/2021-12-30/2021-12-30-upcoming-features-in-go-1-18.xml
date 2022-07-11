@@ -19,8 +19,9 @@ Let’s take a look at some of the new features that will be available.</p>
         <field name="change_date"><![CDATA[1640847600000]]></field>
 
         <!--Author Information-->
-        
-        <field name="author_id"><![CDATA[sebastianholstein]]></field><!--Postcontent-->
+        <field name="author_ids"><![CDATA[sebastianholstein]]></field>
+
+        <!--Postcontent-->
         <field name="headlines"><![CDATA[Upcoming Features in Go 1.18]]></field>
         <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
             <p>Go 1.18 will be a significant release of the programming language that will contain some major features that I’m excited about. 

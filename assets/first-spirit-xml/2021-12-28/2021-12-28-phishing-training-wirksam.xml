@@ -19,8 +19,9 @@ Phishing ist eine Kunst der Manipulation, die sowohl technisches als auch mensch
         <field name="change_date"><![CDATA[1640680200000]]></field>
 
         <!--Author Information-->
-        
-        <field name="author_id"><![CDATA[vschiller]]></field><!--Postcontent-->
+        <field name="author_ids"><![CDATA[vschiller]]></field>
+
+        <!--Postcontent-->
         <field name="headlines"><![CDATA[Wie erfolgreich können Phishing Simulationen sein?]]></field>
         <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
             <p>Es war einmal der Bundestaghack und dieser begann mit einer Phishing-E-Mail. 
