@@ -1,7 +1,7 @@
 ---
 layout: [post, post-xml]              
 title:  "Tame the beast - AWS-Alarme mit Jira zähmen"         
-date:   2022-05-31 10:00              
+date:   2022-07-11 10:00              
 author_ids: [kaythielmann,sczubek]
 categories: [Softwareentwicklung]           
 tags: [DevOps, Lambda, Cloudwatch, Jira, AWS, Cloud]        
