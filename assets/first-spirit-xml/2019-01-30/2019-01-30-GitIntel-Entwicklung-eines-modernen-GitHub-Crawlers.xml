@@ -23,7 +23,7 @@
         <!--
         <field name="author_id"><![CDATA[dariobraun]]></field>-->
 
-        <field name="author_ids"><![CDATA[[dariobraun]]]></field>
+        <field name="author_id"><![CDATA[[dariobraun]]]></field>
 
         <!--Postcontent-->
         <field name="headlines"><![CDATA[Git-Intel - Entwicklung eines modernen GitHub-Crawlers]]></field>

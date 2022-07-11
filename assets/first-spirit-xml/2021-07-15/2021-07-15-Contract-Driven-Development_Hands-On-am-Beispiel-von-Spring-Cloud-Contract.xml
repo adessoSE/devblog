@@ -26,7 +26,7 @@ Dazu bietet sich Contract-Driven Development an, welches wir uns mittels Spring 
         <!--
         <field name="author_id"><![CDATA[tgraefenstein]]></field>-->
 
-        <field name="author_ids"><![CDATA[[tgraefenstein]]]></field>
+        <field name="author_id"><![CDATA[[tgraefenstein]]]></field>
 
         <!--Postcontent-->
         <field name="headlines"><![CDATA[Contract-Driven Development: Hands-On am Beispiel von Spring Cloud Contract]]></field>

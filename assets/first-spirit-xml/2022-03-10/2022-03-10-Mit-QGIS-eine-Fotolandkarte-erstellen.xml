@@ -25,7 +25,7 @@ geht das ohne Cookies, ohne Cloud und ohne undurchsichtige Nutzungsbedingungen w
         <!--
         <field name="author_id"><![CDATA[cjohn]]></field>-->
 
-        <field name="author_ids"><![CDATA[[cjohn]]]></field>
+        <field name="author_id"><![CDATA[[cjohn]]]></field>
 
         <!--Postcontent-->
         <field name="headlines"><![CDATA[Mit QGIS eine Fotolandkarte erstellen]]></field>

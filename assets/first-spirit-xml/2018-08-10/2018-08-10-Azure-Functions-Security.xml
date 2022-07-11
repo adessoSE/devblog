@@ -23,7 +23,7 @@
         <!--
         <field name="author_id"><![CDATA[nils-a]]></field>-->
 
-        <field name="author_ids"><![CDATA[[nils-a]]]></field>
+        <field name="author_id"><![CDATA[[nils-a]]]></field>
 
         <!--Postcontent-->
         <field name="headlines"><![CDATA[Absichern von Azure Funktionen]]></field>

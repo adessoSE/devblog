@@ -23,7 +23,7 @@ In diesem Blogpost schauen wir uns zwei gängige Architektur-Ansätze an.</p>
         <!--
         <field name="author_id"><![CDATA[swindisch]]></field>-->
 
-        <field name="author_ids"><![CDATA[[swindisch]]]></field>
+        <field name="author_id"><![CDATA[[swindisch]]]></field>
 
         <!--Postcontent-->
         <field name="headlines"><![CDATA[Geschäftsprozesse in einer Microservice-Welt]]></field>

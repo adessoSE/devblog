@@ -22,7 +22,7 @@ An Beispielen betrachten wir die Best Practices und stellen uns dabei die Frage:
         <!--
         <field name="author_id"><![CDATA[fabianvolkert]]></field>-->
 
-        <field name="author_ids"><![CDATA[[fabianvolkert]]]></field>
+        <field name="author_id"><![CDATA[[fabianvolkert]]]></field>
 
         <!--Postcontent-->
         <field name="headlines"><![CDATA[Functional Kotlin - Eine Einführung]]></field>

@@ -21,7 +21,7 @@
         <!--
         <field name="author_id"><![CDATA[vincentmathis]]></field>-->
 
-        <field name="author_ids"><![CDATA[[vincentmathis]]]></field>
+        <field name="author_id"><![CDATA[[vincentmathis]]]></field>
 
         <!--Postcontent-->
         <field name="headlines"><![CDATA[Frontend Entwicklung mit Vue.js für Einsteiger]]></field>

@@ -22,7 +22,7 @@ Dieser Beitrag stellt dar, wie beide Technologien zusammenspielen können.</p>
         <!--
         <field name="author_id"><![CDATA[AdessoMaDa]]></field>-->
 
-        <field name="author_ids"><![CDATA[[AdessoMaDa]]]></field>
+        <field name="author_id"><![CDATA[[AdessoMaDa]]]></field>
 
         <!--Postcontent-->
         <field name="headlines"><![CDATA[NodeJS als Auskunftswebservice einer JEE-Applikation]]></field>

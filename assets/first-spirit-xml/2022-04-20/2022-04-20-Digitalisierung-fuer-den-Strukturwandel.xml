@@ -23,7 +23,7 @@ Um herauszufinden, welche Branchen von einem Strukturwandel zu einer “Green Ec
         <!--
         <field name="author_id"><![CDATA[cjohn]]></field>-->
 
-        <field name="author_ids"><![CDATA[[cjohn]]]></field>
+        <field name="author_id"><![CDATA[[cjohn]]]></field>
 
         <!--Postcontent-->
         <field name="headlines"><![CDATA[Digitalisierung für den Strukturwandel]]></field>

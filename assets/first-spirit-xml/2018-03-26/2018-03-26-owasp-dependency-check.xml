@@ -28,7 +28,7 @@ automatisieren. In diesem Blog-Eintrag möchte ich gerne zeigen wie das funktion
         <!--
         <field name="author_id"><![CDATA[saschagrebe]]></field>-->
 
-        <field name="author_ids"><![CDATA[[saschagrebe]]]></field>
+        <field name="author_id"><![CDATA[[saschagrebe]]]></field>
 
         <!--Postcontent-->
         <field name="headlines"><![CDATA[Sicherheitslücken mit dem OWASP Dependency Check erkennen]]></field>

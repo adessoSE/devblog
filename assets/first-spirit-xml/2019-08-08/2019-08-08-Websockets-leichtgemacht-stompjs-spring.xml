@@ -25,7 +25,7 @@
         <!--
         <field name="author_id"><![CDATA[s-gbz]]></field>-->
 
-        <field name="author_ids"><![CDATA[[s-gbz]]]></field>
+        <field name="author_id"><![CDATA[[s-gbz]]]></field>
 
         <!--Postcontent-->
         <field name="headlines"><![CDATA[WebSockets leichtgemacht mit STOMP.js und Spring Boot]]></field>

@@ -28,7 +28,7 @@ umzusetzen.</p>
         <!--
         <field name="author_id"><![CDATA[thombergs]]></field>-->
 
-        <field name="author_ids"><![CDATA[[thombergs]]]></field>
+        <field name="author_id"><![CDATA[[thombergs]]]></field>
 
         <!--Postcontent-->
         <field name="headlines"><![CDATA[Tracing in verteilten Systemen mit Spring Cloud Sleuth]]></field>

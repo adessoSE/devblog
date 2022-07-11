@@ -28,7 +28,7 @@ Natürlich darf nichts unter den Tisch fallen und es sollte sichergestellt sein,
         <field name="author_id"><![CDATA[kaythielmann]]></field>
         <field name="author_id"><![CDATA[sczubek]]></field>-->
 
-        <field name="author_ids"><![CDATA[[kaythielmann,sczubek]]]></field>
+        <field name="author_id"><![CDATA[[kaythielmann,sczubek]]]></field>
 
         <!--Postcontent-->
         <field name="headlines"><![CDATA[Tame the beast - AWS-Alarme mit Jira zähmen]]></field>

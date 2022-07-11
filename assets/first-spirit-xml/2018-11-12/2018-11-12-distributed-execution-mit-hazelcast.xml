@@ -22,7 +22,7 @@
         <!--
         <field name="author_id"><![CDATA[karnik]]></field>-->
 
-        <field name="author_ids"><![CDATA[[karnik]]]></field>
+        <field name="author_id"><![CDATA[[karnik]]]></field>
 
         <!--Postcontent-->
         <field name="headlines"><![CDATA[Distributed Execution mit Hazelcast]]></field>

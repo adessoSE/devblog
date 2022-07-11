@@ -23,7 +23,7 @@ In diesem Blog-Post möchte ich einen Ansatz vorstellen, mit dem man diesen Schr
         <!--
         <field name="author_id"><![CDATA[vincentmathis]]></field>-->
 
-        <field name="author_ids"><![CDATA[[vincentmathis]]]></field>
+        <field name="author_id"><![CDATA[[vincentmathis]]]></field>
 
         <!--Postcontent-->
         <field name="headlines"><![CDATA[UI-Prototyping - Wie man aus Wireframe Skizzen Prototypen generieren kann]]></field>

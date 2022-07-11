@@ -24,7 +24,7 @@ I take that as well as a bit of my own curiosity as cause for a series of blog p
         <!--
         <field name="author_id"><![CDATA[felix_marezki]]></field>-->
 
-        <field name="author_ids"><![CDATA[[felix_marezki]]]></field>
+        <field name="author_id"><![CDATA[[felix_marezki]]]></field>
 
         <!--Postcontent-->
         <field name="headlines"><![CDATA[A Series of Rust: Exploring Rust for AWS Lambda - Part 1]]></field>

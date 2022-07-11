@@ -21,7 +21,7 @@
         <!--
         <field name="author_id"><![CDATA[bianca-batsch]]></field>-->
 
-        <field name="author_ids"><![CDATA[[bianca-batsch]]]></field>
+        <field name="author_id"><![CDATA[[bianca-batsch]]]></field>
 
         <!--Postcontent-->
         <field name="headlines"><![CDATA[Unsere CleanCode-Schulung in neuem Gewand]]></field>

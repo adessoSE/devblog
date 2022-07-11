@@ -24,7 +24,7 @@ Dazu beschäftigen wir uns mit den unterschiedlichen Testarten, mit Automatisier
         <field name="author_id"><![CDATA[anbeth]]></field>
         <field name="author_id"><![CDATA[tlange]]></field>-->
 
-        <field name="author_ids"><![CDATA[[anbeth,tlange]]]></field>
+        <field name="author_id"><![CDATA[[anbeth,tlange]]]></field>
 
         <!--Postcontent-->
         <field name="headlines"><![CDATA[Wartbarkeit von Software – Teil 2: Tests]]></field>

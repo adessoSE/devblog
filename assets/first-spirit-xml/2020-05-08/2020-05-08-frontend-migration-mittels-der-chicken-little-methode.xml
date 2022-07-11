@@ -30,7 +30,7 @@ Als Zieltechnologie für die Migration dient in diesem Beispiel das <strong>Sing
         <!--
         <field name="author_id"><![CDATA[mschick]]></field>-->
 
-        <field name="author_ids"><![CDATA[[mschick]]]></field>
+        <field name="author_id"><![CDATA[[mschick]]]></field>
 
         <!--Postcontent-->
         <field name="headlines"><![CDATA[Frontend Migration anhand der Chicken-Little-Methode in der Praxis]]></field>

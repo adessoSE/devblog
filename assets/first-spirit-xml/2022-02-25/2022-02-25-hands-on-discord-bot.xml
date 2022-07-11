@@ -24,7 +24,7 @@ ist es ohne große Hürden möglich, sich mit anderen Menschen zu verknüpfen.</
         <!--
         <field name="author_id"><![CDATA[bolsei]]></field>-->
 
-        <field name="author_ids"><![CDATA[[bolsei]]]></field>
+        <field name="author_id"><![CDATA[[bolsei]]]></field>
 
         <!--Postcontent-->
         <field name="headlines"><![CDATA[Hands-on Entwicklung eines Discord-Bots]]></field>

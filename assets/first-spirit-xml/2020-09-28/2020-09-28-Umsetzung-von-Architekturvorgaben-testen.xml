@@ -24,7 +24,7 @@ Wie dies mit Hilfe von Tool Unterstützung durch ArchUnit sichergestellt werden 
         <!--
         <field name="author_id"><![CDATA[klausSchnaithmann]]></field>-->
 
-        <field name="author_ids"><![CDATA[[klausSchnaithmann]]]></field>
+        <field name="author_id"><![CDATA[[klausSchnaithmann]]]></field>
 
         <!--Postcontent-->
         <field name="headlines"><![CDATA[ArchUnit – Die Umsetzung von Architekturvorgaben lässt sich testen!]]></field>

@@ -21,7 +21,7 @@ In diesem Artikel stelle ich das Studium am IT-Center vor und teile meine Erfahr
         <!--
         <field name="author_id"><![CDATA[ccaylak]]></field>-->
 
-        <field name="author_ids"><![CDATA[[ccaylak]]]></field>
+        <field name="author_id"><![CDATA[[ccaylak]]]></field>
 
         <!--Postcontent-->
         <field name="headlines"><![CDATA[Duales Studium am IT-Center Dortmund mit adesso als Partner]]></field>

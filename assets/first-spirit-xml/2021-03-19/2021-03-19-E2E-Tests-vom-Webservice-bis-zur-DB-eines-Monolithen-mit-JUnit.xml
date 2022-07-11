@@ -25,7 +25,7 @@ Dieser Artikel richtet sich an Projektleiter, Architekten oder interessierte Ent
         <!--
         <field name="author_id"><![CDATA[thorbolo]]></field>-->
 
-        <field name="author_ids"><![CDATA[[thorbolo]]]></field>
+        <field name="author_id"><![CDATA[[thorbolo]]]></field>
 
         <!--Postcontent-->
         <field name="headlines"><![CDATA[E2E-Tests vom Webservice bis zur DB eines Monolithen mit JUnit]]></field>

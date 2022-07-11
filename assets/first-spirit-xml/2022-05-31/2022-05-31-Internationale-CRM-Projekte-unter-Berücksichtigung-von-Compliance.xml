@@ -29,7 +29,7 @@ Dabei sind verschiedene Compliance-Aspekte zu betrachten.</p>
         <!--
         <field name="author_id"><![CDATA[mschulz-adesso]]></field>-->
 
-        <field name="author_ids"><![CDATA[[mschulz-adesso]]]></field>
+        <field name="author_id"><![CDATA[[mschulz-adesso]]]></field>
 
         <!--Postcontent-->
         <field name="headlines"><![CDATA[Internationale CRM-Projekte unter Berücksichtigung von Compliance]]></field>

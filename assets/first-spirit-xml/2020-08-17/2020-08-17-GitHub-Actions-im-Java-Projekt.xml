@@ -25,7 +25,7 @@ Abschließend schauen wir uns die automatisierte Release-Erzeugung an.</p>
         <!--
         <field name="author_id"><![CDATA[ccaylak]]></field>-->
 
-        <field name="author_ids"><![CDATA[[ccaylak]]]></field>
+        <field name="author_id"><![CDATA[[ccaylak]]]></field>
 
         <!--Postcontent-->
         <field name="headlines"><![CDATA[GitHub Actions im Java Projekt]]></field>

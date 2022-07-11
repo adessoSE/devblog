@@ -21,7 +21,7 @@ So begleitet das Thema Datenschutz und Digitalkompetenz alle Lebensabschnitte, d
         <!--
         <field name="author_id"><![CDATA[vschiller]]></field>-->
 
-        <field name="author_ids"><![CDATA[[vschiller]]]></field>
+        <field name="author_id"><![CDATA[[vschiller]]]></field>
 
         <!--Postcontent-->
         <field name="headlines"><![CDATA[Spiel des Lebens - IT-Security Edition]]></field>

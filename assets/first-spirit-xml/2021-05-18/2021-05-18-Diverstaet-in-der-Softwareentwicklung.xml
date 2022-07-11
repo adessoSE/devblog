@@ -25,7 +25,7 @@ Wie könnte also der vermehrte Einsatz von diesen verschiedenen Merkmalen in Sof
         <!--
         <field name="author_id"><![CDATA[vschiller]]></field>-->
 
-        <field name="author_ids"><![CDATA[[vschiller]]]></field>
+        <field name="author_id"><![CDATA[[vschiller]]]></field>
 
         <!--Postcontent-->
         <field name="headlines"><![CDATA[Diversität und die Softwareentwicklung]]></field>

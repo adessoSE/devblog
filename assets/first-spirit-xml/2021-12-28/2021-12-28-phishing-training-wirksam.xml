@@ -22,7 +22,7 @@ Phishing ist eine Kunst der Manipulation, die sowohl technisches als auch mensch
         <!--
         <field name="author_id"><![CDATA[vschiller]]></field>-->
 
-        <field name="author_ids"><![CDATA[[vschiller]]]></field>
+        <field name="author_id"><![CDATA[[vschiller]]]></field>
 
         <!--Postcontent-->
         <field name="headlines"><![CDATA[Wie erfolgreich können Phishing Simulationen sein?]]></field>

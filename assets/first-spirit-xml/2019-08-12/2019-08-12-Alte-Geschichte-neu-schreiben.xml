@@ -24,7 +24,7 @@ Operationen vorgestellt mit denen du deine Historie aufräumen kannst.</p>
         <!--
         <field name="author_id"><![CDATA[czarnecki]]></field>-->
 
-        <field name="author_ids"><![CDATA[[czarnecki]]]></field>
+        <field name="author_id"><![CDATA[[czarnecki]]]></field>
 
         <!--Postcontent-->
         <field name="headlines"><![CDATA[Alte Geschichte Neu Schreiben mit Git]]></field>

@@ -25,7 +25,7 @@ Anschließend schauen wir uns die Implementierung der Authentifizierung über ö
         <!--
         <field name="author_id"><![CDATA[ivankablar]]></field>-->
 
-        <field name="author_ids"><![CDATA[[ivankablar]]]></field>
+        <field name="author_id"><![CDATA[[ivankablar]]]></field>
 
         <!--Postcontent-->
         <field name="headlines"><![CDATA[Authentifizierung über öffentliche Schlüssel mit Apache MINA]]></field>

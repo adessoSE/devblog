@@ -21,7 +21,7 @@
         <!--
         <field name="author_id"><![CDATA[frenzel]]></field>-->
 
-        <field name="author_ids"><![CDATA[[frenzel]]]></field>
+        <field name="author_id"><![CDATA[[frenzel]]]></field>
 
         <!--Postcontent-->
         <field name="headlines"><![CDATA[Dependency Injection mit Google Guice]]></field>

@@ -23,7 +23,7 @@ In diesem Blogbeitrag werfen wir einen genaueren Blick auf die Graphdatenbank Ne
         <!--
         <field name="author_id"><![CDATA[maximAtanasov]]></field>-->
 
-        <field name="author_ids"><![CDATA[[maximAtanasov]]]></field>
+        <field name="author_id"><![CDATA[[maximAtanasov]]]></field>
 
         <!--Postcontent-->
         <field name="headlines"><![CDATA[Optimierung von Queries in Neo4j]]></field>

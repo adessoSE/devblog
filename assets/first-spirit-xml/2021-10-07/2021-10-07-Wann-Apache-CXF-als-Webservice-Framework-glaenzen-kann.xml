@@ -24,7 +24,7 @@ Leider ist die Welt selten ideal, womit bei CXF dann die Unannehmlichkeiten begi
         <!--
         <field name="author_id"><![CDATA[thorbolo]]></field>-->
 
-        <field name="author_ids"><![CDATA[[thorbolo]]]></field>
+        <field name="author_id"><![CDATA[[thorbolo]]]></field>
 
         <!--Postcontent-->
         <field name="headlines"><![CDATA[Wann Apache CXF als Webservice-Framework glänzen kann]]></field>

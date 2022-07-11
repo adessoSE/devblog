@@ -22,7 +22,7 @@ Wie aber sehen die Entwicklungen und Einsatzmöglichkeiten im Unternehmenskontex
         <!--
         <field name="author_id"><![CDATA[pschild]]></field>-->
 
-        <field name="author_ids"><![CDATA[[pschild]]]></field>
+        <field name="author_id"><![CDATA[[pschild]]]></field>
 
         <!--Postcontent-->
         <field name="headlines"><![CDATA[Kollegin Alexa – Wie Sprachassistenten ein IT-Projektteam unterstützen können]]></field>

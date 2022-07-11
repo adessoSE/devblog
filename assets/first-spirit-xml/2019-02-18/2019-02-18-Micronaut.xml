@@ -25,7 +25,7 @@ Danach vergleichen wir die beiden Ansätze und schauen, wo welches Framework üb
         <!--
         <field name="author_id"><![CDATA[t-buss]]></field>-->
 
-        <field name="author_ids"><![CDATA[[t-buss]]]></field>
+        <field name="author_id"><![CDATA[[t-buss]]]></field>
 
         <!--Postcontent-->
         <field name="headlines"><![CDATA[Micronaut - Eine Alternative zu Spring]]></field>

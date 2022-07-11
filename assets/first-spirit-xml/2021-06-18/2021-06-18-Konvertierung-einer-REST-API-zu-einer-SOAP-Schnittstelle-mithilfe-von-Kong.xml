@@ -23,7 +23,7 @@ In diesem Artikel wird eine Methode vorgestellt, wie man diese Anforderung mit H
         <!--
         <field name="author_id"><![CDATA[DanielKraft]]></field>-->
 
-        <field name="author_ids"><![CDATA[[DanielKraft]]]></field>
+        <field name="author_id"><![CDATA[[DanielKraft]]]></field>
 
         <!--Postcontent-->
         <field name="headlines"><![CDATA[Konvertierung einer REST-API zu einer SOAP-Schnittstelle mithilfe von Kong]]></field>
