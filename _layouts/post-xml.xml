@@ -28,9 +28,11 @@
             ]]></field>
 
         <!--Author Information-->
-        {% for id in page.author_ids %}
+        <!--{% for id in page.author_ids %}
         <field name="author_id"><![CDATA[{{ id }}]]></field>
-        {%- endfor -%}
+        {%- endfor -%}-->
+
+        <field name="author_ids"><![CDATA[[{{ page.author_ids | join: "," }}]]]></field>
 
         <!--Postcontent-->
         <field name="headlines"><![CDATA[{{ page.title }}]]></field>
