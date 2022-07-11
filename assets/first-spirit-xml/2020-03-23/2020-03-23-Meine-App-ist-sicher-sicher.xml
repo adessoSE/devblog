@@ -22,7 +22,7 @@ Tatsächlich enthält die durchschnittliche Webanwendung jedoch stolze 33 Lücke
         <!--
         <field name="author_id"><![CDATA[Flo4l]]></field>-->
 
-        <field name="author_ids"><![CDATA[[Flo4l]]]></field>
+        <field name="author_id"><![CDATA[[Flo4l]]]></field>
 
         <!--Postcontent-->
         <field name="headlines"><![CDATA["Meine Webanwendung ist sicher!" - sicher?]]></field>

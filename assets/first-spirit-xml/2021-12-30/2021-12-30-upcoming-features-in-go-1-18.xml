@@ -22,7 +22,7 @@ Let’s take a look at some of the new features that will be available.</p>
         <!--
         <field name="author_id"><![CDATA[sebastianholstein]]></field>-->
 
-        <field name="author_ids"><![CDATA[[sebastianholstein]]]></field>
+        <field name="author_id"><![CDATA[[sebastianholstein]]]></field>
 
         <!--Postcontent-->
         <field name="headlines"><![CDATA[Upcoming Features in Go 1.18]]></field>

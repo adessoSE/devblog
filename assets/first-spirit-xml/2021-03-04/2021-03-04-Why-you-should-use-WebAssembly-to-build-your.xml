@@ -24,7 +24,7 @@ In this article, two identical applications are programmed in WebAssembly and Ja
         <!--
         <field name="author_id"><![CDATA[maximilian_Lang]]></field>-->
 
-        <field name="author_ids"><![CDATA[[maximilian_Lang]]]></field>
+        <field name="author_id"><![CDATA[[maximilian_Lang]]]></field>
 
         <!--Postcontent-->
         <field name="headlines"><![CDATA[Why you should not use WebAssembly to build your SPA]]></field>

@@ -27,7 +27,7 @@ In diesem Teil geht es weiter mit der Testautomatisierung, speziell im Bereich d
         <field name="author_id"><![CDATA[peterUrbanik]]></field>
         <field name="author_id"><![CDATA[tonyEggert]]></field>-->
 
-        <field name="author_ids"><![CDATA[[axelSchirmer,peterUrbanik,tonyEggert]]]></field>
+        <field name="author_id"><![CDATA[[axelSchirmer,peterUrbanik,tonyEggert]]]></field>
 
         <!--Postcontent-->
         <field name="headlines"><![CDATA[Testautomatisierung in der Praxis ]]></field>

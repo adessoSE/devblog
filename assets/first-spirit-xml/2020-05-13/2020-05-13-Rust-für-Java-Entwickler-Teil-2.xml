@@ -23,7 +23,7 @@ In diesem Teil der Serie möchte ich auf zwei weitere, wichtige Aspekte des Fram
         <!--
         <field name="author_id"><![CDATA[kiliankrause]]></field>-->
 
-        <field name="author_ids"><![CDATA[[kiliankrause]]]></field>
+        <field name="author_id"><![CDATA[[kiliankrause]]]></field>
 
         <!--Postcontent-->
         <field name="headlines"><![CDATA[Rust für Java-Entwickler - Teil 2]]></field>

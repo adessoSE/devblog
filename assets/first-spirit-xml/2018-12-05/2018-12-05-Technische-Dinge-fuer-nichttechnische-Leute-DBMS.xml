@@ -20,7 +20,7 @@ Dazu kläre ich auf, wie Datenbankmanagementsysteme dazu verwendet werden könne
         <!--
         <field name="author_id"><![CDATA[florianluediger]]></field>-->
 
-        <field name="author_ids"><![CDATA[[florianluediger]]]></field>
+        <field name="author_id"><![CDATA[[florianluediger]]]></field>
 
         <!--Postcontent-->
         <field name="headlines"><![CDATA[Technische Dinge für nichttechnische Leute (Teil 4)]]></field>

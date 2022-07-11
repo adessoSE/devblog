@@ -22,7 +22,7 @@ Letztere, wie Neo4j, bieten viele Vorteile gegenüber von relationalen Datenbank
         <!--
         <field name="author_id"><![CDATA[shsanayei]]></field>-->
 
-        <field name="author_ids"><![CDATA[[shsanayei]]]></field>
+        <field name="author_id"><![CDATA[[shsanayei]]]></field>
 
         <!--Postcontent-->
         <field name="headlines"><![CDATA[Neo4j – Ein Einblick in die Welt der Graphdatenbanken]]></field>

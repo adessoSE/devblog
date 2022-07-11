@@ -22,7 +22,7 @@ Im Gegenteil, nun muss sie sich im realen Einsatz bewähren.</p>
         <field name="author_id"><![CDATA[anbeth]]></field>
         <field name="author_id"><![CDATA[tlange]]></field>-->
 
-        <field name="author_ids"><![CDATA[[anbeth,tlange]]]></field>
+        <field name="author_id"><![CDATA[[anbeth,tlange]]]></field>
 
         <!--Postcontent-->
         <field name="headlines"><![CDATA[Wartbarkeit von Software – Teil 1: Dokumentation]]></field>

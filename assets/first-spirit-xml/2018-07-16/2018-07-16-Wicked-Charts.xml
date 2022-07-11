@@ -23,7 +23,7 @@ In diesem Artikel wird dazu beispielhaft gezeigt, wie ein einfaches Liniendiagra
         <!--
         <field name="author_id"><![CDATA[maximAtanasov]]></field>-->
 
-        <field name="author_ids"><![CDATA[[maximAtanasov]]]></field>
+        <field name="author_id"><![CDATA[[maximAtanasov]]]></field>
 
         <!--Postcontent-->
         <field name="headlines"><![CDATA[Wicked Charts - JavaScript Charts mit Apache Wicket]]></field>

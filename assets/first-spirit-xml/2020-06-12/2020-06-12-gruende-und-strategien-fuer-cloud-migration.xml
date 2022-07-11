@@ -27,7 +27,7 @@ In meinem Blogbeitrag zeige ich, dass sich auch für bestehende Anwendungen der 
         <!--
         <field name="author_id"><![CDATA[c-bachmann]]></field>-->
 
-        <field name="author_ids"><![CDATA[[c-bachmann]]]></field>
+        <field name="author_id"><![CDATA[[c-bachmann]]]></field>
 
         <!--Postcontent-->
         <field name="headlines"><![CDATA[Gründe und Strategien für die Migration einer Applikation in die Cloud]]></field>

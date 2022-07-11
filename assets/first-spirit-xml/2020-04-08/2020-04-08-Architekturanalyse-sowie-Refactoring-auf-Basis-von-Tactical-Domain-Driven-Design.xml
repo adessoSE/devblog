@@ -27,7 +27,7 @@ Dieses Werkzeug ist in Verbindung mit meiner Bachelorarbeit an der Hochschule Da
         <!--
         <field name="author_id"><![CDATA[DanielKraft]]></field>-->
 
-        <field name="author_ids"><![CDATA[[DanielKraft]]]></field>
+        <field name="author_id"><![CDATA[[DanielKraft]]]></field>
 
         <!--Postcontent-->
         <field name="headlines"><![CDATA[Architekturanalyse sowie Refactoring auf Basis von Tactical Domain-Driven Design]]></field>

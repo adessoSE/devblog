@@ -24,7 +24,7 @@ Zusätzlich gibt der Beitrag eine kleine Starthilfe mit einer Auswahl an Codebei
         <field name="author_id"><![CDATA[schroeerth]]></field>
         <field name="author_id"><![CDATA[friggej]]></field>-->
 
-        <field name="author_ids"><![CDATA[[schroeerth,friggej]]]></field>
+        <field name="author_id"><![CDATA[[schroeerth,friggej]]]></field>
 
         <!--Postcontent-->
         <field name="headlines"><![CDATA[Reaktive Programmierung mit Spring Webflux]]></field>

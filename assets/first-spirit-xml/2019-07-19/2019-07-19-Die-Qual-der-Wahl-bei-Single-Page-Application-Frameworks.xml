@@ -25,7 +25,7 @@ So unterschiedlich die Ansätze der Frameworks untereinander sind, ist das gemei
         <!--
         <field name="author_id"><![CDATA[frederikschlemmer]]></field>-->
 
-        <field name="author_ids"><![CDATA[[frederikschlemmer]]]></field>
+        <field name="author_id"><![CDATA[[frederikschlemmer]]]></field>
 
         <!--Postcontent-->
         <field name="headlines"><![CDATA[Angular, React oder Vue.js? Eine Entscheidungshilfe]]></field>

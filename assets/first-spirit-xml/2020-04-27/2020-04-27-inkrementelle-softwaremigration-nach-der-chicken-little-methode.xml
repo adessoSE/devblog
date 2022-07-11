@@ -25,7 +25,7 @@ Diese Methode beschreibt die Migration solcher Legacy Software in mehreren Schri
         <!--
         <field name="author_id"><![CDATA[mschick]]></field>-->
 
-        <field name="author_ids"><![CDATA[[mschick]]]></field>
+        <field name="author_id"><![CDATA[[mschick]]]></field>
 
         <!--Postcontent-->
         <field name="headlines"><![CDATA[Inkrementelle Softwaremigration nach der Chicken-Little-Methode]]></field>

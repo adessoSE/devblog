@@ -22,7 +22,7 @@ Dieser Blogpost soll dabei helfen, die richtige Lizenz für das eigene Projekt z
         <!--
         <field name="author_id"><![CDATA[jo2]]></field>-->
 
-        <field name="author_ids"><![CDATA[[jo2]]]></field>
+        <field name="author_id"><![CDATA[[jo2]]]></field>
 
         <!--Postcontent-->
         <field name="headlines"><![CDATA[Open-Source-Lizenzen und was ich damit machen darf]]></field>

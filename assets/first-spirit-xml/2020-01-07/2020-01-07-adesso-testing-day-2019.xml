@@ -20,7 +20,7 @@ Beim adesso testing day handelt es sich um eine adesso-interne Konferenz zum Aus
         <!--
         <field name="author_id"><![CDATA[stwacker]]></field>-->
 
-        <field name="author_ids"><![CDATA[[stwacker]]]></field>
+        <field name="author_id"><![CDATA[[stwacker]]]></field>
 
         <!--Postcontent-->
         <field name="headlines"><![CDATA[adesso testing day 2019]]></field>

@@ -21,7 +21,7 @@
         <!--
         <field name="author_id"><![CDATA[no0x9d]]></field>-->
 
-        <field name="author_ids"><![CDATA[[no0x9d]]]></field>
+        <field name="author_id"><![CDATA[[no0x9d]]]></field>
 
         <!--Postcontent-->
         <field name="headlines"><![CDATA[Typisierte Forms in Angular]]></field>

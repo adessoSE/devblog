@@ -20,7 +20,7 @@ Um diese Herausforderung auf ein nicht-technologisches Niveau herunterzubrechen,
         <!--
         <field name="author_id"><![CDATA[vschiller]]></field>-->
 
-        <field name="author_ids"><![CDATA[[vschiller]]]></field>
+        <field name="author_id"><![CDATA[[vschiller]]]></field>
 
         <!--Postcontent-->
         <field name="headlines"><![CDATA[Sicherheitsprinzipien 2 go]]></field>

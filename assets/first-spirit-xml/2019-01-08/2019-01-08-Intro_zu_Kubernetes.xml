@@ -22,7 +22,7 @@ Grund genug, sich einmal näher mit Kubernetes und den Konzepten dahinter zu bes
         <!--
         <field name="author_id"><![CDATA[t-buss]]></field>-->
 
-        <field name="author_ids"><![CDATA[[t-buss]]]></field>
+        <field name="author_id"><![CDATA[[t-buss]]]></field>
 
         <!--Postcontent-->
         <field name="headlines"><![CDATA[Einführung in Kubernetes]]></field>

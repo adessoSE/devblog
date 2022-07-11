@@ -25,7 +25,7 @@ Diverse Normen und Richtlinien geben den Rahmen dafür vor.</p>
         <!--
         <field name="author_id"><![CDATA[cjohn]]></field>-->
 
-        <field name="author_ids"><![CDATA[[cjohn]]]></field>
+        <field name="author_id"><![CDATA[[cjohn]]]></field>
 
         <!--Postcontent-->
         <field name="headlines"><![CDATA[Energiemanagement im Rechenzentrum]]></field>

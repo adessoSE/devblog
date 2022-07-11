@@ -22,7 +22,7 @@ DDD wurde erstmalig durch Eric Evans in seinem Buch <em>Domain Driven Design - T
         <!--
         <field name="author_id"><![CDATA[viktor-mucha]]></field>-->
 
-        <field name="author_ids"><![CDATA[[viktor-mucha]]]></field>
+        <field name="author_id"><![CDATA[[viktor-mucha]]]></field>
 
         <!--Postcontent-->
         <field name="headlines"><![CDATA[Adressierung von Herausforderungen in der Domänenmodellierung]]></field>

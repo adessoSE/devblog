@@ -24,7 +24,7 @@ This is especially true when using continuous integration to automatically check
         <!--
         <field name="author_id"><![CDATA[florianluediger]]></field>-->
 
-        <field name="author_ids"><![CDATA[[florianluediger]]]></field>
+        <field name="author_id"><![CDATA[[florianluediger]]]></field>
 
         <!--Postcontent-->
         <field name="headlines"><![CDATA[Identify Bottlenecks in your Spring Tests with JUnit Insights]]></field>

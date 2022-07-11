@@ -31,7 +31,7 @@ Es geht mir dabei nicht nur um die Optimierung der Netto-Arbeitszeit, die häufi
         <!--
         <field name="author_id"><![CDATA[mschulz-adesso]]></field>-->
 
-        <field name="author_ids"><![CDATA[[mschulz-adesso]]]></field>
+        <field name="author_id"><![CDATA[[mschulz-adesso]]]></field>
 
         <!--Postcontent-->
         <field name="headlines"><![CDATA[Zeitersparnis durch RPA, AI und der Microsoft Power Platform]]></field>

@@ -24,7 +24,7 @@
         <!--
         <field name="author_id"><![CDATA[ceverke]]></field>-->
 
-        <field name="author_ids"><![CDATA[[ceverke]]]></field>
+        <field name="author_id"><![CDATA[[ceverke]]]></field>
 
         <!--Postcontent-->
         <field name="headlines"><![CDATA[Echtzeitdatenverarbeitung von Eventströmen]]></field>

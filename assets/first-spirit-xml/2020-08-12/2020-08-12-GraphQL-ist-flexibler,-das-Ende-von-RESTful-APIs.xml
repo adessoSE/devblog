@@ -21,7 +21,7 @@
         <!--
         <field name="author_id"><![CDATA[muhannaddarraj]]></field>-->
 
-        <field name="author_ids"><![CDATA[[muhannaddarraj]]]></field>
+        <field name="author_id"><![CDATA[[muhannaddarraj]]]></field>
 
         <!--Postcontent-->
         <field name="headlines"><![CDATA[GraphQL ist flexibler, das Ende von REST-APIs?]]></field>

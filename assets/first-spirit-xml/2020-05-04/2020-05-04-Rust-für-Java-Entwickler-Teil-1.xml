@@ -23,7 +23,7 @@ In diesem Artikel wollen wir uns Einblick in die (noch junge) Programmiersprache
         <!--
         <field name="author_id"><![CDATA[kiliankrause]]></field>-->
 
-        <field name="author_ids"><![CDATA[[kiliankrause]]]></field>
+        <field name="author_id"><![CDATA[[kiliankrause]]]></field>
 
         <!--Postcontent-->
         <field name="headlines"><![CDATA[Rust für Java-Entwickler - Teil 1]]></field>

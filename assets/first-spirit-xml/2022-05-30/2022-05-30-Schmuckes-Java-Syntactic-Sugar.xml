@@ -22,7 +22,7 @@ Das OpenJDK Project Amber greift diese Schwächen von Java u.a. mit Syntactic Su
         <!--
         <field name="author_id"><![CDATA[mboegers]]></field>-->
 
-        <field name="author_ids"><![CDATA[[mboegers]]]></field>
+        <field name="author_id"><![CDATA[[mboegers]]]></field>
 
         <!--Postcontent-->
         <field name="headlines"><![CDATA[Schmuckes Java - Syntactic Sugar von Project Amber]]></field>

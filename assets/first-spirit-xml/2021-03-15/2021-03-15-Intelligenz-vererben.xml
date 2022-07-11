@@ -24,7 +24,7 @@ Falls ausreichende Testdaten nicht zur Verfügung stehen oder aber diese erst zu
         <!--
         <field name="author_id"><![CDATA[swindisch]]></field>-->
 
-        <field name="author_ids"><![CDATA[[swindisch]]]></field>
+        <field name="author_id"><![CDATA[[swindisch]]]></field>
 
         <!--Postcontent-->
         <field name="headlines"><![CDATA[Intelligenz vererben – Mit genetischen Algorithmen künstliche neuronale Netze trainieren]]></field>

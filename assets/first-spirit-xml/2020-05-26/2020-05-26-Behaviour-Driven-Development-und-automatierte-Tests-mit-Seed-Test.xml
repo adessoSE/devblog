@@ -23,7 +23,7 @@ Dieser Beitrag zeigt, was sich hinter Cucumber und Behaviour Driven Development 
         <!--
         <field name="author_id"><![CDATA[dsorna]]></field>-->
 
-        <field name="author_ids"><![CDATA[[dsorna]]]></field>
+        <field name="author_id"><![CDATA[[dsorna]]]></field>
 
         <!--Postcontent-->
         <field name="headlines"><![CDATA[Behaviour Driven Development und automatisierte Tests mit Seed-Test]]></field>

@@ -26,7 +26,7 @@ anfangs noch nicht so stabilen Integrations- und Testsystemen gelingt, vermeidet
         <!--
         <field name="author_id"><![CDATA[roland]]></field>-->
 
-        <field name="author_ids"><![CDATA[[roland]]]></field>
+        <field name="author_id"><![CDATA[[roland]]]></field>
 
         <!--Postcontent-->
         <field name="headlines"><![CDATA[Systemüberwachung mit den Spring Boot Health Checks]]></field>

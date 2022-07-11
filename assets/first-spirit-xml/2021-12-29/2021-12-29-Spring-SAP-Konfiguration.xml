@@ -24,7 +24,7 @@ Besonderes Augenmerk gilt der Konfiguration und dem Build, da diese ein paar Bes
         <!--
         <field name="author_id"><![CDATA[scarstenen]]></field>-->
 
-        <field name="author_ids"><![CDATA[[scarstenen]]]></field>
+        <field name="author_id"><![CDATA[[scarstenen]]]></field>
 
         <!--Postcontent-->
         <field name="headlines"><![CDATA[Java und SAP in der Box]]></field>

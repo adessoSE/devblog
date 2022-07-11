@@ -25,7 +25,7 @@ Illustriert werden die Beispiele in Java und Spring-Security.</p>
         <!--
         <field name="author_id"><![CDATA[tboettinger]]></field>-->
 
-        <field name="author_ids"><![CDATA[[tboettinger]]]></field>
+        <field name="author_id"><![CDATA[[tboettinger]]]></field>
 
         <!--Postcontent-->
         <field name="headlines"><![CDATA[Passworthashing - Aber sicher!]]></field>

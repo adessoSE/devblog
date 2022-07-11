@@ -22,7 +22,7 @@ Handelt das Opfer nicht korrekt, ist der Klick auf den Link oder Anhang die einz
         <!--
         <field name="author_id"><![CDATA[vschiller]]></field>-->
 
-        <field name="author_ids"><![CDATA[[vschiller]]]></field>
+        <field name="author_id"><![CDATA[[vschiller]]]></field>
 
         <!--Postcontent-->
         <field name="headlines"><![CDATA[Phishing Kampagne bei adesso]]></field>
