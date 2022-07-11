@@ -20,9 +20,8 @@ In diesem Blogbeitrag werfen wir einen genaueren Blick auf die Graphdatenbank Ne
         <field name="change_date"><![CDATA[1590674400000]]></field>
 
         <!--Author Information-->
-        <field name="author_ids"><![CDATA[maximAtanasov]]></field>
-
-        <!--Postcontent-->
+        
+        <field name="author_id"><![CDATA[maximAtanasov]]></field><!--Postcontent-->
         <field name="headlines"><![CDATA[Optimierung von Queries in Neo4j]]></field>
         <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
             <p>Da NoSQL-Datenbanken in den letzten Jahren an Popularität zugenommen haben und öfters eingesetz werden, 

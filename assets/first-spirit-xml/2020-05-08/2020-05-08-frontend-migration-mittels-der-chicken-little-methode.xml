@@ -27,9 +27,8 @@ Als Zieltechnologie für die Migration dient in diesem Beispiel das <strong>Sing
         <field name="change_date"><![CDATA[1589192700000]]></field>
 
         <!--Author Information-->
-        <field name="author_ids"><![CDATA[mschick]]></field>
-
-        <!--Postcontent-->
+        
+        <field name="author_id"><![CDATA[mschick]]></field><!--Postcontent-->
         <field name="headlines"><![CDATA[Frontend Migration anhand der Chicken-Little-Methode in der Praxis]]></field>
         <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
             <p>In meinem <a href="https://www.adesso.de/de/news/blog/inkrementelle-softwaremigration-nach-der-chicken-little-methode-4.jsp">ersten Beitrag</a> habe ich die <strong>Chicken-Little-Methode</strong>, eine Vorgehensweise für die schrittweise Migration von <em>Legacy-Systemen</em>, vorgestellt.

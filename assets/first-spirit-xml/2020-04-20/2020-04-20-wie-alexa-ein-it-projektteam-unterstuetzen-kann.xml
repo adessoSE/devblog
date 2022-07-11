@@ -19,9 +19,8 @@ Wie aber sehen die Entwicklungen und Einsatzmöglichkeiten im Unternehmenskontex
         <field name="change_date"><![CDATA[1587380400000]]></field>
 
         <!--Author Information-->
-        <field name="author_ids"><![CDATA[pschild]]></field>
-
-        <!--Postcontent-->
+        
+        <field name="author_id"><![CDATA[pschild]]></field><!--Postcontent-->
         <field name="headlines"><![CDATA[Kollegin Alexa – Wie Sprachassistenten ein IT-Projektteam unterstützen können]]></field>
         <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
             <p>Sprachassistenten wie <em>Alexa</em> haben inzwischen den Weg in die Wohnzimmer vieler Menschen gefunden und werden so vor allem im privaten Umfeld eingesetzt.

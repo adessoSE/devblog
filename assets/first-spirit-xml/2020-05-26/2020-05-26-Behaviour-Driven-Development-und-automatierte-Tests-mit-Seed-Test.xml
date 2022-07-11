@@ -20,9 +20,8 @@ Dieser Beitrag zeigt, was sich hinter Cucumber und Behaviour Driven Development 
         <field name="change_date"><![CDATA[1590476400000]]></field>
 
         <!--Author Information-->
-        <field name="author_ids"><![CDATA[dsorna]]></field>
-
-        <!--Postcontent-->
+        
+        <field name="author_id"><![CDATA[dsorna]]></field><!--Postcontent-->
         <field name="headlines"><![CDATA[Behaviour Driven Development und automatisierte Tests mit Seed-Test]]></field>
         <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
             <p>Der Ruf nach einfach umzusetzenden, automatisierten Tests mit Tools wie Cucumber wird immer stärker.

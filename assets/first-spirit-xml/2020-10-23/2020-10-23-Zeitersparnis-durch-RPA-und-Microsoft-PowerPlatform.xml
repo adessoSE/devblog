@@ -28,9 +28,8 @@ Es geht mir dabei nicht nur um die Optimierung der Netto-Arbeitszeit, die häufi
         <field name="change_date"><![CDATA[1615211400000]]></field>
 
         <!--Author Information-->
-        <field name="author_ids"><![CDATA[mschulz-adesso]]></field>
-
-        <!--Postcontent-->
+        
+        <field name="author_id"><![CDATA[mschulz-adesso]]></field><!--Postcontent-->
         <field name="headlines"><![CDATA[Zeitersparnis durch RPA, AI und der Microsoft Power Platform]]></field>
         <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
             <p>Jeder kennt es, bestimmte IT-Arbeitsschritte, die sich von den Eingaben, aber nicht von den Klicks unterscheiden.

@@ -20,9 +20,8 @@
         <field name="change_date"><![CDATA[1615211400000]]></field>
 
         <!--Author Information-->
-        <field name="author_ids"><![CDATA[nils-a]]></field>
-
-        <!--Postcontent-->
+        
+        <field name="author_id"><![CDATA[nils-a]]></field><!--Postcontent-->
         <field name="headlines"><![CDATA[Absichern von Azure Funktionen]]></field>
         <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
             <p>Gibt es “Sicherheit” bei Azure Funktionen? Sind diese immer öffentlich zugänglich? Können Funktionen mit Benutzer-Autorisierung abgesichert werden? Dieser Beitrag versucht diesen und anderen Fragen nachzugehen.</p>
