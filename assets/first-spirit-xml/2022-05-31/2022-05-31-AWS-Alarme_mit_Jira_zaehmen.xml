@@ -1,0 +1,426 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<documents>
+    <document uid="5468fb1153f91a7725ff8b05dcbf96df">
+        <field name="title"><![CDATA[Tame the beast - AWS-Alarme mit Jira zähmen]]></field>
+        <field name="subline"><![CDATA[]]></field>
+        <field name="teaser"><![CDATA[<p>Im Rahmen eines Projekts, in dem eine ganze Reihe von Microservices entwickelt und betrieben wird, ist die Idee entstanden, die Bearbeitung der Alarme aus der AWS zu verbessern.
+Basierend auf Cloudwatch-Alarmen und einem Topic im Simple Notification Service von AWS, ist bei mehreren betriebenen Microservices sowie diversen Queues und anderen Komponenten schnell eine große Menge von Alarmen konfiguriert, die auf Protokollfiltern oder Metriken der Services beruhen können.
+Dabei den Überblick zu behalten, wichtige Alarme direkt zu priorisieren und die Analyse zu vereinfachen, ist nicht immer einfach.
+Natürlich darf nichts unter den Tisch fallen und es sollte sichergestellt sein, dass klar ist, wer gerade welchen Alarm bearbeitet.</p>
+
+]]></field>
+        <field name="language_multi_keyword"><![CDATA[de]]></field>
+        <field name="content_type_multi_keyword"><![CDATA[blog]]></field>
+        <field name="mime_type_multi_keyword"><![CDATA[text/html]]></field>
+        <field name="category_multi_keyword"><![CDATA[Softwareentwicklung]]></field>
+        <field name="tag_multi_keyword"><![CDATA[DevOps]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Lambda]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Cloudwatch]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Jira]]></field>
+        <field name="tag_multi_keyword"><![CDATA[AWS]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Cloud]]></field>
+        <field name="date_date"><![CDATA[2022-05-31T10:00:00+02:00]]></field>
+        <field name="date_l"><![CDATA[1653984000000]]></field>
+        <field name="change_date"><![CDATA[1653984000000]]></field>
+
+        <!--Author Information-->
+        <field name="author_ids"><![CDATA[kaythielmannsczubek]]></field>
+
+        <!--Postcontent-->
+        <field name="headlines"><![CDATA[Tame the beast - AWS-Alarme mit Jira zähmen]]></field>
+        <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
+            <p>Im Rahmen eines Projekts, in dem eine ganze Reihe von Microservices entwickelt und betrieben wird, ist die Idee entstanden, die Bearbeitung der Alarme aus der AWS zu verbessern.
+Basierend auf Cloudwatch-Alarmen und einem Topic im Simple Notification Service von AWS, ist bei mehreren betriebenen Microservices sowie diversen Queues und anderen Komponenten schnell eine große Menge von Alarmen konfiguriert, die auf Protokollfiltern oder Metriken der Services beruhen können.
+Dabei den Überblick zu behalten, wichtige Alarme direkt zu priorisieren und die Analyse zu vereinfachen, ist nicht immer einfach.
+Natürlich darf nichts unter den Tisch fallen und es sollte sichergestellt sein, dass klar ist, wer gerade welchen Alarm bearbeitet.</p>
+
+</div>]]></field>
+        <field name="content"><![CDATA[<div class="adesso-text-formate">
+<div class="row p-t-2">
+<div class="adesso-container">
+<div class="col-xl-8 adesso-center p-b-1 p-l-0 p-r-0">
+    <p>Im Rahmen eines Projekts, in dem eine ganze Reihe von Microservices entwickelt und betrieben wird, ist die Idee entstanden, die Bearbeitung der Alarme aus der AWS zu verbessern.
+Basierend auf Cloudwatch-Alarmen und einem Topic im Simple Notification Service von AWS, ist bei mehreren betriebenen Microservices sowie diversen Queues und anderen Komponenten schnell eine große Menge von Alarmen konfiguriert, die auf Protokollfiltern oder Metriken der Services beruhen können.
+Dabei den Überblick zu behalten, wichtige Alarme direkt zu priorisieren und die Analyse zu vereinfachen, ist nicht immer einfach.
+Natürlich darf nichts unter den Tisch fallen und es sollte sichergestellt sein, dass klar ist, wer gerade welchen Alarm bearbeitet.</p>
+
+<p>Mit Jira ist ein Tool gegeben, welches sowieso schon in vielen Projekten Einsatz findet. 
+Wie dieses genutzt werden kann, um die Alarme und ihren jeweiligen Status in den Griff zu bekommen, wollen wir im Folgenden beschreiben.</p>
+
+<h4 id="wie-entstand-der-bedarf-an-der-lösung">Wie entstand der Bedarf an der Lösung?</h4>
+<p>DevOps ist ein Thema, welches in unterschiedlichsten Teams auf unterschiedliche Art gelebt wird. 
+Mal gibt es eigene DevOps-Teams, mal wird der Betrieb der Anwendung im Entwicklungsteam parallel zu deren Weiterentwicklung gehandhabt.</p>
+
+<p>Aber egal wie man das Thema angeht: Am Anfang steht das Bedürfnis, direkt und automatisiert über Fehlerzustände der Systeme informiert zu werden.
+Das gängige Mittel der Wahl unter AWS sind Cloudwatch-Alarme, die mit Metriken oder Protokollen verknüpft werden können.
+Sobald die Alarmbedingung erfüllt ist, beispielsweise wird ein bestimmter Schwellenwert gebrochen oder ein Error-Log taucht im Protokoll auf, wird eine Aktion ausgeführt.
+Dies kann zum Beispiel eine Skalierungsaktion für den entsprechenden Service oder auch das Senden eines Events, z.B. an ein Topic im Simple Notification Service, sein.
+Landen die Alarm-Events einmal in einem Topic ist es ein leichtes, die Information via E-Mail an das gesamte Entwicklungsteam zu verteilen, die darauf reagieren sollten.</p>
+
+<h4 id="alarme-mit-terraform-erzeugen-und-an-ein-topic-schicken">Alarme mit Terraform erzeugen und an ein Topic schicken</h4>
+
+<p>Als Beispiel soll uns hier ein Alarm dienen, der immer dann ein Event an ein konfigurierbares Topic sendet, wenn eine Message in einer Dead Letter Queue (kurz DLQ) gelandet ist:</p>
+<pre><code class="language-terraform">resource "aws_sns_topic" "alarm" {
+  name = "MyProject-Alarme-Stage"
+}
+
+resource "aws_cloudwatch_metric_alarm" "dlq_alarm" {
+   alarm_name                = "MyProject-DlqAlarm-Stage"
+   comparison_operator       = "GreaterThanOrEqualToThreshold"
+   evaluation_periods        = 1
+   metric_name               = "ApproximateNumberOfMessagesVisible"
+   namespace                 = "AWS/SQS"
+   period                    = "60"
+   statistic                 = "Sum"
+   threshold                 = 1
+   datapoints_to_alarm       = 1
+   alarm_description         = "Sends an event when there are messages in the DLQ"
+   dimensions = {
+      "QueueName" = aws_sqs_queue.dlq.name
+   }
+   alarm_actions = [aws_sns_topic.alarm.arn]
+}
+</code></pre>
+<p>Damit könnte man meinen, das Thema sei durch.
+Alle Teammitglieder, die mit ihrer E-Mail das Topic abonniert haben, wissen Bescheid.
+Ziel erreicht!</p>
+
+<p>Es ergeben sich aber tatsächlich mehrere Probleme, für die Abhilfe geschaffen werden kann:</p>
+<ol>
+  <li>Wer bearbeitet das Problem eigentlich konkret?</li>
+  <li>Wurden überhaupt alle Alarme bereits bearbeitet?</li>
+  <li>Wie lesbar und damit wie schnell bearbeitbar sind diese erzeugten E-Mails überhaupt?</li>
+</ol>
+
+<p>Tatsache ist, dass wir hier auf ein Problem gestoßen sind.
+Es gibt immer wieder unterschiedliche Alarme, die aber durch die gleiche Ursache ausgelöst wurden, sodass es dazu kommen kann, dass mehrere Teammitglieder am gleichen Thema arbeiten, ohne das kurzfristig zu erkennen.
+Gibt es mal eine größere Anzahl von Alarmen, ist das E-Mail-Postfach nicht der Ort, an dem man übersichtlich sicherstellen kann, dass alle Alarme bereits bearbeitet wurden.
+Und auch die Lesbarkeit der Mails lässt zu wünschen übrig.
+Es sind zwar alle notwendigen technischen Informationen enthalten, aber es beschleunigt die Bearbeitung ungemein, wenn man zum Beispiel einen Stacktrace aus den Logs direkt im Anhang findet.</p>
+
+<h4 id="lambdas-für-die-erzeugung-der-jira-tickets-nutzen">Lambdas für die Erzeugung der Jira-Tickets nutzen</h4>
+
+<p>Wir teilen die Aufgaben für die Erzeugung und die Anreicherung der Jira-Tickets in zwei Lambda-Funktionen auf.
+Damit erhöhen wir sowohl die Flexibilität als auch die Ausfallsicherheit der Lösung.
+Sobald die erste Lambda für das initiale Anlegen eines Jira-Tickets erfolgreich durchgelaufen ist, können wir dieses Ticket um Zusatzinformationen, deren Beschaffung dann auch langläufiger oder komplizierter sein kann, erweitern, ohne dadurch ein Risiko beim Anlegen einzugehen.
+In unserem Fall ergänzen wir die Tickets bei protokollbasierten Alarmen im zweiten Schritt um den auslösenden Log-Eintrag.
+Der Ansatz an sich ist aber offen für Erweiterungen, die aus den Anforderungen anderer Projekte entstehen könnten.</p>
+
+<h5 id="ein-jira-ticket-anlegen">Ein Jira-Ticket anlegen</h5>
+
+<p>Die Cloudwatch-Alarme werden so konfiguriert, dass sie eine Nachricht in ein SNS Topic schreiben, sobald sie auslösen. 
+Auf dieses SNS Topic horcht eine Lambda-Funktion, welche die Aufgabe übernimmt, auf SNS Events zu reagieren und daraus ein Jira-Ticket zu erzeugen.</p>
+
+<p>Um den Workflow zu beschleunigen und zu vereinfachen, sollen die erzeugten Jira-Tickets so aufgebaut sein, dass sie möglichst viele Informationen, die für die Bearbeitung des Alarms notwendig sind, auf einen Blick liefern.
+Des Weiteren sollen natürlich keine Alarme verloren gehen, beispielsweise wenn es Probleme in der Kommunikation zwischen Jira und der Lambda-Funktion gibt.
+Konkret bedeutet das, dass die Lambda-Funktion folgende Anforderungen erfüllen muss:</p>
+<ol>
+  <li>Erzeugte Alarmtickets sollen einem festen Namensschema entsprechen. Hierdurch lässt sich schnell erkennen, welches Teilprojekt / welche Komponente den Alarm ausgelöst hat.
+Ein mögliches Namensschema ist hier beispielsweise: 
+<em>[Projekt - Teilprojekt/Komponente - Stage] Alarm-Name</em></li>
+  <li>In der Ticketbeschreibung sollen möglichst viele Informationen enthalten sein, die bei der Bearbeitung des Alarms nützlich sind (z.B. Wann löste der Alarm aus? Was ist passiert? Was ist zu tun?)</li>
+  <li>Alarmtickets sollen mit einer Priorität versehen werden.</li>
+  <li>Alarme dürfen unter keinen Umständen verloren gehen</li>
+</ol>
+
+<h6 id="aus-einem-sns-event-wird-ein-ticket">Aus einem SNS Event wird ein Ticket</h6>
+<p>Das Event, welches als Auslöser der Lambda-Funktion dient, ist wie folgt aufgebaut:</p>
+
+<p><em>(Das folgende Beispiel bezieht sich auf einen Cloudwatch-Metrik-Alarm. 
+Grundsätzlich gibt es auch andere Formen von Alarmen, bspw. für RDS, bei denen das Message-Attribut eine leicht abweichende Form aufweist. 
+Solche Alarme werden in diesem Blog nicht weiter betrachtet)</em></p>
+<pre><code class="language-json">{
+  "Records": [
+    {
+      "EventSource": "aws:sns",
+      "EventVersion": "1.0",
+      "EventSubscriptionArn": "arn:aws:sns:::ExampleTopic",
+      "Sns": {
+        "Type": "Notification",
+        "MessageId": "95df01b4-ee98-5cb9-9903-4c221d41eb5e",
+        "TopicArn": "arn:aws:sns:::ExampleTopic",
+        "Subject": "ALARM: \"Cloudwatch Alarm Name\" in EU - Frankfurt",
+        "Message": "siehe unten",
+        "Timestamp": "1970-01-01T00:00:00.000Z",
+        "SignatureVersion": "1",
+        "Signature": "EXAMPLE",
+        "SigningCertUrl": "EXAMPLE",
+        "UnsubscribeUrl": "EXAMPLE",
+        "MessageAttributes": {
+          "Test": {
+            "Type": "String",
+            "Value": "TestString"
+          },
+          "TestBinary": {
+            "Type": "Binary",
+            "Value": "TestBinary"
+          }
+        }
+      }
+    }
+  ]
+}
+</code></pre>
+<p>Der Inhalt von <code>Records.*.Sns.Message</code> wurde zur besseren Lesbarkeit in einen eigenen Block extrahiert, in der Realität ist das JSON in escapter Form im Message-Feld enthalten.</p>
+
+<pre><code class="language-json">//Records.*.Sns.Message
+{
+   "AlarmName": "Cloudwatch Alarm Name",
+   "AlarmDescription": "Cloudwatch Alarm Beschreibung",
+   "AWSAccountId": "",
+   "NewStateValue": "ALARM",
+   "NewStateReason": "Threshold Crossed: 1 datapoint (10.0) was greater than or equal to the threshold (1.0).",
+   "StateChangeTime": "1970-01-01T00:00:00.000+0000",
+   "Region": "EU - Frankfurt",
+   "OldStateValue": "OK",
+   "Trigger": {
+      "MetricName": "ExampleMetricName",
+      "Namespace": "ExampleNamespace",
+      "Statistic": "SUM",
+      "Unit": null,
+      "Dimensions": [],
+      "Period": 300,
+      "EvaluationPeriods": 1,
+      "ComparisonOperator": "GreaterThanOrEqualToThreshold",
+      "Threshold": 1.0
+   }
+}
+</code></pre>
+
+<p>Bei genauerer Betrachtung des Events stellen wir fest, dass insbesondere die Felder “AlarmName”, “AlarmDescription”, “NewStateReason” sowie “StateChangeTime” interessant sind.
+Wenn der Cloudwatch-Alarmname dem gewünschten Namensschema der Jira-Alarmtickets entspricht, so kann dieser genau so übernommen werden. 
+Andernfalls muss dieser in das gewünschte Format übertragen werden. 
+Konventionen unterstützen bei diesem Schritt sehr.
+Zudem ist es hilfreich, in den Cloudwatch-Alarmnamen die betroffene Stage aufzunehmen. 
+Diese Stage-Information kann anschließend verwendet werden, um dem Ticket eine Priorität zuzuordnen (Prod-Alarme können so bspw. höher priorisiert werden als Dev-Alarme. 
+Mehr dazu unter <a href="#automatisierung-in-jira-nutzen">Automatisierung in Jira nutzen</a>)</p>
+
+<p>Aus den Feldern “AlarmDescription”, “NewStateReason” und “StateChangeTime” lässt sich eine aussagekräftige Ticket-Beschreibung zusammensetzen.</p>
+
+<p>Werden weitere Informationen über die Alarm-Schwellenwerte benötigt, so kann die Beschreibung um Informationen aus dem “Trigger”-Objekt angereichert werden. 
+Sind mehrere AWS Accounts im Einsatz oder ist das Projekt in mehreren Regionen deployt, so sind auch die Felder “AWSAccountId” und “Region” besonders interessant.</p>
+
+<p>Bei der Bearbeitung eines Alarmtickets kann es hilfreich sein, zu sehen, ob der Vorfall weiterhin anhält oder in der Vergangenheit schon einmal aufgetreten ist. 
+Diese Informationen lassen sich sehr schnell direkt in der AWS-Konsole ablesen – ein Link zu dem Cloudwatch-Alarm kann auf einfache Weise zur Ticketbeschreibung hinzugefügt werden, da dieser folgendes Format besitzt:</p>
+<pre><code>https://&lt;AWS-REGION&gt;.console.aws.amazon.com/cloudwatch/deeplink.js?region=&lt;AWS-REGION&gt;#alarmsV2:alarm/&lt;ALARM-NAME&gt;
+</code></pre>
+
+<p>Nachdem das SNS Event in einen Ticketnamen und eine aussagekräftige Beschreibung überführt wurde, kann die <a href="https://developer.atlassian.com/server/jira/platform/rest-apis/">Jira-REST-API</a> (insbesondere <a href="https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-issues/#api-rest-api-3-issue-post">POST /rest/api/3/issue</a>) verwendet werden, um ein Jira-Ticket anzulegen.
+Es bietet sich an, einen technischen Benutzer anzulegen, welcher dann über OAuth 1.0a, Basic Auth oder Personal Access Token auf die Jira-REST-API zugreift. Mehr Informationen dazu sind in der <a href="https://developer.atlassian.com/server/jira/platform/rest-apis/#authentication-and-authorization">Jira Dokumentation</a> zu finden.
+Der Benutzer benötigt für das Anlegen eines Tickets folgende Berechtigungen: auf Plattformebene <code>Browse projects</code> und auf Projektebene <code>Create issues</code>.</p>
+
+<h6 id="was-passiert-im-fehlerfall">Was passiert im Fehlerfall?</h6>
+<p>Was passiert, wenn Jira nicht erreichbar ist? 
+Wir wollen auf keinen Fall, dass ein Alarm ausgelöst wird, wir aber nicht über diesen informiert werden. 
+Zum Glück bietet AWS hierfür eine einfache Lösungsmöglichkeit an: 
+Es ist möglich, eine Dead Letter Queue (DLQ) für eine Lambda-Funktion zu konfigurieren. 
+Kann ein SNS Event nicht erfolgreich verarbeitet werden, so wird die Lambda-Funktion für eine konfigurierbare Anzahl an Versuchen mit demselben Event neu ausgelöst. 
+Ist auch dies nicht erfolgreich, so wird das Event in die DLQ geschrieben. 
+Für diese DLQ kann wiederum eine E-Mail-Benachrichtigung angelegt werden, sodass wir eine zuverlässige Fallback-Möglichkeit haben, um über Alarme informiert zu werden.</p>
+
+<h5 id="logs-als-kommentar-ergänzen">Logs als Kommentar ergänzen</h5>
+<p>Nachdem das Alarmticket angelegt wurde, kann dieses um weitere Informationen angereichert werden, welche nicht im Alarm-Event selbst enthalten sind.
+Für die schnelle Fehleranalyse ist es beispielsweise sehr hilfreich, die Logs, welche von der Anwendung geschrieben wurden, als der Alarm ausgelöst wurde, bereits am Ticket selbst zu sehen und diese nicht erst selbst aus dem Log-System heraussuchen zu müssen.</p>
+
+<p>Im Folgenden schauen wir uns an, wie wir die entsprechenden Logs aus Cloudwatch auslesen und als Kommentar an das Alarmticket anhängen können.</p>
+
+<p>Mithilfe des Amazon SDKs können wir auf einfache Art und Weise Logs aus einer Log-Gruppe auslesen.
+Hierfür müssen wir lediglich den Namen der Log-Gruppe sowie das anzuwendende Filtermuster angeben. 
+Optional können wir auch den Zeitraum angeben, in dem gesucht werden soll.
+Die Informationen zu dem Zeitraum sowie den Namen der Log-Gruppe erhalten wir direkt aus dem auslösenden SNS Event (siehe <a href="#aus-einem-sns-event-wird-ein-ticket">vorheriger Abschnitt</a>).
+Das Filtermuster müssen wir zunächst mithilfe einer weiteren SDK-Funktion <code>describeMetricFilters</code> ermitteln.</p>
+
+<p>Eine naive Implementierung könnte wie folgt aussehen, eine korrekte Fehlerbehandlung und die sichere Ermittlung des Filter Patterns wurde für eine bessere Lesbarkeit ausgelassen:</p>
+<pre><code class="language-java">import software.amazon.awssdk.services.cloudwatchlogs.CloudWatchLogsClient;
+import software.amazon.awssdk.services.cloudwatchlogs.model.DescribeMetricFiltersResponse;
+import software.amazon.awssdk.services.cloudwatchlogs.model.FilterLogEventsRequest;
+import software.amazon.awssdk.services.cloudwatchlogs.model.FilteredLogEvent;
+
+public List&lt;FilteredLogEvent&gt; retrieveLogsFor(String logGroupName,
+                                              String metricName, 
+                                              String metricNamespace,
+                                              long searchStartTimeInMs,
+                                              long searchEndTimeInMs) {
+   final CloudWatchLogsClient cloudwatchClient = CloudWatchLogsClient.builder().build();
+   final DescribeMetricFiltersResponse metricFilters =
+                       cloudwatchClient.describeMetricFilters(metricName, metricNamespace, searchStartTimeInMs);
+   final String filterPattern = metricFilters.metricFilters().get(0).filterPattern();
+   final FilterLogEventsRequest filterLogEventsRequest = FilterLogEventsRequest.builder()
+           .logGroupName(logGroupName))
+           .filterPattern(filterPattern);
+           .startTime(searchStartTimeInMs)
+           .endTime(searchEndTimeInMs)
+           .build();
+   return cloudwatchClient.filterLogEvents(filterLogEventsRequest).events();
+}
+</code></pre>
+
+<h6 id="stolpersteine">Stolpersteine</h6>
+<p>Auch wenn sich mit Hilfe des oben gezeigten Code-Ausschnitts die entsprechenden Logs zu einem Alarm finden lassen, so gibt es einige Stolpersteine, auf die man spätestens im Produktiveinsatz stößt.</p>
+
+<p><strong>Stolperstein 1: Die Logs sind nicht in der Antwort enthalten</strong></p>
+
+<p>Es kann vorkommen, dass in der Antwort von <code>cloudwatchClient#filterLogEvents(FilterLogEventsRequest)</code>  keine Logs enthalten sind.
+Zum einen kann dies passieren, wenn für die Anfrage tatsächlich keine passenden Log-Einträge gefunden werden, viel wahrscheinlicher ist aber der Fall, wenn zu viele Log-Einträge in dem angegebenen Zeitraum durchsucht werden müssen.</p>
+
+<p>Betrachten wir einmal folgenden Fall: Wir suchen nach einem ERROR-Log innerhalb der letzten 60 Minuten.
+In diesem Zeitraum werden von der Anwendung 1000 Logs geschrieben. 
+Der gesuchte Log-Eintrag wurde vor einer Minute geschrieben.</p>
+
+<p>Die Log-Einträge werden in der richtigen zeitlichen Reihenfolge gesucht. 
+Dies bedeutet, dass zunächst die Einträge gefunden werden, die 60 Minuten zurückliegen, dann die, welche 59 Minuten zurückliegen, etc.
+Der obige Aufruf durchsucht nur eine bestimmte Anzahl an Log-Einträgen.
+Wird hierbei nicht der geforderte Suchzeitraum komplett abgedeckt, ist in der Antwort ein “Next-Token” enthalten, welches für weitere Anfragen verwendet werden kann.
+Das bedeutet, dass wir die <code>filterLogEvents</code>-Anfrage so oft wiederholen müssen, bis in der Antwort kein “Next-Token” enthalten ist, um sicherzustellen, dass wirklich alle Logs des angeforderten Zeitraums durchsucht wurden:</p>
+<pre><code class="language-java">FilterLogEventsResponse response = cloudwatchClient.filterLogEvents(filterLogEventsRequest);
+List&lt;FilteredLogEvent&gt; foundLogs = new ArrayList&lt;&gt;();
+while(response.nextToken() != null) {
+    response = cloudwatchClient.filterLogEvents(filterLogEventsRequest, response.nextToken());
+    foundLogs.addAll(response.events());
+}
+</code></pre>
+
+<p><strong>Stolperstein 2: Die Suche der Logeinträge kann lange dauern</strong></p>
+
+<p>Wenn die zu durchsuchende Cloudwatch Log-Gruppe viele Log-Einträge beinhaltet oder der Suchzeitraum sehr groß ist, kann die Suche der Log-Einträge sehr lange dauern.
+Es ist wichtig, diese Tatsache zu berücksichtigen.
+Wird die Anwendung als AWS-Lambda-Funktion bereitgestellt, so besitzt sie eine maximale Laufzeit von 15 Minuten.
+Das kann unter Umständen nicht ausreichen, um alle Log-Einträge zu durchsuchen.
+In der Anwendung müssen wir daher dafür sorgen, dass die Suche rechtzeitig beendet wird.
+Eine Möglichkeit ist etwa, die Abbruchbedingung der obigen while-Schleife so zu erweitern, dass sie die verbleibende Zeit der Lambda-Funktion mit berücksichtigt.
+Diese Information bekommen wir aus dem <code>Context</code>-Objekt, welches der Lambda-Funktion beim Auslösen übergeben wird.
+Um einen einzelnen Suchvorgang zu beschleunigen, können wir zudem die maximale Anzahl der durchsuchten Log-Einträge pro Abfrage begrenzen:</p>
+<pre><code class="language-java">import com.amazonaws.services.lambda.runtime.Context;
+// ...
+final FilterLogEventsRequest filterLogEventsRequest = FilterLogEventsRequest.builder()
+        .limit(25) // durchsuchte Einträge begrenzen
+        // weitere Konfigurationen (siehe oben)
+        .build();
+        do {
+        // Logs suchen (siehe oben)
+        } while(response.nextToken() != null &amp;&amp; context.getRemainingTimeInMillis() &gt; TimeUnit.MINUTES.toMillis(1L)); // rechtzeitig abbrechen
+</code></pre>
+
+<p><strong>Stolperstein 3: Ratelimits</strong></p>
+
+<p>Werden zu viele Suchabfragen in zu kurzer Zeit gestellt kann das Ratelimit der Cloudwatch API überschritten werden.
+In diesem Fall wird eine <code>CloudwatchLogException</code> bei dem Aufruf von <code>cloudwatchClient#filterLogEvents(FilterLogEventsRequest)</code> geworfen.
+Kommt es zu einer solchen Exception, können wir diese einfach fangen und die Suchanfrage nach einer kurzen Pause erneut absetzen.</p>
+
+<h6 id="erzeugen-des-kommentars">Erzeugen des Kommentars</h6>
+<p>Nachdem wir alle passenden Logs gefunden haben, können wir diese als Kommentar an das Jira-Alarmticket anhängen.
+Hierbei greifen wir abermals auf die <a href="https://developer.atlassian.com/server/jira/platform/rest-apis/">Jira-REST-API</a> (<a href="https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-issue-comments/#api-rest-api-3-issue-issueidorkey-comment-post">POST /rest/api/3/issue/{issueIdOrKey}/comment</a>) zurück.
+Um einen Kommentar anzulegen, werden folgende Jira-Berechtigungen benötigt: auf Plattformebene <code>Browse projects</code> und auf Projektebene <code>Add comments</code>.
+Die benötigte Ticketnummer (Pfadvariable “issueIdOrKey”) bekommen wir als Rückgabe, nachdem wir das Ticket angelegt haben (siehe <a href="#aus-einem-sns-event-wird-ein-ticket">Aus einem SNS Event wird ein Ticket</a>).
+Für eine bessere Lesbarkeit der Log-Einträge innerhalb des Jira-Kommentars bietet es sich an, diese als Code-Block darzustellen.
+Damit alle Log-Einträge innerhalb desselben Code-Blocks angezeigt werden, müssen sie <code>\n</code>-separiert im Text-Attribut angegeben werden.</p>
+
+<p>Ein Aufruf der Jira API für zwei Log-Einträge könnte also wie folgt aussehen:</p>
+<pre><code class="language-json">{
+    "body": {
+        "type": "doc",
+        "version": 1,
+        "content": [
+            {
+                "type": "codeBlock",
+                "content": [
+                    {
+                        "type": "text",
+                        "text": "Logeintrag 1\\nLogEintrag 2"
+                    }
+                ]
+            }
+        ]
+    }
+}
+</code></pre>
+<h5 id="zusammenspiel-der-komponenten">Zusammenspiel der Komponenten</h5>
+<p>Wenn wir die hier erstellten Komponenten zusammen betrachten, ergibt sich folgendes Gesamtbild der technischen Infrastruktur:</p>
+
+<p><img src="/assets/images/posts/AWS_Alarme_mit_Jira_zaehmen/Alarme_Konzept.png" alt="Aufbau der technischen Infrastruktur" /></p>
+
+<p>Eine nahezu beliebige Anzahl von Alarmen kann auf Basis von Metriken oder Protokollfiltern definiert werden und sendet ihre Events an ein SNS Topic (“Create Ticket”).
+Dieses stößt unsere erste Lambda an, die dafür zuständig ist, das Ticket im Jira initial anzulegen.
+Sobald dies erfolgreich erledigt wurde, kann das Event an ein weiteres SNS Topic (“Add Logs”) weitergeleitet werden.
+Die dadurch ausgelöste Lambda-Funktion ergänzt das Ticket um die Logs, die zu dem Alarm geführt haben.
+Dazu wird auf die Logs in Cloudwatch anhand der Parameter aus dem Event zugegriffen.
+Sollte es an einer beliebigen Stelle innerhalb dieses Prozesses zu einem Fehler kommen, sind beide Lambdas durch eine DLQ abgesichert, sodass keine Daten verloren gehen können.
+Wenn zum Beispiel Jira kurzfristig nicht erreichbar war, können die Events aus der DLQ später wieder eingespielt werden.</p>
+
+<p>Die benötigten Komponenten aus dem Werkzeugkasten von AWS sind somit sehr überschaubar.
+Auch wenn Alarme aus viele Projekte daran angeschlossen werden, skaliert diese Lösung problemlos mit.</p>
+
+<h6 id="kosten">Kosten</h6>
+<p>Mit diesem Gesamtbild vor Augen kommen wir schnell auf die Frage, ob das nicht ein bisschen teuer werden könnte.
+Denn am Ende soll sich die Investition ja auch wieder lohnen. 
+Dabei spielen zwei Faktoren eine wesentliche Rolle.
+Zum einen müssen wir betrachten, wie viele Alarme bearbeitet werden müssen und wie stark das Team dadurch gebunden wird.
+Damit ist hier ein Faktor gegeben, den jedes Projekt für sich selbst beantworten muss.
+Aber die laufenden Kosten können wir hier zumindest grob überschlagen:</p>
+<ul>
+  <li>Lambdas verursachen nur zur Laufzeit kosten.
+Selbst wenn wir hier deutlich hoch gegriffene 1.000 Aufrufe mit 15.000 ms Laufzeit und 512MB Speicher veranschlagen, kommen wir ohne Berücksichtigung des Freetiers auf gerade einmal 0,12 USD Kosten pro Monat.</li>
+  <li>Für SNS und SQS gilt ähnliches.
+Wenn man hier den Freetier von 1.000.000 Notifications pro Monat bei SNS und SQS verlässt, entstehen pro Request nur 0.0000005 USD an Kosten.
+Das sollte bei der Summe der erwarteten Alarme nie einen nennenswerten Betrag ergeben.</li>
+  <li>Alarm-Metriken verursachen auch Kosten. 
+Diese sollten aber nicht dieser Lösung angerechnet werde, da sie in den zu überwachenden Projekten sowieso bereits benötigt werden.</li>
+  <li>Das Durchsuchen der Cloudwatch-Logs schlägt mit 0,0063 USD pro GB gescannter Daten zu Buche.
+Die tatsächlichen Kosten hängen somit stark davon ab, wie viele Logs von dem System geschrieben werden.
+Da die Cloudwatch-Logs unabhängig davon, ob die hier vorgestellte Lösung Anwendung findet oder nicht, immer für eine Alarmanalyse benötigt werden, sollten diese Kosten auch nicht in die Gesamtkosten eingerechnet werden.</li>
+</ul>
+
+<p>Am Ende können wir sagen, dass die laufenden Kosten für die hier verwendeten Komponenten selbst jenseits des Freetiers zu vernachlässigen sind.</p>
+
+<h4 id="automatisierung-in-jira-nutzen">Automatisierung in Jira nutzen</h4>
+<p>Für die Bearbeitung von Alarmen in Jira bietet sich ein Kanban Board an.
+Für das Board lassen sich Automatisierungen einrichten, die die Arbeit mit den Alarmtickets weiter erleichtern.
+Folgende Ideen lassen sich mit wenigen Klicks umsetzen:</p>
+
+<h5 id="erinnerung-an-tickets-die-nach-24-stunden-noch-nicht-bearbeitet-wurden">Erinnerung an Tickets, die nach 24 Stunden noch nicht bearbeitet wurden</h5>
+
+<p>Hierfür lassen wir eine Automatisierung geplant jede Stunde eine Suche ausführen, die nach allen Tickets sucht, die in unserem Alarme-Board länger als 24 Stunden im Status “New” geblieben sind.
+Das kann in JQL folgendermaßen aussehen:</p>
+<pre><code class="language-jql">createdDate &lt;= -1d  AND statuscategory = "New" AND project = "Alarme"
+</code></pre>
+<p>Dabei ist es möglich, die Bedingung der Regel auf Tickets einzuschränken, die seit dem letzten Lauf dazugekommen sind.</p>
+
+<p>Über den Then-Part der Regel lässt sich dann eine E-Mail auslösen, die an einen Verteiler gerichtet werden kann und direkt auf die noch zu bearbeitenden Tickets referenziert:</p>
+<pre><code class="language-html">
+Bitte den Alarm bearbeiten: 
+&lt;a href="https://myproject.atlassian.net/browse/{{issue.key}}"&gt;
+    {{issue.key}}
+&lt;/a&gt;
+
+</code></pre>
+
+<h5 id="projektbezogene-zuweisung-von-tickets">Projektbezogene Zuweisung von Tickets</h5>
+
+<p>In einigen Fällen mag es sinnvoll sein, dass bestimmte Tickets immer bei einem bestimmten Entwickler landen sollen.
+Über den Trigger “Vorgang erstellt”, bekommt Jira mit, wenn ein neues Ticket angelegt wird.
+Damit lassen sich dann wieder Bedingungen verknüpfen.
+Zum Beispiel kann das Feld “Stichwort”, in welches wir unter dem technischen Namen “subject” in der Lambda den Projektnamen geschrieben haben, nach einem bestimmten Wert durchsucht werden.
+Wird das Projekt gefunden, so können wir den Vorgang einem bestimmten Teammitglied zuweisen und sogar direkt in den Status “In Progress” verschieben.</p>
+
+<h5 id="weitere-ideen">Weitere Ideen</h5>
+<ul>
+  <li>Ähnlich wie die Erinnerung nach 24 Stunden ließe sich auch eine Erinnerung einrichten, wenn ein Ticket über einen bestimmten Zeitraum keine Updates mehr erfährt.</li>
+  <li>In Ausnahmefällen wäre es denkbar bestimmte Alarme automatisiert zu ignorieren.
+Wenn zum Beispiel ein System noch nicht produktiv genutzt wird, weil benötigte Rahmenbedingungen noch nicht gegeben sind, aber die Alarme schon aktiviert wurden, können die Tickets mit einem Kommentar versehen und nach “Done” verschoben werden.</li>
+</ul>
+
+<h4 id="fazit">Fazit</h4>
+<p>Alarme schnell und gründlich zu bearbeiten ist notwendig, aber keineswegs die Lieblingsbeschäftigung vieler Teammitglieder.
+Dieses notwendige Übel zu vereinfachen und dabei noch ein kleines Projekt aufzusetzen, das seinen eigenen technischen Reiz mitbringt, dürfte die Motivation an dieser Stelle bereits verbessern.
+Die Übersichtlichkeit und mögliche Automatisierung in Jira ist eine in vielen Projekten bereits gerne genutzte Selbstverständlichkeit geworden, die hier um ein neues Anwendungsfeld erweitert wird.
+Die laufenden Kosten sind dabei marginal.</p>
+
+<p>Am Ende muss der Aufwand, den ein Team in die Bearbeitung von Alarmen steckt, gegen den Aufwand der Entwicklung dieser Lambdas und deren Infrastruktur abgewogen werden.
+Für uns hat es sich trotz einer überschaubaren Anzahl von Alarmen als äußerst lohnend erwiesen.</p>
+
+</div>
+</div>
+</div>
+</div>]]></field>
+    </document>
+</documents>
