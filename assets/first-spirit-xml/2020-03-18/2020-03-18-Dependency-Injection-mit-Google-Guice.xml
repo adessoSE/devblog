@@ -18,9 +18,8 @@
         <field name="change_date"><![CDATA[1584532800000]]></field>
 
         <!--Author Information-->
-        <field name="author_ids"><![CDATA[frenzel]]></field>
-
-        <!--Postcontent-->
+        
+        <field name="author_id"><![CDATA[frenzel]]></field><!--Postcontent-->
         <field name="headlines"><![CDATA[Dependency Injection mit Google Guice]]></field>
         <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
             <p>Den meisten Java Entwicklern ist das Spring Framework bekannt, welches neben vielen Bestandteilen im Kern auch Dependency Injection umsetzt. Ein Framework, das sich ausschließlich darauf fokussiert, ist Google Guice. In diesem Beitrag zeige ich, wie Guice als leichtgewichtige Alternative zu Spring eingesetzt werden kann.</p>

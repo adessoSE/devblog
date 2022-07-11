@@ -22,9 +22,8 @@ geht das ohne Cookies, ohne Cloud und ohne undurchsichtige Nutzungsbedingungen w
         <field name="change_date"><![CDATA[1646906400000]]></field>
 
         <!--Author Information-->
-        <field name="author_ids"><![CDATA[cjohn]]></field>
-
-        <!--Postcontent-->
+        
+        <field name="author_id"><![CDATA[cjohn]]></field><!--Postcontent-->
         <field name="headlines"><![CDATA[Mit QGIS eine Fotolandkarte erstellen]]></field>
         <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
             <p>Dieser Artikel zeigt, wie Bilder mit Standortdaten auf einer Karte angeordnet werden.

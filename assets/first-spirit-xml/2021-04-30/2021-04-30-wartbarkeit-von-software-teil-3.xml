@@ -20,9 +20,9 @@ Nachdem wir uns in den ersten beiden Teilen der Reihe “Wartbarkeit von Softwar
         <field name="change_date"><![CDATA[1619769600000]]></field>
 
         <!--Author Information-->
-        <field name="author_ids"><![CDATA[anbeth,tlange]]></field>
-
-        <!--Postcontent-->
+        
+        <field name="author_id"><![CDATA[anbeth]]></field>
+        <field name="author_id"><![CDATA[tlange]]></field><!--Postcontent-->
         <field name="headlines"><![CDATA[Wartbarkeit von Software – Teil 3: Qualität und Automatisierung]]></field>
         <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
             <p>Eine gut wartbare Software minimiert den Aufwand für Fehlerbehebung, adaptive Wartung und folgende Change Requests deutlich.
