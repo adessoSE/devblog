@@ -22,8 +22,12 @@ Danach vergleichen wir die beiden Ansätze und schauen, wo welches Framework üb
         <field name="change_date"><![CDATA[1615211400000]]></field>
 
         <!--Author Information-->
-        
-        <field name="author_id"><![CDATA[t-buss]]></field><!--Postcontent-->
+        <!--
+        <field name="author_id"><![CDATA[t-buss]]></field>-->
+
+        <field name="author_ids"><![CDATA[[t-buss]]]></field>
+
+        <!--Postcontent-->
         <field name="headlines"><![CDATA[Micronaut - Eine Alternative zu Spring]]></field>
         <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
             <p>Ja, richtig gelesen, es gibt Alternativen!

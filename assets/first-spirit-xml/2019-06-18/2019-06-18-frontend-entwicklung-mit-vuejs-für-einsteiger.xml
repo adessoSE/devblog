@@ -18,8 +18,12 @@
         <field name="change_date"><![CDATA[1560816000000]]></field>
 
         <!--Author Information-->
-        
-        <field name="author_id"><![CDATA[vincentmathis]]></field><!--Postcontent-->
+        <!--
+        <field name="author_id"><![CDATA[vincentmathis]]></field>-->
+
+        <field name="author_ids"><![CDATA[[vincentmathis]]]></field>
+
+        <!--Postcontent-->
         <field name="headlines"><![CDATA[Frontend Entwicklung mit Vue.js für Einsteiger]]></field>
         <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
             <p>Die Welt der Webentwicklung ist groß und im ständigen Wandel. Neue Libraries, Frameworks und Tools verschwinden genauso schnell, wie sie aufgetaucht sind. Für Einsteiger in die Webentwicklung stellt das eine Hürde da, der man sich kaum gewachsen fühlt. Ich kann nicht garantieren, dass während des Verfassens dieses Blog-Eintrags keine neuen Frontend Frameworks entstanden sind.</p>
