@@ -464,7 +464,7 @@ parideis:
   bio: "Denis Paris arbeitet bei adesso als Werkstudent in Köln und entwickelt Full-Stack-JavaScript-Applikationen. Er hat Erfahrung mit Angular, React, Stencil, Svelte und Vue gesammelt. In seiner Freizeit spielt er gerne Basketball 🏀 und hält JavaScript-Vorträge auf Meetups und Konferenzen."
   avatar_url: /assets/images/avatars/paris.jpg
   github: https://github.com/parideis
-
+  
 kaythielmann:
   first_name: Kay
   last_name: Thielmann
@@ -552,3 +552,12 @@ mboegers:
   bio: "Merlin Bögershausen ist Software Entwickler, Speaker und Author bei adesso am Standort Aachen. Er beschäftigt sich mit Neuerungen im Java-Universum und der Softwareentwicklung im Public-Bereich."
   avatar_url: /assets/images/avatars/mboegers.jpg
   github: https://github.com/mboegers
+
+sczubek:
+  first_name: Stefan
+  last_name: Czubek
+  github_username: StefanCzubek
+  bio: "Stefan Czubek arbeitet als Software Engineer bei adesso in Dortmund. Dort unterstützt er den Bereich Retail als Entwickler mit einem Schwerpunkt auf AWS."
+  avatar_url: /assets/images/avatars/stefanczubek.png
+  github: https://github.com/StefanCzubek
+
