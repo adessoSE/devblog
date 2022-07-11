@@ -21,8 +21,12 @@ In this article, two identical applications are programmed in WebAssembly and Ja
         <field name="change_date"><![CDATA[1614844800000]]></field>
 
         <!--Author Information-->
-        
-        <field name="author_id"><![CDATA[maximilian_Lang]]></field><!--Postcontent-->
+        <!--
+        <field name="author_id"><![CDATA[maximilian_Lang]]></field>-->
+
+        <field name="author_ids"><![CDATA[[maximilian_Lang]]]></field>
+
+        <!--Postcontent-->
         <field name="headlines"><![CDATA[Why you should not use WebAssembly to build your SPA]]></field>
         <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
             <p>WebAssembly is the latest hit in web development and also has the potential to completely change the internet as we know it today, but is it already mature enough for single page applications?

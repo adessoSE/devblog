@@ -24,9 +24,13 @@ Natürlich darf nichts unter den Tisch fallen und es sollte sichergestellt sein,
         <field name="change_date"><![CDATA[1657526400000]]></field>
 
         <!--Author Information-->
-        
+        <!--
         <field name="author_id"><![CDATA[kaythielmann]]></field>
-        <field name="author_id"><![CDATA[sczubek]]></field><!--Postcontent-->
+        <field name="author_id"><![CDATA[sczubek]]></field>-->
+
+        <field name="author_ids"><![CDATA[[kaythielmann,sczubek]]]></field>
+
+        <!--Postcontent-->
         <field name="headlines"><![CDATA[Tame the beast - AWS-Alarme mit Jira zähmen]]></field>
         <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
             <p>Im Rahmen eines Projekts, in dem eine ganze Reihe von Microservices entwickelt und betrieben wird, ist die Idee entstanden, die Bearbeitung der Alarme aus der AWS zu verbessern.

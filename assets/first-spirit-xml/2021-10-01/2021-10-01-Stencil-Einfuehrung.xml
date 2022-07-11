@@ -20,8 +20,12 @@ Dieser Artikel richtet sich an alle, die schon erste Erfahrungen mit JavaScript-
         <field name="change_date"><![CDATA[1634198400000]]></field>
 
         <!--Author Information-->
-        
-        <field name="author_id"><![CDATA[parideis]]></field><!--Postcontent-->
+        <!--
+        <field name="author_id"><![CDATA[parideis]]></field>-->
+
+        <field name="author_ids"><![CDATA[[parideis]]]></field>
+
+        <!--Postcontent-->
         <field name="headlines"><![CDATA[Stencil - Einführung in den wiederverwendbaren Web-Components-Compiler]]></field>
         <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
             <p>In diesem Artikel werfen wir gemeinsam einen Blick auf Stencil und vergleichen, welche Vorteile diese Compiler-Lösung zu den gängigen Laufzeit-JavaScript-Frameworks bietet. 

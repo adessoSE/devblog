@@ -21,8 +21,12 @@ In diesem Beitrag werden einige Ansätze dazu für den Entwicklungsalltag bei Ja
         <field name="change_date"><![CDATA[1649224800000]]></field>
 
         <!--Author Information-->
-        
-        <field name="author_id"><![CDATA[gaboratarithnea]]></field><!--Postcontent-->
+        <!--
+        <field name="author_id"><![CDATA[gaboratarithnea]]></field>-->
+
+        <field name="author_ids"><![CDATA[[gaboratarithnea]]]></field>
+
+        <!--Postcontent-->
         <field name="headlines"><![CDATA[Aller Anfang ist schwer: Ansätze für Green Software-Engineering]]></field>
         <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
             <p>Im Jahr 2021 muss man niemandem mehr erklären, dass alle Bereiche der Gesellschaft und Wirtschaft Verantwortung für eine nachhaltige Nutzung unserer Ressourcen tragen.
