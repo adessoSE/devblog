@@ -20,12 +20,8 @@ Um herauszufinden, welche Branchen von einem Strukturwandel zu einer “Green Ec
         <field name="change_date"><![CDATA[1650445200000]]></field>
 
         <!--Author Information-->
-        <!--
-        <field name="author_id"><![CDATA[cjohn]]></field>-->
-
-        <field name="author_id"><![CDATA[[cjohn]]]></field>
-
-        <!--Postcontent-->
+        
+        <field name="author_id"><![CDATA[cjohn]]></field><!--Postcontent-->
         <field name="headlines"><![CDATA[Digitalisierung für den Strukturwandel]]></field>
         <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
             <p>Dieser Artikel fasst das Screening “Strukturwandel zu einer Green Economy” des Umweltbundesamts zusammen.

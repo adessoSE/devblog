@@ -19,12 +19,8 @@ Dieser Blogpost soll dabei helfen, die richtige Lizenz für das eigene Projekt z
         <field name="change_date"><![CDATA[1566977400000]]></field>
 
         <!--Author Information-->
-        <!--
-        <field name="author_id"><![CDATA[jo2]]></field>-->
-
-        <field name="author_id"><![CDATA[[jo2]]]></field>
-
-        <!--Postcontent-->
+        
+        <field name="author_id"><![CDATA[jo2]]></field><!--Postcontent-->
         <field name="headlines"><![CDATA[Open-Source-Lizenzen und was ich damit machen darf]]></field>
         <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
             <p>Auf GitHub, GitLab und ähnlichen Plattformen zur Veröffentlichung von Source-Code wird in nahezu jedem Repository auf eine Lizenz hingewiesen.

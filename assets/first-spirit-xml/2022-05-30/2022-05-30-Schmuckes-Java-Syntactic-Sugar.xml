@@ -19,12 +19,8 @@ Das OpenJDK Project Amber greift diese Schwächen von Java u.a. mit Syntactic Su
         <field name="change_date"><![CDATA[1653908400000]]></field>
 
         <!--Author Information-->
-        <!--
-        <field name="author_id"><![CDATA[mboegers]]></field>-->
-
-        <field name="author_id"><![CDATA[[mboegers]]]></field>
-
-        <!--Postcontent-->
+        
+        <field name="author_id"><![CDATA[mboegers]]></field><!--Postcontent-->
         <field name="headlines"><![CDATA[Schmuckes Java - Syntactic Sugar von Project Amber]]></field>
         <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
             <p>Javas Sprachfeatures gelten als gealtert und benötigt viel Boilerplate-Code.

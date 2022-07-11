@@ -21,12 +21,8 @@ Wie dies mit Hilfe von Tool Unterstützung durch ArchUnit sichergestellt werden 
         <field name="change_date"><![CDATA[1601301600000]]></field>
 
         <!--Author Information-->
-        <!--
-        <field name="author_id"><![CDATA[klausSchnaithmann]]></field>-->
-
-        <field name="author_id"><![CDATA[[klausSchnaithmann]]]></field>
-
-        <!--Postcontent-->
+        
+        <field name="author_id"><![CDATA[klausSchnaithmann]]></field><!--Postcontent-->
         <field name="headlines"><![CDATA[ArchUnit – Die Umsetzung von Architekturvorgaben lässt sich testen!]]></field>
         <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
             <p>Eine gute Softwarearchitektur ist einer der Bestandteile, der den Erfolg eines Softwareentwicklungsprojektes maßgeblich mitbestimmt.<br />
