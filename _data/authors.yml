@@ -464,7 +464,7 @@ parideis:
   bio: "Denis Paris arbeitet bei adesso als Werkstudent in Köln und entwickelt Full-Stack-JavaScript-Applikationen. Er hat Erfahrung mit Angular, React, Stencil, Svelte und Vue gesammelt. In seiner Freizeit spielt er gerne Basketball 🏀 und hält JavaScript-Vorträge auf Meetups und Konferenzen."
   avatar_url: /assets/images/avatars/paris.jpg
   github: https://github.com/parideis
-
+  
 kaythielmann:
   first_name: Kay
   last_name: Thielmann
@@ -513,6 +513,22 @@ scarstenen:
   avatar_url: /assets/images/avatars/scarstensen.jpg
   github: https://github.com/janstefan42
 
+schroeerth:
+  first_name: Thomas
+  last_name: Schröer
+  bio: "Thomas Schröer ist Fullstack Senior Software Engineer im Bereich Manufacturing Industry. Sein Schwerpunkt liegt in der Backendentwicklung mit Java und Spring."
+  avatar_url: /assets/images/avatars/thomas_schroeer.jpg
+  github_username: schroeerth
+  github: https://github.com/schroeerth
+
+friggej:
+  first_name: Jens
+  last_name: Frigge
+  bio: "Jens Frigge ist Senior Software Engineer im Bereich Manufacturing Industry mit dem Schwerpunkt auf Java-Backendentwicklung."
+  avatar_url: /assets/images/avatars/friggej.png
+  github_username: JensFriggeAdesso
+  github: https://github.com/JensFriggeAdesso
+
 cjohn:
   first_name: Corinna
   last_name: John
@@ -537,6 +553,13 @@ mboegers:
   avatar_url: /assets/images/avatars/mboegers.jpg
   github: https://github.com/mboegers
 
+sczubek:
+  first_name: Stefan
+  last_name: Czubek
+  github_username: StefanCzubek
+  bio: "Stefan Czubek arbeitet als Software Engineer bei adesso in Dortmund. Dort unterstützt er den Bereich Retail als Entwickler mit einem Schwerpunkt auf AWS."
+  avatar_url: /assets/images/avatars/stefanczubek.png
+  github: https://github.com/StefanCzubek
 
 nirumand:
   first_name: Reza

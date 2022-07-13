@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<documents>
+    <document uid="12e7c56a2f17718c58a1b9a24a084146">
+        <field name="title"><![CDATA[Reaktive Programmierung mit Spring Webflux]]></field>
+        <field name="subline"><![CDATA[]]></field>
+        <field name="teaser"><![CDATA[<p>In diesem Blogbeitrag wollen wir euch eine kurze Übersicht zu Spring Webflux geben.
+Zusätzlich gibt der Beitrag eine kleine Starthilfe mit einer Auswahl an Codebeispielen, damit ihr erfolgreich im Projekt durchstarten könnt.</p>
+
+]]></field>
+        <field name="language_multi_keyword"><![CDATA[de]]></field>
+        <field name="content_type_multi_keyword"><![CDATA[blog]]></field>
+        <field name="mime_type_multi_keyword"><![CDATA[text/html]]></field>
+        <field name="category_multi_keyword"><![CDATA[Softwareentwicklung]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Java]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Spring]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Webflux]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Reaktive Programmierung]]></field>
+        <field name="date_date"><![CDATA[2022-07-01T15:00:00+02:00]]></field>
+        <field name="date_l"><![CDATA[1656680400000]]></field>
+        <field name="change_date"><![CDATA[1656680400000]]></field>
+
+        <!--Author Information-->
+        
+        <field name="author_id"><![CDATA[schroeerth]]></field>
+        <field name="author_id"><![CDATA[friggej]]></field><!--Postcontent-->
+        <field name="headlines"><![CDATA[Reaktive Programmierung mit Spring Webflux]]></field>
+        <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
+            <p>In diesem Blogbeitrag wollen wir euch eine kurze Übersicht zu Spring Webflux geben.
+Zusätzlich gibt der Beitrag eine kleine Starthilfe mit einer Auswahl an Codebeispielen, damit ihr erfolgreich im Projekt durchstarten könnt.</p>
+
+</div>]]></field>
+        <field name="content"><![CDATA[<div class="adesso-text-formate">
+<div class="row p-t-2">
+<div class="adesso-container">
+<div class="col-xl-8 adesso-center p-b-1 p-l-0 p-r-0">
+    <p>In diesem Blogbeitrag wollen wir euch eine kurze Übersicht zu Spring Webflux geben.
+Zusätzlich gibt der Beitrag eine kleine Starthilfe mit einer Auswahl an Codebeispielen, damit ihr erfolgreich im Projekt durchstarten könnt.</p>
+
+<p>In Wikipedia ist reaktive Programmierung wie folgt beschrieben:</p>
+
+<pre><code>Bei der Datenverarbeitung ist reaktive Programmierung ein Programmierparadigma, das sich an Datenflüssen orientiert.
+Das zugrunde liegende Ausführungsmodell propagiert Änderungen in den Datenflüssen automatisch.
+</code></pre>
+
+<p>Seit Version 5 unterstützt das Spring-Framework reaktive Programmierung und bietet reaktive Implementierungen für Webanwendungen, 
+Datenbankzugriffe, Security und streambasierte Datenverarbeitung.</p>
+
+<p>Klassische Programmiermodelle wie z.B. in Spring MVC nutzen für jeden Request jeweils einen Thread und belegen ihn 
+so lange, bis die aktuelle Aufgabe abgeschlossen ist, und geben ihn dann wieder frei.
+Muss während der Codeverarbeitung z.B. eine Datenbank oder ein entferntes System angesprochen werden, wobei eine langsame Antwortzeit erwartet werden kann, muss der Thread lange blockieren.
+Um die Antwortbereitschaft aufrecht zu halten, wird oft ein größerer Threadpool vorgehalten.
+Je nach Szenario kann ein Java Thread auch schnell mal 1MB Speicher allokieren, was gerade in Cloud-Umgebungen schnell mit erhöhten Kosten einhergeht.</p>
+
+<h5 id="project-reactor">Project Reactor</h5>
+<p>Das Spring-Framework nutzt das Open-Source-Projekt Reactor als Basis für die Umsetzung der reaktiven Programmierung.
+Reactor ist eine nicht blockierende (non-blocking) reaktive Open-Source-Programmiergrundlage für die Java Virtual Machine, welche auf der Reactive-Streams-Spezifikation basiert.
+Es setzt direkt auf den funktionalen APIs von Java 8 auf und nutzt konsequent CompletableFuture, Stream und Duration.
+Zusätzlich unterstützt Reactor mit dem reactor-netty-Projekt eine nicht blockierende Interprozesskommunikation, welche eine Backpressure-fähige Netzwerkengine für HTTP bietet.
+Die Reactive-Streams-Spezifikation sieht eine gewisse Standardisierung für die JVM aber auch Javascript vor und basiert auf folgenden Interfaces:</p>
+
+<p><em><strong>Subscriber:</strong></em> Der <em>Subscriber</em> abonniert einen <em>Publisher</em> und wird mittels Callbacks über Neuerungen informiert</p>
+
+<p><em><strong>Subscription:</strong></em> Die <em>Subscription</em> beschreibt die Beziehung zwischen <em>Subscriber</em> und <em>Publisher</em></p>
+
+<p><em><strong>Publisher:</strong></em> Der <em>Publisher</em> ist verantwortlich für die Veröffentlichung von Daten an die angemeldeten <em>Subscriber</em></p>
+
+<p><em><strong>Processor:</strong></em> Ein <em>Processor</em> transformiert Elemente, die zwischen <em>Publisher</em> und <em>Subscriber</em> übertragen werden</p>
+
+<p><img src="/assets/images/posts/reaktive-programmierung-mit-spring-webflux/reactivestream.png" alt="image of reactive streams interfaces" />
+<img src="/assets/images/posts/reaktive-programmierung-mit-spring-webflux/reactiveStreamSequence.png" alt="image of reactive streams sequence" /></p>
+
+<p>Das Projekt Reactor bietet zwei Implementierungen des Interface <em>Publisher</em> an, <em>Mono</em> und <em>Flux</em>, welche in den folgenden Beispielen oft genutzt werden.
+<em>Flux</em> ist dabei als asynchrone Abfolge von 0-N Elementen und Mono als 0-1 Element implementiert.</p>
+
+<h4 id="wie-arbeite-ich-mit-spring-webflux">Wie arbeite ich mit Spring Webflux?</h4>
+<p>Die Reactor API bietet eine sehr große Anzahl an Methoden.
+Es existiert zwar eine Art <a href="https://projectreactor.io/docs/core/release/reference/#which-operator">Anleitung</a>,
+die kann aber insbesondere beim Einstieg in Webflux erschlagend wirken.</p>
+
+<p>Es existieren bereits viele Tutorials auf den üblichen Webseiten, wie mit Spring Webflux gearbeitet werden kann. 
+Diese beschränken sich jedoch oft auf die Kommunikation nach außen, also auf Controller, Datenbank-Repositories und Webclients, die andere REST APIs konsumieren.
+Unserer Erfahrung nach ist das aber eher der unproblematischere Teil, da hier ein Großteil der Arbeit bereits damit getan ist,
+die jeweils relevanten Dependencies mit Spring Webflux zu ersetzen und die Methodensignaturen entsprechend anzupassen. Die Umstellung
+einer Controller-Methode könnte etwa so aussehen:</p>
+
+<pre><code class="language-Java">//Spring Web MVC
+@GetMapping("/{id}")
+private Blogpost getBlogpostById(@PathVariable String id) {
+    return blogpostService.findBlogpostById(id);
+}
+
+//Spring Webflux
+@GetMapping("/{id}")
+private Mono&lt;Blogpost&gt; getBlogpostById(@PathVariable String id) {
+    return blogpostService.findBlogpostById(id);
+}
+</code></pre>
+
+<p>In diesem Fall registriert sich der Rest-Controller automatisch als Subscriber auf die jeweilige Service-Methode,
+und schreibt das Ergebnis wie gewohnt in den Body der Response des HTTP-Requests.
+Voraussetzung ist natürlich, dass der <code>BlogpostService</code> auch ein Mono, statt eines einfachen <code>Blogpost</code> zurückgibt.
+Und das ist auch die Ebene, wo das Ganze unserer Meinung nach spannend wird. Wie gehe ich auf Serviceebene mit Mono und Flux um,
+und wie realisiere ich Geschäftslogik, die über einfaches Weiterreichen von Daten hinausgeht?</p>
+
+<p>Darauf konzentriert sich dieser Abschnitt.
+In den Beispielen wird lediglich mit Monos gearbeitet, fast alle genannten Methoden sind jedoch auch für Flux verfügbar.
+Ausgenommen hiervon ist die Methode <code>zipWhen</code>, die nur für Monos implementiert ist.</p>
+
+<h5 id="map-und-flatmap">map und flatMap</h5>
+<p>Diese Methoden werden allen, die schon mit Java Streams oder funktionalen Programmiersprachen gearbeitet haben, bekannt vorkommen.
+Sie sollten immer dann genutzt werden, wenn man das Ergebnis eines Mono oder Flux weiter verarbeiten möchte.
+Angenommen, ich habe in einem Request die Daten eines Nutzers in einer API abgefragt, brauche im Folgenden aber nur das Kürzel,
+das aus Vor- und Nachname gebildet werden kann.</p>
+<pre><code class="language-Java">public Mono&lt;String&gt; getAbbreviatedName(String userId) {
+    Mono&lt;UserData&gt; userDataMono = userClient.getUser(userId);
+    Mono&lt;String&gt; abbreviatedNameMono = userDataMono.map(userData -&gt; buildAbbreviatedName(userData));
+    return abbreviatedNameMono;
+}
+
+private String buildAbbreviatedName(UserData userData){[...]}
+</code></pre>
+
+<p>In der Methode, die innerhalb des <code>map</code>-Befehls aufgerufen wird (hier <code>buildAbbreviatedName</code>),
+muss nicht mit den Webflux-Publishern gearbeitet werden,
+die eigentliche Geschäftslogik kann also mit gewöhnlichem Java-Code implementiert werden.</p>
+
+<p>Der Operator <code>flatMap</code> unterscheidet sich insofern von <code>map</code>, als dass er als Rückgabewert der übergebenen Methode wieder einen Publisher erwartet.
+Das ist etwa dann sinnvoll, wenn diese Methode ihrerseits wieder einen API-Aufruf absetzen muss. 
+In unserem Beispiel könnte ein Blogbeitrag mit den Daten des Nutzers angelegt werden.</p>
+
+<pre><code class="language-Java">public Mono&lt;BlogpostWithAuthor&gt; saveBlogpost(Blogpost blogpost, String userId) {
+    Mono&lt;UserData&gt; userDataMono = userClient.getUser(userId);
+    Mono&lt;BlogpostWithAuthor&gt; savedBlogpostMono = userDataMono.flatMap(userData -&gt; saveBlogpost(blogpost, userData));
+    return savedBlogpostMono;
+}
+
+private Mono&lt;BlogpostWithAuthor&gt; saveBlogpost(Blogpost blogpost, UserData userData){[...]}
+</code></pre>
+
+<h5 id="zipwhen-und-zipwith">zipWhen und zipWith</h5>
+<p>Wir können also mit <code>map</code> und <code>flatMap</code> Ergebnisse eines Publishers umwandeln. Aber was, wenn die Daten zweier oder mehrerer Publisher kombiniert benötigt werden?
+In diesem Fall können die Methoden <code>zipWith</code> und <code>zipWhen</code> genutzt werden. In folgendem Beispiel wird die Methode <code>zipWith</code> genutzt, 
+um die Daten eines Blogposts und eines Users zu kombinieren und daraus einen <code>BlogpostWithAuthor</code> zu bauen.</p>
+
+<pre><code class="language-Java">public Mono&lt;BlogpostWithAuthor&gt; getBlogpost(String blogpostId, String authorId) {
+    Mono&lt;Blogpost&gt; blogpostMono = blogpostClient.getBlogpost(blogpostId);
+    Mono&lt;UserData&gt; authorMono = userClient.getUser(authorId);
+    Mono&lt;Tuple2&lt;Blogpost, UserData&gt;&gt; blogpostAuthorMono = blogpostMono.zipWith(authorMono);
+    Mono&lt;BlogpostWithAuthor&gt; result = blogpostAuthorMono.map(blogpostUserTuple -&gt; 
+            buildBlogpostWithAuthor(blogpostUserTuple.getT1(), blogpostUserTuple.getT2()));
+    return result;
+}
+
+private BlogpostWithAuthor buildBlogpostWithAuthor(Blogpost blogpost, UserData userData){[...]}
+</code></pre>
+
+<p>Denkbar ist in diesem Szenario auch, dass die <code>authorId</code> nicht explizit mitgegeben werden muss, sondern Teil des <code>Blogpost</code>-Objekts ist.
+Dann müssten wir mit Informationen aus der Response des <code>BlogpostClients</code> den <code>UserClient</code> aufrufen, um anschließend wieder mit beiden Ergebnissen
+weiterzuarbeiten. Hier kommt <code>zipWhen</code> ins Spiel. Mit dieser Methode kann man, ähnlich wie mit <code>flatMap</code>,
+das Ergebnis eines Publishers transformieren, mit dem Unterschied, dass man anschließend wieder ein Tuple2 mit dem
+ursprünglichen und dem transformierten Ergebnis erhält.</p>
+
+<pre><code class="language-Java">public Mono&lt;BlogpostWithAuthor&gt; getBlogpost(String blogpostId) {
+    Mono&lt;Blogpost&gt; blogpostMono = blogpostClient.getBlogpost(blogpostId);
+    Mono&lt;Tuple2&lt;Blogpost, UserData&gt;&gt; blogpostAuthorMono = blogpostMono.zipWhen(blogpost -&gt; 
+            userClient.getUser(blogpost.getAuthorId()));
+    Mono&lt;BlogpostWithAuthor&gt; savedBlogpostMono = blogpostAuthorMono.map(blogpostUserTuple -&gt; 
+            buildBlogpostWithAuthor(blogpostUserTuple.getT1(), blogpostUserTuple.getT2));
+    return savedBlogpostMono;
+}
+
+private Mono&lt;BlogpostWithAuthor&gt; buildBlogpostWithAuthor(Blogpost blogpost, UserData userData){[...]}
+</code></pre>
+
+<h5 id="doonnext-und-delayuntil">doOnNext und delayUntil</h5>
+<p>Die bislang vorgestellten Methoden sind alle primär dazu gedacht, die Werte eines Publishers in irgendeiner Weise zu 
+transformieren.
+Es gibt aber auch Methoden, mit denen Seiteneffekte ausgeführt werden können, die den Wert des Publishers allerdings nicht beeinflussen.
+Wir könnten beispielsweise in einer Methode <code>getBlogpost</code> zusätzlich einen Zähler erhöhen, wie oft der Post abgerufen wurde.</p>
+
+<pre><code class="language-Java">public Mono&lt;Blogpost&gt; getBlogpost(String blogpostId) {
+    Mono&lt;Blogpost&gt; blogpostMono = blogpostClient.getBlogpost(blogpostId);
+    return blogpostMono.doOnNext(blogpost -&gt; incrementViewCount(blogpost));
+}
+
+private Mono&lt;Integer&gt; incrementViewCount(Blogpost blogpost){[...]}
+</code></pre>
+
+<p>Zu beachten ist hier, auch wenn sich am eigentlichen Inhalt des Mono nichts ändert, muss dennoch der Rückgabewert der <code>doOnNext</code>-Methode
+weiter verwendet werden, damit die Methode auch Teil der Ausführungssequenz wird.</p>
+
+<p>Außerdem ist der Aufruf von <code>incrementViewCount</code> wieder asynchron. Das bedeutet, dass man nicht davon ausgehen kann, dass der Zähler
+auf dem aktuellsten Stand ist, wenn <code>getBlogpost</code> sein Ergebnis zurückgibt. Wenn das erforderlich ist, muss statt <code>doOnNext</code>
+<code>delayUntil</code> verwendet werden.</p>
+<h5 id="onerrormap-onerrorreturn-und-doonerror">onErrorMap, onErrorReturn und doOnError</h5>
+<p>Zu guter Letzt sollte auch das Error Handling nicht unerwähnt bleiben.
+Wenn in der Ausführungssequenz eine Methode einen Fehler wirft, gibt der Publisher ein Error-Signal anstelle des Werts aus. 
+Dieses Signal wird wie eine normale <code>RuntimeException</code> so lange an die nächsten Subscriber weitergereicht, bis es irgendwo explizit behandelt wird.</p>
+
+<p>Mit <code>onErrorMap</code> kann eine Exception abgefangen und eine andere Exception geworfen werden.
+Über <code>onErrorReturn</code> kann beim Auftreten einer Exception ein Standardwert zurückgegeben werden, 
+<code>onErrorResume</code> ruft einen alternativen Publisher auf. 
+Jeder dieser Methoden kann außerdem die Klasse der zu behandelnden Exception übergeben werden, um einzuschränken, welche Exceptions behandelt werden soll.</p>
+
+<p>Wenn in der Kürzelmethode aus dem ersten Beispiel des Kapitels einfach der Standard-String “Unbekannt” zurückgegeben werden soll, 
+wenn kein Nutzer mit der gegebenen ID existiert, könnte die Implementierung so aussehen:</p>
+
+<pre><code class="language-Java">public Mono&lt;String&gt; getAbbreviatedName(String userId) {
+    Mono&lt;UserData&gt; userDataMono = userClient.getUser(userId);
+    Mono&lt;String&gt; abbreviatedNameMono = userDataMono.map(userData -&gt; buildAbbreviatedName(userData));
+    return abbreviatedNameMono.onErrorReturn(UserNotFoundException.class, "Unbekannt");
+}
+
+private String buildAbbreviatedName(UserData userData){[...]}
+</code></pre>
+
+<h4 id="fazit">Fazit</h4>
+<p>Mithilfe dieser 9 Methoden solltet ihr für den Start in die Programmierung mit Spring Webflux gerüstet sein.
+Wenn ihr Anwendungsfälle habt, die hier nicht abgedeckt wurden, können wir euch die bereits eingangs im letzten Kapitel
+erwähnte <a href="https://projectreactor.io/docs/core/release/reference/#which-operator">Operatorenübersicht</a> aus dem 
+Project-Reactor-Handbuch empfehlen.</p>
+
+<p>Mit ein wenig Einarbeitungszeit wird euch die reaktive Programmierung immer leichter und intuitiver von der Hand gehen, allerdings lässt sich auch nicht verneinen,
+dass sie zu teils komplizierterem und schlechter lesbarem Code führt.
+Daher sollte man sich vor Beginn eines Projekts gründlich überlegen, ob die Vorteile, die Spring Webflux mit sich bringt,
+diese zusätzliche Komplexität aufwiegen.</p>
+
+</div>
+</div>
+</div>
+</div>]]></field>
+    </document>
+</documents>
