@@ -1,6 +1,6 @@
 ---
 layout: [post, post-xml] # Pflichtfeld. Nicht ändern!
-title: "Schmuckes Java - Records und Sealed Classes" # Pflichtfeld. Bitte einen Titel für den Blog Post angeben.
+title: "Schmuckes Java - Records und Sealed Classes" # Pflichtfeld. Bitte einen Titel für den Blog-Post angeben.
 date: 2022-07-13 10:00 # Pflichtfeld. Format "YYYY-MM-DD HH:MM". Muss für Veröffentlichung in der Vergangenheit liegen.
 (Für Preview egal)
 author_ids: [mboegers] # Pflichtfeld. Es muss in der "authors.yml" einen Eintrag mit diesen Namen geben.
@@ -53,13 +53,13 @@ Um die Definition einer Record Class kompakt zu halten und dennoch Werteprüfung
 Compact-Conical Konstruktor eingeführt.
 ```java
 record Range(int low, int high) {
-Range { // 1
-if (low > high)
-throw new IllegalArgumentException(/*...*/);
-}
-Range(int lenght) { // 2
-this(0, lenght);
-}
+    Range { // 1
+        if (low > high)
+           throw new IllegalArgumentException(/*...*/);
+    }
+    Range(int length) { // 2
+        this(0, length);
+    }
 }
 ```
 Der Compact-Conical Konstruktor (1) wird definiert durch den Klassennamen und wird direkt von geschweiften Klammen
@@ -74,79 +74,79 @@ Da Records Classes "auch nur" Java Klassen ist auch Vererbung und Overwriting er
 ```java
 record Range(int low, int high) implements Compareable<Range> { // 1
     public int compareTo(Range other){
-    return Integer.compare(
-    high() - low(),
-    other.high() - other.low());
+        return Integer.compare(
+            high() - low(),
+            other.high() - other.low());
     }
     public int low() {return Math.abs(low); } // 2
-    }
-    ```
-    Die Record Class Range implementiert das Comparable Interface (1), dadurch wird die nur die öffentliche
-    Schnittstelle um `public int compareTo(Range other)` erweitert.
-    Eine Erweiterung einer Klasse mit `extends` ist für Record Classes nicht erlaubt, da `protected` Member eingeführt
-    werden können.
-    Protected Member oder Methoden untergraben die Transparenz von Record.
-    Alle generierten Methoden können überschrieben werden und beliebige weitere Methoden definiert werden.
+}
+```
 
-    Durch ihre Immutability und Transparenz eigen sich Records gut um Value Objekt aus dem [Domain Driven
-    Design](https://www.adesso.de/de/news/blog/architekturanalyse-sowie-refactoring-auf-basis-von-tactical-domain-driven-design.jsp)
-    umzusetzen.
-    Aus als [Hibernate Custom Query Result](https://www.baeldung.com/hibernate-query-to-custom-class) sind Records
-    bereits einsetzbar.
-    Viele berühmte Java Bibliotheken wie JSON-B arbeiten darauf hin Records so schnell wie möglich zu unterstützten um
-    und die Nutzung von Records zu ermöglichen.
-    Die zweite Neuerung am Typsystem von Java sind doe Sealed Classes
+Die Record Class Range implementiert das Comparable Interface (1), dadurch wird die nur die öffentliche
+Schnittstelle um `public int compareTo(Range other)` erweitert.
+Eine Erweiterung einer Klasse mit `extends` ist für Record Classes nicht erlaubt, da `protected` Member eingeführt
+werden können.
+Protected Member oder Methoden untergraben die Transparenz von Record.
+Alle generierten Methoden können überschrieben werden und beliebige weitere Methoden definiert werden.
 
-    ## JEP 409: Sealed Classes
-    Mit [JEP 409](https://openjdk.java.net/jeps/409) hat Projekt Amber Sealed Classes in Java 17 eingeführt.
-    Das Konzept von `sealed` ist auch schon in anderen objektorientierten Sprache integriert und dient dazu dem
-    Entwickler mehr Kontrolle über die Vererbung zu geben.
-    In Java gab es schon immer die Möglichkeit mit `final` zu verhindern, dass eine Klasse erweitert wird.
-    War eine Klasse nicht als `final` markiert konnte noch mit der Sichtbarkeit gearbeitet werden um zu beeinflussen wie
-    eine Bibliothek erweitert werden kann.
-    Dieses Konzept ist aber weder für den Compiler noch für andere Entwickler besonders durchsichtig.
-    Mit der Semantik hinter Sealed Classes bekommen Entwickler nun die Möglichkeit eindeutig klarzustellen wie die
-    Vererbung gedacht ist.
-    Dazu gibt es jetzt zwischen "Niemand darf mich erweitern" mit `final` und "Alle dürfen mich erweitern" eine neue
-    Abstufung mit `sealed`
-    ```java
-    sealed interface Shape { }
-    ```
-    Das neue Keyword `sealed` kann der Definition einer Klasse oder eines Interfaces vorangestellt werden und mit
-    `abstact` kombiniert werden.
-    Die so definiert Interface Shape ist nun verschlossen und es muss zum Zeitpunkt des Kompilierens klar sein welche
-    Implementation es gibt.
-    Es gibt zwei Möglichkeiten zu erlauben ein verschlossenes Interface bzw. Klasse zu erweitern.
-    + erweiternden Klassen befinden sich in derselben Compile-unit, wie im Beispiel `Corndered` und `Weirdo`
-    + erweiternden Klassen werden explizit hinter dem `permits` Keyword angegeben, wie im Beispiel von `Rectangle` und
-    `Square`
-    ```java
-    sealed interface Shape {
-    sealed interface Cornered extends Shape
+Durch ihre Immutability und Transparenz eigen sich Records gut um Value Objekt aus dem [Domain Driven
+Design](https://www.adesso.de/de/news/blog/architekturanalyse-sowie-refactoring-auf-basis-von-tactical-domain-driven-design.jsp)
+umzusetzen.
+Aus als [Hibernate Custom Query Result](https://www.baeldung.com/hibernate-query-to-custom-class) sind Records
+bereits einsetzbar.
+Viele berühmte Java Bibliotheken wie JSON-B arbeiten darauf hin Records so schnell wie möglich zu unterstützten um
+und die Nutzung von Records zu ermöglichen.
+Die zweite Neuerung am Typsystem von Java sind doe Sealed Classes
+
+## JEP 409: Sealed Classes
+Mit [JEP 409](https://openjdk.java.net/jeps/409) hat Projekt Amber Sealed Classes in Java 17 eingeführt.
+Das Konzept von `sealed` ist auch schon in anderen objektorientierten Sprache integriert und dient dazu während der Entwicklung mehr Kontrolle über die Vererbung zu geben.
+In Java gab es schon immer die Möglichkeit mit `final` zu verhindern, dass eine Klasse erweitert wird.
+War eine Klasse nicht als `final` markiert konnte noch mit der Sichtbarkeit gearbeitet werden um zu beeinflussen wie
+eine Bibliothek erweitert werden kann.
+Dieses Konzept ist aber weder für den Compiler noch für andere Teams besonders durchsichtig.
+Mit der Semantik hinter Sealed Classes besteht nun die Möglichkeit eindeutig klarzustellen wie die
+Vererbung gedacht ist.
+Dazu gibt es jetzt zwischen "Niemand darf mich erweitern" mit `final` und "Alle dürfen mich erweitern" eine neue
+Abstufung mit `sealed`
+```java
+sealed interface Shape { }
+```
+Das neue Keyword `sealed` kann der Definition einer Klasse oder eines Interfaces vorangestellt werden und mit
+`abstact` kombiniert werden.
+Die so definiert Interface Shape ist nun verschlossen und es muss zum Zeitpunkt des Kompilierens klar sein welche
+Implementation es gibt.
+Es gibt zwei Möglichkeiten zu erlauben ein verschlossenes Interface bzw. Klasse zu erweitern.
++ erweiternden Klassen befinden sich in derselben Compile-unit, wie im Beispiel `Corndered` und `Weirdo`
++ erweiternden Klassen werden explizit hinter dem `permits` Keyword angegeben, wie im Beispiel von `Rectangle` und
+`Square`
+```java
+sealed interface Shape {
+sealed interface Cornered extends Shape
     permits Rectangle, Square {}
     non-sealed class Weirdo implements Shape {}
-    }
-    final class Rectangle implements Shape.Cornered {}
-    record Square(int h, int l) implements Shape.Cornered {}
-    ```
-    Eine sher wichtige Forderung an Sealed Class Hierarchies ist die nach der Seal-Propagation.
-    Mit Propagation ist gemeint, dass in jede Klasse bzw. jedem Interface welches eine Sealed Class erweitert angegeben
-    werden muss wie die Hierarchie sich fortsetzt.
-    Möglich ist hierbei:
-    + _die Hierarchy endet hier_ dabei wird die Klasse als `final` markiert, wie im Beispiel die Klasse `Reactangle`
-    + _die Hierarchy geht verschlossen weiter_ die Klasse wird als sealed markiert und muss ebenfalls Aussagen welche
-    Klassen erlaubt sind, wie im Beispiel das Interface `Cornered`
-    + _die Hierarchy geht beliebig weiter_ die Klasse wird mit dem neuen Keyword `non-sealed` markiert, wie im Beispiel
-    die Klasse `Weirdo`.
-    Es ist nun wieder erlaubt beliebige Erweiterungen zu implementieren
+}
+final class Rectangle implements Shape.Cornered {}
+record Square(int h, int l) implements Shape.Cornered {}
+```
+Eine sher wichtige Forderung an Sealed Class Hierarchies ist die nach der Seal-Propagation.
+Mit Propagation ist gemeint, dass in jede Klasse bzw. jedem Interface welches eine Sealed Class erweitert angegeben
+werden muss wie die Hierarchie sich fortsetzt.
+Möglich ist hierbei:
++ _die Hierarchy endet hier_ dabei wird die Klasse als `final` markiert, wie im Beispiel die Klasse `Reactangle`
++ _die Hierarchy geht verschlossen weiter_ die Klasse wird als sealed markiert und muss ebenfalls Aussagen welche
+Klassen erlaubt sind, wie im Beispiel das Interface `Cornered`
++ _die Hierarchy geht beliebig weiter_ die Klasse wird mit dem neuen Keyword `non-sealed` markiert, wie im Beispiel
+die Klasse `Weirdo`.
+Es ist nun wieder erlaubt beliebige Erweiterungen zu implementieren
 
-    Einen erstmal offensichtlichen Fall stellt das Record `Square` da.
-    Hier ist keine explizite Angabe der Propagation notwendig, denn wie Records sind nach [JEP 459](#jep-459-records)
-    implizit `final`.
+Einen erstmal offensichtlichen Fall stellt das Record `Square` da.
+Hier ist keine explizite Angabe der Propagation notwendig, denn wie Records sind nach [JEP 459](#jep-459-records)
+implizit `final`.
 
-    ## Zusammenfassung
-    Record und Sealed Classes bieten uns Entwickler neue Möglichkeiten an unsere Domainmodell zu implementieren.
-    Die Umsetzungen werden dadurch klarer und eindeutiger.
-    Zusätzlich sparen wir uns noch viel Boilerplate Code bzw. eine Dependency auf Lombok.
-    Ihr wares Potenzial zeigen Sie aber erst durch die Einführung von Pattern Matching in Java.
-    Dieses dritte Thema von Projekt Amber werde ich in dem nächsten Beitrag dieser Reihe behandel.
+## Zusammenfassung
+Record und Sealed Classes bieten uns neue Möglichkeiten an unsere Domainmodell zu implementieren.
+Die Umsetzungen werden dadurch klarer und eindeutiger.
+Zusätzlich sparen wir uns noch viel Boilerplate Code bzw. eine Dependency auf Lombok.
+Ihr wares Potenzial zeigen Sie aber erst durch die Einführung von Pattern Matching in Java.
+Dieses dritte Thema von Projekt Amber werde ich in dem nächsten Beitrag dieser Reihe behandel.
