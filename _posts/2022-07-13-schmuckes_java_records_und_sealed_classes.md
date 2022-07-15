@@ -18,7 +18,7 @@ In diesem Beitrag werde ich die Anpassungen am Java Typsystem betrachten.
 
 ## JEP 459: Records
 Mit den sogenannten _Record Classes_ führt Project Amber eine neue Art von Klassen ein.
-Records Classes basieren auf dem Konstrukt Named-Tuple.
+Record Classes basieren auf dem Konstrukt Named-Tuple.
 Tuple sind in der Mathematik Wertepaare, deren Identität durch die Werte der Komponenten definiert wird.
 Bei Named-Tuple haben die Komponenten Namen und können über diese zugegriffen werden.
 Umformuliert bedeuten diese Eigenschaften:
@@ -38,7 +38,7 @@ in runden Klammern.
 Zwischen den runden Klammern werden die Komponenten des Records angegeben, hier sind alle Datentypen inklusive Generics
 erlaubt.
 Die Syntax erinnert an einen Konstruktor, denn der Focus soll bewusst auf die Daten gelenkt werden.
-Für jede der Komponenten wird je ein `private final` Feld und eine Accessor-method mit demselben Namen erzeugt.
+Für jede der Komponenten wird je ein `private final`-Feld und eine Zugriffsmethode mit demselben Namen erzeugt.
 Es werden auch die Methoden `equals` und `hashCode` entsprechend der Definition der Identität von Named-Tuple erzeugt.
 Abschließend wird auch noch eine `toString`-Methode erzeugt.
 Die Lombok-Fans in der Java-Community werden erkennen, die so entstandenen Klasse ist ähnlich zu der `@Value` Annotation
