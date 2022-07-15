@@ -1,8 +1,7 @@
 ---
 layout: [post, post-xml] # Pflichtfeld. Nicht ändern!
 title: "Schmuckes Java - Records und Sealed Classes" # Pflichtfeld. Bitte einen Titel für den Blog-Post angeben.
-date: 2022-07-13 10:00 # Pflichtfeld. Format "YYYY-MM-DD HH:MM". Muss für Veröffentlichung in der Vergangenheit liegen.
-(Für Preview egal)
+date: 2022-07-13 10:00 # Pflichtfeld. Format "YYYY-MM-DD HH:MM". Muss für Veröffentlichung in der Vergangenheit liegen.(Für Preview egal)
 author_ids: [mboegers] # Pflichtfeld. Es muss in der "authors.yml" einen Eintrag mit diesen Namen geben.
 categories: [Softwareentwicklung] # Pflichtfeld. Maximal eine der angegebenen Kategorien verwenden.
 tags: [Java, OpenJDK, Project Amber] # Bitte auf Großschreibung achten.
@@ -19,7 +18,7 @@ In diesem Beitrag werde ich die Anpassungen am Java Typsystem betrachten.
 ## JEP 459: Records
 Mit den sogenannten _Record Classes_ führt Project Amber eine neue Art von Klassen ein.
 Record Classes basieren auf dem Konstrukt Named-Tuple.
-Tuple sind in der Mathematik Wertepaare, deren Identität durch die Werte der Komponenten definiert wird.
+Tupel sind in der Mathematik Wertepaare, deren Identität durch die Werte der Komponenten definiert wird.
 Bei Named-Tuple haben die Komponenten Namen und können über diese zugegriffen werden.
 Umformuliert bedeuten diese Eigenschaften:
 + kein versteckter State
@@ -141,8 +140,8 @@ die Klasse `Weirdo`.
 Es ist nun wieder erlaubt, beliebige Erweiterungen zu implementieren
 
 Einen erstmal offensichtlichen Fall stellt das Record `Square` dar.
-Hier ist keine explizite Angabe der Propagation notwendig, denn wie Records sind nach [JEP 459](#jep-459-records)
-implizit `final`.
+Die Klasse `Square` ist ein Record und ist nach [JEP 459](#jep-459-records) implizite `final`.
+Aus diesem Grund ist die Hierarchy abgeschlossen.
 
 ## Zusammenfassung
 Record und Sealed Classes bieten uns neue Möglichkeiten an, unsere Domänenmodelle zu implementieren.
