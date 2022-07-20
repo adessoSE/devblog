@@ -124,7 +124,7 @@ Each of these components could have various versions. For example, each release 
 
 To understand better, we can look into the documentation of [Camel](https://camel.apache.org/manual/index.html) framework.
 
-!["Camel Framework Documentation"](/assets/images/posts/cloud-native-applications-documentation/camel-documentation-example.png)
+![Camel Framework Documentation](/assets/images/posts/cloud-native-applications-documentation/camel-documentation-example.png)
 
 In the above example, we can click and switch to the following components:
 
