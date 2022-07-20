@@ -26,7 +26,7 @@ We had the following documents:
 
 * __Operation Manual__: Focused on the operational aspect of our applications and provided some introduction to installing the platform (Red Hat Fuse 6) and some of the main operations. This document was based on Microsoft Word and saved on the git repository along with the source code
 
-* __Release Notes__: Provided the user stories implemented in the application and also the configuration updates mostly implemented by the operation team. This document was saved as a Microsoft Word file and versioned on the git repository along with the source code
+* __Release Notes__: Provided the user stories implemented in the application and also the configuration updates mostly implemented by the operation team. This document was saved as a Microsoft Word file and versioned on the git repository along with the source code.
 
 * __Confluence pages__: Had all kinds of outdated information about some aspects of the applications used mostly by developers. 
 
