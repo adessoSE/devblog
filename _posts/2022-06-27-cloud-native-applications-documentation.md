@@ -111,7 +111,7 @@ Now that we have our document as a source, we can apply whatever transformation 
 
 **The challenge**: The source code is scattered in many of git repositories and we need to combine them with the least effort using some kind of engine which we call _doc-centralizer_ (see below).
 
-!["Building Documentation with doc-centralizer"](/assets/images/posts/cloud-native-applications-documentation/centrazlized-documentation-flow.png)
+![Building Documentation with doc-centralizer](/assets/images/posts/cloud-native-applications-documentation/centrazlized-documentation-flow.png)
 
 We do not need to reinvent the wheel. It already exists and is perfectly documented! 
 
