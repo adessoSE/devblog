@@ -109,7 +109,7 @@ To solve the problem with versioning documents we commit to plain-text languages
 ### Building
 Now that we have our document as a source, we can apply whatever transformation and formatting we want. 
 
-**The challenge**: The source code is scattered in many of git repositories and we need to combine them with the least effort using some kind of engine which we call _doc-centralizer_ (see below).
+**The challenge**: The source code is scattered in many git repositories and we need to combine them with the least effort using some kind of engine which we call _doc-centralizer_ (see below).
 
 ![Building Documentation with doc-centralizer](/assets/images/posts/cloud-native-applications-documentation/centrazlized-documentation-flow.png)
 
