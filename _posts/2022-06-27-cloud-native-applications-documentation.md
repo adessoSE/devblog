@@ -22,7 +22,7 @@ Before we talk about the challenges and our solution, it would be a good idea to
 We used to have various documents based on Microsoft Word and some diagrams based on the application Enterprise Architect.
 
 We had the following documents:
-* __Software Architecture__: Described the overall system architecture as well as all interfaces(OSGI Bundles) specific architecture. The document was based on Microsoft Word and saved on the git repository along with the source code
+* __Software Architecture__: Described the overall system architecture as well as all interfaces(OSGI Bundles) specific architecture. The document was based on Microsoft Word and saved on the git repository along with the source code.
 
 * __Operation Manual__: Focused on the operational aspect of our applications and provided some introduction to installing the platform (Red Hat Fuse 6) and some of the main operations. This document was based on Microsoft Word and saved on the git repository along with the source code.
 
