@@ -97,7 +97,7 @@ In our new project we produce the following artifacts:
 
 * **Operation-Manual**: Guide how to configure the interface and describe technical properties. This document is produced for each interface separately.
 
-* **Developer Guide**: Provides all the required information on how to develop, extend and run the interface. It provides information such as how to run mock systems, configuration, and anything that helps not to rely on the original developer for the tricks to run. Any team member, which has never seen its code, should be able to at least build and run the interface by reading this document.
+* **Developer Guide**: Provides all the required information on how to develop, extend and run the interface. It provides information such as how to run mock systems, configuration, and anything that helps not to rely on the original developer for the tricks to run. Any team member, that has never seen its code, should be able to at least build and run the interface by reading this document.
 
 In addition to the above documents, there are other documents such as the functional requirements of the interface.
 
