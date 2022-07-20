@@ -71,7 +71,7 @@ In the following section, we'll talk about our solution and how we achieved the 
 The very first step we took to achieve our documentation goal was, to migrate from binary formats to text-based formats which solves the problem of reviewing and diff-checks. 
 
 We used [AsciiDoc][1] for our technical writing. The reasons for our decision were:
-* It is easy to learn
+* It is easy to learn.
 * It can be used by any text editor. We use [Asciidoctor][2] and [Visual Studio Code][3].
 * Since it is text-based, it can be versioned on any version control system.
 * It can be published in multiple output formats.
