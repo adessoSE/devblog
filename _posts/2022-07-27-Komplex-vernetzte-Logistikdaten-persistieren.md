@@ -33,11 +33,11 @@ Um definieren zu können, ob Klassen die in der Graphdatenbank als Knoten oder K
 
 In den implementierenden Java Klassen kann über die zuvor genannte Annotation-API definiert werden, wie einzelne Klassenvariablen in der Graphdatenbank darzustellen sind:
 
-Annotation | Beschreibung
---- | ---
-`@Property` | Die Klassenvariable ist als Eigenschaft des Elements darzustellen.<br>Der Variablentyp muss ein direkt unterstützter Datentyp* sein.
-`@Edge` | Die Klassenvariable stellt eine Kante dar.<br>Der Variablentyp muss vom Typ `Edge` oder `Collection<? extends Edge>` sein.
-`@ViaEdge` | Die Klassenvariable ist als Knoten über eine Kante darzustellen.<br>Der Variablentyp muss vom Typ `Vertex`, `Collection<? extends Vertex>` oder ein unterstützer Datentyp[^1] sein.
+| Annotation | Beschreibung |
+| --- | --- |
+| `@Property` | Die Klassenvariable ist als Eigenschaft des Elements darzustellen.<br>Der Variablentyp muss ein direkt unterstützter Datentyp* sein. |
+| `@Edge` | Die Klassenvariable stellt eine Kante dar.<br>Der Variablentyp muss vom Typ `Edge` oder `Collection<? extends Edge>` sein. |
+| `@ViaEdge` | Die Klassenvariable ist als Knoten über eine Kante darzustellen.<br>Der Variablentyp muss vom Typ `Vertex`, `Collection<? extends Vertex>` oder ein unterstützer Datentyp[^1] sein. |
 [^1]: Direkt unterstützte Datentypen sind alle primitiven Java Datentypen und Strings.
 
 Um auch komplexere Typen, wie beispielsweise `LocalDate` als Datenbank Property modellieren zu können, wird durch das Attribut `mapToJson` und mithilfe des Jackson Projekts ein Mapping zu JSON ermöglicht, sofern dies notwendig ist und Gremlin oder die Datenbank den Datentypen nicht direkt unterstützt.
@@ -84,7 +84,7 @@ Gerade bei Lieferketten und Logistikrouten, bei denen wichtige Knotenpunkte hoch
 Zirkuläre Referenzen in den Daten stellen dabei ein mögliches Problem dar.
 Der folgende Fall soll uns hierbei als vereinfachtes Beispiel begleiten:
 
-![Zyklisch referenzierende Entitäten](/assets/images/posts/komplex_vernetzte_logistikdaten_persistieren/cyclic-dependent-entities.png)
+![Zyklisch referenzierende Entitäten](/assets/images/posts/komplex-vernetzte-logistikdaten-persistieren/cyclic-dependent-entities.png)
 1. Jana und Tina kennen sich.
 2. Tina und Florian kennen sich.
 3. Florian und Jana kennen sich.
