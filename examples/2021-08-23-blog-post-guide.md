@@ -22,6 +22,11 @@ Sollte es noch fragen geben, kannst du dich an den Verteiler [devblog@adesso.de]
 wenden.
 
 # Wichtig: Update 09.05.2022
+Ab dem Update 16.08.2022 wurden die Metadaten der Autoren angepasst.
+Von nun an gibt es den Eintrag `github_username` nicht mehr.
+Bitte achtet bei euren Commits darauf, diesen Eintrag **NICHT** zu setzen.
+
+# Wichtig: Update 09.05.2022
 Ab dem Update 09.05.2022 wurden die Metadaten der Autoren angepasst.
 Von nun an gibt es den Eintrag `email` nicht mehr.
 Dadurch reduzieren wir die in diesem öffentlichen Repository gespeicherten personenbezogenen Daten.
@@ -69,7 +74,6 @@ deinen GitHub Benutzernamen.
 johndoe:
   first_name: John
   last_name: Doe
-  github_username: johndoe
   bio: "2-3 Sätze als Kurzbiographie, die als Beschreibung unter deinen Blog-Posts erscheinen."
   avatar_url: /assets/images/avatars/johndoe.png
   github: https://github.com/johndoe
