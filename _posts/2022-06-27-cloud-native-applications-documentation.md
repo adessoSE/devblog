@@ -23,11 +23,8 @@ We used to have various documents based on Microsoft Word and some diagrams base
 
 We had the following documents:
 * __Software Architecture__: Described the overall system architecture as well as all interfaces(OSGI Bundles) specific architecture. The document was based on Microsoft Word and saved on the git repository along with the source code.
-
 * __Operation Manual__: Focused on the operational aspect of our applications and provided some introduction to installing the platform (Red Hat Fuse 6) and some of the main operations. This document was based on Microsoft Word and saved on the git repository along with the source code.
-
 * __Release Notes__: Provided the user stories implemented in the application and also the configuration updates mostly implemented by the operation team. This document was saved as a Microsoft Word file and versioned on the git repository along with the source code.
-
 * __Confluence pages__: Had all kinds of outdated information about some aspects of the applications used mostly by developers. 
 
 In addition, each of our developers had their private how-to guides.
@@ -88,15 +85,10 @@ Now that we have our documentation as code, we need to:
 In our new project we produce the following artifacts:
 
 * **Macro-Architecture**: This document gives a big picture of the project. All interfaces should follow the design/constraints specified in this document. The sections that are the same as all other interfaces will be explained in this document to avoid redundant work. If any interface requires a deviation of design, it will be documented in the interface-specific architecture document. This document is based on the [arc42](5) template.
-
 * **Overall-Operation-Manual**: Provides guides about overall infrastructure/platform requirements and settings. It also provides a general debugging guide and references.
-
 * **Release-Notes**: Provides specific information on each interface and is produced for each release. 
-
 * **Interface-Architecture**: Provides interface-specific architecture documentation. It follows the Macro-Architecture and provides additional information if required.
-
 * **Operation-Manual**: Guide how to configure the interface and describe technical properties. This document is produced for each interface separately.
-
 * **Developer Guide**: Provides all the required information on how to develop, extend and run the interface. It provides information such as how to run mock systems, configuration, and anything that helps not to rely on the original developer for the tricks to run. Any team member, that has never seen its code, should be able to at least build and run the interface by reading this document.
 
 In addition to the above documents, there are other documents such as the functional requirements of the interface.
@@ -162,9 +154,7 @@ The provided `dockerfile` is just one simple example of how to build the contain
 
 # Our Recommendation:
 * Team culture is an essential factor to create useful and productive documentation. Build a team culture to commit to detailed documentation and enforce it on the Definition-Of-Done list or any review processes. 
-
 * Use text-based documentation. It allows focusing on writing and documentation. The learning curve might be slow at first but it solves many problems in the long run.
-
 * Version documentation along the source code. 
 * Less confluence (or similar) pages.
 
