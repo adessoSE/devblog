@@ -23,7 +23,7 @@ wenden.
 
 # Wichtig: Update 09.05.2022
 Ab dem Update 16.08.2022 wurden die Metadaten der Autoren angepasst.
-Von nun an gibt es den Eintrag `github_username` nicht mehr.
+Von nun an gibt es die Einträge `github_username` und `github` nicht mehr.
 Bitte achtet bei euren Commits darauf, diesen Eintrag **NICHT** zu setzen.
 
 # Wichtig: Update 09.05.2022
@@ -76,7 +76,6 @@ johndoe:
   last_name: Doe
   bio: "2-3 Sätze als Kurzbiographie, die als Beschreibung unter deinen Blog-Posts erscheinen."
   avatar_url: /assets/images/avatars/johndoe.png
-  github: https://github.com/johndoe
 ```
 
 ## Metadaten
