@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<documents>
+    <document uid="acd9d93f53617827ebaa6f562d14c700">
+        <field name="title"><![CDATA[Schmuckes Java - Records und Sealed Classes]]></field>
+        <field name="subline"><![CDATA[]]></field>
+        <field name="teaser"><![CDATA[<p>Javas Sprachfeatures gelten als verbose und unhandlich.
+Das OpenJDK Project Amber greift diese Schwächen von Java mit Erweiterungen des Typsystems an.
+Records und Sealed Classes wurden als Antwort gefunden.</p>
+
+]]></field>
+        <field name="language_multi_keyword"><![CDATA[de]]></field>
+        <field name="content_type_multi_keyword"><![CDATA[blog]]></field>
+        <field name="mime_type_multi_keyword"><![CDATA[text/html]]></field>
+        <field name="category_multi_keyword"><![CDATA[Softwareentwicklung]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Java]]></field>
+        <field name="tag_multi_keyword"><![CDATA[OpenJDK]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Project Amber]]></field>
+        <field name="date_date"><![CDATA[2022-08-18T10:00:00+02:00]]></field>
+        <field name="date_l"><![CDATA[1660809600000]]></field>
+        <field name="change_date"><![CDATA[1660809600000]]></field>
+
+        <!--Author Information-->
+        
+        <field name="author_id"><![CDATA[mboegers]]></field><!--Postcontent-->
+        <field name="headlines"><![CDATA[Schmuckes Java - Records und Sealed Classes]]></field>
+        <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
+            <p>Javas Sprachfeatures gelten als verbose und unhandlich.
+Das OpenJDK Project Amber greift diese Schwächen von Java mit Erweiterungen des Typsystems an.
+Records und Sealed Classes wurden als Antwort gefunden.</p>
+
+</div>]]></field>
+        <field name="content"><![CDATA[<div class="adesso-text-formate">
+<div class="row p-t-2">
+<div class="adesso-container">
+<div class="col-xl-8 adesso-center p-b-1 p-l-0 p-r-0">
+    <p>Javas Sprachfeatures gelten als verbose und unhandlich.
+Das OpenJDK Project Amber greift diese Schwächen von Java mit Erweiterungen des Typsystems an.
+Records und Sealed Classes wurden als Antwort gefunden.</p>
+
+<p>In meinem letzten <a href="https://www.adesso.de/de/news/blog/schmuckes-java-syntactic-sugar-von-project-amber.jsp">Beitrag</a>
+habe ich erklärt, welches Ziel Project Amber hat und wie der JEP-Prozess funktioniert.
+Anschließend habe ich gezeigt wie der Syntactic Sugar von Project Amber verwendet wird.
+In diesem Beitrag werde ich die Anpassungen am Java Typsystem betrachten.</p>
+
+<h5 id="jep-459-records">JEP 459: Records</h5>
+<p>Mit den sogenannten <em>Record Classes</em> führt Project Amber eine neue Art von Klassen ein.
+Record Classes basieren auf dem Konstrukt Named-Tuple.
+Tupel sind in der Mathematik Wertepaare, deren Identität durch die Werte der Komponenten definiert wird.
+Bei Named-Tuple haben die Komponenten Namen und können über diese zugegriffen werden.
+Umformuliert bedeuten diese Eigenschaften:</p>
+<ul>
+  <li>kein versteckter State</li>
+  <li>Tupel sind immutable denn, wird eine Tupelkomponente verändert, ist es ein neues Tupel</li>
+  <li>die Gleichheit ist immer gleich bestimmbar</li>
+  <li>der Zugriff auf Komponenten ist immer gleich</li>
+</ul>
+
+<p>Die Motivation, mit <a href="https://openjdk.java.net/jeps/459">JEP 459</a> Record Classes in Java einzuführen, lässt sich im Motto
+“It’s all about the data, data and nothing but the data” erkennen.
+Dies Motto spiegelt sich in der Syntax der Record Classes wider.
+´´´java
+record Range(int low, int high) { /* … */ }
+´´´
+Die Definition einer Record Class besteht aus dem neuen Keyword <code>record</code>, gefolgt vom Namen und der Rekordkomponenten
+in runden Klammern.
+Zwischen den runden Klammern werden die Komponenten des Records angegeben, hier sind alle Datentypen inklusive Generics
+erlaubt.
+Die Syntax erinnert an einen Konstruktor, denn der Focus soll bewusst auf die Daten gelenkt werden.
+Für jede der Komponenten wird je ein <code>private final</code>-Feld und eine Zugriffsmethode mit demselben Namen erzeugt.
+Es werden auch die Methoden <code>equals</code> und <code>hashCode</code> entsprechend der Definition der Identität von Named-Tuple erzeugt.
+Abschließend wird auch noch eine <code>toString</code>-Methode erzeugt.
+Die Lombok-Fans in der Java-Community werden erkennen, die so entstandenen Klasse ist ähnlich zu der <code>@Value</code> Annotation
+von Lombok.
+Das ist korrekt und noch interessanter ist: jede mit <code>@Value</code> annotierte Klasse kann direkt durch eine Record Class
+ersetzt werden.</p>
+
+<p>Wie alle Klassen in Java erhalten auf Record Classes einen Default-Konstruktor.
+Jedoch anders als normalerweise ist dies nicht der parameterlose Konstruktor, sondern der Conical-Konstruktor.
+Die Signature des Conical-Konstruktors entspricht der Record-Definition, er bekommt also alle Komponenten übergeben.
+Um die Definition einer Record Class kompakt zu halten und dennoch Werteprüfungen zu ermöglichen, wurde der
+Compact-Conical-Konstruktor eingeführt.</p>
+<pre><code class="language-java">record Range(int low, int high) {
+    Range { // 1
+        if (low &gt; high)
+           throw new IllegalArgumentException(/*...*/);
+    }
+    Range(int length) { // 2
+        this(0, length);
+    }
+}
+</code></pre>
+<p>Der Compact-Conical-Konstruktor (1) wird definiert durch den Klassennamen und wird direkt von geschweiften Klammen
+gefolgt und ist immer <code>public</code>.
+In seinem Scope sind Parameter definiert, welche dieselben Namen wie die Komponenten tragen, mit ihnen können
+Validierungen durchgeführt werden.
+Implizit werden nach der Abarbeitung des Konstruktor die Parameter den entsprechenden Feldern zugewiesen.
+Es können beliebige weitere Konstruktoren erzeugt werden, am Ende der Aufrufkette muss aber der Conical-Konstruktor
+aufgerufen werden.</p>
+
+<p>Da Record Classes “auch nur” Java-Klassen sind, ist auch Vererbung und Overwriting erlaubt.</p>
+<pre><code class="language-java">record Range(int low, int high) implements Compareable&lt;Range&gt; { // 1
+    public int compareTo(Range other){
+        return Integer.compare(
+            high() - low(),
+            other.high() - other.low());
+    }
+    public int low() {return Math.abs(low); } // 2
+}
+</code></pre>
+
+<p>Die Record Class Range implementiert das Comparable-Interface (1), dadurch wird die öffentliche
+Schnittstelle um <code>public int compareTo(Range other)</code> erweitert.
+Eine Erweiterung einer Klasse mit <code>extends</code> ist für Record Classes nicht erlaubt, da <code>protected</code> Member eingeführt
+werden können.
+Protected Member oder Methoden untergraben die Transparenz von Record.
+Alle generierten Methoden können überschrieben und beliebige weitere Methoden definiert werden.</p>
+
+<p>Durch ihre Immutability und Transparenz eignen sich Records gut, um Value Objects aus dem <a href="https://www.adesso.de/de/news/blog/architekturanalyse-sowie-refactoring-auf-basis-von-tactical-domain-driven-design.jsp">Domain Driven
+Design</a>
+umzusetzen.
+Aus als <a href="https://www.baeldung.com/hibernate-query-to-custom-class">Hibernate Custom Query Result</a> sind Records
+bereits einsetzbar.
+Viele berühmte Java-Bibliotheken wie JSON-B arbeiten darauf hin, Records so schnell wie möglich zu unterstützten, um
+die Nutzung von Records zu ermöglichen.
+Die zweite Neuerung am Typsystem von Java sind doe Sealed Classes</p>
+
+<h5 id="jep-409-sealed-classes">JEP 409: Sealed Classes</h5>
+<p>Mit <a href="https://openjdk.java.net/jeps/409">JEP 409</a> hat Project Amber Sealed Classes in Java 17 eingeführt.
+Das Konzept von <code>sealed</code> ist auch schon in anderen objektorientierten Sprachen integriert und dient dazu, während der Entwicklung mehr Kontrolle über die Vererbung zu geben.
+In Java gab es schon immer die Möglichkeit mit <code>final</code> zu verhindern, dass eine Klasse erweitert wird.
+War eine Klasse nicht als <code>final</code> markiert, konnte noch mit der Sichtbarkeit gearbeitet werden, um zu beeinflussen wie
+eine Bibliothek erweitert werden kann.
+Dieses Konzept ist aber weder für den Compiler noch für andere Teams besonders durchsichtig.
+Mit der Semantik hinter Sealed Classes besteht nun die Möglichkeit, eindeutig klarzustellen, wie die
+Vererbung gedacht ist.
+Dazu gibt es jetzt zwischen “Niemand darf mich erweitern” mit <code>final</code> und “Alle dürfen mich erweitern” eine neue
+Abstufung mit <code>sealed</code>.</p>
+<pre><code class="language-java">sealed interface Shape { }
+</code></pre>
+<p>Das neue Keyword <code>sealed</code> kann der Definition einer Klasse oder eines Interfaces vorangestellt werden und mit
+<code>abstact</code> kombiniert werden.
+Das so definierte Interface Shape ist nun verschlossen und es muss zum Zeitpunkt des Kompilierens klar sein, welche
+Implementationen es gibt.
+Es gibt zwei Möglichkeiten, zu erlauben, ein verschlossenes Interface bzw. Klasse zu erweitern.</p>
+<ul>
+  <li>Die erweiternden Klassen befinden sich in derselben Compile-Unit wie im Beispiel <code>Corndered</code> und <code>Weirdo</code>.</li>
+  <li>Die erweiternden Klassen werden explizit hinter dem <code>permits</code> Keyword angegeben wie im Beispiel von <code>Rectangle</code> und
+<code>Square</code>.
+    <pre><code class="language-java">sealed interface Shape {
+sealed interface Cornered extends Shape
+  permits Rectangle, Square {}
+  non-sealed class Weirdo implements Shape {}
+}
+final class Rectangle implements Shape.Cornered {}
+record Square(int h, int l) implements Shape.Cornered {}
+</code></pre>
+    <p>Eine sher wichtige Forderung an Sealed Class Hierarchies ist die nach der Seal-Propagation.
+Mit Propagation ist gemeint, dass in jede Klasse bzw. jedem Interface, welches eine Sealed Class erweitert, angegeben
+werden muss, wie die Hierarchie sich fortsetzt.
+Möglich ist hierbei:</p>
+  </li>
+  <li><em>die Hierarchy endet hier</em> dabei wird die Klasse als <code>final</code> markiert wie im Beispiel die Klasse <code>Reactangle</code></li>
+  <li><em>die Hierarchy geht verschlossen weiter</em> die Klasse wird als sealed markiert und muss ebenfalls Aussagen, welche
+Klassen erlaubt sind wie im Beispiel das Interface <code>Cornered</code></li>
+  <li><em>die Hierarchy geht beliebig weiter</em> die Klasse wird mit dem neuen Keyword <code>non-sealed</code> markiert wie im Beispiel
+die Klasse <code>Weirdo</code>.
+Es ist nun wieder erlaubt, beliebige Erweiterungen zu implementieren</li>
+</ul>
+
+<p>Einen erstmal offensichtlichen Fall stellt das Record <code>Square</code> dar.
+Die Klasse <code>Square</code> ist ein Record und ist nach <a href="#jep-459-records">JEP 459</a> implizite <code>final</code>.
+Aus diesem Grund ist die Hierarchy abgeschlossen.</p>
+
+<h5 id="zusammenfassung">Zusammenfassung</h5>
+<p>Record und Sealed Classes bieten uns neue Möglichkeiten an, unsere Domänenmodelle zu implementieren.
+Die Umsetzungen werden dadurch klarer und eindeutiger.
+Zusätzlich sparen wir uns noch viel Boilerplate Code bzw. eine Dependency auf Lombok.
+Ihr wares Potenzial zeigen Record und Sealed Classes aber erst durch die Einführung von Pattern Matching in Java.
+Dieses dritte Thema von Project Amber werde ich in dem nächsten Beitrag dieser Reihe behandeln.</p>
+
+</div>
+</div>
+</div>
+</div>]]></field>
+    </document>
+</documents>
