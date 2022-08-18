@@ -1,7 +1,7 @@
 ---
 layout: [post, post-xml] # Pflichtfeld. Nicht ändern!
 title: "Schmuckes Java - Records und Sealed Classes" # Pflichtfeld. Bitte einen Titel für den Blog-Post angeben.
-date: 2022-07-13 10:00 # Pflichtfeld. Format "YYYY-MM-DD HH:MM". Muss für Veröffentlichung in der Vergangenheit liegen.(Für Preview egal)
+date: 2022-08-18 10:00 # Pflichtfeld. Format "YYYY-MM-DD HH:MM". Muss für Veröffentlichung in der Vergangenheit liegen.(Für Preview egal)
 author_ids: [mboegers] # Pflichtfeld. Es muss in der "authors.yml" einen Eintrag mit diesen Namen geben.
 categories: [Softwareentwicklung] # Pflichtfeld. Maximal eine der angegebenen Kategorien verwenden.
 tags: [Java, OpenJDK, Project Amber] # Bitte auf Großschreibung achten.
