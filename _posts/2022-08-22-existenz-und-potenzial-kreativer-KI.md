@@ -8,9 +8,13 @@ categories: [Branchen]                # Pflichtfeld. Maximal eine der angegebene
 tags: [Ressourcen,Elektronik,Recycling,Nachhaltigkeit] # Bitte auf Großschreibung achten.
 ---
 
-Seltenen Erden machen Digitaltechnik erst möglich.
-Obwohl sie überall vorkommen, hängt der Weltmarkt von China ab.
-Dringend benötigte Recyclingverfahren brauchen Förderung, um sich kommerziell zu etablieren.
+Künstliche Intelligenz genoss in den letzten Jahren einen immer noch anhaltenden Aufschwung an Popularität. 
+Es werden immer mehr neuartige KI-Technologien entwickelt und angewandt.
+Dennoch bewegt sie sich weiterhin eher im Umfeld von sehr rationalen und aufgaben- bzw. bereichsspezifischen Anwendungsfällen. 
+Es wird oft gesagt, dass das, was uns als Mensch einzigartig macht, unsere Fähigkeit ist, große Kreationen in Kunst und Wissenschaft zu schaffen: kurz gesagt, unsere Kreativität. 
+Dabei handelt es sich um eine Eigenschaft, für die man über bestehende Grenzen hinaus gehen muss, um etwas neuartiges zu schaffen, damit es als kreativ bezeichnet werden kann. 
+Nun stellt sich die Frage, ob dies eine Eigenschaft ist, die sich auch KI aneignen kann, oder ob Kreativität eine Grenze von KI darstellt, die uns Menschen vorbehalten ist. 
+Sollte KI kreativ arbeiten können, stellt sich die Frage was für Auswirkungen dies auf die Menschen haben könnte, die im Kreativsektor tätig sind und wie dort ein Zusammenspiel zwischen Mensch und KI aussehen könnte.
 
 # Warum ist die Frage nach einer kreativen KI interessant?
 
@@ -22,9 +26,38 @@ In einer Windenergieanlage stecken gut 200 Kilogramm pro Megawatt.
 
 # Aber was genau ist eigentlich kreativ?
 
-Laut dem Institut für seltene Erden und strategische Metalle ([ISE](https://institut-seltene-erden.de/seltene-erden-und-metalle/seltene-erden/)) würden die weltweit bekannten Reserven für mehr als 900 Jahre ausreichen, wenn die Nachfrage auf dem Stand von 2017 bleiben würde.
-Da der Bedarf an Seltenerdmetallen jedoch um 10 Prozent pro Jahr steigt, könnten die bekannten Weltreserven in der zweiten Hälfte des laufenden Jahrhunderts erschöpft sein.
-Dann hilft nur noch Recycling, was derzeit noch eine technische Herausforderung ist.
+Obwohl der Begriff der Kreativität im täglichen Leben alltäglich verwendet wird, ist eine genaue
+Definition dieses Konzepts keine triviale Aufgabe. Der Begriff ist facettenreich und bietet Interpretationsspielraum (Carnovalini & Rodà, 2020, S. 1). Das Cambridge Wörterbuch definiert Creativity als
+„the ability to produce original and unusual ideas, or to make something new or imaginative“. Kreative
+Aufgaben erfordern im Allgemeinen ein gewisses Maß an originellem Denken, umfassender Erfahrung und Verständnis für das Umfeld (Anantrasirichai & Bull, 2022, S. 601). In der Literatur können
+unzählige Definitionen von Kreativität gefunden werden. Eine bekannte Definition stammt aus einer
+umfassenden Literaturstudie von Sarkar & Chakrabarti (2008) in der sie über 200 dieser Definitionen
+analysierten und schlussendlich Kreativität zusammenfassend wie folgt definierten: „Creativity occurs
+through a process by which an agent uses its ability to generate ideas, solutions or products that are
+novel and valuable“. Der allgemeine Gedanke ist, dass es sich bei Kreativität um die Fähigkeit einiger
+menschlicher Individuen handelt, etwas zu schaffen, was es vorher nicht gab. Jedoch kann man
+bei näherer Betrachtung feststellen, dass diese Schöpfungen in den meisten Fällen von Konzepten
+abstammen, die es bereits gab, oder die es bereits hätte geben können, die aber noch niemand
+explizit zu einem festen Produkt verbunden hatte. Aus diesem Konzept einer neuen Verknüpfung von
+bestehenden Konzepten, entstand Kunst wie Dalis „The Persistence of Memory“ (Carnovalini & Rodà,
+2020, S. 1). Uhren wurden auch zuvor bereits gemalt und jeder kannte das Konzept des Schmelzens,
+aber niemand hat diese Konzepte zuvor verknüpft wie Dali es tat.
+Kreativität kann auch als eine vorübergehende Diskrepanz zwischen einer Idee und der Gesellschaft,
+in der sie entsteht, betrachtet werden (Esling & Devis, 2020, S. 3). Diese Diskrepanz löst sich
+dann, wenn einige Menschen bereit sind mehr Risiken einzugehen und neue Ideen anzunehmen,
+wodurch diese allmählich in das soziale Gefüge integriert und schließlich zu einem akzeptierten
+und standardisierten Teil der Gesellschaft werden. Aus dieser Sichtweise geht hervor, dass bei
+der Betrachtung der Güte eines kreativen Artefakts und damit auch die Betrachtung der Kreativität
+allgemein, die Frage danach, welchen Einfluss ein kreatives Artefakt auf die Gesellschaft hat, eine
+wichtige Rolle spielt.
+In der Historie gab es viele unterschiedliche Faktoren, die als Indikatoren für Kreativität genutzt
+wurden. Sarkar & Chakrabarti (2008) fassten diese in zwei Hauptkategorien zusammen: novely
+(Ungewöhnlichkeit, Unerwartetheit, Überraschung) und value (Nützlichkeit, Qualität, Sinnhaftigkeit).
+Novelty wird für gewöhnlich als die definierende Eigenschaft eines kreativen Artefaktes genannt,
+aber der value ist ebenso nötig und wichtig. Es ist leicht, an etwas zu denken, das noch nie zuvor
+entworfen wurde, wie ein Auto mit fünfzehn Rädern. Während ein solches Auto zwar neuartig wäre,
+also durchaus eine hohe novelty hätte, fehlt es diesem kreativen Artefakt an value (Carnovalini &
+Rodà, 2020, S. 2–3).
 
 # Wie weit ist die Technik?
 
