@@ -14,7 +14,7 @@ Patern Matching wird ermöglicht die zugrunde liegenden Summen- und Produktdaten
 Durch sie können Aussagen über möglichen Ausprägungen und den Aufbau von Objekten gemacht werden.
 Projekt Amber hat mit Sealed Classes und Records Summen- bzw. Produktdatentypen in Java eingeführt.
 Somit wurde der Grundstein für Pattern Matching in Java gelegt.
-In meinem letzten Beitrag habe ich die Veränderungen an Javas Typsystem beleuchtet und in diesem Beitrag werde ich den Stand von Pattern Matching in Java beleuchten.
+In meinem [letzten Beitrag](https://www.adesso.de/de/news/blog/schmuckes-java-records-und-sealed-classes.jsp) habe ich die Veränderungen an Javas Typsystem beleuchtet und in diesem Beitrag werde ich den Stand von Pattern Matching in Java beleuchten.
 
 # JEP 394 - Pattern Matching for instanceof
 Jeder hat schon einmal mit dem `instanceof`-Operator gearbeitet.
