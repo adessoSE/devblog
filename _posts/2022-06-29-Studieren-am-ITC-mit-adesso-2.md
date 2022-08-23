@@ -39,13 +39,13 @@ Ist das Studium geschafft, ist die Wahrscheinlichkeit sehr hoch, dass man bei se
 
 Bei adesso beginnt der Wechsel in die berufsbegleitende Phase mit einer Vertragsumstellung.
 Von der Anstellung des dualen Studierenden wechselt man in die Anstellung eines Trainees.
-Durch den Wechsel hat der Studierende eine Vierzigstundenarbeitswoche.
+Durch den Wechsel hat man dann eine Vierzigstundenarbeitswoche.
 Dies bringt bei adesso zum einen neue Hardware in Form von Laptop und Firmenhandy und zum anderen einen spürbaren Unterschied in der Vergütung mit sich.
 
 Vermutlich stellt sich nun die Frage, wie es ist, eine Vierzigstundenwoche zu haben und Abends oder am Wochenende Vorlesungen besuchen zu müssen.
 Im Unterschied zur dualen Phase existiert keine Anwesenheitspflicht für Vorlesungen mehr.
-Demnach kannst du dir selbst Schwerpunkte setzen, einen Stundenplan erstellen, und entscheiden, welche Module du besuchen möchtest und welche nicht.
-Gar keine Module zu besuchen würde ich dringendst abraten, weil der Vorteil der kleinen Stufengrößen gut ist und der monatliche Beitrag für das Studium rausgeschmissenes Geld wäre.
+Demnach kann man sich selbst Schwerpunkte setzen, einen Stundenplan erstellen, und entscheiden, welche Module man besuchen möchte und welche nicht.
+Ich würde dringendst davon abraten, gar keine Module zu besuchen, weil der Vorteil der kleinen Gruppen gut ist und der monatliche Beitrag für das Studium rausgeschmissenes Geld wäre.
 
 Außerdem kannst du von nun an selbst planen, welche Klausuren du schreiben möchtest.
 Aufgrund der Anwesenheitspflicht in der dualen Phase war es vorgeschrieben, wann welche Klausur zu schreiben ist.
