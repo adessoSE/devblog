@@ -10,8 +10,7 @@ Funktionale Programmierung (FP) wird als ein schlanker und eleganter Weg angeseh
 Pattern Matching ist ein integraler Baustein von FP, mit dem die Programmlogik definiert wird.
 Die Einführung von Pattern Matching in Java ist eines der Ziele von Project Amber.
 
-Patern Matching wird ermöglicht die zugrunde liegenden Summen- und Produktdatentypen.
-Durch sie können Aussagen über die möglichen Ausprägungen und den Aufbau von Objekten gemacht werden.
+Bei Pattern Matching ermöglichten die zugrunde liegenden Summen- und Produktdatentypen Aussagen über die möglichen Ausprägungen und den Aufbau von Objekten.
 Project Amber hat mit Sealed Classes und Records Summen- bzw. Produktdatentypen in Java eingeführt.
 Somit wurde der Grundstein für Pattern Matching in Java gelegt.
 In meinem [letzten Beitrag](https://www.adesso.de/de/news/blog/schmuckes-java-records-und-sealed-classes.jsp) habe ich die Veränderungen an Javas Typsystem beleuchtet und in diesem Beitrag werde ich den Stand von Pattern Matching in Java beleuchten.
