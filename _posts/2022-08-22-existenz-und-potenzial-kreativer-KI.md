@@ -4,8 +4,8 @@ title:  "Kann eine KI kreativ sein?"    # Pflichtfeld. Bitte einen Titel für de
 date:   2022-08-22 20:00              # Pflichtfeld. Format "YYYY-MM-DD HH:MM". Muss für Veröffentlichung in der Vergangenheit liegen. (Für Preview egal)
 modified_date: 2022-08-15 11:00       # Optional. Muss angegeben werden, wenn eine bestehende Datei geändert wird.
 author_ids: [thasslin]                   # Pflichtfeld. Es muss in der "authors.yml" einen Eintrag mit diesen Namen geben.
-categories: [Branchen]                # Pflichtfeld. Maximal eine der angegebenen Kategorien verwenden.
-tags: [Ressourcen,Elektronik,Recycling,Nachhaltigkeit] # Bitte auf Großschreibung achten.
+categories: [KI]                # Pflichtfeld. Maximal eine der angegebenen Kategorien verwenden.
+tags: [Kreativität, Künstliche Intelligenz, Künstliche Kreativität] # Bitte auf Großschreibung achten.
 ---
 
 Künstliche Intelligenz genoss in den letzten Jahren einen immer noch anhaltenden Aufschwung an Popularität. 
@@ -16,15 +16,8 @@ Dabei handelt es sich um eine Eigenschaft, für die man über bestehende Grenzen
 Nun stellt sich die Frage, ob dies eine Eigenschaft ist, die sich auch KI aneignen kann, oder ob Kreativität eine Grenze von KI darstellt, die uns Menschen vorbehalten ist. 
 Sollte KI kreativ arbeiten können, stellt sich die Frage was für Auswirkungen dies auf die Menschen haben könnte, die im Kreativsektor tätig sind und wie dort ein Zusammenspiel zwischen Mensch und KI aussehen könnte.
 
-# Warum ist die Frage nach einer kreativen KI interessant?
 
-In der Elektronik werden Kleinstmengen benötigt, zum Beispiel für Halbleiter, Leuchtdioden, Bildschirme und Speichermedien.
-Große Mengen hingegen verbauen Windkraftbranche und Fahrzeugbau.
-Denn Permanentmagnete aus seltenen Erden sind unverzichtbar, um Energie in Elektromotoren oder Generatoren effizient zu wandeln.
-So enthält jedes Elektroauto rund ein Pfund Neodym, Dysprosium oder Praseodym.
-In einer Windenergieanlage stecken gut 200 Kilogramm pro Megawatt.
-
-# Aber was genau ist eigentlich kreativ?
+# Was genau kann als kreativ bezeichnet werden?
 
 Obwohl der Begriff der Kreativität im täglichen Leben alltäglich verwendet wird, ist eine genaue
 Definition dieses Konzepts keine triviale Aufgabe. Der Begriff ist facettenreich und bietet Interpretationsspielraum (Carnovalini & Rodà, 2020, S. 1). Das Cambridge Wörterbuch definiert Creativity als
@@ -61,27 +54,73 @@ Rodà, 2020, S. 2–3).
 
 # Wie weit ist die Technik?
 
-In China sind die Umweltauflagen für den Bergbau sehr nachlässig.
-Eine fachgerechte Entsorgung der toxischen Schlämme ist die Ausnahme, eher werden sie in Absetzbecken dauerhaft deponiert.
-Laut einer [Fallstudie zu den Umwelt- und Sozialauswirkungen](https://www.umweltbundesamt.de/sites/default/files/medien/378/dokumente/umsoress_fallstudie_seltene_erden_china_bayan_obo.pdf) werden die Abwässer auch ungefiltert in Flüsse geleitet, während giftige Abgase sich als saurer Regen weiträumig niederschlagen.
-Die meisten Länder haben die Gewinnung seltener Erden in den 1990er Jahren eingestellt, weil der Import aus China billiger war und die Umweltprobleme weit weg blieben.
-
-Laut Bundesanstalt für Geowissenschaften und Rohstoffe stellt sich das Verhältnis vorhandener Ressourcen zur Jahresproduktion von seltenen Erden wie folgt dar:
-"Die Ressourcen von seltenen Erden betragen mehr als das Tausendfache der derzeitigen Jahresproduktion und sind somit deutlich höher als bei allen anderen wirtschaftsstrategischen Metallen.
-Allerdings findet ein Abbau in Ländern mit großen Ressourcen wie in Brasilien oder Russland derzeit nur sehr begrenzt oder gar nicht statt.
-Problematisch ist in erster Linie die Wirtschaftlichkeit von Seltenerdprojekten, da insbesondere die benötigten Anlagen für die Weiterverarbeitung sehr komplex und somit kostenintensiv sind.
-Niedrige Weltmarktpreise und Umweltbedenken verhindern darüber hinaus, dass eines der zahlreichen gut exponierten Seltenerdprojekte außerhalb Chinas in Produktion geht."
-(Quelle: [Wissenschaftliche Dienste des deutschen Bundestags](https://www.bundestag.de/resource/blob/886424/16cb4318a6eaf7b2e5d2221d85e81927/WD-5-003-22-pdf-data.pdf))
+Das wohl bekannteste Beispiel kreativer KI ist das Gemälde „Edmond de Belamy“, welches im Jahr
+2018 für 432.500 Doller versteigert wurde (Allyssia Alleyne, 2018). Damit war es das erste von einer
+KI gezeichnete Gemälde, welches in einem Aktionshaus versteigert wurde. Die KI wurde dabei mit
+Portraits aus dem 14. bis 20. Jahrhundert trainiert, um daraufhin selbst eine Serie von elf Bildern
+mit Portraits der fiktiven Belamy-Familie zu schaffen. Samsung AI zeigte, dass es möglich ist ein
+Porträt in Form eines Gemäldes, so wie die Mona Lisa, in ein Video zu transformieren, in dem
+das Gesicht des Portraits in einem gewünschten Stil sprechen kann (Zakharov et al., 2019). Eine
+andere Form von KI innerhalb der Kunst sind Algorithmen, die neue Bilder auf Grundlage einiger
+weniger Eingabebilder generieren. Hierbei kann der Künstler eine Reihe von Bilder in den Algorithmus
+einspeisen, welcher dann versucht diese zu imitieren und zu kombinieren (Mazzone & Elgammal, 2019,
+S. 2). Die Webseite „www.artbreeder.com“ stellt ein Beispiel für eine solche KI dar. Einen weiteren
+beeindruckenden Fortschritt für kreative KI im Bereich der Bildgenerierung machte OpenAI, als sie
+Januar 2022 DALL-E 2 veröffentlichten. Diese generiert nach eigener Aussage „realistic images and
+art from a description in natural language“ (OpenAI, 2022). Hierbei kann man in einfacher menschlicher
+Sprache beschreiben was man generieren möchte, wie z.B. „An astronaut riding a horse as a pencil
+drawing“, und die KI schafft es ein genaues Bild von der beschriebenen Idee in dem definierten Stil zu
+zeichnen. Hierbei können völlig neuartige Bilder generiert werden, die es so vorher nicht gab. Es gibt
+bereits Ansätze dies in Designprozessen zu integrieren, wie z.B. beim Design eines neuen Schuhs
+bestimmte Kombinationsideen einfach in natürlicher Sprache auszudrücken, statt sie erst langwierig
+selbst skizzieren zu müssen. Ein Beispiel könnte sein: „Minimalist Nike Vapor Max, designed by
+Karim Rashid, light purple and baby blue color scheme, translucent“. Direkt bekommt man mehrere
+mögliche Designs dieses Stils angezeigt und kann seine Idee unmittelbar evaluieren, abändern oder
+weiterentwickeln. Dies kann langwierige Prozessschritte beschleunigen, die sonst den kreativen
+Prozess eher aufhalten. Eine weitere KI, die beeindruckende kreative Artefakte generiert, kann auf der
+Webseite „www.this-person-does-not-exist.com“ beobachtet werden. Dort werden realistische Fotos
+von Personen generiert, die gar nicht existieren.
+Neben dem Bereich der Bildgenerierung, konnte KI auch in anderen kreativen Bereichen Fortschritte
+verzeichnen. Beispielsweise wurde KI auch schon genutzt um Geschichten zu schreiben. So wurde
+das gesamte Skript eines Kurzfilms namens Sunspring von einer KI geschrieben. Im Jahr 2016
+komponierte IBM Watson einen sechs Minuten langen Trailer für einen Horror Film namens Morgan
+(John R. Smith, 2016). Teilweise können diese Skripte aber noch verwirrende Ergebnisse erzeugen.
+Eine Firma namens Botnik entwickelte eine KI welche Texte von existierenden Büchern analysieren
+und daraufhin neue Kapitel schreiben kann. So hat das Team von Botnik alle Harry Potter Bücher in
+den Algorithmus gespeist und die KI hat unter anderem abstruse Sätze wie folgenden generiert: „Ron
+was standing there and doing a kind of frenzied tap dance. He saw Harry and immediately began to eat Hermione’s family“ (Botnik, 2018).
+Im Bereich der musikalischen Kreativität wird häufig das Album „Hello World“ genannt. Hierbei
+handelt es sich um ein ganzes Album, welches nur von einer KI komponiert wurde (Anantrasirichai &
+Bull, 2022, S. 610). Zuvor, im Jahr 2016, hatte das gleiche Team bereits einen Song im Stil der Beatles
+veröffentlicht. AIVA (2021) erlernte die Kunst der Musik durch das Lesen eines großen Datensatzes
+an Musik von den weltweit größten Komponisten wie Mozart, Beethoven oder Bach, wodurch sie ein
+eigenes Stück komponieren konnte, das teilweise auf ähnlichem Niveau überzeugen konnte (Dahlstedt,
+2021, S. 186–187). Es wurde auch ein Album von Aivas Musik veröffentlicht, dessen Stücke bereits in
+Filmen und von Werbeagenturen verwendet werden (Gobet & Sala, 2019, S. 2).
+Im Bereich des Journalismus ist KI bereits angekommen. Die Zeitschrift Forbes nutzt ein KI basiertes
+Content-Management-System namens Bertie, das Reportern die ersten Entwürfe und Vorlagen für
+Nachrichten generiert (Nicole Martin, 2019).
+Auch im Produktdesign wird KI bereits als Teil des kreativen Generationsprozesses eingesetzt. Es
+gibt Möbel, Fahrräder oder auch Drohnen, die von einer KI gestaltet wurden. Airbus verwendete
+ein generatives KI-Design, um eine Trennwand für Flugkabinen zu gestalten und konnte damit die
+Effizienz bedeutend verbessern (Raymond Deplazes, 2019).
+Die erwähnten Innovationen sind nur ein kleiner Ausschnitt der tatsächlichen Menge an Fortschritten,
+die in den letzten Jahren im Bereich der künstlichen Kreativität gemacht wurden. Dennoch kann dies
+einen guten Einblick in den generellen Stand der Technik geben.
 
 # Kann das tatsächlich auch kreativ genannt werden?
 
-Ein weiterer Ansatz ist [Lanmodulin](https://www.spektrum.de/news/recycling-protein-filtert-seltene-erden-aus-elektronikschrott/1941247).
-Dabei handelt es sich um ein von Bakterien produziertes Protein, das seltene Erden aus einer Lösung bindet.
-Im Experiment gelang es, aus einer ähnlich wie Elektroschrott zusammengesetzten Mischung die Elemente Neodym und Dysprosium zu je 80 Prozent sauber getrennt zurückzugewinnen.
-Da Lanmodulin erstaunlich stabil ist, kann das Absorbermaterial sogar mehrfach wiederverwendet werden.
-
-Ein Verfahren, um sie aus dem Schlick abzutrennen, wird derzeit entwickelt.
-([Quelle: VDI-Nachrichten](https://www.vdi-nachrichten.com/technik/werkstoffe/deutschland-und-seine-seltenen-erden/))
+Betrachtet man die kreative KI als ein Medium, so werden die von diesem Medium produzierten
+Artefakte Teil der menschlichen Kultur, indem sie der Gesellschaft zur Wertschätzung ausgestellt
+werden. Demnach ist die Herstellung eines solchen KI-Systems, welches künstlerische Artefakte
+erzeugt, an sich bereits eine soziokulturell kreative und wertvolle Tätigkeit. Um zu evaluieren, ob
+das erzeugte Medium eines KI-Systems an sich auch kreativ sein kann, muss das Potenzial und die
+tatsächliche Kreativität bereits produzierter künstlicher kreativer Artefakte, bewertet werden. Die Frage
+nach der Bewertung von Kreativität ist eine der umstrittensten und kompliziertesten Herausforderungen
+in diesem Bereich (Esling & Devis, 2020, S. 4). Es ist schwer, Kreativität auf quantitativer Weise zu
+messen. In der Literatur werden viele unterschiedliche Unterteilungen kreativer Eigenschaften genutzt,
+um den Grad an Kreativität zu messen. In diesem Kapitel werden die wichtigsten Unterscheidungen
+herangezogen, um zu prüfen, ob eine KI vollständig kreativ sein kann.
 
 ## Kombinatorische, explorative und transformationale Kreativität
 
@@ -108,15 +147,100 @@ Der Name ist abgeleitet vom griechischen Wort "lanthanein", das soviel wie "vers
 
 # Was sind die Grenzen künstlicher Kreativität?
 
-Lanthan wird zur Herstellung von Gläsern mit hohem Brechungsindex benötigt, zum Beispiel für Kamera- oder Teleskoplinsen und für Brillengläser.
-Es wird auch in Kathoden für Brennstoffzellen verbaut.
+Im vorherigen Kapitel wurde evaluiert, welche kreativen Eigenschaften KI erfüllen kann und welche
+nicht. Nun soll eine Betrachtung der allgemeinen Grenzen künstlicher Kreativität erfolgen.
+Kreative künstliche Intelligenzen wie Aaron, kommen der menschlichen Kreativität teilweise sehr nah.
+Was sie jedoch fundamental vom Menschen unterscheidet, sind die physischen Aspekte. Menschen
+erlernen nicht nur mentale, sondern auch physische Fähigkeiten, die sie zum kreativen Arbeiten
+nutzen. Aaron hat nie den Druck eines Pinsels gegen das Papier gefühlt und kann die Dynamik
+nicht so erfassen, wie das menschliche kognitive System es tut (Kurt, April 2018, S. 38). Dies sind
+Erfahrungen, die die KI zum aktuellen Zeitpunkt im kreativen Prozess nicht mit einbeziehen kann.
+Es wurde bereits dargelegt, dass KI in der Lage sein kann, künstliche Artefakte zu erzeugen, die
+sowohl neuartig als auch wertvoll sind. Hierbei ist allerdings zu erwähnen, dass dies nicht vollständig
+konsistent möglich ist. Teilweise resultieren wertvolle Kunstwerke, teilweise aber auch solche die
+entweder nicht neuartig sind, oder vom Menschen als sinnlos angesehen werden (Anantrasirichai &
+Bull, 2022, S. 637).
+Wallas (1926) unterteilte den kreativen Prozess in folgende Phasen: preparation (Informationsgewinnung), definition (Problemfindung), incubation (über Ideen nachdenken), illumination (Präsentation
+einer Lösung) und verification (Testen der Qualität einer Lösung). Blickt man auf die Argumentation
+der Evaluation kreativer Eigenschaften in Kapitel 3.2 zurück, kann man feststellen, dass sich die
+Fähigkeiten von KI auf die Prozessschritte preparation und incubation beschränken. Die restlichen
+Schritte benötigen weiterhin mindestens teilweise ein menschliches Eingreifen (Esling & Devis, 2020,
+S. 7).
+Aktuell basieren die effektivsten KI-Systeme noch auf überwachtem Lernen, bei dem es bereits
+Daten gibt, die der Wahrheit entsprechend durch Menschen beschriftet wurden. Der Lernprozess
+besteht dabei daraus, einen durchschnittlichen Fehler bzw. Verlust über die bekannten Beispiele zu
+berechnen und Anpassungen so zu treffen, dass dieser Verlust minimiert wird. Dabei werden ungewöhnlichen Beispielen (Ausreißer) häufig geringe Auswirkungen zugeschrieben, um eine Verzerrung
+des globalen Fehlers zu vermeiden. Konträr dazu steht allerdings das Ziel im kreativen Prozess novelty
+zu generieren, wenn solch ungewöhnlichen Datenpunkten geringe Gewichtung zugeschrieben wird
+(Esling & Devis, 2020, S. 7). Außerdem gibt es bei echten kreativen Prozessen normalerweise keine
+vordefinierten Ergebnisse, die so einfach eingestuft werden können. Auch wenn viele Werke aktuellen
+Trends folgen und auf Publikumsvorlieben beruhen, gibt es keine vollständig autonome, quantitative
+Möglichkeit die Qualität eines kreativen Artefakts zu messen (Anantrasirichai & Bull, 2022, S. 637).
+Auch hier wird daher menschliches Eingreifen vorausgesetzt.
+Dieser Gedanke wird in Ansätzen des Verstärkungslernens adressiert, wo es keine menschlich
+vorbeschrifteten Ergebnisse geben muss. Hierbei werden Agenten so definiert, dass sie Räume
+von Möglichkeiten selbst erkunden. Diese erfordern jedoch auch die Definition von Belohnungsbzw. Erfolgsfunktionen, die im kreativen Bereich immer noch komplex zu definieren sind, da sie von
+Aspekten der Wahrnehmung oder des Kontexts abhängig sind (Esling & Devis, 2020, S. 8).
+Eine weitere, zunächst offensichtlich erscheinende Beobachtung künstlicher Kreativität ist, dass sie
+kreative Artefakte aus einer rationalen, statt aus einer kreativen Absicht erzeugt. Es gibt Stimmen, die
+besagen, dass jegliche Kunstwerke ein Ausdruck menschlicher Erfahrungen sind und auch nur zu
+menschlichen Zwecken entstehen (Boden, 2004, S. 7). Dies unterstreicht warum es für eine KI so
+schwierig ist Kunst auf dem menschlichen Niveau zu erzeugen.
 
 # Wie könnten kreative Prozess zukünftig aussehen?
 
-Lanthan wird zur Herstellung von Gläsern mit hohem Brechungsindex benötigt, zum Beispiel für Kamera- oder Teleskoplinsen und für Brillengläser.
-Es wird auch in Kathoden für Brennstoffzellen verbaut.
+Viele der angesprochenen Grenzen einer kreativen KI, lassen sich auf die Frage danach zurückführen,
+wie eine Maschine selbstständig Kreativität messen bzw. evaluieren kann. Es konnte festgestellt
+werden, dass an vielen Stellen menschliches Eingreifen nötig ist. Da KI-Systeme von menschlichen
+Programmierern initialisiert werden und mit menschlich programmierten Algorithmen arbeiten, sind
+KI-Systeme immer mindestens zu einem geringen Teil abhängig vom Menschen (Kurt, April 2018,
+S. 74). Wie Coeckelbergh (2017) sagt, wäre es falsch, Maschine und Mensch als unverbundene
+Konzepte zu betrachten, weswegen die Frage, ob Maschinen Kunst schaffen können, an sich bereits
+als irreführend angesehen werden kann. Es sollte eher nach der Rolle von KI im kreativen Prozess
+gefragt werden. Einerseits scheint eine ganze Reihe von Forschungsarbeiten dem Einsatz von KI
+als autarke Generatoren gewidmet zu sein, die versuchen mit wenig Input des Benutzers, ganze
+Kunstwerke zu erzeugen. Andererseits werden KI-Systeme auch als Kreativwerkzeuge betrachtet, die
+es uns ermöglichen unsere eigene Kreativität zu steigern. In der Hinsicht wird KI verglichen mit einer
+Art weiterentwickelter Pinsel für einen Maler (Esling & Devis, 2020, S. 8). Jedoch, statt sich entweder
+auf die zurückhaltende Ansicht von KI als einfaches Werkzeug oder umgekehrt als gar eigenständiger
+Generator zu fokussieren, sollte vielmehr wahrgenommen werden, dass die wahre Kraft kreativer
+KI-Systeme aus der Partnerschaft mit dem Menschen entsteht (Esling & Devis, 2020, S. 10). Kunst
+ist oft ein Ausdruck der individuellen Psyche, Emotion oder Erfahrung. Eine KI kann nicht dieselbe
+Lebenserfahrung sammeln oder die gleichen Emotionen haben. In der Kombination einer Partnerschaft
+mit dem Menschen, kann KI jedoch diejenigen des Künstlers wirkungsvoll zum Ausdruck bringen. Sie
+hat das Potenzial noch viel mehr als ein einfaches Werkzeug zu sein und könnte den Kreativsektor
+gänzlich revolutionieren (Mazzone & Elgammal, 2019, S. 7–8). Mit KI hat man ein weiterentwickeltes
+Werkzeug oder eher ein Medium, welches erstmals auch in der Lage ist zu lernen und sich anzupassen
+(Mazzone & Elgammal, 2019, S. 8). KI kann erfolgreich eingesetzt werden, um dem Künstler Aufgaben
+abzunehmen, die für Menschen zu schwierig oder zu zeitaufwendig sind, wie z.B. das Durchsuchen
+einer großen Datenbank und die Untersuchung der Daten um Muster zu finden. Es wurde bereits
+in Kapitel 3.1 das Beispiel von DALL-E 2 genannt, in dem Designer weniger Zeit für das Skizzieren
+ihrer Ideen aufbringen müssen und mehr Zeit mit der Weiterentwicklung ihrer Gedankengänge
+verbringen können. Oder auch in den Arbeitsläufen der Postproduktion wird KI verstärkt zum Einsatz
+kommen, unter anderem in Form von verbesserten Tools für die Rauschunterdrückung, Kolorierung,
+Segmentierung, Rendering und Tracking (Anantrasirichai & Bull, 2022, S. 636–637). Eine Umfrage
+von Adobe (2018) zeigte, dass drei Viertel der befragten Künstler sich vorstellen können KI als
+unterstützendes Werkzeug zu nutzen. Der kreative Prozess im Zusammenhang mit KI kann an sich
+auch als neuartige Kunstform gesehen werden. Betrachtet man den Prozess und nicht nur die daraus
+resultierenden Bilder, so fällt diese Form in die Kategorie der Konzeptkunst, da der Künstler die
+Möglichkeit hat, wie beim Design mit DALL-E 2, in der Rolle des Kuratierens und Optimierens zu
+handeln. In Zukunft wird es immer mehr konzeptionelle Arbeiten geben, da immer mehr Künstler
+KI-Werkzeuge adaptieren und lernen, wie sie den kreativen Prozess der KI-Kunst beeinflussen
+können. Assayag (2016) stellte ein Konzept vor, welches gut die Harmonie zwischen Mensch und
+Maschine im kreativen Sektor verbildlicht. Dabei geht es um die Interaktion zwischen Musikern und
+Maschinen, speziell im Fall der Co-Improvisation, bei der Agenten unterschiedlicher Natur (künstlich
+oder menschlich) gemeinsam in höchst unvorhersehbaren Live-Umgebungen auftreten
 
 # Fazit
 
-Die Metalle der seltenen Erden sind in der Elektronik unersetzlich.
-Sie kommen weltweit vor, ihr Abbau ist jedoch so aufwendig und umweltschädlich, dass sich die meisten Länder auf Exporte aus China verlassen.
+Trotzdem konnte zusammenfassend festgestellt werden, dass KI grundlegend kreativ sein kann.
+KI-Kunst an sich kann als neue Kunstform gesehen werden. Auch wenn man eine KI selbst als Künstler
+betrachtet, so kann behauptet werden, dass sie kreative Eigenschaften besitzt. Jedoch gibt es auch
+menschliche kreative Eigenschaften, die KI nicht beherrscht.
+Bei der Recherche fiel auf, dass es im Bereich von künstlicher Kreativität nie das Ziel ist, den
+Menschen durch KI zu ersetzen. Wiederholt konnte festgestellt werden, dass der größte Nutzen dann
+entstehen kann, wenn solche kreativen KI-Systeme eine Partnerschaft mit dem Menschen eingehen
+und eine Co-Kreativität bilden. Dabei muss beachtet werden, dass dies auch Gefahren wie den
+Missbrauch von Deepfakes birgt und neue Fragen wie die nach den Rechten von Künstlern öffnet.
+Zusammenfassen kann jedoch geschlussfolgert werden, dass das Konzept einer kreativen KI durchaus möglich ist und immenses Potenzial birgt. Es könnte für eine Revolution kreativer Prozesse sorgen
+und hat dies teilweise auch schon getan.
