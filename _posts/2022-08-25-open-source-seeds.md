@@ -27,7 +27,7 @@ Neue Krankheiten breiten sich aus, Schädlinge spezialieren sich auf die Schwäc
 Zudem wachsen die Erwartungen des Marktes an den Ertrag und die Qualität.
 Die Pflanzenzuchtbetriebe kreuzen Resistenzen und Verbesserungen ein.
 Dann selektieren sie ihre Pflanzen gut 10 Jahre lang, bis die neue Sorte sich stabil vermehrt.
-Dann wird sie beim Sortenamt angemeldet und die Runde beginnt von vorn.
+Dann wird sie beim [Sortenamt](https://www.bundessortenamt.de/bsa/sorten/sortenzulassung/) angemeldet und die Runde beginnt von vorn.
 
 # Wann fließt das Geld?
 
