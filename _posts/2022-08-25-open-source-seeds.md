@@ -16,9 +16,9 @@ Ein neuer Ansatz überträgt die Konzepte von quelloffener Software auf die Pfla
 # Sorten und Versionen
 
 Softwarelösungen wachsen von Version zu Version.
-Kaum ist eine aktuelle Lösung ausgerollt, ändern sich Standard und Protokolle.
+Kaum ist eine aktuelle Lösung ausgerollt, ändern sich Standards und Protokolle.
 Die Anforderungen verändern sich, Bugs und Sicherheitslücken werden bekannt.
-Developer patchen, überarbeiten und erwweitern den Code, bis die nächste Version marktreif ist.
+Developer patchen, überarbeiten und erweitern den Code, bis die nächste Version marktreif ist.
 Dann beginnt die Runde von vorn.
 
 In der Landwirtschaft ist das gar nicht viel anders.
@@ -27,23 +27,24 @@ Neue Krankheiten breiten sich aus, Schädlinge spezialieren sich auf die Schwäc
 Zudem wachsen die Erwartungen des Marktes an den Ertrag und die Qualität.
 Die Pflanzenzuchtbetriebe kreuzen Resistenzen und Verbesserungen ein.
 Dann selektieren sie ihre Pflanzen gut 10 Jahre lang, bis die neue Sorte sich stabil vermehrt.
-Dann wird sie angemeldet und die Runde beginnt von vorn.
+Dann wird sie beim Sortenamt angemeldet und die Runde beginnt von vorn.
 
 # Wann fließt das Geld?
 
 Während der Entwicklung ist mit einer Software kein Geld zu verdienen.
-Für das fertige Produkt gibt es mehrere gängige Verwertungsmodelle:
-Es kann in Form von Lizenzen verkauft werden, die eine unbefristete Nutzung für eine bestimmte Anzahl an Usern oder Arbeitsplätzen erlauben.
+Für das fertige Produkt gibt es mehrere gängige Verwertungsmodelle.
+Es kann in Form von Lizenzen verkauft werden, die eine unbefristete Nutzung für eine feste Anzahl an Usern oder Arbeitsplätzen erlauben.
 Dank Cloud-Technologie wird "Sofware as a Service" zusehends beliebter, wobei das Nutzungsrecht nicht mehr verkauft, sondern vermietet wird.
 Parallel dazu gibt es das Konzept Open Source:
 Die Software wird mit Quellcode veröffentlicht.
 Das Geld wird mit Support, Hosting und Dienstleistungen rund um das Produkt verdient.
 
-Im gesetzlich stark regulierten Saatgutgeschäft sind ist ein anderes Konzept vorgesehen.
+Im gesetzlich stark regulierten Saatgutgeschäft ist ein anderes Konzept vorgesehen.
 Eine Sorte darf erst zu gewerblichen Zwecken vertrieben werden, nachdem sie vom Sortenamt zugelassen wurde.
-Dafür muss sie unterscheidbar, homogen und beständig sein und einen höheren landeskulturellen Wert als bereits zugelassene Sorten besitzen.
+Dafür muss sie unterscheidbar, homogen und beständig sein sowie einen landeskulturellen Wert besitzen.
 Letzteres beschreibt die Gesamtheit ihrer wertbestimmenden Eigenschaften.
-Die neue Sorte muss also, gegenüber den bereits zugelassenen Sorten, eine deutliche Verbesserung für den Pflanzenbau oder die Verwertung der Erzeugnisse erwarten lassen.
+Eine Sorte besitzt einen landeskulturellen Wert, wenn sie gegenüber den vergleichbaren, bereits zugelassenen Sorten eine deutliche Verbesserung für den Anbau oder die Verwertung erwarten lässt.
+
 Wenn diese Hürde genommen ist - und es sich tatsächlich um eine Neuzüchtung handelt - darf der Zuchtbetrieb Sortenschutz beantragen.
 Das Schutzrecht wird, je nach Pflanzenart, für 25 oder 30 Jahre erteilt.
 Es entspricht einem Monopol auf Erzeugung, Aufbereitung, Inverkehrbringen sowie Ein- und Ausfuhr von Vermehrungsmaterial.
