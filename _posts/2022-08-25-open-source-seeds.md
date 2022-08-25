@@ -86,13 +86,13 @@ Wer zuvor das Ausgangsmaterial gezüchtet hat, spielt dafür keine Rolle.
 
 ## Wenn Bits an Bäumen wachsen würden
 
-Mit einem Augenzwinkern lassen sich die Regeln für genetischen Code auf den von Programmcode übertragen.
+Mit einem Augenzwinkern lassen sich die Regeln für genetischen Code auf Programmcode übertragen.
 Wir gehen zurück ins Jahr 1993.
 Der Bitzüchter Microsoft meldet Windows NT 3.1 beim EDV-Sortenamt an.
 Das verweigert die Zulassung, weil Windows nicht messbar besser als Novell Netware ist.
 Damit die Arbeit nicht ganz umsonst war, meldet Microsoft seinen Code als Erhaltungssorte für das Land der x86-Prozessoren an.
 Die vereinfachte Zulassung wird gewährt, von nun an darf Windows NT 3.1 maximal 0,5 % des Betriebsystemmarkts ausmachen und ist selbstverständlich Public Domain.
-Der Bitzüchter Oracle nutzt das Züchterprivileg und baut die meisten Features nach.
+Der Bitzüchter Oracle entdeckt das Nischenprodukt und baut die meisten Features nach.
 Im Jahr 1996 wird Oracle NT 1 zugelassen und unter Sortenschutz vertrieben.
 
 Sicher würden Sie als Developer da ähnlich toben wie das Team hinter Libre Office, dem jegliche Marktzulassung verweigert wurde, weil ihr Produkt sich nicht deutlich genug von Open Office unterscheidet.
