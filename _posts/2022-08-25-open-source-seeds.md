@@ -59,20 +59,20 @@ Die Sorte verschwindet also vom Markt.
 # Vereinfache Zulassung
 
 Nur moderne Hochleistungssorten können die Kriterien für landeskulturellen Wert erreichen.
-Damit Nischensorten dennoch nicht verschwinden, gibt drei vereinfachte Zulassungen.
+Damit Nischensorten dennoch nicht verschwinden, gibt es drei vereinfachte Zulassungsverfahren.
 Dafür muss die Sorte lediglich unterscheidbar, homogen und beständig sein.
 
 Eine Amateursorte darf nur in Kleinstpackungen in Verkehr gebracht werden, etwa Tütchen zu je 5 g Paprikasamen.
-Insbesondere werden alte Sorten und Neuzüchtungen für kleine Zielgruppen wie etwa Hausgärten oft als Amateursorte angemeldet.
+Insbesondere werden alte Sorten und Neuzüchtungen für kleine Zielgruppen wie etwa Hausgärten als Amateursorten angemeldet.
 
 Eine Erhaltungssorte darf pro Jahr maximal 0,5 % des in Verkehr gebrachten Saatguts einer Art ausmachen.
-Diese Variante ist für seit Generationen selbst vermehrte Landsorten vorgesehen, die in einer begrenzten Region traditionell angebaut werden.
+Diese Zulassung ist für seit Generationen selbst vermehrte Landsorten vorgesehen, die in einer begrenzten Region traditionell angebaut werden.
 
 Seit Anfang des Jahres 2022 können auch Populationen für den gewerblichen Handel zugelassen werden.
 Dabei handelt es sich um resiliente Mischungen unterschiedlicher Genome, die speziell für den ökologischen Anbau entwickelt werden.
 Die Pflanzen kreuzen sich auf dem Feld untereinander und passen sich dadurch immer besser an ihren Standort an.
 
-Nach vereinfachter Zulassungen ist allerdings kein Sortenschutz möglich.
+Nach einer vereinfachten Zulassung ist allerdings kein Sortenschutz möglich.
 Das heißt, solche Sorten sind grundsätzlich lizenzfrei und jeder darf sie kostenlos nachbauen.
 
 # Das Züchterprivileg
