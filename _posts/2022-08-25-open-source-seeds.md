@@ -167,7 +167,7 @@ Sie dürfen ohne Mengenbeschränkung in Verkehr gebracht werden.
 Bemerkenswert ist, dass viele Open-Source-Sorten in Bildung und Forschung entstanden sind.
 So wurde der Weizen "Equality" am Fachgebiet Ökologischer Pflanzenschutz der Universität Kassel gezüchtet.
 Diverse Tomatensorten stammen aus dem ökologischen Freiland-Tomatenprojekt der Universität Göttingen.
-Offenbar handelt es sich um einen neuen Weg, Forschungsergebnisse der Menschheit zugänglich zu machen, ohne sie zum Spekulationsobjekt privater Konzerne zu machen.
+Offenbar handelt es sich um einen neuen Weg, Forschungsergebnisse der Menschheit zugänglich zu machen, ohne sie zum Spekulationsobjekt privater Unternehmen zu machen.
 
 Andere Open-Source-Sorten wurden von Kleinbetrieben und Landsbauschulen entwickelt, die sie auch selbst kommerziell vertreiben.
 Viele Getreide- und Gemüsezüchtende in Europa finanzieren sich auch über Sortenentwicklungsbeiträge, die sie mit den saatguterzeugenden Betrieben und den Bauernhöfen aushandeln.
