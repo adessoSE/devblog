@@ -178,7 +178,7 @@ Bemerkenswert ist der Roggen "Baldachin", dessen Entwicklung per Crowdfunding fi
 
 Auch außerhalb der Europäischen Union gründen sich Initiativen für freies Saatgut.
 
-In Indien hat das Zentrums für nachhaltige Landwirtschaft ihr Projekt "Open Source Seed India" ins Leben gerufen.
+In Indien hat das Zentrum für nachhaltige Landwirtschaft das Projekt "Open Source Seed India" ins Leben gerufen.
 Sein Ziel ist es, alternative juristische Rahmenbedingungen für den Schutz von Bauernrechten und einen freien Zugang zu Saatgut zu etablieren.
 Darüber hinaus sollen umfassende Daten über die vorhandenen Hofsorten gesammelt werden.
 
@@ -188,7 +188,7 @@ Sie möchten gemeinsam erforschen, wie der Zugang zu Saatgut in Ostafrika verbes
 STEPS América Latina steht für "Social, Technological and Environmental Pathways to Sustainability Center" und arbeitet an einer eigenen Open-Source-Lizenz für Saatgut, um die traditionelle Kultur der Offenheit, des Teilens und der Zusammenarbeit zu verteidigen.
 
 In den USA sind die Märkte weniger reguliert.
-Dort verzichtet die "Open Source Seed Initiative" auf eine zivilrechtlich ausformulierte Open-Source-Lizenz.
+Dort verzichtet die "Open Source Seed Initiative" auf einen zivilrechtlich ausformulierten Lizenzvertrag.
 Stattdessen verfolgt sie einen ethischen Ansatz in Form eines Versprechens, welches zusammen mit dem Saatgut weitergegeben wird.
 
 # Fazit
