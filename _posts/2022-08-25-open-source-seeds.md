@@ -169,10 +169,10 @@ So wurde der Weizen "Equality" am Fachgebiet Ökologischer Pflanzenschutz der Un
 Diverse Tomatensorten stammen aus dem ökologischen Freiland-Tomatenprojekt der Universität Göttingen.
 Offenbar handelt es sich um einen neuen Weg, Forschungsergebnisse der Menschheit zugänglich zu machen, ohne sie zum Spekulationsobjekt privater Unternehmen zu machen.
 
-Andere Open-Source-Sorten wurden von Kleinbetrieben und Landsbauschulen entwickelt, die sie auch selbst kommerziell vertreiben.
+Andere Open-Source-Sorten wurden von Kleinbetrieben und Landbauschulen entwickelt, die sie auch selbst kommerziell vertreiben.
 Viele Getreide- und Gemüsezüchtende in Europa finanzieren sich auch über Sortenentwicklungsbeiträge, die sie mit den saatguterzeugenden Betrieben und den Bauernhöfen aushandeln.
 Auch staatliche Zuschüsse und Stiftungsgelder sind legitime Geldquellen, wenn man Pflanzenzüchtung als Schaffung von Gemeingütern und damit als gemeinnützige Aktivität betrachtet.
-Bemerkenswert ist der Roggen "Baldachin", dessen Züchtung per Crowdfunding finanziert wurde.
+Bemerkenswert ist der Roggen "Baldachin", dessen Entwicklung per Crowdfunding finanziert wurde.
 
 # Open Source im Rest der Welt
 
