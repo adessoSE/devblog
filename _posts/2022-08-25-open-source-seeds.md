@@ -9,7 +9,7 @@ tags: [Recht,Lizenzen,Open Source] # Bitte auf Großschreibung achten.
 ---
 
 Open-Source-Lizenzen sind aus der Softwarebranche nicht wegzudenken.
-Bei genetischem Code sieht es anders aus:
+Bei genetischem Code sieht es anders aus.
 Pflanzensorten sind entweder proprietär oder Public Domain.
 Ein neuer Ansatz überträgt die Konzepte von quelloffener Software auf die Pflanzenzucht.
 
@@ -100,10 +100,10 @@ Bisher gibt es keinen rechtlich sicheren Weg, die eigene züchterische Leistung 
 # Wo ist das Problem?
 
 Der Fokus auf immer neue Rekorde bei Ertrag und Verarbeitbarkeit führte anfangs zu hervorragenden Sorten, über die Jahrzehnte jedoch zur Erosion der genetischen Basis.
-Für den Sortenschutz unbedeutende Merkmale wie Geschmack und Resilienz verschwinden unwiderruflich aus dem Genpool.
+Für den Sortenschutz unbedeutende Merkmale wie Nährstoffgehalt und Geschmack verschwinden unwiderruflich aus dem Genpool.
 Damit schwinden auch die Möglichkeiten für weitere Züchtungen.
 
-Zudem ist Pflanzenzucht nur in globalem Maßstab rentabel, wenn sich an die rund zehnjährige Entwicklung einer Sorte noch eine jahrelange Prüf- und Registrierungsphase anschließt.
+Zudem ist Pflanzenzucht, wenn sich an die rund zehnjährige Entwicklung einer Sorte noch eine jahrelange Prüf- und Registrierungsphase anschließt, nur im globalen Maßstab rentabel.
 Entsprechend werden Hochleistungssorten nicht für einen bestimmten Boden oder das Klima einer Region gezüchtet, sondern für den internationalen Markt.
 Die unüberschaubare Vielfalt lokal angepasster Sorten wird zusehends durch global vertriebene Standardsorten ersetzt.
 Das funktioniert nur, wenn die örtlichen Unterschiede mit einem an die Pflanze angepassten Rundumpaket aus Dünger und Pflanzenschutz ausgeglichen werden.
@@ -151,7 +151,7 @@ Ihr Recht an der Sorte einklagen müssen jedoch nicht diejenigen, die sie gezüc
 Da es sich um einen Vertrag zugunsten Dritter handelt, ist in der derzeitigen Fassung der Verein AGRECOL e.V. klageberechtigt.
 Das heißt, um Lizenzverletzungen kümmert sich eine in Deutschland ansässige Organisation mit Zugang zu professionellem Rechtschutz.
 
-# Zulassung offener Sorten
+# Zulassung und Finanzierung
 
 Sorten, die unter Open-Source-Lizenz in Verkehr gebracht werden sollen, werden vereinfacht zugelassen.
 Das teure, langwierige Zulassungsverfahren für geschützte Sorten wäre unrentabel und für unabhängige Kleinbetriebe nicht zu finanzieren.
@@ -166,6 +166,11 @@ Bemerkenswert ist, dass viele Open-Source-Sorten im Bildungs- und Forschungsbetr
 So wurde der Weizen "Equality" am Fachgebiet Ökologischer Pflanzenschutz der Universität Kassel gezüchtet.
 Diverse Tomatensorten stammen aus dem ökologischen Freiland-Tomatenprojekt der Universität Göttingen.
 Offenbar handelt es sich um einen neuen Weg, Forschungsergebnisse der Menschheit zugänglich zu machen, ohne sie zum Spekulationsobjekt privater Konzerne zu machen.
+
+Andere Open-Source-Sorten wurden von Kleinbetrieben und Landsbauschulen entwickelt, die sie auch selbst kommerziell vertreiben.
+Viele Getreide- und Gemüsezüchtende in Europa finanzieren sich auch über Sortenentwicklungsbeiträge, die sie mit den saatguterzeugenden Betrieben und den Bauernhöfen aushandeln.
+Auch staatliche Zuschüsse und Stiftungsgelder sind legitime Geldquellen, wenn man Pflanzenzüchtung als Schaffung von Gemeingütern und damit als gemeinnützige Aktivität betrachtet.
+Bemerkenswert ist der Roggen "Baldachin", dessen Züchtung per Crowdfunding finanziert wurde.
 
 # Open Source im Rest der Welt
 
