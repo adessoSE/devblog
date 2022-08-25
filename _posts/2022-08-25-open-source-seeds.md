@@ -79,7 +79,7 @@ Das heißt, solche Sorten sind grundsätzlich lizenzfrei und jeder darf sie kost
 
 Der Sortenschutz gilt nur für den Nachbau und Vertrieb von Vermehrungsmaterial.
 Züchter und Züchterinnen dürfen jede geschützte Sorte mit jeder anderen kreuzen, um sie weiter zu entwickeln.
-Das bedeutet, durch Einkreuzung vielen Amateursorten und Wildformen kann eventuell eine neue Hochleistungssorte entstehen.
+Das bedeutet, durch Einkreuzung von Amateursorten kann eine neue Hochleistungssorte entstehen.
 Der Sortenschutz wird dann dem Pflanzenzuchtbetrieb gewährt, der sie angemeldet hat.
 Wer zuvor das Ausgangsmaterial gezüchtet hat, spielt dafür keine Rolle.
 
