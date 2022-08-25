@@ -161,11 +161,10 @@ Das teure, langwierige Zulassungsverfahren für geschützte Sorten wäre unrenta
 
 Für Gemüse wie etwa Mais oder Tomaten ist eine Registrierung als Amateursorte üblich.
 Die beschränkte Vertriebsmenge ist kein großes Hindernis, denn durch Nachbau lässt sich aus wenigen Körnern in ein bis zwei Jahren eine nennenswerte Menge Saatgut gewinnen.
-
 Alle bisher zugelassenen Open-Source-Getreide sind Populationen und damit keine Sorten im strikten Sinne.
 Sie dürfen ohne Mengenbeschränkung in Verkehr gebracht werden.
 
-Bemerkenswert ist, dass viele Open-Source-Sorten im Bildungs- und Forschungsbetrieb entstanden sind.
+Bemerkenswert ist, dass viele Open-Source-Sorten in Bildung und Forschung entstanden sind.
 So wurde der Weizen "Equality" am Fachgebiet Ökologischer Pflanzenschutz der Universität Kassel gezüchtet.
 Diverse Tomatensorten stammen aus dem ökologischen Freiland-Tomatenprojekt der Universität Göttingen.
 Offenbar handelt es sich um einen neuen Weg, Forschungsergebnisse der Menschheit zugänglich zu machen, ohne sie zum Spekulationsobjekt privater Konzerne zu machen.
