@@ -117,11 +117,12 @@ Weitere 20 % hält DowDuPont und 10 % entfallen auf Syngenta.
 Als vierter Big Player folgt BASF mit einem Marktanteil von rund 6 %.
 Das heißt, den Umsatz mit Saatgut machen zu 66 % Unternehmen, die eigentlich aus der Chemiebranche stammen.
 
-Für die Ernährungssicherheit ist das ein Risiko.
-Denn wenn eine weltweit einheitliche Sorte durch ein Naturereignis ausfällt, kann die folgende Missernte nicht durch gute Erträge in anderen Ländern aufgefangen werden.
+Für Bauernhöfe ist die Abhängigkeit von wenigen Lieferanten teuer und riskant.
+Hat man sich einmal auf den Einkauf von geschütztem Saatgut festgelegt, ist die Rückkehr zur eigenen Landsorte nicht mehr möglich.
+Somit können die wenigen Anbieter die Preise diktieren.
 
-Für Bauernhöfe ist vor allem die Abhängigkeit von wenigen Lieferanten teuer und riskant.
-Hat man sich einmal auf den Einkauf von geschütztem Saatgut festgelegt, ist die Rückkehr zur eigenen Landsorte nicht mehr ohne Weiteres möglich.
+Auch für die Ernährungssicherheit besteht ein Risiko.
+Denn wenn eine weltweit einheitliche Sorte durch ein Naturereignis ausfällt, kann die folgende Missernte nicht durch gute Erträge in anderen Ländern aufgefangen werden.
 
 ## Machtkonzentration in der IT-Branche
 
