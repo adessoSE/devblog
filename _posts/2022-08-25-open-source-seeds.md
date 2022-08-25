@@ -194,10 +194,10 @@ Stattdessen verfolgt sie einen ethischen Ansatz in Form eines Versprechens, welc
 # Fazit
 
 In der EU wird der Handel mit Saatgut gesetzlich stark reguliert.
-Für Pflanzensorten ohne sogenannten landeskulturellen Wert sind Nischen vorgesehen, die den legalen Handel, jedoch keinerlei Schutz der züchterischen Leistung vorsehen.
+Für Pflanzensorten ohne landeskulturellen Wert sind Nischen vorgesehen, die den legalen Handel, jedoch keinerlei Schutz der züchterischen Leistung vorsehen.
 
 Die Open-Source-Lizenz schützt Saatgut als Gemeingut.
-Sie ist konform mit dem gültigen Zivilrecht, nur von eine Weitergabe in Nicht-EU-Länder wird abgeraten.
+Sie ist konform mit dem hier gültigen Zivilrecht, nur von einer Weitergabe in Nicht-EU-Länder wird abgeraten.
 
 Das Konzept Open Source stammt aus der IT und sollte Wissen als Gemeingut sichern.
 Schnell wurde es auf Dokumentationen und Open Hardware übertragen, um auch Baupläne oder Anleitungen dauerhaft in die Wissensallmende zu überführen.
