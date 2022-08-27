@@ -21,7 +21,7 @@ Sollte KI kreativ arbeiten können, stellt sich die Frage was für Auswirkungen 
 
 Obwohl der Begriff der Kreativität im täglichen Leben alltäglich verwendet wird, ist eine genaue Definition dieses Konzepts keine triviale Aufgabe.
 Der Begriff ist facettenreich und bietet Interpretationsspielraum.
-Das Cambridge Wörterbuch definiert Creativity als
+Das Cambridge Wörterbuch definiert Creativity als:
 
 > „the ability to produce original and unusual ideas, or to make something new or imaginative“
 
