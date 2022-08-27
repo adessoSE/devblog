@@ -49,7 +49,7 @@ KI gezeichnete Gemälde, welches in einem Aktionshaus versteigert wurde. Die KI 
 Portraits aus dem 14. bis 20. Jahrhundert trainiert, um daraufhin selbst eine Serie von elf Bildern
 mit Portraits der fiktiven Belamy-Familie zu schaffen. 
 
-![edmond_de_belamy.jpg](/assets/images/posts/existenz-und-potenzial-kreativer-KI/edmond_de_belamy.jpg)
+<img align="middle" width="800px" height="300" alt="Edmond de Belamy und ein Ausschnitt der Belamy-Familie" src="/assets/images/posts/existenz-und-potenzial-kreativer-KI/edmond_de_belamy.jpg"/>
 
 Samsung AI zeigte, dass es möglich ist ein
 Porträt in Form eines Gemäldes, so wie die Mona Lisa, in ein Video zu transformieren, in dem
@@ -64,7 +64,7 @@ Sprache beschreiben was man generieren möchte, wie z.B. „An astronaut riding 
 drawing“, und die KI schafft es ein genaues Bild von der beschriebenen Idee in dem definierten Stil zu
 zeichnen. 
 
-<img src="/assets/images/posts/existenz-und-potenzial-kreativer-KI/DALL-E-Astronaut.PNG" width="100" height="100" />
+<img align="middle" width="200px" height="200" alt="Bild gemalt von DALL-E-2" src="/assets/images/posts/existenz-und-potenzial-kreativer-KI/DALL-E-Astronaut.PNG"/>
 
 Hierbei können völlig neuartige Bilder generiert werden, die es so vorher nicht gab. Es gibt
 bereits Ansätze dies in Designprozessen zu integrieren, wie z.B. beim Design eines neuen Schuhs
