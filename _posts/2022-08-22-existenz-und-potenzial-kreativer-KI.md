@@ -19,27 +19,26 @@ Sollte KI kreativ arbeiten können, stellt sich die Frage was für Auswirkungen 
 
 # Was genau kann als kreativ bezeichnet werden?
 
-Obwohl der Begriff der Kreativität im täglichen Leben alltäglich verwendet wird, ist eine genaue
-Definition dieses Konzepts keine triviale Aufgabe. Der Begriff ist facettenreich und bietet Interpretationsspielraum. 
-Das Cambridge Wörterbuch definiert Creativity als „the ability to produce original and unusual ideas, or to make something new or imaginative“. 
+Obwohl der Begriff der Kreativität im täglichen Leben alltäglich verwendet wird, ist eine genaue Definition dieses Konzepts keine triviale Aufgabe. 
+Der Begriff ist facettenreich und bietet Interpretationsspielraum. 
+Das Cambridge Wörterbuch definiert Creativity als 
+
+> „the ability to produce original and unusual ideas, or to make something new or imaginative“
+
 Kreative Aufgaben erfordern im Allgemeinen ein gewisses Maß an originellem Denken, umfassender Erfahrung und Verständnis für das Umfeld. 
-Eine bekannte Definition stammt aus einer umfassenden Literaturstudie von Sarkar & Chakrabarti (2008) in der sie über 200 dieser Definitionen
-analysierten und schlussendlich Kreativität zusammenfassend wie folgt definierten: „Creativity occurs
-through a process by which an agent uses its ability to generate ideas, solutions or products that are
-novel and valuable“. Der allgemeine Gedanke ist, dass es sich bei Kreativität um die Fähigkeit einiger
-menschlicher Individuen handelt, etwas zu schaffen, was es vorher nicht gab. Jedoch kann man
-bei näherer Betrachtung feststellen, dass diese Schöpfungen in den meisten Fällen von Konzepten
-abstammen, die es bereits gab, oder die es bereits hätte geben können, die aber noch niemand
-explizit zu einem festen Produkt verbunden hatte. Aus diesem Konzept einer neuen Verknüpfung von
-bestehenden Konzepten, entstand Kunst wie Dalis „The Persistence of Memory“. 
+Eine bekannte Definition stammt aus einer umfassenden Literaturstudie von Sarkar & Chakrabarti (2008) in der sie über 200 dieser Definitionen analysierten und schlussendlich Kreativität zusammenfassend wie folgt definierten: 
+
+> „Creativity occurs through a process by which an agent uses its ability to generate ideas, solutions or products that are novel and valuable“. 
+
+Der allgemeine Gedanke ist, dass es sich bei Kreativität um die Fähigkeit einiger menschlicher Individuen handelt, etwas zu schaffen, was es vorher nicht gab. 
+Jedoch kann man bei näherer Betrachtung feststellen, dass diese Schöpfungen in den meisten Fällen von Konzepten abstammen, die es bereits gab, oder die es bereits hätte geben können, die aber noch niemand explizit zu einem festen Produkt verbunden hatte. 
+Aus diesem Konzept einer neuen Verknüpfung von bestehenden Konzepten, entstand Kunst wie Dalis „The Persistence of Memory“. 
 Uhren wurden auch zuvor bereits gemalt und jeder kannte das Konzept des Schmelzens, aber niemand hat diese Konzepte zuvor verknüpft wie Dali es tat.
 In der Historie gab es viele unterschiedliche Faktoren, die als Indikatoren für Kreativität genutzt wurden. 
-Sarkar & Chakrabarti (2008) fassten diese in zwei Hauptkategorien zusammen: novely
-(Ungewöhnlichkeit, Unerwartetheit, Überraschung) und value (Nützlichkeit, Qualität, Sinnhaftigkeit).
-Novelty wird für gewöhnlich als die definierende Eigenschaft eines kreativen Artefaktes genannt,
-aber der value ist ebenso nötig und wichtig. Es ist leicht, an etwas zu denken, das noch nie zuvor
-entworfen wurde, wie ein Auto mit fünfzehn Rädern. Während ein solches Auto zwar neuartig wäre,
-also durchaus eine hohe novelty hätte, fehlt es diesem kreativen Artefakt an value.
+Sarkar & Chakrabarti (2008) fassten diese in zwei Hauptkategorien zusammen: novely (Ungewöhnlichkeit, Unerwartetheit, Überraschung) und value (Nützlichkeit, Qualität, Sinnhaftigkeit).
+Novelty wird für gewöhnlich als die definierende Eigenschaft eines kreativen Artefaktes genannt, aber der value ist ebenso nötig und wichtig. 
+Es ist leicht, an etwas zu denken, das noch nie zuvor entworfen wurde, wie ein Auto mit fünfzehn Rädern. 
+Während ein solches Auto zwar neuartig wäre, also durchaus eine hohe novelty hätte, fehlt es diesem kreativen Artefakt an value.
 
 # Wie weit ist die Technik?
 
@@ -73,16 +72,15 @@ zeichnen.
 Hierbei können völlig neuartige Bilder generiert werden, die es so vorher nicht gab. Es gibt
 bereits Ansätze dies in Designprozessen zu integrieren, wie z.B. beim Design eines neuen Schuhs
 bestimmte Kombinationsideen einfach in natürlicher Sprache auszudrücken, statt sie erst langwierig
-selbst skizzieren zu müssen. Ein Beispiel könnte sein: „Minimalist Nike Vapor Max, designed by
-Karim Rashid, light purple and baby blue color scheme, translucent“. Direkt bekommt man mehrere
-mögliche Designs dieses Stils angezeigt und kann seine Idee unmittelbar evaluieren, abändern oder
+selbst skizzieren zu müssen. In folgener Abbildung ist dargestellt wie eine Designbeschreibung in natürlicher Sprache aussehen könnte. 
+Direkt bekommt man mehrere mögliche Designs des beschriebenen Stils angezeigt und kann seine Idee unmittelbar evaluieren, abändern oder
 weiterentwickeln. Dies kann langwierige Schritte beschleunigen, die sonst den kreativen
 Prozess eher aufhalten. 
 
 ![DALL-E-Nike.PNG](/assets/images/posts/existenz-und-potenzial-kreativer-KI/DALL-E-Nike.PNG)
 
 Eine weitere KI, die beeindruckende kreative Artefakte generiert, kann auf der
-Webseite „www.this-person-does-not-exist.com“ beobachtet werden. Dort werden realistische Fotos
+Webseite www.this-person-does-not-exist.com beobachtet werden. Dort werden realistische Fotos
 von Personen generiert, die gar nicht existieren.
 
 
@@ -147,12 +145,15 @@ erlernen nicht nur mentale, sondern auch physische Fähigkeiten, die sie zum kre
 nutzen. Eine KI, die Kunst kreiert hat nie den Druck eines Pinsels gegen das Papier gefühlt und kann die Dynamik
 nicht so erfassen, wie das menschliche kognitive System es tut. Dies sind
 Erfahrungen, die die KI zum aktuellen Zeitpunkt im kreativen Prozess nicht mit einbeziehen kann.
+
 Außerdem ist zu erwähnen, dass KI zwar wertvolle Kunstwerke erzeugen kann, teilweise aber auch solche resultieren, die
 entweder nicht neuartig sind, oder vom Menschen als sinnlos angesehen werden.
+
 Wallas (1926) unterteilte den kreativen Prozess in folgende Phasen: preparation (Informationsgewinnung), definition (Problemfindung), incubation (über Ideen nachdenken), illumination (Präsentation
 einer Lösung) und verification (Testen der Qualität einer Lösung). Die
 Fähigkeiten von KI beschränken sich aktuell auf die Prozessschritte preparation und incubation. Die restlichen
 Schritte benötigen weiterhin mindestens teilweise ein menschliches Eingreifen.
+
 Aktuell basieren die effektivsten KI-Systeme noch auf überwachtem Lernen, bei dem es bereits
 Daten gibt, die der Wahrheit entsprechend durch Menschen beschriftet wurden. Der Lernprozess
 besteht dabei daraus, einen durchschnittlichen Fehler bzw. Verlust über die bekannten Beispiele zu
@@ -163,6 +164,7 @@ Außerdem gibt es bei echten kreativen Prozessen normalerweise keine vordefinier
 Trends folgen und auf Publikumsvorlieben beruhen, gibt es keine vollständig autonome, quantitative
 Möglichkeit die Qualität eines kreativen Artefakts zu messen.
 Auch hier wird daher menschliches Eingreifen vorausgesetzt.
+
 Eine weitere, zunächst offensichtlich erscheinende Beobachtung künstlicher Kreativität ist, dass sie
 kreative Artefakte aus einer rationalen, statt aus einer kreativen Absicht erzeugt. Es gibt Stimmen, die
 besagen, dass jegliche Kunstwerke ein Ausdruck menschlicher Erfahrungen sind und auch nur zu
@@ -195,13 +197,15 @@ abzunehmen, die zeitaufwendig sind. Es wurde bereits das Beispiel von DALL-E 2 g
 ihrer Ideen aufbringen müssen und mehr Zeit mit der Weiterentwicklung ihrer Gedankengänge
 verbringen können. Oder auch in den Arbeitsläufen der Postproduktion wird KI verstärkt zum Einsatz
 kommen, unter anderem in Form von verbesserten Tools für die Rauschunterdrückung, Kolorierung,
-Segmentierung, Rendering und Tracking. Eine Umfrage
-von Adobe (2018) zeigte, dass drei Viertel der befragten Künstler sich vorstellen können KI als
+Segmentierung, Rendering und Tracking. 
+
+Eine Umfrage von Adobe (2018) zeigte, dass drei Viertel der befragten Künstler sich vorstellen können KI als
 unterstützendes Werkzeug zu nutzen. Der kreative Prozess im Zusammenhang mit KI kann an sich
 auch als neuartige Kunstform gesehen werden. Betrachtet man den Prozess und nicht nur die daraus
 resultierenden Bilder, so fällt diese Form in die Kategorie der Konzeptkunst, da der Künstler die
 Möglichkeit hat, wie beim Design mit DALL-E 2, in der Rolle des Kuratierens und Optimierens zu
-handeln. In Zukunft wird es immer mehr konzeptionelle Arbeiten geben, da immer mehr Künstler
+handeln. 
+In Zukunft wird es immer mehr konzeptionelle Arbeiten geben, da immer mehr Künstler
 KI-Werkzeuge adaptieren und lernen, wie sie den kreativen Prozess der KI-Kunst beeinflussen
 können. 
 
