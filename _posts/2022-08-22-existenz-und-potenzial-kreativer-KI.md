@@ -126,12 +126,13 @@ die in den letzten Jahren im Bereich der künstlichen Kreativität gemacht wurde
 Betrachtet man die kreative KI als ein Medium, so werden die von diesem Medium produzierten
 Artefakte Teil der menschlichen Kultur, indem sie der Gesellschaft zur Wertschätzung ausgestellt
 werden. Demnach ist der Prozess zur Herstellung eines solchen KI-Systems, welches künstlerische Artefakte
-erzeugt, an sich bereits eine soziokulturell kreative und wertvolle Tätigkeit. Um zu evaluieren, ob
-das erzeugte Medium eines KI-Systems an sich auch kreativ sein kann, muss das Potenzial und die
+erzeugt, an sich bereits eine soziokulturell kreative und wertvolle Tätigkeit. 
+
+Um zu evaluieren, ob das erzeugte Medium eines KI-Systems an sich auch kreativ sein kann, muss das Potenzial und die
 tatsächliche Kreativität bereits produzierter künstlicher kreativer Artefakte, bewertet werden. Die Frage
 nach der Bewertung von Kreativität ist eine der umstrittensten und kompliziertesten Herausforderungen
 in diesem Bereich. Es ist schwer, Kreativität auf quantitativer Weise zu messen. 
-Um die wichtigsten Erkenntnisse kurz zusammen zu fassen, kann gesagt werden, dass kreative KI-Systeme viele kreative Eigenschaften erfüllen.
+Um die wichtigsten Erkenntnisse der Wissenschaft kurz zusammen zu fassen, kann gesagt werden, dass kreative KI-Systeme viele kreative Eigenschaften besitzen.
 Sie können neue, noch nicht dargewesene kreative Artefakte erzeugen, die sowohl neuartig als auch wertvoll sind und somit als kreativ bezeichnet werden können.
 Wo sie sich aber noch schwer tun ist bspw. bei transformationaler Kreativität (das bedeutet völlig neuartige und den bisherigen Konzeptraum gänzlich verlassene Ideen).
 Die von KI erzeugten Variationen, bewegen sich noch in einem begrenzten Rahmen. Dieser Rahmen wird durch die Wahl des Modells und des Datensatzes bestimmt und unterliegt einer
@@ -146,9 +147,7 @@ erlernen nicht nur mentale, sondern auch physische Fähigkeiten, die sie zum kre
 nutzen. Eine KI, die Kunst kreiert hat nie den Druck eines Pinsels gegen das Papier gefühlt und kann die Dynamik
 nicht so erfassen, wie das menschliche kognitive System es tut. Dies sind
 Erfahrungen, die die KI zum aktuellen Zeitpunkt im kreativen Prozess nicht mit einbeziehen kann.
-Es wurde bereits dargelegt, dass KI in der Lage sein kann, künstliche Artefakte zu erzeugen, die
-sowohl neuartig als auch wertvoll sind. Hierbei ist allerdings zu erwähnen, dass dies nicht vollständig
-konsistent möglich ist. Teilweise resultieren wertvolle Kunstwerke, teilweise aber auch solche die
+Außerdem ist zu erwähnen, dass KI zwar wertvolle Kunstwerke erzeugen kann, teilweise aber auch solche resultieren, die
 entweder nicht neuartig sind, oder vom Menschen als sinnlos angesehen werden.
 Wallas (1926) unterteilte den kreativen Prozess in folgende Phasen: preparation (Informationsgewinnung), definition (Problemfindung), incubation (über Ideen nachdenken), illumination (Präsentation
 einer Lösung) und verification (Testen der Qualität einer Lösung). Die
@@ -160,15 +159,10 @@ besteht dabei daraus, einen durchschnittlichen Fehler bzw. Verlust über die bek
 berechnen und Anpassungen so zu treffen, dass dieser Verlust minimiert wird. Dabei werden ungewöhnlichen Beispielen (Ausreißer) häufig geringe Auswirkungen zugeschrieben, um eine Verzerrung
 des globalen Fehlers zu vermeiden. Konträr dazu steht allerdings das Ziel im kreativen Prozess novelty
 zu generieren, wenn solch ungewöhnlichen Datenpunkten geringe Gewichtung zugeschrieben wird. 
-Außerdem gibt es bei echten kreativen Prozessen normalerweise keine
-vordefinierten Ergebnisse, die so einfach eingestuft werden können. Auch wenn viele Werke aktuellen
+Außerdem gibt es bei echten kreativen Prozessen normalerweise keine vordefinierten Ergebnisse, die so einfach eingestuft werden können. Auch wenn viele Werke aktuellen
 Trends folgen und auf Publikumsvorlieben beruhen, gibt es keine vollständig autonome, quantitative
 Möglichkeit die Qualität eines kreativen Artefakts zu messen.
 Auch hier wird daher menschliches Eingreifen vorausgesetzt.
-Dieser Gedanke wird in Ansätzen des Verstärkungslernens adressiert, wo es keine menschlich
-vorbeschrifteten Ergebnisse geben muss. Hierbei werden Agenten so definiert, dass sie Räume
-von Möglichkeiten selbst erkunden. Diese erfordern jedoch auch die Definition von Belohnungs- bzw. Erfolgsfunktionen, die im kreativen Bereich immer noch komplex zu definieren sind, da sie von
-Aspekten der Wahrnehmung oder des Kontexts abhängig sind.
 Eine weitere, zunächst offensichtlich erscheinende Beobachtung künstlicher Kreativität ist, dass sie
 kreative Artefakte aus einer rationalen, statt aus einer kreativen Absicht erzeugt. Es gibt Stimmen, die
 besagen, dass jegliche Kunstwerke ein Ausdruck menschlicher Erfahrungen sind und auch nur zu
@@ -182,8 +176,7 @@ wie eine Maschine selbstständig Kreativität messen bzw. evaluieren kann. Es ko
 werden, dass an vielen Stellen menschliches Eingreifen nötig ist. Da KI-Systeme von menschlichen
 Programmierern initialisiert werden und mit menschlich programmierten Algorithmen arbeiten, sind
 KI-Systeme immer mindestens zu einem geringen Teil abhängig vom Menschen. 
-Wie Coeckelbergh (2017) sagt, wäre es falsch, Maschine und Mensch als unverbundene
-Konzepte zu betrachten, weswegen die Frage, ob Maschinen Kunst schaffen können, an sich bereits
+Es wäre falsch, Maschine und Mensch als unverbundene Konzepte zu betrachten, weswegen die Frage, ob Maschinen Kunst schaffen können, an sich bereits
 als irreführend angesehen werden kann. Es sollte eher nach der Rolle von KI im kreativen Prozess
 gefragt werden. Einerseits scheint eine ganze Reihe von Forschungsarbeiten dem Einsatz von KI
 als autarke Generatoren gewidmet zu sein, die versuchen mit wenig Input des Benutzers, ganze
@@ -197,11 +190,8 @@ ist oft ein Ausdruck der individuellen Psyche, Emotion oder Erfahrung. Eine KI k
 Lebenserfahrung sammeln oder die gleichen Emotionen haben. In der Kombination einer Partnerschaft
 mit dem Menschen, kann KI jedoch diejenigen des Künstlers wirkungsvoll zum Ausdruck bringen. Sie
 hat das Potenzial noch viel mehr als ein einfaches Werkzeug zu sein und könnte den Kreativsektor
-gänzlich revolutionieren (Mazzone & Elgammal, 2019, S. 7–8). Mit KI hat man ein weiterentwickeltes
-Werkzeug oder eher ein Medium, welches erstmals auch in der Lage ist zu lernen und sich anzupassen. 
-KI kann erfolgreich eingesetzt werden, um dem Künstler Aufgaben
-abzunehmen, die für Menschen zu schwierig oder zu zeitaufwendig sind, wie z.B. das Durchsuchen
-einer großen Datenbank und die Untersuchung der Daten um Muster zu finden. Es wurde bereits das Beispiel von DALL-E 2 genannt, in dem Designer weniger Zeit für das Skizzieren
+gänzlich revolutionieren. Mit KI hat man ein weiterentwickeltes Werkzeug welches erfolgreich eingesetzt werden kann, um dem Künstler Aufgaben
+abzunehmen, die zeitaufwendig sind. Es wurde bereits das Beispiel von DALL-E 2 genannt, in dem Designer weniger Zeit für das Skizzieren
 ihrer Ideen aufbringen müssen und mehr Zeit mit der Weiterentwicklung ihrer Gedankengänge
 verbringen können. Oder auch in den Arbeitsläufen der Postproduktion wird KI verstärkt zum Einsatz
 kommen, unter anderem in Form von verbesserten Tools für die Rauschunterdrückung, Kolorierung,
