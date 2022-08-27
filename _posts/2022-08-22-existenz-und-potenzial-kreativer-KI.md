@@ -62,7 +62,11 @@ Januar 2022 DALL-E 2 veröffentlichten. Diese generiert nach eigener Aussage „
 art from a description in natural language“. Hierbei kann man in einfacher menschlicher
 Sprache beschreiben was man generieren möchte, wie z.B. „An astronaut riding a horse as a pencil
 drawing“, und die KI schafft es ein genaues Bild von der beschriebenen Idee in dem definierten Stil zu
-zeichnen. Hierbei können völlig neuartige Bilder generiert werden, die es so vorher nicht gab. Es gibt
+zeichnen. 
+
+![DALL-E-Astronaut.png](/assets/images/posts/existenz-und-potenzial-kreativer-KI/DALL-E-Astronaut.png)
+
+Hierbei können völlig neuartige Bilder generiert werden, die es so vorher nicht gab. Es gibt
 bereits Ansätze dies in Designprozessen zu integrieren, wie z.B. beim Design eines neuen Schuhs
 bestimmte Kombinationsideen einfach in natürlicher Sprache auszudrücken, statt sie erst langwierig
 selbst skizzieren zu müssen. Ein Beispiel könnte sein: „Minimalist Nike Vapor Max, designed by
@@ -70,9 +74,14 @@ Karim Rashid, light purple and baby blue color scheme, translucent“. Direkt be
 mögliche Designs dieses Stils angezeigt und kann seine Idee unmittelbar evaluieren, abändern oder
 weiterentwickeln. Dies kann langwierige Schritte beschleunigen, die sonst den kreativen
 Prozess eher aufhalten. 
+
+![DALL-E-Nike.png](/assets/images/posts/existenz-und-potenzial-kreativer-KI/DALL-E-Nike.png)
+
 Eine weitere KI, die beeindruckende kreative Artefakte generiert, kann auf der
 Webseite „www.this-person-does-not-exist.com“ beobachtet werden. Dort werden realistische Fotos
 von Personen generiert, die gar nicht existieren.
+
+
 Neben dem Bereich der Bildgenerierung, konnte KI auch in anderen kreativen Bereichen Fortschritte
 verzeichnen. Beispielsweise wurde KI auch schon genutzt um Geschichten zu schreiben. So wurde
 das gesamte Skript eines Kurzfilms namens Sunspring von einer KI geschrieben. Im Jahr 2016
@@ -82,6 +91,8 @@ Eine Firma namens Botnik entwickelte eine KI welche Texte von existierenden Büc
 und daraufhin neue Kapitel schreiben kann. So hat das Team von Botnik alle Harry Potter Bücher in
 den Algorithmus gespeist und die KI hat unter anderem abstruse Sätze wie folgenden generiert: „Ron
 was standing there and doing a kind of frenzied tap dance. He saw Harry and immediately began to eat Hermione’s family".
+
+
 Im Bereich der musikalischen Kreativität wird häufig das Album „Hello World“ genannt. Hierbei
 handelt es sich um ein ganzes Album, welches nur von einer KI komponiert wurde. 
 Zuvor, im Jahr 2016, hatte das gleiche Team bereits einen Song im Stil der Beatles
@@ -90,16 +101,21 @@ an Musik von den weltweit größten Komponisten wie Mozart, Beethoven oder Bach,
 eigenes Stück komponieren konnte, das teilweise auf ähnlichem Niveau überzeugen konnte (Dahlstedt,
 2021, S. 186–187). Es wurde auch ein Album von AIVAs Musik veröffentlicht, dessen Stücke bereits in
 Filmen und von Werbeagenturen verwendet werden.
+
+
 Im Bereich des Journalismus ist KI bereits angekommen. Die Zeitschrift Forbes nutzt ein KI basiertes
 Content-Management-System namens Bertie, das Reportern die ersten Entwürfe und Vorlagen für
 Nachrichten generiert.
+
+
 Auch im Produktdesign wird KI bereits als Teil des kreativen Generationsprozesses eingesetzt. Es
 gibt Möbel, Fahrräder oder auch Drohnen, die von einer KI gestaltet wurden. Airbus verwendete
 ein generatives KI-Design, um eine Trennwand für Flugkabinen zu gestalten und konnte damit die
 Effizienz bedeutend verbessern.
+
+
 Die erwähnten Innovationen sind nur ein kleiner Ausschnitt der tatsächlichen Menge an Fortschritten,
-die in den letzten Jahren im Bereich der künstlichen Kreativität gemacht wurden. Dennoch kann dies
-einen guten Einblick in den generellen Stand der Technik geben.
+die in den letzten Jahren im Bereich der künstlichen Kreativität gemacht wurden. Die Tendenz an verbesserten Innovationen ist steigend.
 
 # Kann das tatsächlich auch kreativ genannt werden?
 
@@ -181,8 +197,7 @@ gänzlich revolutionieren (Mazzone & Elgammal, 2019, S. 7–8). Mit KI hat man e
 Werkzeug oder eher ein Medium, welches erstmals auch in der Lage ist zu lernen und sich anzupassen. 
 KI kann erfolgreich eingesetzt werden, um dem Künstler Aufgaben
 abzunehmen, die für Menschen zu schwierig oder zu zeitaufwendig sind, wie z.B. das Durchsuchen
-einer großen Datenbank und die Untersuchung der Daten um Muster zu finden. Es wurde bereits
-in Kapitel 3.1 das Beispiel von DALL-E 2 genannt, in dem Designer weniger Zeit für das Skizzieren
+einer großen Datenbank und die Untersuchung der Daten um Muster zu finden. Es wurde bereits das Beispiel von DALL-E 2 genannt, in dem Designer weniger Zeit für das Skizzieren
 ihrer Ideen aufbringen müssen und mehr Zeit mit der Weiterentwicklung ihrer Gedankengänge
 verbringen können. Oder auch in den Arbeitsläufen der Postproduktion wird KI verstärkt zum Einsatz
 kommen, unter anderem in Form von verbesserten Tools für die Rauschunterdrückung, Kolorierung,
