@@ -64,7 +64,7 @@ Sprache beschreiben was man generieren möchte, wie z.B. „An astronaut riding 
 drawing“, und die KI schafft es ein genaues Bild von der beschriebenen Idee in dem definierten Stil zu
 zeichnen. 
 
-![DALL-E-Astronaut.PNG](/assets/images/posts/existenz-und-potenzial-kreativer-KI/DALL-E-Astronaut.PNG =100x20)
+<img src="/assets/images/posts/existenz-und-potenzial-kreativer-KI/DALL-E-Astronaut.PNG" width="100" height="100" />
 
 Hierbei können völlig neuartige Bilder generiert werden, die es so vorher nicht gab. Es gibt
 bereits Ansätze dies in Designprozessen zu integrieren, wie z.B. beim Design eines neuen Schuhs
