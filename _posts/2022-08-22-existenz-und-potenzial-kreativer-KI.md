@@ -10,7 +10,7 @@ tags: [Kreativität, Künstliche Intelligenz, Künstliche Kreativität] # Bitte 
 
 Künstliche Intelligenz genoss in den letzten Jahren einen immer noch anhaltenden Aufschwung an Popularität. 
 Es werden immer mehr neuartige KI-Technologien entwickelt und angewandt.
-Dennoch bewegt sie sich weiterhin eher im Umfeld von sehr rationalen und aufgaben- bzw. bereichsspezifischen Anwendungsfällen. 
+Dennoch bewegt sie sich weiterhin primär im Umfeld von sehr rationalen und aufgaben- bzw. bereichsspezifischen Anwendungsfällen. 
 Es wird oft gesagt, dass das, was uns als Mensch einzigartig macht, unsere Fähigkeit ist, große Kreationen in Kunst und Wissenschaft zu schaffen: kurz gesagt, unsere Kreativität. 
 Dabei handelt es sich um eine Eigenschaft, für die man über bestehende Grenzen hinaus gehen muss, um etwas neuartiges zu schaffen, damit es als kreativ bezeichnet werden kann. 
 Nun stellt sich die Frage, ob dies eine Eigenschaft ist, die sich auch KI aneignen kann, oder ob Kreativität eine Grenze von KI darstellt, die uns Menschen vorbehalten ist. 
@@ -23,8 +23,7 @@ Obwohl der Begriff der Kreativität im täglichen Leben alltäglich verwendet wi
 Definition dieses Konzepts keine triviale Aufgabe. Der Begriff ist facettenreich und bietet Interpretationsspielraum. 
 Das Cambridge Wörterbuch definiert Creativity als „the ability to produce original and unusual ideas, or to make something new or imaginative“. 
 Kreative Aufgaben erfordern im Allgemeinen ein gewisses Maß an originellem Denken, umfassender Erfahrung und Verständnis für das Umfeld. 
-In der Literatur können unzählige Definitionen von Kreativität gefunden werden. Eine bekannte Definition stammt aus einer
-umfassenden Literaturstudie von Sarkar & Chakrabarti (2008) in der sie über 200 dieser Definitionen
+Eine bekannte Definition stammt aus einer umfassenden Literaturstudie von Sarkar & Chakrabarti (2008) in der sie über 200 dieser Definitionen
 analysierten und schlussendlich Kreativität zusammenfassend wie folgt definierten: „Creativity occurs
 through a process by which an agent uses its ability to generate ideas, solutions or products that are
 novel and valuable“. Der allgemeine Gedanke ist, dass es sich bei Kreativität um die Fähigkeit einiger
@@ -34,8 +33,8 @@ abstammen, die es bereits gab, oder die es bereits hätte geben können, die abe
 explizit zu einem festen Produkt verbunden hatte. Aus diesem Konzept einer neuen Verknüpfung von
 bestehenden Konzepten, entstand Kunst wie Dalis „The Persistence of Memory“. 
 Uhren wurden auch zuvor bereits gemalt und jeder kannte das Konzept des Schmelzens, aber niemand hat diese Konzepte zuvor verknüpft wie Dali es tat.
-In der Historie gab es viele unterschiedliche Faktoren, die als Indikatoren für Kreativität genutzt
-wurden. Sarkar & Chakrabarti (2008) fassten diese in zwei Hauptkategorien zusammen: novely
+In der Historie gab es viele unterschiedliche Faktoren, die als Indikatoren für Kreativität genutzt wurden. 
+Sarkar & Chakrabarti (2008) fassten diese in zwei Hauptkategorien zusammen: novely
 (Ungewöhnlichkeit, Unerwartetheit, Überraschung) und value (Nützlichkeit, Qualität, Sinnhaftigkeit).
 Novelty wird für gewöhnlich als die definierende Eigenschaft eines kreativen Artefaktes genannt,
 aber der value ist ebenso nötig und wichtig. Es ist leicht, an etwas zu denken, das noch nie zuvor
@@ -48,7 +47,11 @@ Das wohl bekannteste Beispiel kreativer KI ist das Gemälde „Edmond de Belamy�
 2018 für 432.500 Doller versteigert wurde. Damit war es das erste von einer
 KI gezeichnete Gemälde, welches in einem Aktionshaus versteigert wurde. Die KI wurde dabei mit
 Portraits aus dem 14. bis 20. Jahrhundert trainiert, um daraufhin selbst eine Serie von elf Bildern
-mit Portraits der fiktiven Belamy-Familie zu schaffen. Samsung AI zeigte, dass es möglich ist ein
+mit Portraits der fiktiven Belamy-Familie zu schaffen. 
+
+![edmond_de_belamy.jpg](/assets/images/posts/existenz-und-potenzial-kreativer-KI/edmond_de_belamy.jpg)
+
+Samsung AI zeigte, dass es möglich ist ein
 Porträt in Form eines Gemäldes, so wie die Mona Lisa, in ein Video zu transformieren, in dem
 das Gesicht des Portraits in einem gewünschten Stil sprechen kann. Eine
 andere Form von KI innerhalb der Kunst sind Algorithmen, die neue Bilder auf Grundlage einiger
@@ -85,7 +88,7 @@ Zuvor, im Jahr 2016, hatte das gleiche Team bereits einen Song im Stil der Beatl
 veröffentlicht. AIVA erlernte die Kunst der Musik durch das Lesen eines großen Datensatzes
 an Musik von den weltweit größten Komponisten wie Mozart, Beethoven oder Bach, wodurch sie ein
 eigenes Stück komponieren konnte, das teilweise auf ähnlichem Niveau überzeugen konnte (Dahlstedt,
-2021, S. 186–187). Es wurde auch ein Album von Aivas Musik veröffentlicht, dessen Stücke bereits in
+2021, S. 186–187). Es wurde auch ein Album von AIVAs Musik veröffentlicht, dessen Stücke bereits in
 Filmen und von Werbeagenturen verwendet werden.
 Im Bereich des Journalismus ist KI bereits angekommen. Die Zeitschrift Forbes nutzt ein KI basiertes
 Content-Management-System namens Bertie, das Reportern die ersten Entwürfe und Vorlagen für
@@ -102,24 +105,25 @@ einen guten Einblick in den generellen Stand der Technik geben.
 
 Betrachtet man die kreative KI als ein Medium, so werden die von diesem Medium produzierten
 Artefakte Teil der menschlichen Kultur, indem sie der Gesellschaft zur Wertschätzung ausgestellt
-werden. Demnach ist die Herstellung eines solchen KI-Systems, welches künstlerische Artefakte
+werden. Demnach ist der Prozess zur Herstellung eines solchen KI-Systems, welches künstlerische Artefakte
 erzeugt, an sich bereits eine soziokulturell kreative und wertvolle Tätigkeit. Um zu evaluieren, ob
 das erzeugte Medium eines KI-Systems an sich auch kreativ sein kann, muss das Potenzial und die
 tatsächliche Kreativität bereits produzierter künstlicher kreativer Artefakte, bewertet werden. Die Frage
 nach der Bewertung von Kreativität ist eine der umstrittensten und kompliziertesten Herausforderungen
-in diesem Bereich. Es ist schwer, Kreativität auf quantitativer Weise zu
-messen. In der Literatur werden viele unterschiedliche Unterteilungen kreativer Eigenschaften genutzt,
-um den Grad an Kreativität zu messen. In diesem Kapitel werden die wichtigsten Unterscheidungen
-herangezogen, um zu prüfen, ob eine KI vollständig kreativ sein kann.
+in diesem Bereich. Es ist schwer, Kreativität auf quantitativer Weise zu messen. 
+Um die wichtigsten Erkenntnisse kurz zusammen zu fassen, kann gesagt werden, dass kreative KI-Systeme viele kreative Eigenschaften erfüllen.
+Sie können neue, noch nicht dargewesene kreative Artefakte erzeugen, die sowohl neuartig als auch wertvoll sind und somit als kreativ bezeichnet werden können.
+Wo sie sich aber noch schwer tun ist bspw. bei transformationaler Kreativität (das bedeutet völlig neuartige und den bisherigen Konzeptraum gänzlich verlassene Ideen).
+Die von KI erzeugten Variationen, bewegen sich noch in einem begrenzten Rahmen. Dieser Rahmen wird durch die Wahl des Modells und des Datensatzes bestimmt und unterliegt einer
+inhärenten Einschränkung.
+Auch beherrscht KI noch nicht alle kreativen Eigenschaften, die wir Menschen in kreativen Prozessen nutzen, wie z.B. das Konzept der Abstraktion.
 
 # Was sind die Grenzen künstlicher Kreativität?
 
-Im vorherigen Kapitel wurde evaluiert, welche kreativen Eigenschaften KI erfüllen kann und welche
-nicht. Nun soll eine Betrachtung der allgemeinen Grenzen künstlicher Kreativität erfolgen.
-Kreative künstliche Intelligenzen wie Aaron, kommen der menschlichen Kreativität teilweise sehr nah.
+Kreative künstliche Intelligenzen kommen der menschlichen Kreativität teilweise sehr nah.
 Was sie jedoch fundamental vom Menschen unterscheidet, sind die physischen Aspekte. Menschen
 erlernen nicht nur mentale, sondern auch physische Fähigkeiten, die sie zum kreativen Arbeiten
-nutzen. Aaron hat nie den Druck eines Pinsels gegen das Papier gefühlt und kann die Dynamik
+nutzen. Eine KI, die Kunst kreiert hat nie den Druck eines Pinsels gegen das Papier gefühlt und kann die Dynamik
 nicht so erfassen, wie das menschliche kognitive System es tut. Dies sind
 Erfahrungen, die die KI zum aktuellen Zeitpunkt im kreativen Prozess nicht mit einbeziehen kann.
 Es wurde bereits dargelegt, dass KI in der Lage sein kann, künstliche Artefakte zu erzeugen, die
@@ -127,9 +131,8 @@ sowohl neuartig als auch wertvoll sind. Hierbei ist allerdings zu erwähnen, das
 konsistent möglich ist. Teilweise resultieren wertvolle Kunstwerke, teilweise aber auch solche die
 entweder nicht neuartig sind, oder vom Menschen als sinnlos angesehen werden.
 Wallas (1926) unterteilte den kreativen Prozess in folgende Phasen: preparation (Informationsgewinnung), definition (Problemfindung), incubation (über Ideen nachdenken), illumination (Präsentation
-einer Lösung) und verification (Testen der Qualität einer Lösung). Blickt man auf die Argumentation
-der Evaluation kreativer Eigenschaften in Kapitel 3.2 zurück, kann man feststellen, dass sich die
-Fähigkeiten von KI auf die Prozessschritte preparation und incubation beschränken. Die restlichen
+einer Lösung) und verification (Testen der Qualität einer Lösung). Die
+Fähigkeiten von KI beschränken sich aktuell auf die Prozessschritte preparation und incubation. Die restlichen
 Schritte benötigen weiterhin mindestens teilweise ein menschliches Eingreifen.
 Aktuell basieren die effektivsten KI-Systeme noch auf überwachtem Lernen, bei dem es bereits
 Daten gibt, die der Wahrheit entsprechend durch Menschen beschriftet wurden. Der Lernprozess
