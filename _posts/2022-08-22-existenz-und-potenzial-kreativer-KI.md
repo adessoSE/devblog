@@ -64,7 +64,7 @@ Sprache beschreiben was man generieren möchte, wie z.B. „An astronaut riding 
 drawing“, und die KI schafft es ein genaues Bild von der beschriebenen Idee in dem definierten Stil zu
 zeichnen. 
 
-![DALL-E-Astronaut.png](/assets/images/posts/existenz-und-potenzial-kreativer-KI/DALL-E-Astronaut.png)
+![DALL-E-Astronaut.PNG](/assets/images/posts/existenz-und-potenzial-kreativer-KI/DALL-E-Astronaut.PNG)
 
 Hierbei können völlig neuartige Bilder generiert werden, die es so vorher nicht gab. Es gibt
 bereits Ansätze dies in Designprozessen zu integrieren, wie z.B. beim Design eines neuen Schuhs
@@ -75,7 +75,7 @@ mögliche Designs dieses Stils angezeigt und kann seine Idee unmittelbar evaluie
 weiterentwickeln. Dies kann langwierige Schritte beschleunigen, die sonst den kreativen
 Prozess eher aufhalten. 
 
-![DALL-E-Nike.png](/assets/images/posts/existenz-und-potenzial-kreativer-KI/DALL-E-Nike.png)
+![DALL-E-Nike.PNG](/assets/images/posts/existenz-und-potenzial-kreativer-KI/DALL-E-Nike.PNG)
 
 Eine weitere KI, die beeindruckende kreative Artefakte generiert, kann auf der
 Webseite „www.this-person-does-not-exist.com“ beobachtet werden. Dort werden realistische Fotos
