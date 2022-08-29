@@ -10,7 +10,7 @@ tags: [Recht,Lizenzen,Open Source] # Bitte auf Großschreibung achten.
 
 Open-Source-Lizenzen sind aus der Softwarebranche nicht wegzudenken.
 Bei genetischem Code sieht es anders aus.
-Pflanzensorten sind entweder proprietär oder Public Domain.
+Pflanzensorten sind entweder proprietär oder gehören der Public Domain.
 Ein neuer Ansatz überträgt die Konzepte von quelloffener Software auf die Pflanzenzucht.
 
 # Sorten und Versionen
@@ -96,8 +96,7 @@ Der Bitzüchter Oracle entdeckt das Nischenprodukt und baut die meisten Features
 Im Jahr 1996 wird Oracle NT 1 zugelassen und unter Sortenschutz vertrieben.
 
 Sicher würden Sie als Developer da ähnlich toben wie das Team hinter Libre Office, dem jegliche Marktzulassung verweigert wurde, weil ihr Produkt sich nicht deutlich genug von Open Office unterscheidet.
-Aber Spaß beiseite!
-Bisher gibt es keinen rechtlich sicheren Weg, die eigene züchterische Leistung vor der Kommerzialisierung durch internationale Agrarkonzerne zu schützen.
+Aber Spaß beiseite, bisher gibt es keinen rechtlich sicheren Weg, die eigene züchterische Leistung vor der Kommerzialisierung durch internationale Agrarkonzerne zu schützen.
 
 # Wo ist das Problem?
 
@@ -127,7 +126,7 @@ Denn wenn eine weltweit einheitliche Sorte durch ein Naturereignis ausfällt, ka
 ## Machtkonzentration in der IT-Branche
 
 Ältere IT-Leute erinnern sich noch an den Kampf der Betriebssysteme.
-Auf der einen Seite stand Microsoft für Windows und die proprietäre, in Lizenz vertriebene Software.
+Auf der einen Seite stand Microsoft für Windows und die proprietäre, via Lizenz vertriebene Software.
 Auf der anderen Seite kämpfte die Open-Source-Szene um Akzeptanz.
 Copyright und Copyleft schienen damals unvereinbare Gegensätze zu sein.
 
@@ -166,7 +165,7 @@ Sie dürfen ohne Mengenbeschränkung in Verkehr gebracht werden.
 
 Bemerkenswert ist, dass viele Open-Source-Sorten in Bildung und Forschung entstanden sind.
 So wurde der Weizen "Equality" am Fachgebiet Ökologischer Pflanzenschutz der Universität Kassel gezüchtet.
-Diverse Tomatensorten stammen aus dem ökologischen Freiland-Tomatenprojekt der Universität Göttingen.
+Diverse Tomatensorten stammen aus dem [Ökologischen Freiland-Tomatenprojekt](https://www.uni-goettingen.de/de/das+%C3%B6kologische+freiland-tomatenprojekt/571805.html) der Universität Göttingen.
 Offenbar handelt es sich um einen neuen Weg, Forschungsergebnisse der Menschheit zugänglich zu machen, ohne sie zum Spekulationsobjekt privater Unternehmen zu machen.
 
 Andere Open-Source-Sorten wurden von Kleinbetrieben und Landbauschulen entwickelt, die sie auch selbst kommerziell vertreiben.
@@ -202,4 +201,4 @@ Sie ist konform mit dem hier gültigen Zivilrecht, nur von einer Weitergabe in N
 Das Konzept Open Source stammt aus der IT und sollte Wissen als Gemeingut sichern.
 Schnell wurde es auf Dokumentationen und Open Hardware übertragen, um auch Baupläne oder Anleitungen dauerhaft in die Wissensallmende zu überführen.
 Offensichtlich ist an diesem Punkt noch lange nicht nicht Schluss.
-Biologische Ressourcen können ebenso, als allgemein zugängliches Kulturgut, vor der Privatisierung geschützt werden.
+Biologische Ressourcen können ebenso als allgemein zugängliches Kulturgut vor der Privatisierung geschützt werden.
