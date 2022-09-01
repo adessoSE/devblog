@@ -424,3 +424,9 @@ sczubek:
   last_name: Czubek
   bio: "Stefan Czubek arbeitet als Software Engineer bei adesso in Dortmund. Dort unterstützt er den Bereich Retail als Entwickler mit einem Schwerpunkt auf AWS."
   avatar_url: /assets/images/avatars/stefanczubek.png
+
+kenneth-may-adesso:
+  first_name: Kenneth
+  last_name: May
+  bio: "Kenneth May arbeitet seit 2021 als Softwareentickler in der automatischen KFZ-Betrugserkennung (AFM) der LOB Insurance."
+  avatar_url: /assets/images/avatars/kenneth-may-adesso.jpg
