@@ -7,10 +7,6 @@ author_ids: [kenneth-may-adesso]                           # Pflichtfeld. Es mus
 categories: [Softwareentwicklung]                          # Pflichtfeld. Maximal eine der angegebenen Kategorien verwenden.
 tags: [GreenIT, Nachhaltigkeit]                            # Bitte auf Großschreibung achten.
 ---
-# Green Deal - Weil es unsere Pflicht ist?
-
-## Zusammenfassung
-
 Die EU will mit dem Green Deal den Klimaschutz richtig angehen.
 Neben dem Vorhaben, bis 2050 keine Netto-Treibhausgase mehr auszustoßen, soll das Wachstum der Wirtschaft von der Ressourcennutzung entkoppelt werden.
 Daher ist eines der Kernziele, Hersteller dazu zu verpflichten, Produkte langlebiger und reparaturfähig zu gestalten. 
@@ -103,7 +99,7 @@ Bei jeder Entscheidung sollten wir uns fragen: „Brauche ich das wirklich?“.
 Wenn wir das abgeschlossen haben sollte uns der Product Owner/Stakeholder genau das gleiche Fragen.
 Wenn wir es ihm/ihr plausibel erklären können, scheint es wichtig zu sein.
 
-# Über O wie Optimierungen
+## Über O wie Optimierungen
 
 Das ganze können wir auch weiter treiben:
 Wir müssen beginnen, die Grundlagen in Frage zu stellen.
