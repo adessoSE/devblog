@@ -199,11 +199,11 @@ Diese ist auch in das Pull-Request-Template eingebunden, sodass du dort deine Ä
 
 1. Wurde der [Github Fork- und Pullprozess](https://reflectoring.io/github-fork-and-pull/) beachtet?
 2. Dateien eingebunden
-  * [Artikeldatei einbinden](https://github.com/adessoAG/devblog/blob/master/examples/2017-08-10-blog-post-guide.md#dateiname-und-ablageort)
+  * [Artikeldatei einbinden](https://github.com/adessoAG/devblog/blob/master/examples/2021-08-23-blog-post-guide.md#dateiname-und-ablageort)
   * Autorenfoto: assets/images/avatars/mein_avatar.jpg/png
-  * [Artikel-Bilder hinterlegt](https://github.com/adessoAG/devblog/blob/master/examples/2017-08-10-blog-post-guide.md#bilder)
+  * [Artikel-Bilder hinterlegt](https://github.com/adessoAG/devblog/blob/master/examples/2021-08-23-blog-post-guide.md#bilder)
 3. Dateien angepasst:
-  * [Autorinfo gepflegt](https://github.com/adessoAG/devblog/blob/master/examples/2017-08-10-blog-post-guide.md#autoren-informationen)
+  * [Autorinfo gepflegt](https://github.com/adessoAG/devblog/blob/master/examples/2021-08-23-blog-post-guide.md#autoren-informationen)
 4. Artikel überprüfen:
   Du musst alle Anforderungen aus dem [Pull-Request-Template](https://github.com/adessoAG/devblog/blob/master/.github/pull_request_template.md) erfüllen.
   Dieses Template wird automatisch in deinen PR eingebunden, so kannst du die einzelnen Punkte ganz einfach abhaken.
