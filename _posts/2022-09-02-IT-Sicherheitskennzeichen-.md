@@ -15,15 +15,15 @@ Das Siegel wurde am 8. Dezember 2021 eingeführt und wurde auf dem letzten IT-Si
 Die Grundlage hierfür bietet das IT-Sicherheitsgesetzt 2.0. 
 
 
-#Wofür ist das IT-Sicherheitskennzeichen gut?
+# Wofür ist das IT-Sicherheitskennzeichen gut?
 
 Das IT-Sicherheitskennzeichen gibt den VerbraucherInnen eine transparente und schnelle Übersicht, ob ein Produkt die von ihnen geforderten Sicherheitsrichtlinien einhält. 
 Damit trägt es zu mehr Transparenz im digitalen Verbraucherschutz in Deutschland bei. 
 VerbraucherInnen wird es dadurch ermöglicht einfacher und informierter zu beurteilen, ob ein bestimmtes Produkt die Sicherheitsanforderungen einhält. 
 Zu jedem IT-Sicherheitskennzeichen gibt es eine Produktseite des BSI auf der aufgelistet ist, ob das Produkt die Sicherheitsanforderungen erfüllt. 
 Falls es aktuelle Schwachstellen zu dem Produkt gibt, kann dies ebenfalls auf der jeweiligen Produktseite des BSI nachgeschaut werden. 
-
-#Der Weg zum IT-Sicherheitskennzeichen 
+ 
+# Der Weg zum IT-Sicherheitskennzeichen 
 
 Nicht alle Produkte können ein IT-Sicherheitskennzeichen beantragen. 
 Bislang gibt es die im Bild dargestellten Produktkategorien (Stand 02.09.2022). 
@@ -38,11 +38,11 @@ Zunächst einmal liegt es an den Herstellern, dass das Produkt von Anfang an sic
 Das IT-Sicherheitskennzeichen kann auf den Seiten des BSI beantragt werden. 
 Dafür benötigt das BSI folgende Informationen: 
 
-•	Vollständig ausgefüllter Antrag für die jeweilige Produktkategorie
-•	Produktbilder für die Veröffentlichung auf den Internetseiten des BSI
-•	Aktueller Auszug aus dem Handelsregister (nicht älter als 6 Monate)
-•	Formlose Selbsterklärung, dass das Unternehmen sich nicht in Insolvenz oder Liquidation befindet
-•	Gegebenenfalls weitere ergänzende Anlagen zum Antrag
+* Vollständig ausgefüllter Antrag für die jeweilige Produktkategorie
+* Produktbilder für die Veröffentlichung auf den Internetseiten des BSI
+* Aktueller Auszug aus dem Handelsregister (nicht älter als 6 Monate)
+* Formlose Selbsterklärung, dass das Unternehmen sich nicht in Insolvenz oder Liquidation befindet
+* Gegebenenfalls weitere ergänzende Anlagen zum Antrag
 
 Die Formulare befinden sich [hier](https://www.bsi.bund.de/DE/Themen/Unternehmen-und-Organisationen/IT-Sicherheitskennzeichen/fuer-Hersteller/Antrag/IT-SiK-Antrag.html)
 
@@ -61,7 +61,7 @@ Falls das IT-Sicherheitskennzeichen vergeben wird, wird es für einen bestimmten
 Zudem kann es von Seiten des BSI widerrufen werden, falls Sicherheitsstandard nicht gehalten werden. 
 
 
-#Welche Informationen können VerbraucherInnen sehen? 
+# Welche Informationen können VerbraucherInnen sehen? 
 
 Das IT-Sicherheitskennzeichen schafft kein Versprechen, dass das Produkt zu 100% sicher ist. 
 Insbesondere liegt es am Nutzenden Sicherheitsfeatures nicht auszuschalten oder Produkte so zu nutzen, dass der Zugang zu Passwörtern und co. einem Kriminellen erleichtert wird. 
