@@ -430,3 +430,9 @@ kenneth-may-adesso:
   last_name: May
   bio: "Kenneth May arbeitet seit 2021 als Softwareentickler in der automatischen KFZ-Betrugserkennung (AFM) der LOB Insurance."
   avatar_url: /assets/images/avatars/kenneth-may-adesso.jpg
+
+nirumand:
+  first_name: Reza
+  last_name: Nirumand
+  bio: "Reza Nirumand is a Senior Software Engineer at adesso located in Dortmund. He is involved in various projects in the Banking industry and he is responsible for the designing and delivering of cloud-native applications."
+  avatar_url: /assets/images/avatars/nirumand.jpg
