@@ -133,9 +133,9 @@ Eine KI, die Kunst kreiert, hat nie den Druck eines Pinsels gegen das Papier gef
 Dies sind Erfahrungen, die die KI zum aktuellen Zeitpunkt nicht in den kreativen Prozess mit einbeziehen kann.
 
 Außerdem ist zu erwähnen, dass KI zwar wertvolle Kunstwerke erzeugen kann, teilweise aber auch solche, die entweder nicht neuartig sind oder vom Menschen als sinnlos angesehen werden.
-Die Sinnhaftigkeit generierter künstlerischer Artefakte ist auch bei menschlichen Künstlern häufig ein strittiges Thema.
+Die Sinnhaftigkeit generierter künstlerischer Artefakte ist auch bei menschlich erzeugten Kunstwerken häufig ein strittiges Thema.
 So steht KI ebenso wie Menschen vor der Herausforderung die Balance zwischen novelty und value zu finden.
-Diese stellt zum aktuellen Zeitpunkt für eine KI noch ein größeres Problem dar als für die menschlichen Künstler.
+Diese stellt zum aktuellen Zeitpunkt für KI noch ein größeres Problem dar als für menschliche Künstler.
 
 Graham Wallas unterteilte 1926 den kreativen Prozess in folgende Phasen: preparation (Informationsgewinnung), definition (Problemfindung), incubation (über Ideen nachdenken), illumination (Präsentation
 einer Lösung) und verification (Testen der Qualität einer Lösung).
