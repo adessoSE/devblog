@@ -424,3 +424,10 @@ sczubek:
   last_name: Czubek
   bio: "Stefan Czubek arbeitet als Software Engineer bei adesso in Dortmund. Dort unterstützt er den Bereich Retail als Entwickler mit einem Schwerpunkt auf AWS."
   avatar_url: /assets/images/avatars/stefanczubek.png
+
+nirumand:
+  first_name: Reza
+  last_name: Nirumand
+  bio: "Reza Nirumand is a Senior Software Engineer at adesso located in Dortmund. He is involved in various projects in the Banking industry and he is responsible for the designing and delivering of cloud-native applications."
+  avatar_url: /assets/images/avatars/nirumand.jpg
+
