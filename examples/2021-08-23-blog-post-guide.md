@@ -21,6 +21,17 @@ wo einige Tipps für einen erfolgreichen Beitrag gesammelt wurden.
 Sollte es noch fragen geben, kannst du dich an den Verteiler [devblog@adesso.de](mailto:devblog@adesso.de)
 wenden.
 
+# Wichtig: Update 09.05.2022
+Ab dem Update 16.08.2022 wurden die Metadaten der Autoren angepasst.
+Von nun an gibt es die Einträge `github_username` und `github` nicht mehr.
+Bitte achtet bei euren Commits darauf, diesen Eintrag **NICHT** zu setzen.
+
+# Wichtig: Update 09.05.2022
+Ab dem Update 09.05.2022 wurden die Metadaten der Autoren angepasst.
+Von nun an gibt es den Eintrag `email` nicht mehr.
+Dadurch reduzieren wir die in diesem öffentlichen Repository gespeicherten personenbezogenen Daten.
+Bitte achtet bei euren Commits darauf, diesen Eintrag **NICHT** zu setzen.
+
 # Wichtig: Update 23.08.2021
 Ab dem Update 23.08.2021 wurden die Metadaten der Artikel angepasst.
 Von nun an gibt es den Eintrag `author` nicht mehr.
@@ -63,10 +74,8 @@ deinen GitHub Benutzernamen.
 johndoe:
   first_name: John
   last_name: Doe
-  github_username: johndoe
   bio: "2-3 Sätze als Kurzbiographie, die als Beschreibung unter deinen Blog-Posts erscheinen."
   avatar_url: /assets/images/avatars/johndoe.png
-  github: https://github.com/johndoe
 ```
 
 ## Metadaten
@@ -167,8 +176,8 @@ Ggf. müssen die Checks erst über den Button "Show all checks" aufgeklappt werd
 
 # Freigabeprozess
 
-Der Artikel im eingegangenen Pull Request wird von einem Kollegen gereviewed. 
-Ggf. gibt es dann noch ein paar Verbesserungsvorschläge, die eingearbeitet werden. 
+Der Artikel im eingegangenen Pull Request wird von einem Kollegen gereviewt. 
+Ggf. gibt es dann noch ein paar Verbesserungsvorschläge, die eingearbeitet werden müssen. 
 
 Vor der Freigabe leitet der Reviewer einige Infos an CCO weiter:
 
@@ -198,7 +207,18 @@ Diese ist auch in das Pull-Request-Template eingebunden, sodass du dort deine Ä
 4. Artikel überprüfen:
   Du musst alle Anforderungen aus dem [Pull-Request-Template](https://github.com/adessoAG/devblog/blob/master/.github/pull_request_template.md) erfüllen.
   Dieses Template wird automatisch in deinen PR eingebunden, so kannst du die einzelnen Punkte ganz einfach abhaken.
-  
+
+## Was passiert, nachdem ich meinen Blog Post als PR eingereicht habe?
+Ein Member des Repos wird deinen PR zeitnah als neuen Blog Post kennzeichnen und reviewen.
+Dies kann ein paar Tage dauern, da wir alle auch noch in anderen Projekten tätig sind.
+Wenn du eine Review erhalten hast, werden viele Änderungen vom Reviewer direkt als [Suggestion](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/incorporating-feedback-in-your-pull-request) angemerkt.
+Um diese direkt zu übernehmen, verwende bitte das Feature "Add suggestion to batch" und committe alles, was du übernommen hast, in einem Commit.
+Das erleichtert uns das Nachvollziehen der Änderungen erheblich.
+
+Wie der Name schon sagt, sind es Suggestions, also Vorschläge, wenn du bspw. mit einer Formulierungsänderung nicht zufrieden bist, musst du diese nicht übernehmen.
+Es wird allerdings einen Grund geben, dass eine Änderung vorgeschlagen wurde.
+Gib uns dazu an dem Kommentar gerne ein Feedback oder teile uns deinen eigenen Verbesserungsvorschlag mit.
+
 # Nachträgliche Änderungen am Post
 Es können auch nach Veröffentlichung nachträglich Änderungen an einem Post durchgeführt werden, wenn beispielsweise Bilder nicht korrekt dargestellt werden oder sich ein Fehler im Text eingeschlichen hat, der vorher nicht aufgefallen ist.
 

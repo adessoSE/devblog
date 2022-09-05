@@ -33,7 +33,7 @@ Diese Liste kann auch gut als Checkliste verwendet werden, damit du sicher gehen
 # Für Technische Beiträge
 - **Deutsche Übersetzungen** fügen sich grammatikalisch besser ein, sollten aber nur verwendet werden, wenn diese gut verständlich sind. Gut: _Knoten_ statt _Node_; Schlecht: _Faden_ statt _Thread_
 - Gib bei eigenen Projekten am Ende des Posts ggf. deine **E-Mail Adresse** an, damit Leser dich kontaktieren können.
-- Gib außerdem gegebenenfalls einen **Link zur Projektseite** (GitHub oÄ.) an.
+- Gib außerdem gegebenenfalls einen **Link zur Projektseite** (GitHub o.Ä.) an.
 - **Quellcode** sollte nicht als Bild, sondern innerhalb von Markdown als Code eingefügt werden.
 - Quellcode sollte **keine zu langen Zeilen** enthalten, da ansonsten ein horizontaler Scrollbar erscheint.
 - Quellcode kann oft **vereinfacht oder durch Pseudocode ersetzt** werden, da nicht immer alle Details nötig sind, um die Essenz zu verstehen.
