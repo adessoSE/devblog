@@ -84,7 +84,7 @@ Sie generiert träumerische Kunst, die einen gänzlich eigenen und neuen Stil ha
 Der für die Kunst von DeepDream verantwortliche Alexander Reben beschreibt die Ergebnisse als einen kurzen Einblick in die Verschmelzung von Mensch und Technik, einen "cyberdelischen Drogentrip".
 
 <div align='center'>
-<img width="200px" height="200" alt="Bild gemalt von DeepDream" src="/assets/images/posts/existenz-und-potenzial-kreativer-KI/DeepDream.jpg"/>
+<img width="290px" height="200" alt="Bild gemalt von DeepDream" src="/assets/images/posts/existenz-und-potenzial-kreativer-KI/DeepDream.jpg"/>
 </div>
 
 Neben dem Bereich der Bildgenerierung konnte KI auch in anderen kreativen Bereichen Fortschritte verzeichnen.
