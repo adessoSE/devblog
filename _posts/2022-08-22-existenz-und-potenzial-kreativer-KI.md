@@ -79,6 +79,13 @@ Dies kann langwierige Schritte beschleunigen, die sonst den kreativen Prozess eh
 Eine weitere KI, die beeindruckende kreative Artefakte generiert, kann auf der Webseite [this-person-does-not-exist](https://www.this-person-does-not-exist.com) beobachtet werden.
 Dort werden realistische Fotos von Personen generiert, die gar nicht existieren.
 
+Google schaffte mit einer KI namens DeepDream Kunst, von der behauptet wird, dass sie gänzlich neue Konzepträume eröffnet.
+Sie generiert träumerische Kunst, die einen gänzlich eigenen und neuen Stil hat, der so von Menschen nicht erzeugt werden kann und bislang nicht wurde. 
+Der für die Kunst von DeepDream verantwortliche Alexander Reben beschreibt die Ergebnisse als einen kurzen Einblick in die Verschmelzung von Mensch und Technik, einen "cyberdelischen Drogentrip".
+
+<div align='center'>
+<img width="200px" height="200" alt="Bild gemalt von DeepDream" src="/assets/images/posts/existenz-und-potenzial-kreativer-KI/DeepDream.jpg"/>
+</div>
 
 Neben dem Bereich der Bildgenerierung konnte KI auch in anderen kreativen Bereichen Fortschritte verzeichnen.
 Beispielsweise wurde KI auch schon genutzt um Geschichten zu schreiben.
@@ -120,7 +127,9 @@ Es ist schwer, Kreativität auf quantitativer Weise zu messen.
 Um die wichtigsten Erkenntnisse der Wissenschaft kurz zusammenzufassen, kann gesagt werden, dass kreative KI-Systeme viele kreative Eigenschaften besitzen.
 Sie können neue, noch nicht dargewesene kreative Artefakte erzeugen, die sowohl neuartig als auch wertvoll sind und somit als kreativ bezeichnet werden können.
 Wo sie sich aber noch schwer tun ist z.B. bei sogenannter transformationaler Kreativität, also bei völlig neuartigen und den bisherigen Konzeptraum gänzlich verlassenen Ideen.
-Die von KI erzeugten Variationen bewegen sich noch in einem begrenzten Rahmen.
+Googles DeepDream wird als eine der wenigen KI-Systeme genannt, das bereits transformationale Kreativität zumindest teilweise beherrscht.
+Die Frage, ob diese Kunst auch das Kriterium value erfüllt bleibt allerdings umstritten und benötigt in jedem Fall weiterhin eine menschliche Einschätzung.
+Die von KI erzeugten Variationen bewegen sich primär noch in einem begrenzten Rahmen.
 Dieser Rahmen wird durch die Wahl des Modells und des Datensatzes bestimmt und unterliegt einer inhärenten Einschränkung.
 Auch beherrscht KI noch nicht alle kreativen Eigenschaften, die wir Menschen in kreativen Prozessen nutzen, z.B. das Konzept der Abstraktion.
 
