@@ -418,6 +418,7 @@ mboegers:
   last_name: Bögershausen
   bio: "Merlin Bögershausen ist Software Entwickler, Speaker und Author bei adesso am Standort Aachen. Er beschäftigt sich mit Neuerungen im Java-Universum und der Softwareentwicklung im Public-Bereich."
   avatar_url: /assets/images/avatars/mboegers.jpg
+  github: https://github.com/mboegers
 
 sczubek:
   first_name: Stefan
@@ -431,7 +432,6 @@ nirumand:
   bio: "Reza Nirumand is a Senior Software Engineer at adesso located in Dortmund. He is involved in various projects in the Banking industry and he is responsible for the designing and delivering of cloud-native applications."
   avatar_url: /assets/images/avatars/nirumand.jpg
 
-  github: https://github.com/mboegers
 sypste:
   first_name: Simon
   last_name: Stemper
