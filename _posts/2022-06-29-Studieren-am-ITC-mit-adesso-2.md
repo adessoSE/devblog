@@ -17,7 +17,7 @@ Bald habe ich meinen Bachelor-Abschluss und wollte genau aus diesem Grund einen 
 Zunächst folgt eine Zusammenfassung zu den wichtigsten Punkten vom ersten Artikel in Bezug auf das IT-Center Dortmund.
 
 Das ITC ist eine private Hochschule und bietet praxisnahe Informatikstudiengänge an.
-Seit diesem Jahr gibt es neben dem B.Sc. auch ein M.Sc., welcher berufsbegleitend absolviert wird.
+Seit diesem Jahr gibt es neben dem B.Sc. auch ein M.Sc., welcher vollständig berufsbegleitend absolviert wird.
 Allerdings fokussiert sich der Erfahrungsbericht auf das Bachelorstudium.
 Das Studium hat eine Regelstudienzeit von sieben Semestern.
 Die ersten vier Semester sind die duale Phase, was in der Woche drei Tage Vorlesungen und zwei Tage Arbeiten im Unternehmen bedeutet.
@@ -39,7 +39,7 @@ Ist das Studium geschafft, ist die Wahrscheinlichkeit sehr hoch, dass man bei se
 
 Bei adesso beginnt der Wechsel in die berufsbegleitende Phase mit einer Vertragsumstellung.
 Von der Anstellung des dualen Studierenden wechselt man in die Anstellung eines Trainees.
-Durch den Wechsel hat man dann eine Vierzigstundenarbeitswoche.
+Durch den Wechsel hat man dann eine reguläre Vierzigstundenarbeitswoche.
 Dies bringt bei adesso zum einen neue Hardware in Form von Laptop und Firmenhandy und zum anderen einen spürbaren Unterschied in der Vergütung mit sich.
 
 Vermutlich stellt sich nun die Frage, wie es ist, eine Vierzigstundenwoche zu haben und Abends oder am Wochenende Vorlesungen besuchen zu müssen.
@@ -49,8 +49,9 @@ Ich würde dringendst davon abraten, gar keine Module zu besuchen, weil der Vort
 
 Außerdem kannst du von nun an selbst planen, welche Klausuren du schreiben möchtest.
 Aufgrund der Anwesenheitspflicht in der dualen Phase war es vorgeschrieben, wann welche Klausur zu schreiben ist.
-In der Klausurenphase bekommst du bei adesso einen Lerntag pro Woche zugeschrieben, um dich gut auf die kommenden Klausuren vorbereiten zu können.
-Solltest du mehr Tage benötigen, weil beispielsweise eine sehr schwierige Klausur ansteht, ist dies natürlich in Absprache mit deiner Führungskraft möglich.
+Für die Vorbereitung auf die restlichen Klausuren und das Schreiben der danach anstehenden Abschlussarbeiten werden dir Freiräume eingeräumt.
+Ich persönlich habe diese Gelegenheit dankend genutzt und dadurch mehr Freizeit gehabt, da die restliche Woche mit Arbeiten und Vorlesungen ausgefüllt war.
+Solltest du dennoch mehr Freiräume benötigen, weil beispielsweise eine sehr schwierige Klausur ansteht, ist deine Führungskraft natürlich zuvorkommend.
 Nach dem erfolgreichen Abschluss aller Klausuren stehen nur noch die Abschlussarbeiten an, also die Projektarbeit und die Bachelorthesis.
 Wie dies am ITC in Verbindung mit adesso abläuft, wird im nächsten Kapitel erläutert.
 
@@ -61,19 +62,20 @@ Hier muss der Studierende zum ersten Mal eigenständig eine wissenschaftliche Au
 Hierfür wird das Modul "Wissenschaftliches Arbeiten" angeboten, in dem ein kleiner Crashkurs dazu gegeben wird und eventuell aufkommende Fragen in großer Runde besprochen werden.
 
 Die Projektarbeit ist ein Vorgeschmack auf die Bachelorthesis und zeigt, wie eine wissenschaftliche Arbeit geschrieben und mit anschließendem Kolloquium benotet wird.
-Bei adesso ist es möglich, eine Betreuungsperson für die Abschlussarbeiten zu bekommen, die einen dann bei der technischen und wissenschaftlichen Arbeit unterstützen kann.
-Für die Abschlussarbeiten gibt es natürlich auch wieder den einen Lerntag pro Woche zum Schreiben.
+Bei adesso ist es möglich, eine Betreuungsperson für die Abschlussarbeiten zu bekommen.
+Diese kann dich bei wissenschaftlichen und technischen Fragen unterstützen und aus persönlicher Erfahrung kann ich sagen, dass sich die Person viel Zeit genommen hat für Probelesen, Besprechungen und was sonst dazu gehört.
 
 In meinem Jahrgang gab es für die Abschlussarbeiten einen Bearbeitungszeitraum von jeweils vier Monaten pro Arbeit.
 Nachdem die Arbeit abgegeben und durchgeschaut wurde, erfolgt das Kolloquium.
 Für das Kolloquium wird eine Präsentation aus den wichtigsten Erkenntnissen der Arbeit erstellt und in einem fünfundzwanzigminütigen Referat vorgestellt.
-Der Bachelortitel wird dann von der FH-Dortmund verliehen.
+Abschließend wird der akademische Grad Bachelor of Science von der FH-Dortmund verliehen.
 
 # Erfahrungsbericht
 
 Nach 3,5 Jahren kann ich sagen, dass das Studium am ITC sehr empfehlenswert und gut konzipiert ist.
-Die kleinen Jahrgangsstufen machen sich deutlich bemerkbar, weil die Atmosphäre in den Vorlesungen mehr den Charakter einer Schulklasse statt eines riesigen Vorlesungssaals hat.
+Die kleinen Jahrgangsstufen machen sich deutlich bemerkbar, weil die Atmosphäre in den Vorlesungen mehr den Charme einer Schulklasse statt eines vollen Vorlesungssaals hat.
 Besonders die Dozierenden aus der Industrie hatten es mir angetan, weil diese die neuen und modernen Themen und Technologien lehren.
 Außerdem fand ich es auch gut, dass die ersten vier Semester mit einer Anwesenheitspflicht verbunden waren, da man dadurch ein echt gutes Tempo im Studium erreicht.
 Was ich auch gut finde ist, dass man ab der berufsbegleitenden Phase ganz gutes Geld verdient und mit hoher Wahrscheinlichkeit nach dem Studium vom Arbeitgeber übernommen wird.
 Jedoch muss ich zugeben, dass die berufsbegleitende Phase teilweise echt stressig sein kann und eine gute Planung essenziell ist, damit Studium und Arbeit reibungslos ablaufen.
+Zusätzlich solltest du dir Hilfe also eine Betreeungsperson für deine Abschlussarbeiten suchen, weil wissenschaftliches Arbeiten schwierig sein kann, wenn man es noch nie getan hat.
