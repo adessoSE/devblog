@@ -531,8 +531,6 @@ bolsei:
 
 JuergenWarias:
   first_name: Jürgen
-  lst_name: Warias
-  github_username: JuergenWarias
+  last_name: Warias
   bio: "Jürgen Warias ist seit 2012 als Software Engineer (seit 2015 Senior) bei adesso in Dortmund tätig tätig. Dort ist er in der Lob Insurance als Entwickler im Java-EE-Umfeld tätig."
   avatar_url: https://avatars.githubusercontent.com/u/104759335?s=400&u=da915327ebe5f145cf07a4a97c93284327e77fb3&v=4
-  github: https://github.com/juergenwarias
