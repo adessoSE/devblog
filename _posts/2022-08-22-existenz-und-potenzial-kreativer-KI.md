@@ -49,6 +49,11 @@ Die KI wurde dabei mit Portraits aus dem 14. bis 20. Jahrhundert trainiert, um d
 <img width="800px" height="400" alt="Edmond de Belamy und ein Ausschnitt der Belamy-Familie" src="/assets/images/posts/existenz-und-potenzial-kreativer-KI/edmond_de_belamy.jpg"/>
 </div>
 
+<div  align='center'>    
+  <a href="https://www.christies.com/lot/lot-6166184"><i>Quelle: christies Aktionshaus</i></a>
+</div>
+
+
 Samsung AI zeigte, dass es möglich ist, ein Porträt in Form eines Gemäldes, so wie die Mona Lisa, in ein Video zu transformieren, sodass das Gesicht des Portraits in einem gewünschten Stil sprechen kann.
 Sogenannte Deepfake-Technologien können realistisch aussehende, gefälschte Videos erstellen, indem sie einige Teile des Mediums durch synthetische Inhalte ersetzen.
 So konnte man bereits erfolgreich ein Video generieren in dem man eine Person wie Obama etwas beliebiges sagen lassen konnte, ohne dass auf dem ersten Blick klar ist, dass es sich um eine Fälschung handelt.
@@ -67,6 +72,10 @@ drawing", und die KI schafft es, ein genaues Bild von der beschriebenen Idee in 
 <img width="200px" height="200" alt="Bild gemalt von DALL-E-2" src="/assets/images/posts/existenz-und-potenzial-kreativer-KI/DALL-E-Astronaut.PNG"/>
 </div>
 
+<div  align='center'>    
+  <a href="https://openai.com/dall-e-2/"><i>Quelle: OpenAI</i></a>
+</div>
+
 Hierbei können völlig neuartige Bilder generiert werden, die es so vorher nicht gab.
 Es gibt bereits Ansätze, dies in Designprozessen zu integrieren.
 Zum Beispiel können beim Design eines neuen Schuhs bestimmte Kombinationsideen einfach in natürlicher Sprache ausgedrückt werden statt sie erst langwierig selbst skizzieren zu müssen.
@@ -75,6 +84,10 @@ Direkt bekommt man mehrere mögliche Designs des beschriebenen Stils angezeigt u
 Dies kann langwierige Schritte beschleunigen, die sonst den kreativen Prozess eher aufhalten.
 
 ![DALL-E-Nike.PNG](/assets/images/posts/existenz-und-potenzial-kreativer-KI/DALL-E-Nike.PNG)
+
+<div  align='center'>    
+  <a href="https://www.youtube.com/watch?v=oqamdXxdfSA"><i>Quelle: YouTube</i></a>
+</div>
 
 Eine weitere KI, die beeindruckende kreative Artefakte generiert, kann auf der Webseite [this-person-does-not-exist](https://www.this-person-does-not-exist.com) beobachtet werden.
 Dort werden realistische Fotos von Personen generiert, die gar nicht existieren.
@@ -86,6 +99,11 @@ Der für die Kunst von DeepDream verantwortliche Alexander Reben beschreibt die 
 <div align='center'>
 <img width="290px" height="200" alt="Bild gemalt von DeepDream" src="/assets/images/posts/existenz-und-potenzial-kreativer-KI/DeepDream.jpg"/>
 </div>
+
+<div  align='center'>    
+  <a href="https://www.engadget.com/2017-04-06-ai-on-joy-of-painting-on-lsd.html"><i>Quelle: engadget</i></a>
+</div>
+
 
 Neben dem Bereich der Bildgenerierung konnte KI auch in anderen kreativen Bereichen Fortschritte verzeichnen.
 Beispielsweise wurde KI auch schon genutzt um Geschichten zu schreiben.
