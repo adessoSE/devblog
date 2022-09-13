@@ -254,7 +254,7 @@ Um die Sache abzurunden, werfen wir einen kurzen Blick auf einige weitere Funkti
 
 Wie bereits erwähnt, bietet die Abfrage-DSL von Elasticsearch verschiedene Möglichkeiten, das Design der Abfrage an die Erwartungen des Benutzers anzupassen.
 Um zu testen, ob eine angepasste Abfrage die erwarteten Ergebnisse liefert oder nicht, ist es eine gute Idee, eine Test-Suite zu erstellen, z.B. mit der [Ranking Evaluation API](https://www.elastic.co/guide/en/elasticsearch/reference/current/search-rank-eval.html):
-Damit können eine Reihe von Dokumenten definiert werden, die in Abhängigkeit von der Abfrage und ihren Parametern in der Suchergebnisliste erscheinen sollen oder nicht erscheinen sollen.
+Damit können eine Reihe von Dokumenten definiert werden, die in Abhängigkeit von der Abfrage und ihren Parametern in der Suchergebnisliste erscheinen oder nicht erscheinen sollen.
 Dies ist besonders nützlich, wenn wir im ständigen Gespräch mit unseren Testern sind und unser Abfragedesign weiterentwickeln, aber auch das beibehalten wollen, was bisher gut funktioniert hat.
 
     POST logstash-articles/_rank_eval
