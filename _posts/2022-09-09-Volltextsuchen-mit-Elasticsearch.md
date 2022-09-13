@@ -325,7 +325,7 @@ Zum Abschluss betrachten wir etwas Ausgefalleneres.
 Wie bereits erwähnt, sind auch Plugins und Erweiterungen ein Teil des Elastic-Stacks.
 [OpenNLP](https://opennlp.apache.org/) ist ein auf maschinellem Lernen (ML) basierendes Framework für die Verarbeitung von natürlichem Text und kann für verschiedene Aufgaben verwendet werden, unter anderem für die Erkennung von benannten Entitäten (NER).
 Elasticsearch kann so konfiguriert werden, dass trainierte ML-Modelle geladen werden, um eine Analyse des eingelesenen Textes durchzuführen.
-Dazu müssen zunächst das [Plugin](https://github.com/spinscale/elasticsearch-ingest-opennlp) und die erforderlichen ML-Modelle in Elasticsearch geladen werden, um anschließend eine Ingest-Pipeline zu definieren, die zu indizierenden Text um die gewünschten Annotationen erweitert.
+Dazu müssen zunächst das [Plugin](https://github.com/spinscale/elasticsearch-ingest-opennlp) und die erforderlichen ML-Modelle in Elasticsearch geladen werden, um anschließend eine Ingest-Pipeline zu definieren, die den zu indizierenden Text um die gewünschten Annotationen erweitert.
 
     client.ingest.put_pipeline(
         id='opennlp-pipeline',
