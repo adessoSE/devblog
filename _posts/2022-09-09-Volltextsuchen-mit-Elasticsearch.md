@@ -58,7 +58,7 @@ Schauen wir uns einmal die von "Micheal" abgeleiteten Ngramme an:
 
 ['mi', 'mic', 'ic', 'ich', 'ch', 'che', 'he', 'hea', 'ea', 'eal', 'al']
 
-Obwohl einige Ngramme auch in der Tokenisierung von Michael auftauchen würden, gibt es nichts Besonderes an ihnen - Elasticsearch wird einfach mit den Dokumenten übereinstimmen, die die Token am häufigsten enthalten.
+Obwohl einige Ngramme auch in der Tokenisierung von "Michael" auftauchen würden, gibt es nichts Besonderes an ihnen - eine Suche mit Elasticsearch wird einfach die Dokumente mit den meisten Übereinstimmungen in der Tokenliste liefern.
 Im Allgemeinen braucht es ein wenig Test und Versuch und Irrtum, um die besten Minimal- und Maximalwerte für die Ngrammlänge zu finden (je länger, desto spezifischer die Treffer, aber weniger fehlertolerant).
 
 ### Search-as-you-type
