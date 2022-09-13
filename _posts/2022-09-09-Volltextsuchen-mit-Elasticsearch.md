@@ -348,4 +348,4 @@ Hier als Beispiel die Liste der im Wikipedia-Artikel zu Michael Jordan erkannten
 
 In diesem Artikel wurde gezeigt, wie auf Basis weniger Mittel eine Suchheuristik auf der Basis von Textanalyse und Query DSL innerhalb von Elasticsearch erfolgen kann.
 Eingaben können mithilfe von Ngrammen und phonetischer Transformation fehlertoleranter gestaltet werden, sowie bereits während der Nutzereingabe (also unvollständiger Suchparameter) Vorschläge für Suchtreffer geliefert werden.
-Mit Fuzzy Search und der Verbindung der erarbeiteten Suchheuristiken werden die erarbeiteten Suchheuristiken kombiniert, um eine mehrschichtige Suche zu designen, die sowohl schnell als auch fehlertolerant ist.
+Mit Fuzzy Search und der Verbindung der erarbeiteten Suchheuristiken werden diese kombiniert, um eine mehrschichtige Suche zu designen, die sowohl schnell als auch fehlertolerant ist.
