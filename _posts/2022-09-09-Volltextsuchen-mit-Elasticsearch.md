@@ -243,7 +243,7 @@ Nun wenden wir diesen mehrschichtigen Ansatz bei unserer Abfrage an:
     ).body
 
 Jetzt haben wir eine Abfrage, die sich mehrere Textanalysefunktionen zunutze macht, bis zu einem gewissen Grad tolerant gegenüber Tippfehlern ist und mehrere relevante Felder durchsucht.
-Um die Benutzerfreundlichkeit durch Vorschläge während der Eingabe zu verbessern, könnten wir die vorher verwendeten `search_as_you_type`-Felder weiter einbeziehen.
+Um die Benutzerfreundlichkeit durch Vorschläge während der Eingabe zu verbessern, könnten wir die vorher verwendeten "search-as-you-type"-Felder weiter einbeziehen.
 
 ## Development & Advanced Features
 
