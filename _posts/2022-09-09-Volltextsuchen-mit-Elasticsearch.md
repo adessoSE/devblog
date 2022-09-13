@@ -321,7 +321,7 @@ Sobald feststeht, dass ein Feld für den betrachteten Anwendungsfall nützlich i
 
 ### NLP
 
-Zum Abschluss etwas Ausgefalleneres.
+Zum Abschluss betrachten wir etwas Ausgefalleneres.
 Wie bereits erwähnt, sind auch Plugins und Erweiterungen ein Teil des Elastic-Stacks.
 [OpenNLP](https://opennlp.apache.org/) ist ein auf maschinellem Lernen (ML) basierendes Framework für die Verarbeitung von natürlichem Text und kann für verschiedene Aufgaben verwendet werden, unter anderem für die Erkennung von benannten Entitäten (NER).
 Elasticsearch kann so konfiguriert werden, dass trainierte ML-Modelle geladen werden, um eine Analyse des eingelesenen Textes durchzuführen.
