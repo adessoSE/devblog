@@ -125,7 +125,7 @@ Hier werfen wir einen Blick auf das Plugin für die phonetische Analyse, das es 
 
 Nachdem ein Analyzer definiert wurde, der den phonetischen Tokenfilter verwendet, kann natürliche Sprache in eine phonetische Repräsentation gebracht werden.
 Diese ist abhängig vom gewählten Algorithmus und der Ausgangssprache, kann aber auch von Elastisearch geraten werden.
-Um den Analyzer zu testen, vergleichen wir die Token, die jeweils aus der Analyse von 'Michael' und 'Micheal' hervorgehen.
+Um den Analyzer zu testen, vergleichen wir die Token, die jeweils aus der Analyse von "Michael" und "Micheal" hervorgehen.
 
     michael_phonetic_tokens = [t['token'] for t in client.indices.analyze(
         index='logstash-articles',
