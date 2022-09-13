@@ -63,7 +63,7 @@ Im Allgemeinen braucht es ein wenig Test, Versuch und Irrtum, um die besten Mini
 
 ### Search-as-you-type
 
-Die ["Search-as-you-type"-Funktionalität](https://www.elastic.co/guide/en/elasticsearch/reference/current/search-as-you-type.html) nutzt Ngramme auf eine etwas andere Art und Weise als bisher gezeigt.
+Die ["search-as-you-type"-Funktionalität](https://www.elastic.co/guide/en/elasticsearch/reference/current/search-as-you-type.html) nutzt Ngramme auf eine etwas andere Art und Weise als bisher gezeigt.
 Anstatt das gesamte Wort für die Tokenisierung zu betrachten, liegt der Fokus auf dem Anfang der Wörter, um eine schnelle Suchfunktion zu bieten, die Ergebnisse liefert, während der Benutzer die ersten Buchstaben eingibt.
 
     input = 'micheal'
