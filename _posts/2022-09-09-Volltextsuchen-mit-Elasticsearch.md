@@ -148,7 +148,7 @@ Um den Analyzer zu testen, vergleichen wir die Token, die jeweils aus der Analys
 
 Zufälligerweise können wir bereits feststellen, dass es eine Überschneidung in der phonetischen Darstellung zwischen "Michael" und "Micheal" gibt.
 In diesem Fall würde die phonetische Umwandlung ausreichen, um den Tippfehler aus der Nutzereingabe zu beheben.
-So sollten wir bereits einige Ergebnisse gefunden werden, die für eine Testnutzerbasis einigermaßen akzeptabel sein könnten.
+So sollten wir bereits einige Ergebnisse erhalten, die für eine Testnutzerbasis einigermaßen akzeptabel sein könnten.
 Bisher haben wir uns jedoch darauf konzentriert, gute Datentypen zu finden, um die Daten, die wir abfragen wollen, vorzubereiten.
 Die Abfragetypen, die wir bisher untersucht haben, sind jedoch recht einfach und nutzen die Query DSL von Elasticsearch nicht aus.
 
