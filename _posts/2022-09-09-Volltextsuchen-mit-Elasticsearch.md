@@ -97,7 +97,7 @@ Mit dieser Funktion werden Tippfehler zwar nicht behoben, aber bei aufmerksamer 
 
 Da es sich bei Elasticsearch um ein Open-Source-Projekt handelt, ist es nicht verwunderlich, dass Erweiterungen auf dem Projekt aufbauen, um Anwendungsfälle zu lösen.
 Erweiterungen für Elasticsearch können die Form von [Plugins](https://www.elastic.co/guide/en/elasticsearch/plugins/current/intro.html) annehmen, die relativ einfach zu installieren sind.
-Hier werfen wir einen Blick auf das Plugin für die phonetische Analyse, das es uns ermöglicht, phonetische Repräsentationen von Eingabe-Token zu erhalten.
+Hier werfen wir einen Blick auf das Plugin für die phonetische Analyse, das es uns ermöglicht, phonetische Repräsentationen von Eingabetoken zu erhalten.
 
     client.indices.put_settings(
         index='logstash-articles',
