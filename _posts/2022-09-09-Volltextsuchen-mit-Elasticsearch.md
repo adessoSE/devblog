@@ -293,7 +293,7 @@ Dies ist besonders nützlich, wenn wir im ständigen Gespräch mit unseren Teste
 ### Runtime fields
 
 Eine weitere sehr nützliche Funktion für Entwicklungszwecke sind [`runtime_fields`](https://www.elastic.co/guide/en/elasticsearch/reference/current/runtime.html).
-Normalerweise sollten die Felder eines Indexes, wie wir es bisher getan haben, vor der Aufnahme von Daten deklariert werden, d.h. bevor irgendwelche Daten in Elasticsearch geladen werden.
+Normalerweise sollten die Felder eines Index, wie wir es bisher getan haben, vor der Aufnahme von Daten deklariert werden, d.h. bevor irgendwelche Daten in Elasticsearch geladen werden.
 Alternativ können Felder zu einem bestehenden Index hinzugefügt werden, der dann aktualisiert wird, um die definierte Analyse an den Dokumenten durchzuführen, bis zu der das Feld nicht nutzbar ist.
 `runtime_fields` erlauben einen anderen Ansatz: Der Wert des Feldes wird während der Laufzeit bestimmt, d.h. wenn die Daten bereits abgefragt oder analysiert werden.
 Der Wert des `runtime_fields` kann durch Bereitstellung eines Skripts über die Such-API oder durch manuelles Hinzufügen über Kibana festgelegt werden.
