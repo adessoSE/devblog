@@ -169,7 +169,7 @@ Angewandt auf unser früheres Beispiel löst es das Problem, indem es die gesuch
 
 Ein Nachteil von Fuzzy-Abfragen, auch wenn sie verlockend sind, sind ihre relativ hohen Rechenkosten, die die Ausführungszeit von Abfragen in größeren Datensätzen beeinträchtigen können und die Größe der Ergebnismenge erhöhen[^3].
 
-[^3]: Siehe [Präzisions- und Recall-Problem](https://en.wikipedia.org/wiki/Precision_and_recall).
+[^3]: Siehe [Präzisions- und Recall-Problem](https://en.wikipedia.org/wiki/Precision_and_recall)
 
 ### Zusammengesetzte Abfragen
 
