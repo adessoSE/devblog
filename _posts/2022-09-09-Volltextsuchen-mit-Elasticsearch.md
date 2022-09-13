@@ -256,7 +256,7 @@ Um die Sache abzurunden, werfen wir einen kurzen Blick auf einige weitere Funkti
 
 Wie bereits erwähnt, bietet die Abfrage-DSL von Elasticsearch verschiedene Möglichkeiten, das Design der Abfrage an die Erwartungen des Benutzers anzupassen.
 Um zu testen, ob eine angepasste Abfrage die erwarteten Ergebnisse liefert oder nicht, ist es eine gute Idee, eine Test-Suite zu erstellen, z.B. mit der [Ranking Evaluation API](https://www.elastic.co/guide/en/elasticsearch/reference/current/search-rank-eval.html):
-Damit können eine Reihe von Dokumenten definiert werden, die in Abhängigkeit von der Abfrage und ihren Parametern in der Suchergebnisliste erscheinen sollen oder nicht erscheinen sollen.
+Damit können eine Reihe von Dokumenten definiert werden, die in Abhängigkeit von der Abfrage und ihren Parametern in der Suchergebnisliste erscheinen oder nicht erscheinen sollen.
 Dies ist besonders nützlich, wenn wir im ständigen Gespräch mit unseren Testern sind und unser Abfragedesign weiterentwickeln, aber auch das beibehalten wollen, was bisher gut funktioniert hat.
 
     POST logstash-articles/_rank_eval
@@ -295,7 +295,7 @@ Dies ist besonders nützlich, wenn wir im ständigen Gespräch mit unseren Teste
 ### Runtime fields
 
 Eine weitere sehr nützliche Funktion für Entwicklungszwecke sind [`runtime_fields`](https://www.elastic.co/guide/en/elasticsearch/reference/current/runtime.html).
-Normalerweise sollten die Felder eines Indexes, wie wir es bisher getan haben, vor der Aufnahme von Daten deklariert werden, d.h. bevor irgendwelche Daten in Elasticsearch geladen werden.
+Normalerweise sollten die Felder eines Index, wie wir es bisher getan haben, vor der Aufnahme von Daten deklariert werden, d.h. bevor irgendwelche Daten in Elasticsearch geladen werden.
 Alternativ können Felder zu einem bestehenden Index hinzugefügt werden, der dann aktualisiert wird, um die definierte Analyse an den Dokumenten durchzuführen, bis zu der das Feld nicht nutzbar ist.
 `runtime_fields` erlauben einen anderen Ansatz: Der Wert des Feldes wird während der Laufzeit bestimmt, d.h. wenn die Daten bereits abgefragt oder analysiert werden.
 Der Wert des `runtime_fields` kann durch Bereitstellung eines Skripts über die Such-API oder durch manuelles Hinzufügen über Kibana festgelegt werden.
@@ -323,11 +323,11 @@ Sobald feststeht, dass ein Feld für den betrachteten Anwendungsfall nützlich i
 
 ### NLP
 
-Zum Abschluss etwas Ausgefalleneres.
+Zum Abschluss betrachten wir etwas Ausgefalleneres.
 Wie bereits erwähnt, sind auch Plugins und Erweiterungen ein Teil des Elastic-Stacks.
 [OpenNLP](https://opennlp.apache.org/) ist ein auf maschinellem Lernen (ML) basierendes Framework für die Verarbeitung von natürlichem Text und kann für verschiedene Aufgaben verwendet werden, unter anderem für die Erkennung von benannten Entitäten (NER).
 Elasticsearch kann so konfiguriert werden, dass trainierte ML-Modelle geladen werden, um eine Analyse des eingelesenen Textes durchzuführen.
-Dazu müssen zunächst das [Plugin](https://github.com/spinscale/elasticsearch-ingest-opennlp) und die erforderlichen ML-Modelle in Elasticsearch geladen werden, um anschließend eine Ingest-Pipeline zu definieren, die zu indizierenden Text um die gewünschten Annotationen erweitert.
+Dazu müssen zunächst das [Plugin](https://github.com/spinscale/elasticsearch-ingest-opennlp) und die erforderlichen ML-Modelle in Elasticsearch geladen werden, um anschließend eine Ingest-Pipeline zu definieren, die den zu indizierenden Text um die gewünschten Annotationen erweitert.
 
     client.ingest.put_pipeline(
         id='opennlp-pipeline',
@@ -341,7 +341,7 @@ Dazu müssen zunächst das [Plugin](https://github.com/spinscale/elasticsearch-i
       ]
     )
 
-Die Einrichtungsschritte werden im oben genannten Gitpod-Workspace zur Verfügung gestellt, und die NER-Modelle können mit dem beschriebenen Code ausprobiert werden.
+Die Einrichtungsschritte werden im oben genannten Gitpod-Workspace zur Verfügung gestellt und die NER-Modelle können mit dem beschriebenen Code ausprobiert werden.
 Hier als Beispiel die Liste der im Wikipedia-Artikel zu Michael Jordan erkannten Personen:
 
     'Condor', 'Sandro Miller', 'Marv Albert', 'Chris Mullin', 'Simon', 'Michael', 'Karl Malone', 'Jason Kidd', 'Story', 'Bryant', 'Harper San Francisco', 'Charles Oakley', 'Mark Vancil', 'Mike', 'James R . Jordan Sr .', 'Bob Knight', 'Russell Westbrook', 'Minor League Baseball', 'Ed Bradley', 'Jordan', 'John R . Wooden', 'Daniel Green', 'Ben', 'Rodman', 'Kobe Bryant', 'With Scottie Pippen', 'Ron Harper', 'Rod Strickland', 'After Jordan', 'Nick Anderson', "Shaquille O ' Neal", 'Stu Inman', 'Jordan Brand', 'Brand', 'Marcus', 'Sam Perkins', 'Wade', 'Babe Ruth', 'Rip " Hamilton', 'David L .', 'Kwame Brown', 'Jerry West', 'Jordan "', 'Abe Pollin', 'James Harden', 'Dean Smith', 'Abdul - Jabbar', 'Steve Alford', 'Jordan Rules', 'Derek Jeter', 'Richard Esquinas', 'Michael Jordan Celebrity Invitational', 'Bugs Bunny', 'Victoria', 'Jason Hehir', 'Travis Scott', 'David Steward', 'Larry Hughes', 'Johnson', 'James', 'David Thompson', 'George Shinn', 'Barack Obama', 'Jerry Reinsdorf', 'Dan Devine', 'Bob', 'Roy S . Johnson', 'Larry Martin Demery', 'Clyde Drexler', 'Knafel', 'David', 'Michael Jordan', 'Jordan Motorsports', 'Robert L . Johnson', 'Muhammad Ali', 'Citing Bowie', 'Spike Lee', 'Lee', 'Charles Barkley', 'Walter Iooss', 'Phil Jackson', 'Don Nelson', 'Gary Payton', 'Jason Whitlock', 'Ron Shelton', 'Larry Bird', 'Kevin Garnett', 'Vince Carter', 'Horace Grant', 'Michael Jackson', 'Russell', 'Clyde "', 'Daniel Sundheim', 'Isiah Thomas', 'George Floyd', 'Scottie Pippen', 'Mitchell', 'W . W . Norton', 'Sam Bowie', 'Kareem Abdul - Jabbar', 'Allen Iverson', 'Robert F . Smith', 'Sportswriter Wright Thompson', 'Larry Jordan', 'Patrick Ewing', 'James Jordan', 'Steve Kerr', 'George Postolos', 'Dwyane Wade', 'Thompson', 'LeBron James', 'Magic Johnson', 'Toni Kukoč', 'David Stern', 'Michael Jordan Career Retrospective', 'Irving J .', 'Malone', 'Brown', 'Sam Vincent', 'Doug Brady', 'Jordan Drive', 'Jack Hartman', 'Justin Jordan', 'Jasmine', 'Grant Hill', 'Adam Morrison', 'Dunk Contest', 'Glen Rice', 'Jerry Stackhouse', 'Mario Lemieux', 'Wayne Gretzky', 'Loyola Academy', 'Bryon Russell', 'John Paxson', 'Deloris', 'Penny Hardaway', 'James R . Jordan Jr .', 'Bill Russell', 'Bobby Simmons', 'Family Clinics', 'His', 'Willis Reed', 'Broadcaster Al Michaels', 'Despite Jordan', 'John Salmons', 'Luka Dončić', 'Gatorade', 'Subsequently', 'James Worthy', 'Mike "', 'Andrei S', 'Walter Davis', 'Doug Collins', 'Julius Erving . Larry Bird', 'David Falk', 'Doug Colling', 'Porter', 'Jeffrey', 'Walter', 'Jeffrey Jordan OLY', 'Roland', 'Dennis Rodman', 'Doc Rivers', 'Oprah Winfrey'
@@ -349,5 +349,5 @@ Hier als Beispiel die Liste der im Wikipedia-Artikel zu Michael Jordan erkannten
 ## Fazit
 
 In diesem Artikel wurde gezeigt, wie auf Basis weniger Mittel eine Suchheuristik auf der Basis von Textanalyse und Query DSL innerhalb von Elasticsearch erfolgen kann.
-Eingaben können mithilfe von Ngrammen und phonetischer Transformation fehlertoleranter gestaltet werden, sowie bereits während der Nutzereingabe (also unvollständiger Suchparameter) Vorschläge für Suchtreffer geliefert werden.
-Mit Fuzzy Search und der Verbindung der erarbeiteten Suchheuristiken werden die erarbeiteten Suchheuristiken kombiniert, um eine mehrschichtige Suche zu designen, die sowohl schnell als auch fehlertolerant ist.
+Eingaben können mithilfe von Ngrammen und phonetischer Transformation fehlertoleranter gestaltet werden, außerdem können bereits während der Nutzereingabe (also unvollständiger Suchparameter) Vorschläge für Suchtreffer geliefert werden.
+Mit Fuzzy Search und der Verbindung der erarbeiteten Suchheuristiken werden diese kombiniert, um eine mehrschichtige Suche zu designen, die sowohl schnell als auch fehlertolerant ist.
