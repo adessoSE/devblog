@@ -59,12 +59,12 @@ Schauen wir uns einmal die von "Micheal" abgeleiteten Ngramme an:
 
 ```['mi', 'mic', 'ic', 'ich', 'ch', 'che', 'he', 'hea', 'ea', 'eal', 'al']```
 
-Obwohl einige Ngramme auch in der Tokenisierung von „Michael“ auftauchen würden, gibt es nichts Besonderes an ihnen - Elasticsearch wird einfach mit den Dokumenten übereinstimmen, die die Token am häufigsten enthalten.
-Im Allgemeinen braucht es ein wenig Test und Versuch und Irrtum, um die besten Minimal- und Maximalwerte für die Ngrammlänge zu finden (je länger, desto spezifischer die Treffer, aber weniger fehlertolerant).
+Obwohl einige Ngramme auch in der Tokenisierung von "Michael" auftauchen würden, gibt es nichts Besonderes an ihnen - eine Suche mit Elasticsearch wird einfach die Dokumente mit den meisten Übereinstimmungen in der Tokenliste liefern.
+Im Allgemeinen braucht es ein wenig Test, Versuch und Irrtum, um die besten Minimal- und Maximalwerte für die Ngrammlänge zu finden (je länger, desto spezifischer die Treffer, aber weniger fehlertolerant).
 
 ### Search-as-you-type
 
-Die ["Search-as-you-type"-Funktionalität](https://www.elastic.co/guide/en/elasticsearch/reference/current/search-as-you-type.html) nutzt Ngramme auf eine etwas andere Art und Weise als bisher gezeigt.
+Die ["search-as-you-type"-Funktionalität](https://www.elastic.co/guide/en/elasticsearch/reference/current/search-as-you-type.html) nutzt Ngramme auf eine etwas andere Art und Weise als bisher gezeigt.
 Anstatt das gesamte Wort für die Tokenisierung zu betrachten, liegt der Fokus auf dem Anfang der Wörter, um eine schnelle Suchfunktion zu bieten, die Ergebnisse liefert, während der Benutzer die ersten Buchstaben eingibt.
 
     input = 'micheal'
@@ -85,7 +85,7 @@ Anstatt das gesamte Wort für die Tokenisierung zu betrachten, liegt der Fokus a
         ).body
         print(f"Input "{input[:i]}" yields a total {response['hits']['total']['value']} results with titles {[r['_source']['title'] for r in response['hits']['hits']]}")
 
-Während des Tippens wird die Ergebnismenge bereits eingegrenzt und könnte verwendet werden, um Benutzer zum gewünschten Suchergebnis zu leiten.
+Während des Tippens wird die Ergebnismenge bereits eingegrenzt und sie könnte schon verwendet werden, um Benutzer zum gewünschten Suchergebnis zu leiten.
 
     Input "mi" yields a total 33 results with titles ['1974 United States Senate election in Missouri', '103 Mile Lake', 'Peter Milliman', 'Micropterix lambesiella', 'Middle nasal concha', 'Middletown, Indiana', 'Diving at the 2018 European Aquatics Championships – Mixed 3 m springboard synchro', 'Spring Fork, Missouri', '1968–69 Midland Football League', '1922 Minneapolis Marines season', 'Federico Millacet', 'Federal Ministry of Health (Germany)', 'Grand Haven, Michigan', 'Smock mill, Wolin', 'Kendriya Vidyalaya 9th Mile', '246th Mixed Brigade', 'Micellar solubilization', 'Michael Jordan', 'Mike Gallagher (political commentator)', 'Stephen V. R. Trowbridge (Michigan legislator)', 'The Dazzling Miss Davison', 'Ministry Trax! Box', 'Highway 25 Bridge (Minnesota)', 'Michael Paul Fleischer', 'Mikhail Makagonov', 'Mildred Ratcliffe', 'Jefferson County School District (Mississippi)', 'Michiyoshi', 'Midnattsrocken', 'Miguel Tavares (footballer)', 'Palfrey, West Midlands', 'John Miles (fl. 1404)', 'Marion, Mississippi']
     Input "mic" yields a total 7 results with titles ['Micropterix lambesiella', 'Grand Haven, Michigan', 'Micellar solubilization', 'Michael Jordan', 'Stephen V. R. Trowbridge (Michigan legislator)', 'Michael Paul Fleischer', 'Michiyoshi']
@@ -98,7 +98,7 @@ Mit dieser Funktion werden Tippfehler zwar nicht behoben, aber bei aufmerksamer 
 
 Da es sich bei Elasticsearch um ein Open-Source-Projekt handelt, ist es nicht verwunderlich, dass Erweiterungen auf dem Projekt aufbauen, um Anwendungsfälle zu lösen.
 Erweiterungen für Elasticsearch können die Form von [Plugins](https://www.elastic.co/guide/en/elasticsearch/plugins/current/intro.html) annehmen, die relativ einfach zu installieren sind.
-Hier werfen wir einen Blick auf das Plugin für die phonetische Analyse, das es uns ermöglicht, phonetische Repräsentationen von Eingabe-Token zu erhalten.
+Hier werfen wir einen Blick auf das Plugin für die phonetische Analyse, das es uns ermöglicht, phonetische Repräsentationen von Eingabetoken zu erhalten.
 
     client.indices.put_settings(
         index='logstash-articles',
@@ -124,9 +124,9 @@ Hier werfen wir einen Blick auf das Plugin für die phonetische Analyse, das es 
         }
     )
 
-Nachdem ein Analyzer definiert wurde, der den phonetischen Token-Filter verwendet, kann natürliche Sprache in eine phonetische Repräsentation gebracht werden.
+Nachdem ein Analyzer definiert wurde, der den phonetischen Tokenfilter verwendet, kann natürliche Sprache in eine phonetische Repräsentation gebracht werden.
 Diese ist abhängig vom gewählten Algorithmus und der Ausgangssprache, kann aber auch von Elastisearch geraten werden.
-Um den Analyzer zu testen, vergleichen wir die Token, die jeweils aus der Analyse von 'Michael' und 'Micheal' hervorgehen.
+Um den Analyzer zu testen, vergleichen wir die Token, die jeweils aus der Analyse von "Michael" und "Micheal" hervorgehen.
 
     michael_phonetic_tokens = [t['token'] for t in client.indices.analyze(
         index='logstash-articles',
@@ -149,7 +149,7 @@ Um den Analyzer zu testen, vergleichen wir die Token, die jeweils aus der Analys
 
 Zufälligerweise können wir bereits feststellen, dass es eine Überschneidung in der phonetischen Darstellung zwischen "Michael" und "Micheal" gibt.
 In diesem Fall würde die phonetische Umwandlung ausreichen, um den Tippfehler aus der Nutzereingabe zu beheben.
-So sollten wir bereits einige Ergebnisse gefunden werden, die für eine Testnutzerbasis einigermaßen akzeptabel sein könnten.
+So sollten wir bereits einige Ergebnisse erhalten, die für eine Testnutzerbasis einigermaßen akzeptabel sein könnten.
 Bisher haben wir uns jedoch darauf konzentriert, gute Datentypen zu finden, um die Daten, die wir abfragen wollen, vorzubereiten.
 Die Abfragetypen, die wir bisher untersucht haben, sind jedoch recht einfach und nutzen die Query DSL von Elasticsearch nicht aus.
 
@@ -170,7 +170,7 @@ Angewandt auf unser früheres Beispiel löst es das Problem, indem es die gesuch
 
 Ein Nachteil von Fuzzy-Abfragen, auch wenn sie verlockend sind, sind ihre relativ hohen Rechenkosten, die die Ausführungszeit von Abfragen in größeren Datensätzen beeinträchtigen können und die Größe der Ergebnismenge erhöhen[^3].
 
-[^3]: Siehe [Präzisions- und Recall-Problem](https://en.wikipedia.org/wiki/Precision_and_recall).
+[^3]: Siehe [Präzisions- und Recall-Problem](https://en.wikipedia.org/wiki/Precision_and_recall)
 
 ### Zusammengesetzte Abfragen
 
@@ -188,11 +188,12 @@ Jede boolesche Abfrage besteht aus bis zu vier Teilen:
     }
 
 `must` und `filter` bilden also den _und_-Teil einer booleschen Abfrage, `should` den _oder_ und `must_not` den _nicht_-Teil ab.
-Nun wenden wir diesen mehrschichtigen Ansatz bei unserer Abfrage an:
+Nun wenden wir diesen mehrschichtigen Ansatz bei unserer Abfrage an.
+Die einzelnen Teile werden von Elasticsearch direkt nacheinander durchgeführt, und zwar in folgender Reihenfolge:
 
 - Zunächst filtern wir nach allen Artikeln, die Ngramme enthalten, die mit dem Suchbegriff in einem der relevanten Felder, die wir bisher untersucht haben, in Verbindung stehen. Dies reduziert die Anzahl der Dokumente, die Elasticsearch während der Scoring-Phase berücksichtigen muss, und beschleunigt die Ausführungszeit der Abfrage, während keine in Frage kommenden Dokumente verworfen werden;
-- Zweitens legen wir einen Basis-Score für alle Dokumente fest, die eine Fuzzy-Transposition des Suchbegriffs in denselben Feldern enthalten. Da wir die Anzahl der Kandidaten bereits reduziert haben, können wir uns einen ziemlich gierigen Ansatz mit einem erlaubten Bearbeitungsabstand von 2 leisten;
-- Anschließend werden die Dokumente höher bewertet, die mit einer oder beiden übereinstimmenden Suchanfragen übereinstimmen, entweder mit einer phonetischen Äquivalenz oder einer direkten lexikalischen Übereinstimmung.
+- Zweitens legen wir einen Basis-Score für alle Dokumente fest, die eine Fuzzy-Transposition des Suchbegriffs in denselben Feldern enthalten. Da wir die Anzahl der Kandidaten bereits reduziert haben, können wir uns einen ziemlich gierigen Ansatz mit einem erlaubten Bearbeitungsabstand von 2 leisten ("gierig" heißt hier, dass die Abfrage tendenziell viele Treffer generieren würde, da wir ein hohes Maß an Flexibilität erlauben - die Umwandlung in ähnliche Token ist zudem ressourcenintensiv, da Elasticsearch mögliche ähnliche Token in allen bis hierher zugelassenen Dokumenten sucht);
+- Anschließend werden die Dokumente höher bewertet, die mit einer oder beiden Suchanfragen übereinstimmen, entweder mit einer phonetischen Äquivalenz oder direkten lexikalischen Treffern.
 
     client.search(index='logstash-articles', query={
         'bool': {
@@ -244,7 +245,7 @@ Nun wenden wir diesen mehrschichtigen Ansatz bei unserer Abfrage an:
     ).body
 
 Jetzt haben wir eine Abfrage, die sich mehrere Textanalysefunktionen zunutze macht, bis zu einem gewissen Grad tolerant gegenüber Tippfehlern ist und mehrere relevante Felder durchsucht.
-Um die Benutzerfreundlichkeit durch Vorschläge während der Eingabe zu verbessern, könnten wir die vorher verwendeten `search_as_you_type`-Felder weiter einbeziehen.
+Um die Benutzerfreundlichkeit durch Vorschläge während der Eingabe zu verbessern, könnten wir die vorher verwendeten "search-as-you-type"-Felder weiter einbeziehen.
 
 ## Development & Advanced Features
 
