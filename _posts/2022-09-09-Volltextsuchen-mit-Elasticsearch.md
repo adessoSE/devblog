@@ -9,32 +9,33 @@ tags: [Open Source, REST, Elasticsearch]      # Bitte auf Großschreibung achten
 ---
 
 <!-- Teaser Text -->
-In diesem Artikel entwickeln wir mit wenigen Mitteln eine performante und feature-reiche Volltextsuche.
+In diesem Artikel entwickeln wir mit wenigen Mitteln eine performante und featurereiche Volltextsuche.
 In diesem Beitrag zeige ich euch, wie ihr auf Basis der Open-Source-Software Elasticsearch textbasierte Daten speichert, indiziert und für menschliche User einfach durchsuchbar gestalten könnt.
-Dazu deployen wir eine Instanz des Webservices Elasticsearch, indizieren Beispieldaten und entwickeln mithilfe der Bordmittel von Elasticsearch eine an beliebiger Stelle wiederverwendbare Suche.
+Dazu deployen wir eine Instanz des Webservice Elasticsearch, indizieren Beispieldaten und entwickeln mithilfe der Bordmittel von Elasticsearch eine an beliebiger Stelle wiederverwendbare Suche.
 Dazu benötigt ihr lediglich einen Browser und einen GitHub-Account:
+
+
 Den gesamten Code findet ihr in [GitHub](https://github.com/sypste/elasticsearch-demo) und ihr könnt alles schnell bei [GitPod](https://gitpod.io/) deployen und ausprobieren[^1].
 
-[^1]: Dazu einfach das Template-Repo nutzen, um ein persönliches Repo zu erstellen, den Link zum Repo benutzen, um über das GitPod-Dashboard einen Workspace zu erstellen und anschließend zu öffnen. Das Setup wird für euch automatisch ausgeführt und die Code-Beispiele funktionieren out-of-the-box.
+[^1]: Ihr könnt einfach das verlinkte Template-Repo „elasticsearch-demo“ nutzen, um ein persönliches Repo in GitHub zu erstellen. Den Link zu eurem Repo benutzt ihr anschließend, um über das GitPod-Dashboard einen Workspace zu erstellen und anschließend zu öffnen. Das Setup des Workspace wird für euch automatisch ausgeführt und die Codebeispiele funktionieren out-of-the-box.
 
 # Volltextsuchen mit Elasticsearch
 
 <!-- Motivieren -->
-Jedes Mal, wenn ich meinen Browser öffne, sehe ich als Erstes eine Suchmaschine meiner Wahl.
-Und das mit gutem Grund:
+Jedes Mal, wenn ich meinen Browser öffne, sehe ich als Erstes eine Suchmaschine meiner Wahl, und das mit gutem Grund:
 Immerhin ist das Internet sehr groß und die Informationen, die ich alltäglich brauche, sind in der Regel nicht alleine auf den wenigen Seiten zu finden, deren URLs ich selbständig ansteuern kann.
 Stattdessen verlasse ich mich auf Suchmaschinen, um für meine Fragen relevante Ergebnisse zu finden.
 Dabei bedienen sich moderne Search Engines vielerlei Strategien und Algorithmen:
-Vom einfachen Zählen einiger Schlüsselwörter im Quelltext statischer Seiten über die Gewichtung der Verlinkungen zu anderen Online-Ressourcen bis hin zu KI-gestützten Methoden, um beispielsweise anhand meines bisherigen Nutzerverhaltens häufig benutzte Seiten höher zu bewerten.
-All das, um mir innerhalb weniger Millisekunden ausreichend zufriedenstellende Suchergebnisse liefern zu können, sodass ich auch beim nächsten Mal wieder die gleiche Suchmaske öffne[^2].
+Diese reichen vom einfachen Zählen einiger Schlüsselwörter im Quelltext statischer Seiten über die Gewichtung der Verlinkungen zu anderen Online-Ressourcen bis hin zu KI-gestützten Methoden, um beispielsweise anhand meines bisherigen Nutzerverhaltens häufig benutzte Seiten höher gewichtet zu bewerten.
+All das geschieht, um mir innerhalb weniger Millisekunden ausreichend zufriedenstellende Suchergebnisse liefern zu können, sodass ich auch beim nächsten Mal wieder die gleiche Suchmaske öffne[^2].
 
 Nun ist es allerdings nicht in jedem Fall erforderlich, mit Kanonen auf Spatzen zu schießen und KI-gestützte Verfahren einzuführen, wo clevere Algorithmen und Datenhaltung ausreichen.
-In diesem Bereich spielt Elasticsearch seine Stärken aus, da die Speicherung großer Datenmengen von strukturiertem und unstrukturiertem Text durch die Verwendung des Inverted Index-Konzept gelöst wird:
+In diesem Bereich spielt Elasticsearch seine Stärken aus, da die Suche in großen Datenmengen von strukturiertem und unstrukturiertem Text durch die Verwendung des Inverted-Index-Konzepts gelöst wird:
 Neu zu hinterlegender Text wird in der Ingest-Phase nach konfigurierten Prinzipien analysiert, um in der Query-Phase die zu Sucheingaben passenden Ergebnisse direkt bereitstellen zu können.
 Standardmäßig werden Texte/Strings sowohl als Typ `text` als auch als `keyword` indiziert.
-Texte werden in Token umwandelt und je zugehöriger Document ID hinterlegt, was in allgemeinen Anwendungsfällen und für Aggregationen gut funktioniert.
-Die Standard-Features stoßen jedoch an Grenzen, sobald Tippfehler, ein Google-ähnliches Suchgefühl oder eine domänenspezifische Normalisierung ins Spiel kommen.
-Bei der Umsetzung dieser Anforderung hilfreiche Features schauen wir uns nach und nach an.
+Texte werden in Token umwandelt und diese für die Suche je zugehöriger Document ID hinterlegt, was in allgemeinen Anwendungsfällen und für Aggregationen gut funktioniert.
+Die Standardfeatures stoßen jedoch an Grenzen, sobald Tippfehler, ein Google-ähnliches Suchgefühl oder eine domänenspezifische Normalisierung ins Spiel kommen.
+Bei der Umsetzung dieser Anforderungen hilfreiche Features schauen wir uns nach und nach an.
 
 [^2]: Das Geschäftsmodell der Firmen, die ihre Suchmaschinen kostenlos zur Verfügung stellen, ist nicht Gegenstand dieses Beitrags.
 
@@ -50,15 +51,15 @@ Ngramme sind ein bekanntes Konzept in der Linguistik und der natürlichen Sprach
 Die Idee besteht darin, einzelne Wörter in eine Anzahl von Buchstabentoken mit einer definierten Minimal- und Maximallänge, z. B. 2 und 3, aufzuteilen.
 Ein Wort, wie z. B. Länge, würde dann in Token mit einer maximalen Länge von drei aufgeteilt werden:
 
-['lä', 'län', 'äng', 'nge', 'ge']
+```['lä', 'län', 'äng', 'nge', 'ge']```
 
 Allerdings werden die Ergebnisse sicherlich noch nicht das sein, was wir wollen.
 Ngramm-Tokenizer ergeben nichts anderes, als Wörter in Token aufzuspalten, also sollten wir nicht überrascht sein, dass die Ergebnisse etwas zufällig erscheinen.
 Schauen wir uns einmal die von "Micheal" abgeleiteten Ngramme an:
 
-['mi', 'mic', 'ic', 'ich', 'ch', 'che', 'he', 'hea', 'ea', 'eal', 'al']
+```['mi', 'mic', 'ic', 'ich', 'ch', 'che', 'he', 'hea', 'ea', 'eal', 'al']```
 
-Obwohl einige Ngramme auch in der Tokenisierung von Michael auftauchen würden, gibt es nichts Besonderes an ihnen - Elasticsearch wird einfach mit den Dokumenten übereinstimmen, die die Token am häufigsten enthalten.
+Obwohl einige Ngramme auch in der Tokenisierung von „Michael“ auftauchen würden, gibt es nichts Besonderes an ihnen - Elasticsearch wird einfach mit den Dokumenten übereinstimmen, die die Token am häufigsten enthalten.
 Im Allgemeinen braucht es ein wenig Test und Versuch und Irrtum, um die besten Minimal- und Maximalwerte für die Ngrammlänge zu finden (je länger, desto spezifischer die Treffer, aber weniger fehlertolerant).
 
 ### Search-as-you-type
