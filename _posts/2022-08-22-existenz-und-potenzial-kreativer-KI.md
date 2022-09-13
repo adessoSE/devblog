@@ -98,7 +98,7 @@ Eine weitere KI, die beeindruckende kreative Artefakte generiert, kann auf der W
 Dort werden realistische Fotos von Personen generiert, die gar nicht existieren.
 
 Google schaffte mit einer KI namens DeepDream Kunst, von der behauptet wird, dass sie gänzlich neue Konzepträume eröffnet.
-Sie generiert träumerische Kunst, die einen gänzlich eigenen und neuen Stil hat, der so von Menschen nicht erzeugt werden kann und bislang auch nicht wurde. 
+Sie generiert träumerische Kunst, die einen gänzlich eigenen und neuen Stil hat, der so von Menschen nicht erzeugt werden kann und bislang auch nicht erzeugt wurde. 
 Der für die Kunst von DeepDream verantwortliche Alexander Reben beschreibt die Ergebnisse als einen kurzen Einblick in die Verschmelzung von Mensch und Technik, einen "cyberdelischen Drogentrip".
 
 <div align='center'>
