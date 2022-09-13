@@ -8,6 +8,11 @@ categories: [KI]                # Pflichtfeld. Maximal eine der angegebenen Kate
 tags: [Kreativität, Künstliche Intelligenz, Künstliche Kreativität] # Bitte auf Großschreibung achten.
 ---
 
+KI beweist sich immer öfter bei der Lösung vor allem rationaler Aufgaben.
+Wie sieht es aber mit kreativen Aufgaben aus, die sich schwer quantifizieren lassen?
+Dieser Frage, dem Stand der Technik und dem Potential von KI im Kreativbereich gehe ich in diesem Blog-Beitrag nach.
+
+
 Künstliche Intelligenz genoss in den letzten Jahren einen immer noch anhaltenden Aufschwung an Popularität.
 Es werden immer mehr neuartige KI-Technologien entwickelt und angewandt.
 Dennoch bewegt sie sich weiterhin primär im Umfeld von sehr rationalen und aufgaben- bzw. bereichsspezifischen Anwendungsfällen.
@@ -93,7 +98,7 @@ Eine weitere KI, die beeindruckende kreative Artefakte generiert, kann auf der W
 Dort werden realistische Fotos von Personen generiert, die gar nicht existieren.
 
 Google schaffte mit einer KI namens DeepDream Kunst, von der behauptet wird, dass sie gänzlich neue Konzepträume eröffnet.
-Sie generiert träumerische Kunst, die einen gänzlich eigenen und neuen Stil hat, der so von Menschen nicht erzeugt werden kann und bislang nicht wurde. 
+Sie generiert träumerische Kunst, die einen gänzlich eigenen und neuen Stil hat, der so von Menschen nicht erzeugt werden kann und bislang auch nicht wurde. 
 Der für die Kunst von DeepDream verantwortliche Alexander Reben beschreibt die Ergebnisse als einen kurzen Einblick in die Verschmelzung von Mensch und Technik, einen "cyberdelischen Drogentrip".
 
 <div align='center'>
@@ -145,8 +150,8 @@ Es ist schwer, Kreativität auf quantitativer Weise zu messen.
 Um die wichtigsten Erkenntnisse der Wissenschaft kurz zusammenzufassen, kann gesagt werden, dass kreative KI-Systeme viele kreative Eigenschaften besitzen.
 Sie können neue, noch nicht dargewesene kreative Artefakte erzeugen, die sowohl neuartig als auch wertvoll sind und somit als kreativ bezeichnet werden können.
 Wo sie sich aber noch schwer tun ist z.B. bei sogenannter transformationaler Kreativität, also bei völlig neuartigen und den bisherigen Konzeptraum gänzlich verlassenen Ideen.
-Googles DeepDream wird als eine der wenigen KI-Systeme genannt, das bereits transformationale Kreativität zumindest teilweise beherrscht.
-Die Frage, ob diese Kunst auch das Kriterium value erfüllt bleibt allerdings umstritten und benötigt in jedem Fall weiterhin eine menschliche Einschätzung.
+Googles DeepDream wird als eine der wenigen KIs genannt, die bereits transformationale Kreativität zumindest teilweise beherrscht.
+Die Frage, ob diese Kunst auch das Kriterium value erfüllt, bleibt allerdings umstritten und benötigt in jedem Fall weiterhin eine menschliche Einschätzung.
 Die von KI erzeugten Variationen bewegen sich primär noch in einem begrenzten Rahmen.
 Dieser Rahmen wird durch die Wahl des Modells und des Datensatzes bestimmt und unterliegt einer inhärenten Einschränkung.
 Auch beherrscht KI noch nicht alle kreativen Eigenschaften, die wir Menschen in kreativen Prozessen nutzen, z.B. das Konzept der Abstraktion.
