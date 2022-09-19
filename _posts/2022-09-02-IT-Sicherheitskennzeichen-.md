@@ -69,7 +69,7 @@ Insbesondere liegt es am Nutzenden, Sicherheitsfeatures nicht auszuschalten oder
 Nutzende sind durch das IT-Sicherheitskennzeichen in der Lage, auf einen Blick wichtige Fakten zu Sicherheitseigenschaften eines vernetzten Produkts zu erhalten. 
 Über einen QR-Code gelangen sie zu der Produktseite des BSI und dem aktuellen Status des Produktes, [hier](https://www.bsi.bund.de/DE/Themen/Unternehmen-und-Organisationen/IT-Sicherheitskennzeichen/Vorschau_Produktseite/Beispiel_Produktinformationsseite.html?nn=936796) eine Beispielseite dazu. 
 So können sie sehen, dass sich die Herstellerfirma eines Produkts freiwillig dazu verpflichtet hat, die Anforderung des BSI einzuhalten. 
-Dies kann ein Wettbewerbsvorteil darstellen. 
+Dies kann einen Wettbewerbsvorteil darstellen. 
 Meist ist es nicht auf einen Blick ersichtlich, ob ein Produkt Sicherheitsstandards einhält. 
 Unsere Welt wird immer vernetzter, immer mehr Geräte werden smart. 
 Die Analoge Welt wird immer digitaler, für VerbraucherInnen ist es schwierig zu erkennen, ob ein smartes Gerät auch digital sicher ist oder nicht. 
