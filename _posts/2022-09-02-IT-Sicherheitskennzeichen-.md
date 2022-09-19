@@ -56,7 +56,7 @@ Unter den Anlagen befindet sich auch die technische Erklärung, die unter andere
 
 Auch wird nach dem Handbuch für Benutzende, Richtlinie zum Umgang mit Schwachstellen und falls vorhanden einem technischen Produktblatt gefragt.
 In Summe sind die Anträge und auszufüllenden Dokumente kurzgehalten. 
-Eine technische Prüfung jedes einzelnen Produktes erfolgt nicht, sondern kann stichprobenartig von der Marktaufsicht überprüft werden.
+Eine technische Prüfung jedes einzelnen Produktes erfolgt nicht, stattdessen können einzelne Produkte stichprobenartig von der Marktaufsicht überprüft werden.
 Falls das IT-Sicherheitskennzeichen vergeben wird, wird es für einen bestimmten Zeitraum vergeben (in der Regel 2 Jahre) und kann anschließend verlängert werden. 
 Zudem kann es von Seiten des BSI widerrufen werden, falls Sicherheitsstandard nicht gehalten werden. 
 
