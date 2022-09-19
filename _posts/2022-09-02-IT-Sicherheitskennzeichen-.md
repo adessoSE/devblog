@@ -61,7 +61,7 @@ Falls das IT-Sicherheitskennzeichen vergeben wird, wird es für einen bestimmten
 Zudem kann es von Seiten des BSI widerrufen werden, falls Sicherheitsstandards nicht eingehalten werden. 
 
 
-# Welche Informationen können VerbraucherInnen sehen? 
+# Welche Informationen können Nutzende sehen? 
 
 Das IT-Sicherheitskennzeichen schafft kein Versprechen, dass das Produkt zu 100% sicher ist. 
 Insbesondere liegt es am Nutzenden Sicherheitsfeatures nicht auszuschalten oder Produkte so zu nutzen, dass der Zugang zu Passwörtern und co. einem Kriminellen erleichtert wird. 
