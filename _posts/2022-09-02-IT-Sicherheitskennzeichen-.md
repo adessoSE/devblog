@@ -46,7 +46,7 @@ Dafür benötigt das BSI folgende Informationen:
 
 Die Formulare befinden sich [hier](https://www.bsi.bund.de/DE/Themen/Unternehmen-und-Organisationen/IT-Sicherheitskennzeichen/fuer-Hersteller/Antrag/IT-SiK-Antrag.html).
 
-Unter den Anlagen befindet sich auch die Technische Erklärung, die unter anderem folgende Punkte fragt: 
+Unter den Anlagen befindet sich auch die technische Erklärung, die unter anderem folgende Punkte abfragt: 
 
 -	Wie werden Standardpasswörter falls nötig generiert?
 -	Wie verlaufen die Meldeverfahren zum Umgang mit Schwachstellen?
