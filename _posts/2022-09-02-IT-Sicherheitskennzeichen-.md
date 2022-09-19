@@ -34,7 +34,7 @@ Bislang gibt es die im Bild dargestellten Produktkategorien (Stand 02.09.2022).
 Die technischen Richtlinien, die zur jeweiligen Produktkategorie gehören, werden ebenfalls an gleicher Stelle zur Verfügung gestellt. Auch wenn es bislang wenige zu sein scheinen, wird die Liste kontinuierlich erweitert werden. 
 Unsere Welt wird immer smarter und vernetzter, dementsprechend werden auch an die IT-Produkte höhere Sicherheitsanforderungen gestellt.
 
-Zunächst einmal liegt es an den Herstellern, dass das Produkt von Anfang an sicher gestaltet wird (Security by Design) und alle technischen Sicherheitsrichtlinien der jeweiligen Produktgruppe des BSI umgesetzt sind. 
+Zunächst einmal liegt es an den herstellenden Unternehmen, dass das Produkt von Anfang an sicher gestaltet wird (Security by Design) und alle technischen Sicherheitsrichtlinien der jeweiligen Produktgruppe des BSI umgesetzt sind. 
 Das IT-Sicherheitskennzeichen kann auf den Seiten des BSI beantragt werden. 
 Dafür benötigt das BSI folgende Informationen: 
 
