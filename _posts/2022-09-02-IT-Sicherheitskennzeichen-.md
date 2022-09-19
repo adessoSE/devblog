@@ -44,7 +44,7 @@ Dafür benötigt das BSI folgende Informationen:
 * Formlose Selbsterklärung, dass das Unternehmen sich nicht in Insolvenz oder Liquidation befindet
 * Gegebenenfalls weitere ergänzende Anlagen zum Antrag
 
-Die Formulare befinden sich [hier](https://www.bsi.bund.de/DE/Themen/Unternehmen-und-Organisationen/IT-Sicherheitskennzeichen/fuer-Hersteller/Antrag/IT-SiK-Antrag.html)
+Die Formulare befinden sich [hier](https://www.bsi.bund.de/DE/Themen/Unternehmen-und-Organisationen/IT-Sicherheitskennzeichen/fuer-Hersteller/Antrag/IT-SiK-Antrag.html).
 
 Unter den Anlagen befindet sich auch die Technische Erklärung, die unter anderem folgende Punkte fragt: 
 
