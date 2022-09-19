@@ -77,7 +77,7 @@ Die Analoge Welt wird immer digitaler, für VerbraucherInnen ist es schwierig zu
 Wir wissen, welchen Stromverbrauch Geräte haben, aber oftmals nicht, wie unsere Daten abgesichert sind. 
 Das IT-Sicherheitskennzeichen könnte mehr vertrauen schaffen.
 
-Durch das IT-Sicherheitskennzeichen fließt eine weitere wichtige Komponente in die Kaufentscheidung der VerbraucherInnen ein. 
+Das IT-Sicherheitskennzeichen ist eine wichtige Komponente in der Kaufentscheidung von Nutzenden. 
 Sie ist eine zusätzliche Komponente die mehr Transparenz in der smarten Welt schafft. 
 Es ist nicht das Allheilmittel und garantiert auch nicht, dass ein IT-Prdoukt absolut sicher ist (es können immer neue Angriffsvektoren entstehen), jedoch der erste Schritt für mehr Vertrauen in digitale Produkte und gleichzeitig eine Selbstverpflichtung von Produktherstellern gegenüber ihren KundInnen.
 
