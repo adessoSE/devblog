@@ -48,7 +48,7 @@ Die Formulare befinden sich [hier](https://www.bsi.bund.de/DE/Themen/Unternehmen
 
 Unter den Anlagen befindet sich auch die technische Erklärung, die unter anderem folgende Punkte abfragt: 
 
--	Wie werden Standardpasswörter falls nötig generiert?
+- Wie werden Standardpasswörter falls nötig generiert?
 -	Wie verlaufen die Meldeverfahren zum Umgang mit Schwachstellen?
 -	Wie werden zugesicherte Supportzeiten gegenüber den VerbraucherInnen transparent gemacht?
 -	Wie wird sichergestellt, dass über das Netzwerk keine unautorisierten sicherheitsrelevanten Änderungen an der Konfiguration des Produkts vorgenommen werden können?
