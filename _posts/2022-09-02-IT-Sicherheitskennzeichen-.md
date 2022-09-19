@@ -50,7 +50,7 @@ Unter den Anlagen befindet sich auch die technische Erklärung, die unter andere
 
 - Wie werden Standardpasswörter falls nötig generiert?
 - Wie verlaufen die Meldeverfahren zum Umgang mit Schwachstellen?
--	Wie werden zugesicherte Supportzeiten gegenüber den VerbraucherInnen transparent gemacht?
+- Wie werden zugesicherte Supportzeiten gegenüber den Nutzenden transparent gemacht?
 -	Wie wird sichergestellt, dass über das Netzwerk keine unautorisierten sicherheitsrelevanten Änderungen an der Konfiguration des Produkts vorgenommen werden können?
 -	uvm.
 
