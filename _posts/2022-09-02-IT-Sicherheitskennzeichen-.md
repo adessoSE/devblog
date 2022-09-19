@@ -58,7 +58,7 @@ Auch wird nach dem Handbuch für Benutzende, Richtlinie zum Umgang mit Schwachst
 In Summe sind die Anträge und auszufüllenden Dokumente kurzgehalten. 
 Eine technische Prüfung jedes einzelnen Produktes erfolgt nicht, stattdessen können einzelne Produkte stichprobenartig von der Marktaufsicht überprüft werden.
 Falls das IT-Sicherheitskennzeichen vergeben wird, wird es für einen bestimmten Zeitraum vergeben (in der Regel 2 Jahre) und kann anschließend verlängert werden. 
-Zudem kann es von Seiten des BSI widerrufen werden, falls Sicherheitsstandard nicht gehalten werden. 
+Zudem kann es von Seiten des BSI widerrufen werden, falls Sicherheitsstandards nicht eingehalten werden. 
 
 
 # Welche Informationen können VerbraucherInnen sehen? 
