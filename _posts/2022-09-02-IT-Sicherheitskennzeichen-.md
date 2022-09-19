@@ -52,7 +52,7 @@ Unter den Anlagen befindet sich auch die technische Erklärung, die unter andere
 - Wie verlaufen die Meldeverfahren zum Umgang mit Schwachstellen?
 - Wie werden zugesicherte Supportzeiten gegenüber den Nutzenden transparent gemacht?
 - Wie wird sichergestellt, dass über das Netzwerk keine unautorisierten sicherheitsrelevanten Änderungen an der Konfiguration des Produkts vorgenommen werden können?
--	uvm.
+- uvm.
 
 Auch wird nach dem Handbuch für Benutzende, Richtlinie zum Umgang mit Schwachstellen und falls vorhanden einem technischen Produktblatt gefragt.
 In Summe sind die Anträge und auszufüllenden Dokumente kurzgehalten. 
