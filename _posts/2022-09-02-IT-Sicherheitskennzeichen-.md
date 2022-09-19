@@ -66,7 +66,7 @@ Zudem kann es von Seiten des BSI widerrufen werden, falls Sicherheitsstandards n
 Das IT-Sicherheitskennzeichen schafft kein Versprechen, dass das Produkt zu 100% sicher ist. 
 Insbesondere liegt es am Nutzenden, Sicherheitsfeatures nicht auszuschalten oder Produkte so zu nutzen, dass Dritten der Zugang zu Passwörtern und co. erleichtert wird. 
 
-VerbraucherInnen sind durch das IT-Sicherheitskennzeichen in der Lage wichtige Fakten zu Sicherheitseigenschaften eines vernetzten Produkts auf einen Blick zu erhalten. 
+Nutzende sind durch das IT-Sicherheitskennzeichen in der Lage, auf einen Blick wichtige Fakten zu Sicherheitseigenschaften eines vernetzten Produkts zu erhalten. 
 Über einen QR-Code gelangen sie zu der Produktseite des BSI und den aktuellen Status des Produktes. 
 [Hier](https://www.bsi.bund.de/DE/Themen/Unternehmen-und-Organisationen/IT-Sicherheitskennzeichen/Vorschau_Produktseite/Beispiel_Produktinformationsseite.html?nn=936796) eine Beispielseite. 
 So können sie sehen, dass sich ein Hersteller eines Produkts freiwillig dazu verpflichtet hat die Anforderung des BSI einzuhalten. 
