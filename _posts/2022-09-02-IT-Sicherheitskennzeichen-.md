@@ -72,7 +72,7 @@ So können sie sehen, dass sich die Herstellerfirma eines Produkts freiwillig da
 Dies kann einen Wettbewerbsvorteil darstellen. 
 Meist ist es nicht auf einen Blick ersichtlich, ob ein Produkt Sicherheitsstandards einhält. 
 Unsere Welt wird immer vernetzter, immer mehr Geräte werden smart. 
-Die Analoge Welt wird immer digitaler, für VerbraucherInnen ist es schwierig zu erkennen, ob ein smartes Gerät auch digital sicher ist oder nicht. 
+Die analoge Welt wird immer digitaler, für Nutzende ist es schwierig, zu erkennen, ob ein smartes Gerät auch digital sicher ist oder nicht. 
 Wir wissen, welchen Stromverbrauch Geräte haben, aber oftmals nicht, wie unsere Daten abgesichert sind. 
 Das IT-Sicherheitskennzeichen könnte mehr vertrauen schaffen.
 
