@@ -8,7 +8,7 @@ categories: [Softwareentwicklung]     # Pflichtfeld. Maximal eine der angegebene
 tags: [IT-Sicherheit]   # Bitte auf Großschreibung achten.
 ---
 
-Hersteller von IT-Produkten können ihre Produkte vom Bundesamt für Sicherheit in der Informationstechnik (BSI) mit dem IT-Sicherheitskennzeichnen auszeichnen lassen. 
+IT-Unternehmen können ihre Produkte vom Bundesamt für Sicherheit in der Informationstechnik (BSI) mit dem IT-Sicherheitskennzeichnen auszeichnen lassen. 
 Die Produkthersteller sichern dabei zu, die jeweiligen Sicherheitsrichtlinien ihrer Produktkategorie einzuhalten. 
 Das Kennzeichen ist für einen bestimmten Zeitraum gültig. 
 Das Siegel wurde am 8. Dezember 2021 eingeführt und wurde auf dem letzten IT-Sicherheitskongress am 1. Februar 2022 erstmalig vergeben. 
