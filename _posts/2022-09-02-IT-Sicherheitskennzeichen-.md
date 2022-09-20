@@ -33,7 +33,6 @@ Bislang gibt es die im Bild dargestellten Produktkategorien (Stand 02.09.2022).
 
 Die technischen Richtlinien, die zur jeweiligen Produktkategorie gehören, werden ebenfalls an gleicher Stelle zur Verfügung gestellt. Auch wenn es bislang wenige zu sein scheinen, wird die Liste kontinuierlich erweitert werden. 
 Unsere Welt wird immer smarter und vernetzter, dementsprechend werden auch an die IT-Produkte höhere Sicherheitsanforderungen gestellt.
-
 Zunächst einmal liegt es an den herstellenden Unternehmen, dass das Produkt von Anfang an sicher gestaltet wird (Security by Design) und alle technischen Sicherheitsrichtlinien der jeweiligen Produktgruppe des BSI umgesetzt sind. 
 Das IT-Sicherheitskennzeichen kann auf den Seiten des BSI beantragt werden. 
 Dafür benötigt das BSI folgende Informationen: 
@@ -54,7 +53,7 @@ Unter den Anlagen befindet sich auch die technische Erklärung, die unter andere
 - Wie wird sichergestellt, dass über das Netzwerk keine unautorisierten sicherheitsrelevanten Änderungen an der Konfiguration des Produkts vorgenommen werden können?
 - uvm.
 
-Auch wird nach dem Handbuch für Benutzende, Richtlinie zum Umgang mit Schwachstellen und falls vorhanden einem technischen Produktblatt gefragt.
+Auch wird nach dem Handbuch für Benutzende und falls vorhanden einem technischen Produktblatt gefragt.
 In Summe sind die Anträge und auszufüllenden Dokumente kurzgehalten. 
 Eine technische Prüfung jedes einzelnen Produktes erfolgt nicht, stattdessen können einzelne Produkte stichprobenartig von der Marktaufsicht überprüft werden.
 Falls das IT-Sicherheitskennzeichen vergeben wird, wird es für einen bestimmten Zeitraum vergeben (in der Regel 2 Jahre) und kann anschließend verlängert werden. 
@@ -76,8 +75,8 @@ Die analoge Welt wird immer digitaler, für Nutzende ist es schwierig, zu erkenn
 Wir wissen, welchen Stromverbrauch Geräte haben, aber oftmals nicht, wie unsere Daten abgesichert sind. 
 Das IT-Sicherheitskennzeichen könnte mehr vertrauen schaffen.
 
-Das IT-Sicherheitskennzeichen ist eine wichtige Komponente in der Kaufentscheidung von Nutzenden. 
-Es ist außerdem eine zusätzliche Komponente, die mehr Transparenz in der smarten Welt schafft. 
+Das IT-Sicherheitskennzeichen könnte eine wichtige Komponente in der Kaufentscheidung von Nutzenden werden. 
+Es kann außerdem eine zusätzliche Komponente sein, die mehr Transparenz in der smarten Welt schafft. 
 Es ist nicht das Allheilmittel und garantiert auch nicht, dass ein IT-Prdoukt absolut sicher ist, da immer neue Angriffsvektoren entstehen können.
-Es ist jedoch der erste Schritt für mehr Vertrauen in digitale Produkte und gleichzeitig eine Selbstverpflichtung von Produktherstellern gegenüber ihren Kundinnen und Kunden.
+Es kann jedoch der erste Schritt für mehr Vertrauen in digitale Produkte und gleichzeitig eine Selbstverpflichtung von Produktherstellern gegenüber ihren Kundinnen und Kunden sein. Noch ist das IT-Sicherheitskennzeichen nicht in der breiten Masse, insbesondere im herstellenden Gewerbe bekannt. Dies könnte sich im Laufe der Jahre ändern.
 
