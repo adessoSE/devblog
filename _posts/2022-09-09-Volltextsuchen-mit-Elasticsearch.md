@@ -9,8 +9,8 @@ tags: [Open Source, REST, Elasticsearch]      # Bitte auf Großschreibung achten
 ---
 
 <!-- Teaser Text -->
-In diesem Artikel entwickeln wir mit wenigen Mitteln eine performante und featurereiche Volltextsuche.
 In diesem Beitrag zeige ich euch, wie ihr auf Basis der Open-Source-Software Elasticsearch textbasierte Daten speichert, indiziert und für menschliche User einfach durchsuchbar gestalten könnt.
+So entwickeln wir mit wenigen Mitteln eine performante und featurereiche Volltextsuche.
 Dazu deployen wir eine Instanz des Webservice Elasticsearch, indizieren Beispieldaten und entwickeln mithilfe der Bordmittel von Elasticsearch eine an beliebiger Stelle wiederverwendbare Suche.
 Dazu benötigt ihr lediglich einen Browser und einen GitHub-Account:
 
