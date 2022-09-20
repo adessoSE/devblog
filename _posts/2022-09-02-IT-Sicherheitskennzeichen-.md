@@ -78,5 +78,7 @@ Das IT-Sicherheitskennzeichen könnte mehr vertrauen schaffen.
 Das IT-Sicherheitskennzeichen könnte eine wichtige Komponente in der Kaufentscheidung von Nutzenden werden. 
 Es kann außerdem eine zusätzliche Komponente sein, die mehr Transparenz in der smarten Welt schafft. 
 Es ist nicht das Allheilmittel und garantiert auch nicht, dass ein IT-Prdoukt absolut sicher ist, da immer neue Angriffsvektoren entstehen können.
-Es kann jedoch der erste Schritt für mehr Vertrauen in digitale Produkte und gleichzeitig eine Selbstverpflichtung von Produktherstellern gegenüber ihren Kundinnen und Kunden sein. Noch ist das IT-Sicherheitskennzeichen nicht in der breiten Masse, insbesondere im herstellenden Gewerbe bekannt. Dies könnte sich im Laufe der Jahre ändern.
+Es kann jedoch der erste Schritt für mehr Vertrauen in digitale Produkte und gleichzeitig eine Selbstverpflichtung von Produktherstellern gegenüber ihren Kundinnen und Kunden sein.
+
+Bislang haben zwei Produktarten das IT-Sicherheitskennzeichen erhalten: E-Mail Dienste und Breindbandrouter. Das IT-Sicherheitskennzeichen ist in der breiten Massen, insbesondere im herstellenden Gewerbe noch nicht bekannt. Dies könnte sich im Laufe der Jahre ändern.
 
