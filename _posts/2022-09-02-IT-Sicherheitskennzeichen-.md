@@ -18,7 +18,7 @@ Die Grundlage hierfür bietet das IT-Sicherheitsgesetzt 2.0.
 # Wofür ist das IT-Sicherheitskennzeichen gut?
 
 Das IT-Sicherheitskennzeichen gibt den Nutzenden eine transparente und schnelle Übersicht, ob ein Produkt die von ihnen geforderten Sicherheitsrichtlinien einhält. 
-Damit trägt es zu mehr Transparenz im digitalen Verbraucherschutz in Deutschland bei. 
+Damit trägt es zu mehr Transparenz im digitalen Konsumierendenschutz in Deutschland bei. 
 Nutzenden wird es dadurch ermöglicht einfacher und informierter zu beurteilen, ob ein bestimmtes Produkt die Sicherheitsanforderungen einhält. 
 Zu jedem IT-Sicherheitskennzeichen gibt es eine Produktseite des BSI, auf der aufgelistet ist, ob das Produkt die Sicherheitsanforderungen erfüllt. 
 Falls es aktuelle Schwachstellen zu dem Produkt gibt, kann dies ebenfalls auf der jeweiligen Produktseite des BSI nachgeschaut werden. 
