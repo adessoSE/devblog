@@ -51,13 +51,17 @@ Ngramme sind ein bekanntes Konzept in der Linguistik und der natürlichen Sprach
 Die Idee besteht darin, einzelne Wörter in eine Anzahl von Buchstabentoken mit einer definierten Minimal- und Maximallänge, z. B. 2 und 3, aufzuteilen.
 Ein Wort, wie z. B. Länge, würde dann in Token mit einer maximalen Länge von drei aufgeteilt werden:
 
-```['lä', 'län', 'äng', 'nge', 'ge']```
+```
+['lä', 'län', 'äng', 'nge', 'ge']
+```
 
 Allerdings werden die Ergebnisse sicherlich noch nicht das sein, was wir wollen.
 Ngramm-Tokenizer ergeben nichts anderes, als Wörter in Token aufzuspalten, also sollten wir nicht überrascht sein, dass die Ergebnisse etwas zufällig erscheinen.
 Schauen wir uns einmal die von "Micheal" abgeleiteten Ngramme an:
 
-```['mi', 'mic', 'ic', 'ich', 'ch', 'che', 'he', 'hea', 'ea', 'eal', 'al']```
+```
+['mi', 'mic', 'ic', 'ich', 'ch', 'che', 'he', 'hea', 'ea', 'eal', 'al']
+```
 
 Obwohl einige Ngramme auch in der Tokenisierung von "Michael" auftauchen würden, gibt es nichts Besonderes an ihnen - eine Suche mit Elasticsearch wird einfach die Dokumente mit den meisten Übereinstimmungen in der Tokenliste liefern.
 Im Allgemeinen braucht es ein wenig Test, Versuch und Irrtum, um die besten Minimal- und Maximalwerte für die Ngrammlänge zu finden (je länger, desto spezifischer die Treffer, aber weniger fehlertolerant).
@@ -67,7 +71,8 @@ Im Allgemeinen braucht es ein wenig Test, Versuch und Irrtum, um die besten Mini
 Die ["search-as-you-type"-Funktionalität](https://www.elastic.co/guide/en/elasticsearch/reference/current/search-as-you-type.html) nutzt Ngramme auf eine etwas andere Art und Weise als bisher gezeigt.
 Anstatt das gesamte Wort für die Tokenisierung zu betrachten, liegt der Fokus auf dem Anfang der Wörter, um eine schnelle Suchfunktion zu bieten, die Ergebnisse liefert, während der Benutzer die ersten Buchstaben eingibt.
 
-```input = 'micheal'
+```python
+    input = 'micheal'
 
     for i in range(2, len(input)):
         response = client.search(index='logstash-articles', size=100, query={
@@ -88,7 +93,8 @@ Anstatt das gesamte Wort für die Tokenisierung zu betrachten, liegt der Fokus a
 
 Während des Tippens wird die Ergebnismenge bereits eingegrenzt und sie könnte schon verwendet werden, um Benutzer zum gewünschten Suchergebnis zu leiten.
 
-```Input "mi" yields a total 33 results with titles ['1974 United States Senate election in Missouri', '103 Mile Lake', 'Peter Milliman', 'Micropterix lambesiella', 'Middle nasal concha', 'Middletown, Indiana', 'Diving at the 2018 European Aquatics Championships – Mixed 3 m springboard synchro', 'Spring Fork, Missouri', '1968–69 Midland Football League', '1922 Minneapolis Marines season', 'Federico Millacet', 'Federal Ministry of Health (Germany)', 'Grand Haven, Michigan', 'Smock mill, Wolin', 'Kendriya Vidyalaya 9th Mile', '246th Mixed Brigade', 'Micellar solubilization', 'Michael Jordan', 'Mike Gallagher (political commentator)', 'Stephen V. R. Trowbridge (Michigan legislator)', 'The Dazzling Miss Davison', 'Ministry Trax! Box', 'Highway 25 Bridge (Minnesota)', 'Michael Paul Fleischer', 'Mikhail Makagonov', 'Mildred Ratcliffe', 'Jefferson County School District (Mississippi)', 'Michiyoshi', 'Midnattsrocken', 'Miguel Tavares (footballer)', 'Palfrey, West Midlands', 'John Miles (fl. 1404)', 'Marion, Mississippi']
+```
+Input "mi" yields a total 33 results with titles ['1974 United States Senate election in Missouri', '103 Mile Lake', 'Peter Milliman', 'Micropterix lambesiella', 'Middle nasal concha', 'Middletown, Indiana', 'Diving at the 2018 European Aquatics Championships – Mixed 3 m springboard synchro', 'Spring Fork, Missouri', '1968–69 Midland Football League', '1922 Minneapolis Marines season', 'Federico Millacet', 'Federal Ministry of Health (Germany)', 'Grand Haven, Michigan', 'Smock mill, Wolin', 'Kendriya Vidyalaya 9th Mile', '246th Mixed Brigade', 'Micellar solubilization', 'Michael Jordan', 'Mike Gallagher (political commentator)', 'Stephen V. R. Trowbridge (Michigan legislator)', 'The Dazzling Miss Davison', 'Ministry Trax! Box', 'Highway 25 Bridge (Minnesota)', 'Michael Paul Fleischer', 'Mikhail Makagonov', 'Mildred Ratcliffe', 'Jefferson County School District (Mississippi)', 'Michiyoshi', 'Midnattsrocken', 'Miguel Tavares (footballer)', 'Palfrey, West Midlands', 'John Miles (fl. 1404)', 'Marion, Mississippi']
     Input "mic" yields a total 7 results with titles ['Micropterix lambesiella', 'Grand Haven, Michigan', 'Micellar solubilization', 'Michael Jordan', 'Stephen V. R. Trowbridge (Michigan legislator)', 'Michael Paul Fleischer', 'Michiyoshi']
     Input "mich" yields a total 5 results with titles ['Grand Haven, Michigan', 'Michael Jordan', 'Stephen V. R. Trowbridge (Michigan legislator)', 'Michael Paul Fleischer', 'Michiyoshi']
     Input "miche" yields a total 0 results with titles []
@@ -102,7 +108,8 @@ Da es sich bei Elasticsearch um ein Open-Source-Projekt handelt, ist es nicht ve
 Erweiterungen für Elasticsearch können die Form von [Plugins](https://www.elastic.co/guide/en/elasticsearch/plugins/current/intro.html) annehmen, die relativ einfach zu installieren sind.
 Hier werfen wir einen Blick auf das Plugin für die phonetische Analyse, das es uns ermöglicht, phonetische Repräsentationen von Eingabetoken zu erhalten.
 
-```client.indices.put_settings(
+```
+    client.indices.put_settings(
         index='logstash-articles',
         settings={
             'analysis': {
@@ -131,7 +138,8 @@ Nachdem ein Analyzer definiert wurde, der den phonetischen Tokenfilter verwendet
 Diese ist abhängig vom gewählten Algorithmus und der Ausgangssprache, kann aber auch von Elastisearch geraten werden.
 Um den Analyzer zu testen, vergleichen wir die Token, die jeweils aus der Analyse von "Michael" und "Micheal" hervorgehen.
 
-```michael_phonetic_tokens = [t['token'] for t in client.indices.analyze(
+```
+    michael_phonetic_tokens = [t['token'] for t in client.indices.analyze(
         index='logstash-articles',
         text=['michael'],
         analyzer='phonetic_analyzer'
@@ -162,7 +170,8 @@ Die Abfragetypen, die wir bisher untersucht haben, sind jedoch recht einfach und
 Fuzziness ist ein recht einfaches Konzept, das in vielen Arten von Abfragen, die in der [Elasticsearch Query DSL](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl.html) definiert sind, verfügbar ist.
 Angewandt auf unser früheres Beispiel löst es das Problem, indem es die gesuchten Abfragebegriffe auf ähnliche Token erweitert, z. B. durch Ändern oder Entfernen eines Zeichens oder durch Vertauschen benachbarter Zeichen.
 
-```client.search(index='logstash-articles', query={
+```
+    client.search(index='logstash-articles', query={
         'match': {
             'title': {
                 'query': 'micheal',
@@ -185,7 +194,8 @@ Er kombiniert mehrere Abfragen zu einem booleschen Konstrukt (also _und_, _oder_
 
 Jede boolesche Abfrage besteht aus bis zu vier Teilen:
 
-```"bool": {
+```
+    "bool": {
         "must": {}, // definieren, wie ein Ergebnis aussehen _muss_
         "filter": {}, // festlegen, wie ein Ergebnis aussehen _muss_ - aber keine positiven Ergebnisse bewerten (daher schneller und für die Zwischenspeicherung geeignet)
         "should": {}, // festlegen, wie ein Ergebnis aussehen _soll_ - wenn mehrere Abfragen definiert sind, reicht es aus, wenn eine übereinstimmt (es sei denn, das Minimum wird überschrieben)
@@ -201,7 +211,8 @@ Die einzelnen Teile werden von Elasticsearch direkt nacheinander durchgeführt, 
 - Zweitens legen wir einen Basis-Score für alle Dokumente fest, die eine Fuzzy-Transposition des Suchbegriffs in denselben Feldern enthalten. Da wir die Anzahl der Kandidaten bereits reduziert haben, können wir uns einen ziemlich gierigen Ansatz mit einem erlaubten Bearbeitungsabstand von 2 leisten ("gierig" heißt hier, dass die Abfrage tendenziell viele Treffer generieren würde, da wir ein hohes Maß an Flexibilität erlauben - die Umwandlung in ähnliche Token ist zudem ressourcenintensiv, da Elasticsearch mögliche ähnliche Token in allen bis hierher zugelassenen Dokumenten sucht);
 - Anschließend werden die Dokumente höher bewertet, die mit einer oder beiden Suchanfragen übereinstimmen, entweder mit einer phonetischen Äquivalenz oder direkten lexikalischen Treffern.
 
-```client.search(index='logstash-articles', query={
+```
+    client.search(index='logstash-articles', query={
         'bool': {
             'filter': [
                 {
@@ -266,7 +277,8 @@ Um zu testen, ob eine angepasste Abfrage die erwarteten Ergebnisse liefert oder 
 Damit können eine Reihe von Dokumenten definiert werden, die in Abhängigkeit von der Abfrage und ihren Parametern in der Suchergebnisliste erscheinen oder nicht erscheinen sollen.
 Dies ist besonders nützlich, wenn wir im ständigen Gespräch mit unseren Testern sind und unser Abfragedesign weiterentwickeln, aber auch das beibehalten wollen, was bisher gut funktioniert hat.
 
-```POST logstash-articles/_rank_eval
+```
+    POST logstash-articles/_rank_eval
     {
     "requests": [
         {
@@ -308,7 +320,8 @@ Alternativ können Felder zu einem bestehenden Index hinzugefügt werden, der da
 `runtime_fields` erlauben einen anderen Ansatz: Der Wert des Feldes wird während der Laufzeit bestimmt, d.h. wenn die Daten bereits abgefragt oder analysiert werden.
 Der Wert des `runtime_fields` kann durch Bereitstellung eines Skripts über die Such-API oder durch manuelles Hinzufügen über Kibana festgelegt werden.
 
-```GET logstash-articles/_search
+```
+    GET logstash-articles/_search
     {
         "runtime_mappings": {
             "#links": {
@@ -338,7 +351,8 @@ Wie bereits erwähnt, sind auch Plugins und Erweiterungen ein Teil des Elastic-S
 Elasticsearch kann so konfiguriert werden, dass trainierte ML-Modelle geladen werden, um eine Analyse des eingelesenen Textes durchzuführen.
 Dazu müssen zunächst das [Plugin](https://github.com/spinscale/elasticsearch-ingest-opennlp) und die erforderlichen ML-Modelle in Elasticsearch geladen werden, um anschließend eine Ingest-Pipeline zu definieren, die den zu indizierenden Text um die gewünschten Annotationen erweitert.
 
-```client.ingest.put_pipeline(
+```
+    client.ingest.put_pipeline(
         id='opennlp-pipeline',
         processors=[
         {
@@ -354,7 +368,8 @@ Dazu müssen zunächst das [Plugin](https://github.com/spinscale/elasticsearch-i
 Die Einrichtungsschritte werden im oben genannten Gitpod-Workspace zur Verfügung gestellt und die NER-Modelle können mit dem beschriebenen Code ausprobiert werden.
 Hier als Beispiel die Liste der im Wikipedia-Artikel zu Michael Jordan erkannten Personen:
 
-```'Condor', 'Sandro Miller', 'Marv Albert', 'Chris Mullin', 'Simon', 'Michael', 'Karl Malone', 'Jason Kidd', 'Story', 'Bryant', 'Harper San Francisco', 'Charles Oakley', 'Mark Vancil', 'Mike', 'James R . Jordan Sr .', 'Bob Knight', 'Russell Westbrook', 'Minor League Baseball', 'Ed Bradley', 'Jordan', 'John R . Wooden', 'Daniel Green', 'Ben', 'Rodman', 'Kobe Bryant', 'With Scottie Pippen', 'Ron Harper', 'Rod Strickland', 'After Jordan', 'Nick Anderson', "Shaquille O ' Neal", 'Stu Inman', 'Jordan Brand', 'Brand', 'Marcus', 'Sam Perkins', 'Wade', 'Babe Ruth', 'Rip " Hamilton', 'David L .', 'Kwame Brown', 'Jerry West', 'Jordan "', 'Abe Pollin', 'James Harden', 'Dean Smith', 'Abdul - Jabbar', 'Steve Alford', 'Jordan Rules', 'Derek Jeter', 'Richard Esquinas', 'Michael Jordan Celebrity Invitational', 'Bugs Bunny', 'Victoria', 'Jason Hehir', 'Travis Scott', 'David Steward', 'Larry Hughes', 'Johnson', 'James', 'David Thompson', 'George Shinn', 'Barack Obama', 'Jerry Reinsdorf', 'Dan Devine', 'Bob', 'Roy S . Johnson', 'Larry Martin Demery', 'Clyde Drexler', 'Knafel', 'David', 'Michael Jordan', 'Jordan Motorsports', 'Robert L . Johnson', 'Muhammad Ali', 'Citing Bowie', 'Spike Lee', 'Lee', 'Charles Barkley', 'Walter Iooss', 'Phil Jackson', 'Don Nelson', 'Gary Payton', 'Jason Whitlock', 'Ron Shelton', 'Larry Bird', 'Kevin Garnett', 'Vince Carter', 'Horace Grant', 'Michael Jackson', 'Russell', 'Clyde "', 'Daniel Sundheim', 'Isiah Thomas', 'George Floyd', 'Scottie Pippen', 'Mitchell', 'W . W . Norton', 'Sam Bowie', 'Kareem Abdul - Jabbar', 'Allen Iverson', 'Robert F . Smith', 'Sportswriter Wright Thompson', 'Larry Jordan', 'Patrick Ewing', 'James Jordan', 'Steve Kerr', 'George Postolos', 'Dwyane Wade', 'Thompson', 'LeBron James', 'Magic Johnson', 'Toni Kukoč', 'David Stern', 'Michael Jordan Career Retrospective', 'Irving J .', 'Malone', 'Brown', 'Sam Vincent', 'Doug Brady', 'Jordan Drive', 'Jack Hartman', 'Justin Jordan', 'Jasmine', 'Grant Hill', 'Adam Morrison', 'Dunk Contest', 'Glen Rice', 'Jerry Stackhouse', 'Mario Lemieux', 'Wayne Gretzky', 'Loyola Academy', 'Bryon Russell', 'John Paxson', 'Deloris', 'Penny Hardaway', 'James R . Jordan Jr .', 'Bill Russell', 'Bobby Simmons', 'Family Clinics', 'His', 'Willis Reed', 'Broadcaster Al Michaels', 'Despite Jordan', 'John Salmons', 'Luka Dončić', 'Gatorade', 'Subsequently', 'James Worthy', 'Mike "', 'Andrei S', 'Walter Davis', 'Doug Collins', 'Julius Erving . Larry Bird', 'David Falk', 'Doug Colling', 'Porter', 'Jeffrey', 'Walter', 'Jeffrey Jordan OLY', 'Roland', 'Dennis Rodman', 'Doc Rivers', 'Oprah Winfrey'
+```
+'Condor', 'Sandro Miller', 'Marv Albert', 'Chris Mullin', 'Simon', 'Michael', 'Karl Malone', 'Jason Kidd', 'Story', 'Bryant', 'Harper San Francisco', 'Charles Oakley', 'Mark Vancil', 'Mike', 'James R . Jordan Sr .', 'Bob Knight', 'Russell Westbrook', 'Minor League Baseball', 'Ed Bradley', 'Jordan', 'John R . Wooden', 'Daniel Green', 'Ben', 'Rodman', 'Kobe Bryant', 'With Scottie Pippen', 'Ron Harper', 'Rod Strickland', 'After Jordan', 'Nick Anderson', "Shaquille O ' Neal", 'Stu Inman', 'Jordan Brand', 'Brand', 'Marcus', 'Sam Perkins', 'Wade', 'Babe Ruth', 'Rip " Hamilton', 'David L .', 'Kwame Brown', 'Jerry West', 'Jordan "', 'Abe Pollin', 'James Harden', 'Dean Smith', 'Abdul - Jabbar', 'Steve Alford', 'Jordan Rules', 'Derek Jeter', 'Richard Esquinas', 'Michael Jordan Celebrity Invitational', 'Bugs Bunny', 'Victoria', 'Jason Hehir', 'Travis Scott', 'David Steward', 'Larry Hughes', 'Johnson', 'James', 'David Thompson', 'George Shinn', 'Barack Obama', 'Jerry Reinsdorf', 'Dan Devine', 'Bob', 'Roy S . Johnson', 'Larry Martin Demery', 'Clyde Drexler', 'Knafel', 'David', 'Michael Jordan', 'Jordan Motorsports', 'Robert L . Johnson', 'Muhammad Ali', 'Citing Bowie', 'Spike Lee', 'Lee', 'Charles Barkley', 'Walter Iooss', 'Phil Jackson', 'Don Nelson', 'Gary Payton', 'Jason Whitlock', 'Ron Shelton', 'Larry Bird', 'Kevin Garnett', 'Vince Carter', 'Horace Grant', 'Michael Jackson', 'Russell', 'Clyde "', 'Daniel Sundheim', 'Isiah Thomas', 'George Floyd', 'Scottie Pippen', 'Mitchell', 'W . W . Norton', 'Sam Bowie', 'Kareem Abdul - Jabbar', 'Allen Iverson', 'Robert F . Smith', 'Sportswriter Wright Thompson', 'Larry Jordan', 'Patrick Ewing', 'James Jordan', 'Steve Kerr', 'George Postolos', 'Dwyane Wade', 'Thompson', 'LeBron James', 'Magic Johnson', 'Toni Kukoč', 'David Stern', 'Michael Jordan Career Retrospective', 'Irving J .', 'Malone', 'Brown', 'Sam Vincent', 'Doug Brady', 'Jordan Drive', 'Jack Hartman', 'Justin Jordan', 'Jasmine', 'Grant Hill', 'Adam Morrison', 'Dunk Contest', 'Glen Rice', 'Jerry Stackhouse', 'Mario Lemieux', 'Wayne Gretzky', 'Loyola Academy', 'Bryon Russell', 'John Paxson', 'Deloris', 'Penny Hardaway', 'James R . Jordan Jr .', 'Bill Russell', 'Bobby Simmons', 'Family Clinics', 'His', 'Willis Reed', 'Broadcaster Al Michaels', 'Despite Jordan', 'John Salmons', 'Luka Dončić', 'Gatorade', 'Subsequently', 'James Worthy', 'Mike "', 'Andrei S', 'Walter Davis', 'Doug Collins', 'Julius Erving . Larry Bird', 'David Falk', 'Doug Colling', 'Porter', 'Jeffrey', 'Walter', 'Jeffrey Jordan OLY', 'Roland', 'Dennis Rodman', 'Doc Rivers', 'Oprah Winfrey'
 ```
 
 ## Fazit
