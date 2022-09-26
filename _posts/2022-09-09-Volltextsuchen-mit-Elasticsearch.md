@@ -72,33 +72,33 @@ Die ["search-as-you-type"-Funktionalität](https://www.elastic.co/guide/en/elast
 Anstatt das gesamte Wort für die Tokenisierung zu betrachten, liegt der Fokus auf dem Anfang der Wörter, um eine schnelle Suchfunktion zu bieten, die Ergebnisse liefert, während der Benutzer die ersten Buchstaben eingibt.
 
 ```python
-    input = 'micheal'
+input = 'micheal'
 
-    for i in range(2, len(input)):
-        response = client.search(index='logstash-articles', size=100, query={
-            "multi_match": {
-                "query": input[:i],
-                "type": "bool_prefix",
-                "fields": [
-                    "title.search_as_you_type",
-                    "title.search_as_you_type._2gram",
-                    "title.search_as_you_type._3gram",
-                    "title.search_as_you_type._index_prefix"
-                ]
-            }},
-            source=['title'],
-        ).body
-        print(f"Input "{input[:i]}" yields a total {response['hits']['total']['value']} results with titles {[r['_source']['title'] for r in response['hits']['hits']]}")
-``` 
+for i in range(2, len(input)):
+    response = client.search(index='logstash-articles', size=100, query={
+        "multi_match": {
+            "query": input[:i],
+            "type": "bool_prefix",
+            "fields": [
+                "title.search_as_you_type",
+                "title.search_as_you_type._2gram",
+                "title.search_as_you_type._3gram",
+                "title.search_as_you_type._index_prefix"
+            ]
+        }},
+        source=['title'],
+    ).body
+    print(f"Input "{input[:i]}" yields a total {response['hits']['total']['value']} results with titles {[r['_source']['title'] for r in response['hits']['hits']]}")
+```
 
 Während des Tippens wird die Ergebnismenge bereits eingegrenzt und sie könnte schon verwendet werden, um Benutzer zum gewünschten Suchergebnis zu leiten.
 
-```
+```markdown
 Input "mi" yields a total 33 results with titles ['1974 United States Senate election in Missouri', '103 Mile Lake', 'Peter Milliman', 'Micropterix lambesiella', 'Middle nasal concha', 'Middletown, Indiana', 'Diving at the 2018 European Aquatics Championships – Mixed 3 m springboard synchro', 'Spring Fork, Missouri', '1968–69 Midland Football League', '1922 Minneapolis Marines season', 'Federico Millacet', 'Federal Ministry of Health (Germany)', 'Grand Haven, Michigan', 'Smock mill, Wolin', 'Kendriya Vidyalaya 9th Mile', '246th Mixed Brigade', 'Micellar solubilization', 'Michael Jordan', 'Mike Gallagher (political commentator)', 'Stephen V. R. Trowbridge (Michigan legislator)', 'The Dazzling Miss Davison', 'Ministry Trax! Box', 'Highway 25 Bridge (Minnesota)', 'Michael Paul Fleischer', 'Mikhail Makagonov', 'Mildred Ratcliffe', 'Jefferson County School District (Mississippi)', 'Michiyoshi', 'Midnattsrocken', 'Miguel Tavares (footballer)', 'Palfrey, West Midlands', 'John Miles (fl. 1404)', 'Marion, Mississippi']
-    Input "mic" yields a total 7 results with titles ['Micropterix lambesiella', 'Grand Haven, Michigan', 'Micellar solubilization', 'Michael Jordan', 'Stephen V. R. Trowbridge (Michigan legislator)', 'Michael Paul Fleischer', 'Michiyoshi']
-    Input "mich" yields a total 5 results with titles ['Grand Haven, Michigan', 'Michael Jordan', 'Stephen V. R. Trowbridge (Michigan legislator)', 'Michael Paul Fleischer', 'Michiyoshi']
-    Input "miche" yields a total 0 results with titles []
-``` 
+Input "mic" yields a total 7 results with titles ['Micropterix lambesiella', 'Grand Haven, Michigan', 'Micellar solubilization', 'Michael Jordan', 'Stephen V. R. Trowbridge (Michigan legislator)', 'Michael Paul Fleischer', 'Michiyoshi']
+Input "mich" yields a total 5 results with titles ['Grand Haven, Michigan', 'Michael Jordan', 'Stephen V. R. Trowbridge (Michigan legislator)', 'Michael Paul Fleischer', 'Michiyoshi']
+Input "miche" yields a total 0 results with titles []
+```
 
 Mit dieser Funktion werden Tippfehler zwar nicht behoben, aber bei aufmerksamer Eingabe des Nutzers eventuell vermieden oder eine schnellere Korrektur ermöglicht.
 
@@ -108,56 +108,58 @@ Da es sich bei Elasticsearch um ein Open-Source-Projekt handelt, ist es nicht ve
 Erweiterungen für Elasticsearch können die Form von [Plugins](https://www.elastic.co/guide/en/elasticsearch/plugins/current/intro.html) annehmen, die relativ einfach zu installieren sind.
 Hier werfen wir einen Blick auf das Plugin für die phonetische Analyse, das es uns ermöglicht, phonetische Repräsentationen von Eingabetoken zu erhalten.
 
-```
-    client.indices.put_settings(
-        index='logstash-articles',
-        settings={
-            'analysis': {
-                'analyzer': {
-                    'phonetic_analyzer': {
-                        'tokenizer': 'standard',
-                        'filter': [
-                            'lowercase',
-                            'beider_morse'
-                        ]
-                    }
-                },
-                'filter': {
-                    'beider_morse': {
-                        'type': 'phonetic',
-                        'encoder': 'beider_morse',
-                        'replace': False
-                    }
+```python
+client.indices.put_settings(
+    index='logstash-articles',
+    settings={
+        'analysis': {
+            'analyzer': {
+                'phonetic_analyzer': {
+                    'tokenizer': 'standard',
+                    'filter': [
+                        'lowercase',
+                        'beider_morse'
+                    ]
+                }
+            },
+            'filter': {
+                'beider_morse': {
+                    'type': 'phonetic',
+                    'encoder': 'beider_morse',
+                    'replace': False
                 }
             }
         }
-    )
-``` 
+    }
+)
+```
 
 Nachdem ein Analyzer definiert wurde, der den phonetischen Tokenfilter verwendet, kann natürliche Sprache in eine phonetische Repräsentation gebracht werden.
 Diese ist abhängig vom gewählten Algorithmus und der Ausgangssprache, kann aber auch von Elastisearch geraten werden.
 Um den Analyzer zu testen, vergleichen wir die Token, die jeweils aus der Analyse von "Michael" und "Micheal" hervorgehen.
 
+```python
+michael_phonetic_tokens = [t['token'] for t in client.indices.analyze(
+    index='logstash-articles',
+    text=['michael'],
+    analyzer='phonetic_analyzer'
+).body['tokens']]
+print('"Michael" yields:', michael_phonetic_tokens)
+
+"Michael" yields: ['mQxYl', 'mQxail', 'mQxoil', 'mitsDl', 'mitsail', 'mitsoil', 'mixDl', 'mixYl', 'mixail', 'mixoil']
+
+micheal_phonetic_tokens = [t['token'] for t in client.indices.analyze(
+    index='logstash-articles',
+    text=['micheal'],
+    analyzer='phonetic_analyzer'
+).body['tokens']]
+print('"Micheal" yields:', micheal_phonetic_tokens)
+"Micheal" yields: ['mDxDl', 'mDxal', 'mDxil', 'mQxDl', 'mQxal', 'mQxil', 'miDl', 'mikDl', 'mikal', 'mikial', 'mikil', 'mikiol', 'misDl', 'misal', 'misil', 'mitsDl', 'mitsal', 'mitsil', 'mixDl', 'mixal', 'mixial', 'mixil', 'mixiol']
+
+print('Overlap:', [t for t in michael_phonetic_tokens if t in micheal_phonetic_tokens])
+
+Overlap: ['mitsDl', 'mixDl']
 ```
-    michael_phonetic_tokens = [t['token'] for t in client.indices.analyze(
-        index='logstash-articles',
-        text=['michael'],
-        analyzer='phonetic_analyzer'
-    ).body['tokens']]
-    print('"Michael" yields:', michael_phonetic_tokens)
-    "Michael" yields: ['mQxYl', 'mQxail', 'mQxoil', 'mitsDl', 'mitsail', 'mitsoil', 'mixDl', 'mixYl', 'mixail', 'mixoil']
-
-    micheal_phonetic_tokens = [t['token'] for t in client.indices.analyze(
-        index='logstash-articles',
-        text=['micheal'],
-        analyzer='phonetic_analyzer'
-    ).body['tokens']]
-    print('"Micheal" yields:', micheal_phonetic_tokens)
-    "Micheal" yields: ['mDxDl', 'mDxal', 'mDxil', 'mQxDl', 'mQxal', 'mQxil', 'miDl', 'mikDl', 'mikal', 'mikial', 'mikil', 'mikiol', 'misDl', 'misal', 'misil', 'mitsDl', 'mitsal', 'mitsil', 'mixDl', 'mixal', 'mixial', 'mixil', 'mixiol']
-
-    print('Overlap:', [t for t in michael_phonetic_tokens if t in micheal_phonetic_tokens])
-    Overlap: ['mitsDl', 'mixDl']
-``` 
 
 Zufälligerweise können wir bereits feststellen, dass es eine Überschneidung in der phonetischen Darstellung zwischen "Michael" und "Micheal" gibt.
 In diesem Fall würde die phonetische Umwandlung ausreichen, um den Tippfehler aus der Nutzereingabe zu beheben.
@@ -170,16 +172,16 @@ Die Abfragetypen, die wir bisher untersucht haben, sind jedoch recht einfach und
 Fuzziness ist ein recht einfaches Konzept, das in vielen Arten von Abfragen, die in der [Elasticsearch Query DSL](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl.html) definiert sind, verfügbar ist.
 Angewandt auf unser früheres Beispiel löst es das Problem, indem es die gesuchten Abfragebegriffe auf ähnliche Token erweitert, z. B. durch Ändern oder Entfernen eines Zeichens oder durch Vertauschen benachbarter Zeichen.
 
-```
-    client.search(index='logstash-articles', query={
-        'match': {
-            'title': {
-                'query': 'micheal',
-                'fuzziness': 1,
-                'fuzzy_transpositions': True
-            }
-        }}
-    ).body
+```python
+client.search(index='logstash-articles', query={
+    'match': {
+        'title': {
+            'query': 'micheal',
+            'fuzziness': 1,
+            'fuzzy_transpositions': True
+        }
+    }}
+).body
 ```
 
 Ein Nachteil von Fuzzy-Abfragen, auch wenn sie verlockend sind, sind ihre relativ hohen Rechenkosten, die die Ausführungszeit von Abfragen in größeren Datensätzen beeinträchtigen können und die Größe der Ergebnismenge erhöhen[^3].
@@ -194,14 +196,14 @@ Er kombiniert mehrere Abfragen zu einem booleschen Konstrukt (also _und_, _oder_
 
 Jede boolesche Abfrage besteht aus bis zu vier Teilen:
 
+```json
+"bool": {
+    "must": {}, // definieren, wie ein Ergebnis aussehen _muss_
+    "filter": {}, // festlegen, wie ein Ergebnis aussehen _muss_ - aber keine positiven Ergebnisse bewerten (daher schneller und für die Zwischenspeicherung geeignet)
+    "should": {}, // festlegen, wie ein Ergebnis aussehen _soll_ - wenn mehrere Abfragen definiert sind, reicht es aus, wenn eine übereinstimmt (es sei denn, das Minimum wird überschrieben)
+    "must_not": {} // definieren, wie ein Ergebnis _nicht_ aussehen darf
+}
 ```
-    "bool": {
-        "must": {}, // definieren, wie ein Ergebnis aussehen _muss_
-        "filter": {}, // festlegen, wie ein Ergebnis aussehen _muss_ - aber keine positiven Ergebnisse bewerten (daher schneller und für die Zwischenspeicherung geeignet)
-        "should": {}, // festlegen, wie ein Ergebnis aussehen _soll_ - wenn mehrere Abfragen definiert sind, reicht es aus, wenn eine übereinstimmt (es sei denn, das Minimum wird überschrieben)
-        "must_not": {} // definieren, wie ein Ergebnis _nicht_ aussehen darf
-    }
-``` 
 
 `must` und `filter` bilden also den _und_-Teil einer booleschen Abfrage, `should` den _oder_ und `must_not` den _nicht_-Teil ab.
 Nun wenden wir diesen mehrschichtigen Ansatz bei unserer Abfrage an.
@@ -211,55 +213,55 @@ Die einzelnen Teile werden von Elasticsearch direkt nacheinander durchgeführt, 
 - Zweitens legen wir einen Basis-Score für alle Dokumente fest, die eine Fuzzy-Transposition des Suchbegriffs in denselben Feldern enthalten. Da wir die Anzahl der Kandidaten bereits reduziert haben, können wir uns einen ziemlich gierigen Ansatz mit einem erlaubten Bearbeitungsabstand von 2 leisten ("gierig" heißt hier, dass die Abfrage tendenziell viele Treffer generieren würde, da wir ein hohes Maß an Flexibilität erlauben - die Umwandlung in ähnliche Token ist zudem ressourcenintensiv, da Elasticsearch mögliche ähnliche Token in allen bis hierher zugelassenen Dokumenten sucht);
 - Anschließend werden die Dokumente höher bewertet, die mit einer oder beiden Suchanfragen übereinstimmen, entweder mit einer phonetischen Äquivalenz oder direkten lexikalischen Treffern.
 
-```
-    client.search(index='logstash-articles', query={
-        'bool': {
-            'filter': [
-                {
-                    "multi_match": {
-                        "query": "micheal",
-                        'fields': [
-                            'title.ngram',
-                            'summary.ngram',
-                            'content.ngram'
-                        ]
+```python
+client.search(index='logstash-articles', query={
+    'bool': {
+        'filter': [
+            {
+                "multi_match": {
+                    "query": "micheal",
+                    'fields': [
+                        'title.ngram',
+                        'summary.ngram',
+                        'content.ngram'
+                    ]
+                }
+            }
+        ],
+        'must': [
+            {
+                "multi_match": {
+                    "query": "micheal",
+                    'fuzziness': 2,
+                    'fuzzy_transpositions': True,
+                    'fields': [
+                        'title',
+                        'summary',
+                        'content'
+                    ]
+                }
+            }
+        ],
+        'should': [
+            {
+                'match': {
+                    'title.phonetic': {
+                        'query': 'micheal'
                     }
                 }
-            ],
-            'must': [
-                {
-                    "multi_match": {
-                        "query": "micheal",
-                        'fuzziness': 2,
-                        'fuzzy_transpositions': True,
-                        'fields': [
-                            'title',
-                            'summary',
-                            'content'
-                        ]
+            },
+            {
+                'match': {
+                    'title': {
+                        'query': 'micheal'
                     }
                 }
-            ],
-            'should': [
-                {
-                    'match': {
-                        'title.phonetic': {
-                            'query': 'micheal'
-                        }
-                    }
-                },
-                {
-                    'match': {
-                        'title': {
-                            'query': 'micheal'
-                        }
-                    }
-                }
-            ]
-        }},
-        highlight={'fields': {'title': {}, 'summary': {}, 'content': {}}},
-        source=['title'],
-    ).body
+            }
+        ]
+    }},
+    highlight={'fields': {'title': {}, 'summary': {}, 'content': {}}},
+    source=['title'],
+).body
 ```
 
 Jetzt haben wir eine Abfrage, die sich mehrere Textanalysefunktionen zunutze macht, bis zu einem gewissen Grad tolerant gegenüber Tippfehlern ist und mehrere relevante Felder durchsucht.
@@ -277,40 +279,40 @@ Um zu testen, ob eine angepasste Abfrage die erwarteten Ergebnisse liefert oder 
 Damit können eine Reihe von Dokumenten definiert werden, die in Abhängigkeit von der Abfrage und ihren Parametern in der Suchergebnisliste erscheinen oder nicht erscheinen sollen.
 Dies ist besonders nützlich, wenn wir im ständigen Gespräch mit unseren Testern sind und unser Abfragedesign weiterentwickeln, aber auch das beibehalten wollen, was bisher gut funktioniert hat.
 
-```
-    POST logstash-articles/_rank_eval
+```bash
+POST logstash-articles/_rank_eval
+{
+"requests": [
     {
-    "requests": [
-        {
-        "id": "micheal_query",
-        "request": { // the request to be tested
-        "query": { "match": { "title.phonetic": "micheal" } }
-        },
-        "ratings": [
-            { "_index": "logstash-articles", "_id": "https://en.wikipedia.org/wiki/Michael_Jordan", "rating": 3 },
-            { "_index": "logstash-articles", "_id": "https://en.wikipedia.org/wiki/Michael_Paul_Fleischer", "rating": 1 },
-            { "_index": "logstash-articles", "_id": "https://en.wikipedia.org/wiki/Scheldeprijs", "rating": 0 }
-            ]
-        },
-        {
-        "id": "michael_query",
-        "request": {
-            "query": { "match": { "title": "michael" } }
-        },
-        "ratings": [
-            { "_index": "logstash-articles", "_id": "https://en.wikipedia.org/wiki/Michael_Jordan", "rating": 3 }
-            ]
-        }
-        ],
-        "metric": {
-        "precision": {
-            "k": 20,
-            "relevant_rating_threshold": 1,
-            "ignore_unlabeled": false
-        }
-        }
+    "id": "micheal_query",
+    "request": { // the request to be tested
+    "query": { "match": { "title.phonetic": "micheal" } }
+    },
+    "ratings": [
+        { "_index": "logstash-articles", "_id": "https://en.wikipedia.org/wiki/Michael_Jordan", "rating": 3 },
+        { "_index": "logstash-articles", "_id": "https://en.wikipedia.org/wiki/Michael_Paul_Fleischer", "rating": 1 },
+        { "_index": "logstash-articles", "_id": "https://en.wikipedia.org/wiki/Scheldeprijs", "rating": 0 }
+        ]
+    },
+    {
+    "id": "michael_query",
+    "request": {
+        "query": { "match": { "title": "michael" } }
+    },
+    "ratings": [
+        { "_index": "logstash-articles", "_id": "https://en.wikipedia.org/wiki/Michael_Jordan", "rating": 3 }
+        ]
     }
-``` 
+    ],
+    "metric": {
+    "precision": {
+        "k": 20,
+        "relevant_rating_threshold": 1,
+        "ignore_unlabeled": false
+    }
+    }
+}
+```
 
 ### Runtime fields
 
@@ -320,25 +322,25 @@ Alternativ können Felder zu einem bestehenden Index hinzugefügt werden, der da
 `runtime_fields` erlauben einen anderen Ansatz: Der Wert des Feldes wird während der Laufzeit bestimmt, d.h. wenn die Daten bereits abgefragt oder analysiert werden.
 Der Wert des `runtime_fields` kann durch Bereitstellung eines Skripts über die Such-API oder durch manuelles Hinzufügen über Kibana festgelegt werden.
 
-```
-    GET logstash-articles/_search
-    {
-        "runtime_mappings": {
+```bash
+GET logstash-articles/_search
+{
+    "runtime_mappings": {
+        "#links": {
+            "type": "long",
+            "script": "emit(doc['links.keyword'].length);"
+        }
+    },
+    "query": {
+        "range": {
             "#links": {
-                "type": "long",
-                "script": "emit(doc['links.keyword'].length);"
+                "gte": 1000
             }
-        },
-        "query": {
-            "range": {
-                "#links": {
-                    "gte": 1000
-                }
-            }
-        },
-        "_source": ["title"]
-    }
- ```
+        }
+    },
+    "_source": ["title"]
+}
+```
 
 `runtime_fields` sind während der Entwicklung oder für Randanwendungen nützlich.
 Sobald feststeht, dass ein Feld für den betrachteten Anwendungsfall nützlich ist, ist zu entscheiden, ob die Funktionalität während der Laufzeit gekapselt beibehalten oder in eine dauerhaftere gespeicherte Lösung umgewandelt werden soll - beides hat Vor- und Nachteile, zum einen hinsichtlich Speicherung, zum anderen hinsichtlich Ausführungsgeschwindigkeit.
@@ -351,24 +353,24 @@ Wie bereits erwähnt, sind auch Plugins und Erweiterungen ein Teil des Elastic-S
 Elasticsearch kann so konfiguriert werden, dass trainierte ML-Modelle geladen werden, um eine Analyse des eingelesenen Textes durchzuführen.
 Dazu müssen zunächst das [Plugin](https://github.com/spinscale/elasticsearch-ingest-opennlp) und die erforderlichen ML-Modelle in Elasticsearch geladen werden, um anschließend eine Ingest-Pipeline zu definieren, die den zu indizierenden Text um die gewünschten Annotationen erweitert.
 
-```
-    client.ingest.put_pipeline(
-        id='opennlp-pipeline',
-        processors=[
-        {
-          "opennlp" : {
-            "field" : "text",
-            "annotated_text_field" : "annotated_text"
-          }
+```python
+client.ingest.put_pipeline(
+    id='opennlp-pipeline',
+    processors=[
+    {
+        "opennlp" : {
+        "field" : "text",
+        "annotated_text_field" : "annotated_text"
         }
-      ]
-    )
+    }
+    ]
+)
 ```
 
 Die Einrichtungsschritte werden im oben genannten Gitpod-Workspace zur Verfügung gestellt und die NER-Modelle können mit dem beschriebenen Code ausprobiert werden.
 Hier als Beispiel die Liste der im Wikipedia-Artikel zu Michael Jordan erkannten Personen:
 
-```
+```markdown
 'Condor', 'Sandro Miller', 'Marv Albert', 'Chris Mullin', 'Simon', 'Michael', 'Karl Malone', 'Jason Kidd', 'Story', 'Bryant', 'Harper San Francisco', 'Charles Oakley', 'Mark Vancil', 'Mike', 'James R . Jordan Sr .', 'Bob Knight', 'Russell Westbrook', 'Minor League Baseball', 'Ed Bradley', 'Jordan', 'John R . Wooden', 'Daniel Green', 'Ben', 'Rodman', 'Kobe Bryant', 'With Scottie Pippen', 'Ron Harper', 'Rod Strickland', 'After Jordan', 'Nick Anderson', "Shaquille O ' Neal", 'Stu Inman', 'Jordan Brand', 'Brand', 'Marcus', 'Sam Perkins', 'Wade', 'Babe Ruth', 'Rip " Hamilton', 'David L .', 'Kwame Brown', 'Jerry West', 'Jordan "', 'Abe Pollin', 'James Harden', 'Dean Smith', 'Abdul - Jabbar', 'Steve Alford', 'Jordan Rules', 'Derek Jeter', 'Richard Esquinas', 'Michael Jordan Celebrity Invitational', 'Bugs Bunny', 'Victoria', 'Jason Hehir', 'Travis Scott', 'David Steward', 'Larry Hughes', 'Johnson', 'James', 'David Thompson', 'George Shinn', 'Barack Obama', 'Jerry Reinsdorf', 'Dan Devine', 'Bob', 'Roy S . Johnson', 'Larry Martin Demery', 'Clyde Drexler', 'Knafel', 'David', 'Michael Jordan', 'Jordan Motorsports', 'Robert L . Johnson', 'Muhammad Ali', 'Citing Bowie', 'Spike Lee', 'Lee', 'Charles Barkley', 'Walter Iooss', 'Phil Jackson', 'Don Nelson', 'Gary Payton', 'Jason Whitlock', 'Ron Shelton', 'Larry Bird', 'Kevin Garnett', 'Vince Carter', 'Horace Grant', 'Michael Jackson', 'Russell', 'Clyde "', 'Daniel Sundheim', 'Isiah Thomas', 'George Floyd', 'Scottie Pippen', 'Mitchell', 'W . W . Norton', 'Sam Bowie', 'Kareem Abdul - Jabbar', 'Allen Iverson', 'Robert F . Smith', 'Sportswriter Wright Thompson', 'Larry Jordan', 'Patrick Ewing', 'James Jordan', 'Steve Kerr', 'George Postolos', 'Dwyane Wade', 'Thompson', 'LeBron James', 'Magic Johnson', 'Toni Kukoč', 'David Stern', 'Michael Jordan Career Retrospective', 'Irving J .', 'Malone', 'Brown', 'Sam Vincent', 'Doug Brady', 'Jordan Drive', 'Jack Hartman', 'Justin Jordan', 'Jasmine', 'Grant Hill', 'Adam Morrison', 'Dunk Contest', 'Glen Rice', 'Jerry Stackhouse', 'Mario Lemieux', 'Wayne Gretzky', 'Loyola Academy', 'Bryon Russell', 'John Paxson', 'Deloris', 'Penny Hardaway', 'James R . Jordan Jr .', 'Bill Russell', 'Bobby Simmons', 'Family Clinics', 'His', 'Willis Reed', 'Broadcaster Al Michaels', 'Despite Jordan', 'John Salmons', 'Luka Dončić', 'Gatorade', 'Subsequently', 'James Worthy', 'Mike "', 'Andrei S', 'Walter Davis', 'Doug Collins', 'Julius Erving . Larry Bird', 'David Falk', 'Doug Colling', 'Porter', 'Jeffrey', 'Walter', 'Jeffrey Jordan OLY', 'Roland', 'Dennis Rodman', 'Doc Rivers', 'Oprah Winfrey'
 ```
 
