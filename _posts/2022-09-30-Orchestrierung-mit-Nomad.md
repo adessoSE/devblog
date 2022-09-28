@@ -33,7 +33,7 @@ Bevor wir jetzt in ein Beispiel einsteigen sollten wir kurz über die Konfigurat
 
 Im Gegensatz zum rein deklarativem Ansatz von [Kubernetes][], bei dem [YAML][] Dateien den
 gewünschten Zielzustand beschreiben, erlaubt [Nomad][] durch den Einsatz der eigenen
-Skriptsprache [HCL][] den Einsatz von Logik und Kontrollstrukturen.
+Skriptsprache [HCL][] einfache Logik und Kontrollstrukturen.
 Ursprünglich für die Konfiguration in [Terraform][] entwickelt, kommt [HCL][] nicht als Aufsatz
 wie beispielsweise [jsonnet][] daher und macht den Einsatz von Hilfen wie beispielsweise
 [kustomize][] überflüssig.
@@ -64,6 +64,15 @@ configuration {
  Eine vollständige Dokumentation befindet sich auf der [offiziellen Projekteseite][].
 
 ## Jobs
+
+Der übliche Einstieg in [Nomad][] erfolgt über [Jobs][] bzw. eine Job-Datei, die die eigentliche
+Arbeitseinheit darstellen.
+
+Sobald ein neuer [Job][] gestartet wird laufen intern mehrere Schritte ab.
+Zunächst findet eine Analyse statt welche Schritte der eingereichte [Job][] umfasst - dies nennt
+man auch [Evaluation][].
+Anschließend findet die [Allocation][] statt, hierbei wird über [Task Group][] festgelegt welcher
+aktive Client diesen [Job][] dann ausführt.
 
 ```hcl
 job "todo" {
