@@ -13,13 +13,19 @@ neben dem Platzhirschen [Kubernetes][] eigentlich Alternativen?
 
 Im Zuge dieses Artikels beschäftigen wir uns mit dem Job Scheduler [Nomad][] aus dem Hause
 [HasiCorp][] und sehen uns anhand von einfachen Beispielen an welche Möglichkeiten hier geboten
-werden und wie ein Deployment aussehen.
-Und anschließend geht es mit mit fortgeschrittenen Themen wie Service Discovery und Canary
-Deployments weiter.
+werden.
+Anschließend beschäftigen wir uns mit Deployments und fortgeschritteneren Themen wie Service
+Discovery und Canary Deployments.
 
 ## Was genau ist Nomad?
 
-[Nomad][] ist ein kleiner Job Scheduler und Orchestrator
+ Bei [Nomad][] handelt es sich um einen kleinen Job Scheduler und Orchestrator, der im Gegensatz zu
+ [Kubernetes][] nicht nur Container, sondern über Plugins im Grunde alles mögliche verwalten kann.
+
+Dies wird über [Task Driver][] realisiert, die teils von der Community beigesteuert werden aber
+auch teils von Hause aus direkt mit dabei sind.
+Darunter befinden sich die neben üblichen Verdächtigen wie [Docker][] und [Podman][], aber auch
+speziell einer für [Java][] Anwendungen sowie für sonstige Anwendungen über [Raw/Exec][].
 
 ## Konfiguration ohne YAML
 
