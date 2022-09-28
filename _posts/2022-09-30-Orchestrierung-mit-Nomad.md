@@ -27,7 +27,21 @@ auch teils von Hause aus direkt mit dabei sind.
 Darunter befinden sich die neben üblichen Verdächtigen wie [Docker][] und [Podman][], aber auch
 speziell einer für [Java][] Anwendungen sowie für sonstige Anwendungen über [Raw/Exec][].
 
+Bevor wir jetzt in ein Beispiel einsteigen sollten wir kurz über die Konfiguration sprechen.
+
 ## Konfiguration ohne YAML
+
+Im Gegensatz zum rein deklarativem Ansatz von [Kubernetes][], bei dem [YAML][] Dateien den
+gewünschten Zielzustand beschreiben, erlaubt [Nomad][] durch den Einsatz der eigenen
+Skriptsprache [HCL][] den Einsatz von Logik und Kontrollstrukturen.
+Ursprünglich für die Konfiguration in [Terraform][] entwickelt, kommt [HCL][] nicht als Aufsatz
+wie beispielsweise [jsonnet][] daher und macht den Einsatz von Hilfen wie beispielsweise
+[kustomize][] überflüssig.
+
+Natürlich gibt es mit [Nomad Pack][] ein vergleichbares Pendant zu [Helm][] und sämtliche
+Operationen können hier ebenfalls über die [API][] vorgenommen werden.
+
+Hier ein kurzes Beispiel zu [HCL][]:
 
 ```hcl
 company = "adesso"
@@ -46,6 +60,8 @@ configuration {
   }
 }
 ```
+
+ Eine vollständige Dokumentation befindet sich auf der [offiziellen Projekteseite][].
 
 ## Jobs
 
