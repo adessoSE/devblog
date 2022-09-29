@@ -33,14 +33,14 @@ Bevor wir jetzt in ein Beispiel einsteigen sollten wir kurz über die Konfigurat
 ## Konfiguration ohne YAML
 
 Im Gegensatz zum rein deklarativem Ansatz von [Kubernetes][], bei dem [YAML][] Dateien den
-gewünschten Zielzustand beschreiben, erlaubt [Nomad][] durch den Einsatz der eigenen
-Skriptsprache [HCL][] einfache Logik und Kontrollstrukturen.
-Ursprünglich für die Konfiguration in [Terraform][] entwickelt, ist [HCL][] Aufsatz wie
-beispielsweise [jsonnet][] und macht den Einsatz von Hilfsmitteln wie beispielsweise
-[kustomize][] überflüssig.
+gewünschten Zielzustand beschreiben, verwendet [Nomad][] die eigene Konfigurationsprache [HCL][].
+Sie wurde ursprünglich für [Terraform][] entwickelt und bringt eine ganze Reihe an Logikfunktionen
+und Operatoren mit.
+Und da sie kein reiner Aufsatz wie beispielsweise [jsonnet][] auf [JSON][] ist - ist hier ein
+Einsatz von Hilfsmitteln wie beispielsweise [kustomize][] nicht erforderlich.
 
 Natürlich steht mit [Nomad Pack][] ein vergleichbares Pendant zu [Helm][] zur Verfügung, sodass
-auch hier versionierte Artefakte erstellt werden können.
+wir auch hier versionierte Artefakte erstellen können.
 
 Hier ein kurzes Beispiel zu [HCL][]:
 
@@ -62,18 +62,21 @@ configuration {
 }
 ```
 
- Eine vollständige Dokumentation befindet sich auf der [offiziellen Projektseite][].
+NOTE: Eine vollständige Dokumentation findest du auf [offiziellen Projektseite][].
 
-## Jobs
+## Alles über Jobs
 
-Der übliche Einstieg in [Nomad][] erfolgt über [Jobs][] bzw. eine Job-Datei, die die eigentliche
-Arbeitseinheit darstellen.
+[Jobs][] stellen in [Nomad][] die eigentliche Arbeitseinheit dar können über verschiedene Wege
+an den Server geschickt werden - dazu aber später mehr.
 
-Sobald ein neuer [Job][] gestartet wird laufen intern mehrere Schritte ab.
-Zunächst findet eine Analyse statt welche Schritte der eingereichte [Job][] umfasst - dies nennt
-man auch [Evaluation][].
-Anschließend findet die [Allocation][] statt, hierbei wird über [Task Group][] festgelegt welcher
-aktive Client diesen [Job][] dann ausführt.
+Wird ein neuer [Job][] eingereicht findet zunächst eine Analyse statt, um die notwendigen Schritte
+zu erfassen - diesen Schritt nennt man auch [Evaluation][].
+Anschließend findet die [Allocation][] statt, hierbei wird ein Ausführplan erstellt und über
+eine [Task Group][] ein [Job][] einem aktiven Client zugewiesen.
+Diese Schritte sollte man zumindest einmal gehört haben, denn sie begegnen einem durchaus als Status
+im täglichen Umgang mit [Nomad][].
+
+### Wie sieht ein Job aus?
 
 ```hcl
 job "todo" {
@@ -103,8 +106,19 @@ job "todo" {
   }
 }
 ```
+**<1>** [Nomad][] ist Datacenter-aware und erlaubt die Gruppierung verschiedener Nodes.<br />
+**<2>** Gruppen können aus verschiedenen Tasks bestehen und werden auf demselben Client ausgeführt.<br />
+**<3>** Hier starten wir maximal eine Instanz dieser Gruppe.<br />
+**<4>** Ein Task stellt die kleinste Einheit in [Nomad][] dar - vergleichbar mit einem [Pod][].<br />
+**<5>** Der [Java][] Task Driver start ein Jar in einer [JVM][] Instant<br />
+**<6>** Die meisten Task Driver können entsprechend konfiguriert werden - hier setzen wir [JVM][] Optionen<br />
+**<7>** [Resource Limits][] können ebenfalls gesetzt werden.<br />
+**<8>** Und abschließend setzen wir noch den Netzwerkport - diesen brauchen wir später.<br />
 
-### Wie startet man einen Job?
+Für die nächsten Schritte benötigst du eine laufende [Nomad][] Instanz - solltest du hierbei noch
+Probleme haben wirf am besten einen Blick in [diese Anleitung][] hier.
+
+### Wie reiche ich einen Job ein?
 
 #### Via Browser
 
