@@ -33,11 +33,11 @@ Bevor wir jetzt in ein Beispiel einsteigen sollten wir kurz über die Konfigurat
 ## Konfiguration ohne YAML
 
 Im Gegensatz zum rein deklarativen Ansatz von [Kubernetes][], bei dem [YAML][] Dateien den
-gewünschten Zielzustand beschreiben, verwendet [Nomad][] die eigene Konfigurationsprache [HCL][]
+gewünschten Zielzustand beschreiben, verwendet [Nomad][] die eigene Konfigurationsprache [HCL][],
 die erstmalig bei [Terraform][] Verwendung fand und entsprechend Logikfunktionen und Operatoren
 mitbringt.
 
-Sie stellt keine reine Erweiterung von [JSON][] wie beispielsweise [jsonnett][] oder [CUE][] dar
+[HCL][] stellt keine reine Erweiterung von [JSON][] dar wie beispielsweise [jsonnett][] oder [CUE][]
 und erspart hier einen Einsatz von weiteren Hilfsmitteln wie beispielsweise [kustomize][].
 
 Natürlich steht mit [Nomad Pack][] ein vergleichbares Pendant zu [Helm][] zur Verfügung, sodass
@@ -67,7 +67,7 @@ NOTE: Eine vollständige Dokumentation findest du auf [offiziellen Projektseite]
 
 ## Alles über Jobs
 
-[Jobs][] stellen in [Nomad][] die eigentliche Arbeitseinheit dar können über verschiedene Wege
+[Jobs][] stellen in [Nomad][] die eigentliche Arbeitseinheit dar und können über verschiedene Wege
 an den Server geschickt werden - dazu aber später mehr.
 
 Wird ein neuer [Job][] eingereicht findet zunächst eine Analyse statt, um die notwendigen Schritte
@@ -78,6 +78,14 @@ Diese Schritte sollte man zumindest einmal gehört haben, denn sie begegnen eine
 im täglichen Umgang mit [Nomad][].
 
 ### Wie sieht ein Job aus?
+
+[Jobs][] bzw. die eigentlichen [Job Files][] bestehen aus verschiedenen Objekten (auch [Stanza][]
+genannt) und lassen sich am einfachsten an einem konkreten Beispiel erklären.
+
+Dieses Beispiel startet eine Backendanwendung basierend auf [Quarkus][] und stellt eine [REST][]
+API bereit mit der Todo Einträge zu verwaltet werden können.
+
+> **_NOTE:_** Die passende [OpenAPI][] Spezifikation könnt ihr [hier einsehen][].
 
 ```hcl
 job "todo" {
@@ -107,7 +115,7 @@ job "todo" {
   }
 }
 ```
-**<1>** [Nomad][] ist Datacenter-aware und erlaubt die Gruppierung verschiedener Nodes.<br />
+**<1>** [Nomad][] ist Datacenter-aware und erlaubt darüber die Gruppierung verschiedener Nodes.<br />
 **<2>** Gruppen können aus verschiedenen Tasks bestehen und werden auf demselben Client ausgeführt.<br />
 **<3>** Hier starten wir maximal eine Instanz dieser Gruppe.<br />
 **<4>** Ein Task stellt die kleinste Einheit in [Nomad][] dar - vergleichbar mit einem [Pod][].<br />
@@ -117,7 +125,7 @@ job "todo" {
 **<8>** Und abschließend setzen wir noch den Netzwerkport - diesen brauchen wir später.<br />
 
 Für die nächsten Schritte benötigst du eine laufende [Nomad][] Instanz - solltest du hierbei noch
-Probleme haben wirf am besten einen Blick in [diese Anleitung][] hier.
+Probleme haben wirf am besten einen Blick in die [offizielle Anleitung][].
 
 ### Wie reiche ich einen Job ein?
 
