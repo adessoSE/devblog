@@ -12,7 +12,7 @@ Orchestrierung ist in aller Munde und aus vielen Bereichen gar nicht mehr wegzud
 neben dem Platzhirschen [Kubernetes][] eigentlich Alternativen?
 
 Im Zuge dieses Artikels beschäftigen wir uns mit dem Job Scheduler [Nomad][] aus dem Hause
-[HasiCorp][] und sehen uns anhand von einfachen Beispielen an welche Möglichkeiten hier geboten
+[HashiCorp][] und sehen uns anhand von einfachen Beispielen an welche Möglichkeiten hier geboten
 werden.
 Anschließend beschäftigen wir uns mit Deployments und fortgeschritteneren Themen wie Service
 Discovery und Canary Deployments.
@@ -129,15 +129,27 @@ Probleme haben wirf am besten einen Blick in die [offizielle Anleitung][].
 
 ### Wie reiche ich einen Job ein?
 
+Sämtliche Aktionen bei [Nomad][] lassen sie über folgende drei Wege durchführen:
+
 #### Via Browser
 
+1. Die erste und einfachste Möglichkeit ist über das Webinterface, welches direkt nach dem Start von
+[Nomad][] unter folgender Adresse erreichbar ist: <http://locahost:4646>
 ![image](/assets/images/posts/orchestrierung-mit-nomad/web.png)
 
+2. Über den Knopf **Run Job** oben rechts gelangst du zu einem Dialog, in den du deine [Job][] Definition
+direkt entweder mittels [HCL][] oder [JSON][] abschicken kannst.
+
+3. Anschließend kannst du mit **Plan** einen Dry-Run ausführen und dir das Ergebnis zunächst einmal
+ansehen:
 ![image](/assets/images/posts/orchestrierung-mit-nomad/plan_success.png)
 
+4. Und abschließend startet **Run** dann das echte Deployment:
 ![image](/assets/images/posts/orchestrierung-mit-nomad/job_success.png)
 
 #### Über die Kommandozeile
+
+Für die [Commandline][]-Liebhaber unter euch bietet [Nomad][] auch hier eine [CLI][]:
 
 ```bash
 $ nomad job plan jobs/todo-java.nomad
@@ -173,10 +185,19 @@ $ nomad job run jobs/todo-java.nomad
 
 #### Über die API
 
+Und analog zu [Kubernetes][] gibt es ebenfalls die Möglichkeit direkt die [Job API][] anzusprechen -
+hier beispielsweise mittels [curl][]:
+
 ```bash
 $ curl --request POST --data @jobs/todo-java.json http://localhost:4646/v1/jobs
 {"EvalCreateIndex":228,"EvalID":"bd809b77-e2c6-c336-c5ca-0d1c15ff6cce","Index":228,"JobModifyIndex":228,"KnownLeader":false,"LastContact":0,"NextToken":"","Warnings":""}
 ```
+
+> **_NOTE:_** Das verwendete [JSON][] Beispiel findet ihr hier:
+<https://github.com/unexist/showcase-nomad-quarkus/blob/master/deployment/jobs/todo-java.json>
+
+Die drei genannten Wege schicken unseren [Job][] zu [Nomad][] und starten eine einzelne Instanz
+auf einem Client des [Datacenters][] `dc1`.
 
 ### Status eines Jobs überprüfen
 
