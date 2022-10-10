@@ -9,7 +9,7 @@ tags: [GreenIT, Nachhaltigkeit]                            # Bitte auf Großschr
 ---
 Die EU will mit dem Green Deal den Klimaschutz richtig angehen.
 Neben dem Vorhaben, bis 2050 keine Netto-Treibhausgase mehr auszustoßen, soll das Wachstum der Wirtschaft von der Ressourcennutzung entkoppelt werden.
-Daher ist eines der Kernziele, Hersteller dazu zu verpflichten, Produkte langlebiger und reparaturfähig zu gestalten. 
+Daher ist eines der Kernziele, Herstellerfirmen dazu zu verpflichten, Produkte langlebiger und reparaturfähig zu gestalten. 
 Allerdings ist es nicht nur die Qualität der Hardware, die zur längeren Lebenszeit eines Produktes beiträgt; auch die Gestaltung der Software leistet ihren Teil. 
 Dieser Blogpost soll daher zum einen verdeutlichen, wie Programmierung zur Lebensdauer von Produkten beiträgt; zum anderen möchte ich aber auch anschneiden, wie Programme selbst ressourcenschonend aufgebaut werden können.
 
@@ -17,13 +17,13 @@ Dieser Blogpost soll daher zum einen verdeutlichen, wie Programmierung zur Leben
 
 Vom Green Deal der EU kann man halten, was man möchte.
 Ziel ist es aber, dass wir uns nachhaltig weg von einer Wegwerfgesellschaft, hin zu mehr Nachhaltigkeit bewegen.
-Dabei gab es in der Vergangenheit durchaus positive Ansätze wie ein Rechenzentrum mit eigenem Gezeitenkraftwerk [1] aber leider auch negative wie die Debatte um „ungeplante“ Leistungseinbusen bei iPhones, je älter die Batterie wird[2].
-Ich möchte nicht, dass mein Sohn in Anlehnung an Wall-E fasziniert ein Datenarchiv durchsuchen muss um zu lernen, was Korallen oder Bäume sind. 
-Die Frage ist also, was kann man als Entwickler*in dafür tun?
+Dabei gab es in der Vergangenheit durchaus positive Ansätze wie ein Rechenzentrum mit eigenem Gezeitenkraftwerk [1], aber leider auch negative wie die Debatte um "ungeplante" Leistungseinbußen bei iPhones, je älter die Batterie wird[2].
+Ich möchte nicht, dass mein Sohn in Anlehnung an Wall-E fasziniert ein Datenarchiv durchsuchen muss, um zu lernen, was Korallen oder Bäume sind. 
+Die Frage ist also, was können wir in der Entwicklung dafür tun?
 
 Der Bereich ist größer, als man auf Anhieb denkt. 
 Mit diesem Beitrag möchte ich grundsätzlich für das Thema sensibilisieren. 
-Ob als Consultant, der es als positives Verkaufsargument nutzen möchte oder Entwickler, der aus Faulheit seine Software leichter wartbar macht. 
+Ob als Consultant, der es als positives Verkaufsargument nutzen möchte oder in der Entwicklung, aus Faulheit, die eigene Software leichter wartbar zu machen. 
 In diesem Beitrag kratzen wir etwas an der Oberfläche; das Thema wird aktuell von der CoP neue Technologien (LoB Insurance) bearbeitet. 
 Dort könnt ihr euch gern mehr Informationen beschaffen.
 
@@ -67,12 +67,12 @@ Ein Artikel der Süddeutschen Zeitung gibt schon den ersten Hinweis.
 Wir können Software so schreiben, dass sie so ressourceneffizient wie möglich arbeitet. 
 Das schaffen wir beispielsweise durch eine andere Programmiersprache. 
 C, als sehr hardwarenahe Sprache, kann viel boiler-plate umgehen, birgt aber mit manueller Speicherfreigabe die Gefahr von Speicherlecks.
-Java hingegen ist weit verbreitet (und verstanden) aber mit der JVM kommt immer ein Tool mit, welches den Java-Byte-Code auf die schlussendliche Hardwarearchitektur übersetzt was zusätzliche Leistung frisst.
-In diesem Vergleich ist Python eher der Trabbi unter den Sportwägen.
-Was die Geschwindigkeit angeht, ist die Sprache eine Todsünde (Wink an die KI-ler, welche gern auf Scikit-Learn setzen) aber unschlagbar beim prototyping.
+Java hingegen ist weit verbreitet (und verstanden) aber mit der JVM kommt immer ein Tool mit, welches den Java-Byte-Code auf die schlussendliche Hardwarearchitektur übersetzt, was zusätzliche Leistung frisst.
+In diesem Vergleich ist Python eher der Trabbi unter den Sportwagen.
+Was die Geschwindigkeit angeht, ist die Sprache eine Todsünde (Wink an die KI, welche gern auf Scikit-Learn setzt), aber unschlagbar beim Prototyping.
 
 In einem Buch für Softwarearchitekten stellen Peter Hruschka und Gernot Starke (Entwickler von Arc42) diverse Patterns von Softwarearchitekten vor (ISBN: 978-3-86802-080-9).
-Ein Anti-Pattern ist „Zu viel des Guten“:
+Ein Anti-Pattern ist "Zu viel des Guten":
 Ressourceneffizienz anzustreben ist gut, aber nicht um jeden Preis.
 Der Green-Deal der EU fordert eine realistische Reparaturbasis.
 Bei der Softwareerstellung muss also abgewogen werden, wo Optimierung sinnvoll ist und wann es reiner Selbstzweck wird.
@@ -80,24 +80,24 @@ Bei der Softwareerstellung muss also abgewogen werden, wo Optimierung sinnvoll i
 **Aus der Praxis**
 IDEs sind eine prima Sache.
 Sie erleichtern unsere Arbeit ungemein.
-Formatierung, Autovervollständigungen, Syntax-highlighting und -Fehler erkennen.
-Was eine IDE in der Regel aber ebenfalls macht sind einfache Optimierungen der Lesbarkeit.
-Bei Java beispielsweise wird bei Imports gern der * Operator genutzt.
+Sie bieten Formatierungen, Autovervollständigungen, Syntax-highlighting und -Fehler-Erkennung.
+Was eine IDE in der Regel aber ebenfalls macht, sind einfache Optimierungen der Lesbarkeit.
+Bei Java beispielsweise wird bei Imports gern der `*`-Operator genutzt.
 Uns als Entwickler fällt das in der Regel nicht groß auf, die Klasse wird importiert und steht zur Verfügung.
 Dabei sollten wir uns fragen, ob wirklich alle Klassen dem Classloader bekannt sein sollten.
 
 Zum Beispiel: In einem Projekt zur Speicherung und Analyse von Netzwerkverkehr sollte eine Postgres-Datenbank mit Verbindungsinformationen befüllt werden.
-Allein ob ein Port als 2-Byte-unsigned-Short oder 4-byte-Integer gespeichert wird, macht zwei Byte aus.
-Bei 1,4 Milliarden Einträgen in dem Projekt sind wir bereits bei ca. 2.6 GB.
+Allein ob ein Port als 2-Byte-unsigned-Short oder 4-Byte-Integer gespeichert wird, macht zwei Byte aus.
+Bei 1,4 Milliarden Einträgen in dem Projekt sind wir bereits bei ca. 2,6 GB.
 Eine Netzwerkverbindung wird aber erst über den 5-Tupel eindeutig (QuellIP, QuellPort, ZielIP, ZielPort, L4-Protokoll).
-Bei einer IPv4-Adresse haben wir die Auswahl zwischen 4-Byte Integer oder einem schlimmstenfalls 15-Byte-String.
-Allein IP+Port bei Ziel und Quelladresse ergeben dann einen Unterschied von etwa 33.9 GB.
+Bei einer IPv4-Adresse haben wir die Auswahl zwischen 4-Byte-Integer oder einem schlimmstenfalls 15-Byte-String.
+Allein IP+Port bei Ziel und Quelladresse ergeben dann einen Unterschied von etwa 33,9 GB.
 Und diese Daten waren mehrfach vorhanden.
 
-Daher ein erstes Zwischenfazit: Die einfachste Variante, wie man Green Development betreiben kann ist KISS (Keep it simple short).
-Bei jeder Entscheidung sollten wir uns fragen: „Brauche ich das wirklich?“.
-Wenn wir das abgeschlossen haben sollte uns der Product Owner/Stakeholder genau das gleiche Fragen.
-Wenn wir es ihm/ihr plausibel erklären können, scheint es wichtig zu sein.
+Daher ein erstes Zwischenfazit: Die einfachste Variante, wie man Green Development betreiben kann ist KISS (Keep it simple, stupid).
+Bei jeder Entscheidung sollten wir uns fragen: "Brauche ich das wirklich?".
+Wenn wir das abgeschlossen haben, sollte uns der Product Owner/Stakeholder genau das gleiche Fragen.
+Wenn wir es plausibel erklären können, scheint es wichtig zu sein.
 
 ## Über O wie Optimierungen
 
@@ -107,14 +107,14 @@ Eine Java-Applikation ist durch die darunter liegende JVM sehr flexibel.
 Dazu ist die Verbreitung von Java sehr groß und für die meisten Probleme gibt es daher bereits Bibliotheken, die uns in der Entwicklung unterstützen.
 Demgegenüber ist Java aber unweigerlich langsamer als maschinennähere Sprachen wie Rust oder C.
 Dazu kommt, dass man mit Sprachen wie C auch mehr Einfluss auf die Ressourcennutzung nehmen kann.
-Wenn wir die gleiche Software also mit Java oder mit C betreiben würden, stehen die Chancen gut, dass C das Rennen gewinnt.
+Wenn wir die gleiche Software also mit Java oder mit C betreiben würden, stehen die Chancen gut, dass C das Rennen in Sachen Ressourcensparsamkeit gewinnt.
 
 Wo wir dabei sind, wir könnten auch anstelle von 32 Booleans (also 32 Byte) diese via Bitshifting in einen einzigen Integer speichern (4 Byte).
 Das wird sogar sehr effektiv in der Netzwerkkommunikation genutzt.
 Aber klingt das in der allgemeinen Softwareentwicklung wirklich nach einer guten Idee?
 
-Gerade während der laufenden Entwicklung neigen Softwaredeveloper dazu, beim testen ihrer Implementation ungeduldig zu werden.
-Die ewige Schleife von Implementieren, kompilieren, evtl. deployen, starten etc. frisst viel Zeit.
+Gerade während der laufenden Entwicklung neigen wir dazu, beim testen unserer Implementation ungeduldig zu werden.
+Die ewige Schleife von implementieren, kompilieren, evtl. deployen, starten etc. frisst viel Zeit.
 Dabei sollte jede*r Entwickler*in die Not zur Tugend machen und sich selbst optimieren.
 Setzt euch mit Compileroptionen auseinander.
 Die Software baut schneller und vielleicht fallen euch dann Konzepte auf, die ihr hinterfragen könnt.
@@ -123,7 +123,7 @@ Was ist eigentlich das besondere an Heap-Speicher (Java -Xmx/-Xms)? Was untersch
 Als dritten Pfeiler der Optimierung gibt es noch das Softwaredesign.
 Monolithen sind in der Regel effizienter im 1:1 Betrieb aber schlechter skalierbar.
 Im Sinne einer schnelleren Entwicklung, leichteren Wartbarkeit und vereinfachten Austauschbarkeit von Bausteinen sind Microservices zu bevorzugen.
-Zur Optimierung gehört genauso alte, gewachsene Strukturen zu überdenken und zu reformieren.
+Zur Optimierung gehört genauso, alte, gewachsene Strukturen zu überdenken und zu reformieren.
 
 1. Probleme identifizieren
 2. Lösungen finden/diskutieren
@@ -136,7 +136,7 @@ Wie weit treibt man das jetzt? Schlussendlich sind die Anforderungen maßgeblich
 Wenn wir zeitkritische Systeme haben, beispielsweise bei Airbags in Autos, wäre es bestenfalls ungünstig, wenn Java mit einer NullPointerException um die Ecke kommt.
 Wenn wir einen schnellen Prototyp brauchen, ist Ada vermutlich eine eher schlechte Wahl.
 Aber zeitkritisch ist nicht gleich zeitkritisch.
-Wenn ein schneller Prototyp her muss, dann ist eine bereits bekannte Technologie besser als eine zwar effizientere wo allerdings noch eine Lernkurve dazu kommt.
+Wenn ein schneller Prototyp her muss, dann ist eine bereits bekannte Technologie besser als eine zwar effizientere, wo allerdings noch eine Lernkurve dazu kommt.
 
 Im Sinne des Green-Deals wird nicht jeder sein neues Auto verschrotten lassen um auf Elektro zu wechseln.
 Mein Auto hat jetzt 75.000km auf dem Tacho und wird vermutlich noch ein paar 10.000km schaffen.
@@ -144,12 +144,11 @@ Der Wandel kommt nicht von jetzt auf gleich.
 Niemand muss seine bisherige Arbeit vollständig umkrempeln.
 Aber wenn man die ein oder andere Entscheidung hinterfragt, ist schon viel getan.
 
-Vielleicht kommt man am Ende sogar zu dem Punkt, dass eine Single-Page-Application zwar seinen Charm hat.
-Der CO2-Abdruck sich mit der Datenübertragung und fehlendem Cache aber erhöht.
+Vielleicht kommt man am Ende sogar zu dem Punkt, dass eine Single-Page-Application zwar seinen Charm hat, der CO2-Abdruck sich mit der Datenübertragung und fehlendem Cache aber erhöht.
 
 ## TL;DR
 
-Detailiertes Wissen über die Funktionsweise von Computern gehört zum Grundwissen eines jeden Entwicklers.
+Detailiertes Wissen über die Funktionsweise von Computern gehört zum Grundwissen in der Entwicklung.
 Der Unterschied zwischen Heap und Stack oder die Berechnung von Laufzeitkomplexitäten müssen nicht im Detail verfügbar aber zumindest ein Begriff sein.
 Wenn ihr euren Code etwas grüner gestalten wollt, fängt alles bei euch an.
 
@@ -157,11 +156,11 @@ Wenn ihr euren Code etwas grüner gestalten wollt, fängt alles bei euch an.
 * Überlegt, welche Datentypen ihr für die Variable braucht.
 * Denkt ein zweites Mal über verschachtelte Schleifen nach.
 * Hinterfragt die eingesetzten Technologien.
-* Nutzt Variablen-Namen, die auch andere (Entwickler) verstehen.
+* Nutzt Variablennamen, die auch euer Team versteht.
 
 Aber am wichtigsten: denkt an das Gesamtbild.
-Es nützt nichts die Programmiersprache zu wechseln, wenn nur eine Person im Team sie versteht.
-Es könnte mehr Schaden verursachen usize (bspw. Rust) zu nutzen und eigentlich einen u64 zu benötigen.
+Es nützt nichts, die Programmiersprache zu wechseln, wenn nur eine Person im Team sie versteht.
+Es könnte mehr Schaden verursachen, usize (bspw. Rust) zu nutzen und eigentlich einen u64 zu benötigen.
 Ein Monolith spart Fesplattenplatz und vereinfacht das Deployment auf Kosten der Wartbarkeit.
 Event-Driven-Design ist super für die asynchrone Bearbeitung von Vorgängen aber sorgt bei synchroner Verarbeitung für unnötigen Overhead.
 
