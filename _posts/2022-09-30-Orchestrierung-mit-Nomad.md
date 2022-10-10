@@ -33,12 +33,11 @@ Bevor wir jetzt in ein Beispiel einsteigen sollten wir kurz über die Konfigurat
 ## Konfiguration ohne YAML
 
 Im Gegensatz zum rein deklarativen Ansatz von [Kubernetes][], bei dem [YAML][] Dateien den
-gewünschten Zielzustand beschreiben, verwendet [Nomad][] die eigene Konfigurationsprache [HCL][],
+gewünschten Zielzustand beschreiben, verwendet [Nomad][] die eigene Konfigurationssprache [HCL][],
 die erstmalig bei [Terraform][] Verwendung fand und entsprechend Logikfunktionen und Operatoren
 mitbringt.
-
-[HCL][] stellt keine reine Erweiterung von [JSON][] dar wie beispielsweise [jsonnett][] oder [CUE][]
-und erspart hier einen Einsatz von weiteren Hilfsmitteln wie beispielsweise [kustomize][].
+Damit lassen sich dann auch komplexere Szenarien abbilden, sodass ein Einsatz von Hilfsmitteln wie
+[kustomize][] nicht notwendig ist.
 
 Natürlich steht mit [Nomad Pack][] ein vergleichbares Pendant zu [Helm][] zur Verfügung, sodass
 wir auch hier versionbare Artefakte erstellt werden können.
