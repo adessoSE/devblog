@@ -60,7 +60,7 @@ Es gibt zwei Grundsätze:
 1. Programmiere möglichst ressourceneffizient
 2. Programmiere möglichst modular
 
-Ein Artikel der Süddeutschen Zeitung gibt schon den ersten Hinweis.
+Der Artikel gibt schon den ersten Hinweis.
 
 > manchmal hilft schon eine andere Programmiersprache
 
@@ -71,7 +71,7 @@ Java hingegen ist weit verbreitet (und verstanden) aber mit der JVM kommt immer 
 In diesem Vergleich ist Python eher der Trabbi unter den Sportwagen.
 Was die Geschwindigkeit angeht, ist die Sprache eine Todsünde (Wink an die KI, welche gern auf Scikit-Learn setzt), aber unschlagbar beim Prototyping.
 
-In einem Buch für Softwarearchitekten stellen Peter Hruschka und Gernot Starke (Entwickler von Arc42) diverse Patterns von Softwarearchitekten vor (ISBN: 978-3-86802-080-9).
+In ihrem Buch "Knigge für Softwarearchitekten" stellen Peter Hruschka und Gernot Starke (Entwickler von Arc42) diverse Wesenszüge (nicht nur) von Softwarearchitekten vor (ISBN: 978-3-86802-080-9).
 Ein Anti-Pattern ist "Zu viel des Guten":
 Ressourceneffizienz anzustreben ist gut, aber nicht um jeden Preis.
 Der Green-Deal der EU fordert eine realistische Reparaturbasis.
@@ -115,7 +115,7 @@ Aber klingt das in der allgemeinen Softwareentwicklung wirklich nach einer guten
 
 Gerade während der laufenden Entwicklung neigen wir dazu, beim testen unserer Implementation ungeduldig zu werden.
 Die ewige Schleife von implementieren, kompilieren, evtl. deployen, starten etc. frisst viel Zeit.
-Dabei sollte jede*r Entwickler*in die Not zur Tugend machen und sich selbst optimieren.
+Dabei sollten wir die Not zur Tugend machen und uns selbst optimieren.
 Setzt euch mit Compileroptionen auseinander.
 Die Software baut schneller und vielleicht fallen euch dann Konzepte auf, die ihr hinterfragen könnt.
 Was ist eigentlich das besondere an Heap-Speicher (Java -Xmx/-Xms)? Was unterscheidet ihn von normalem Speicher und wie passt da der Stack rein (Java -Xss)?
@@ -138,7 +138,7 @@ Wenn wir einen schnellen Prototyp brauchen, ist Ada vermutlich eine eher schlech
 Aber zeitkritisch ist nicht gleich zeitkritisch.
 Wenn ein schneller Prototyp her muss, dann ist eine bereits bekannte Technologie besser als eine zwar effizientere, wo allerdings noch eine Lernkurve dazu kommt.
 
-Im Sinne des Green-Deals wird nicht jeder sein neues Auto verschrotten lassen um auf Elektro zu wechseln.
+Im Sinne des Green-Deals werden wir nicht alle unser neues Auto verschrotten lassen um auf Elektro zu wechseln.
 Mein Auto hat jetzt 75.000km auf dem Tacho und wird vermutlich noch ein paar 10.000km schaffen.
 Der Wandel kommt nicht von jetzt auf gleich.
 Niemand muss seine bisherige Arbeit vollständig umkrempeln.
