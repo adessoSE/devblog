@@ -209,7 +209,7 @@ ID    Type     Priority  Status   Submit Date
 todo  service  50        running  2022-07-18T17:48:36+02:00
 ```
 
-Hier beispielhaft noch einmal direkt via [curl][]:
+Oder wir greifen direkt auf unseren Service zu - hier erneut direkt via [curl][]:
 
 ```bash
 $ curl -v -H "Accept: application/json" http://localhost:8080/todo
@@ -256,7 +256,18 @@ $ nomad job stop todo
 
 ## Themen für Fortgeschrittene
 
+Bisher haben wir uns mit den Basics beschäftigt und können jetzt einfache Jobs anlegen, starten
+und auch wieder stoppen.
+Im nächsten Abschnitt beschäftigen wir uns mit fortgeschrittenen Themen - alleine schon damit sich
+der angestrebte Vergleich mit [Kubernetes][] auch sehen lassen kann.
+
 ### Scaling out
+
+Nachdem wir jetzt erfolgreich unsere einzelne Instanz getestet haben und mehr und mehr Requests
+eingehen wird es Zeit zu skalieren.
+
+In unserem vorherigen Beispiel haben wir über den Parameter `count` die Anzahl der Instanzen
+festgelegt und diese können wir jetzt einfach hochsetzen - beispielsweise auf `5`.
 
 ```hcl
 group "web" {
@@ -264,11 +275,26 @@ group "web" {
 }
 ```
 
+Kurzer Dry-Run in [Nomad][] und wir stehen vor folgendem Ergebnis:
+
+![image](/assets/images/posts/orchestrierung-mit-nomad/plan_failure.png)
+
+Im Beispiel haben wir nur einen einzigen Port festgelegt und auf einer einzelnen Instanz können
+wir natürlich keine `5` Instanzen unserer Anwendung laufen lassen.
+Abhilfe schafft hier das [Dynamic Portmapping][] von [Nomad][], welches uns die Arbeit abnimmt
+einzelne Ports händisch festzulegen and diese entsprechend dynamisch vergibt.
+
+Wir müssen lediglich den statischen Port entfernen [Nomad][] übernimmt für uns den Rest:
+
 ```hcl
 network {
   port "http" {}
 }
 ```
+
+Zusätzlich müssen wir unser [Quarkus][] Anwendung auch noch mitteilen unter welchem Port sie jetzt
+genau erreichbar ist - dies geht ein einfachsten über [Umgebungsvariablen][]:
+
 
 ```hcl
 config {
@@ -279,6 +305,9 @@ config {
   ]
 }
 ```
+**<1>** Hier setzen wir eine [Magic Variable][] von [Nomad][] ein, die den dynamischen Port enthält.
+
+Lassen wir nach diesen beiden Änderungen erneut einen Dry-Run laufen sehen wie folgendes:
 
 ![image](/assets/images/posts/orchestrierung-mit-nomad/plan_update_scale.png)
 
