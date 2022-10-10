@@ -195,16 +195,21 @@ $ curl --request POST --data @jobs/todo-java.json http://localhost:4646/v1/jobs
 > **_NOTE:_** Das verwendete [JSON][] Beispiel findet ihr hier:
 <https://github.com/unexist/showcase-nomad-quarkus/blob/master/deployment/jobs/todo-java.json>
 
-Die drei genannten Wege schicken unseren [Job][] zu [Nomad][] und starten eine einzelne Instanz
+Alle genannten Wege schicken unseren [Job][] zu [Nomad][] und starten eine einzelne Instanz
 auf einem Client des [Datacenters][] `dc1`.
 
 ### Status eines Jobs überprüfen
+
+Auskunft über den Status bekommen wir über das Webinterface, aber natürlich können wir in auch in
+gewohnter Weise den Status unseres Jobs über die Commandline erfragen:
 
 ```bash
 $ nomad job status
 ID    Type     Priority  Status   Submit Date
 todo  service  50        running  2022-07-18T17:48:36+02:00
 ```
+
+Hier beispielhaft noch einmal direkt via [curl][]:
 
 ```bash
 $ curl -v -H "Accept: application/json" http://localhost:8080/todo
@@ -223,6 +228,8 @@ $ curl -v -H "Accept: application/json" http://localhost:8080/todo
 ```
 
 ### Jobs stoppen
+
+Und ebenso leicht können wir unsere Jobs dann auch wieder stoppen:
 
 ```
 $ nomad job stop todo
