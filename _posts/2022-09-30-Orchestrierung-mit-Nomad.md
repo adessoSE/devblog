@@ -229,7 +229,7 @@ $ curl -v -H "Accept: application/json" http://localhost:8080/todo
 
 ### Jobs stoppen
 
-Und ebenso leicht können wir unsere Jobs dann auch wieder stoppen:
+Und ebenso leicht können wir unseren Job auch wieder stoppen:
 
 ```
 $ nomad job stop todo
@@ -258,16 +258,17 @@ $ nomad job stop todo
 
 Bisher haben wir uns mit den Basics beschäftigt und können jetzt einfache Jobs anlegen, starten
 und auch wieder stoppen.
-Im nächsten Abschnitt beschäftigen wir uns mit fortgeschrittenen Themen - alleine schon damit sich
-der angestrebte Vergleich mit [Kubernetes][] auch sehen lassen kann.
+Darauf aufbauend beschäftigen wir uns jetzt im nächsten Abschnitt mit fortgeschrittenen Themen -
+alleine schon damit sich der angestrebte Vergleich mit [Kubernetes][] auch sehen lassen kann.
 
 ### Scaling out
 
-Nachdem wir jetzt erfolgreich unsere einzelne Instanz getestet haben und mehr und mehr Requests
-eingehen wird es Zeit zu skalieren.
+Für einfache Anwendungsfälle reicht eine einzelne Instanz vollkommen aus, allerdings werden wir
+damit in sonstigen Berufsalltag schnell an eine Grenze stoßen.
 
-In unserem vorherigen Beispiel haben wir über den Parameter `count` die Anzahl der Instanzen
-festgelegt und diese können wir jetzt einfach hochsetzen - beispielsweise auf `5`.
+Im vorherigen Beispiel haben wir den Parameter `count` eingeführt  und diesen zunächst bei `1`
+belassen - hiermit können wir dann aber auch die Anzahl der Instanzen hochsetzen - beispielsweise
+auf `5`:
 
 ```hcl
 group "web" {
@@ -275,45 +276,66 @@ group "web" {
 }
 ```
 
-Kurzer Dry-Run in [Nomad][] und wir stehen vor folgendem Ergebnis:
+Da es grundsätzlich nicht schadet bei allen Änderungen einen Dry-Run durchzuführen und das zu einer
+guten Gewohnheit wird machen das jetzt auch direkt:
 
 ![image](/assets/images/posts/orchestrierung-mit-nomad/plan_failure.png)
 
-Im Beispiel haben wir nur einen einzigen Port festgelegt und auf einer einzelnen Instanz können
-wir natürlich keine `5` Instanzen unserer Anwendung laufen lassen.
-Abhilfe schafft hier das [Dynamic Portmapping][] von [Nomad][], welches uns die Arbeit abnimmt
-einzelne Ports händisch festzulegen and diese entsprechend dynamisch vergibt.
+In unserem [Job][] haben wir einen einzelnen statischen Port festgelegt und streben hier ein
+Deployment von fünf Instanzen auf einem einzelnen Client an.
+Dies kann natürlich nicht funktionieren [Nomad][] weist uns hier folgerichtig auf dieses Problem
+hin.
 
-Wir müssen lediglich den statischen Port entfernen [Nomad][] übernimmt für uns den Rest:
+Abhilfe schafft hier [Dynamic Portmapping][], welches für uns dynamische Ports erzeugt die wir im
+Deployment verwenden können.
 
-```hcl
-network {
-  port "http" {}
-}
-```
+Dazu sind lediglich zwei kleine Schritte notwendung:
 
-Zusätzlich müssen wir unser [Quarkus][] Anwendung auch noch mitteilen unter welchem Port sie jetzt
-genau erreichbar ist - dies geht ein einfachsten über [Umgebungsvariablen][]:
+1. Zunächst entfernen wir unseren statischen Port:
 
+    ```hcl
+    network {
+      port "http" {}
+    }
+    ```
 
-```hcl
-config {
-  jar_path = "/U`ers/christoph.kappel/Projects/showcase-nomad-quarkus/target/showcase-nomad-quarkus-0.1-runner.jar"
-  jvm_options = [
-    "-Xmx256m", "-Xms256m",
-    "-Dquarkus.http.port=${NOMAD_PORT_http}" # <1>
-  ]
-}
-```
-**<1>** Hier setzen wir eine [Magic Variable][] von [Nomad][] ein, die den dynamischen Port enthält.
+2. Und anschließend teilen wir unserer [Quarkus][] Anwendung noch mit unter welchem Port sie jetzt
+genau erreichbar ist.
+Eine der einfachsten Möglichkeiten ist dies über [Umgebungsvariablen][] zu machen:
+
+    ```hcl
+    config {
+      jar_path = "/U`ers/christoph.kappel/Projects/showcase-nomad-quarkus/target/showcase-nomad-quarkus-0.1-runner.jar"
+      jvm_options = [
+        "-Xmx256m", "-Xms256m",
+        "-Dquarkus.http.port=${NOMAD_PORT_http}" # <1>
+      ]
+    }
+    ```
+    **<1>** Hier verwenden wir eine [Magic Variable][] von [Nomad][], die den passenden dynamischen Port enthält.
 
 Lassen wir nach diesen beiden Änderungen erneut einen Dry-Run laufen sehen wie folgendes:
 
 ![image](/assets/images/posts/orchestrierung-mit-nomad/plan_update_scale.png)
 
+Und wenn wir das Deployment schließlich über **Run** ausführen können wir nach ein paar Sekunden
+unsere fünf Instanzen sehen:
+
 ![image](/assets/images/posts/orchestrierung-mit-nomad/update_success.png)
 
+Sinnvollerweise sollten wir jetzt als nächstes irgendeine Art von Load Balancer vor unsere fünf
+Instanzen zu schalten, damit diese zum einen erreicht werden und wir zum Anderen die Last
+gleichmäßig verteilt werden kann.
+
+Dies bedeutet in den meisten Fällen sehr viel manuelle Arbeit beim Einrichten der Ports und
+zusammentragen der Adressen, allerdings handelt es sich auch hier wieder um ein bereits gelöstes
+Problem und wir können auf eine bewährte Lösung zurückgreifen.
+
 ### Service Discovery
+
+[Service Discovery][] ist im Grunde ein einfacher Katalog, bei dem sich Anwendungen die irgendwelche
+Dienste bereitstellen registrieren und andere Anwendungen Informationen über bereits registrierte
+Anwendungen einholen können.
 
 ```hcl
 job "consul" {
