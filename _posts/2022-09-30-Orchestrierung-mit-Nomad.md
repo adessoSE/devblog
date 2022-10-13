@@ -114,7 +114,7 @@ job "todo" {
   }
 }
 ```
-**<1>** [Nomad][] ist Datacenter-aware und erlaubt darüber die Gruppierung verschiedener Nodes.<br />
+**<1>** [Nomad][] ist Datacenter-aware und erlaubt darüber Gruppierungen verschiedener Clients.<br />
 **<2>** Gruppen können aus verschiedenen Tasks bestehen und werden auf demselben Client ausgeführt.<br />
 **<3>** Hier starten wir maximal eine Instanz dieser Gruppe.<br />
 **<4>** Ein Task stellt die kleinste Einheit in [Nomad][] dar - vergleichbar mit einem [Pod][].<br />
@@ -333,9 +333,15 @@ gelöstes Problem und wir können auf eine bewährte Lösung zurückgreifen.
 
 ### Service Discovery
 
-[Service Discovery][] ist im Grunde ein einfacher Katalog, bei dem sich Anwendungen die irgendwelche
-Dienste bereitstellen registrieren und andere Anwendungen Informationen über bereits registrierte
-Anwendungen einholen können.
+[Service Discovery][] ist im Grunde ein Katalog, für dnm sich Anwendungen mit ihren bereitgestellten
+Dienste registrieren können und die dann von anderen Anwendungen erfragt werden können.
+
+Hierfür stehen wieder zahlreiche Alternativen zur Verfügung, eine der bekannteren und ebenfalls
+aus dem Hause [HashiCorp][] ist [Consul][] punktet hier natürlich mit sehr guter Integration.
+
+Wir könnten [Consul][] jetzt regulär auf unserem System installieren, aber zur Übung verwenden wir
+die [Artifact][] Stanza um ein Artefakt aus dem Internet zu laden und den [Raw/Exec][] Driver, um
+das ganze lokal auszuführen:
 
 ```hcl
 job "consul" {
@@ -359,6 +365,10 @@ job "consul" {
   }
 }
 ```
+**<1>** Zunächst legen wir einen neuen Task mit dem [Raw/Exec][] Driver an. <br />
+**<2>** Und anschließend geben wir eine Source mit unserem entsprechendem Artefakt.
+
+Mittlerweile sollte das Deployment dieses Jobs ziemlich selbsterklärend sein:
 
 ```bash
 $ nomad job run jobs/consul.nomad
@@ -383,7 +393,16 @@ $ nomad job run jobs/consul.nomad
     consul      1        1       1        0          2022-07-20T12:25:34+02:00
 ```
 
+Nach ein paar Sekunden sollte [Consul][] dann gestartet über folgende URL im Browser aufrufbar sein
+<http://localhost:8500>:
+
 ![image](/assets/images/posts/orchestrierung-mit-nomad/consul_services_nomad.png)
+
+Auf dem **Services** Reiter finden wir dann alle registrierten Services - dazu zählen [Consul][]
+selbst und [Nomad][] - allerdings leider Fehlanzeige was unseren Instanzen betrifft.
+
+Damit diese in [Consul][] aufgeführt werden müssen wir weitere Informationen über das [Service][]
+Stanza bereitstellen:
 
 ```hcl
 service {
@@ -402,8 +421,25 @@ service {
   }
 }
 ```
+**<1>** [Nomad][] erlaubt es [Tags][] zu vergeben, die sich in etwa so verhalten wie [Label][] bei [Kubernetes][].
+Was es mit diesem konkreten [Tag][] auf sich hat erfahrt ihr im nächsten Kapitel.</br>
+**<2>** Über das [Check][] Stanza können wir angeben wie [Nomad][] einen [Healthcheck][] durchführt.
+
+Schnell noch ein erneuter Dry-Run, um keine Überraschungen zu erleben:
+
+![image](/assets/images/posts/orchestrierung-mit-nomad/plan_update_service.png)
+
+Hier werden dann noch einmal alle Parameter aufgeführt und man bekommt eine Idee was für weitere
+Konfigurationsmöglichkeiten obige Stanze noch mitbringen.
+
+Haben wir alles überprüft können wir den [Job][] ausführen und sehen dann hoffentlich nach kurzer
+Zeit unsere Instanzen in [Consul][]:
 
 ![image](/assets/images/posts/orchestrierung-mit-nomad/consul_services_todo.png)
+
+> **_NOTE:_** In dieser Übersicht sehen wir dann auch direkt die Port Bindings unserer Instanzen.
+
+Das ist auch geschafft - bleibt die Frage wie wir Traffic zu unseren Instanzen bekommen.
 
 ### Load-balancing
 
