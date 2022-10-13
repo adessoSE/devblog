@@ -184,8 +184,8 @@ $ nomad job run jobs/todo-java.nomad
 
 #### Über die API
 
-Und analog zu [Kubernetes][] gibt es ebenfalls die Möglichkeit direkt die [Job API][] anzusprechen -
-hier beispielsweise mittels [curl][]:
+Und analog zu [Kubernetes][] können wir auch direkt die [Job API][] ansprechen - beispielsweise
+mittels [curl][]:
 
 ```bash
 $ curl --request POST --data @jobs/todo-java.json http://localhost:4646/v1/jobs
@@ -195,13 +195,13 @@ $ curl --request POST --data @jobs/todo-java.json http://localhost:4646/v1/jobs
 > **_NOTE:_** Das verwendete [JSON][] Beispiel findet ihr hier:
 <https://github.com/unexist/showcase-nomad-quarkus/blob/master/deployment/jobs/todo-java.json>
 
-Alle genannten Wege schicken unseren [Job][] zu [Nomad][] und starten eine einzelne Instanz
+Alle genannten Wege übermitteln unseren [Job][] an [Nomad][] und starten dann eine einzelne Instanz
 auf einem Client des [Datacenters][] `dc1`.
 
 ### Status eines Jobs überprüfen
 
-Auskunft über den Status bekommen wir über das Webinterface, aber natürlich können wir in auch in
-gewohnter Weise den Status unseres Jobs über die Commandline erfragen:
+Auskunft über den Status bekommen wir direkt über das Webinterface, aber natürlich können wir in
+auch in gewohnter Weise den Status unseres Jobs über die Commandline erfragen:
 
 ```bash
 $ nomad job status
@@ -263,12 +263,11 @@ alleine schon damit sich der angestrebte Vergleich mit [Kubernetes][] auch sehen
 
 ### Scaling out
 
-Für einfache Anwendungsfälle reicht eine einzelne Instanz vollkommen aus, allerdings werden wir
-damit in sonstigen Berufsalltag schnell an eine Grenze stoßen.
+Für einfache Anwendungsfälle reicht diese einzelne Instanz vollkommen aus, allerdings stoßen wir
+damit im Berufsalltag natürlich schnell an eine Grenze.
 
-Im vorherigen Beispiel haben wir den Parameter `count` eingeführt  und diesen zunächst bei `1`
-belassen - hiermit können wir dann aber auch die Anzahl der Instanzen hochsetzen - beispielsweise
-auf `5`:
+Im vorherigen Beispiel haben wir über den Parameter `count=1` eine maximal Anzahl von einer
+Instanz vorgegeben - dies können wir natürlich auf beliebig Werte setzen - beispielsweise auf `5`:
 
 ```hcl
 group "web" {
@@ -276,20 +275,21 @@ group "web" {
 }
 ```
 
-Da es grundsätzlich nicht schadet bei allen Änderungen einen Dry-Run durchzuführen und das zu einer
-guten Gewohnheit wird machen das jetzt auch direkt:
+Da es grundsätzlich nicht schadet bei allen Änderungen einen Dry-Run durchzuführen und man mit
+guten Gewohnheiten nicht früh genug loslegen kann machen wir das auch direkt:
 
 ![image](/assets/images/posts/orchestrierung-mit-nomad/plan_failure.png)
 
-In unserem [Job][] haben wir einen einzelnen statischen Port festgelegt und streben hier ein
-Deployment von fünf Instanzen auf einem einzelnen Client an.
+Dieser Fehler kommt jetzt gänzlich unerwartet, denn schließlich haben wir in unserem [Job][]
+lediglich einen einzelnen statischen Port festgelegt und streben hier ein Deployment von fünf
+Instanzen auf einem einzelnen Client an.
 Dies kann natürlich nicht funktionieren [Nomad][] weist uns hier folgerichtig auf dieses Problem
 hin.
 
-Abhilfe schafft hier [Dynamic Portmapping][], welches für uns dynamische Ports erzeugt die wir im
-Deployment verwenden können.
+Abhilfe schafft hier [Dynamic Port Mapping][], welches für uns dynamische Ports anlegt und unseren
+Instanzen dann automatisch zuweist.
 
-Dazu sind lediglich zwei kleine Schritte notwendung:
+Auf unserer Seite sind dazu nur zwei kleine Schritte notwendig:
 
 1. Zunächst entfernen wir unseren statischen Port:
 
@@ -301,7 +301,7 @@ Dazu sind lediglich zwei kleine Schritte notwendung:
 
 2. Und anschließend teilen wir unserer [Quarkus][] Anwendung noch mit unter welchem Port sie jetzt
 genau erreichbar ist.
-Eine der einfachsten Möglichkeiten ist dies über [Umgebungsvariablen][] zu machen:
+Eine der einfachsten Möglichkeiten sind hier [Umgebungsvariablen][]:
 
     ```hcl
     config {
@@ -324,12 +324,12 @@ unsere fünf Instanzen sehen:
 ![image](/assets/images/posts/orchestrierung-mit-nomad/update_success.png)
 
 Sinnvollerweise sollten wir jetzt als nächstes irgendeine Art von Load Balancer vor unsere fünf
-Instanzen zu schalten, damit diese zum einen erreicht werden und wir zum Anderen die Last
-gleichmäßig verteilt werden kann.
+Instanzen schalten, damit diese zum einen erreicht werden und wir zum Anderen die Last gleichmäßig
+verteilt werden kann.
 
 Dies bedeutet in den meisten Fällen sehr viel manuelle Arbeit beim Einrichten der Ports und
-zusammentragen der Adressen, allerdings handelt es sich auch hier wieder um ein bereits gelöstes
-Problem und wir können auf eine bewährte Lösung zurückgreifen.
+zusammentragen der Adressen, allerdings handelt es sich auch hier wieder um ein bereits für uns
+gelöstes Problem und wir können auf eine bewährte Lösung zurückgreifen.
 
 ### Service Discovery
 
