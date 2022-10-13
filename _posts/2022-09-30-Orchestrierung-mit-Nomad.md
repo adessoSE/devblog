@@ -62,7 +62,7 @@ configuration {
 }
 ```
 
-NOTE: Eine vollständige Dokumentation findest du auf [offiziellen Projektseite][].
+NOTE: Eine vollständige Dokumentation findest du auf der [offiziellen Projektseite][].
 
 ## Alles über Jobs
 
@@ -71,20 +71,20 @@ an den Server geschickt werden - dazu aber später mehr.
 
 Wird ein neuer [Job][] eingereicht findet zunächst eine Analyse statt, um die notwendigen Schritte
 zu erfassen - diesen Schritt nennt man auch [Evaluation][].
-Anschließend findet die [Allocation][] statt, hierbei wird ein Ausführplan erstellt und über
-eine [Task Group][] ein [Job][] einem aktiven Client zugewiesen.
+Anschließend started die [Allocation][], hierbei wird ein Ausführplan erstellt und über eine
+[Task Group][] ein [Job][] einem aktiven Client zugewiesen.
 Diese Schritte sollte man zumindest einmal gehört haben, denn sie begegnen einem durchaus als Status
 im täglichen Umgang mit [Nomad][].
 
 ### Wie sieht ein Job aus?
 
 [Jobs][] bzw. die eigentlichen [Job Files][] bestehen aus verschiedenen Objekten (auch [Stanza][]
-genannt) und lassen sich am einfachsten an einem konkreten Beispiel erklären.
+genannt) und lassen sich am einfachsten an einem konkreten Beispiel erklären:
 
-Dieses Beispiel startet eine Backendanwendung basierend auf [Quarkus][] und stellt eine [REST][]
-API bereit mit der Todo Einträge zu verwaltet werden können.
+Dies und die folgenden Beispiele starten eine Backendanwendung basierend auf [Quarkus][] und
+stellen eine [REST][] API bereit, mit der Todo Einträge erstellt und verwaltet werden können.
 
-> **_NOTE:_** Die passende [OpenAPI][] Spezifikation könnt ihr [hier einsehen][].
+> **_NOTE:_** Eine passende [OpenAPI][] Spezifikation könnt ihr [hier einsehen][].
 
 ```hcl
 job "todo" {
@@ -266,8 +266,9 @@ alleine schon damit sich der angestrebte Vergleich mit [Kubernetes][] auch sehen
 Für einfache Anwendungsfälle reicht diese einzelne Instanz vollkommen aus, allerdings stoßen wir
 damit im Berufsalltag natürlich schnell an eine Grenze.
 
-Im vorherigen Beispiel haben wir über den Parameter `count=1` eine maximal Anzahl von einer
-Instanz vorgegeben - dies können wir natürlich auf beliebig Werte setzen - beispielsweise auf `5`:
+Bisher haben wir über den Parameter `count = 1` eine maximal Anzahl von einer Instanz vorgegeben
+und vermutlich wird es niemanden überraschen, aber natürlich können hier beliebige Werte eingesetzt
+werden - beispielsweise `5`:
 
 ```hcl
 group "web" {
@@ -287,9 +288,9 @@ Dies kann natürlich nicht funktionieren [Nomad][] weist uns hier folgerichtig a
 hin.
 
 Abhilfe schafft hier [Dynamic Port Mapping][], welches für uns dynamische Ports anlegt und unseren
-Instanzen dann automatisch zuweist.
+Instanzen diese dann automatisch zuweist.
 
-Auf unserer Seite sind dazu nur zwei kleine Schritte notwendig:
+Auf unserer Seite sind dazu lediglich zwei kleine Anpassungen notwendig:
 
 1. Zunächst entfernen wir unseren statischen Port:
 
@@ -301,7 +302,7 @@ Auf unserer Seite sind dazu nur zwei kleine Schritte notwendig:
 
 2. Und anschließend teilen wir unserer [Quarkus][] Anwendung noch mit unter welchem Port sie jetzt
 genau erreichbar ist.
-Eine der einfachsten Möglichkeiten sind hier [Umgebungsvariablen][]:
+Eine der einfachsten Möglichkeiten ist hier über [Umgebungsvariablen][]:
 
     ```hcl
     config {
@@ -324,24 +325,25 @@ unsere fünf Instanzen sehen:
 ![image](/assets/images/posts/orchestrierung-mit-nomad/update_success.png)
 
 Sinnvollerweise sollten wir jetzt als nächstes irgendeine Art von Load Balancer vor unsere fünf
-Instanzen schalten, damit diese zum einen erreicht werden und wir zum Anderen die Last gleichmäßig
-verteilt werden kann.
+Instanzen schalten, damit diese erreicht werden und natürlich  die Last gleichmäßig verteilt werden
+kann.
 
-Dies bedeutet in den meisten Fällen sehr viel manuelle Arbeit beim Einrichten der Ports und
-zusammentragen der Adressen, allerdings handelt es sich auch hier wieder um ein bereits für uns
-gelöstes Problem und wir können auf eine bewährte Lösung zurückgreifen.
+Dies bedeutet in den meisten Fällen manuelle Arbeit beim Einrichten der Ports und Zusammentragen
+der Adressen, allerdings handelt es sich auch hier wieder um ein bereits für uns gelöstes Problem
+und wir können auf eine bewährte Lösung zurückgreifen.
 
 ### Service Discovery
 
-[Service Discovery][] ist im Grunde ein Katalog, für dnm sich Anwendungen mit ihren bereitgestellten
-Dienste registrieren können und die dann von anderen Anwendungen erfragt werden können.
+Bei [Service Discovery][] handelt es sich im Grunde um einen Katalog, für den sich Anwendungen mit
+ihren bereitgestellten Diensten registrieren und die dann von anderen Anwendungen erfragt werden
+können.
 
-Hierfür stehen wieder zahlreiche Alternativen zur Verfügung, eine der bekannteren und ebenfalls
-aus dem Hause [HashiCorp][] ist [Consul][] punktet hier natürlich mit sehr guter Integration.
+Hierfür stehen wieder zahlreiche Alternativen zur Verfügung, eine der bekannteren mit hervorragender
+Integration und ebenfalls aus dem Hause [HashiCorp][] ist [Consul][].
 
 Wir könnten [Consul][] jetzt regulär auf unserem System installieren, aber zur Übung verwenden wir
-die [Artifact][] Stanza um ein Artefakt aus dem Internet zu laden und den [Raw/Exec][] Driver, um
-das ganze lokal auszuführen:
+die [Artifact][] Stanza und lassen ein Artefakt aus dem Internet laden und direkt über den
+[Raw/Exec][] Driver ausführen:
 
 ```hcl
 job "consul" {
@@ -365,8 +367,8 @@ job "consul" {
   }
 }
 ```
-**<1>** Zunächst legen wir einen neuen Task mit dem [Raw/Exec][] Driver an. <br />
-**<2>** Und anschließend geben wir eine Source mit unserem entsprechendem Artefakt.
+**<1>** Zunächst benötigen wir einen neuen Task mit dem [Raw/Exec][] Driver. <br />
+**<2>** Und anschließend legen wir Source unseres Artefakts fest.
 
 Mittlerweile sollte das Deployment dieses Jobs ziemlich selbsterklärend sein:
 
@@ -425,7 +427,7 @@ service {
 Was es mit diesem konkreten [Tag][] auf sich hat erfahrt ihr im nächsten Kapitel.</br>
 **<2>** Über das [Check][] Stanza können wir angeben wie [Nomad][] einen [Healthcheck][] durchführt.
 
-Schnell noch ein erneuter Dry-Run, um keine Überraschungen zu erleben:
+Schnell noch ein erneuter Dry-Run, damit wir keine Überraschungen erleben:
 
 ![image](/assets/images/posts/orchestrierung-mit-nomad/plan_update_service.png)
 
@@ -442,6 +444,12 @@ Zeit unsere Instanzen in [Consul][]:
 Das ist auch geschafft - bleibt die Frage wie wir Traffic zu unseren Instanzen bekommen.
 
 ### Load-balancing
+
+
+[Nomad][] ist lediglich ein Orchestrator und daher wir für den nächsten Teil erneut Hilfe eines
+weiteren Tools.
+
+
 
 ```hcl
 job "fabio" {
