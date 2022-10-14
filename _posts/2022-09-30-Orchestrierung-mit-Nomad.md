@@ -400,11 +400,11 @@ Nach ein paar Sekunden sollte [Consul][] dann gestartet über folgende URL im Br
 
 ![image](/assets/images/posts/orchestrierung-mit-nomad/consul_services_nomad.png)
 
-Auf dem **Services** Reiter finden wir dann alle registrierten Services - dazu zählen [Consul][]
+Alle bekannten Services werden dann auf dem **Services** Reiter aufgeführt - dazu zählen [Consul][]
 selbst und [Nomad][] - allerdings leider Fehlanzeige was unseren Instanzen betrifft.
 
-Damit diese in [Consul][] aufgeführt werden müssen wir weitere Informationen über das [Service][]
-Stanza bereitstellen:
+Zum jetzigen Zeitpunkt kennt [Nomad][] die Services unserer Instanzen noch nicht und benötigt hier
+weitere Informationen, die über das [Service][] Stanza beigesteuert werden können:
 
 ```hcl
 service {
@@ -423,9 +423,9 @@ service {
   }
 }
 ```
-**<1>** [Nomad][] erlaubt es [Tags][] zu vergeben, die sich in etwa so verhalten wie [Label][] bei [Kubernetes][].
+**<1>** [Nomad][] erlaubt es [Tag][]s zu vergeben, die sich in etwa so verhalten wie [Label][] bei [Kubernetes][].
 Was es mit diesem konkreten [Tag][] auf sich hat erfahrt ihr im nächsten Kapitel.</br>
-**<2>** Über das [Check][] Stanza können wir angeben wie [Nomad][] einen [Healthcheck][] durchführt.
+**<2>** Über das [Check][] Stanza legen wir fest wie [Healthcheck][] durchführt werden.
 
 Schnell noch ein erneuter Dry-Run, damit wir keine Überraschungen erleben:
 
@@ -441,15 +441,18 @@ Zeit unsere Instanzen in [Consul][]:
 
 > **_NOTE:_** In dieser Übersicht sehen wir dann auch direkt die Port Bindings unserer Instanzen.
 
-Das ist auch geschafft - bleibt die Frage wie wir Traffic zu unseren Instanzen bekommen.
+Das ist auch geschafft - jetzt müssen wir nur noch Traffic auf unsere Instanzen bekommen.
 
 ### Load-balancing
 
+Für den nächsten Teil müssen wir abermals auf ein weiteres Tool zurückgreifen, da wir hier den
+Aufgabenbereich von [Nomad][] verlassen.
 
-[Nomad][] ist lediglich ein Orchestrator und daher wir für den nächsten Teil erneut Hilfe eines
-weiteren Tools.
+Eine der einfachsten Lösungen und ebenfalls mit exzellenter Integration in [Nomad][] und [Consul][]
+ist [Fabio][].
 
-
+In gewohnter Manie können wir auch hier [Nomad][] die meiste Arbeit überlassen und wieder den
+[Artifact][] Mechanismus bemühen:
 
 ```hcl
 job "fabio" {
@@ -473,6 +476,10 @@ job "fabio" {
   }
 }
 ```
+**<1>** Hiermit legen wir [Round-Robin][] als Verteilungsstrategie fest.
+
+Ein kurzer Dry-Run gefolgt von einem Deployment und schon sehen wir [Fabio][] in der Liste
+der bekannten Services:
 
 ```bash
 $ nomad job plan jobs/fabio.nomad
@@ -508,6 +515,9 @@ $ nomad job run jobs/fabio.nomad
 
 ![image](/assets/images/posts/orchestrierung-mit-nomad/consul_services_fabio.png)
 
+Sprechen wir jetzt [Fabio][] über den Defaultport `9999` an sehen wir erneut die altbekannte
+Ausgabe:
+
 ```bash
 $ curl -v -H "Accept: application/json" http://localhost:9999/todo
 *   Trying ::1...
@@ -524,6 +534,12 @@ $ curl -v -H "Accept: application/json" http://localhost:9999/todo
 * Closing connection 0
 ```
 
+Wenn wir das ganze jetzt wiederholen sollte [Fabio][] theoretisch die Last gleichmäßig auf unsere
+Instanzen, aber können wir das irgendwie überprüfen?
+
+Ein Quick Hack hier ist einfach einen neuen HTTP Header zu setzen der entsprechend die IP Adresse
+und den verwendeten Port enthält:
+
 ```hcl
 config {
   jar_path = "/Users/christoph.kappel/Projects/showcase-nomad-quarkus/target/showcase-nomad-quarkus-0.1-runner.jar"
@@ -536,6 +552,10 @@ config {
   ]
 }
 ```
+**<1>** Wir verwenden hier eine weitere [Magic Variable][] und befüllen damit unseren neuen HTTP
+Header.
+
+Vermutlich könnt ihr euch die nächsten Schritte denken, daher das ganze in Schnelldurchlauf:
 
 ```hcl
 $ nomad job plan jobs/todo-java-scaled-service-header.nomad
@@ -578,7 +598,20 @@ Scheduler dry-run:
 - All tasks successfully allocated.
 ```
 
+Testen wir das ganze nach erfolgreichem Deployment und wir sehen wunderbar wie die verschiedenen
+Instanzen der Reihe nach angesprochen werden:
+
 ![image](/assets/images/posts/orchestrierung-mit-nomad/loadbalancer.gif)
+
+Falls ihr euch jetzt fragt weshalb das ganze überhaupt ohne weitere Konfiguration funktioniert:
+
+Einer der großen Vorteile von [Fabio][] ist Routen lassen sich über [Service Tags][] festlegen
+und wenn ihr näher hinschaut haben wir das auch in unserem gemacht: `urlprefix-/todo`
+
+Darüber teilen wir [Fabio][] die Route es soll den Traffic über die Route `/todo` mit der vorher
+konfigurierten Strategie auf alle Services mit den entsprechenden [Tags][] verteilen.
+
+Weitere Konfigurationsmöglichkeiten findet ihr im entsprechenden [Quickstart Guide][].
 
 ### Update Strategien
 
