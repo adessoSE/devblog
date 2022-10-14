@@ -424,7 +424,7 @@ service {
 }
 ```
 **<1>** [Nomad][] erlaubt es [Tag][]s zu vergeben, die sich in etwa so verhalten wie [Label][] bei [Kubernetes][].
-Was es mit diesem konkreten [Tag][] auf sich hat erfahrt ihr im nächsten Kapitel.</br>
+Was es mit diesem konkreten [Tag][] auf sich hat erfahrt ihr im nächsten Kapitel.<br />
 **<2>** Über das [Check][] Stanza legen wir fest wie [Healthcheck][] durchführt werden.
 
 Schnell noch ein erneuter Dry-Run, damit wir keine Überraschungen erleben:
@@ -606,14 +606,19 @@ Instanzen der Reihe nach angesprochen werden:
 Falls ihr euch jetzt fragt weshalb das ganze überhaupt ohne weitere Konfiguration funktioniert:
 
 Einer der großen Vorteile von [Fabio][] ist Routen lassen sich über [Service Tags][] festlegen
-und wenn ihr näher hinschaut haben wir das auch in unserem gemacht: `urlprefix-/todo`
+und wenn ihr näher hinschaut haben wir das auch in unserem Beispiel auch gemacht: `urlprefix-/todo`
 
-Darüber teilen wir [Fabio][] die Route es soll den Traffic über die Route `/todo` mit der vorher
-konfigurierten Strategie auf alle Services mit den entsprechenden [Tags][] verteilen.
+Darüber teilen wir [Fabio][] mit es soll Requests für die Route `/todo` mit der vorher
+konfigurierten Strategie auf alle Services mit entsprechenden [Tags][] verteilen.
 
 Weitere Konfigurationsmöglichkeiten findet ihr im entsprechenden [Quickstart Guide][].
 
 ### Update Strategien
+
+Was haben wir bisher erreicht?
+Wir haben mehrere Instanzen unserer Anwendung erfolgreich auf einem Client deployt und können diese
+ansprechen.
+Weiterhin haben wir eine Load Balancer Group eingeführt und
 
 ```hcl
 update {
@@ -621,6 +626,9 @@ update {
   max_parallel = 5 # <2>
 }
 ```
+
+**<1>** Dies legt die Anzahl der Instanzen fest, die in einem [Canary Update][] aktualisiert werden.<br />
+**<2>** Und hiermit wird die [Batch Size][] des Updates festgelegt.
 
 ```hcl
 config {
@@ -637,9 +645,11 @@ config {
   ]
 }
 ```
+**<1>** Unser neuer Header für das Update.
+
+Und wieder einmal Dry-Run gefolgt von einem Deployment:
 
 ```bash
-----
 $ nomad job plan jobs/todo-java-scaled-service-header-canary.nomad
 +/- Job: "todo"
 +/- Task Group: "web" (1 canary, 5 ignore)
@@ -694,12 +704,35 @@ $ nomad job run jobs/todo-java-scaled-service-header-canary.nomad
     web         false     5        1         1       1        0          2022-07-20T17:22:06+02:00
 ```
 
+Der spannende Teil hier ist [Nomad] unterbricht das Deployment und wir bekommen die nötige Zeit zu
+prüfen, ob unsere neue Version ordnungsgemäß funktioniert:
+
 ![image](/assets/images/posts/orchestrierung-mit-nomad/canary.gif)
 
+Haben wir uns davon ausreichend überzeugt können wir [Nomad][] anweisen das Deployment fortzusetzen
+und auf die verbleibenden Instanzen auszurollen.
+Hierfür stehen uns abermals mehrere Wege zur Verfügung, allerdings funktionier dies am
+Anschaulichsten über das Web-Interface:
+
 ![image](/assets/images/posts/orchestrierung-mit-nomad/promote_canary.png)
+
+
 
 ![image](/assets/images/posts/orchestrierung-mit-nomad/promote_canary_success.png)
 
 ## Fazit
+
+[Nomad][] ist ein einfacher und flexibler [Job][] Scheduler mit hervorragender Integration
+diverser anderer Projekte - vorrangig natürlich Produkte von [HashiCorp][] selbst.
+
+Und muss sich keineswegs hinter [Kubernetes][] verstecken und bietet praxistaugliche Lösungen für
+gängige Probleme wie:
+
+- Service Discovery
+- Healthchecks und Failover
+- Load Balancig
+- Update Strategien
+
+Sämtliche Beispiele können im folgenden Repository eingesehen werden:
 
 <https://github.com/unexist/showcase-nomad-quarkus>
