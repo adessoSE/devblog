@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<documents>
+    <document uid="cba1b24a81a00ab5b31fc93225ae46e9">
+        <field name="title"><![CDATA[Schmuckes Java - Project Amber und das Pattern Matching]]></field>
+        <field name="subline"><![CDATA[]]></field>
+        <field name="teaser"><![CDATA[<p>Funktionale Programmierung (FP) wird als ein schlanker und eleganter Weg angesehen, Software zu implementieren.
+Pattern Matching ist ein integraler Baustein von FP, mit dem die Programmlogik definiert wird.
+Die Einführung von Pattern Matching in Java ist eines der Ziele von Project Amber.</p>
+
+]]></field>
+        <field name="language_multi_keyword"><![CDATA[de]]></field>
+        <field name="content_type_multi_keyword"><![CDATA[blog]]></field>
+        <field name="mime_type_multi_keyword"><![CDATA[text/html]]></field>
+        <field name="category_multi_keyword"><![CDATA[Softwareentwicklung]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Java]]></field>
+        <field name="tag_multi_keyword"><![CDATA[OpenJDK]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Project Amber]]></field>
+        <field name="date_date"><![CDATA[2022-10-14T11:00:00+02:00]]></field>
+        <field name="date_l"><![CDATA[1665738000000]]></field>
+        <field name="change_date"><![CDATA[1665738000000]]></field>
+
+        <!--Author Information-->
+        
+        <field name="author_id"><![CDATA[mboegers]]></field><!--Postcontent-->
+        <field name="headlines"><![CDATA[Schmuckes Java - Project Amber und das Pattern Matching]]></field>
+        <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
+            <p>Funktionale Programmierung (FP) wird als ein schlanker und eleganter Weg angesehen, Software zu implementieren.
+Pattern Matching ist ein integraler Baustein von FP, mit dem die Programmlogik definiert wird.
+Die Einführung von Pattern Matching in Java ist eines der Ziele von Project Amber.</p>
+
+</div>]]></field>
+        <field name="content"><![CDATA[<div class="adesso-text-formate">
+<div class="row p-t-2">
+<div class="adesso-container">
+<div class="col-xl-8 adesso-center p-b-1 p-l-0 p-r-0">
+    <p>Funktionale Programmierung (FP) wird als ein schlanker und eleganter Weg angesehen, Software zu implementieren.
+Pattern Matching ist ein integraler Baustein von FP, mit dem die Programmlogik definiert wird.
+Die Einführung von Pattern Matching in Java ist eines der Ziele von Project Amber.</p>
+
+<p>Bei Pattern Matching ermöglichten die zugrunde liegenden Summen- und Produktdatentypen Aussagen über die möglichen Ausprägungen und den Aufbau von Objekten.
+Project Amber hat mit Sealed Classes und Records Summen- bzw. Produktdatentypen in Java eingeführt.
+Somit wurde der Grundstein für Pattern Matching in Java gelegt.
+In meinem <a href="https://www.adesso.de/de/news/blog/schmuckes-java-records-und-sealed-classes.jsp">letzten Beitrag</a> habe ich die Veränderungen an Javas Typsystem beleuchtet und in diesem Beitrag werde ich den Stand von Pattern Matching in Java beleuchten.</p>
+
+<h4 id="jep-394---pattern-matching-for-instanceof">JEP 394 - Pattern Matching for instanceof</h4>
+<p>Wir alle haben schon einmal mit dem <code>instanceof</code>-Operator gearbeitet.
+Dieser Operator prüft, ob das Objekt von einem bestimmten Typ ist.
+Häufig wird dieser Operator mit einem Typcast und einem Objektzugriff kombiniert.</p>
+<pre><code class="language-java">return o instanceof String ? ((String)o).lenght() : 0;
+</code></pre>
+<p>Hier wird geprüft, ob <code>o</code> ein Objekt vom Typ String ist, <code>o</code> zum Typ <code>String</code> gecastet und dann auf die Methode <code>String#lenght()</code> zugegriffen.
+Bei solchen Ausdrücken passiert es schnell, dass bei einem kleinen Refactoring eine Anpassung des Cast vergessen wird.
+Dies führt zu einer unangenehmen <code>CalssCastException</code> zum Ausführungszeitpunkt.
+Damit dies nicht mehr passiert, wurde mit <a href="https://openjdk.org/jeps/394">JEP 394</a> das Typ-Pattern als erstes Pattern in Java 16 eingeführt.
+Mit diesem Pattern ist es möglich, für Instanzen zu prüfen, ob sie von einem bestimmten Typ sind und diese danach typsicher zu verwenden.
+Das Beispiel oben lässt sich mit Typ-Patterns folgendermaßen umformulieren:</p>
+<pre><code class="language-java">return o instanceof String s ? s.lenght() : 0;
+</code></pre>
+<p>Diese kompaktere Schreibweise hat neben den offensichtlichen auch noch einige subtilere aber umso schwergewichtigere Effekte.
+Syntaktisch fällt auf, dass der Zieldatentyp nicht mehr doppelt angeben werden muss.
+Der Cast wird automatisch durchgeführt und die neue Variable ist im positiven bzw. im “matched” Zweig der Anweisung definiert.
+Zur Kompilierzeit können nun fehlerhafte Casts erkannt und als Kompilierfehler gemeldet werden.
+Dadurch wird der Ausdruck semantisch einfacher zu verstehen und zu refaktorieren.</p>
+
+<p>Komplex wird es, wenn das Pattern noch logisch mit <code>&amp;&amp;</code>, <code>||</code> oder <code>!</code> verknüpft wird. 
+In diesem Fällen muss immer überlegt werden, “Welcher Zweig matched?”, denn nur in diesem Zweig sind die Variablen aus dem Pattern definiert.</p>
+<pre><code class="language-java">return !(o instanceof String s) ? "Not Matched" : "Matched: " + s;
+</code></pre>
+<p>In diesem sehr einfachen Beispiel wird das Pattern negiert.
+Dadurch “matched” das Pattern nur für den <code>else</code>-Zweig, also ist <code>s</code> auch nur hier definiert.
+Eine noch größere Wirkung entfaltet dieses Pattern in Verbindung mit dem <code>switch</code> Statement bzw. der <code>switch</code> Expression.</p>
+
+<h4 id="jep-427---pattern-matching-for-switch">JEP 427 - Pattern Matching for switch</h4>
+<p>In einem vorherigen Beitrag habe ich <code>switch</code> als Expression eingeführt, in diesem Abschnitt können Expression und Statement austauschbar verwendet werden.
+Mit <a href="https://openjdk.org/jeps/427">JEP 427</a> befindet sich in Java 19 das Pattern Matching für <code>switch</code> in der dritten Previewphase, es können sich also noch Änderungen ergeben.
+In diesem Schritt werden Patterns als Case-Labels für <code>switch</code> ermöglicht.</p>
+<pre><code class="language-java">switch (o) {
+  case Triangle t -&gt; System.out.println("Triangle");
+  case Square s -&gt; System.out.println("Square");
+  default -&gt; System.out.println("Something");
+}
+</code></pre>
+<p>In dieser <code>switch</code> Expression wird der Datentyp des Objektes <code>o</code> mithilfe des Typ-Patterns aus <a href="# JEP 394 - Pattern Matching for instanceof">JEP 394</a> geprüft.
+Im Beispiel oben wird unterschieden, ob es sich um ein Dreieck oder ein Quadrat handelt.
+Da es noch weitere mögliche Typen für <code>o</code> geben kann, muss ein <code>default</code>-Zweig eingeführt werden.
+Durch die Kombination mit einer <a href="todo link zum letzten post">Sealed-Hirachie</a> ist es möglich, dem Compiler auch diese Information mitzuteilen, sodass ein <code>default</code>-Zweig überflüssig wird.</p>
+
+<p>Syntaktisch werden die Typ-Patterns als Case-Labels in einem <code>switch</code> verwendet und können mit sogenannten Guards zu Guarded Patterns kombiniert werden.</p>
+<pre><code class="language-java">switch (s) {
+  case Triangle t when t.calculateArea() &gt; 100 -&gt;
+    System.out.println("Large");
+  case Triangle t -&gt; System.out.println("Small");
+  default -&gt; System.out.println("Non-triangle");
+}
+</code></pre>
+<p>Guarded-Patterns bestehen aus einem beliebigen Pattern und einem booleschen Ausdruck (Guard), getrennt durch ein <code>when</code>.
+Der Zweig wird nur dann ausgewählt, wenn das Pattern “matched” und der Guard zu <code>true</code> evaluiert wird.
+Im obigen Beispiel werden mittels eines Guarded Patterns die beiden Fälle große und kleine Dreiecke unterschieden.</p>
+
+<p>Doch was passiert, wenn wir die Reihenfolge der Zweige für die großen und kleinen Dreiecke vertauschen?
+Um dies zu lösen, wurde die Semantik der Pattern Dominance eingeführt.
+Ein Pattern <em>a</em> dominiert ein anders Pattern <em>b</em>, wenn alle Objekte, die <em>b</em> “matched” auch von <em>a</em> “gematched” werden, aber nicht umgekehrt.
+Für unser Beispiel gilt:</p>
+<ol>
+  <li><code>Triangle t when t.calculateArea() &gt; 100</code> “matched” nur große Dreiecke</li>
+  <li><code>Triangle t</code> “matched” alle Dreiecke</li>
+</ol>
+
+<p>Also der zweite Zweig dominiert den ersten.
+Sollten wir die Zweige vertauschen, wird das Guarded Pattern als unreachable Code erkannt und führt zu einem Kompilierfehler.
+Eine umfassende Abhandlung zu dem Thema “Dominance of pattern labels” findet sich in der <a href="https://openjdk.org/jeps/427">JEP 427</a> im Punkt 1b.
+Doch Pattern Matching besteht aus mehr als eleganten Typchecks!</p>
+
+<h4 id="jep-405---record-patterns-and-array-patterns">JEP 405 - Record Patterns <del>and Array Patterns</del></h4>
+<p>Neben Prüfungen auf Datentypen gehört auch die Dekonstruktion von Objekten zum Umfang des Pattern Matching.
+Mit <a href="https://openjdk.org/jeps/405">JEP 405</a> hat das erste Deconstruction Pattern seinen ersten Previewauftritt in Java 19, Änderungen oder neue Patterns sind also möglich.
+Als erstes Pattern wurde das Record Pattern ausgewählt, das ebenfalls im Titel enthaltene Array Pattern wurde auf eine zukünftige Version verschoben.
+Deconstruction ist die komplementäre Operation zum Konstruktor, darum wundert es auch nicht, dass die Syntax sehr ähnlich ist.</p>
+<pre><code class="language-java">switch (o) {
+    case Point(int x,var y) -&gt; x+y;
+    default -&gt; 0;
+}
+</code></pre>
+<p>In diesem Beispiel wird geprüft, ob <code>o</code> ein Punkt ist, wenn ja, werden die beiden Record-Komponenten extrahiert und lokalen Variablen zugewiesen.
+Die neuen Variablen sind nun im “matched” Zweig verfügbar, eine Referenz auf den Punkt ist nicht verfügbar.
+Records können weitere Records enthalten und es ist auch möglich, Record Patterns beliebig zu verschachteln.
+Leider müssen in der aktuellen Version immer alle Komponenten extrahiert werden, in der <a href="https://openjdk.org/jeps/405">JEP 405</a> wird aber der Plan skizziert, ein <em>Do-Not-Care</em>-Pattern einzuführen.
+Mit diesem Pattern wäre es möglich, wie in Scala oder Kotlin Komponenten zu ignorieren.</p>
+
+<h4 id="zusammenfassung">Zusammenfassung</h4>
+<p>In diesem Beitrag habe ich gezeigt, mit welchen großen Schritten Project Amber dem Ziel “Pattern Matching for Java” entgegeneilt.
+Wir werden in der Zukunft noch viele weitere Patterns für Arrays, Generics und beliebige Klassen kennenlernen.
+Über diese neuen Patterns und gefundene Best Practices werde ich an dieser Stelle berichten.</p>
+
+</div>
+</div>
+</div>
+</div>]]></field>
+    </document>
+</documents>
