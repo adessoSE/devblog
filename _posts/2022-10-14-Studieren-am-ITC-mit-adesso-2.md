@@ -5,6 +5,7 @@ date:   2022-10-14 11:00
 modified_date: 2022-10-14 11:00          
 author_ids: [ccaylak]                       
 categories: [Inside adesso]
+tags:       [Duales Studium, ITC Dortmund]
 ---
 Der folgende Blogartikel ist für alle Personen mit (Fach-)Hochschulreife interessant, die ein duales Informatikstudium (B.Sc) anstreben.
 Genauer gesagt geht es um das Informatikstudium am IT-Center Dortmund (kurz: _ITC_).
