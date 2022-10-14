@@ -1,7 +1,7 @@
 ---
 layout: [post, post-xml]              # Pflichtfeld. Nicht ändern!
 title:  "Schmuckes Java - Project Amber und das Pattern Matching"         # Pflichtfeld. Bitte einen Titel für den Blog Post angeben.
-date:   2022-07-19 13:00              # Pflichtfeld. Format "YYYY-MM-DD HH:MM". Muss für Veröffentlichung in der Vergangenheit liegen. (Für Preview egal)
+date:   2022-10-14 11:00              # Pflichtfeld. Format "YYYY-MM-DD HH:MM". Muss für Veröffentlichung in der Vergangenheit liegen. (Für Preview egal)
 author_ids: [mboegers]                 # Pflichtfeld. Es muss in der "authors.yml" einen Eintrag mit diesen Namen geben.
 categories: [Softwareentwicklung]     # Pflichtfeld. Maximal eine der angegebenen Kategorien verwenden.
 tags: [Java, OpenJDK, Project Amber]   # Bitte auf Großschreibung achten.
