@@ -1,8 +1,8 @@
 ---
 layout: [post, post-xml]              
 title:  "Berufsbegleitendes Studium am IT-Center Dortmund mit adesso als Partner"            
-date:   2022-06-29 20:31              
-modified_date: 2022-08-17 20:31          
+date:   2022-10-14 11:00              
+modified_date: 2022-10-14 11:00          
 author_ids: [ccaylak]                       
 categories: [Inside adesso]
 ---
