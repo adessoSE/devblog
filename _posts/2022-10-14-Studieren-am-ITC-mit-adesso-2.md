@@ -2,7 +2,7 @@
 layout: [post, post-xml]              
 title:  "Berufsbegleitendes Studium am IT-Center Dortmund mit adesso als Partner"            
 date:   2022-10-14 11:00              
-modified_date: 2022-10-14 11:00          
+modified_date: 2022-10-18 14:30          
 author_ids: [ccaylak]                       
 categories: [Inside adesso]
 tags:       [Duales Studium, ITC Dortmund]
