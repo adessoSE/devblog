@@ -2,7 +2,7 @@
 layout: [post, post-xml]              
 title:  "Berufsbegleitendes Studium am IT-Center Dortmund mit adesso als Partner"            
 date:   2022-10-14 11:00              
-modified_date: 2022-10-14 11:00          
+modified_date: 2022-10-18 14:30          
 author_ids: [ccaylak]                       
 categories: [Inside adesso]
 tags:       [Duales Studium, ITC Dortmund]
@@ -79,4 +79,4 @@ Besonders die Dozierenden aus der Industrie hatten es mir angetan, weil diese di
 Außerdem fand ich es auch gut, dass die ersten vier Semester mit einer Anwesenheitspflicht verbunden waren, da man dadurch ein echt gutes Tempo im Studium erreicht.
 Was ich auch gut finde ist, dass man ab der berufsbegleitenden Phase ganz gutes Geld verdient und mit hoher Wahrscheinlichkeit nach dem Studium vom Arbeitgeber übernommen wird.
 Jedoch muss ich zugeben, dass die berufsbegleitende Phase teilweise echt stressig sein kann und eine gute Planung essenziell ist, damit Studium und Arbeit reibungslos ablaufen.
-Zusätzlich solltest du dir Hilfe also eine Betreeungsperson für deine Abschlussarbeiten suchen, weil wissenschaftliches Arbeiten schwierig sein kann, wenn man es noch nie getan hat.
+Zusätzlich solltest du dir Hilfe also eine Betreuungsperson für deine Abschlussarbeiten suchen, weil wissenschaftliches Arbeiten schwierig sein kann, wenn man es noch nie getan hat.
