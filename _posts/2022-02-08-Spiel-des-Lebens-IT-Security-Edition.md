@@ -54,6 +54,8 @@ Beschrieben wird er wie folgt: "Kinder, Medien, Sicherheit - einmal im Monat ste
 Einmal im Monat am Frühstückstisch lässt sich vielleicht gemeinsam eine Folge anhören. 
 Unter den [Kooperationspartnerschaften von klicksafe](https://www.klicksafe.de/ueber-klicksafe/netzwerk-deutschland/kooperationspartner) finden sich zudem viele weitere Informationsquellen für Eltern, Kinder und pädagogisch Lehrende.
 
+Weitere Informationen sind im [Leitfaden zum Kinderschutz im Internet von Privacy Hub](https://www.cyberghostvpn.com/de_DE/privacyhub/) zu finden.
+
 # Erwachsene
 
 Natürlich ist es nicht nur wichtig die Sicherheit von, mit und für Kinder im Netz zu gewährleisten, sondern auch die eigene private Sicherheit.
