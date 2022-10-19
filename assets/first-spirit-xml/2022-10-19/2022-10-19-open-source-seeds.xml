@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<documents>
+    <document uid="f15215e223b593057f8aad425e1ee684">
+        <field name="title"><![CDATA[Open Source Seeds]]></field>
+        <field name="subline"><![CDATA[]]></field>
+        <field name="teaser"><![CDATA[<p>Open-Source-Lizenzen sind aus der Softwarebranche nicht wegzudenken.
+Bei genetischem Code sieht es anders aus.
+Pflanzensorten sind entweder proprietär oder gehören der Public Domain.
+Ein neuer Ansatz überträgt die Konzepte von quelloffener Software auf die Pflanzenzucht.</p>
+
+]]></field>
+        <field name="language_multi_keyword"><![CDATA[de]]></field>
+        <field name="content_type_multi_keyword"><![CDATA[blog]]></field>
+        <field name="mime_type_multi_keyword"><![CDATA[text/html]]></field>
+        <field name="category_multi_keyword"><![CDATA[Branchen]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Recht]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Lizenzen]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Open Source]]></field>
+        <field name="date_date"><![CDATA[2022-10-19T11:00:00+02:00]]></field>
+        <field name="date_l"><![CDATA[1666170000000]]></field>
+        <field name="change_date"><![CDATA[1666170000000]]></field>
+
+        <!--Author Information-->
+        
+        <field name="author_id"><![CDATA[cjohn]]></field><!--Postcontent-->
+        <field name="headlines"><![CDATA[Open Source Seeds]]></field>
+        <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
+            <p>Open-Source-Lizenzen sind aus der Softwarebranche nicht wegzudenken.
+Bei genetischem Code sieht es anders aus.
+Pflanzensorten sind entweder proprietär oder gehören der Public Domain.
+Ein neuer Ansatz überträgt die Konzepte von quelloffener Software auf die Pflanzenzucht.</p>
+
+</div>]]></field>
+        <field name="content"><![CDATA[<div class="adesso-text-formate">
+<div class="row p-t-2">
+<div class="adesso-container">
+<div class="col-xl-8 adesso-center p-b-1 p-l-0 p-r-0">
+    <p>Open-Source-Lizenzen sind aus der Softwarebranche nicht wegzudenken.
+Bei genetischem Code sieht es anders aus.
+Pflanzensorten sind entweder proprietär oder gehören der Public Domain.
+Ein neuer Ansatz überträgt die Konzepte von quelloffener Software auf die Pflanzenzucht.</p>
+
+<h4 id="sorten-und-versionen">Sorten und Versionen</h4>
+
+<p>Softwarelösungen wachsen von Version zu Version.
+Kaum ist eine aktuelle Lösung ausgerollt, ändern sich Standards und Protokolle.
+Die Anforderungen verändern sich, Bugs und Sicherheitslücken werden bekannt.
+Developer patchen, überarbeiten und erweitern den Code, bis die nächste Version marktreif ist.
+Dann beginnt die Runde von vorn.</p>
+
+<p>In der Landwirtschaft ist das gar nicht viel anders.
+Kaum hat sich eine neue Sorte von Kohl, Tomaten oder Roggen etabliert, verändern sich Boden und Klima.
+Neue Krankheiten breiten sich aus, Schädlinge spezialieren sich auf die Schwächen der neuen Sorte.
+Zudem wachsen die Erwartungen des Marktes an den Ertrag und die Qualität.
+Die Pflanzenzuchtbetriebe kreuzen Resistenzen und Verbesserungen ein.
+Dann selektieren sie ihre Pflanzen gut 10 Jahre lang, bis die neue Sorte sich stabil vermehrt.
+Dann wird sie beim <a href="https://www.bundessortenamt.de/bsa/sorten/sortenzulassung/">Sortenamt</a> angemeldet und die Runde beginnt von vorn.</p>
+
+<h4 id="wann-fließt-das-geld">Wann fließt das Geld?</h4>
+
+<p>Während der Entwicklung ist mit einer Software kein Geld zu verdienen.
+Für das fertige Produkt gibt es mehrere gängige Verwertungsmodelle.
+Es kann in Form von Lizenzen verkauft werden, die eine unbefristete Nutzung für eine feste Anzahl an Usern oder Arbeitsplätzen erlauben.
+Dank Cloud-Technologie wird “Sofware as a Service” zusehends beliebter, wobei das Nutzungsrecht nicht mehr verkauft, sondern vermietet wird.
+Parallel dazu gibt es das Konzept Open Source:
+Die Software wird mit Quellcode veröffentlicht.
+Das Geld wird mit Support, Hosting und Dienstleistungen rund um das Produkt verdient.</p>
+
+<p>Im gesetzlich stark regulierten Saatgutgeschäft ist ein anderes Konzept vorgesehen.
+Eine Sorte darf erst zu gewerblichen Zwecken vertrieben werden, nachdem sie vom Sortenamt zugelassen wurde.
+Dafür muss sie unterscheidbar, homogen und beständig sein sowie einen landeskulturellen Wert besitzen.
+Letzteres beschreibt die Gesamtheit ihrer wertbestimmenden Eigenschaften.
+Eine Sorte besitzt einen landeskulturellen Wert, wenn sie gegenüber den vergleichbaren, bereits zugelassenen Sorten eine deutliche Verbesserung für den Anbau oder die Verwertung erwarten lässt.</p>
+
+<p>Wenn diese Hürde genommen ist - und es sich tatsächlich um eine Neuzüchtung handelt - darf der Zuchtbetrieb Sortenschutz beantragen.
+Das Schutzrecht wird, je nach Pflanzenart, für 25 oder 30 Jahre erteilt.
+Es entspricht einem Monopol auf Erzeugung, Aufbereitung, Inverkehrbringen sowie Ein- und Ausfuhr von Vermehrungsmaterial.
+Von Bauernhöfen, die das Saatgut selbst nachbauen, darf der Zuchtbetrieb eine Nachbaugebühr verlangen.</p>
+
+<p>Eine Sorte ohne Schutz darf jeder anbauen, sie entspricht sozusagen einem Public-Domain-Programmcode.
+So geht eine Sorte in die Public Domain ein, wenn der Sortenschutz vor der Zulassung ausläuft.
+Allerdings muss die Zulassung, je nach Pflanzenart, alle 10 bis 20 Jahre neu beantragt werden.
+Sobald eine Sorte nicht mehr zugelassen ist, darf ihr Vermehrungsmaterial nicht mehr gewerblich in Verkehr gebracht werden.
+Die Sorte verschwindet also vom Markt.</p>
+
+<h4 id="vereinfache-zulassung">Vereinfache Zulassung</h4>
+
+<p>Nur moderne Hochleistungssorten können die Kriterien für landeskulturellen Wert erreichen.
+Damit Nischensorten dennoch nicht verschwinden, gibt es drei vereinfachte Zulassungsverfahren.
+Dafür muss die Sorte lediglich unterscheidbar, homogen und beständig sein.</p>
+
+<p>Eine Amateursorte darf nur in Kleinstpackungen in Verkehr gebracht werden, etwa Tütchen zu je 5 g Paprikasamen.
+Insbesondere werden alte Sorten und Neuzüchtungen für kleine Zielgruppen wie etwa Hausgärten als Amateursorten angemeldet.</p>
+
+<p>Eine Erhaltungssorte darf pro Jahr maximal 0,5 % des in Verkehr gebrachten Saatguts einer Art ausmachen.
+Diese Zulassung ist für seit Generationen selbst vermehrte Landsorten vorgesehen, die in einer begrenzten Region traditionell angebaut werden.</p>
+
+<p>Seit Anfang des Jahres 2022 können auch Populationen für den gewerblichen Handel zugelassen werden.
+Dabei handelt es sich um resiliente Mischungen unterschiedlicher Genome, die speziell für den ökologischen Anbau entwickelt werden.
+Die Pflanzen kreuzen sich auf dem Feld untereinander und passen sich dadurch immer besser an ihren Standort an.</p>
+
+<p>Nach einer vereinfachten Zulassung ist allerdings kein Sortenschutz möglich.
+Das heißt, solche Sorten sind grundsätzlich lizenzfrei und jeder darf sie kostenlos nachbauen.</p>
+
+<h4 id="das-züchterprivileg">Das Züchterprivileg</h4>
+
+<p>Der Sortenschutz gilt nur für den Nachbau und Vertrieb von Vermehrungsmaterial.
+Züchter und Züchterinnen dürfen jede geschützte Sorte mit jeder anderen kreuzen, um sie weiter zu entwickeln.
+Selbstverständlich dürfen sie auch jede Wildform, Amateursorte oder in einer entlegenen Region vorgefundene Landsorte verwenden.
+Das bedeutet, durch Einkreuzung von Public-Domain-Sorten kann eine neue Hochleistungssorte entstehen.
+Der Sortenschutz wird dann dem Pflanzenzuchtbetrieb gewährt, der sie angemeldet hat.
+Wer zuvor das Ausgangsmaterial gezüchtet hat, spielt dafür keine Rolle.</p>
+
+<h5 id="wenn-bits-an-bäumen-wachsen-würden">Wenn Bits an Bäumen wachsen würden</h5>
+
+<p>Mit einem Augenzwinkern lassen sich die Regeln für genetischen Code auf Programmcode übertragen.
+Wir gehen zurück ins Jahr 1993.
+Der Bitzüchter Microsoft meldet Windows NT 3.1 beim EDV-Sortenamt an.
+Das verweigert die Zulassung, weil Windows nicht messbar besser als Novell Netware ist.
+Damit die Arbeit nicht ganz umsonst war, meldet Microsoft seinen Code als Erhaltungssorte für das Land der x86-Prozessoren an.
+Die vereinfachte Zulassung wird gewährt, von nun an darf Windows NT 3.1 maximal 0,5 % des Betriebsystemmarkts ausmachen und ist selbstverständlich Public Domain.
+Der Bitzüchter Oracle entdeckt das Nischenprodukt und baut die meisten Features nach.
+Im Jahr 1996 wird Oracle NT 1 zugelassen und unter Sortenschutz vertrieben.</p>
+
+<p>Sicher würden Sie als Developer da ähnlich toben wie das Team hinter Libre Office, dem jegliche Marktzulassung verweigert wurde, weil ihr Produkt sich nicht deutlich genug von Open Office unterscheidet.
+Aber Spaß beiseite, bisher gibt es keinen rechtlich sicheren Weg, die eigene züchterische Leistung vor der Kommerzialisierung durch internationale Agrarkonzerne zu schützen.</p>
+
+<h4 id="wo-ist-das-problem">Wo ist das Problem?</h4>
+
+<p>Der Fokus auf immer neue Rekorde bei Ertrag und Verarbeitbarkeit führte anfangs zu hervorragenden Sorten, über die Jahrzehnte jedoch zur Erosion der genetischen Basis.
+Für den Sortenschutz unbedeutende Merkmale wie Nährstoffgehalt und Geschmack verschwinden unwiderruflich aus dem Genpool.
+Damit schwinden auch die Möglichkeiten für weitere Züchtungen.</p>
+
+<p>Zudem ist Pflanzenzucht, wenn sich an die rund zehnjährige Entwicklung einer Sorte noch eine jahrelange Prüf- und Registrierungsphase anschließt, nur im globalen Maßstab rentabel.
+Entsprechend werden Hochleistungssorten nicht für einen bestimmten Boden oder das Klima einer Region gezüchtet, sondern für den internationalen Markt.
+Die unüberschaubare Vielfalt lokal angepasster Sorten wird zusehends durch global vertriebene Standardsorten ersetzt.
+Das funktioniert nur, wenn die örtlichen Unterschiede mit einem an die Pflanze angepassten Rundumpaket aus Dünger und Pflanzenschutz ausgeglichen werden.
+Eine moderne Nutzpflanze kommt also als Set aus Saatgut, Mineraldünger und Pestizid, das in der richtigen Klimazone überall gut wachsen soll.</p>
+
+<p>Inzwischen kontrollieren vier Konzerne den Markt.
+Laut <a href="https://www.no-patents-on-seeds.org/">No Patents on Seeds</a> hat Bayer-Monsanto einen Anteil von 30 % am Saatgutmarkt.
+Weitere 20 % hält DowDuPont und 10 % entfallen auf Syngenta.
+Als vierter Big Player folgt BASF mit einem Marktanteil von rund 6 %.
+Das heißt, den Umsatz mit Saatgut machen zu 66 % Unternehmen, die eigentlich aus der Chemiebranche stammen.</p>
+
+<p>Für Bauernhöfe ist die Abhängigkeit von wenigen Lieferanten teuer und riskant.
+Hat man sich einmal auf den Einkauf von geschütztem Saatgut festgelegt, ist die Rückkehr zur eigenen Landsorte nicht mehr möglich.
+Somit können die wenigen Anbieter die Preise diktieren.</p>
+
+<p>Auch für die Ernährungssicherheit besteht ein Risiko.
+Denn wenn eine weltweit einheitliche Sorte durch ein Naturereignis ausfällt, kann die folgende Missernte nicht durch gute Erträge in anderen Ländern aufgefangen werden.</p>
+
+<h5 id="machtkonzentration-in-der-it-branche">Machtkonzentration in der IT-Branche</h5>
+
+<p>Ältere IT-Leute erinnern sich noch an den Kampf der Betriebssysteme.
+Auf der einen Seite stand Microsoft für Windows und die proprietäre, via Lizenz vertriebene Software.
+Auf der anderen Seite kämpfte die Open-Source-Szene um Akzeptanz.
+Copyright und Copyleft schienen damals unvereinbare Gegensätze zu sein.</p>
+
+<p>Das erinnert an die Lage der Landwirtschaft.
+Wenige Riesen dominieren den Markt, eine Minderheit hält mit speziell angepassten Nischenprodukten dagegen.</p>
+
+<p>Heute hat sich Open Source fest etabliert, je nach Zielgruppe wird Software geschlossen oder offen weitergegeben.
+Dennoch ist freie Software kein “Grabbeltisch”, aus dem sich jeder etwas Code heraus kopieren darf.
+Wer Open-Source-Software modifiziert, verpflichtet sich, sie zu gleichen Bedingungen wieder zur Verfügung zu stellen.</p>
+
+<p>Was liegt näher, als das erfolgreiche Konzept auf Nutzpflanzen zu übertragen?</p>
+
+<h4 id="open-source-seeds">Open Source Seeds</h4>
+
+<p>Die Initiative <a href="https://www.opensourceseeds.org/">Open Source Seeds</a> hat eine in der EU gültige Lizenz veröffentlicht.
+Wer das Vermehrungsmaterial seiner Pflanzen zusammen mit diesem Lizenzvertrag weitergibt, sichert damit drei Dinge ab:</p>
+
+<ul>
+  <li>Alle dürfen Open-Source-Saatgut anbauen, vermehren, züchterisch bearbeiten sowie im Rahmen bestehender Gesetze verkaufen, tauschen und verschenken.</li>
+  <li>Niemand darf das Saatgut und seine Weiterentwicklungen privatisieren. Über die Lizenz hinausgehende Beschränkungen per Patent- und Sortenschutz sind ausgeschlossen.</li>
+  <li>Zukünftigen Empfängern und Empfängerinnen werden die gleichen Rechte und Pflichten übertragen.</li>
+</ul>
+
+<p>Der zweite Punkt steht im Widerspruch zum Züchterprivileg. Da noch kein Musterprozess stattgefunden hat, bleibt vorerst unklar, ob er vor Gericht Bestand hätte.
+Ihr Recht an der Sorte einklagen müssen jedoch nicht diejenigen, die sie gezüchtet oder weitergegeben haben.
+Da es sich um einen Vertrag zugunsten Dritter handelt, ist in der derzeitigen Fassung der Verein AGRECOL e.V. klageberechtigt.
+Das heißt, um Lizenzverletzungen kümmert sich eine in Deutschland ansässige Organisation mit Zugang zu professionellem Rechtschutz.</p>
+
+<h4 id="zulassung-und-finanzierung">Zulassung und Finanzierung</h4>
+
+<p>Sorten, die unter Open-Source-Lizenz in Verkehr gebracht werden sollen, werden vereinfacht zugelassen.
+Das teure, langwierige Zulassungsverfahren für geschützte Sorten wäre unrentabel und für unabhängige Kleinbetriebe nicht zu finanzieren.</p>
+
+<p>Für Gemüse wie etwa Mais oder Tomaten ist eine Registrierung als Amateursorte üblich.
+Die beschränkte Vertriebsmenge ist kein großes Hindernis, denn durch Nachbau lässt sich aus wenigen Körnern in ein bis zwei Jahren eine nennenswerte Menge Saatgut gewinnen.
+Alle bisher zugelassenen Open-Source-Getreide sind Populationen und damit keine Sorten im strikten Sinne.
+Sie dürfen ohne Mengenbeschränkung in Verkehr gebracht werden.</p>
+
+<p>Bemerkenswert ist, dass viele Open-Source-Sorten in Bildung und Forschung entstanden sind.
+So wurde der Weizen “Equality” am Fachgebiet Ökologischer Pflanzenschutz der Universität Kassel gezüchtet.
+Diverse Tomatensorten stammen aus dem <a href="https://www.uni-goettingen.de/de/das+%C3%B6kologische+freiland-tomatenprojekt/571805.html">Ökologischen Freiland-Tomatenprojekt</a> der Universität Göttingen.
+Offenbar handelt es sich um einen neuen Weg, Forschungsergebnisse der Menschheit zugänglich zu machen, ohne sie zum Spekulationsobjekt privater Unternehmen zu machen.</p>
+
+<p>Andere Open-Source-Sorten wurden von Kleinbetrieben und Landbauschulen entwickelt, die sie auch selbst kommerziell vertreiben.
+Viele Getreide- und Gemüsezüchtende in Europa finanzieren sich auch über Sortenentwicklungsbeiträge, die sie mit den saatguterzeugenden Betrieben und den Bauernhöfen aushandeln.
+Auch staatliche Zuschüsse und Stiftungsgelder sind legitime Geldquellen, wenn man Pflanzenzüchtung als Schaffung von Gemeingütern und damit als gemeinnützige Aktivität betrachtet.
+Bemerkenswert ist der Roggen “Baldachin”, dessen Entwicklung per Crowdfunding finanziert wurde.</p>
+
+<h4 id="open-source-im-rest-der-welt">Open Source im Rest der Welt</h4>
+
+<p>Auch außerhalb der Europäischen Union gründen sich Initiativen für freies Saatgut.</p>
+
+<p>In Indien hat das Zentrum für nachhaltige Landwirtschaft das Projekt “Open Source Seed India” ins Leben gerufen.
+Sein Ziel ist es, alternative juristische Rahmenbedingungen für den Schutz von Bauernrechten und einen freien Zugang zu Saatgut zu etablieren.
+Darüber hinaus sollen umfassende Daten über die vorhandenen Hofsorten gesammelt werden.</p>
+
+<p>Das Netzwerk “Open Source Seed Systems in East Africa” verbindet Forschungsinstitute, Biolandwirtschaftsbewegungen, Saatgutnetzwerke und diverse Nichtregierungsorganisationen.
+Sie möchten gemeinsam erforschen, wie der Zugang zu Saatgut in Ostafrika verbessert werden kann.</p>
+
+<p>STEPS América Latina steht für “Social, Technological and Environmental Pathways to Sustainability Center” und arbeitet an einer eigenen Open-Source-Lizenz für Saatgut, um die traditionelle Kultur der Offenheit, des Teilens und der Zusammenarbeit zu verteidigen.</p>
+
+<p>In den USA sind die Märkte weniger reguliert.
+Dort verzichtet die “Open Source Seed Initiative” auf einen zivilrechtlich ausformulierten Lizenzvertrag.
+Stattdessen verfolgt sie einen ethischen Ansatz in Form eines Versprechens, welches zusammen mit dem Saatgut weitergegeben wird.</p>
+
+<h4 id="fazit">Fazit</h4>
+
+<p>In der EU wird der Handel mit Saatgut gesetzlich stark reguliert.
+Für Pflanzensorten ohne landeskulturellen Wert sind Nischen vorgesehen, die den legalen Handel, jedoch keinerlei Schutz der züchterischen Leistung vorsehen.</p>
+
+<p>Die Open-Source-Lizenz schützt Saatgut als Gemeingut.
+Sie ist konform mit dem hier gültigen Zivilrecht, nur von einer Weitergabe in Nicht-EU-Länder wird abgeraten.</p>
+
+<p>Das Konzept Open Source stammt aus der IT und sollte Wissen als Gemeingut sichern.
+Schnell wurde es auf Dokumentationen und Open Hardware übertragen, um auch Baupläne oder Anleitungen dauerhaft in die Wissensallmende zu überführen.
+Offensichtlich ist an diesem Punkt noch lange nicht nicht Schluss.
+Biologische Ressourcen können ebenso als allgemein zugängliches Kulturgut vor der Privatisierung geschützt werden.</p>
+
+</div>
+</div>
+</div>
+</div>]]></field>
+    </document>
+</documents>
