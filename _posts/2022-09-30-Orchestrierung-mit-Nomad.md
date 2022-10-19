@@ -1,8 +1,8 @@
 ---
 layout:			[post, post-xml]											# Pflichtfeld. Nicht ändern!
 title:			"Orchestrierung mit Nomad"                                  # Pflichtfeld. Bitte einen Titel für den Blog Post angeben.
-date:			2022-09-30 12:00											# Pflichtfeld. Format "YYYY-MM-DD HH:MM". Muss für Veröffentlichung in der Vergangenheit liegen. (Für Preview egal)
-modified_date: 	2022-09-30 12:00											# Optional. Muss angegeben werden, wenn eine bestehende Datei geändert wird.
+date:			2022-10-19 12:00											# Pflichtfeld. Format "YYYY-MM-DD HH:MM". Muss für Veröffentlichung in der Vergangenheit liegen. (Für Preview egal)
+modified_date: 	2022-10-19 12:00											# Optional. Muss angegeben werden, wenn eine bestehende Datei geändert wird.
 author_ids:			[unexist]								                # Pflichtfeld. Es muss in der "authors.yml" einen Eintrag mit diesem Namen geben.
 categories: 	[Softwareentwicklung]										# Pflichtfeld. Maximal eine der angegebenen Kategorien verwenden.
 tags:			[Orchestrierung, Kubernetes, Nomad, Consul, Fabio]	        # Bitte auf Großschreibung achten.
@@ -22,25 +22,25 @@ Discovery und Canary Deployments.
  Bei [Nomad][] handelt es sich um einen kleinen Job Scheduler und Orchestrator, der im Gegensatz zu
  [Kubernetes][] nicht nur Container, sondern über Plugins im Grunde alles mögliche verwalten kann.
 
-Dies wird über [Task Driver][] realisiert, die teils von der Community beigesteuert werden aber
-auch teils von Hause aus direkt mit dabei sind.
+Dies wird über [Task Driver][] realisiert, die sowohl von der Community beigesteuert werden aber
+auch direkt von Hause aus mit dabei sind.
 Darunter befinden sich die neben üblichen Verdächtigen wie [Docker][] und [Podman][], aber auch
-einer speziell für [Java][] Anwendungen sowie für sonstige ausführbare Anwendungen über
-[Raw/Exec][].
+ein [Task Driver][] speziell für [Java][] Anwendungen sowie [Raw/Exec][] für alle sonstigen
+ausführbare Anwendungen.
 
 Bevor wir jetzt in ein Beispiel einsteigen sollten wir kurz über die Konfiguration sprechen.
 
 ## Konfiguration ohne YAML
 
 Im Gegensatz zum rein deklarativen Ansatz von [Kubernetes][], bei dem [YAML][] Dateien den
-gewünschten Zielzustand beschreiben, verwendet [Nomad][] die eigene Konfigurationssprache [HCL][],
-die erstmalig bei [Terraform][] Verwendung fand und entsprechend Logikfunktionen und Operatoren
-mitbringt.
-Damit lassen sich dann auch komplexere Szenarien abbilden, sodass ein Einsatz von Hilfsmitteln wie
-[kustomize][] nicht notwendig ist.
+gewünschten Zielzustand beschreiben, verwendet [Nomad][] die hauseigene Konfigurationssprache
+[HCL][].
+Ursprünglich für den Einsatz bei [Terraform][] erdacht bringt sie Logikfunktionen und Operatoren
+mit, über die auch komplexe Szenarien abgebildet werden können und ein Einsatz von weiteren
+Hilfsmitteln wie [kustomize][] nicht erforderlich ist.
 
 Natürlich steht mit [Nomad Pack][] ein vergleichbares Pendant zu [Helm][] zur Verfügung, sodass
-wir auch hier versionbare Artefakte erstellt werden können.
+wir auch hier versionierte Artefakte erstellen können.
 
 Hier ein kurzes Beispiel zu [HCL][]:
 
@@ -62,29 +62,33 @@ configuration {
 }
 ```
 
-NOTE: Eine vollständige Dokumentation findest du auf der [offiziellen Projektseite][].
+> **_NOTE:_** Eine vollständige Dokumentation findest du auf der [offiziellen Projektseite][].
 
 ## Alles über Jobs
 
 [Jobs][] stellen in [Nomad][] die eigentliche Arbeitseinheit dar und können über verschiedene Wege
 an den Server geschickt werden - dazu aber später mehr.
 
-Wird ein neuer [Job][] eingereicht findet zunächst eine Analyse statt, um die notwendigen Schritte
-zu erfassen - diesen Schritt nennt man auch [Evaluation][].
+Grundsätzlich läuft die Einreichung eines [Jobs][] wie folgt ab:
+Nach erfolgter Übermittlung findet zunächst eine Analyse statt, die die notwendigen Schritte
+erfasst und aufbereitet - diese Phase nennt man auch [Evaluation][].
 Anschließend started die [Allocation][], hierbei wird ein Ausführplan erstellt und über eine
 [Task Group][] ein [Job][] einem aktiven Client zugewiesen.
-Diese Schritte sollte man zumindest einmal gehört haben, denn sie begegnen einem durchaus als Status
-im täglichen Umgang mit [Nomad][].
+
+> **_NOTE:_** Diese Schritte sollte man zumindest einmal gehört haben, denn sie begegnen einem
+durchaus als Status im täglichen Umgang mit [Nomad][].
 
 ### Wie sieht ein Job aus?
 
-[Jobs][] bzw. die eigentlichen [Job Files][] bestehen aus verschiedenen Objekten (auch [Stanza][]
-genannt) und lassen sich am einfachsten an einem konkreten Beispiel erklären:
+[Jobs][] bzw. die eigentlichen [Job Files][] bestehen aus verschiedensten Objekten (auch [Stanza][]
+genannt) und lassen sich am einfachsten an konkreten Beispielen erklären.
 
-Dies und die folgenden Beispiele starten eine Backendanwendung basierend auf [Quarkus][] und
-stellen eine [REST][] API bereit, mit der Todo Einträge erstellt und verwaltet werden können.
+Als groben Rahmen für die nächsten Abschnitte nutzen wir eine [Quarkus][]-basierte Backendanwendung,
+die eine [REST][] API bereit über die Todo Einträge erstellt und verwaltet werden können.
 
 > **_NOTE:_** Eine passende [OpenAPI][] Spezifikation könnt ihr [hier einsehen][].
+
+Hier jetzt aber unser erstes [Job File][]:
 
 ```hcl
 job "todo" {
@@ -114,8 +118,8 @@ job "todo" {
   }
 }
 ```
-**<1>** [Nomad][] ist Datacenter-aware und erlaubt darüber Gruppierungen verschiedener Clients.<br />
-**<2>** Gruppen können aus verschiedenen Tasks bestehen und werden auf demselben Client ausgeführt.<br />
+**<1>** [Nomad][] ist verwaltet Clients in Datacenter - ist somit Datacenter-aware.<br />
+**<2>** Gruppen können aus verschiedenen Tasks bestehen und werden stets auf demselben Client ausgeführt.<br />
 **<3>** Hier starten wir maximal eine Instanz dieser Gruppe.<br />
 **<4>** Ein Task stellt die kleinste Einheit in [Nomad][] dar - vergleichbar mit einem [Pod][].<br />
 **<5>** Der [Java][] Task Driver start ein Jar in einer [JVM][] Instant<br />
@@ -123,12 +127,12 @@ job "todo" {
 **<7>** [Resource Limits][] können ebenfalls gesetzt werden.<br />
 **<8>** Und abschließend setzen wir noch den Netzwerkport - diesen brauchen wir später.<br />
 
-Für die nächsten Schritte benötigst du eine laufende [Nomad][] Instanz - solltest du hierbei noch
-Probleme haben wirf am besten einen Blick in die [offizielle Anleitung][].
+> **_NOTE:_** Für die nächsten Schritte benötigst du eine laufende [Nomad][] Instanz - solltest du
+hierbei noch Probleme haben wirf am besten einen Blick in die [offizielle Anleitung][].
 
 ### Wie reiche ich einen Job ein?
 
-Sämtliche Aktionen bei [Nomad][] lassen sie über folgende drei Wege durchführen:
+Für die meisten Aktiuonen bei [Nomad][] stehen folgende drei Wege zur Verfügung:
 
 #### Via Browser
 
@@ -136,8 +140,8 @@ Sämtliche Aktionen bei [Nomad][] lassen sie über folgende drei Wege durchführ
 [Nomad][] unter folgender Adresse erreichbar ist: <http://locahost:4646>
 ![image](/assets/images/posts/orchestrierung-mit-nomad/web.png)
 
-2. Über den Knopf **Run Job** oben rechts gelangst du zu einem Dialog, in den du deine [Job][] Definition
-direkt entweder mittels [HCL][] oder [JSON][] abschicken kannst.
+2. Über den Knopf **Run Job** oben rechts gelangst du zu einem Dialog, in den du deine [Job][]
+Definition direkt entweder mittels [HCL][] oder [JSON][] abschicken kannst.
 
 3. Anschließend kannst du mit **Plan** einen Dry-Run ausführen und dir das Ergebnis zunächst einmal
 ansehen:
@@ -709,30 +713,23 @@ prüfen, ob unsere neue Version ordnungsgemäß funktioniert:
 
 ![image](/assets/images/posts/orchestrierung-mit-nomad/canary.gif)
 
-Haben wir uns davon ausreichend überzeugt können wir [Nomad][] anweisen das Deployment fortzusetzen
+Haben wir uns davon ausreichend überzeugt, können wir [Nomad][] anweisen das Deployment fortzusetzen
 und auf die verbleibenden Instanzen auszurollen.
-Hierfür stehen uns abermals mehrere Wege zur Verfügung, allerdings funktionier dies am
-Anschaulichsten über das Web-Interface:
+Hierfür stehen uns wie bisher verschiedene Wege zur Verfügung, allerdings veranschaulicht dies das
+Web-Interface sehr schön:
 
 ![image](/assets/images/posts/orchestrierung-mit-nomad/promote_canary.png)
 
-
+Mit **Promote Canary** setzen wir das unterbrochene Deployment dann schließlich fort:
 
 ![image](/assets/images/posts/orchestrierung-mit-nomad/promote_canary_success.png)
 
 ## Fazit
 
-[Nomad][] ist ein einfacher und flexibler [Job][] Scheduler mit hervorragender Integration
-diverser anderer Projekte - vorrangig natürlich Produkte von [HashiCorp][] selbst.
+[Nomad][] ist ein einfacher und flexibler [Job][] Scheduler, der durch die Integration weiterer
+Produkte praxistaugliche Lösungen für gängige Probleme liefert und sich somit in keiner Weise
+hinter dem großen Bruder [Kubernetes][] verstecken muss.
 
-Und muss sich keineswegs hinter [Kubernetes][] verstecken und bietet praxistaugliche Lösungen für
-gängige Probleme wie:
-
-- Service Discovery
-- Healthchecks und Failover
-- Load Balancig
-- Update Strategien
-
-Sämtliche Beispiele können im folgenden Repository eingesehen werden:
+Sämtliche Beispiele dieses Beitrags können im folgenden Repository eingesehen werden:
 
 <https://github.com/unexist/showcase-nomad-quarkus>
