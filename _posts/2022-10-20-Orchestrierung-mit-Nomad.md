@@ -9,40 +9,40 @@ tags:			[Orchestrierung, Kubernetes, Nomad, Consul, Fabio]	        # Bitte auf G
 ---
 
 Orchestrierung ist in aller Munde und aus vielen Bereichen gar nicht mehr wegzudenken - doch gibt es
-neben dem Platzhirschen [Kubernetes][] eigentlich Alternativen?
+neben dem Platzhirschen [Kubernetes][29] eigentlich Alternativen?
 
-Im Zuge dieses Artikels beschäftigen wir uns mit dem Job Scheduler [Nomad][] aus dem Hause
-[HashiCorp][] und sehen uns anhand von einfachen Beispielen an welche Möglichkeiten hier geboten
+Im Zuge dieses Artikels beschäftigen wir uns mit dem Job Scheduler [Nomad][35] aus dem Hause
+[HashiCorp][15] und sehen uns anhand von einfachen Beispielen an welche Möglichkeiten hier geboten
 werden.
 Anschließend beschäftigen wir uns mit Deployments und fortgeschritteneren Themen wie Service
 Discovery und Canary Deployments.
 
 ## Was genau ist Nomad?
 
- Bei [Nomad][] handelt es sich um einen kleinen Job Scheduler und Orchestrator, der im Gegensatz zu
- [Kubernetes][] nicht nur Container, sondern über Plugins im Grunde alles mögliche verwalten kann.
+ Bei [Nomad][35] handelt es sich um einen kleinen Job Scheduler und Orchestrator, der im Gegensatz zu
+ [Kubernetes][29] nicht nur Container, sondern über Plugins im Grunde alles mögliche verwalten kann.
 
-Dies wird über [Task Driver][] realisiert, die sowohl von der Community beigesteuert werden aber
+Dies wird über [Task Driver][54] realisiert, die sowohl von der Community beigesteuert werden aber
 auch direkt von Hause aus mit dabei sind.
-Darunter befinden sich die neben üblichen Verdächtigen wie [Docker][] und [Podman][], aber auch
-beispielsweise ein [Task Driver][] speziell für [Java][] Anwendungen sowie [Raw/Exec][] für alle
+Darunter befinden sich die neben üblichen Verdächtigen wie [Docker][11] und [Podman][39], aber auch
+beispielsweise ein [Task Driver][54] speziell für [Java][21] Anwendungen sowie [Raw/Exec][43] für alle
 sonstigen ausführbare Anwendungen.
 
 Bevor wir jetzt in ein Beispiel einsteigen sollten wir kurz über die Konfiguration sprechen.
 
 ## Konfiguration ohne YAML
 
-Im Gegensatz zum rein deklarativen Ansatz von [Kubernetes][], bei dem [YAML][] Dateien den
-gewünschten Zielzustand beschreiben, verwendet [Nomad][] die hauseigene Konfigurationssprache
-[HCL][].
-Ursprünglich für den Einsatz bei [Terraform][] erdacht bringt sie Logikfunktionen und Operatoren
+Im Gegensatz zum rein deklarativen Ansatz von [Kubernetes][29], bei dem [YAML][59] Dateien den
+gewünschten Zielzustand beschreiben, verwendet [Nomad][35] die hauseigene Konfigurationssprache
+[HCL][16].
+Ursprünglich für den Einsatz bei [Terraform][56] erdacht bringt sie Logikfunktionen und Operatoren
 mit, über die auch komplexe Szenarien abgebildet werden können und ein Einsatz von weiteren
-Hilfsmitteln wie [kustomize][] nicht erforderlich ist.
+Hilfsmitteln wie [kustomize][30] nicht erforderlich ist.
 
-Natürlich steht mit [Nomad Pack][] ein vergleichbares Pendant zu [Helm][] zur Verfügung, sodass
+Natürlich steht mit [Nomad Pack][34] ein vergleichbares Pendant zu [Helm][18] zur Verfügung, sodass
 wir auch hier versionierte Artefakte erstellen können.
 
-Hier dazu ein einfaches Beispiel zu [HCL][]:
+Hier dazu ein einfaches Beispiel zu [HCL][16]:
 
 ```hcl
 company = "adesso"
@@ -62,33 +62,33 @@ configuration {
 }
 ```
 
-> **_NOTE:_** Eine vollständige Dokumentation findest du auf der [offiziellen Projektseite][].
+> **_NOTE:_** Eine vollständige Dokumentation findest du auf der [offiziellen Projektseite][37].
 
 ## Alles über Jobs
 
-[Jobs][] stellen in [Nomad][] die eigentliche Arbeitseinheit dar und können über verschiedene Wege
+[Jobs][25] stellen in [Nomad][35] die eigentliche Arbeitseinheit dar und können über verschiedene Wege
 an den Server geschickt werden - dazu aber später mehr.
 
-Grundsätzlich läuft die Einreichung eines [Jobs][] wie folgt ab:
-Nach erfolgter Übermittlung findet zunächst die [Evaluation][] statt und es werden die notwendigen
+Grundsätzlich läuft die Einreichung eines [Jobs][25] wie folgt ab:
+Nach erfolgter Übermittlung findet zunächst die [Evaluation][13] statt und es werden die notwendigen
 Schritte erfasst und aufbereitet.
-Anschließend started die [Allocation][], hierbei wird ein Ausführplan erstellt und eine
-[Task Group][] angelegt und somit auch die Zuweisung eines [Jobs][] zu einem aktiven Client.
+Anschließend started die [Allocation][1], hierbei wird ein Ausführplan erstellt und eine
+[Task Group][55] angelegt und somit auch die Zuweisung eines [Jobs][25] zu einem aktiven Client.
 
 > **_NOTE:_** Diese Schritte sollte man zumindest einmal gehört haben, denn sie begegnen einem
-durchaus als Status im täglichen Umgang mit [Nomad][].
+durchaus als Status im täglichen Umgang mit [Nomad][35].
 
 ### Wie sieht ein Job aus?
 
-[Jobs][] bzw. die eigentlichen [Job Files][] bestehen aus verschiedensten Objekten (auch [Stanza][]
+[Jobs][25] bzw. die eigentlichen [Job Files][23] bestehen aus verschiedensten Objekten (auch [Stanza][52]
 genannt) und lassen sich am einfachsten an konkreten Beispielen erklären.
 
-Als groben Rahmen für die nächsten Abschnitte nutzen wir eine [Quarkus][]-basierte Backendanwendung,
-mit der über eine einfache [REST][] API Todo Einträge erstellt und verwaltet werden können.
+Als groben Rahmen für die nächsten Abschnitte nutzen wir eine [Quarkus][41]-basierte Backendanwendung,
+mit der über eine einfache [REST][45] API Todo Einträge erstellt und verwaltet werden können.
 
-> **_NOTE:_** Die passende [OpenAPI][] Spezifikation zum Beispiel fineet ihr [hier][].
+> **_NOTE:_** Die passende [OpenAPI][38] Spezifikation zum Beispiel findet ihr [hier][19].
 
-Hier jetzt aber unser erstes [Job File][]:
+Hier jetzt aber unser erstes [Job File][24]:
 
 ```hcl
 job "todo" {
@@ -118,31 +118,31 @@ job "todo" {
   }
 }
 ```
-**<1>** [Nomad][] ist teilt Clients in Datacenter auf - ist somit Datacenter-aware.<br />
+**<1>** [Nomad][35] ist teilt Clients in Datacenter auf - ist somit Datacenter-aware.<br />
 **<2>** Gruppen können aus verschiedenen Tasks bestehen und werden stets auf demselben Client ausgeführt.<br />
 **<3>** Hier starten wir maximal eine Instanz dieser Gruppe.<br />
-**<4>** Ein Task stellt die kleinste Einheit in [Nomad][] dar - vergleichbar mit einem [Pod][].<br />
-**<5>** Der [Java][] [Task Driver][] startet ein Jar in einer [JVM][] Instant.<br />
-**<6>** Die meisten [Task Driver][] können entsprechend konfiguriert werden - hier setzen wir [JVM][] Optionen.<br />
-**<7>** [Resource Limits][] können ebenfalls gesetzt werden.<br />
+**<4>** Ein Task stellt die kleinste Einheit in [Nomad][35] dar - vergleichbar mit einem [Pod][40].<br />
+**<5>** Der [Java][21] [Task Driver][54] startet ein Jar in einer [JVM][28] Instant.<br />
+**<6>** Die meisten [Task Driver][54] können entsprechend konfiguriert werden - hier setzen wir [JVM][28] Optionen.<br />
+**<7>** [Resource Limits][44] können ebenfalls gesetzt werden.<br />
 **<8>** Und abschließend setzen wir noch den Netzwerkport - diesen brauchen wir später.<br />
 
-> **_NOTE:_** Für die nächsten Schritte benötigst du eine laufende [Nomad][] Instanz - solltest du
-hierbei noch Probleme haben wirf am besten einen Blick in die [offizielle Anleitung][].
+> **_NOTE:_** Für die nächsten Schritte benötigst du eine laufende [Nomad][35] Instanz - solltest du
+hierbei noch Probleme haben wirf am besten einen Blick in die [offizielle Anleitung][36].
 
 ### Wie reiche ich einen Job ein?
 
-Für die meisten Aktionen bei [Nomad][] stehen folgende drei Wege zur Verfügung:
+Für die meisten Aktionen bei [Nomad][35] stehen folgende drei Wege zur Verfügung:
 
 #### Via Browser
 
 Die einfachste Möglichkeit ist über den Browser und das mitgelieferte Webinterfaces, welches
-direkt nach dem Start von [Nomad][] unter folgender Adresse erreichbar ist: <http://locahost:4646>
+direkt nach dem Start von [Nomad][35] unter folgender Adresse erreichbar ist: <http://locahost:4646>
 
 ![image](/assets/images/posts/orchestrierung-mit-nomad/web.png)
 
-Über den Knopf **Run Job** oben rechts gelangst du zu einem Dialog, in den du deine [Job][]
-Definition direkt entweder mittels [HCL][] oder [JSON][] abschicken kannst.
+Über den Knopf **Run Job** oben rechts gelangst du zu einem Dialog, in den du deine [Job][26]
+Definition direkt entweder mittels [HCL][16] oder [JSON][27] abschicken kannst.
 
 Mittels **Plan** wird ein Dry-Run ausgeführt und das Ergebnis unmittelbar angezeigt:
 
@@ -154,7 +154,7 @@ Und abschließend startet **Run** dann das finale Deployment:
 
 #### Über die Kommandozeile
 
-Für die [Commandline][]-Liebhaber unter euch bietet [Nomad][] natürlich auch hier eine [CLI][]:
+Für die [Commandline][7]-Liebhaber unter euch bietet [Nomad][35] natürlich auch hier eine [CLI][6]:
 
 ```bash
 $ nomad job plan jobs/todo-java.nomad
@@ -188,29 +188,29 @@ $ nomad job run jobs/todo-java.nomad
     web         1        1       1        0          2022-07-18T17:58:46+02:00
 ```
 
-> **_NOTE:_** Die verwendeten [Nomad][] Beispiel könnt ihr auch direkt hier finden:
+> **_NOTE:_** Die verwendeten [Nomad][35] Beispiel könnt ihr auch direkt hier finden:
 <https://github.com/unexist/showcase-nomad-quarkus/tree/master/deployment/jobs>
 
 #### Über die API
 
-Und analog zu [Kubernetes][] können wir auch direkt die [Job API][] ansprechen - beispielsweise
-mittels [curl][]:
+Und analog zu [Kubernetes][29] können wir auch direkt die [Job API][22] ansprechen - beispielsweise
+mittels [curl][9]:
 
 ```bash
 $ curl --request POST --data @jobs/todo-java.json http://localhost:4646/v1/jobs
 {"EvalCreateIndex":228,"EvalID":"bd809b77-e2c6-c336-c5ca-0d1c15ff6cce","Index":228,"JobModifyIndex":228,"KnownLeader":false,"LastContact":0,"NextToken":"","Warnings":""}
 ```
 
-> **_NOTE:_** Und die entsprechende [JSON][] Variante findet ihr schließlich hier:
+> **_NOTE:_** Und die entsprechende [JSON][27] Variante findet ihr schließlich hier:
 <https://github.com/unexist/showcase-nomad-quarkus/blob/master/deployment/jobs/todo-java.json>
 
-Alle genannten Wege übermitteln unseren [Job][] an [Nomad][] und starten dann eine einzelne Instanz
-auf einem Client des [Datacenters][] `dc1`.
+Alle genannten Wege übermitteln unseren [Job][26] an [Nomad][35] und starten dann eine einzelne Instanz
+auf einem Client des [Datacenters][10] `dc1`.
 
 ### Status eines Jobs überprüfen
 
 Auskunft über den Status bekommen wir direkt über das Webinterface, aber natürlich können wir in
-auch in gewohnter Weise den Status unseres [Jobs][] über die [Commandline][] erfragen:
+auch in gewohnter Weise den Status unseres [Jobs][25] über die [Commandline][7] erfragen:
 
 ```bash
 $ nomad job status
@@ -218,8 +218,8 @@ ID    Type     Priority  Status   Submit Date
 todo  service  50        running  2022-07-18T17:48:36+02:00
 ```
 
-Alternativ können wir natürlich auch direkt auf unseren [REST][] Service zugreifen - beispielsweise
-erneut via [curl][]:
+Alternativ können wir natürlich auch direkt auf unseren [REST][45] Service zugreifen - beispielsweise
+erneut via [curl][9]:
 
 ```bash
 $ curl -v -H "Accept: application/json" http://localhost:8080/todo
@@ -266,10 +266,10 @@ $ nomad job stop todo
 
 ## Themen für Fortgeschrittene
 
-Bisher haben wir uns mit den Basics beschäftigt und können jetzt einfache [Jobs][] anlegen, starten
+Bisher haben wir uns mit den Basics beschäftigt und können jetzt einfache [Jobs][25] anlegen, starten
 und auch wieder stoppen.
 Darauf aufbauend beschäftigen wir uns jetzt im nächsten Abschnitt mit fortgeschrittenen Themen -
-alleine schon damit sich der angestrebte Vergleich mit [Kubernetes][] auch sehen lassen kann.
+alleine schon damit sich der angestrebte Vergleich mit [Kubernetes][29] auch sehen lassen kann.
 
 ### Scaling out
 
@@ -291,13 +291,13 @@ guten Gewohnheiten nicht früh genug loslegen kann - machen wir das auch direkt:
 
 ![image](/assets/images/posts/orchestrierung-mit-nomad/plan_failure.png)
 
-Dieser Fehler kommt jetzt gänzlich unerwartet, denn schließlich haben wir in unserem [Job][]
+Dieser Fehler kommt jetzt gänzlich unerwartet, denn schließlich haben wir in unserem [Job][26]
 lediglich **einen** einzelnen statischen Port festgelegt und streben hier ein Deployment von
 **fünf** Instanzen auf einem einzelnen Client an.
-Dies kann natürlich nicht funktionieren [Nomad][] weist uns hier folgerichtig auf dieses Problem
+Dies kann natürlich nicht funktionieren [Nomad][35] weist uns hier folgerichtig auf dieses Problem
 hin.
 
-Abhilfe schafft hier [Dynamic Port Mapping][], welches für uns dynamische Ports anlegt und unseren
+Abhilfe schafft hier [Dynamic Port Mapping][12], welches für uns dynamische Ports anlegt und unseren
 Instanzen dann automatisch zuweist.
 
 Auf unserer Seite sind dazu lediglich zwei kleinere Anpassungen notwendig:
@@ -310,9 +310,9 @@ Auf unserer Seite sind dazu lediglich zwei kleinere Anpassungen notwendig:
     }
     ```
 
-2. Und anschließend teilen wir unserer [Quarkus][] Anwendung noch mit unter welchem Port sie jetzt
+2. Und anschließend teilen wir unserer [Quarkus][41] Anwendung noch mit unter welchem Port sie jetzt
 genau erreichbar ist.
-Eine der einfachsten Möglichkeiten ist hier über [Umgebungsvariablen][]:
+Eine der einfachsten Möglichkeiten ist hier über [Umgebungsvariablen][57]:
 
     ```hcl
     config {
@@ -323,7 +323,7 @@ Eine der einfachsten Möglichkeiten ist hier über [Umgebungsvariablen][]:
       ]
     }
     ```
-    **<1>** Hier verwenden wir eine [Magic Variable][] von [Nomad][], die den passenden dynamischen Port enthält.
+    **<1>** Hier verwenden wir eine [Magic Variable][33] von [Nomad][35], die den passenden dynamischen Port enthält.
 
 Lassen wir nach diesen beiden Änderungen erneut einen **Dry-Run** laufen sehen wir folgendes:
 
@@ -334,7 +334,7 @@ unsere **fünf** Instanzen:
 
 ![image](/assets/images/posts/orchestrierung-mit-nomad/update_success.png)
 
-Sinnvollerweise sollten wir jetzt als nächstes irgendeine Art von [Load Balancer][] vor unsere
+Sinnvollerweise sollten wir jetzt als nächstes irgendeine Art von [Load Balancer][32] vor unsere
 fünf Instanzen schalten, damit diese erreicht und natürlich die Last gleichmäßig verteilt werden
 kann.
 
@@ -345,16 +345,16 @@ bewährte Lösung zurückgreifen.
 
 ### Service Discovery
 
-Bei [Service Discovery][] handelt es sich im Grunde um einen Katalog, bei dem sich Anwendungen mit
+Bei [Service Discovery][48] handelt es sich im Grunde um einen Katalog, bei dem sich Anwendungen mit
 ihren bereitgestellten Diensten registrieren und andere Anwendungen dann Informationen über
 bekannte Dienste einholen können.
 
 Hierfür stehen wieder zahlreiche Alternativen zur Verfügung, eine der bekannteren mit hervorragender
-Integration und ebenfalls aus dem Hause [HashiCorp][] ist [Consul][].
+Integration und ebenfalls aus dem Hause [HashiCorp][15] ist [Consul][8].
 
-Wir könnten [Consul][] jetzt regulär auf unserem System installieren, aber zur Übung verwenden wir
-die [Artifact][] Stanza und lassen [Nomad][] die Anwendung direkt aus dem Internet laden und
-direkt über den [Raw/Exec][] Driver ausführen:
+Wir könnten [Consul][8] jetzt regulär auf unserem System installieren, aber zur Übung verwenden wir
+die [Artifact][2] Stanza und lassen [Nomad][35] die Anwendung direkt aus dem Internet laden und
+direkt über den [Raw/Exec][43] Driver ausführen:
 
 ```hcl
 job "consul" {
@@ -378,7 +378,7 @@ job "consul" {
   }
 }
 ```
-**<1>** Zunächst benötigen wir einen neuen Task mit dem [Raw/Exec][] Driver. <br />
+**<1>** Zunächst benötigen wir einen neuen Task mit dem [Raw/Exec][43] Driver. <br />
 **<2>** Und anschließend legen wir die Source unseres Artefakts fest.
 
 Mittlerweile sollte das Deployment dieses Jobs ziemlich selbsterklärend sein:
@@ -406,18 +406,18 @@ $ nomad job run jobs/consul.nomad
     consul      1        1       1        0          2022-07-20T12:25:34+02:00
 ```
 
-Nach ein paar Sekunden sollte [Consul][] dann gestartet über folgende URL im Browser aufrufbar sein
+Nach ein paar Sekunden sollte [Consul][8] dann gestartet über folgende URL im Browser aufrufbar sein
 <http://localhost:8500>:
 
 ![image](/assets/images/posts/orchestrierung-mit-nomad/consul_services_nomad.png)
 
-Alle bekannten Services werden dann auf dem **Services** Reiter aufgeführt - dazu zählen [Consul][]
-selbst und [Nomad][] - allerdings leider Fehlanzeige was unseren Instanzen betrifft.
+Alle bekannten Services werden dann auf dem **Services** Reiter aufgeführt - dazu zählen [Consul][8]
+selbst und [Nomad][35] - allerdings leider Fehlanzeige was unseren Instanzen betrifft.
 
-Zum jetzigen Zeitpunkt sind die Services unserer Instanzen für [Nomad][] noch unbekannt und es
+Zum jetzigen Zeitpunkt sind die Services unserer Instanzen für [Nomad][35] noch unbekannt und es
 müssen weitere Informationen nachgeliefert werden.
 
-Diese liefern wir dann über die [Service][] Stanza nach:
+Diese liefern wir dann über die [Service][51] Stanza nach:
 
 ```hcl
 service {
@@ -436,9 +436,9 @@ service {
   }
 }
 ```
-**<1>** [Nomad][] erlaubt es [Tag][]s zu vergeben, die sich in etwa so verhalten wie [Label][] bei [Kubernetes][].
-Was es mit diesem konkreten [Tag][] auf sich hat erfahrt ihr im nächsten Kapitel.<br />
-**<2>** Über das [Check][] Stanza legen wir fest wie [Healthchecks][] durchführt werden.
+**<1>** [Nomad][35] erlaubt es [Tag][53]s zu vergeben, die sich in etwa so verhalten wie [Label][31] bei [Kubernetes][29].
+Was es mit diesem konkreten [Tag][53] auf sich hat erfahrt ihr im nächsten Kapitel.<br />
+**<2>** Über das [Check][5] Stanza legen wir fest wie [Healthchecks][17] durchführt werden.
 
 Schnell noch ein erneuter **Dry-Run**, um weitere Überraschungen auszuschließen:
 
@@ -447,8 +447,8 @@ Schnell noch ein erneuter **Dry-Run**, um weitere Überraschungen auszuschließe
 Hier werden dann noch einmal alle Parameter aufgeführt und man bekommt eine Idee was für weitere
 Konfigurationsmöglichkeiten obige Stanza noch mitbringen.
 
-Haben wir alles überprüft können wir den [Job][] ausführen und sehen dann hoffentlich nach kurzer
-Zeit neue Einträge in [Consul][]:
+Haben wir alles überprüft können wir den [Job][26] ausführen und sehen dann hoffentlich nach kurzer
+Zeit neue Einträge in [Consul][8]:
 
 ![image](/assets/images/posts/orchestrierung-mit-nomad/consul_services_todo.png)
 
@@ -459,12 +459,12 @@ Das ist auch geschafft - fehlt noch Traffic auf unseren Instanzen.
 ### Load-balancing
 
 Für den nächsten Teil greifen wir abermals auf ein weiteres Tool zurück, da wir hier den
-Aufgabenbereich von [Nomad][] verlassen.
+Aufgabenbereich von [Nomad][35] verlassen.
 
-Eine der einfachsten Lösungen und mit ebenfalls exzellenter Integration in [Nomad][] und
-[Consul][] ist der Proxy [Fabio][].
+Eine der einfachsten Lösungen und mit ebenfalls exzellenter Integration in [Nomad][35] und
+[Consul][8] ist der Proxy [Fabio][14].
 
-In gewohnter Manie können wir uns auch hier zurücklehnen und [Nomad][] die Arbeit überlassen:
+In gewohnter Manie können wir uns auch hier zurücklehnen und [Nomad][35] die Arbeit überlassen:
 
 ```hcl
 job "fabio" {
@@ -488,9 +488,9 @@ job "fabio" {
   }
 }
 ```
-**<1>** Hiermit legen wir [Round-Robin][] als Verteilungsstrategie fest.
+**<1>** Hiermit legen wir [Round-Robin][47] als Verteilungsstrategie fest.
 
-Ein kurzer **Dry-Run** gefolgt von einem Deployment und schon sehen wir [Fabio][] in der Liste
+Ein kurzer **Dry-Run** gefolgt von einem Deployment und schon sehen wir [Fabio][14] in der Liste
 der bekannten Services:
 
 ```bash
@@ -527,7 +527,7 @@ $ nomad job run jobs/fabio.nomad
 
 ![image](/assets/images/posts/orchestrierung-mit-nomad/consul_services_fabio.png)
 
-Sprechen wir jetzt [Fabio][] über den Defaultport `9999` an bekommen wir erneut die altbekannte
+Sprechen wir jetzt [Fabio][14] über den Defaultport `9999` an bekommen wir erneut die altbekannte
 Ausgabe:
 
 ```bash
@@ -546,10 +546,10 @@ $ curl -v -H "Accept: application/json" http://localhost:9999/todo
 * Closing connection 0
 ```
 
-Wenn wir das ganze jetzt wiederholen sollte [Fabio][] theoretisch die Last gleichmäßig auf unsere
+Wenn wir das ganze jetzt wiederholen sollte [Fabio][14] theoretisch die Last gleichmäßig auf unsere
 Instanzen, allerdings würden wir davon derzeit nichts mitbekommen.
 
-Ein einfacher Trick hier ist einen neuen [HTTP Header][] zu setzen, der die entsprechende
+Ein einfacher Trick hier ist einen neuen [HTTP Header][20] zu setzen, der die entsprechende
 IP-Adresse und den Port der Instanz enthält:
 
 ```hcl
@@ -564,8 +564,8 @@ config {
   ]
 }
 ```
-**<1>** Wir verwenden hier eine weitere [Magic Variable][] und befüllen damit unseren neuen
-[HTTP Header][].
+**<1>** Wir verwenden hier eine weitere [Magic Variable][33] und befüllen damit unseren neuen
+[HTTP Header][20].
 
 Vermutlich könnt ihr euch die nächsten Schritte denken, daher das ganze in Schnelldurchlauf:
 
@@ -617,35 +617,35 @@ Instanzen der Reihe nach angesprochen werden:
 
 Falls ihr euch jetzt fragt weshalb das ganze überhaupt ohne weitere Konfiguration funktioniert:
 
-Einer der großen Vorteile von [Fabio][] ist Routen können über [Service Tags][] festgelegt werden.
+Einer der großen Vorteile von [Fabio][14] ist Routen können über [Service Tags][49] festgelegt werden.
 Und schaut ihr jetzt genau hin, haben wir dies in unseren Beispielen auch schon gemacht:
 `urlprefix-/todo`
 
-Über diesen [Service Tag][] teilen wir [Fabio][] mit, wie es mit Requests für die Route `/todo`
+Über diesen [Service Tag][50] teilen wir [Fabio][14] mit, wie es mit Requests für die Route `/todo`
 umgehen und anhand der konfigurierten Strategie verteilen soll.
 
-> **_NOTE:_** Weitere Konfigurationsmöglichkeiten findet ihr im entsprechenden [Quickstart Guide][].
+> **_NOTE:_** Weitere Konfigurationsmöglichkeiten findet ihr im entsprechenden [Quickstart Guide][42].
 
 ### Update Strategien
 
 Unsere Anwendung läuft jetzt erfolgreich auf einem einzelnen Client und wir haben sowohl
 Ausfallwahrscheinlichkeit reduziert als auch Lastverteilung eingeführt, in dem wir unsere fünf
-Instanzen in einen gemeinsamem [Load Balancer][] Verbund zusammengefasst haben.
+Instanzen in einen gemeinsamem [Load Balancer][32] Verbund zusammengefasst haben.
 
 Soweit so gut - aber wie können wir hier jetzt am geschicktesten Updates durchführen?
 
 Grundsätzlich stehen dafür verschiedene Ansätze zur Verfügung und der einfachste ist natürlich alle
 in einem Rutsch zu aktualisieren.
 
-> **_NOTE:_** Hier spricht man auch von [Batch Size][] und diese wäre in unserem Beispiel `5`.
+> **_NOTE:_** Hier spricht man auch von [Batch Size][3] und diese wäre in unserem Beispiel `5`.
 
 Wählen wir diesen Ansatz negieren wir vermutlich einige der vorhin angesprochenen Vorteile und
 enden im Fehlerfall möglicherweise mit einer zu geringen Anzahl für unseren Workload.
-Ein besserer Ansatz hier ist eine möglichst kleine [Batch Size][] zu wählen und die Instanzen
+Ein besserer Ansatz hier ist eine möglichst kleine [Batch Size][3] zu wählen und die Instanzen
 rollierend - sprich nach und nach - zu aktualisieren.
 
-Standardmäßig führt [Nomad][] ein [Rolling Update][] durch, allerdings lassen sich viele weitere
-Strategien über das [Update][] Stanza realisieren.
+Standardmäßig führt [Nomad][35] ein [Rolling Update][46] durch, allerdings lassen sich viele weitere
+Strategien über das [Update][58] Stanza realisieren.
 
 
 ```hcl
@@ -654,19 +654,19 @@ update {
   max_parallel = 5 # <2>
 }
 ```
-**<1>** Dies legt die Anzahl der Instanzen fest, die in einem [Canary Update][] aktualisiert werden.<br />
-**<2>** Und hiermit wird die [Batch Size][] des Updates festgelegt.
+**<1>** Dies legt die Anzahl der Instanzen fest, die in einem [Canary Update][4] aktualisiert werden.<br />
+**<2>** Und hiermit wird die [Batch Size][3] des Updates festgelegt.
 
-Bevor wir jetzt als einfaches Beispiel ein [Canary Update][] durchführen sollten wir noch einmal
+Bevor wir jetzt als einfaches Beispiel ein [Canary Update][4] durchführen sollten wir noch einmal
 kurz in uns gehen und überlegen wie wir sicherstellen können, dass ein Update den gewünschten
 Erfolg gebracht hat.
 
-Ein [Canary Update][] mit `canary = 1` bedeutet unser Orchestrator startet eine neue Instanz und
+Ein [Canary Update][4] mit `canary = 1` bedeutet unser Orchestrator startet eine neue Instanz und
 wartet anschließend auf die Bestätigung fortzufahren.
 Unsere Aufgabe hier ist also zu prüfen, ob diese neue Instanz ordnungsgemäß funktioniert, laufen
 aber natürlich wieder in die altbekannte Problematik.
 
-Vorhin hat der Trick mit dem [HTTP Header][] hervorragend geklappt - nutzen wir die Idee also
+Vorhin hat der Trick mit dem [HTTP Header][20] hervorragend geklappt - nutzen wir die Idee also
 erneut:
 
 ```hcl
@@ -684,7 +684,7 @@ config {
   ]
 }
 ```
-**<1>** Unser neuer [HTTP Header][] für das Update.
+**<1>** Unser neuer [HTTP Header][20] für das Update.
 
 Erneuter **Dry-Run** gefolgt von einem Deployment:
 
@@ -748,7 +748,7 @@ prüfen, ob unsere neue Version ordnungsgemäß funktioniert:
 
 ![image](/assets/images/posts/orchestrierung-mit-nomad/canary.gif)
 
-Haben wir uns davon ausreichend überzeugt, können wir [Nomad][] anweisen das Deployment fortzusetzen
+Haben wir uns davon ausreichend überzeugt, können wir [Nomad][35] anweisen das Deployment fortzusetzen
 und auch die verbleibenden Instanzen auszurollen.
 Hierfür stehen uns wie bisher verschiedene Wege zur Verfügung, allerdings ist dies im Webinterface
 sehr anschaulich:
@@ -761,10 +761,70 @@ Mit **Promote Canary** setzen wir das unterbrochene Deployment dann schließlich
 
 ## Fazit
 
-[Nomad][] ist ein einfacher und flexibler [Job][] Scheduler, der durch die Integration weiterer
+[Nomad][35] ist ein einfacher und flexibler [Job][26] Scheduler, der durch die Integration weiterer
 Produkte praxistaugliche Lösungen für gängige Probleme liefert und sich somit in keiner Weise
-hinter dem großen Bruder [Kubernetes][] verstecken muss.
+hinter dem großen Bruder [Kubernetes][29] verstecken muss.
 
 Sämtliche Beispiele dieses Beitrags können im folgenden Repository eingesehen werden:
 
 <https://github.com/unexist/showcase-nomad-quarkus>
+
+[1]: https://www.nomadproject.io/docs/concepts/scheduling/scheduling
+[2]: https://www.nomadproject.io/docs/job-specification/artifact#artifact-stanza=
+[3]: https://en.wikipedia.org/wiki/Batch_processing
+[4]: https://martinfowler.com/bliki/CanaryRelease.html
+[5]: https://www.nomadproject.io/docs/job-specification/check#check-stanza=
+[6]: https://en.wikipedia.org/wiki/Command-line_interface
+[7]: https://en.wikipedia.org/wiki/Command-line_interface
+[8]: https://www.consul.io/
+[9]: https://curl.se/
+[10]: https://developer.hashicorp.com/nomad/docs/concepts/architecture
+[11]: https://www.nomadproject.io/docs/drivers/docker
+[12]: https://www.nomadproject.io/docs/job-specification/network#dynamic-ports=
+[13]: https://developer.hashicorp.com/nomad/docs/concepts/scheduling/scheduling
+[14]: https://fabiolb.net/
+[15]: https://www.hashicorp.com/
+[16]: https://github.com/hashicorp/hcl
+[17]: https://microservices.io/patterns/observability/health-check-api.html
+[18]: https://helm.se
+[19]: https://blog.unexist.dev/redoc/
+[20]: https://en.wikipedia.org/wiki/List_of_HTTP_header_fields
+[21]: https://www.nomadproject.io/docs/drivers/java
+[22]: https://www.nomadproject.io/api-docs/jobs
+[23]: https://www.nomadproject.io/docs/job-specification/resources
+[24]: https://www.nomadproject.io/docs/job-specification/resources
+[25]: https://www.nomadproject.io/docs/job-specification/job
+[26]: https://www.nomadproject.io/docs/job-specification/job
+[27]: https://www.json.org/json-en.html
+[28]: https://en.wikipedia.org/wiki/Java_virtual_machine
+[29]: https://kubernetes.io/
+[30]: https://kustomize.io/
+[31]: https://developer.hashicorp.com/nomad/docs/job-specification
+[32]: https://en.wikipedia.org/wiki/Load_balancing_(computing)
+[33]: https://developer.hashicorp.com/nomad/docs/runtime/interpolation
+[34]: https://learn.hashicorp.com/tutorials/nomad/nomad-pack-intro
+[35]: https://www.nomadproject.io
+[36]: https://learn.hashicorp.com/tutorials/nomad/get-started-intro
+[37]: https://github.com/hashicorp/hcl/blob/main/hclsyntax/spec.md
+[38]: https://www.openapis.org/
+[39]: https://developer.hashicorp.com/nomad/plugins/drivers/podman
+[40]: https://kubernetes.io/docs/concepts/workloads/pods/
+[41]: https://quarkus.io
+[42]: https://fabiolb.net/quickstart/
+[43]: https://www.nomadproject.io/docs/drivers/raw_exec
+[44]: https://developer.hashicorp.com/nomad/docs/job-specification/resources
+[45]: https://en.wikipedia.org/wiki/Representational_state_transfer
+[46]: https://en.wikipedia.org/wiki/Rolling_release
+[47]: https://en.wikipedia.org/wiki/Round-robin_scheduling
+[48]: https://en.wikipedia.org/wiki/Service_discovery
+[49]: https://developer.hashicorp.com/consul/docs/discovery/services
+[50]: https://developer.hashicorp.com/consul/docs/discovery/services
+[51]: https://www.nomadproject.io/docs/job-specification/service
+[52]: https://en.wikipedia.org/wiki/Stanza
+[53]: https://developer.hashicorp.com/consul/docs/discovery/services
+[54]: https://www.nomadproject.io/docs/internals/plugins/task-drivers
+[55]: https://www.nomadproject.io/docs/job-specification/group
+[56]: https://terraform.io
+[57]: https://en.wikipedia.org/wiki/Environment_variable
+[58]: https://www.nomadproject.io/docs/job-specification/update
+[59]: https://yaml.org/
