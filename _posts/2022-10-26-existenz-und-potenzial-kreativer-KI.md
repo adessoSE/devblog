@@ -1,8 +1,8 @@
 ---
 layout: [post, post-xml]              # Pflichtfeld. Nicht ändern!
 title:  "Künstliche Kreativität - Kann eine KI kreativ sein?"    # Pflichtfeld. Bitte einen Titel für den Blog Post angeben.
-date:   2022-08-27 15:00              # Pflichtfeld. Format "YYYY-MM-DD HH:MM". Muss für Veröffentlichung in der Vergangenheit liegen. (Für Preview egal)
-modified_date: 2022-08-15 11:00       # Optional. Muss angegeben werden, wenn eine bestehende Datei geändert wird.
+date:   2022-10-26 13:00              # Pflichtfeld. Format "YYYY-MM-DD HH:MM". Muss für Veröffentlichung in der Vergangenheit liegen. (Für Preview egal)
+modified_date: 2022-10-26 13:00       # Optional. Muss angegeben werden, wenn eine bestehende Datei geändert wird.
 author_ids: [thasslin]                   # Pflichtfeld. Es muss in der "authors.yml" einen Eintrag mit diesen Namen geben.
 categories: [KI]                # Pflichtfeld. Maximal eine der angegebenen Kategorien verwenden.
 tags: [Kreativität, Künstliche Intelligenz, Künstliche Kreativität] # Bitte auf Großschreibung achten.
