@@ -241,7 +241,7 @@ $ curl -v -H "Accept: application/json" http://localhost:8080/todo
 
 Und ebenso leicht können wir unseren Job auch wieder stoppen:
 
-```
+```bash
 $ nomad job stop todo
 ==> 2022-07-18T18:04:55+02:00: Monitoring evaluation "efe42497"
     2022-07-18T18:04:55+02:00: Evaluation triggered by job "todo"
