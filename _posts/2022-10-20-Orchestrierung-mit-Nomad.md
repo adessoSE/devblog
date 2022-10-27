@@ -10,14 +10,13 @@ tags:			[Orchestrierung, Kubernetes, Nomad, Consul, Fabio]	        # Bitte auf G
 
 Orchestrierung ist in aller Munde und aus vielen Bereichen gar nicht mehr wegzudenken - doch gibt es
 neben dem Platzhirschen [Kubernetes][29] eigentlich Alternativen?
-
 Im Zuge dieses Artikels beschäftigen wir uns mit dem Job Scheduler [Nomad][35] aus dem Hause
 [HashiCorp][15] und sehen uns anhand von einfachen Beispielen an, welche Möglichkeiten hier geboten
 werden.
 Anschließend beschäftigen wir uns mit Deployments und fortgeschritteneren Themen wie Service
 Discovery und Canary Deployments.
 
-## Was genau ist Nomad?
+# Was genau ist Nomad?
 
  Bei [Nomad][35] handelt es sich um einen kleinen Job Scheduler und Orchestrator, der im Gegensatz zu
  [Kubernetes][29] nicht nur Container, sondern über Plugins im Grunde alles mögliche verwalten kann.
@@ -30,7 +29,7 @@ sonstigen ausführbare Anwendungen.
 
 Bevor wir jetzt in ein Beispiel einsteigen, sollten wir kurz über die Konfiguration sprechen.
 
-## Konfiguration ohne YAML
+# Konfiguration ohne YAML
 
 Im Gegensatz zum rein deklarativen Ansatz von [Kubernetes][29], bei dem [YAML][59] Dateien den
 gewünschten Zielzustand beschreiben, verwendet [Nomad][35] die hauseigene Konfigurationssprache
@@ -64,7 +63,7 @@ configuration {
 
 > **_NOTE:_** Eine vollständige Dokumentation findest du auf der [offiziellen Projektseite][37].
 
-## Alles über Jobs
+# Alles über Jobs
 
 [Jobs][25] stellen in [Nomad][35] die eigentliche Arbeitseinheit dar und können über verschiedene Wege
 an den Server geschickt werden - dazu aber später mehr.
@@ -78,7 +77,7 @@ Anschließend startet die [Allocation][1], hierbei wird ein Ausführplan erstell
 > **_NOTE:_** Diese Schritte sollte man zumindest einmal gehört haben, denn sie begegnen einem
 durchaus als Status im täglichen Umgang mit [Nomad][35].
 
-### Wie sieht ein Job aus?
+## Wie sieht ein Job aus?
 
 [Jobs][25] bzw. die eigentlichen [Job Files][23] bestehen aus verschiedensten Objekten (auch [Stanza][52]
 genannt) und lassen sich am einfachsten an konkreten Beispielen erklären.
@@ -118,7 +117,7 @@ job "todo" {
   }
 }
 ```
-**<1>** [Nomad][35] ist teilt Clients in Datacenter auf - ist somit Datacenter-aware.<br />
+**<1>** [Nomad][35] teilt Clients in Datacenter auf - ist somit Datacenter-aware.<br />
 **<2>** Gruppen können aus verschiedenen Tasks bestehen und werden stets auf demselben Client ausgeführt.<br />
 **<3>** Hier starten wir maximal eine Instanz dieser Gruppe.<br />
 **<4>** Ein Task stellt die kleinste Einheit in [Nomad][35] dar - vergleichbar mit einem [Pod][40].<br />
@@ -130,11 +129,11 @@ job "todo" {
 > **_NOTE:_** Für die nächsten Schritte benötigst du eine laufende [Nomad][35]-Instanz - solltest du
 hierbei noch Probleme haben, wirf am besten einen Blick in die [offizielle Anleitung][36].
 
-### Wie reiche ich einen Job ein?
+## Wie reiche ich einen Job ein?
 
 Für die meisten Aktionen bei [Nomad][35] stehen folgende drei Wege zur Verfügung:
 
-#### Via Browser
+### Via Browser
 
 Die einfachste Möglichkeit, eine Aktion durchzuführen, ist über den Browser und das mitgelieferte Webinterfaces, welches
 direkt nach dem Start von [Nomad][35] unter folgender Adresse erreichbar ist: <http://locahost:4646>
@@ -152,7 +151,7 @@ Und abschließend startet **Run** dann das finale Deployment:
 
 ![image](/assets/images/posts/orchestrierung-mit-nomad/job_success.png)
 
-#### Über die Kommandozeile
+### Über die Kommandozeile
 
 Für die [Commandline][7]-Liebhaber unter euch bietet [Nomad][35] natürlich auch hier eine [CLI][6]:
 
@@ -191,7 +190,7 @@ $ nomad job run jobs/todo-java.nomad
 > **_NOTE:_** Die verwendeten [Nomad][35]-Beispiel könnt ihr auch direkt hier finden:
 <https://github.com/unexist/showcase-nomad-quarkus/tree/master/deployment/jobs>
 
-#### Über die API
+### Über die API
 
 Und analog zu [Kubernetes][29] können wir auch direkt die [Job API][22] ansprechen - beispielsweise
 mittels [curl][9]:
@@ -207,7 +206,7 @@ $ curl --request POST --data @jobs/todo-java.json http://localhost:4646/v1/jobs
 Alle genannten Wege übermitteln unseren [Job][26] an [Nomad][35] und starten dann eine einzelne Instanz
 auf einem Client des [Datacenters][10] `dc1`.
 
-### Status eines Jobs überprüfen
+## Status eines Jobs überprüfen
 
 Auskunft über den Status eines Jobs bekommen wir direkt über das Webinterface, aber natürlich können wir in
 auch in gewohnter Weise den Status unseres [Jobs][25] über die [Commandline][7] erfragen:
@@ -237,7 +236,7 @@ $ curl -v -H "Accept: application/json" http://localhost:8080/todo
 * Closing connection 0
 ```
 
-### Jobs stoppen
+## Jobs stoppen
 
 Und ebenso leicht können wir unseren Job auch wieder stoppen:
 
@@ -264,14 +263,14 @@ $ nomad job stop todo
     web         1        1       1        0          2022-07-18T18:12:24+02:00
 ```
 
-## Themen für Fortgeschrittene
+# Themen für Fortgeschrittene
 
 Bisher haben wir uns mit den Basics beschäftigt und können jetzt einfache [Jobs][25] anlegen, starten
 und auch wieder stoppen.
 Darauf aufbauend beschäftigen wir uns jetzt im nächsten Abschnitt mit fortgeschrittenen Themen -
 alleine schon damit sich der angestrebte Vergleich mit [Kubernetes][29] auch sehen lassen kann.
 
-### Scaling out
+## Scaling out
 
 Für einfache Anwendungsfälle reicht diese einzelne Instanz vollkommen aus, allerdings stoßen wir
 damit im Berufsalltag natürlich schnell an eine Grenze.
@@ -343,7 +342,7 @@ der Adressen.
 Da es sich hierbei aber auch wieder um ein für uns bereits gelöstes Problem handelt, können wir auf eine
 bewährte Lösung zurückgreifen.
 
-### Service Discovery
+## Service Discovery
 
 Bei [Service Discovery][48] handelt es sich im Grunde um einen Katalog, bei dem sich Anwendungen mit
 ihren bereitgestellten Diensten registrieren und bei dem andere Anwendungen dann Informationen über
@@ -456,7 +455,7 @@ Zeit neue Einträge in [Consul][8]:
 
 Das ist auch geschafft - fehlt noch Traffic auf unseren Instanzen.
 
-### Load-balancing
+## Load-balancing
 
 Für den nächsten Teil greifen wir abermals auf ein weiteres Tool zurück, da wir hier den
 Aufgabenbereich von [Nomad][35] verlassen.
@@ -626,7 +625,7 @@ umgehen und anhand der konfigurierten Strategie verteilen soll.
 
 > **_NOTE:_** Weitere Konfigurationsmöglichkeiten findet ihr im entsprechenden [Quickstart Guide][42].
 
-### Update Strategien
+## Update Strategien
 
 Unsere Anwendung läuft jetzt erfolgreich auf einem einzelnen Client und wir haben sowohl die
 Ausfallwahrscheinlichkeit reduziert als auch Lastverteilung eingeführt, indem wir unsere fünf
@@ -743,8 +742,8 @@ $ nomad job run jobs/todo-java-scaled-service-header-canary.nomad
     web         false     5        1         1       1        0          2022-07-20T17:22:06+02:00
 ```
 
-Der spannende Teil hier ist, dass [Nomad] das Deployment unterbricht und wir die nötige Zeit bekommen, um zu 
-prüfen, ob unsere neue Version ordnungsgemäß funktioniert:
+Der spannende Teil hier ist, dass [Nomad][35] das Deployment unterbricht und wir die nötige Zeit
+bekommen, um zu prüfen, ob unsere neue Version ordnungsgemäß funktioniert:
 
 ![image](/assets/images/posts/orchestrierung-mit-nomad/canary.gif)
 
@@ -759,7 +758,7 @@ Mit **Promote Canary** setzen wir das unterbrochene Deployment dann schließlich
 
 ![image](/assets/images/posts/orchestrierung-mit-nomad/promote_canary_success.png)
 
-## Fazit
+# Fazit
 
 [Nomad][35] ist ein einfacher und flexibler [Job][26] Scheduler, der durch die Integration weiterer
 Produkte praxistaugliche Lösungen für gängige Probleme liefert und sich somit in keiner Weise
