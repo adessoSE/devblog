@@ -12,7 +12,7 @@ Orchestrierung ist in aller Munde und aus vielen Bereichen gar nicht mehr wegzud
 neben dem Platzhirschen [Kubernetes][29] eigentlich Alternativen?
 
 Im Zuge dieses Artikels beschäftigen wir uns mit dem Job Scheduler [Nomad][35] aus dem Hause
-[HashiCorp][15] und sehen uns anhand von einfachen Beispielen an welche Möglichkeiten hier geboten
+[HashiCorp][15] und sehen uns anhand von einfachen Beispielen an, welche Möglichkeiten hier geboten
 werden.
 Anschließend beschäftigen wir uns mit Deployments und fortgeschritteneren Themen wie Service
 Discovery und Canary Deployments.
@@ -24,11 +24,11 @@ Discovery und Canary Deployments.
 
 Dies wird über [Task Driver][54] realisiert, die sowohl von der Community beigesteuert werden aber
 auch direkt von Hause aus mit dabei sind.
-Darunter befinden sich die neben üblichen Verdächtigen wie [Docker][11] und [Podman][39], aber auch
-beispielsweise ein [Task Driver][54] speziell für [Java][21] Anwendungen sowie [Raw/Exec][43] für alle
+Darunter befinden sich neben üblichen Verdächtigen wie [Docker][11] und [Podman][39] auch
+beispielsweise ein [Task Driver][54] speziell für [Java-Anwendungen][21] sowie [Raw/Exec][43] für alle
 sonstigen ausführbare Anwendungen.
 
-Bevor wir jetzt in ein Beispiel einsteigen sollten wir kurz über die Konfiguration sprechen.
+Bevor wir jetzt in ein Beispiel einsteigen, sollten wir kurz über die Konfiguration sprechen.
 
 ## Konfiguration ohne YAML
 
@@ -36,7 +36,7 @@ Im Gegensatz zum rein deklarativen Ansatz von [Kubernetes][29], bei dem [YAML][5
 gewünschten Zielzustand beschreiben, verwendet [Nomad][35] die hauseigene Konfigurationssprache
 [HCL][16].
 Ursprünglich für den Einsatz bei [Terraform][56] erdacht bringt sie Logikfunktionen und Operatoren
-mit, über die auch komplexe Szenarien abgebildet werden können und ein Einsatz von weiteren
+mit, über die auch komplexe Szenarien abgebildet werden können, sodass ein Einsatz von weiteren
 Hilfsmitteln wie [kustomize][30] nicht erforderlich ist.
 
 Natürlich steht mit [Nomad Pack][34] ein vergleichbares Pendant zu [Helm][18] zur Verfügung, sodass
@@ -72,8 +72,8 @@ an den Server geschickt werden - dazu aber später mehr.
 Grundsätzlich läuft die Einreichung eines [Jobs][25] wie folgt ab:
 Nach erfolgter Übermittlung findet zunächst die [Evaluation][13] statt und es werden die notwendigen
 Schritte erfasst und aufbereitet.
-Anschließend started die [Allocation][1], hierbei wird ein Ausführplan erstellt und eine
-[Task Group][55] angelegt und somit auch die Zuweisung eines [Jobs][25] zu einem aktiven Client.
+Anschließend startet die [Allocation][1], hierbei wird ein Ausführplan erstellt und eine
+[Task Group][55] angelegt und somit auch die Zuweisung eines [Jobs][25] zu einem aktiven Client erstellt.
 
 > **_NOTE:_** Diese Schritte sollte man zumindest einmal gehört haben, denn sie begegnen einem
 durchaus als Status im täglichen Umgang mit [Nomad][35].
@@ -84,9 +84,9 @@ durchaus als Status im täglichen Umgang mit [Nomad][35].
 genannt) und lassen sich am einfachsten an konkreten Beispielen erklären.
 
 Als groben Rahmen für die nächsten Abschnitte nutzen wir eine [Quarkus][41]-basierte Backendanwendung,
-mit der über eine einfache [REST][45] API Todo Einträge erstellt und verwaltet werden können.
+mit der über eine einfache [REST][45] API Todo-Einträge erstellt und verwaltet werden können.
 
-> **_NOTE:_** Die passende [OpenAPI][38] Spezifikation zum Beispiel findet ihr [hier][19].
+> **_NOTE:_** Die passende [OpenAPI][38]-Spezifikation zum Beispiel findet ihr [hier][19].
 
 Hier jetzt aber unser erstes [Job File][24]:
 
@@ -122,13 +122,13 @@ job "todo" {
 **<2>** Gruppen können aus verschiedenen Tasks bestehen und werden stets auf demselben Client ausgeführt.<br />
 **<3>** Hier starten wir maximal eine Instanz dieser Gruppe.<br />
 **<4>** Ein Task stellt die kleinste Einheit in [Nomad][35] dar - vergleichbar mit einem [Pod][40].<br />
-**<5>** Der [Java][21] [Task Driver][54] startet ein Jar in einer [JVM][28] Instant.<br />
-**<6>** Die meisten [Task Driver][54] können entsprechend konfiguriert werden - hier setzen wir [JVM][28] Optionen.<br />
+**<5>** Der [Java][21] [Task Driver][54] startet ein Jar in einer [JVM][28]-Instanz.<br />
+**<6>** Die meisten [Task Driver][54] können konfiguriert werden - hier setzen wir [JVM][28]-Optionen.<br />
 **<7>** [Resource Limits][44] können ebenfalls gesetzt werden.<br />
 **<8>** Und abschließend setzen wir noch den Netzwerkport - diesen brauchen wir später.<br />
 
-> **_NOTE:_** Für die nächsten Schritte benötigst du eine laufende [Nomad][35] Instanz - solltest du
-hierbei noch Probleme haben wirf am besten einen Blick in die [offizielle Anleitung][36].
+> **_NOTE:_** Für die nächsten Schritte benötigst du eine laufende [Nomad][35]-Instanz - solltest du
+hierbei noch Probleme haben, wirf am besten einen Blick in die [offizielle Anleitung][36].
 
 ### Wie reiche ich einen Job ein?
 
@@ -136,7 +136,7 @@ Für die meisten Aktionen bei [Nomad][35] stehen folgende drei Wege zur Verfügu
 
 #### Via Browser
 
-Die einfachste Möglichkeit ist über den Browser und das mitgelieferte Webinterfaces, welches
+Die einfachste Möglichkeit, eine Aktion durchzuführen, ist über den Browser und das mitgelieferte Webinterfaces, welches
 direkt nach dem Start von [Nomad][35] unter folgender Adresse erreichbar ist: <http://locahost:4646>
 
 ![image](/assets/images/posts/orchestrierung-mit-nomad/web.png)
@@ -188,7 +188,7 @@ $ nomad job run jobs/todo-java.nomad
     web         1        1       1        0          2022-07-18T17:58:46+02:00
 ```
 
-> **_NOTE:_** Die verwendeten [Nomad][35] Beispiel könnt ihr auch direkt hier finden:
+> **_NOTE:_** Die verwendeten [Nomad][35]-Beispiel könnt ihr auch direkt hier finden:
 <https://github.com/unexist/showcase-nomad-quarkus/tree/master/deployment/jobs>
 
 #### Über die API
@@ -201,7 +201,7 @@ $ curl --request POST --data @jobs/todo-java.json http://localhost:4646/v1/jobs
 {"EvalCreateIndex":228,"EvalID":"bd809b77-e2c6-c336-c5ca-0d1c15ff6cce","Index":228,"JobModifyIndex":228,"KnownLeader":false,"LastContact":0,"NextToken":"","Warnings":""}
 ```
 
-> **_NOTE:_** Und die entsprechende [JSON][27] Variante findet ihr schließlich hier:
+> **_NOTE:_** Und die entsprechende [JSON][27]-Variante findet ihr schließlich hier:
 <https://github.com/unexist/showcase-nomad-quarkus/blob/master/deployment/jobs/todo-java.json>
 
 Alle genannten Wege übermitteln unseren [Job][26] an [Nomad][35] und starten dann eine einzelne Instanz
@@ -209,7 +209,7 @@ auf einem Client des [Datacenters][10] `dc1`.
 
 ### Status eines Jobs überprüfen
 
-Auskunft über den Status bekommen wir direkt über das Webinterface, aber natürlich können wir in
+Auskunft über den Status eines Jobs bekommen wir direkt über das Webinterface, aber natürlich können wir in
 auch in gewohnter Weise den Status unseres [Jobs][25] über die [Commandline][7] erfragen:
 
 ```bash
@@ -276,7 +276,7 @@ alleine schon damit sich der angestrebte Vergleich mit [Kubernetes][29] auch seh
 Für einfache Anwendungsfälle reicht diese einzelne Instanz vollkommen aus, allerdings stoßen wir
 damit im Berufsalltag natürlich schnell an eine Grenze.
 
-Bisher haben wir über den Parameter `count = 1` eine maximal Anzahl von einer Instanz vorgegeben
+Bisher haben wir über den Parameter `count = 1` eine Maximalanzahl von einer Instanz vorgegeben
 und vermutlich wird es niemanden überraschen, aber natürlich können hier beliebige Werte eingesetzt
 werden - beispielsweise `5`:
 
@@ -286,7 +286,7 @@ group "web" {
 }
 ```
 
-Da es grundsätzlich nicht schadet bei allen Änderungen einen **Dry-Run** durchzuführen und man mit
+Da es grundsätzlich nicht schadet, bei allen Änderungen einen **Dry-Run** durchzuführen, und man mit
 guten Gewohnheiten nicht früh genug loslegen kann - machen wir das auch direkt:
 
 ![image](/assets/images/posts/orchestrierung-mit-nomad/plan_failure.png)
@@ -294,7 +294,7 @@ guten Gewohnheiten nicht früh genug loslegen kann - machen wir das auch direkt:
 Dieser Fehler kommt jetzt gänzlich unerwartet, denn schließlich haben wir in unserem [Job][26]
 lediglich **einen** einzelnen statischen Port festgelegt und streben hier ein Deployment von
 **fünf** Instanzen auf einem einzelnen Client an.
-Dies kann natürlich nicht funktionieren [Nomad][35] weist uns hier folgerichtig auf dieses Problem
+Dies kann natürlich nicht funktionieren, [Nomad][35] weist uns hier folgerichtig auf dieses Problem
 hin.
 
 Abhilfe schafft hier [Dynamic Port Mapping][12], welches für uns dynamische Ports anlegt und unseren
@@ -310,9 +310,9 @@ Auf unserer Seite sind dazu lediglich zwei kleinere Anpassungen notwendig:
     }
     ```
 
-2. Und anschließend teilen wir unserer [Quarkus][41] Anwendung noch mit unter welchem Port sie jetzt
+2. Und anschließend teilen wir unserer [Quarkus][41]-Anwendung noch mit, unter welchem Port sie jetzt
 genau erreichbar ist.
-Eine der einfachsten Möglichkeiten ist hier über [Umgebungsvariablen][57]:
+Eine der einfachsten Möglichkeiten ist hier, über [Umgebungsvariablen][57] zu arbeiten:
 
     ```hcl
     config {
@@ -325,28 +325,28 @@ Eine der einfachsten Möglichkeiten ist hier über [Umgebungsvariablen][57]:
     ```
     **<1>** Hier verwenden wir eine [Magic Variable][33] von [Nomad][35], die den passenden dynamischen Port enthält.
 
-Lassen wir nach diesen beiden Änderungen erneut einen **Dry-Run** laufen sehen wir folgendes:
+Lassen wir nach diesen beiden Änderungen erneut einen **Dry-Run** laufen, sehen wir folgendes:
 
 ![image](/assets/images/posts/orchestrierung-mit-nomad/plan_update_scale.png)
 
-Und wenn wir das Deployment schließlich über **Run** ausführen sehen wir nach ein paar Sekunden
+Und wenn wir das Deployment schließlich über **Run** ausführen, sehen wir nach ein paar Sekunden
 unsere **fünf** Instanzen:
 
 ![image](/assets/images/posts/orchestrierung-mit-nomad/update_success.png)
 
 Sinnvollerweise sollten wir jetzt als nächstes irgendeine Art von [Load Balancer][32] vor unsere
-fünf Instanzen schalten, damit diese erreicht und natürlich die Last gleichmäßig verteilt werden
+fünf Instanzen schalten, damit diese erreicht werden können und natürlich die Last gleichmäßig verteilt werden
 kann.
 
 Dies bedeutet in den meisten Fällen manuelle Arbeit beim Einrichten der Ports und ein Zusammentragen
 der Adressen.
-Da es sich hierbei aber auch wieder um ein für uns bereits gelöstes Problem und wir können auf eine
+Da es sich hierbei aber auch wieder um ein für uns bereits gelöstes Problem handelt, können wir auf eine
 bewährte Lösung zurückgreifen.
 
 ### Service Discovery
 
 Bei [Service Discovery][48] handelt es sich im Grunde um einen Katalog, bei dem sich Anwendungen mit
-ihren bereitgestellten Diensten registrieren und andere Anwendungen dann Informationen über
+ihren bereitgestellten Diensten registrieren und bei dem andere Anwendungen dann Informationen über
 bekannte Dienste einholen können.
 
 Hierfür stehen wieder zahlreiche Alternativen zur Verfügung, eine der bekannteren mit hervorragender
@@ -406,13 +406,13 @@ $ nomad job run jobs/consul.nomad
     consul      1        1       1        0          2022-07-20T12:25:34+02:00
 ```
 
-Nach ein paar Sekunden sollte [Consul][8] dann gestartet über folgende URL im Browser aufrufbar sein
+Nach ein paar Sekunden sollte [Consul][8] dann gestartet und über folgende URL im Browser aufrufbar sein
 <http://localhost:8500>:
 
 ![image](/assets/images/posts/orchestrierung-mit-nomad/consul_services_nomad.png)
 
-Alle bekannten Services werden dann auf dem **Services** Reiter aufgeführt - dazu zählen [Consul][8]
-selbst und [Nomad][35] - allerdings leider Fehlanzeige was unseren Instanzen betrifft.
+Alle bekannten Services werden dann auf dem **Services**-Reiter aufgeführt - dazu zählen [Consul][8]
+selbst und [Nomad][35] - allerdings leider Fehlanzeige was unsere Instanzen betrifft.
 
 Zum jetzigen Zeitpunkt sind die Services unserer Instanzen für [Nomad][35] noch unbekannt und es
 müssen weitere Informationen nachgeliefert werden.
@@ -436,18 +436,18 @@ service {
   }
 }
 ```
-**<1>** [Nomad][35] erlaubt es [Tag][53]s zu vergeben, die sich in etwa so verhalten wie [Label][31] bei [Kubernetes][29].
-Was es mit diesem konkreten [Tag][53] auf sich hat erfahrt ihr im nächsten Kapitel.<br />
-**<2>** Über das [Check][5] Stanza legen wir fest wie [Healthchecks][17] durchführt werden.
+**<1>** [Nomad][35] erlaubt es, [Tags][53]s zu vergeben, die sich in etwa so verhalten wie [Label][31] bei [Kubernetes][29].
+Was es mit diesem konkreten [Tag][53] auf sich hat, erfahrt ihr im nächsten Kapitel.<br />
+**<2>** Über das [Check][5] Stanza legen wir fest, wie [Healthchecks][17] durchführt werden.
 
-Schnell noch ein erneuter **Dry-Run**, um weitere Überraschungen auszuschließen:
+Danach führen wir schnell noch einen neuen **Dry-Run** aus, um weitere Überraschungen auszuschließen:
 
 ![image](/assets/images/posts/orchestrierung-mit-nomad/plan_update_service.png)
 
-Hier werden dann noch einmal alle Parameter aufgeführt und man bekommt eine Idee was für weitere
-Konfigurationsmöglichkeiten obige Stanza noch mitbringen.
+Hier werden dann noch einmal alle Parameter aufgeführt und man bekommt eine Idee, was für weitere
+Konfigurationsmöglichkeiten obige Stanza noch mitbringt.
 
-Haben wir alles überprüft können wir den [Job][26] ausführen und sehen dann hoffentlich nach kurzer
+Haben wir alles überprüft, können wir den [Job][26] ausführen und sehen dann hoffentlich nach kurzer
 Zeit neue Einträge in [Consul][8]:
 
 ![image](/assets/images/posts/orchestrierung-mit-nomad/consul_services_todo.png)
@@ -527,7 +527,7 @@ $ nomad job run jobs/fabio.nomad
 
 ![image](/assets/images/posts/orchestrierung-mit-nomad/consul_services_fabio.png)
 
-Sprechen wir jetzt [Fabio][14] über den Defaultport `9999` an bekommen wir erneut die altbekannte
+Sprechen wir jetzt [Fabio][14] über den Defaultport `9999` an, bekommen wir erneut die altbekannte
 Ausgabe:
 
 ```bash
@@ -546,10 +546,10 @@ $ curl -v -H "Accept: application/json" http://localhost:9999/todo
 * Closing connection 0
 ```
 
-Wenn wir das ganze jetzt wiederholen sollte [Fabio][14] theoretisch die Last gleichmäßig auf unsere
-Instanzen, allerdings würden wir davon derzeit nichts mitbekommen.
+Wenn wir das ganze jetzt wiederholen, sollte [Fabio][14] theoretisch die Last gleichmäßig auf unsere
+Instanzen verteilen, allerdings würden wir davon derzeit nichts mitbekommen.
 
-Ein einfacher Trick hier ist einen neuen [HTTP Header][20] zu setzen, der die entsprechende
+Ein einfacher Trick hier ist, einen neuen [HTTP Header][20] zu setzen, der die entsprechende
 IP-Adresse und den Port der Instanz enthält:
 
 ```hcl
@@ -567,7 +567,7 @@ config {
 **<1>** Wir verwenden hier eine weitere [Magic Variable][33] und befüllen damit unseren neuen
 [HTTP Header][20].
 
-Vermutlich könnt ihr euch die nächsten Schritte denken, daher das ganze in Schnelldurchlauf:
+Vermutlich könnt ihr euch die nächsten Schritte denken, daher das ganze im Schnelldurchlauf:
 
 ```bash
 $ nomad job plan jobs/todo-java-scaled-service-header.nomad
@@ -610,14 +610,14 @@ Scheduler dry-run:
 - All tasks successfully allocated.
 ```
 
-Testen wir das ganze nach erfolgreichem Deployment und sehen wir wunderbar wie die verschiedenen
+Testen wir das ganze nach erfolgreichem Deployment, sehen wir, wie die verschiedenen
 Instanzen der Reihe nach angesprochen werden:
 
 ![image](/assets/images/posts/orchestrierung-mit-nomad/loadbalancer.gif)
 
-Falls ihr euch jetzt fragt weshalb das ganze überhaupt ohne weitere Konfiguration funktioniert:
+Falls ihr euch jetzt fragt weshalb, das ganze überhaupt ohne weitere Konfiguration funktioniert:
 
-Einer der großen Vorteile von [Fabio][14] ist Routen können über [Service Tags][49] festgelegt werden.
+Einer der großen Vorteile von [Fabio][14] ist, Routen können über [Service Tags][49] festgelegt werden.
 Und schaut ihr jetzt genau hin, haben wir dies in unseren Beispielen auch schon gemacht:
 `urlprefix-/todo`
 
@@ -628,21 +628,21 @@ umgehen und anhand der konfigurierten Strategie verteilen soll.
 
 ### Update Strategien
 
-Unsere Anwendung läuft jetzt erfolgreich auf einem einzelnen Client und wir haben sowohl
-Ausfallwahrscheinlichkeit reduziert als auch Lastverteilung eingeführt, in dem wir unsere fünf
-Instanzen in einen gemeinsamem [Load Balancer][32] Verbund zusammengefasst haben.
+Unsere Anwendung läuft jetzt erfolgreich auf einem einzelnen Client und wir haben sowohl die
+Ausfallwahrscheinlichkeit reduziert als auch Lastverteilung eingeführt, indem wir unsere fünf
+Instanzen in einem gemeinsamen [Load-Balancer][32]-Verbund zusammengefasst haben.
 
-Soweit so gut - aber wie können wir hier jetzt am geschicktesten Updates durchführen?
+Soweit, so gut - aber wie können wir hier jetzt am geschicktesten Updates durchführen?
 
-Grundsätzlich stehen dafür verschiedene Ansätze zur Verfügung und der einfachste ist natürlich alle
+Grundsätzlich stehen dafür verschiedene Ansätze zur Verfügung und der einfachste ist natürlich, alle Instanzen
 in einem Rutsch zu aktualisieren.
 
 > **_NOTE:_** Hier spricht man auch von [Batch Size][3] und diese wäre in unserem Beispiel `5`.
 
-Wählen wir diesen Ansatz negieren wir vermutlich einige der vorhin angesprochenen Vorteile und
-enden im Fehlerfall möglicherweise mit einer zu geringen Anzahl für unseren Workload.
-Ein besserer Ansatz hier ist eine möglichst kleine [Batch Size][3] zu wählen und die Instanzen
-rollierend - sprich nach und nach - zu aktualisieren.
+Wählen wir diesen Ansatz, negieren wir vermutlich einige der vorhin angesprochenen Vorteile und
+enden im Fehlerfall möglicherweise mit einer zu geringen Anzahl an Instanzen für unseren Workload.
+Ein besserer Ansatz hier ist, eine möglichst kleine [Batch Size][3] zu wählen und die Instanzen
+rollend - sprich nach und nach - zu aktualisieren.
 
 Standardmäßig führt [Nomad][35] ein [Rolling Update][46] durch, allerdings lassen sich viele weitere
 Strategien über das [Update][58] Stanza realisieren.
@@ -657,13 +657,13 @@ update {
 **<1>** Dies legt die Anzahl der Instanzen fest, die in einem [Canary Update][4] aktualisiert werden.<br />
 **<2>** Und hiermit wird die [Batch Size][3] des Updates festgelegt.
 
-Bevor wir jetzt als einfaches Beispiel ein [Canary Update][4] durchführen sollten wir noch einmal
-kurz in uns gehen und überlegen wie wir sicherstellen können, dass ein Update den gewünschten
+Bevor wir jetzt als einfaches Beispiel ein [Canary Update][4] durchführen, sollten wir noch einmal
+kurz in uns gehen und überlegen, wie wir sicherstellen können, dass ein Update den gewünschten
 Erfolg gebracht hat.
 
-Ein [Canary Update][4] mit `canary = 1` bedeutet unser Orchestrator startet eine neue Instanz und
-wartet anschließend auf die Bestätigung fortzufahren.
-Unsere Aufgabe hier ist also zu prüfen, ob diese neue Instanz ordnungsgemäß funktioniert, laufen
+Ein [Canary Update][4] mit `canary = 1` bedeutet, unser Orchestrator startet eine neue Instanz und
+wartet anschließend auf die Bestätigung, fortzufahren.
+Bei unserer Aufgabe zu prüfen, ob diese neue Instanz ordnungsgemäß funktioniert, laufen
 aber natürlich wieder in die altbekannte Problematik.
 
 Vorhin hat der Trick mit dem [HTTP Header][20] hervorragend geklappt - nutzen wir die Idee also
@@ -686,7 +686,7 @@ config {
 ```
 **<1>** Unser neuer [HTTP Header][20] für das Update.
 
-Erneuter **Dry-Run** gefolgt von einem Deployment:
+Wir führen erneut einen **Dry-Run** gefolgt von einem Deployment aus:
 
 ```bash
 $ nomad job plan jobs/todo-java-scaled-service-header-canary.nomad
@@ -743,12 +743,12 @@ $ nomad job run jobs/todo-java-scaled-service-header-canary.nomad
     web         false     5        1         1       1        0          2022-07-20T17:22:06+02:00
 ```
 
-Der spannende Teil hier ist [Nomad] unterbricht das Deployment und wir bekommen die nötige Zeit zu
+Der spannende Teil hier ist, dass [Nomad] das Deployment unterbricht und wir die nötige Zeit bekommen, um zu 
 prüfen, ob unsere neue Version ordnungsgemäß funktioniert:
 
 ![image](/assets/images/posts/orchestrierung-mit-nomad/canary.gif)
 
-Haben wir uns davon ausreichend überzeugt, können wir [Nomad][35] anweisen das Deployment fortzusetzen
+Haben wir uns davon ausreichend überzeugt, können wir [Nomad][35] anweisen, das Deployment fortzusetzen
 und auch die verbleibenden Instanzen auszurollen.
 Hierfür stehen uns wie bisher verschiedene Wege zur Verfügung, allerdings ist dies im Webinterface
 sehr anschaulich:
@@ -765,7 +765,7 @@ Mit **Promote Canary** setzen wir das unterbrochene Deployment dann schließlich
 Produkte praxistaugliche Lösungen für gängige Probleme liefert und sich somit in keiner Weise
 hinter dem großen Bruder [Kubernetes][29] verstecken muss.
 
-Sämtliche Beispiele dieses Beitrags können im folgenden Repository eingesehen werden:
+Sämtliche Beispiele dieses Beitrags könnt ihr in folgendem Repository einsehen:
 
 <https://github.com/unexist/showcase-nomad-quarkus>
 
