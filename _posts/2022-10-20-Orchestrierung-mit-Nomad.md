@@ -634,15 +634,15 @@ Instanzen in einem gemeinsamen [Load-Balancer][32]-Verbund zusammengefasst haben
 
 Soweit, so gut - aber wie können wir hier jetzt am geschicktesten Updates durchführen?
 
-Grundsätzlich stehen dafür verschiedene Ansätze zur Verfügung und der einfachste ist natürlich, alle Instanzen
-in einem Rutsch zu aktualisieren.
+Grundsätzlich stehen dafür verschiedene Ansätze zur Verfügung und der einfachste ist natürlich,
+alle Instanzen in einem Rutsch zu aktualisieren.
 
 > **_NOTE:_** Hier spricht man auch von [Batch-Size][3] und diese wäre in unserem Beispiel `5`.
 
 Wählen wir diesen Ansatz, negieren wir vermutlich einige der vorhin angesprochenen Vorteile und
 enden im Fehlerfall möglicherweise mit einer zu geringen Anzahl an Instanzen für unseren Workload.
 Ein besserer Ansatz hier ist, eine möglichst kleine Batch-Size zu wählen und die Instanzen
-rollend - sprich nach und nach - zu aktualisieren.
+rollierend - sprich nach und nach - zu aktualisieren.
 
 Standardmäßig führt Nomad ein [Rolling Update][46] durch, allerdings lassen sich viele weitere
 Strategien über das [Update][58] Stanza realisieren.
