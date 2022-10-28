@@ -193,8 +193,8 @@ $ nomad job run jobs/todo-java.nomad
 
 ### Über die API
 
-Und analog zu [Kubernetes][29] können wir auch direkt die [Job API][22] ansprechen - beispielsweise
-mittels [curl][9]:
+Und analog zu [Kubernetes][29] können wir Nomad auch direkt über die [Job API][22] ansprechen -
+beispielsweise mittels [curl][9]:
 
 ```bash
 $ curl --request POST --data @jobs/todo-java.json http://localhost:4646/v1/jobs
