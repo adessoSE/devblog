@@ -436,3 +436,9 @@ nirumand:
   last_name: Nirumand
   bio: "Reza Nirumand is a Senior Software Engineer at adesso located in Dortmund. He is involved in various projects in the Banking industry and he is responsible for the designing and delivering of cloud-native applications."
   avatar_url: /assets/images/avatars/nirumand.jpg
+
+thorst:
+  first_name: Tony
+  last_name: Horst
+  bio: "Stefan Czubek arbeitet als Senior Software Engineer bei adesso in München. Dort ist er hauptsächlich im MuleSoft Umfeld tätig, unterstützt aber auch diverse interne Java Projekte"
+  avatar_url: /assets/images/avatars/Tony-Horst-1.jpeg
