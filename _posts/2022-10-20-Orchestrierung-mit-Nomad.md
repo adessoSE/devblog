@@ -9,9 +9,9 @@ tags:			[Orchestrierung, Kubernetes, Nomad, Consul, Fabio]	        # Bitte auf G
 ---
 
 Orchestrierung ist in aller Munde und aus vielen Bereichen gar nicht mehr wegzudenken - doch gibt es
-neben dem Platzhirschen [Kubernetes][29] eigentlich Alternativen?
+neben dem Platzhirschen Kubernetes eigentlich Alternativen?
 Im Zuge dieses Artikels beschäftigen wir uns mit dem Job Scheduler Nomad aus dem Hause
-[HashiCorp][15] und sehen uns anhand von einfachen Beispielen an, welche Möglichkeiten hier geboten
+HashiCorp und sehen uns anhand von einfachen Beispielen an, welche Möglichkeiten hier geboten
 werden.
 Anschließend beschäftigen wir uns mit Deployments und fortgeschritteneren Themen wie Service
 Discovery und Canary Deployments.
@@ -19,19 +19,19 @@ Discovery und Canary Deployments.
 # Was genau ist Nomad?
 
 Bei [Nomad][35] handelt es sich um einen kleinen Job Scheduler und Orchestrator, der im Gegensatz zu
-Kubernetes nicht nur Container, sondern über Plugins im Grunde alles mögliche verwalten kann.
+[Kubernetes][29] nicht nur Container, sondern über Plugins im Grunde alles mögliche verwalten kann.
 
-Dies wird über Task-Driver realisiert, die sowohl von der Community beigesteuert werden aber
+Dies wird über Task Driver realisiert, die sowohl von der Community beigesteuert werden aber
 auch direkt von Hause aus mit dabei sind.
 Darunter befinden sich neben üblichen Verdächtigen wie [Docker][11] und [Podman][39] auch
-beispielsweise ein [Task-Driver][54] speziell für [Java-Anwendungen][21] sowie [Raw/Exec][43] für
+beispielsweise ein [Task Driver][54] speziell für [Java-Anwendungen][21] sowie [Raw/Exec][43] für
 alle sonstigen ausführbare Anwendungen.
 
 Bevor wir jetzt in ein Beispiel einsteigen, sollten wir kurz über die Konfiguration sprechen.
 
 # Konfiguration ohne YAML
 
-Im Gegensatz zum rein deklarativen Ansatz von [Kubernetes][29], bei dem [YAML][59] Dateien den
+Im Gegensatz zum rein deklarativen Ansatz von Kubernetes, bei dem [YAML][59] Dateien den
 gewünschten Zielzustand beschreiben, verwendet Nomad die hauseigene Konfigurationssprache
 [HCL][16].
 Ursprünglich für den Einsatz bei [Terraform][56] erdacht bringt sie Logikfunktionen und Operatoren
@@ -122,8 +122,8 @@ job "todo" {
 **<2>** Gruppen können aus verschiedenen Tasks bestehen und werden stets auf demselben Client ausgeführt.<br />
 **<3>** Hier starten wir maximal eine Instanz dieser Gruppe.<br />
 **<4>** Ein Task stellt die kleinste Einheit in Nomad dar - vergleichbar mit einem [Pod][40].<br />
-**<5>** Der [Java][21] Task-Driver startet ein Jar in einer [JVM][28]-Instanz.<br />
-**<6>** Die meisten Task-Driver können konfiguriert werden - hier setzen wir JVM-Optionen.<br />
+**<5>** Der [Java][21] Task Driver startet ein Jar in einer [JVM][28]-Instanz.<br />
+**<6>** Die meisten Task Driver können konfiguriert werden - hier setzen wir JVM-Optionen.<br />
 **<7>** [Resource Limits][44] können ebenfalls gesetzt werden.<br />
 **<8>** Und abschließend setzen wir noch den Netzwerkport - diesen brauchen wir später.<br />
 
@@ -436,8 +436,8 @@ service {
   }
 }
 ```
-**<1>** Nomad erlaubt es, [Tags][53]s zu vergeben, die sich in etwa so verhalten wie [Label][31] bei [Kubernetes][29].
-Was es mit diesem konkreten Tag auf sich hat, erfahrt ihr im nächsten Kapitel.<br />
+**<1>** Nomad erlaubt es, [Tags][53]s zu vergeben, die sich in etwa so verhalten wie [Label][31] bei
+Kubernetes. Was es mit diesem konkreten Tag auf sich hat, erfahrt ihr im nächsten Kapitel.<br />
 **<2>** Über das [Check][5] Stanza legen wir fest, wie [Healthchecks][17] durchführt werden.
 
 Danach führen wir schnell noch einen neuen **Dry-Run** aus, um weitere Überraschungen auszuschließen:
