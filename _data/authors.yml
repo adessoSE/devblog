@@ -430,3 +430,9 @@ nirumand:
   last_name: Nirumand
   bio: "Reza Nirumand is a Senior Software Engineer at adesso located in Dortmund. He is involved in various projects in the Banking industry and he is responsible for the designing and delivering of cloud-native applications."
   avatar_url: /assets/images/avatars/nirumand.jpg
+
+utschenik:
+  first_name: Paul
+  last_name: Schüler
+  bio: "Paul Schüler ist Software Engineer im Bereich Utilities. Paul beschäftigt sich gerne mit neuen Technologien und Software Architektur"
+  avata_url: /assets/images/avatars/paulschueler.jpg
