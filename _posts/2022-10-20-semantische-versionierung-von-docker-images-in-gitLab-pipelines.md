@@ -8,8 +8,8 @@ tags: [CI/CD, Docker, Git] # Bitte auf Großschreibung achten.
 ---
 Software Versionierung ist ein praktisches Mittel um den aktuellen Entwicklungsstand festzuhalten.
 Jedoch werden Software Versionen oft nur inkrementiert und bringen dadurch keinen Mehrwert.
-Weil Versionierung in Regeln wiedergegeben werden kann, sollten dieser Prozess automatisiert werden.
-Semantische Versionierung gibt Software Versionierung eine Struktur, die Kunden und Entwickler wichtige Informationen liefern kann.
+Weil Versionierung in Regeln wiedergegeben werden kann, sollte dieser Prozess automatisiert werden.
+Semantische Versionierung gibt Software Versionierung eine Struktur, die Kunden und Entwicklern wichtige Informationen liefern kann.
 
 Um diesen Blog-Post verfolgen zukönnen, sollten Grundkenntnise in [GitLab CI/CD](https://docs.gitlab.com/ee/ci/) und [Docker](https://docs.docker.com) vorhanden sein.
 
