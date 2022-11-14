@@ -22,6 +22,12 @@ thombergs:
   bio: "Tom Hombergs ist Softwarearchitekt und Teamleiter bei adesso in Dortmund und entwickelt Softwarearchitekturen für unsere Kunden."
   avatar_url: /assets/images/avatars/thombergs.jpg
 
+thasslin:
+  first_name: Timo
+  last_name: Haßlinger
+  bio: "Timo Haßlinger ist Software Developer bei adesso mit Fokus auf Java-Entwicklung. Nebenbei beschäftigt er sich außerdem im Rahmen seines berufsbegleitenden Master Studiums mit Themen aus dem Bereich der Data Science."
+  avatar_url: /assets/images/avatars/thasslin.png
+
 silasmahler:
   first_name: Silas
   last_name: Mahler
