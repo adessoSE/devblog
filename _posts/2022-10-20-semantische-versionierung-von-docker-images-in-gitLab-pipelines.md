@@ -121,10 +121,13 @@ build-tag:
 
 Im Job installieren wir das NPM-Package [Semantic-Release](https://github.com/semantic-release/semantic-release) und installieren GIT im Node.js Docker-Image.
 Semantic-Release nimmt uns die Arbeit ab und kümmert sich um das bestimmen der nächsten Versionsnummer.
+
 Der Vorteil ist das Semantic-Release menschliche Emotionen aus dem Versionierungs-Prozess nimmt und klaren Regeln folgt, den Regeln der semantischen Versionierung.
 Jedoch auf welche Commit-Messages Types das Package reagieren soll, um eine neue Version zu definieren, können wir selbst bestimmen.
+
 Um Regeln festzulegen, auf welche Types Semantic-Release reagieren soll, muss im aktuellen Pfad der Ausführung eine '.releaserc.json'-Datei exisieren.
 Hier einmal die [Konfigurations-Referenz zu Semantic-Release](https://github.com/semantic-release/semantic-release/blob/master/docs/usage/configuration.md#configuration).
+
 Meine Konfiguration ist in einer Environment-Variable gespeichert '$RELEASE_RC'.
 Diese Variable ist in den CI/CD-Einstellungen des Repositories gespeichert.
 
