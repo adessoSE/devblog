@@ -79,7 +79,7 @@ Es können viele Jobs in einer Stage existieren, ein Job beschreibt was zu tun i
 Jobs einer Stage müssen erfolgreich sein, dass heißt mit dem Exit Code 0 abschließen, so dass die Pipeline zur nächsten Stage wechseln kann oder erfolgreich enden kann.
 Stages und Jobs werden in einer YAML-Datei definiert, mit dem Namen '.gitlab-ci.yaml'.
 
-![](/assets/images/posts/semantische-versionierung-von-docker-images-in-gitlab-pipelines/pipeline-visualization.gif)
+![Animierte Pipeline für GitLab](/assets/images/posts/semantische-versionierung-von-docker-images-in-gitlab-pipelines/pipeline-visualization.gif)
 
 ## Versioning-Stage
 
@@ -131,14 +131,18 @@ Hier einmal die [Konfigurations-Referenz zu Semantic-Release](https://github.com
 Meine Konfiguration ist in einer Environment-Variable gespeichert '$RELEASE_RC'.
 Diese Variable ist in den CI/CD-Einstellungen des Repositories gespeichert.
 
-![](/assets/images/posts/semantische-versionierung-von-docker-images-in-gitlab-pipelines/CI-CD-Settings.png)
+![CI/CD Settings aus GitLab](/assets/images/posts/semantische-versionierung-von-docker-images-in-gitlab-pipelines/CI-CD-Settings.png)
 
 Außerdem braucht ihr noch eine Environment-Variable die "GITLAB_TOKEN" heißt.
 Semantic-Release schaut nach dieser Variable um einen Git-Tag in eurem Repository zu veröffentlichen.
 Ein Git-Tag ist eine Funktion um Punkte in einer Versionshistorie als wichtig zu kennzeichnen.
 
 Semantic-Release analyisert nun den letzten Commit und versucht aus der Commit Message eine neue Version abzuleiten.
-Je gefundenen Types des Commits, wird eine entsprechenende neue Version gebildet und als Git-Tag im Repository veröffentlicht.
+Semantic-Release schaut nun im Repository, ob bereits Git-Tags mit einer semantischen Version existieren, wenn ja nimmt er die letzte Version als Referenz.
+Nun werden die neusten Commits, seit des letzten Git-Tags analysiert und aus den Commit Message Types die nächste Version generiert
+Die neue semantische Version wird dann als Git-Tag im Repository veröffentlicht.
+
+![Workflow von Semantic-Release](/assets/images/posts/semantische-versionierung-von-docker-images-in-gitlab-pipelines/workflow-semantic-release.png)
 
 ## Bauen des Docker images mit neuer Versionsnummer
 
