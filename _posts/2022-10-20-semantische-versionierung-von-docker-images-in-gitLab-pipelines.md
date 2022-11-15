@@ -79,6 +79,8 @@ Es können viele Jobs in einer Stage existieren, ein Job beschreibt was zu tun i
 Jobs einer Stage müssen erfolgreich sein, dass heißt mit dem Exit Code 0 abschließen, so dass die Pipeline zur nächsten Stage wechseln kann oder erfolgreich enden kann.
 Stages und Jobs werden in einer YAML-Datei definiert, mit dem Namen '.gitlab-ci.yaml'.
 
+![](/assets/images/posts/semantische-versionierung-von-docker-images-in-gitlab-pipelines/pipeline-visualization.gif)
+
 ## Versioning-Stage
 
 Um nun automatisch eine neue Version aus den Commit Messages zu erzeugen, legen wir als erstes die '.gitlab-ci.yaml' Datei an, wenn sie noch nicht existiert.
