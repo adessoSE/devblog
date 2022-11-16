@@ -1,6 +1,6 @@
 ---
 layout: [post, post-xml]              # Pflichtfeld. Nicht ändern!
-title:  "Semantische Versionierung von Docker Images in GitLab CI/CD"   # Pflichtfeld. Bitte einen Titel für den Blog Post angeben.
+title:  "GitLab Pipelines für die automatisierte Veröffentlichung einer semantischen Version"   # Pflichtfeld. Bitte einen Titel für den Blog Post angeben.
 date:   2022-10-20 10:00              # Pflichtfeld. Format "YYYY-MM-DD HH:MM". Muss für Veröffentlichung in der Vergangenheit liegen. (Für Preview egal)
 author_ids: [utschenik]                   # Pflichtfeld. Es muss in der "authors.yml" einen Eintrag mit diesen Namen geben.
 categories: [Softwareentwicklung]    			  # Pflichtfeld. Maximal eine der angegebenen Kategorien verwenden.
@@ -30,7 +30,7 @@ Die einzelnen Elemente werden wie folgt erhöht:
 
 1. MAJOR wird erhöht, wenn sich die API grundlegend verändert hat
 2. MINOR wird erhöht, wenn neue Funktionalitäten eingebaut worden sind
-3. PATCH wird erhöht, wenn Änderungen nur Fehler an bestehenden Funktionalitäten beheben.
+3. PATCH wird erhöht, wenn Änderungen nur Fehler an bestehenden Funktionalitäten beheben
 
 Anhand dieser Struktur können wir Nutzer über die Art und den Umfang der Änderungen informieren.
 Wenn man Software Abhängikeiten in seinem Projekt aktualisiert, müssen wir trotzdem verantwortungsbewusst sein und prüfen ob die Software-Pakete wie beschrieben funktionieren.
@@ -64,8 +64,8 @@ Es gibt per Definition folgende Commit Typen:
 
 Der Scope ist optional und wird in Klammern geschrieben, dort verweise ich meist auf meine Ticketnummer aus unserem Projektmanagment-Tool.
 Im Body wird eine kurze Beschreibung gemacht, was dieser Commit verändert.
-Das besondere ist nun, dass wir aus den verschiedenen Typen rückschließen können, wie sich die Version verändern wird.
-Zum Beispiel wird eine folgende Commit Message eine Erhöhung der Minior Version hervorrufen:
+Das Besondere ist nun, dass wir aus den verschiedenen Typen rückschließen können, wie sich die Version verändern wird.
+Zum Beispiel wird die folgende Commit Message eine Erhöhung der Minior Version hervorrufen:
 ```
 feat(#TICKET_NUMMER): neues feature XY erarbeitet
 ```
@@ -144,7 +144,7 @@ Die neue semantische Version wird dann als Git-Tag im Repository veröffentlicht
 
 ![Workflow von Semantic-Release](/assets/images/posts/semantische-versionierung-von-docker-images-in-gitlab-pipelines/workflow-semantic-release.png)
 
-## Bauen des Docker images mit neuer Versionsnummer
+## Anwendungsfall: Bauen des Docker images mit neuer Versionsnummer
 
 Um nun das Docker Image bauen zu können definieren wir nun eine neue Stage namens "deploy" und einen neuen Job mit dem Namen "build_docker_image".
 Der Job soll ausgeführt werden, sobald ein neuer Git-Tag im Repository angelegt wird und der Name des Tags eine semantische Versionsnummer ist.
@@ -160,7 +160,7 @@ stages:
 
 Wir haben das "stages"-Objekt um eine weitere Stage "deploy" ergänzt.
 
-Der neue Job in der Deploy stage laufen, soll diese Aufgaben übernehmen:
+Der neue Job in der Deploy-Stage, soll diese Aufgaben übernehmen:
 ```yaml
 build_docker_image:
     stage: deploy
@@ -188,5 +188,5 @@ Mit diesem Git-Tag können wir nun beim build-Prozess unser neues Docker-Image k
 # Fazit
 Durch eine definierte Commit-Message Struktur, kann man den Prozess der Versionierung automatisieren.
 Außerdem haben wir das Tool "Semantic-Release" benutzt was für uns Git-Tags anhand der Commit-Message erzeugt.
-Mit dem neuen Git-Tag können wir einen Job ausführen, der für uns das Docker-Image baut.
-Falls Ihr fragen habt zu der Implementierung oder euch noch Fragen geblieben sind, kontaktiert mich gerne unter [paul.schueler@adesso.de](mailto:paul.schueler@adesso.de)
+Mit dem neu veröffentlichten Git-Tag, haben wir uns einen Anwendungsfall angeschaut, wo man die neue semantische Version fürs bauen eines Docker-Images benutzen kann.
+Falls ihr Fragen zu dem Thema oder der Implementierung habt, könnt ihr mich gerne per E-Mail [paul.schueler@adesso.de](mailto:paul.schueler@adesso.de)oder Teams kontaktieren.
