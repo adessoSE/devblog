@@ -7,7 +7,7 @@ categories: [Softwareentwicklung]
 tags: [Security Development, Regex]     
 ---
 
-In diesem Blogpost gehen wir auf reguläre Ausdrücke (Regex) und deren Schattenseiten ein. Der Schwerpunkt ist die Auswirkung eines Regex in einen Denial-of-Service-Angriff.
+In diesem Blogpost gehen wir auf reguläre Ausdrücke (Regex) und deren Schattenseiten ein. Dabei sehen wir uns speziell an, wie ein Regex einen Denial-of-Service-Angriff auslösen kann.
 
 # Was ist ein "Regular expression Denial-of-Service (ReDoS) Angriff"?
 
