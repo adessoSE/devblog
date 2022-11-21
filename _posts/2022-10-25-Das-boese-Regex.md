@@ -89,7 +89,7 @@ Die Regex-Engine geht wieder zurück und verringert die Anzahl der Wiederholunge
 
 In den meisten Fällen mag dies zutreffen. Doch in einigen Fällen - wie in dem gerade betrachteten Fall - muss die Regex-Engine möglicherweise eine exponentielle Anzahl von Pfaden durch die Eingabezeichenfolge nehmen, um eine Übereinstimmung zu finden.
 
-Im Falle einer Eingabe mit einer Größe von etwa 125 Zeichen ergibt sich also eine Situation, in der die Maschine eine exponentielle Anzahl von Pfaden nimmt. Etwa $2^125$ verschiedene Pfade, was etwa $4,2535296e+37$ verschiedene Kombinationen ergibt, weil ein ungültiges Wort an einer bestimmten Stelle vorkam. Dies führt in der Regel zu einem so genannten katastrophalen Backtracking. Die Ausführung solcher regulären Ausdrücke erfordert eine enorme Menge an Zeit und Ressourcen.
+Im Falle einer Eingabe mit einer Größe von etwa 125 Zeichen ergibt sich also eine Situation, in der die Maschine eine exponentielle Anzahl von Pfaden nimmt. Etwa 2^125 verschiedene Pfade, was etwa 4,2535296e+37 verschiedene Kombinationen ergibt, weil ein ungültiges Wort an einer bestimmten Stelle vorkam. Dies führt in der Regel zu einem so genannten katastrophalen Backtracking. Die Ausführung solcher regulären Ausdrücke erfordert eine enorme Menge an Zeit und Ressourcen.
 
 Abschließend werden wir uns verschiedene Möglichkeiten ansehen, wie wir unsere Muster gegen solche Probleme schützen können.
 
