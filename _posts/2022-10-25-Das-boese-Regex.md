@@ -124,7 +124,7 @@ Anhand des Beispiels, das wir zuvor gesehen haben, möchten wir, dass unser Quan
 
 Bei der Verwendung von Lookahead-Assertions verwenden wir die Syntax `?=` - z. B. heißt es bei einem Muster `A(?=B)` einfach: "Suche nach A, aber gehe nur weiter, wenn es von B gefolgt wird." Das ist wichtig, weil wir so feststellen können, ob der Ausdruck mit den nächsten Zeichen übereinstimmen kann, ohne dass wir zurückgehen oder weitergehen müssen.
 
-In diesem Fall möchten wir so viele Wörter wie möglich abgleichen, ohne zurückzugehen. Wir können das Muster so umschreiben, dass es Wörter von `\w+` bis `(?=(\w+))\1` enthält. Das mag auf den ersten Blick etwas unintuitiv erscheinen, aber lass uns das aufschlüsseln.
+In diesem Fall möchten wir so viele Wörter wie möglich abgleichen, ohne zurückzugehen. Wir können das Muster so umschreiben, dass es Wörter von `\w+` bis `(?=(\w+))\1` enthält. Das mag auf den ersten Blick etwas unintuitiv erscheinen, aber lasst uns das aufschlüsseln.
 
 In unserem umgeschriebenen Muster `(?=(\w+))\1` weisen wir die Suchmaschine an, nach dem längsten Wort an der aktuellen Position zu suchen. Das Muster in den inneren Klammern, `(\w+)`, weist die Maschine an, sich den Inhalt zu merken, und wir können `\1` verwenden, um später darauf zu verweisen.
 
