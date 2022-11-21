@@ -120,7 +120,7 @@ Schauen wir uns eine andere Funktion an, mit der wir etwas Ähnliches tun könne
 
 ### Lookahead
 
-Anhand des Beispiels, das wir zuvor gesehen haben, möchten wir, dass unser Quantor nicht zurückverfolgt wird, da ein Backtracking in den meisten Fällen zu schwerwiegenden Problemen führen kann, wie wir zuvor gesehen haben. Um dies zu erzwingen, können wir eine Funktion namens lookahead nutzen.
+Anhand des Beispiels, das wir zuvor gesehen haben, möchten wir, dass unser Quantor nicht zurückverfolgt wird, da ein Backtracking in den meisten Fällen zu schwerwiegenden Problemen führen kann, wie wir zuvor gesehen haben. Um dies zu erzwingen, können wir eine Funktion namens Lookahead nutzen.
 
 Bei der Verwendung von Lookahead-Assertions verwenden wir die Syntax `?=` - z. B. heißt es bei einem Muster `A(?=B)` einfach: "Suche nach A, aber gehe nur weiter, wenn es von B gefolgt wird." Das ist wichtig, weil wir so feststellen können, ob der Ausdruck mit den nächsten Zeichen übereinstimmen kann, ohne dass wir zurückgehen oder weitergehen müssen.
 
