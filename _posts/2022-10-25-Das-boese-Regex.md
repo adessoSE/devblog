@@ -93,7 +93,7 @@ Im Falle einer Eingabe mit einer Größe von etwa 125 Zeichen ergibt sich also e
 
 Abschließend werden wir uns verschiedene Möglichkeiten ansehen, wie wir unsere Muster gegen solche Probleme schützen können.
 
-# So kannst du dich gegen ein Angriff schützen
+# So kannst du dich gegen einen Angriff schützen
 
 ## Reduziere die Anzahl der Kombinationen
 
