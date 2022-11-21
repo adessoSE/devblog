@@ -23,7 +23,7 @@ Bevor wir weitermachen, sollten wir uns anschauen, wie die Übereinstimmung von 
 
 Der Abgleich von Mustern regulärer Ausdrücke kann durch den Aufbau eines endlichen Zustandsautomaten (engl.: finite state machine, kurz: FSM) erfolgen. Man kann sich dies als eine abstrakte Maschine vorstellen. Es werden eine Reihe von Überprüfungen anhand der Operatoren durchgeführt und dementsprechend eine Aussage erzeugt.
 
-Eine FSM kann sich zu jedem Zeitpunkt in genau einem von einer begrenzten Anzahl von Zuständen befinden. Ein Übergang findet statt, wenn ein endlicher Automat von einem Zustand in einen anderen wechselt. Ein Beispiel für einen endlichen Zustandsautomaten ist ein Kaffeeautomat, der je nach Wahl des Benutzers eine bestimmte Kaffeesorte ausschenkt.
+Eine FSM kann sich zu jedem Zeitpunkt in genau einem Zustand befinden. Die Menge an Zuständen ist dabei endlich. Ein Übergang findet statt, wenn ein endlicher Automat von einem Zustand in einen anderen wechselt. Ein Beispiel für einen endlichen Zustandsautomaten ist ein Kaffeeautomat, der je nach Wahl des Benutzers eine bestimmte Kaffeesorte ausschenkt.
 
 Wie bereits erwähnt, kann der Abgleich regulärer Ausdrücke durch den Aufbau einer FSM erfolgen. Reguläre Ausdrücke können auch leicht von einem endlichen Automaten in einen nicht-deterministischen Automaten umgewandelt werden, insbesondere bei Ausdrücken, bei denen es mehrere mögliche nächste Zustände für jede empfangene Eingabe gibt.
 
