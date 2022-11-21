@@ -142,4 +142,4 @@ Voila! Wir sehen, dass der reguläre Ausdruck ausgeführt wird und wir sofort ei
 
 # Zusammenfassung
 
-In diesem Blogeintrag haben wir gelernt, wie man verhindert, dass reguläre Ausdrücke für Denial-of-Service-Angriffe verwendet werden können. Wir haben uns eingehend mit der Funktionsweise des Abgleichs regulärer Ausdrücke befasst, um zu verstehen, warum und wie dieses Problem überhaupt auftritt. Anschließend haben wir uns ein Beispiel für ein reguläres Ausdrucksmuster mit einer solchen Schwachstelle angesehen und gezeigt, wie man Schlupflöcher blockieren kann, die Angreifer ausnutzen können.
+In diesem Blogeintrag haben wir gelernt, wie wir verhindern, dass reguläre Ausdrücke für Denial-of-Service-Angriffe verwendet werden können. Wir haben uns eingehend mit der Funktionsweise des Abgleichs regulärer Ausdrücke befasst, um zu verstehen, warum und wie dieses Problem überhaupt auftritt. Anschließend haben wir uns ein Beispiel für ein reguläres Ausdrucksmuster mit einer solchen Schwachstelle angesehen und gezeigt, wie man Schlupflöcher blockieren kann, die Angreifer ausnutzen können.
