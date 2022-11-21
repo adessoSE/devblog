@@ -85,7 +85,7 @@ Schauen wir uns einmal genauer an, warum das so ist:
 * Die Maschine geht einen Schritt zurück zur vorherigen Position und versucht, einen anderen Weg einzuschlagen, in der Hoffnung, eine Übereinstimmung zu finden. Der Quantor `+` verringert also die Anzahl der Wiederholungen, geht um ein Wort zurück und versucht, den Rest der Eingabe abzugleichen - in diesem Fall `Ein langer Satz mit invaliden Zeichen, dessen Abgleich so viel Zeit in Anspruch nimmt, dass die CPU-Auslastung moeglicherweise drastisch`
 * Die Suchmaschine setzt dann ihre Suche ab der folgenden Position fort: der Stern-Quantor kann erneut angewendet werden und entspricht dem Wort `drastisch`. Erinnerst du dich? Wir haben den `$`-Quantor; die Maschine benutzt ihn, aber er scheitert wieder an `ansteigt!!!`
 
-Die Regex-Engine geht wieder zurück und verringert die Anzahl der Wiederholungen, bis alle möglichen Pfade erforscht sind. Wir erwarten, dass die Suche nach regulären Ausdrücken eine Laufzeit von $O(n)=2^n$ benötigt, wobei n die Länge der Eingabezeichenfolge angibt.
+Die Regex-Engine geht wieder zurück und verringert die Anzahl der Wiederholungen, bis alle möglichen Pfade erforscht sind. Wir erwarten, dass die Suche nach regulären Ausdrücken eine Laufzeit von O(n) benötigt, wobei n die Länge der Eingabezeichenfolge angibt.
 
 In den meisten Fällen mag dies zutreffen. Doch in einigen Fällen - wie in dem gerade betrachteten Fall - muss die Regex-Engine möglicherweise eine exponentielle Anzahl von Pfaden durch die Eingabezeichenfolge nehmen, um eine Übereinstimmung zu finden.
 
