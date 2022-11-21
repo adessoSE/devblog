@@ -81,7 +81,7 @@ Schauen wir uns einmal genauer an, warum das so ist:
 * Da der Quantor `+` gierig ist, versucht er, so viele gültige Wörter wie möglich zu finden, und gibt daher zurück:
 `Ein langer Satz mit invaliden Zeichen, dessen Abgleich so viel Zeit in Anspruch nimmt, dass die CPU-Auslastung moeglicherweise drastisch ansteigt`
 * Der Stern-Quantor `(\w+\s?)*` kann dann angewendet werden, aber es gibt keine gültigen Wörter mehr in der Eingabe, so dass er nichts zurückgibt
-* Aufgrund des `$`-Quantors in unserem Muster versucht die Regex-Engine, das Ende der Eingabe zu finden. Dennoch haben wir ein ungültiges Wort, `ansteigt!!!`, also gibt es keine Übereinstimmung
+* Aufgrund des `$`-Quantors in unserem Muster versucht die Regex-Engine, das Ende der Eingabe zu finden. Dort haben wir ein ungültiges Wort, `ansteigt!!!`, also gibt es keine Übereinstimmung
 * Die Maschine geht einen Schritt zurück zur vorherigen Position und versucht, einen anderen Weg einzuschlagen, in der Hoffnung, eine Übereinstimmung zu finden. Der Quantor `+` verringert also die Anzahl der Wiederholungen, geht um ein Wort zurück und versucht, den Rest der Eingabe abzugleichen - in diesem Fall `Ein langer Satz mit invaliden Zeichen, dessen Abgleich so viel Zeit in Anspruch nimmt, dass die CPU-Auslastung moeglicherweise drastisch`
 * Die Suchmaschine setzt dann ihre Suche ab der folgenden Position fort: der Stern-Quantor kann erneut angewendet werden und entspricht dem Wort `drastisch`. Erinnerst du dich? Wir haben den `$`-Quantor; die Maschine benutzt ihn, aber er scheitert wieder an `ansteigt!!!`
 
