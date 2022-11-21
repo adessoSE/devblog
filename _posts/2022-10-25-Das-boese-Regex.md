@@ -13,7 +13,7 @@ In diesem Blogpost gehen wir auf reguläre Ausdrücke (Regex) und deren Schatten
 
 Ein ReDoS-Angriff ist einer von vielen verschiedenen Denial-of-Service-Angriffen. Das Hauptziel dieser Angriffe ist, dass ein Dienst nicht mehr für den Endnutzer verfügbar ist.
 
-Bei einem Denial-of-Service-Angriff versucht ein Angreifer mit verschiedenen Techniken ein bestimmtes System oder Teile der Infrastruktur lahmzulegen. Es könnte zum Beispiel eine große Masse an Requests an einen Server geschickt werden. Dieser müsste alle gleichzeitig verarbeiten und beantworten, das würde in eine unverhältnismäßig lange Antwort resultieren. Es könnte auch durchaus passieren, dass durch die Verwendung vieler Ressourcen ein Systemausfall entsteht.
+Bei einem Denial-of-Service-Angriff versucht ein Angreifer mit verschiedenen Techniken ein bestimmtes System oder Teile der Infrastruktur lahmzulegen. Es könnte zum Beispiel eine große Masse an Requests an einen Server geschickt werden. Dieser müsste alle gleichzeitig verarbeiten und beantworten, das würde in einer unverhältnismäßig langen Antwortzeit resultieren. Es könnte auch durchaus passieren, dass durch die Verwendung vieler Ressourcen ein Systemausfall entsteht.
 
 ReDoS-Attacken folgen demselben Schema. Der Angreifer nutzt dabei die Funktionsweise verschiedener Regex-Engines aus. Es wird eine Eingabe konstruiert, die in der Engine einen deutlich höheren Prüfaufwand erzeugt, als es in der Regel der Fall wäre. Die Auswirkungen davon? Systemabsturz/-ausfall.
 
