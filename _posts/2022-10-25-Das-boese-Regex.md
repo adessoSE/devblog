@@ -29,7 +29,7 @@ Wie bereits erwähnt, kann der Abgleich regulärer Ausdrücke durch den Aufbau e
 
 In solchen Fällen kann die Engine für reguläre Ausdrücke nach der Konvertierung mehrere Algorithmen verwenden, um die nächsten Zustände zu bestimmen. Aber konzentrieren wir uns auf die problematischsten Algorithmen:
 
-* Die Engine probiert alle möglichen Wege aus, bis eine Übereinstimmung gefunden wird oder alle Wege ausprobiert wurden und fehlgeschlagen sind (dies wird als Backtracking bezeichnet). Dies ist problematisch, da für eine Eingabe der Länge n eine exponentielle Anzahl von Pfaden durchlaufen wird, so dass man im schlimmsten Fall eine Laufzeit von O(n)=2^n erhält.
+* Die Engine probiert alle möglichen Wege aus, bis eine Übereinstimmung gefunden wird oder alle Wege ausprobiert wurden und fehlgeschlagen sind (dies wird als Backtracking bezeichnet). Dies ist problematisch, da für eine Eingabe der Länge n eine exponentielle Anzahl von Pfaden durchlaufen wird, sodass man im schlimmsten Fall eine Laufzeit von $O(n)=2^n$ erhält.
 * Die Engine versucht erneut von der nicht-deterministischen Automatisierung in die deterministische Automatisierung umzuwandeln. Dies ist problematisch, da die Umwandlung je nach Ausführungspfad exponentiell lange dauern kann
 
 Ein Regex Denial-of-Service tritt also auf, wenn einer dieser beiden Algorithmen auf einen bestimmten regulären Ausdruck angewendet wird. Ein böswilliger Benutzer kann dies ausnutzen und eine dieser beiden Bedingungen auslösen, was zu der schlimmsten Laufzeitkomplexität der Engine für regüläre Ausdrücke führt.
