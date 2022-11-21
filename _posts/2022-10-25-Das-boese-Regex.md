@@ -38,7 +38,7 @@ Ein Regex Denial-of-Service tritt also auf, wenn einer dieser beiden Algorithmen
 
 Schauen wir uns ein Beispiel für einen regulären Ausdruck an, der anfällig für einen DoS-Angriff ist. Für die Laufzeitanalyse eines Befehles verwenden wir das CLI-Tool namens [gnomon](https://github.com/paypal/gnomon).
 
-Starte die Konsole deiner Wahl und installiere es
+Starte die Konsole deiner Wahl und installiere es:
 
 ~~~~
 npm install -g gnomon
