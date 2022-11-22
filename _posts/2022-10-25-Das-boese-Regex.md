@@ -40,7 +40,7 @@ Schauen wir uns ein Beispiel für einen regulären Ausdruck an, der anfällig f�
 
 Starte die Konsole deiner Wahl und installiere es:
 
-~~~~
+~~~~shell
 npm install -g gnomon
 ~~~~
 
