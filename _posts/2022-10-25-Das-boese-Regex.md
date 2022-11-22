@@ -48,7 +48,7 @@ Nehmen wir an, wir haben ein Muster, `/^(\w+\s?)*$/`, das eine Gruppe von Wörte
 
 Nun versuchen wir es mit einer Gruppe von Wörtern ohne Sonderzeichen:
 
-~~~~
+~~~~shell
 node -p "/^(\w+\s?)*$/.test('Nur valide Character')" | gnomon
 ~~~~
 
@@ -56,7 +56,7 @@ Wir sehen, dass die Wörter passen und es 0,0058 Sekunden gedauert hat, diesen r
 
 Versuchen wir nun, einen Satz mit einem Sonderzeichen am Ende des letzten Wortes zu bilden:
 
-~~~~
+~~~~shell
 node -p "/^(\w+\s?)*$/.test('Invalide Character!')" | gnomon
 ~~~~
 
@@ -66,7 +66,7 @@ Perfekt, alles funktioniert einwandfrei. Das Problem ist jedoch, dass es sehr la
 
 Sehen wir uns das mal in Aktion an. Führ das Folgende im Terminal aus:
 
-~~~~
+~~~~shell
 node -p "/^(\w+\s?)*$/.test('Ein langer Satz mit invaliden Zeichen, dessen Abgleich so viel Zeit in Anspruch nimmt, dass die CPU-Auslastung moeglicherweise drastisch ansteigt!!!')" | gnomon
 ~~~~
 
@@ -134,7 +134,7 @@ In unserem ersten Beispiel erfasst das angegebene Muster die Wörter, aber wenn 
 
 Lass uns dieses neue Muster zusammen mit unseren vorherigen Quantoren laufen und wir schauen, ob wir das gleiche Problem haben:
 
-~~~~
+~~~~shell
 node -p "/^((?=(\w+))\1\s?)*$/.test('Ein langer Satz mit invaliden Zeichen, der aber nicht zu einem drastischen Anstieg der CPU-Auslastung fuehrt!!!')" | gnomon
 ~~~~
 
