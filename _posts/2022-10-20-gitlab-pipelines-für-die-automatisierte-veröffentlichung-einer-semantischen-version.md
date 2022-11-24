@@ -7,7 +7,7 @@ categories: [Softwareentwicklung]    			  # Pflichtfeld. Maximal eine der angege
 tags: [CI/CD, Docker, Git] # Bitte auf Großschreibung achten.
 ---
 Softwareversionierung ist ein praktisches Mittel, um den aktuellen Entwicklungsstand festzuhalten.
-Jedoch werden Software Versionen oft nur inkrementiert und bringen dadurch keinen Mehrwert.
+Jedoch werden Softwareversionen oft nur inkrementiert und bringen dadurch keinen Mehrwert.
 Weil Versionierung in Regeln wiedergegeben werden kann, sollte dieser Prozess automatisiert werden.
 Semantische Versionierung gibt Software Versionierung eine Struktur, die Kunden und Entwicklern wichtige Informationen liefern kann.
 
