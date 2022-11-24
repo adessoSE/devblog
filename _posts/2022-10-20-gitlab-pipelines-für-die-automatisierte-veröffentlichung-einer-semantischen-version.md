@@ -68,7 +68,8 @@ Der Scope ist optional und wird in Klammern geschrieben, dort können wir auf ei
 Im Body machen wir eine kurze Beschreibung, was dieser Commit verändert.
 Das Besondere ist nun, dass wir aus den verschiedenen Typen rückschließen können, wie sich die Version verändern wird.
 Zum Beispiel wird die folgende Commit Message eine Erhöhung der Minor-Version hervorrufen:
-```
+
+```txt
 feat(#TICKET_NUMMER): neues feature XY erarbeitet
 ```
 
