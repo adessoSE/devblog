@@ -88,7 +88,7 @@ Stages und Jobs werden in einer YAML-Datei definiert, mit dem Namen `.gitlab-ci.
 
 ## Versioning-Stage
 
-Um nun automatisch eine neue Version aus den Commit Messages zu erzeugen, legen wir als erstes die `.gitlab-ci.yaml`-Datei an, wenn sie noch nicht existiert.
+Um nun automatisch eine neue Version aus den Commit Messages zu erzeugen, legen wir als erstes die `.gitlab-ci.yaml-Datei` an, wenn sie noch nicht existiert.
 
 Wir werden die Versioning-Stage und einen Job für die Versioning-Stage anlegen.
 Der Job benötigt als Basis ein Node.js Docker Image.
@@ -152,7 +152,7 @@ Anhand der verwendeten Commit Message Types kann dann die Versionsnummer berechn
 Die neue semantische Version wird dann als Git Tag im Repository veröffentlicht.
 
 Wird kein Tag gefunden, wird automatisch ein Git Tag mit der Version v1.0.0 erzeugt.
-Die initiale Version können wir Semantic-Release in der Konfiguration bestimen.
+Die initiale Version können wir Semantic-Release in der Konfiguration mitgeben.
 
 ![Workflow von Semantic-Release](/assets/images/posts/semantische-versionierung-von-docker-images-in-gitlab-pipelines/workflow-semantic-release.png)
 
