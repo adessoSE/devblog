@@ -152,7 +152,7 @@ Für alle gefunden Commits wird dann jeweils die Commit Message untersucht.
 Anhand der verwendeten Commit Message Types kann dann die Versionsnummer berechnet werden.
 Die neue semantische Version wird dann als Git Tag im Repository veröffentlicht.
 
-Wird kein Tag gefunden, wird automatisch ein Git Tag mit der Version v1.0.0 erzeugt.
+Wird kein Tag gefunden, wird automatisch ein Git Tag mit der Version `v1.0.0` erzeugt.
 Die initiale Version können wir Semantic-Release in der Konfiguration mitgeben.
 
 ![Workflow von Semantic-Release](/assets/images/posts/semantische-versionierung-von-docker-images-in-gitlab-pipelines/workflow-semantic-release.png)
