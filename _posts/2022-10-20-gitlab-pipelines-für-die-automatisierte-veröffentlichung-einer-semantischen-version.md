@@ -17,7 +17,7 @@ Um diesen Blog-Post verfolgen zukönnen, sollten Grundkenntnise in [GitLab CI/CD
 
 Software zu versionieren ist keine revolutionäre Idee.
 Nehmen wir an, dass Softwarepaket A weiterentwickelt worden ist.
-Die Versionierung von Software Paket A passiert durch inkrementieren einer fortlaufenden Zahl.
+Die Versionierung von Softwarepaket A passiert durch inkrementieren einer fortlaufenden Zahl.
 Software Paket A wird mit einer neuen Version veröffentlicht und Software Paket B aktualisiert blind seine Abhängikeit zu Software Paket A.
 Die Software von Paket B funktioniert nicht mehr so wie erwartet.
 Die neue Version von Software Paket A enthält Änderungen, die die API grundlegend umstrukturiert hat.
