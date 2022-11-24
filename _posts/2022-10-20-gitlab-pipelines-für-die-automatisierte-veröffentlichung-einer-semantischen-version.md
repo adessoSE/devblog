@@ -79,7 +79,7 @@ Pipelines sind ein grundlegender Baustein in der Continuous Integration.
 Eine Pipeline besteht aus Stages und Jobs.
 Eine Stage beschreibt, wann Jobs ausgeführt werden sollen, zum Beispiel bei einem Merge Request für automatische Tests oder nach einem Merge zum Hauptbranch.
 
-Es können viele Jobs in einer Stage existieren, ein Job beschreibt, was zu tun ist, wir könenn zum Beispiel die Codequalität des Branches überprüfen.
+Es können viele Jobs in einer Stage existieren. Ein Job enthält Code oder kann Skripte ausführen, wir könenn zum Beispiel die Codequalität des Branches überprüfen.
 Jobs einer Stage müssen erfolgreich sein, das heißt mit dem Exit Code 0 abschließen, sodass die Pipeline zur nächsten Stage wechseln kann oder erfolgreich enden kann.
 
 Stages und Jobs werden in einer YAML-Datei definiert, mit dem Namen `.gitlab-ci.yaml`.
@@ -90,7 +90,7 @@ Stages und Jobs werden in einer YAML-Datei definiert, mit dem Namen `.gitlab-ci.
 
 Um nun automatisch eine neue Version aus den Commit Messages zu erzeugen, legen wir als erstes die `.gitlab-ci.yaml-Datei` an, wenn sie noch nicht existiert.
 
-Wir werden die Versioning-Stage und einen Job für die Versioning-Stage anlegen.
+Wir werden die `Versioning-Stage` und einen Job für die `Versioning-Stage` anlegen.
 Der Job benötigt als Basis ein Node.js Docker Image.
 Dafür muss der GitLab-Runner Zugang zur Docker Engine haben.
 
@@ -98,8 +98,7 @@ Um das einzurichten, verfolgt gerne dazu die GitLab-Dokumentation zum [Docker-Ex
 
 ## Versioning-Stage und build-tag Job in .gitlab-ci.yaml
 
-Als erstes erstellen wir eine neue Stage.
-Der Job, der für uns die semantische Version erstellt, lassen wir nach einen Merge Request auf den Hauptbranch starten.
+Als erstes erstellen wir eine neue Stage und einen neuen Job, der für uns die semantische Version erstellen lassen soll.
  
 ```yaml
 stages:
@@ -109,7 +108,7 @@ stages:
 Das `stages`-Objekt kann eine Liste von Stages haben.
 Haben wir die Stage angelegt, können wir nun Jobs für die Stage definieren.
 
-Wir legen nun einen neuen Job `build-tag` an.
+Wir legen einen neuen Job `build-tag` an.
 Der Job wird wie folgt definiert und wird für uns eine neue Version erzeugen:
 
 ```yaml
@@ -132,7 +131,7 @@ Semantic-Release nimmt uns die Arbeit ab und kümmert sich um das Bestimmen der 
 Der Vorteil ist, dass Semantic-Release menschliche Emotionen aus dem Versionierungsprozess nimmt und klaren Regeln folgt, den Regeln der semantischen Versionierung.
 Wir können jedoch selbst bestimmen, auf welche Commit Message Types das Package reagieren soll, um eine neue Version zu definieren.
 
-Um Regeln festzulegen, auf welche Types Semantic-Release reagieren soll, muss im aktuellen Pfad der Ausführung eine `.releaserc.json`-Datei exisieren.
+Um Regeln festzulegen, auf welche Types Semantic-Release reagieren soll, muss im aktuellen Pfad der Ausführung eine `.releaserc.json-Datei` exisieren.
 Hier seht ihr einmal die [Konfigurationsreferenz zu Semantic-Release](https://github.com/semantic-release/semantic-release/blob/master/docs/usage/configuration.md#configuration).
 
 Meine Konfiguration ist in einer Environment-Variable `$RELEASE_RC` gespeichert.
@@ -141,6 +140,8 @@ Diese Variable ist in den CI/CD-Einstellungen des Repositories gespeichert.
 ![CI/CD Settings aus GitLab](/assets/images/posts/semantische-versionierung-von-docker-images-in-gitlab-pipelines/CI-CD-Settings.png)
 
 Außerdem braucht wir noch eine Environment-Variable die `$GITLAB_TOKEN` heißt.
+Die `$GITLAB_TOKEN` Variable beinhaltet einen Access Token für euer Repository.
+Hier könnt nachlesen, wir ihr einen [Access Token erstellen](https://docs.gitlab.com/ee/user/project/settings/project_access_tokens.html) könnt.
 Semantic-Release schaut nach dieser Variable, um einen Git Tag in eurem Repository zu veröffentlichen.
 Ein Git Tag ist eine Funktion, um Punkte in einer Versionshistorie als wichtig zu kennzeichnen.
 
