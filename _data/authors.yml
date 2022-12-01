@@ -436,3 +436,9 @@ nirumand:
   last_name: Nirumand
   bio: "Reza Nirumand is a Senior Software Engineer at adesso located in Dortmund. He is involved in various projects in the Banking industry and he is responsible for the designing and delivering of cloud-native applications."
   avatar_url: /assets/images/avatars/nirumand.jpg
+  
+akrieger:
+  first_name: Arnold
+  last_name: Krieger
+  bio: "Arnold Krieger arbeitet als Software Engineer bei adesso in Dortmund."
+  avatar_url: /assets/images/avatars/akrieger.jpg
