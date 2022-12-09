@@ -35,7 +35,7 @@ Die einzelnen Elemente werden wie folgt erhöht:
 3. PATCH wird erhöht, wenn Änderungen nur Fehler an bestehenden Funktionalitäten beheben.
 
 Anhand dieser Struktur können wir Nutzer über die Art und den Umfang der Änderungen informieren.
-Wenn wir Softwareabhängigkeiten in einem unserer Projekt aktualisieren, müssen wir trotzdem verantwortungsbewusst sein und prüfen ob die Softwarepakete wie beschrieben funktionieren.
+Wenn wir Softwareabhängigkeiten in einem unserer Projekte aktualisieren, müssen wir trotzdem verantwortungsbewusst sein und prüfen ob die Softwarepakete wie beschrieben funktionieren.
 
 Wir können die Bestimmung einer neuen Version von einem Softwarepaket in einer CI-Pipeline automatisieren.
 Um diesen Prozess zu automatisieren, brauchen wir eine Grundlage und ein festes Regelwerk, um festzustellen was sich seit der letzten Veröffentlichung unserer Software verändert hat.
@@ -64,7 +64,7 @@ Es gibt per Definition folgende Commit-Typen:
 - style
 - test
 
-Der Scope ist optional und wird in Klammern geschrieben, dort können wir auf eine Ticketnummer aus unseren Projektmanagment-Tools verweisen.
+Der Scope ist optional und wird in Klammern geschrieben, dort können wir auf eine Ticketnummer aus unserem Projektmanagment-Tool verweisen.
 Im Body machen wir eine kurze Beschreibung, was dieser Commit verändert.
 Das Besondere ist nun, dass wir aus den verschiedenen Typen rückschließen können, wie sich die Version verändern wird.
 Zum Beispiel wird die folgende Commit Message eine Erhöhung der Minor-Version hervorrufen:
@@ -80,9 +80,9 @@ Eine Pipeline besteht aus Stages und Jobs.
 Eine Stage beschreibt, wann Jobs ausgeführt werden sollen, zum Beispiel bei einem Merge Request für automatische Tests oder nach einem Merge zum Hauptbranch.
 
 Es können viele Jobs in einer Stage existieren. Ein Job enthält Code oder kann Skripte ausführen, wir könenn zum Beispiel die Codequalität des Branches überprüfen.
-Jobs einer Stage müssen erfolgreich sein, das heißt mit dem Exit Code 0 abschließen, sodass die Pipeline zur nächsten Stage wechseln kann oder erfolgreich enden kann.
+Jobs einer Stage müssen erfolgreich sein, das heißt, sie müssen mit dem Exit Code 0 abschließen, sodass die Pipeline zur nächsten Stage wechseln kann oder erfolgreich enden kann.
 
-Stages und Jobs werden in einer YAML-Datei definiert, mit dem Namen `.gitlab-ci.yaml`.
+Stages und Jobs werden in einer YAML-Datei mit dem Namen `.gitlab-ci.yaml` definiert.
 
 ![Animierte Pipeline für GitLab](/assets/images/posts/semantische-versionierung-von-docker-images-in-gitlab-pipelines/pipeline-visualization.gif)
 
@@ -139,9 +139,9 @@ Diese Variable ist in den CI/CD-Einstellungen des Repositories gespeichert.
 
 ![CI/CD Settings aus GitLab](/assets/images/posts/semantische-versionierung-von-docker-images-in-gitlab-pipelines/CI-CD-Settings.png)
 
-Außerdem braucht wir noch eine Environment-Variable die `$GITLAB_TOKEN` heißt.
-Die `$GITLAB_TOKEN` Variable beinhaltet einen Access Token für euer Repository.
-Hier könnt nachlesen, wir ihr einen [Access Token erstellen](https://docs.gitlab.com/ee/user/project/settings/project_access_tokens.html) könnt.
+Außerdem brauchen wir noch eine Environment-Variable, die `$GITLAB_TOKEN` heißt.
+Die `$GITLAB_TOKEN`-Variable beinhaltet einen Access Token für euer Repository.
+[Hier](https://docs.gitlab.com/ee/user/project/settings/project_access_tokens.html) könnt ihr nachlesen, wir ihr einen Access Token erstellen könnt.
 Semantic-Release schaut nach dieser Variable, um einen Git Tag in eurem Repository zu veröffentlichen.
 Ein Git Tag ist eine Funktion, um Punkte in einer Versionshistorie als wichtig zu kennzeichnen.
 
@@ -152,14 +152,14 @@ Für alle gefunden Commits wird dann jeweils die Commit Message untersucht.
 Anhand der verwendeten Commit Message Types kann dann die Versionsnummer berechnet werden.
 Die neue semantische Version wird dann als Git Tag im Repository veröffentlicht.
 
-Wird kein Tag gefunden, wird automatisch ein Git Tag mit der Version `v1.0.0` erzeugt.
+Wurde kein Tag gefunden, wird automatisch ein Git Tag mit der Version `v1.0.0` erzeugt.
 Die initiale Version können wir Semantic-Release in der Konfiguration mitgeben.
 
 ![Workflow von Semantic-Release](/assets/images/posts/semantische-versionierung-von-docker-images-in-gitlab-pipelines/workflow-semantic-release.png)
 
 ## Anwendungsfall: Bauen des Docker Image mit neuer Versionsnummer
 
-Das wir nun Docker Image bauen können, definieren wir eine neue Stage namens `deploy` und einen neuen Job mit dem Namen `build_docker_image`.
+Damit wir nun auf Basis unseres Codes ein Docker Image bauen können, definieren wir eine neue Stage namens `deploy` und einen neuen Job mit dem Namen `build_docker_image`.
 Der Job soll ausgeführt werden, sobald ein neuer Git Tag im Repository angelegt wird und der Name des Tags eine semantische Versionsnummer ist.
 
 Der Git Tag mit der semantischen Version sollte im vorherigen Schritt erzeugt worden sein.
