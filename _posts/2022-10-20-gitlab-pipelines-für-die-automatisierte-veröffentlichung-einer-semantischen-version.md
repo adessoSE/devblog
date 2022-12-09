@@ -1,7 +1,7 @@
 ---
 layout: [post, post-xml]              # Pflichtfeld. Nicht ändern!
 title:  "GitLab Pipelines für die automatisierte Veröffentlichung einer semantischen Version"   # Pflichtfeld. Bitte einen Titel für den Blog Post angeben.
-date:   2022-10-20 10:00              # Pflichtfeld. Format "YYYY-MM-DD HH:MM". Muss für Veröffentlichung in der Vergangenheit liegen. (Für Preview egal)
+date:   2022-12-09 10:00              # Pflichtfeld. Format "YYYY-MM-DD HH:MM". Muss für Veröffentlichung in der Vergangenheit liegen. (Für Preview egal)
 author_ids: [utschenik]                   # Pflichtfeld. Es muss in der "authors.yml" einen Eintrag mit diesen Namen geben.
 categories: [Softwareentwicklung]    			  # Pflichtfeld. Maximal eine der angegebenen Kategorien verwenden.
 tags: [CI/CD, Docker, Git] # Bitte auf Großschreibung achten.
