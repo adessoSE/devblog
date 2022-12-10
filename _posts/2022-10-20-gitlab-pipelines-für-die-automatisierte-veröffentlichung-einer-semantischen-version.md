@@ -21,7 +21,7 @@ Die Versionierung von Softwarepaket A passiert durch inkrementieren einer fortla
 
 Softwarepaket A wird mit einer neuen Version veröffentlicht und Softwarepaket B aktualisiert blind seine Abhängigkeit zu Softwarepaket A.
 Dabei kann es passieren, dass die Software von Paket B nicht mehr so funktioniert wie erwartet.
-Die neue Version von Softwarepaket A enthält Änderungen, die die API grundlegend umstrukturiert hat.
+Die neue Version von Softwarepaket A enthält Änderungen, die die API grundlegend umstrukturiert haben.
 
 Mithilfe einer semantischen Version wäre bei der Entwicklung von Softwarepaket B aufgefallen, dass die neue Version von Softwarepaket A wichtige Änderungen enthielt.
 
@@ -141,7 +141,7 @@ Diese Variable ist in den CI/CD-Einstellungen des Repositories gespeichert.
 
 Außerdem brauchen wir noch eine Environment-Variable, die `$GITLAB_TOKEN` heißt.
 Die `$GITLAB_TOKEN`-Variable beinhaltet einen Access Token für euer Repository.
-[Hier](https://docs.gitlab.com/ee/user/project/settings/project_access_tokens.html) könnt ihr nachlesen, wir ihr einen Access Token erstellen könnt.
+[Hier](https://docs.gitlab.com/ee/user/project/settings/project_access_tokens.html) könnt ihr nachlesen, wie ihr einen Access Token erstellen könnt.
 Semantic-Release schaut nach dieser Variable, um einen Git Tag in eurem Repository zu veröffentlichen.
 Ein Git Tag ist eine Funktion, um Punkte in einer Versionshistorie als wichtig zu kennzeichnen.
 
