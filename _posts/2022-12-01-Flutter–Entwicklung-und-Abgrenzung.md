@@ -17,7 +17,7 @@ Flutter vs. React Native. Hybride Appentwicklung bieten hierzu eine elegante und
 
 ![Alt](/assets/images/posts/Flutter#1–Entwicklung-und-Abgrenzung/FlutterLogo.png,"Flutter-Logo")
 
-##Flutter
+#Flutter
 
 [Flutter] https://flutter.dev/ ist ein Open Source Framework von Google zur Entwicklung von nativen Anwendungen für verschiedene Plattformen. Mit Flutter können Anwendungen für Mobile, Web und Desktop erstellt werden.  In erster Linie wird Flutter für die Android- und iOS-Entwicklung verwendet.
 2017 wurde die erste Alphaversion von Flutter veröffentlicht. Im Dezember 2018 erreichte das Framework die Version 1.0. 
@@ -25,9 +25,10 @@ Mit Flutter 2.0 wurde die Entwicklung von Web-Anwendungen möglich.
 Heute, im Jahre 2022, läuft Flutter mit der Version 3.0, dabei wurde die Unterstützung für MacOS- und Linux-Desktop-Anwendungen bereitgestellt und somit ist die Veröffentlichung nun auf allen Desktop-Plattformen möglich.
 
 ![Alt](/assets/images/posts/Flutter#1–Entwicklung-und-Abgrenzung/Timeline.png "Timeline")
+
 https://medium.com/flutter/introducing-flutter-3-5eb69151622f
 
-##Plattform
+#Plattform
 
 Fluter unterstützt dabei folgende Versionen auf den Plattformen.
 
@@ -43,35 +44,38 @@ Fluter unterstützt dabei folgende Versionen auf den Plattformen.
 |Web|`          `Edge 1.2.0 & höher||
 |Windows|`          `Windows 10 & höher||
 
-##Flutter vs. React Native
+#Flutter vs. React Native
 
 Flutter wurde 2017 von Google vorgestellt und 2018 offiziell veröffentlicht und ist somit ein relativ neues und modernes Framework. Es basiert dabei auf der von Google entwickelten Programmiersprache Dart. Dabei steht Flutter bei der hybriden App Entwicklung in direkter Konkurrenz zu React Native.
 
 React Native wurde 2015 von Facebook entwickelt und ist das am weitverbreitetsten Framework für die Entwicklung von hybriden Apps. Dabei basiert das Framework auf der Programmiersprache JavaScript.
 
 
-
 ![Alt](/assets/images/posts/Flutter#1–Entwicklung-und-Abgrenzung/Code.png ,"Widget-Code")
+
 https://hybridheroes.de/blog/2019-03-29-flutter-vs-react-native/
+
 Flutter verwendet hierbei im Code sogenannte Widget, diese werden für alle Formen, Grafiken und Animationen, wie hier z.B. Row und Text verwendet. 
 
 React Native verwendet für die Beschreibung der UI sogenannte Tags, diese bauen dann auf den nativen Komponenten für Android und iOS auf.  
 
-##Abgrenzung
+#Abgrenzung
 
 Im Gegensatz zu anderen vergleichbaren Technologien, wie z. B. React Native hat Flutter einen neuen Ansatz. Flutter-Apps benutzen Widgets. Anders als normalerweise handelt es sich hier aber nicht um sogenannte Native-Widgets (OEM), die schon vom jeweiligen mobilen Endgerät zur Verfügung gestellt werden. Stattdessen werden diese Widgets erstellt und benötigen somit keine Brücke (Bridge) und somit werden die Leistungsprobleme der Brücke (Bridge) vermieden. 
 
 ![Alt](/assets/images/posts/Flutter#1–Entwicklung-und-Abgrenzung/Fluttervsreact.png,"Flutter vs React")
+
 https://www.cuelogic.com/blog/flutter-vs-react-native-a-comparison-based-on-criteria
 
 
-##Google Trends 
+#Google Trends 
 
 In einem Zeitraum von 2017 bis 2022 wurden die beiden Suchbegriffe „Flutter“ und „React Native“ in Deutschland miteinander verglichen.  In diesem Diagramm ist zu erkennen, dass Flutter Anfang 2019 React Native mit den Suchanfragen überholt. Zu diesem Zeitpunkt befand sich Flutter in der Version 1.5. 
 
 
-![Alt](/assets/images/posts/Flutter#1–Entwicklung-und-Abgrenzung/Verlauf.png,"Google Trends") Heute im Jahr 2022 wird der Begriff React Native nur zu 30% gesucht im Vergleich zu Flutter.
+![Alt](/assets/images/posts/Flutter#1–Entwicklung-und-Abgrenzung/Verlauf.png,"Google Trends") 
 
+Heute im Jahr 2022 wird der Begriff React Native nur zu 30% gesucht im Vergleich zu Flutter.
 
 
 Der weltweite Vergleich zeigt einen ähnlichen Trend. Der Unterschied zwischen Flutter und React Native im Jahr 2022 befindet sich auch hier bei ca. 70%.
@@ -81,27 +85,32 @@ Der weltweite Vergleich zeigt einen ähnlichen Trend. Der Unterschied zwischen F
 
 
 
+#Architektur
 
-##Architektur
 
+Flutter selbst ist in C++ geschrieben und verwendet die Dart Virtual Maschine (Dart-VM), sowie die Grafikbibliothek Skia.
+![Alt](/assets/images/posts/Flutter#1–Entwicklung-und-Abgrenzung/Overview.png,"Flutter Architektur")
 
-Flutter selbst ist in C++ geschrieben und verwendet die Dart Virtual Maschine (Dart-VM), sowie die Grafikbibliothek Skia.![Alt](/assets/images/posts/Flutter#1–Entwicklung-und-Abgrenzung/Overview.png,"Flutter Architektur")
 https://freal.medium.com/flutter-for-web-mobile-apps-im-browser-a98944bf63dd
+
 Die Architektur von Flutter besteht aus zwei wesentlichen Teilen: 
 
-##Framework: Die meisten werden bei der Entwicklung nur mit dem Framework Kontakt haben, da es alles für die Entwicklung von User Interface bis zu Framework Foundations bereitstellt. 
+#Framework: 
+Die meisten werden bei der Entwicklung nur mit dem Framework Kontakt haben, da es alles für die Entwicklung von User Interface bis zu Framework Foundations bereitstellt. 
 
-##Flutter-Engine: Die Flutter Engine ist eine portable Laufzeitumgebung zum Hosten von Flutter-Anwendungen. Es implementiert die Kernbibliotheken von Flutter, einschließlich Animation und Grafik, Datei- und Netzwerk-I/O, Unterstützung für Barrierefreiheit, Plugin-Architektur und eine Dart-Laufzeit- und Kompilierungs-Toolchain. Darüber hinaus verfügt es über Schnittstellen zu plattformspezifischen [SDKs](https://en.wikipedia.org/wiki/Software_development_kit "Software-Entwicklungskit") , wie die beispielsweise von Android und iOS.
+#Flutter-Engine: 
+Die Flutter Engine ist eine portable Laufzeitumgebung zum Hosten von Flutter-Anwendungen. Es implementiert die Kernbibliotheken von Flutter, einschließlich Animation und Grafik, Datei- und Netzwerk-I/O, Unterstützung für Barrierefreiheit, Plugin-Architektur und eine Dart-Laufzeit- und Kompilierungs-Toolchain. Darüber hinaus verfügt es über Schnittstellen zu plattformspezifischen [SDKs](https://en.wikipedia.org/wiki/Software_development_kit "Software-Entwicklungskit") , wie die beispielsweise von Android und iOS.
 
-##Dart
+#Dart
 
-Ein UI-Designer-Editor, wie z.B. Xcode Storyboard oder Androids Layouteditor wird von Flutter nicht angeboten. Die UI wird ähnlich zu React in Quellcode geschrieben. Hierbei wird die Programmiersprache Dart verwendet. [Dart] https://dart.dev/ ist eine hauseigene Programmiersprache von Google. Erschienen ist Sie 2013 mit der Version 1.0 und heute 2022 läuft Dart mit der Version 2.17. Dart hat den Anspruch, für die Web- und App-Entwicklung eine einfache, schnell zu erlernende und robuste Programmiersprache zu sein. Eine klare Syntax, streng typisiert, objektorientiert und viele bereits enthaltene Core-Module und ein großes [Ökosystem] https://pub.dev/ von verfügbaren Paketen tragen ebenso dazu bei. Durch die Kompilierung zu ARM- und x86-Code sind Dart-Programme auf mobilen Betriebssystemen native ausführbar. Ein Compiler Dart2js, also Dart zu JavaScript sorgt für die Konvertierung in JavaScript-Code, was Dart auch im Web zu einer Alternative machen soll.
+Ein UI-Designer-Editor, wie z.B. Xcode Storyboard oder Androids Layouteditor wird von Flutter nicht angeboten. Die UI wird ähnlich zu React in Quellcode geschrieben. Hierbei wird die Programmiersprache Dart verwendet. [Dart](https://dart.dev/) ist eine hauseigene Programmiersprache von Google. Erschienen ist Sie 2013 mit der Version 1.0 und heute 2022 läuft Dart mit der Version 2.17. Dart hat den Anspruch, für die Web- und App-Entwicklung eine einfache, schnell zu erlernende und robuste Programmiersprache zu sein. Eine klare Syntax, streng typisiert, objektorientiert und viele bereits enthaltene Core-Module und ein großes [Ökosystem](https://pub.dev/) von verfügbaren Paketen tragen ebenso dazu bei. Durch die Kompilierung zu ARM- und x86-Code sind Dart-Programme auf mobilen Betriebssystemen native ausführbar. Ein Compiler Dart2js, also Dart zu JavaScript sorgt für die Konvertierung in JavaScript-Code, was Dart auch im Web zu einer Alternative machen soll.
 
 Dart ist eine der wenigen Sprachen, die sowohl AOT als auch JIT können. Es kompiliert im Voraus (ahead of time) für mehrere Plattformen in nativen Code oder in JavaScript für Web.  Ein Just-in-Time (JIT) Compiler läuft während der Ausführung des Programms und kompiliert im laufenden Betrieb. 
 
 
 
-##Widget
+#Widget
+
 ![Alt](/assets/images/posts/Flutter#1–Entwicklung-und-Abgrenzung/Settings-Widgets.png,"Settings-Image")
 https://github.com/topics/ui-components?l=dart
 Alles ist ein Widget. Flutter verwendet für die Beschreibung der UI sogenannte Widgets. Ein Widget bündelt Logik, Interaktion und Darstellung eines Objekts. Flutter bietet ein vorgefertigtes Bündel von Widget von Haus aus an, dies können Buttons, Textfelder, eine Liste oder eine ganze Seite sein. Widget lassen sich um zusätzliche Funktionen erweitern oder die Erstellung eigener Widgets ist möglich, die sich mit den vorhandenen nahtlos kombinieren lassen. Die Widgets werden dann im Android-Stil mit Material-Design oder im iOS-Stil mit Cupertino-Design umgewandelt.
@@ -109,15 +118,17 @@ Alles ist ein Widget. Flutter verwendet für die Beschreibung der UI sogenannte 
 
 
 ![Alt](/assets/images/posts/Flutter#1–Entwicklung-und-Abgrenzung/Icons.png,"Widget-Baum")
+
 https://docs.flutter.dev/development/ui/layout
 Ein Beispiel für ein Widget-Baum für die drei Icons
 
 und dessen Labels könnte dabei so aussehen: 
 
 ![Alt](/assets/images/posts/Flutter#1–Entwicklung-und-Abgrenzung/Layout.png,"Layout")
+
 https://docs.flutter.dev/development/ui/layout
 
-Für App-Beispiele kann die Showcase-Seite <https://flutter.dev/showcase> geöffnet werden. 
+Für App-Beispiele kann die Showcase-Seite [Showcase]<https://flutter.dev/showcase> geöffnet werden. 
 
 Dort sind große Unternehmen die heute schon Flutter verwenden wie z.B.: 
 
