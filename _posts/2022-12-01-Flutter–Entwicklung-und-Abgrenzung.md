@@ -15,7 +15,7 @@ Flutter vs. React Native. Hybride Appentwicklung bieten hierzu eine elegante und
 
 #Flutter #1 - build apps for every screen
 
-![](/assets/images/posts/Flutter#1–Entwicklung-und-Abgrenzung/FlutterLogo.png)
+![Alt](/assets/images/posts/Flutter#1–Entwicklung-und-Abgrenzung/FlutterLogo.png,"Flutter-Logo")
 
 ##Flutter
 
