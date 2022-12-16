@@ -90,3 +90,83 @@ _Fig3: Information from the exception_
 We know that the library is a wrapper around the C implementation of libgit2 to enjoy it in the managed world of dotnet.
 Armed with this knowledge we can suspect that the reference to `git2-106a5f2` of the `System.DllNotFoundException` is about the native library.
 The next step is to find out where the library gets loaded from and where the error occurs to get a better understanding of the problem.
+
+# Exploration with Debug options
+
+The error message gives us all the information we need to proceed further as it indicated about the usage of `LD_DEBUG`.
+So lets explore the output with that environment variable set (output is greatly condensed).
+
+``` csharp
+~/Projects/poc_libgit2sharp main $ LD_DEBUG=libs make run
+dotnet run --project ./poc_libgit2sharp/poc_libgit2sharp.csproj
+   1022222:	initialize program: /home/vince/Projects/poc_libgit2sharp/poc_libgit2sharp/bin/Debug/net6.0/poc_libgit2sharp
+Current directory is '/home/vince/Projects/poc_libgit2sharp'
+Checking whether the directory contains a valid git repository.
+Should return true as the program is run from a repository.
+   1022222:	find library=git2-106a5f2.so [0]; searching
+   1022222:	 search cache=/etc/ld.so.cache
+   1022222:	 search path=/usr/lib/tls:/usr/lib		(system search path)
+   1022222:	  trying file=/usr/lib/tls/git2-106a5f2.so
+   1022222:	  trying file=/usr/lib/git2-106a5f2.so
+   1022222:
+   1022222:	[...]
+   1022222:	find library=libgit2-106a5f2.so [0]; searching
+   1022222:	 search cache=/etc/ld.so.cache
+   1022222:	 search path=/usr/lib/tls:/usr/lib		(system search path)
+   1022222:	  trying file=/usr/lib/tls/libgit2-106a5f2.so
+   1022222:	  trying file=/usr/lib/libgit2-106a5f2.so
+   1022222:
+   1022222:	[...]
+   1022222:	find library=git2-106a5f2 [0]; searching
+   1022222:	 search cache=/etc/ld.so.cache
+   1022222:	 search path=/usr/lib/tls:/usr/lib		(system search path)
+   1022222:	  trying file=/usr/lib/tls/git2-106a5f2
+   1022222:	  trying file=/usr/lib/git2-106a5f2
+   1022222:
+   1022222:	find library=libgit2-106a5f2 [0]; searching
+   1022222:	 search cache=/etc/ld.so.cache
+   1022222:	 search path=/usr/lib/tls:/usr/lib		(system search path)
+   1022222:	  trying file=/usr/lib/tls/libgit2-106a5f2
+   1022222:	  trying file=/usr/lib/libgit2-106a5f2
+   1022222:
+Unhandled exception.
+System.TypeInitializationException: The type initializer for 'LibGit2Sharp.Core.NativeMethods' threw an exception.
+ ---> System.DllNotFoundException: Unable to load shared library 'git2-106a5f2' or one of its dependencies.
+      [...]
+make: *** [Makefile:18: run] Error 134
+```
+_Fig4: LD_DEBUG run to list the libraries_
+
+When running the `LD_DEBUG` with `all` or `files` we get similar results.
+
+``` csharp
+   1022654:	file=/home/vince/Projects/poc_libgit2sharp/poc_libgit2sharp/bin/Debug/net6.0/runtimes/linux-x64/native/git2-106a5f2.so [0];  dynamically loaded by /usr/share/dotnet/shared/Microsoft.NETCore.App/6.0.2/libcoreclr.so [0]
+   1022654:
+   1022654:	file=/usr/share/dotnet/shared/Microsoft.NETCore.App/6.0.2/git2-106a5f2.so [0];  dynamically loaded by /usr/share/dotnet/shared/Microsoft.NETCore.App/6.0.2/libcoreclr.so [0]
+   1022654:
+   1022654:	file=/home/vince/Projects/poc_libgit2sharp/poc_libgit2sharp/bin/Debug/net6.0/git2-106a5f2.so [0];  dynamically loaded by /usr/share/dotnet/shared/Microsoft.NETCore.App/6.0.2/libcoreclr.so [0]
+   1022654:
+   1022654:	file=git2-106a5f2.so [0];  dynamically loaded by /usr/share/dotnet/shared/Microsoft.NETCore.App/6.0.2/libcoreclr.so [0]
+   [...]
+   1022654:	file=/home/vince/Projects/poc_libgit2sharp/poc_libgit2sharp/bin/Debug/net6.0/runtimes/linux-x64/native/libgit2-106a5f2.so [0];  dynamically loaded by /usr/share/dotnet/shared/Microsoft.NETCore.App/6.0.2/libcoreclr.so [0]
+   1022654:	file=/home/vince/Projects/poc_libgit2sharp/poc_libgit2sharp/bin/Debug/net6.0/runtimes/linux-x64/native/libgit2-106a5f2.so [0];  generating link map
+   1022654:	  dynamic: 0x00007fda6ad24d90  base: 0x00007fda6aa00000   size: 0x000000000032a5d0
+   1022654:	    entry: 0x00007fda6aa166f0  phdr: 0x00007fda6aa00040  phnum:                  7
+```
+_Fig5: Output from `LD_DEBUG=files`_
+
+The library files `./bin/Debug/net6.0/runtimes/linux-x64/native/libgit2-106a5f2.so` does exist and can be imported correctly.
+On the other hand the referenced file `/usr/share/dotnet/shared/Microsoft.NETCore.App/6.0.2/git2-106a5f2.so` does not exist at this global location.
+
+If there would be no specific version applied to the shared object file I would say the file should come from the system.
+Let's check the package manager and install the latest version of the underlying library `libgit2` on the system.
+
+``` bash
+$ sudo pacman -S libgit2
+```
+_Fig6: Installing the package globally [packages libgit2](https://archlinux.org/packages/extra/x86_64/libgit2/)_
+
+Even after the installation/update the error persists.
+So as expected there is no correlation with the global installation of the library and it should come all bundled with the NuGet.
+
+Going further and exploring the issues on GitHub and discovering a potential fix will be the next step.
