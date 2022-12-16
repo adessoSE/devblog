@@ -170,3 +170,11 @@ Even after the installation/update the error persists.
 So as expected there is no correlation with the global installation of the library and it should come all bundled with the NuGet.
 
 Going further and exploring the issues on GitHub and discovering a potential fix will be the next step.
+
+# Exploring GitHub issues for potential fixes
+
+Before exploring the installation scripts or the code of the library let us explore the issues on GitHub.
+
+There are some issues hinting that the correct dependency ob the package should be used which is `LibGit2Sharp.NativeBinaries` in version `2.0.306` which was already the case when inspecting the file `./obj/project.assets.json`.
+
+On the other hand there are multiple issues indicating that there are issues with .Net 5 which should be fixed with the preview version of `0.27.0` of the `LibGit2Sharp` NuGet.
