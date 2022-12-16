@@ -259,3 +259,16 @@ As the reference has to be updated manually when a new version is published.
 
 When using the submodule we can directly checkout the `master` branch and check the latest development.
 It is worth noting that when a stable release of `0.27.0` is released of the package this choice has to be reevaluated.
+
+# Conclusion
+
+To see all the changes made since the last published version we can checkout the diff on GitHub directly [v0.26..master](https://github.com/libgit2/libgit2sharp/compare/v0.26..master).
+
+The help on submodules is extensive and can be viewed under `man 1 git-submodule` and `man 7 gitsubmodules`.
+
+For my project I decided to go with the submodule since it gives me a few advantages:
+
+* Building regularly let me observe the submodule for updates
+* I can keep up with changes to the library
+* Give early feedback as soon as I will notice it
+* On different branches I can try different versions of the library
