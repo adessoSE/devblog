@@ -208,3 +208,54 @@ The working directory is indeed a git [repository](https://git.sr.ht/~vince/poc_
 Now having a reference to a preview version is always unpleasant and should be avoided.
 As we know with git itself we have the possibility of including the sources directly and building it with our project.
 To draw a conclusion for the project lets explore both options in this MVP.
+
+# Building from source
+
+Now for the last step lets try to build the project ourselves and include the result in our project.
+With this option we can directly link the `master` branch of the repository and update it accordingly to receive the latest updates instead of waiting for an update on the NuGet package.
+
+``` bash
+$ git submodule add https://github.com/libgit2/libgit2sharp.git libgit2sharp
+[...]
+
+$ ls -l
+-rw-r--r--  1 vince vince  349 Apr 21 20:23 .gitignore
+-rw-r--r--  1 vince vince   99 Apr 21 22:16 .gitmodules
+[...]
+drwxr-xr-x 9 vince vince  4096 Apr 21 22:24 libgit2sharp
+-rw-r--r-- 1 vince vince   432 Apr 21 20:54 Makefile
+drwxr-xr-x 4 vince vince  4096 Apr 21 20:21 poc_libgit2sharp
+
+$ cat .gitmodules
+[submodule "libgit2sharp"]
+	path = libgit2sharp
+	url = https://github.com/libgit2/libgit2sharp.git
+```
+_Fig9: Installing the submodule_
+
+And finally update the project reference.
+
+``` bash
+$ git diff d85adbb~..d85adbb
+diff --git a/poc_libgit2sharp/poc_libgit2sharp.csproj b/poc_libgit2sharp/poc_libgit2sharp.csproj
+index 4329b2b..f3f8c62 100644
+--- a/poc_libgit2sharp/poc_libgit2sharp.csproj
++++ b/poc_libgit2sharp/poc_libgit2sharp.csproj
+@@ -8,7 +8,7 @@
+   </PropertyGroup>
+
+   <ItemGroup>
+-    <PackageReference Include="LibGit2Sharp" Version="0.27.0-preview-0182" />
++    <ProjectReference Include="..\libgit2sharp\LibGit2Sharp\LibGit2Sharp.csproj" />
+   </ItemGroup>
+
+ </Project
+```
+_Fig10: Update the reference_
+
+The submodule works as expected just as the preview version of the NuGet.
+With the submodule we have similar downsides to using a package manager.
+As the reference has to be updated manually when a new version is published.
+
+When using the submodule we can directly checkout the `master` branch and check the latest development.
+It is worth noting that when a stable release of `0.27.0` is released of the package this choice has to be reevaluated.
