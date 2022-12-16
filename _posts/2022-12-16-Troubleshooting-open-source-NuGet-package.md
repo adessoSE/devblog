@@ -178,3 +178,33 @@ Before exploring the installation scripts or the code of the library let us expl
 There are some issues hinting that the correct dependency ob the package should be used which is `LibGit2Sharp.NativeBinaries` in version `2.0.306` which was already the case when inspecting the file `./obj/project.assets.json`.
 
 On the other hand there are multiple issues indicating that there are issues with .Net 5 which should be fixed with the preview version of `0.27.0` of the `LibGit2Sharp` NuGet.
+
+## Installing the preview version of the library
+
+Now lets just update the package reference to check if the preview version will fix it for our .Net 6 application.
+
+``` xml
+  <ItemGroup>
+    <PackageReference Include="LibGit2Sharp" Version="0.27.0-preview-0182" />
+  </ItemGroup>
+```
+_Fig7: [poc_libgit2sharp.csproj](https://git.sr.ht/~vince/poc_libgit2sharp/tree/b10eb21f98dcffe40dcfcd792933a795bbcff3dd/item/poc_libgit2sharp/poc_libgit2sharp.csproj)_
+
+``` bash
+~/Projects/poc_libgit2sharp main $ make run
+[...]
+dotnet run --project ./poc_libgit2sharp/poc_libgit2sharp.csproj
+Current directory is '/home/vince/Projects/poc_libgit2sharp'
+Checking whether the directory contains a valid git repository.
+Should return true as the program is run from a repository.
+This message indicates that no exception was thrown and the library works as expected.
+The directory '/home/vince/Projects/poc_libgit2sharp' is a git repository 'True'
+```
+_Fig8: Execute with preview version_
+
+Perfect, now no exception gets thrown from the library and the expected result holds true.
+The working directory is indeed a git [repository](https://git.sr.ht/~vince/poc_libgit2sharp).
+
+Now having a reference to a preview version is always unpleasant and should be avoided.
+As we know with git itself we have the possibility of including the sources directly and building it with our project.
+To draw a conclusion for the project lets explore both options in this MVP.
