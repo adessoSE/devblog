@@ -419,6 +419,12 @@ bolsei:
   bio: "Timo Rudersdorf ist seit 2021 als Senior Software Engineer bei adesso in Essen tätig. Dort unterstützt er den Bereich Public als Entwickler im Java-Umfeld."
   avatar_url: /assets/images/avatars/trudersdorf.jpg
 
+JuergenWarias:
+  first_name: Jürgen
+  last_name: Warias
+  bio: "Jürgen Warias ist seit 2012 als Software Engineer (seit 2015 Senior) bei adesso in Dortmund tätig tätig. Dort ist er in der Lob Insurance als Entwickler im Java-EE-Umfeld tätig."
+  avatar_url: https://avatars.githubusercontent.com/u/104759335?s=400&u=da915327ebe5f145cf07a4a97c93284327e77fb3&v=4
+
 mboegers:
   first_name: Merlin
   last_name: Bögershausen
@@ -436,3 +442,4 @@ nirumand:
   last_name: Nirumand
   bio: "Reza Nirumand is a Senior Software Engineer at adesso located in Dortmund. He is involved in various projects in the Banking industry and he is responsible for the designing and delivering of cloud-native applications."
   avatar_url: /assets/images/avatars/nirumand.jpg
+
