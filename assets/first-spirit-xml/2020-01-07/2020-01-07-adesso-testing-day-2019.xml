@@ -15,7 +15,9 @@ Beim adesso testing day handelt es sich um eine adesso-interne Konferenz zum Aus
         <field name="date_date"><![CDATA[2020-01-07T09:00:00+01:00]]></field>
         <field name="date_l"><![CDATA[1578384000000]]></field>
         <field name="change_date"><![CDATA[1586172960000]]></field>
+
         <!--Author Information-->
+        
         <field name="author_id"><![CDATA[stwacker]]></field><!--Postcontent-->
         <field name="headlines"><![CDATA[adesso testing day 2019]]></field>
         <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">

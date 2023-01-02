@@ -18,7 +18,9 @@ Dieser Beitrag zeigt, was sich hinter Cucumber und Behaviour Driven Development 
         <field name="date_date"><![CDATA[2020-05-26T09:00:00+02:00]]></field>
         <field name="date_l"><![CDATA[1590476400000]]></field>
         <field name="change_date"><![CDATA[1590476400000]]></field>
+
         <!--Author Information-->
+        
         <field name="author_id"><![CDATA[dsorna]]></field><!--Postcontent-->
         <field name="headlines"><![CDATA[Behaviour Driven Development und automatisierte Tests mit Seed-Test]]></field>
         <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">

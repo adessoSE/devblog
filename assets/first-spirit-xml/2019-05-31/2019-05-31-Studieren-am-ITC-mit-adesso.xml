@@ -13,10 +13,14 @@ In diesem Artikel stelle ich das Studium am IT-Center vor und teile meine Erfahr
         <field name="content_type_multi_keyword"><![CDATA[blog]]></field>
         <field name="mime_type_multi_keyword"><![CDATA[text/html]]></field>
         <field name="category_multi_keyword"><![CDATA[Inside adesso]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Duales Studium]]></field>
+        <field name="tag_multi_keyword"><![CDATA[ITC Dortmund]]></field>
         <field name="date_date"><![CDATA[2019-05-31T08:37:00+02:00]]></field>
         <field name="date_l"><![CDATA[1559284620000]]></field>
-        <field name="change_date"><![CDATA[1586172960000]]></field>
+        <field name="change_date"><![CDATA[1665746940000]]></field>
+
         <!--Author Information-->
+        
         <field name="author_id"><![CDATA[ccaylak]]></field><!--Postcontent-->
         <field name="headlines"><![CDATA[Duales Studium am IT-Center Dortmund mit adesso als Partner]]></field>
         <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">

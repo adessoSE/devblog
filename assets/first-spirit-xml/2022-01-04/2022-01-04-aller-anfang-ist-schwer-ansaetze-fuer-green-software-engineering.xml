@@ -19,7 +19,9 @@ In diesem Beitrag werden einige Ansätze dazu für den Entwicklungsalltag bei Ja
         <field name="date_date"><![CDATA[2022-01-04T08:00:00+01:00]]></field>
         <field name="date_l"><![CDATA[1641279600000]]></field>
         <field name="change_date"><![CDATA[1649224800000]]></field>
+
         <!--Author Information-->
+        
         <field name="author_id"><![CDATA[gaboratarithnea]]></field><!--Postcontent-->
         <field name="headlines"><![CDATA[Aller Anfang ist schwer: Ansätze für Green Software-Engineering]]></field>
         <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
