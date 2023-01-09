@@ -14,14 +14,14 @@ When adding the NuGet package in the latest version `0.26.2` (release December 1
 Let's explore the steps to find more about that error and the resulting actions to resolve that problem and continue on with the project.
 
 First I will create a MVP to replicate the problem and explore further without the other dependencies of the project.
-Then follow my process of resolving the problem and find a solution.
+Then I will follow the process of resolving the problem and finding a solution.
 
 This happens on the machine with [Majaro x64](https://manjaro.org/) with [.Net 6](https://docs.microsoft.com/en-us/dotnet/core/whats-new/dotnet-6).
 
-# Replicate the error on a MVP
+# Replicate the error with a MVP
 
-So far my observation was that every call to the library caused a problem.
-Therefore a minimal reproduction of that problem would be achieved by including the NuGet and calling anything from the library.
+So far, my observation was, that every call to the library caused a problem.
+Therefore a minimal reproduction of that problem would be achieved by including the NuGet package and calling anything from the library.
 
 ``` csharp
 // Get the directory where the executable is run.
@@ -36,10 +36,10 @@ return directoryIsARepository ? 0 : 1;
 ```
 _Fig1: Simplified version of [Program.cs](https://git.sr.ht/~vince/poc_libgit2sharp/tree/main/item/poc_libgit2sharp/Program.cs)_
 
-So after recreating the error on my machine I created a new repository and added the least required code to reproduce the error.
+So after recreating the error on my machine, I created a new repository and added the least required code to reproduce the error.
 The repository is uploaded at [sr.ht](https://git.sr.ht/~vince/poc_libgit2sharp).
 
-``` csharp
+``` bash
 $ git log --oneline -n1
 e8f4902 Add simple check for the library
 
@@ -75,9 +75,9 @@ make: *** [Makefile:18: run] Error 134
 ```
 _Fig2: Recreating the error on the MVP_
 
-Now let us dissect the thrown error message a bit further to understand the underlying problem before taking further actions or dive deep into the code of the open source repository [libgit2](https://github.com/libgit2/libgit2sharp).
+Now let us dissect the thrown error message a bit further to understand the underlying problem before taking further actions or diving deeper into the code of the open source repository [libgit2](https://github.com/libgit2/libgit2sharp).
 
-``` csharp
+``` bash
 Unhandled exception. System.TypeInitializationException:
 	The type initializer for 'LibGit2Sharp.Core.NativeMethods' threw an exception.
 ---> System.DllNotFoundException:
@@ -87,16 +87,16 @@ Unhandled exception. System.TypeInitializationException:
 ```
 _Fig3: Information from the exception_
 
-We know that the library is a wrapper around the C implementation of libgit2 to enjoy it in the managed world of dotnet.
-Armed with this knowledge we can suspect that the reference to `git2-106a5f2` of the `System.DllNotFoundException` is about the native library.
-The next step is to find out where the library gets loaded from and where the error occurs to get a better understanding of the problem.
+We know, that the library is a wrapper around the C implementation of libgit2 to enjoy it in the managed world of dotnet.
+Armed with this knowledge, we can suspect that the reference to `git2-106a5f2` of the `System.DllNotFoundException` is about the native library.
+The next step is to find out where the library is loaded from and where the error occurs to get a better understanding of the problem.
 
 # Exploration with Debug options
 
-The error message gives us all the information we need to proceed further as it indicated about the usage of `LD_DEBUG`.
-So lets explore the output with that environment variable set (output is greatly condensed).
+The error message gives us all the information we need to proceed further as it indicated the usage of `LD_DEBUG`.
+So lets explore the output with that environment variable set (output is greatly condensed):
 
-``` csharp
+``` bash
 ~/Projects/poc_libgit2sharp main $ LD_DEBUG=libs make run
 dotnet run --project ./poc_libgit2sharp/poc_libgit2sharp.csproj
    1022222:	initialize program: /home/vince/Projects/poc_libgit2sharp/poc_libgit2sharp/bin/Debug/net6.0/poc_libgit2sharp
@@ -137,9 +137,9 @@ make: *** [Makefile:18: run] Error 134
 ```
 _Fig4: LD_DEBUG run to list the libraries_
 
-When running the `LD_DEBUG` with `all` or `files` we get similar results.
+When setting the `LD_DEBUG` parameter to `all` or `files` we get similar results:
 
-``` csharp
+``` bash
    1022654:	file=/home/vince/Projects/poc_libgit2sharp/poc_libgit2sharp/bin/Debug/net6.0/runtimes/linux-x64/native/git2-106a5f2.so [0];  dynamically loaded by /usr/share/dotnet/shared/Microsoft.NETCore.App/6.0.2/libcoreclr.so [0]
    1022654:
    1022654:	file=/usr/share/dotnet/shared/Microsoft.NETCore.App/6.0.2/git2-106a5f2.so [0];  dynamically loaded by /usr/share/dotnet/shared/Microsoft.NETCore.App/6.0.2/libcoreclr.so [0]
@@ -155,19 +155,19 @@ When running the `LD_DEBUG` with `all` or `files` we get similar results.
 ```
 _Fig5: Output from `LD_DEBUG=files`_
 
-The library files `./bin/Debug/net6.0/runtimes/linux-x64/native/libgit2-106a5f2.so` does exist and can be imported correctly.
+The library files `./bin/Debug/net6.0/runtimes/linux-x64/native/libgit2-106a5f2.so` do exist and they are imported correctly.
 On the other hand the referenced file `/usr/share/dotnet/shared/Microsoft.NETCore.App/6.0.2/git2-106a5f2.so` does not exist at this global location.
 
-If there would be no specific version applied to the shared object file I would say the file should come from the system.
+If there would be no specific version applied to the shared object file I would say the file, should come from the system.
 Let's check the package manager and install the latest version of the underlying library `libgit2` on the system.
 
 ``` bash
 $ sudo pacman -S libgit2
 ```
-_Fig6: Installing the package globally [packages libgit2](https://archlinux.org/packages/extra/x86_64/libgit2/)_
+_Fig6: Installing the [libgit2 package](https://archlinux.org/packages/extra/x86_64/libgit2/) globally_
 
 Even after the installation/update the error persists.
-So as expected there is no correlation with the global installation of the library and it should come all bundled with the NuGet.
+So, as expected, there is no correlation with the global installation of the library and it should come all bundled with the NuGet package.
 
 Going further and exploring the issues on GitHub and discovering a potential fix will be the next step.
 
@@ -175,9 +175,9 @@ Going further and exploring the issues on GitHub and discovering a potential fix
 
 Before exploring the installation scripts or the code of the library let us explore the issues on GitHub.
 
-There are some issues hinting that the correct dependency ob the package should be used which is `LibGit2Sharp.NativeBinaries` in version `2.0.306` which was already the case when inspecting the file `./obj/project.assets.json`.
+There are some issues hinting that the correct dependency of the package should be used, which is `LibGit2Sharp.NativeBinaries` in version `2.0.306`, which was already the case when inspecting the file `./obj/project.assets.json`.
 
-On the other hand there are multiple issues indicating that there are issues with .Net 5 which should be fixed with the preview version of `0.27.0` of the `LibGit2Sharp` NuGet.
+On the other hand, there are multiple issues indicating that there are issues with .Net 5, which should be fixed with the preview version of `0.27.0` of the `LibGit2Sharp` NuGet package.
 
 ## Installing the preview version of the library
 
@@ -203,16 +203,16 @@ The directory '/home/vince/Projects/poc_libgit2sharp' is a git repository 'True'
 _Fig8: Execute with preview version_
 
 Perfect, now no exception gets thrown from the library and the expected result holds true.
-The working directory is indeed a git [repository](https://git.sr.ht/~vince/poc_libgit2sharp).
+The working directory is indeed a [git repository](https://git.sr.ht/~vince/poc_libgit2sharp).
 
-Now having a reference to a preview version is always unpleasant and should be avoided.
-As we know with git itself we have the possibility of including the sources directly and building it with our project.
-To draw a conclusion for the project lets explore both options in this MVP.
+Now, having a reference to a preview version is always unpleasant and should be avoided.
+As we know with git itself, we have the possibility of including the sources directly and building them within our project.
+To draw a conclusion for the project, lets explore both options in this MVP.
 
 # Building from source
 
-Now for the last step lets try to build the project ourselves and include the result in our project.
-With this option we can directly link the `master` branch of the repository and update it accordingly to receive the latest updates instead of waiting for an update on the NuGet package.
+Now for the last step, lets try to build the project ourselves and include the result in our project.
+With this option, we can directly link the `master` branch of the repository and update it accordingly to receive the latest updates instead of waiting for an update on the NuGet package.
 
 ``` bash
 $ git submodule add https://github.com/libgit2/libgit2sharp.git libgit2sharp
@@ -233,7 +233,7 @@ $ cat .gitmodules
 ```
 _Fig9: Installing the submodule_
 
-And finally update the project reference.
+And finally, we can update the project reference.
 
 ``` bash
 $ git diff d85adbb~..d85adbb
@@ -253,22 +253,21 @@ index 4329b2b..f3f8c62 100644
 ```
 _Fig10: Update the reference_
 
-The submodule works as expected just as the preview version of the NuGet.
-With the submodule we have similar downsides to using a package manager.
-As the reference has to be updated manually when a new version is published.
+The submodule works as expected just as the preview version of the NuGet package.
+With the submodule, we have similar downsides to using a package manager, as the reference has to be updated manually when a new version is published.
 
-When using the submodule we can directly checkout the `master` branch and check the latest development.
+When using the submodule, we can directly check out the `master` branch and check the latest development version.
 It is worth noting that when a stable release of `0.27.0` is released of the package this choice has to be reevaluated.
 
 # Conclusion
 
-To see all the changes made since the last published version we can checkout the diff on GitHub directly [v0.26..master](https://github.com/libgit2/libgit2sharp/compare/v0.26..master).
+To see all the changes made since the last published version, we can check out the diff on GitHub directly [v0.26..master](https://github.com/libgit2/libgit2sharp/compare/v0.26..master).
 
 The help on submodules is extensive and can be viewed under `man 1 git-submodule` and `man 7 gitsubmodules`.
 
-For my project I decided to go with the submodule since it gives me a few advantages:
+For my project I decided to go with the submodule workaround since it gives me a few advantages:
 
-* Building regularly let me observe the submodule for updates
+* Building regularly lets me observe the submodule for updates
 * I can keep up with changes to the library
-* Give early feedback as soon as I will notice it
+* Give feedback to the library developers since I work with a version containing new features and fixes
 * On different branches I can try different versions of the library
