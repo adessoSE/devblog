@@ -4,7 +4,7 @@ title:  "Quarkus: Die Revolution für nachhaltige Java-Entwicklung"         # Pf
 date:   2023-01-23 10:25             # Pflichtfeld. Format "YYYY-MM-DD HH:MM". Muss für Veröffentlichung in der Vergangenheit liegen. (Für Preview egal)
 modified_date: 2023-01-23 10:25             # Optional. Muss angegeben werden, wenn eine bestehende Datei geändert wird.
 author_ids: [andreasmaita]                 # Pflichtfeld. Es muss in der "authors.yml" einen Eintrag mit diesen Namen geben.
-categories: [Softwareentwicklung, Architektur]     # Pflichtfeld. Maximal eine der angegebenen Kategorien verwenden.
+categories: [Architektur]     # Pflichtfeld. Maximal eine der angegebenen Kategorien verwenden.
 tags: [Quarkus, Microservices, Java, GraalVM]   # Bitte auf Großschreibung achten.
 ---
 
