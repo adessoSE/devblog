@@ -22,6 +22,12 @@ thombergs:
   bio: "Tom Hombergs ist Softwarearchitekt und Teamleiter bei adesso in Dortmund und entwickelt Softwarearchitekturen für unsere Kunden."
   avatar_url: /assets/images/avatars/thombergs.jpg
 
+thasslin:
+  first_name: Timo
+  last_name: Haßlinger
+  bio: "Timo Haßlinger ist Software Developer bei adesso mit Fokus auf Java-Entwicklung. Nebenbei beschäftigt er sich außerdem im Rahmen seines berufsbegleitenden Master Studiums mit Themen aus dem Bereich der Data Science."
+  avatar_url: /assets/images/avatars/thasslin.png
+
 silasmahler:
   first_name: Silas
   last_name: Mahler
@@ -413,6 +419,12 @@ bolsei:
   bio: "Timo Rudersdorf ist seit 2021 als Senior Software Engineer bei adesso in Essen tätig. Dort unterstützt er den Bereich Public als Entwickler im Java-Umfeld."
   avatar_url: /assets/images/avatars/trudersdorf.jpg
 
+JuergenWarias:
+  first_name: Jürgen
+  last_name: Warias
+  bio: "Jürgen Warias ist seit 2012 als Software Engineer (seit 2015 Senior) bei adesso in Dortmund tätig tätig. Dort ist er in der Lob Insurance als Entwickler im Java-EE-Umfeld tätig."
+  avatar_url: https://avatars.githubusercontent.com/u/104759335?s=400&u=da915327ebe5f145cf07a4a97c93284327e77fb3&v=4
+
 mboegers:
   first_name: Merlin
   last_name: Bögershausen
@@ -436,3 +448,10 @@ kenneth-may-adesso:
   last_name: May
   bio: "Kenneth May arbeitet seit 2021 als Softwareentwickler in der automatischen KFZ-Betrugserkennung (AFM) der LOB Insurance."
   avatar_url: /assets/images/avatars/kenneth-may-adesso.jpg
+
+sypste:
+  first_name: Simon
+  last_name: Stemper
+  bio: "Simon Stemper arbeitet seit 2019 als Cloud Data Engineer bei adesso in Dortmund. Im Bereich Data & Analytics berät er Kunden zu Einsatz und Betrieb von Big-Data-Technologien."
+  avatar_url: /assets/images/avatars/stemper.jpg
+

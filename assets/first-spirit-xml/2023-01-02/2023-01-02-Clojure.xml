@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<documents>
+    <document uid="203765eb1d592c76d2458d0092866d28">
+        <field name="title"><![CDATA[Die Programmiersprache Clojure - ein neuer Wettbewerber in der Versicherungsbranche?]]></field>
+        <field name="subline"><![CDATA[]]></field>
+        <field name="teaser"><![CDATA[<p>In kaum einer anderen Branche setzt man mehr auf etablierte Technologien als in der Versicherungsbranche.
+Handelt es sich dabei um Gewohnheit, mangelnde Flexibilität oder vielleicht die Angst vor etwas Neuem? 
+Unter den zumeist eingesetzten Technologien sind JBoss, TomEE bzw. JavaEE, Cobol und R.
+Dieser Artikel soll euch die deutlich jüngere Programmiersprache Clojure vorstellen und ihren möglichen Nutzen sowie mögliche Vorteile im Vergleich zu R für die Softwareentwicklung der Branchen Banking und Insurance näher bringen.</p>
+
+]]></field>
+        <field name="language_multi_keyword"><![CDATA[de]]></field>
+        <field name="content_type_multi_keyword"><![CDATA[blog]]></field>
+        <field name="mime_type_multi_keyword"><![CDATA[text/html]]></field>
+        <field name="category_multi_keyword"><![CDATA[Softwareentwicklung]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Clojure]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Softwareentwicklung]]></field>
+        <field name="date_date"><![CDATA[2023-01-02T11:00:00+01:00]]></field>
+        <field name="date_l"><![CDATA[1672653600000]]></field>
+        <field name="change_date"><![CDATA[1672653600000]]></field>
+
+        <!--Author Information-->
+        
+        <field name="author_id"><![CDATA[JuergenWarias]]></field><!--Postcontent-->
+        <field name="headlines"><![CDATA[Die Programmiersprache Clojure - ein neuer Wettbewerber in der Versicherungsbranche?]]></field>
+        <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
+            <p>In kaum einer anderen Branche setzt man mehr auf etablierte Technologien als in der Versicherungsbranche.
+Handelt es sich dabei um Gewohnheit, mangelnde Flexibilität oder vielleicht die Angst vor etwas Neuem? 
+Unter den zumeist eingesetzten Technologien sind JBoss, TomEE bzw. JavaEE, Cobol und R.
+Dieser Artikel soll euch die deutlich jüngere Programmiersprache Clojure vorstellen und ihren möglichen Nutzen sowie mögliche Vorteile im Vergleich zu R für die Softwareentwicklung der Branchen Banking und Insurance näher bringen.</p>
+
+</div>]]></field>
+        <field name="content"><![CDATA[<div class="adesso-text-formate">
+<div class="row p-t-2">
+<div class="adesso-container">
+<div class="col-xl-8 adesso-center p-b-1 p-l-0 p-r-0">
+    <p>In kaum einer anderen Branche setzt man mehr auf etablierte Technologien als in der Versicherungsbranche.
+Handelt es sich dabei um Gewohnheit, mangelnde Flexibilität oder vielleicht die Angst vor etwas Neuem? 
+Unter den zumeist eingesetzten Technologien sind JBoss, TomEE bzw. JavaEE, Cobol und R.
+Dieser Artikel soll euch die deutlich jüngere Programmiersprache Clojure vorstellen und ihren möglichen Nutzen sowie mögliche Vorteile im Vergleich zu R für die Softwareentwicklung der Branchen Banking und Insurance näher bringen.</p>
+
+<h5 id="was-genau-ist-clojure-und-inwiefern-ist-diese-sprache-eine-ernstzunehmende-konkurrenz-für-r">Was genau ist Clojure und inwiefern ist diese Sprache eine ernstzunehmende Konkurrenz für R?</h5>
+<p>Die Programmiersprache R, die im Jahr 1993 und damit rund 14 Jahre vor Clojure erschienen ist, hat sich im Versicherungssektor etabliert. 
+R wurde von Statistikern entwickelt. 
+Der Haupteinsatzzweck ist seinerzeit auf statistische Berechnungen und graphische Darstellung gelegt worden.
+Bei Clojure dagegen handelt es sich um einen modernen Lisp-Dialekt mit Unterstützung für interaktive Entwicklung. 
+D.h., ihr könnt mithilfe der REPL (Read, Eval, Print, Loop) in einer Konsole Code direkt auf dem Interpreter ausführen. 
+Es ist eine vielseitige Sprache, die für Fullstack-, Web- und Mobile-Entwicklung, Scripting und das Erstellen von DSLs eingesetzt wird. 
+Der Grundgedanke bei der Entwicklung von Clojure war, den Prozess der Softwareentwicklung sowohl zu vereinfachen, als auch zu beschleunigen. 
+Der Autor, Rich Hickey, hatte vor Clojures Entstehung C++ an der New York University gelehrt und an Informationssystemen gearbeitet, wo er viel mit Standardproblemen konfrontiert war, wie beispielsweise “gehört der Song zum Interpreten oder umgekehrt?”. Daraus entstand die Motivation, eine Programmiersprache zu entwickeln, die den Entwickler bei der Lösung solcher Probleme besser unterstützt.
+Ihr könnt die Sprache also im Vergleich zu R sehr universell einsetzen, u.a. da jede Java-Bibliothek verwendet werden kann. 
+Voraussetzung dafür sind lediglich Grundkenntnisse in Java und OOP. 
+Somit ist auch eine Integration von Clojure-Applikationen in die vorhandenen Systemlandschaften sehr einfach.</p>
+
+<h5 id="darum-ist-clojure-für-die-branchen-banking-und-insurance-besonders-geeignet">Darum ist Clojure für die Branchen Banking und Insurance besonders geeignet</h5>
+<p>Clojure bietet im Vergleich zu den verbreitetsten Programmiersprachen wie Java, C++ und C# eine deutlich bessere Unterstützung für komplexe mathematische Berechnungen. 
+Im Finanzsektor verbreitet sie sich daher aktuell zunehmend.
+R ist in den Bereichen Wirtschaft und Wissenschaft ebenfalls die Standardsprache, wenn es vor allem um statistische Problemstellungen geht. 
+R ist ebenfalls von Haus aus sehr breit einsetzbar, da es (wie bspw. bei SPSS) Weiterentwicklungen für eine universelle Verwendbarkeit gab, doch man blieb stets auf den ursprünglichen Schwerpunkt fokussiert. 
+Dass Clojure selbst keine graphische Unterstützung bietet, ist definitiv kein Nachteil gegenüber R, da ihr quasi jede Java-Bibliothek, die in den letzten &gt;15 Jahren entwickelt worden ist, einbinden könnt. 
+Hinter R steht eine großartige Community, die selbst im Businessbereich ihresgleichen sucht.
+Auch bei der Clojure-Community ist man aktiv dabei, diese weiter zu stärken.</p>
+
+<h5 id="zielgruppe">Zielgruppe</h5>
+
+<p>Da die bei den Versicherungen angestellten bzw. beauftragten Aktuare eher selten Programmierfähigkeiten besitzen, liegt die Zielgruppe eher bei der internen IT sowie bei den IT-Unternehmen, die den Versicherungsunternehmen Software bereitstellen oder deren Teams unterstützen.</p>
+
+<h5 id="referenzen">Referenzen</h5>
+
+<p>Nennenswerte Unternehmen, die Clojure einsetzen, sind beispielsweise Walmart, die Citi Group und auch die NASA. 
+Es gibt auch bereits kleinere wie auch größere Unternehmen in anderen Branchen, die Clojure von Beginn an eingesetzt oder dorthin gewechselt haben. 
+Bei Walmart haben 8 Entwickler rund 20 Services entwickelt, die unter anderem jeden Einkauf aus über 5000 Filialen, den Webshops und Mobile-Apps erfassen und verwalten. 
+Unter anderem werden Kassenbons für spätere Reklamationen und Umtausche gespeichert. 
+Über die Projektdauer bietet die Quelle leider keine Infos. (Quelle: https://cognitect.com/blog/2015/6/30/walmart-runs-clojure-at-scale)
+Man sagt bei Walmart allerdings, dass im Vergleich zu anderen Programmiersprachen um das 5-10-fache weniger Code geschrieben werden musste. 
+Unmittelbar nach dem Rollout hatte das neue System einen Black-Friday-Ansturm angeblich schadlos überstanden.
+Die Citi Group ist die größte Finanzgruppe der Welt und verwendet Clojure erfolgreich, um finanzielle Informationen zu erfassen, mit dem Ziel, jederzeit einen Überblick über Investments und Risiken zu haben.
+Die NASA hat ihr “Earth Science Data Information System (ESDIS) project” und ihr “Common Metadata Repository (CMR)” mit Clojure realisiert. 
+Ersteres stellt Informationen aus Beobachtungen unseres Planeten nicht nur der NASA selbst, sondern auch einer stetig wachsenden Community bereit. 
+Diese umfasst längst nicht mehr nur Wissenschaftler, Regierungen und andere Entscheidungsträger, sondern auch die breite Öffentlichkeit. 
+Zweites ist ein Repository für wissenschaftliche Metadaten für das “NASA EOSDIS”. 
+Ich gehe an dieser Stelle nicht zu sehr auf Details ein, sondern möchte anhand der Referenzen hervorheben, dass Clojure-Applikationen aus Erfahrung</p>
+
+<ul>
+  <li>mit deutlich weniger Code auskommen, als bei Applikationen in anderen Programmiersprachen,</li>
+  <li>in der Entwicklung dadurch weniger Fehler/Bugs entstehen,</li>
+  <li>performant riesige Datenmengen verarbeitet werden können,</li>
+  <li>ein flexibler und vor allem zuverlässiger Einsatz möglich ist und</li>
+  <li>es große, renommierte Unternehmen gibt, die Clojure bereits vertrauen.</li>
+</ul>
+
+<h5 id="die-einstiegshürde-bei-clojure">Die Einstiegshürde bei Clojure</h5>
+
+<p>Erfahrungen mit LISP-Sprachen begünstigen den Einstieg sehr stark, die meisten Clojure-Entwickler haben allerdings einen Java-Hintergrund. 
+Das mag daran liegen, dass Clojure-Applikationen ebenfalls auf der Java Virtual Machine laufen, wodurch auch dieselbe Plattformunabhängigkeit wie bei Java gegeben ist. 
+Darüber hinaus gibt es eine JavaScript-Implementierung namens ClojureScript sowie eine CLR-Implementierung. 
+Clojures Makrosystem ist mit dem anderer Lisp-Umgebungen vergleichbar.</p>
+
+<h5 id="technisches">Technisches</h5>
+
+<p>Es werden die aus Java bekannten Standard-Datentypen wie Long, Double, String, Boolean usw. angeboten. 
+Wie viele andere funktionale Programmiersprachen bilden unveränderliche Datentypen einen wesentlichen Bestandteil. 
+Durch geschickte Implementierung wird allzu großer Kopier-Overhead vermieden. 
+Ansonsten ähnelt das Typsystem dem von Java sehr stark.</p>
+
+<pre><code class="language-java">123 ; Long 1.23 ; Double "Hello" ; String true ; Boolean
+</code></pre>
+
+<p>Komplexe Datentypen sind mit speziellen Prä- und Suffixen ebenfalls möglich:</p>
+
+<pre><code class="language-java">42N ; clojure.lang.BigInt 3.14159M ; java.math.BigDecimal 1/3 ; clojure.lang.Ratio #"[A-Za-z]+" ; java.util.regex.Pattern
+</code></pre>
+
+<p>Ein HelloWorld-Programm für die REPL könnte z.B. so aussehen:</p>
+
+<pre><code class="language-java">(ns clojure.examples.hello
+(:gen-class))
+
+(defn sum-of-numbers [x y]
+(println (format "x + y = %d" (+ x y))))
+
+(sum-of-numbers 10 25)
+</code></pre>
+
+<h5 id="unterstützte-ides">Unterstützte IDEs</h5>
+<p><a href="https://www.dunebook.com/best-clojure-ide-and-editors/">Hier</a> werden euch die 7 besten IDEs mit Plugins bzw. Unterstützung für die Entwicklung mit Clojure vorgestellt.
+Auf Platz 1 findet ihr Cursive, eine IDE, die selbst in Clojure geschrieben wurde und auf IntelliJ aufbaut. 
+Eclipse mit dem Plugin Counterclockwise rangiert hingegen nur auf Platz 5 hinter Emacs, VS Code und Atom.</p>
+
+<h5 id="performance">Performance</h5>
+
+<p>Was oft bemängelt wird, ist die lange Startzeit von Clojure-Applikationen, was daran liegt, dass sie in der JVM laufen. 
+Vergleichbare Systeme, die in Python oder Ruby geschrieben sind, starten oft in unter 100ms. 
+Zur Laufzeit sollten Clojure-Systeme in der Geschwindigkeit mit Java-Systemen vergleichbar sein, eben wegen der Ausführung in der JVM. 
+Die Probleme aus den Anfängen von Java sind längst Geschichte, sodass man heute in Sachen Performance kaum noch einen Unterschied zu nativen Programmiersprachen messen kann. 
+Tipps für Feintuning gibt es zuhauf im Web. 
+Verbesserungsmöglichkeiten sind natürlich immer von der jeweils zugrundeliegenden Applikation abhängig, wie bei den anderen Sprachen auch.</p>
+
+<h5 id="support">Support</h5>
+
+<p>Zusammen mit Cognitect bietet Rich Hickey technischen Support an.</p>
+
+<h5 id="zusammenfassung">Zusammenfassung</h5>
+<p>Dieser Artikel hat gezeigt, dass Clojure mit R in den üblichen Einsatzbereichen der Branchen Banking und Insurance mithalten kann und darüber hinaus aufgrund der Möglichkeit der Einbindung von Java-Bibliotheken wesentlich breiter eingesetzt werden kann.
+Damit ist Clojure genauso universell einsetzbar wie Java, C++ oder C# mit dem zusätzlichen Vorteil der Unterstützung komplexer mathematischer Berechnungen.
+Aufgrund der Ausführung auf der JVM ist eine Integration von Clojure-Applikationen in bestehende Systeme leichter als bei R. 
+Da beides funktionale Sprachen sind, ist die Einstiegshürde ähnlich anzusehen. 
+Dass ein Einsatz von Clojure für neue Projekte lohnenswert sein kann, zeigen die oben angeführten Referenzen.</p>
+
+<h5 id="quellen">Quellen:</h5>
+<ul>
+  <li><a href="https://www.heise.de/hintergrund/Parallelprogrammierung-mit-Clojure-1170690.html">https://www.heise.de/hintergrund/Parallelprogrammierung-mit-Clojure-1170690.html</a></li>
+  <li><a href="https://stats.stackexchange.com/questions/130/clojure-versus-r-advantages-and-disadvantages-for-data-analysis">https://stats.stackexchange.com/questions/130/clojure-versus-r-advantages-and-disadvantages-for-data-analysis</a></li>
+  <li><a href="https://qastack.com.de/stats/130/clojure-versus-r-advantages-and-disadvantages-for-data-analysis">https://qastack.com.de/stats/130/clojure-versus-r-advantages-and-disadvantages-for-data-analysis</a></li>
+  <li><a href="https://de.wikipedia.org/wiki/Clojure">https://de.wikipedia.org/wiki/Clojure</a></li>
+  <li><a href="https://de.wikipedia.org/wiki/R_(Programmiersprache)">https://de.wikipedia.org/wiki/R_(Programmiersprache)</a></li>
+  <li><a href="https://clojurebridgelondon.github.io/workshop/introducing-clojure/who-uses-clojure.html">https://clojurebridgelondon.github.io/workshop/introducing-clojure/who-uses-clojure.html</a></li>
+  <li><a href="https://cognitect.com/blog/2015/6/30/walmart-runs-clojure-at-scale">https://cognitect.com/blog/2015/6/30/walmart-runs-clojure-at-scale</a></li>
+  <li><a href="https://building.nubank.com.br/working-with-clojure-at-nubank/">https://building.nubank.com.br/working-with-clojure-at-nubank/</a></li>
+  <li><a href="https://tech.redplanetlabs.com/2020/09/02/clojure-faster/">https://tech.redplanetlabs.com/2020/09/02/clojure-faster/</a></li>
+  <li><a href="https://stackoverflow.com/questions/7593975/why-clojure-lisp-programs-are-faster-than-other-dynamic-languages">https://stackoverflow.com/questions/7593975/why-clojure-lisp-programs-are-faster-than-other-dynamic-languages</a></li>
+</ul>
+
+<h5 id="roll-your-own---execute-clojure-online">Roll your own - execute Clojure online:</h5>
+
+<ul>
+  <li><a href="https://www.jdoodle.com/execute-clojure-online/">https://www.jdoodle.com/execute-clojure-online/</a></li>
+</ul>
+
+
+</div>
+</div>
+</div>
+</div>]]></field>
+    </document>
+</documents>
