@@ -443,8 +443,15 @@ nirumand:
   bio: "Reza Nirumand is a Senior Software Engineer at adesso located in Dortmund. He is involved in various projects in the Banking industry and he is responsible for the designing and delivering of cloud-native applications."
   avatar_url: /assets/images/avatars/nirumand.jpg
 
+kenneth-may-adesso:
+  first_name: Kenneth
+  last_name: May
+  bio: "Kenneth May arbeitet seit 2021 als Softwareentwickler in der automatischen KFZ-Betrugserkennung (AFM) der LOB Insurance."
+  avatar_url: /assets/images/avatars/kenneth-may-adesso.jpg
+
 sypste:
   first_name: Simon
   last_name: Stemper
   bio: "Simon Stemper arbeitet seit 2019 als Cloud Data Engineer bei adesso in Dortmund. Im Bereich Data & Analytics berät er Kunden zu Einsatz und Betrieb von Big-Data-Technologien."
   avatar_url: /assets/images/avatars/stemper.jpg
+
