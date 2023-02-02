@@ -70,9 +70,9 @@ GraalVM ist ein hoch performantes JDK, was nicht nur erlaubt Java Anwendungen mi
 Zum Beispiel ist es für die Native Kompilierung nicht möglich Java Reflection zu nutzen. Viele nützliche Java Bibliotheken nutzen aber dieses Feature ausgiebig, darunter auch die bekannte Jackson Bibliothek, die zum Parsen von JSON-Objekten benutzt wird. Quarkus kann diese Bibliotheken nutzen und trotzdem nativ kompiliert werden, indem es den genauen Einsatz solcher Reflection-lastigen Funktionen mit einem besonderen Tag markiert.
 
 Im Internet findet man zahlreiche Vergleiche zwischen Quarkus und anderen Java Frameworks wo in Sachen Performance und Speicheroptimierung, Quarkus deutlich vorne liegt. Folgende Grafik wurde aus einem Aritkel einer bekannten Java Webseite entnommen. Anhand dieser Grafik kann man klar erkennen, das Quarkus sowohl bei jvm und native kompilierung weniger Zeit und Ressourcen verwendet, wie andere Frameworks z.B. Spring.
-![Performance Tabelle](https://github.com/adessoAG/devblog/raw/master/assets/images/quarkus_blog/quarkus_blog_image_1.png)
+[Performance Tabelle](https://github.com/adessoAG/devblog/raw/master/assets/images/quarkus_blog/quarkus_blog_image_1.png)
 
-Der gesamte Blog-Beitrag ist[hier](https://www.baeldung.com/spring-boot-vs-quarkus) verlinkt.
+Der gesamte Blog-Beitrag ist [hier](https://www.baeldung.com/spring-boot-vs-quarkus) verlinkt.
 
 # Fazit
 Quarkus ist ein leistungsstarkes und hoch effizientes Java-Framework, das speziell für die Entwicklung von Cloud-Native-Anwendungen in Java optimiert ist. 
