@@ -8,48 +8,22 @@ categories: [Architektur]     # Pflichtfeld. Maximal eine der angegebenen Katego
 tags: [Quarkus, Microservices, Java, GraalVM]   # Bitte auf Großschreibung achten.
 ---
 
-In den letzten Jahren hat sich die Nachhaltigkeit zu einem wichtigen Faktor entwickelt, der in vielen Industrie-Bereichen berücksichtigt werden muss, darunter auch bei der Softwareentwicklung. Nahezu jeder Wirtschaftszweig arbeitet heute mithilfe von Software, sodass es wichtig ist, bei deren Erstellung nachhaltige Verfahren anzuwenden.
+In den letzten Jahren hat sich die Nachhaltigkeit zu einem wichtigen Faktor entwickelt, der in vielen Industrie-Bereichen berücksichtigt werden muss, darunter auch bei der Softwareentwicklung. Nahezu jeder Wirtschaftszweig arbeitet heute mithilfe von Software, sodass es wichtig ist, bei deren Erstellung nachhaltige Verfahren anzuwenden.Besonders beim Betreiben der Software spielt Nachhaltigkeit eine große Rolle. 
 
-Besonders beim Betreiben der Software spielt Nachhaltigkeit eine große Rolle. 
+Dafür haben sich Cloud-Dienste als Hosting Anbieter in den letzten Jahren immer mehr durchgesetzt und deren Dienste und Infrastruktur erfordern eine gewisse Menge an Ressourcen und CO₂-Emissionen. Im Bemühen, den Kohlendioxidausstoß zu verringern, gehen die Experten der Technologiebranche bei der Auswahl der von ihnen verwendeten Technologien mit Bedacht vor.
 
-Dafür haben sich Cloud-Dienste als Hosting Anbieter in den letzten Jahren immer mehr durchgesetzt und deren Dienste und Infrastruktur erfordern eine gewisse Menge an Ressourcen und CO₂-Emissionen. 
-
-Im Bemühen, den Kohlendioxidausstoß zu verringern, gehen die Experten der Technologiebranche bei der Auswahl der von ihnen verwendeten Technologien mit Bedacht vor.
-
-Eine dieser Technologien, die sowohl beim Geldsparen als auch bei der Reduktion von CO₂-Emissionen helfen kann, ist Quarkus. 
-
-Quarkus ist eine auf Kubernetes und OpenShift optimierte, kompakte und schnelle Laufzeitumgebung für Java-Anwendungen. 
-
-Somit findet es nicht nur Anwendung in Cloud-Infrastruktur, sondern auch in selbst gehosteten Lösungen. 
+Eine dieser Technologien, die sowohl beim Geldsparen als auch bei der Reduktion von CO₂-Emissionen helfen kann, ist Quarkus. Quarkus ist eine auf Kubernetes und OpenShift optimierte, kompakte und schnelle Laufzeitumgebung für Java-Anwendungen. Somit findet es nicht nur Anwendung in Cloud-Infrastruktur, sondern auch in selbst gehosteten Lösungen. 
 
 In diesem Artikel werden wir uns ansehen, wie Quarkus dazu beitragen kann, Geld zu sparen und die CO₂-Emissionen von Anwendungen zu reduzieren.
 
 # Geringere Ressourcenanforderungen führen zu geringeren Kosten
-Einer der größten Vorteile von Quarkus ist, dass es zu geringeren Ressourcenanforderungen führt als klassische Java Webanwendungen. 
+Einer der größten Vorteile von Quarkus ist, dass es zu geringeren Ressourcenanforderungen führt als klassische Java Webanwendungen. Das liegt daran, dass Quarkus einen „container-first“ Ansatz verfolgt. Das bedeutet, dass Quarkus Anwendungen für niedrige Speichernutzung und schnelle Startzeit optimiert ist.
 
-Das liegt daran, dass Quarkus einen „container-first“ Ansatz verfolgt. 
+Das schafft Quarkus, in dem es viele Prozesse, die bei einer klassischen Java Anwendung bei Laufzeit gemacht werden, schon beim Bauen der Software ausgelagert werden.Darunter zum Beispiel das Parsen von Konfigurationen. 
 
-Das bedeutet, dass Quarkus Anwendungen für niedrige Speichernutzung und schnelle Startzeit optimiert ist.
+In Traditionellen Java Anwendungen bleiben alle Klassen, die zur initialen Konfiguration benötigt werden, für die gesamte Laufzeit im Speicher, und das obwohl sie ja nur einmal, und zwar beim Hochfahren der Applikation, benutzt werden. Quarkus hingegen, bereitet schon beim Bauen der Applikation die jeweiligen Komponenten, Mitsamt ihrer Konfiguration vor. So müssen diese Schritte nicht bei Laufzeit durchlaufen werden. Dies resultiert in weniger Speichernutzung und schnellere Startzeiten, da viele Schritte schon beim Bauen bearbeitet wurden. 
 
-Das schafft Quarkus, in dem es viele Prozesse, die bei einer klassischen Java Anwendung bei Laufzeit gemacht werden, schon beim Bauen der Software ausgelagert werden.
-
-Darunter zum Beispiel das Parsen von Konfigurationen. 
-
-In Traditionellen Java Anwendungen bleiben alle Klassen, die zur initialen Konfiguration benötigt werden, für die gesamte Laufzeit im Speicher, und das obwohl sie ja nur einmal, und zwar beim Hochfahren der Applikation, benutzt werden.
-
-Quarkus hingegen, bereitet schon beim Bauen der Applikation die jeweiligen Komponenten, Mitsamt ihrer Konfiguration vor. 
-
-So müssen diese Schritte nicht bei Laufzeit durchlaufen werden. 
-
-Dies resultiert in weniger Speichernutzung und schnellere Startzeiten, da viele Schritte schon beim Bauen bearbeitet wurden.
-
-Mit diesen und vielen weiteren Strategien schaffen es Quarkus-Anwendungen einen Bruchteil an Speicher und CPU-Ressourcen zu nutzen gegenüber klassischer Java Stacks. 
-
-Dies führt zu geringeren Kosten, insbesondere bei der Ausführung von Anwendungen in der Cloud.
-
-Diese geringeren Ressourcenanforderungen können auch dazu beitragen, dass Quarkus-Anwendungen in Umgebungen mit beschränkten Ressourcen, wie z.B. auf Edge-Geräten, schneller laufen. 
-
-Dies kann wiederum zu geringeren Kosten für die Bereitstellung von Anwendungen in solchen Umgebungen beitragen.
+Mit diesen und vielen weiteren Strategien schaffen es Quarkus-Anwendungen einen Bruchteil an Speicher und CPU-Ressourcen zu nutzen gegenüber klassischer Java Stacks. Dies führt zu geringeren Kosten, insbesondere bei der Ausführung von Anwendungen in der Cloud. Diese geringeren Ressourcenanforderungen können auch dazu beitragen, dass Quarkus-Anwendungen in Umgebungen mit beschränkten Ressourcen, wie z.B. auf Edge-Geräten, schneller laufen. Dies kann wiederum zu geringeren Kosten für die Bereitstellung von Anwendungen in solchen Umgebungen beitragen.
 
 # Geringere CO₂-Emissionen durch geringere Stromkosten
 Neben den direkten Kosteneinsparungen kann Quarkus auch dazu beitragen, die CO2-Emissionen von Anwendungen zu reduzieren.
@@ -63,27 +37,16 @@ Weniger Strom zu verbrauchen ist schon seit Jahren in aller Munde und durch den 
 Besonders durch die Synergie mit GraalVM kann Quarkus durch das native Kompilieren noch einen drauflegen.
 
 # Noch mehr Performance durch nativer Kompilierung
-Quarkus ist also in der Lage nicht nur Kosten, sondern auch CO2-Emissionen zu reduzieren. 
+Quarkus ist also in der Lage nicht nur Kosten, sondern auch CO2-Emissionen zu reduzieren. All diese Effekte und Vorteile kann Quarkus aber noch weiter verstärken, und zwar durch die nahtlose Integration von GraalVM. Eine native ausführbare Java Applikation kann um einen enormen Faktor weniger Ressourcen verwenden und das mit einer viel schnelleren Laufzeit.
 
-All diese Effekte und Vorteile kann Quarkus aber noch weiter verstärken, und zwar durch die nahtlose Integration von GraalVM. 
+GraalVM ist ein hoch performantes JDK, was nicht nur erlaubt Java Anwendungen mit einem Just-In-Time Compiler zu bauen, sondern diese Anwendungen auch so zu kompilieren, dass ein native ausführbare Anwendung dabei entsteht. Auf der offiziellen Webseite von Quarkus findet man zahlreiche Guides und eine reiche Dokumentation, um eine Quarkus Applikation nativ zu kompilieren. Zusätzlich dazu hat Quarkus mehrere Werkzeuge zur Verfügung gestellt, um aufkommende Probleme mit der GraalVM zu umgehen.
 
-Eine native ausführbare Java Applikation kann um einen enormen Faktor weniger Ressourcen verwenden und das mit einer viel schnelleren Laufzeit.
+Zum Beispiel ist es für die Native Kompilierung nicht möglich Java Reflection zu nutzen. Viele nützliche Java Bibliotheken nutzen aber dieses Feature ausgiebig, darunter auch die bekannte Jackson Bibliothek, die zum Parsen von JSON-Objekten benutzt wird. Quarkus kann diese Bibliotheken nutzen und trotzdem nativ kompiliert werden, indem es den genauen Einsatz solcher Reflection-lastigen Funktionen mit einem besonderen Tag markiert.
 
-GraalVM ist ein hoch performantes JDK, was nicht nur erlaubt Java Anwendungen mit einem Just-In-Time Compiler zu bauen, sondern diese Anwendungen auch so zu kompilieren, dass ein native ausführbare Anwendung dabei entsteht.
+Im Internet findet man zahlreiche Vergleiche zwischen Quarkus und anderen Java Frameworks wo in Sachen Performance und Speicheroptimierung, Quarkus deutlich vorne liegt. Folgende Grafik wurde aus einem Aritkel einer bekannten Java Webseite entnommen. Anhand dieser Grafik kann man klar erkennen, das Quarkus sowohl bei jvm und native kompilierung weniger Zeit und Ressourcen verwendet, wie andere Frameworks z.B. Spring.
+![Performance Tabelle](https://github.com/adessoAG/devblog/raw/master/assets/images/quarkus_blog/quarkus_blog_image_1.png)
 
-Auf der offiziellen Webseite von Quarkus findet man zahlreiche Guides und eine reiche Dokumentation, um eine Quarkus Applikation nativ zu kompilieren. 
-
-Zusätzlich dazu hat Quarkus mehrere Werkzeuge zur Verfügung gestellt, um aufkommende Probleme mit der GraalVM zu umgehen.
-
-Zum Beispiel ist es für die Native Kompilierung nicht möglich Java Reflection zu nutzen. 
-
-Viele nützliche Java Bibliotheken nutzen aber dieses Feature ausgiebig, darunter auch die bekannte Jackson Bibliothek, die zum Parsen von JSON-Objekten benutzt wird. 
-
-Quarkus kann diese Bibliotheken nutzen und trotzdem nativ kompiliert werden, indem es den genauen Einsatz solcher Reflection-lastigen Funktionen mit einem besonderen Tag markiert.
-
-Im Internet findet man zahlreiche Vergleiche zwischen Quarkus und anderen Java Frameworks wo in Sachen Performance und Speicheroptimierung, Quarkus deutlich vorne liegt. 
-
-Hier ist ein sehr ausführlicher Artikel von einer bekannten Java Webseite die Quarkus mit Spring vergleicht: [https://www.baeldung.com/spring-boot-vs-quarkus](https://www.baeldung.com/spring-boot-vs-quarkus).
+Der gesamte Blog-Beitrag ist[hier](https://www.baeldung.com/spring-boot-vs-quarkus) verlinkt.
 
 # Fazit
 Quarkus ist ein leistungsstarkes und hoch effizientes Java Framework, das speziell für die Entwicklung von Cloud-Native-Anwendungen in Java optimiert ist. 
