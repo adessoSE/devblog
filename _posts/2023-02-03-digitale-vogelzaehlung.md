@@ -17,6 +17,28 @@ Hier kommt der Teaser hin, ohne Links, ohne Bilder
 ## An die EU zu melden
 
 - Beispiele für Indikatoren aus Richtlinien
+- https://www.bfn.de/indikator-artenvielfalt-und-landschaftsqualitaet
+
+Ein Schlüsselindikator für die Nachhaltigkeit von Landnutzung trägt den Namen "Artenvielfalt und Landschaftsqualität".
+Er wurde im Rahmen der Nationalen Nachhaltigkeitsstrategie entwickelt und in die Nationale Strategie zur biologischen Vielfalt übernommen.
+Im Veröffentlichungsjahr 2002 war er der erste Indikator, der bundesweit Aussagen über den Zustand von Natur und Landschaft ermöglichen sollte.
+Seitdem wird der Indikator jedes Jahr aktualisiert und geht in diverse Veröffentlichungen der Bundesbehörden ein.
+
+Woher stammt eigentlich die Datengrundlage?
+Den Zustand unterschiedlich genutzter Landschaften auf der gesamten Landesfläche zu erfassen, klingt nach ungeheuer vielen Messungen, die fortlaufend wiederholt werden.
+Hier behilft sich das Bundesamt für Naturschutz mit einer indirekten Methode:
+Der Indikator bilanziert die Veränderungen der Bestände ausgewählter Vogelarten.
+Dafür wurden die Landschafts- und Lebensraumtypen in Deutschland in fünf Kategorien aufgeteilt:
+
+* Agrarland
+* Wälder
+* Siedlungen
+* Binnengewässer
+* Küsten und Meere
+
+In jedem dieser Lebensraumtypen sind bestimmte Vogelarten zu erwarten.
+Steigt die Qualität der Lebensräume, drückt sich dies in wachsenden Beständen aus.
+Wird hingegen eine Landschaft durch Umweltbelastungen oder nicht nachhaltige Nutzung geschädigt, so schlägt sich das schnell in schwindenden Vogelzahlen nieder.
 
 ## Beteiligte Institutionen
 
