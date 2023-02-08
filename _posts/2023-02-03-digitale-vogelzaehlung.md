@@ -10,81 +10,74 @@ tags: [Open Source, Applications] # Bitte auf Großschreibung achten.
 
 Hier kommt der Teaser hin, ohne Links, ohne Bilder
 
-# Harte Fakten für Indikatoren
-
-
 - Beispiele für Indikatoren aus Richtlinien
-- https://www.bfn.de/indikator-artenvielfalt-und-landschaftsqualitaet
 - https://environment.ec.europa.eu/strategy/biodiversity-strategy-2030_de
 - https://ec.europa.eu/environment/nature/knowledge/eu2010_indicators/index_en.htm
 - https://biodiversity.europa.eu/policy/eu-policies
 
-Die Biodiversitätsstrategie 2030 wurde am 20. Mai 2020 von der EU-Kommission veröffentlicht und beinhaltet ambitionierte Ziele, z.B. in den Bereichen Schutzgebiete und Ökosystem Restauration.
 
-Zur Erfolgskontrolle hat die Europäischen Umweltagentur (EEA) die sogenannten [SEBI-Indikatoren](https://ec.europa.eu/environment/nature/knowledge/eu2010_indicators/index_en.htm) entwickelt.
-SEBI steht für "Streamlining European 2010 Biodiversity Indicators" und bedeutet, dass aus dem Durcheinander international gebräuchlicher Indikatoren eine repräsentative Auswahl von 26 Indikatoren konkretisiert und für Prozesse auf europäischer Ebene nutzbar gemacht wurden.
-Die SEBI-Indikatoren fließen in nationale, europäische und auch globale Strategien zur Erhaltung der Biodiversität ein.
+# Harte Fakten für große Politik
 
-Ein wichtiger Indikator heißt ["Abundance and Distribution of Selected Species"](https://www.eea.europa.eu/ims/abundance-and-distribution-of-selected).
+## Europäische Biodiversitätsstrategie
+
+Die Biodiversitätsstrategie 2030 wurde vor zwei Jahren von der EU-Kommission veröffentlicht.
+Sie umfasst ehrgeizige Ziele zur Wiederherstellung und zum Schutz der europäischen Ökosysteme.
+
+Zur Erfolgskontrolle hat die Europäischen Umweltagentur die sogenannten [SEBI-Indikatoren](https://ec.europa.eu/environment/nature/knowledge/eu2010_indicators/index_en.htm) entwickelt.
+Indikatoren zeigen Erfolge und Misserfolge der Zielerreichung auf, indem sie empirische Daten zusammenfassen und komplexe Zustände in verständlicher Form abbilden.
+SEBI steht für "Streamlining European Biodiversity Indicators" und bedeutet, dass aus dem Durcheinander international gebräuchlicher Indikatoren eine repräsentative Auswahl von 26 Indikatoren konkretisiert und für Prozesse auf europäischer Ebene nutzbar gemacht wurden.
+Die SEBI-Indikatoren fließen außerdem in nationale, europäische sowie globale Strategien zur Erhaltung der Biodiversität ein.
+
+Ein wichtiger SEBI-Indikator heißt ["Abundance and Distribution of Selected Species"](https://www.eea.europa.eu/ims/abundance-and-distribution-of-selected).
 Seine Datengrundlage liefert das [Pan-European Common Bird Monitoring Scheme](https://pecbms.info/) (PECBMS).
-In jedem EU-Staat ist eine regionale Organisation für die Datenerfassung zuständig.
-Das Monitoring in Deutschland wird vom Dachverband Deutscher Avifaunisten koordiniert.
-Zwei Programme fließen in den Indikator ein:
+Aus jedem EU-Staat steuert eine regionale Organisation ihre aktuellen Daten zum PECBMS bei.
+In Deutschland wird das Monitoring vom Dachverband Deutscher Avifaunisten koordiniert.
+Hier fließen zwei Programme in den Indikator ein:
 * [Monitoring häufiger Brutvögel](http://www.dda-web.de/mhb)
 * [Monitoring seltener Brutvögel](http://www.dda-web.de/msb)
 
+## Artenvielfalt und Landschaftsqualität
+
 Die Nachhaltigkeitsstrategie für Deutschland wurde im Jahr 2002 von der Bundesregierung beschlossen und wird seitdem regelmäßig weiterentwickelt.
-Sie enthält ein Set aus 75 Schlüsselindikatoren, unter anderem den Indikator "Artenvielfalt und Landschaftsqualität".
+Aktuell umfasst sie ein Set aus 75 Indikatoren.
 
-Folgende Indikatoren werden für die Berichterstattung zur Nationalen Strategie zur biologischen Vielfalt genutzt.
-- Artenvielfalt und Landschaftsqualität
-- Siedlungs- und Verkehrsfläche
-- Landschaftszerschneidung
-- Stickstoffüberschuss in der Landwirtschaft
-- Ökologischer Landbau
-- Nachhaltige Forstwirtschaft
+Ein Schlüsselindikator für die Nachhaltigkeit von Landnutzung trägt den Namen ["Artenvielfalt und Landschaftsqualität"](https://www.bfn.de/indikator-artenvielfalt-und-landschaftsqualitaet).
+Er war der erste Indikator, der bundesweit Aussagen über den Zustand von Natur und Landschaft ermöglichen sollte.
+Seitdem wird er jedes Jahr aktualisiert und geht in diverse Veröffentlichungen der Bundesbehörden ein.
 
+Woher stammt hier die Datengrundlage?
+Ebenfalls aus dem Monitoring häufiger Brutvögel.
 
-
-
-Indikatoren fassen empirische Daten zusammen, um komplexe Zustände in verständlicher Form abzubilden.
-Im Kontext des Naturschutzes stammen die Daten aus Monitoring-Programmen.
-Sie zeigen Erfolge und Misserfolge bei der Erreichung zuvor festgelegter Ziele auf und dienen der Politikberatung sowie der Information der Öffentlichkeit.
-
-Damit schafft sie die Grundlage für die nationale Umsetzung der UN-Agenda 2030.
-
-## An die EU zu melden
-
-Ein Schlüsselindikator für die Nachhaltigkeit von Landnutzung trägt den Namen "Artenvielfalt und Landschaftsqualität".
-Er wurde im Rahmen der Nationalen Nachhaltigkeitsstrategie entwickelt und in die Nationale Strategie zur biologischen Vielfalt übernommen.
-Im Veröffentlichungsjahr 2002 war er der erste Indikator, der bundesweit Aussagen über den Zustand von Natur und Landschaft ermöglichen sollte.
-Seitdem wird der Indikator jedes Jahr aktualisiert und geht in diverse Veröffentlichungen der Bundesbehörden ein.
-
-Woher stammt eigentlich die Datengrundlage?
-Den Zustand unterschiedlich genutzter Landschaften auf der gesamten Landesfläche zu erfassen, klingt nach ungeheuer vielen Messungen, die fortlaufend wiederholt werden.
-Hier behilft sich das Bundesamt für Naturschutz mit einer indirekten Methode:
+Den Zustand unterschiedlich genutzter Landschaften auf der gesamten Landesfläche zu erfassen, klingt nach ungeheuer vielen fortlaufenden Messungen.
+Doch das Bundesamt für Naturschutz bedient sich einer indirekten Methode:
 Der Indikator bilanziert die Veränderungen der Bestände ausgewählter Vogelarten.
 Dafür wurden die Landschafts- und Lebensraumtypen in Deutschland in fünf Kategorien aufgeteilt:
-
-* Agrarland
-* Wälder
-* Siedlungen
-* Binnengewässer
-* Küsten und Meere
-
+Agrarland, Wälder, Siedlungen, Binnengewässer sowie Küsten und Meere.
 In jedem dieser Lebensraumtypen sind bestimmte Vogelarten zu erwarten.
 Steigt die Qualität der Lebensräume, drückt sich dies in wachsenden Beständen aus.
 Wird hingegen eine Landschaft durch Umweltbelastungen oder nicht nachhaltige Nutzung geschädigt, so schlägt sich das schnell in schwindenden Vogelzahlen nieder.
 
-## Beteiligte Institutionen
+# Beispiel: Monitoring häufiger Brutvögel
 
-- das Bundesamt für Naturschutz sammelt Indikatoren
-- Ehrenamtliche Organisationen liefern die Datengrundlage
-- Beispiele für regelmäßige Veröffentlichungen
+Als Beispiel für die Erfassung von Rohdaten soll hier das Monitoring häufiger Brutvögel im Detail beleuchtet werden.
+Denn es liefert die Daten für mehrere Indikatoren, die sowohl von der Bundesregierung selbst genutzt als auch an die EU gemeldet werden.
 
-...
+Verantwortlich ist der, oben bereits erwähnte, Dachverband Deutscher Avifaunisten e.V. mit Sitz in Münster.
+Dieser betreut insgesamt 2.637, je 1 km2 große Probeflächen, die vom Statistischen Bundesamt repräsentativ festgelegt wurden.
+
+Auf jeder Probefläche zählen ehrenamtliche Helferinnen und Helfer vier Mal im Jahr die Vögel, und zwar monatlich von März bis Juni.
+Die Methode ist einfach:
+Eine festgelegte, rund 3 Kilometer lange Route wird langsam abgeschritten.
+Dabei werden alle Individuen aller Vogelarten, die auf der Probefläche beobachtet werden, mit Art- und Verhaltenskürzel auf der Karte notiert.
+
+Auf einer Karte, mit regennassem Klemmbrett?
+Hier beginnt die Digitalisierung.
 
 # Damals mit Papier und Bleistift
+
+Tatsächlich wurden die Vögel bis vor wenigen Jahren mit Bleistift und Papier in die "Tageskarten" gezeichnet.
+Am Schreibtisch mussten die Kürzel dann in "Artkarten" sortiert werden.
+
 
 - Feldkarten mit festen Abkürzungen und Codes
 - Händisches Kopieren in Artkarten, einkreisen der Reviere
