@@ -197,7 +197,7 @@ Immer wird es einige Smartphones geben, auf denen sie nicht läuft.
 Immer wird es einige User geben, die sie nicht mögen.
 
 Beim Vogelmonitoring gibt es außerdem einen gewissen Gewohnheitsfaktor.
-Das MhB startete offiziell im Jahr 2004, jedoch als Anschlussprogramm an das seit 1989 durchgeführte Monitoring häufiger Vogelarten.
+Das MhB startete offiziell im Jahr 2004 als Anschlussprogramm an das seit 1989 durchgeführte Monitoring häufiger Vogelarten.
 Ehrenamtliche, die seit 20 oder sogar 30 Jahren auf Papier kartieren, sehen nicht unbedingt die Notwendigkeit einer Digitalisierung.
 Bei Frost oder unerwartetem Nieselregen halten Bleistift und Klemmbrett mehr aus, als Finger und Telefon.
 Und wer zum ersten Mal den Stromverbrauch von GPS erlebt, kehrt dankend zur analogen Methode zurück, sobald im Feld der Akku leer ist.
@@ -215,7 +215,7 @@ Falls Sie digital kartiert haben, sehen Sie in DigiBird Ihre fertigen Karten.
 Haben Sie Papierkarten eingescannt, dann sehen Sie dort die Scans und die selbst nachträglich digitalisierten Karten.
 
 Das beste Feature ist der unscheinbare Button "Artkarten":
-Die nach Vogelart getrennten und nach Monat eingefärbten Karten, die Sie letztes Jahr noch in QGIS erzeugen mussten, werden fertig auf OpenStreetMap angezeigt.
+Die nach Vogelart getrennten und nach Monat eingefärbten Karten, die Sie letztes Jahr noch in QGIS oder Office bearbeiten mussten, werden fertig auf OpenStreetMap angezeigt.
 Falls die Reviere nicht offensichtlich sind - im folgenden Bild müssen 54 Amseln entwirrt werden - können Sie hineinzoomen und den sichtbaren Ausschnitt in ein beliebiges Grafikprogramm importieren.
 
 ![Nach Spezies getrennte Karten in DigiBird](/assets/images/posts/digitale-vogelzaehlung/digibird-artkarten.png)
