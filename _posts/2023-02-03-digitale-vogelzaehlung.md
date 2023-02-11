@@ -35,7 +35,7 @@ Zur Erfolgskontrolle hat die Europäischen Umweltagentur die sogenannten [SEBI-I
 SEBI steht für "Streamlining European Biodiversity Indicators" und bedeutet, dass aus dem Durcheinander international gebräuchlicher Indikatoren eine repräsentative Auswahl von 26 Indikatoren konkretisiert und für Prozesse auf europäischer Ebene nutzbar gemacht wurden.
 Die SEBI-Indikatoren fließen außerdem in nationale, europäische sowie globale Strategien zur Erhaltung der Biodiversität ein.
 
-Ein wichtiger SEBI-Indikator heißt ["Abundance and Distribution of Selected Species"](https://www.eea.europa.eu/ims/abundance-and-distribution-of-selected).
+Einer der SEBI-Indikatoren heißt ["Abundance and Distribution of Selected Species"](https://www.eea.europa.eu/ims/abundance-and-distribution-of-selected).
 Seine Datengrundlage liefert das [Pan-European Common Bird Monitoring Scheme](https://pecbms.info/) (PECBMS).
 Aus jedem EU-Staat steuert eine regionale Organisation ihre aktuellen Daten zum PECBMS bei.
 In Deutschland wird das Monitoring vom Dachverband Deutscher Avifaunisten koordiniert.
@@ -58,11 +58,12 @@ Ebenfalls aus dem Monitoring häufiger Brutvögel.
 Den Zustand unterschiedlich genutzter Landschaften auf der gesamten Landesfläche zu erfassen, klingt nach ungeheuer vielen fortlaufenden Messungen.
 Doch das Bundesamt für Naturschutz bedient sich einer indirekten Methode:
 Der Indikator bilanziert die Veränderungen der Bestände ausgewählter Vogelarten.
-Dafür wurden die Landschafts- und Lebensraumtypen in Deutschland in fünf Kategorien aufgeteilt:
+
+Dafür wurden die Landschafts- und Lebensraumtypen in Deutschland in fünf Kategorien eingeteilt:
 Agrarland, Wälder, Siedlungen, Binnengewässer sowie Küsten und Meere.
 In jedem dieser Lebensraumtypen sind bestimmte Vogelarten zu erwarten.
 Steigt die Qualität der Lebensräume, drückt sich dies in wachsenden Beständen aus.
-Wird hingegen eine Landschaft durch Umweltbelastungen oder nicht nachhaltige Nutzung geschädigt, so schlägt sich das schnell in schwindenden Vogelzahlen nieder.
+Wird hingegen eine Landschaft durch Umweltbelastungen oder nicht nachhaltige Nutzung geschädigt, so schlägt sich das schnell in schwindenden Vögeln nieder.
 
 # Monitoring häufiger Brutvögel
 
