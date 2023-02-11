@@ -150,7 +150,7 @@ Darin ist die abzulaufende Zähllinie eingezeichnet, im Screenshot ist das die o
 In diesem Beispiel entdecken Sie von der Bahnhofsbrücke aus eine Krähe mit Zweigen im Schnabel auf dem Dach des Kiosks.
 Also schieben Sie den roten Cursor auf den genauen Beobachtungsort, hier das kleine Haus.
 Dann wischen Sie den Bildschirm zu Seite, so dass die Artensuche erscheint.
-Dort wählen Sie die Rabenkrähe aus und drücken das das Verhaltenssymbol "Nistmaterial tragend", schon ist die Beobachtung gespeichert und die Tour geht weiter.
+Dort wählen Sie die Rabenkrähe aus und drücken das Verhaltenssymbol "Nistmaterial tragend", schon ist die Beobachtung gespeichert und die Tour geht weiter.
 Am Ende des Rundgangs speichern Sie die Liste direkt auf Ornitho.
 
 ## Revierabgrenzung am Bildschirm
