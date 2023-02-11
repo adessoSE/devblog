@@ -273,4 +273,9 @@ Für die Erkennung von Vogelstimmen gibt es bereits halbwegs brauchbare Programm
 Was den Einsatz im MhB betrifft, sind BirdNet und Co. noch viel zu ungenau.
 Sollte sich sie Erkennungsrate verbessern, wäre es durchaus denkbar, Freiwillige mit mittelmäßiger Artenkenntnis teilnehmen zu lassen.
 
+# Fazit
 
+Politische Entscheidungen werden auf Basis von Daten getroffen, die jedes Jahr neu von tausenden Ehrenamtlichen zusammengetragen werden.
+Ohne deren kostenlose Expertise wäre ein Überblick über europaweite Umweltdaten kaum möglich.
+Die Digitalisierung von Kartierungen spart ihnen viel Arbeit und motiviert zum Mithelfen.
+Gleichzeitig steigt die Genauigkeit und damit Aussagekraft der Indikatoren.
