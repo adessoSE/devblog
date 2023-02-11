@@ -150,15 +150,14 @@ Darin ist die abzulaufende Zähllinie eingezeichnet, im Screenshot ist das die o
 In diesem Beispiel entdecken Sie von der Bahnhofsbrücke aus eine Krähe mit Zweigen im Schnabel auf dem Dach des Kiosks.
 Also schieben Sie den roten Cursor auf den genauen Beobachtungsort, hier das kleine Haus.
 Dann wischen Sie den Bildschirm zu Seite, so dass die Artensuche erscheint.
-Dort können Sie die Rabenkrähe nach Namen suchen oder die - zuvor konfigurierte - Schnellwahltaste drücken.
-Dann drücken Sie das das Verhaltenssymbol "Nistmaterial tragend", schon ist die Beobachtung gespeichert und die Tour geht weiter.
+Dort wählen Sie die Rabenkrähe aus und drücken das das Verhaltenssymbol "Nistmaterial tragend", schon ist die Beobachtung gespeichert und die Tour geht weiter.
 Am Ende des Rundgangs speichern Sie die Liste direkt auf Ornitho.
 
 ## Revierabgrenzung am Bildschirm
 
 Wenn draußen der Sommer beginnt und alle Kartierrunden abgeschlossen sind, beginnt das Warten auf einen verregneten Sonntagnachmittag.
 Denn aus den gesammelten Datenpunkten müssen Sie noch die Reviere herausarbeiten.
-Letzteres läuft jetzt erstaunlich schnell und bequem ab, denn an alle Erfahrungsstufen wurde gedacht.
+Das läuft jetzt schnell und bequem ab, egal wie viel Erfahrung Sie mit Geodaten haben.
 
 Alle Kartierenden kennen sich mit Vögeln aus, jedoch nur wenige mit Computern.
 Da alle ehrenamtlich arbeiten und zu nichts verpflichtet sind, kann man sie auch nicht zwingen, sich in ein neues Programm einzuarbeiten.
