@@ -10,7 +10,7 @@ tags: [Open Source, Applications] # Bitte auf Großschreibung achten.
 
 Politik und Verwaltung sind auf kompakte Informationen angewiesen.
 Wo die Wirklichkeit zu komplex ist, wird sie auf vergleichbare Zahlen, sogenannte Indikatoren, reduziert.
-Dieser Artikel beleuchtet zwei beispielhafte Indikatoren bis hinab zur Rohdatenerfassung im Gelände.
+Dieser Artikel beleuchtet für zwei beispielhafte Indikatoren den Digitalisierungsprozess bei der Gewinnung von Rohdaten im Gelände.
 
 # Harte Fakten für große Politik
 
@@ -88,20 +88,20 @@ Tatsächlich wurden die Vögel bis vor wenigen Jahren mit Bleistift und Papier i
 Dafür lernte man Abkürzungen für die 99 zu zählenden Spezies auswendig sowie einen Satz von Verhaltenssymbolen, etwa "singend" oder "Nistmaterial tragend".
 Letztere entsprechen den Brutzeitcodes für den europäischen Brutvogelatlas - auch als "Atlascodes" bekannt - sind jedoch leichter zu merken.
 
-Ein traditioneller Kartierdurchgang lief so ab, dass man die Tageskarte - im A3-Format - so faltete, dass sie aufs Klemmbrett passte, ohne dass man sie allzu oft wenden musste.
-Damit spazierte man an einem ruhigen, sonnigen Morgen die Linie durch die Probefläche ab.
-Hörte oder sah man einen Vogel, dann zeichnete man das Artkürzel auf die entsprechende Stelle und gegebenenfalls ein Verhaltenskürzel darüber.
+Ein traditioneller Kartierdurchgang lief so ab, dass Sie die Tageskarte so falteten, dass sie aufs Klemmbrett passte.
+Damit spazierten Sie an einem ruhigen, sonnigen Morgen die Linie durch die Probefläche ab.
+Hörten oder sahen Sie einen Vogel, dann zeichneten Sie das Artkürzel auf die entsprechende Stelle und gegebenenfalls ein Verhaltenskürzel darüber.
 
 Nach dem letzten Durchgang im Juni musste für jede beobachtete Art die Anzahl vermuteter Reviere in den Zählbogen eingetragen und das Ganze per Post eingeschickt werden.
 Aus den vier Papierkarten voller Symbole mussten also sinnvoll abgegrenzte Brutreviere entstehen.
 
-Dafür breitete man die vier gesammelten Tageskarten zu Hause aus.
-Für jede beobachtete Spezies nahm man eine saubere Karte im A4-Format und markierte darin die Sichtungen der vier Tage mit unterschiedlichen Ziffern.
-Beispielsweise kopierte man alle Buchfinkenpunkte von Tag 1, Tag 2, Tag 3 und Tag 4 in eine Karte, wiederholte dasselbe mit einer neuen Artkarte für alle Amselpunkte und dann für alle Spatzen, bis man so viele Artkarten am Schreibtisch ausgefüllt hatte, wie man Vogelarten im Feld entdeckt hatte.
+Dafür breiteten Sie die vier gesammelten Tageskarten zu Hause aus.
+Für jede beobachtete Spezies nahmen Sie eine saubere Karte im A4-Format und markierten darin die Sichtungen der vier Tage mit unterschiedlichen Ziffern.
+Beispielsweise kopierten Sie alle Buchfinkenpunkte von Tag 1, Tag 2, Tag 3 und Tag 4 in eine Karte, wiederholten dasselbe mit einer neuen Artkarte für alle Amselpunkte und dann für alle Spatzen, bis Sie so viele Artkarten am Schreibtisch ausgefüllt hatten, wie Sie Vogelarten im Feld entdeckt hatten.
 
 ![Eine von vier Tageskarten, zwei von vielen Artkarten](/assets/images/posts/digitale-vogelzaehlung/feldkarte.jpg)
 
-Anschließend schaut man sich jede Artkarte genau an:
+Anschließend schauten Sie sich jede Artkarte genau an:
 Welche Punkte sind wahrscheinlich dasselbe Individuum an unterschiedlichen Tagen?
 Welches hat dort sein Revier, welches flog nur zufällig vorbei?
 
@@ -110,14 +110,14 @@ In diesen Monaten zählt eine Sichtung als Reviernachweis, Sichtungen außerhalb
 So darf man etwa eine einzelne Bachstelze in März oder April als Revier zählen, da diese Vögel in jedem Zeitraum ortstreu sind.
 Davor und danach ziehen sie umher, so dass eine Beobachtung ab Mai als Zufall verworfen wird.
 
-Von den verbleibenden Punkten auf der Artkarte kreist man nun jeweils die ein, die räumlich beieinander, also vermutlich im selben Revier liegen.
-Schließlich zählt man die Reviere durch und trägt sie in den Zählbogen sein.
-Falls die Problefläche mehrere Lebensraumtypen enthält, teilt man sie auf getrennte Spalten auf.
+Von den verbleibenden Punkten auf der Artkarte kreisten Sie nun jeweils die ein, die räumlich beieinander, also vermutlich im selben Revier lagen.
+Schließlich zählten Sie die Reviere durch und trugen das Ergebnis in den Zählbogen sein.
+Falls Ihre Probefläche mehrere Lebensraumtypen enthält, teilten Sie diese auf getrennte Spalten auf.
 In diesem Beispiel gibt es unter anderem Buchfinken in der Siedlung und im Industriegebiet, deshalb werden diese Reviere getrennt gezählt.
 
 ![Ausschnitt aus dem Ergebnisbogen](/assets/images/posts/digitale-vogelzaehlung/zaehlbogen.jpg)
 
-Zu Schluss steckte man den Zählbogen und die Papierkarten in einen großen Briefumschlag und schickte alles an den DDA.
+Zu Schluss steckten Sie den Zählbogen und die Papierkarten in einen großen Briefumschlag und schickten alles an den DDA.
 
 # Erste Teilautomatisierung 2020
 
