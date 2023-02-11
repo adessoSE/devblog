@@ -76,10 +76,7 @@ Dieser betreut insgesamt 2.637, je einen Quadratkilometer große Probeflächen, 
 Auf jeder Probefläche zählen ehrenamtliche Helferinnen und Helfer vier Mal im Jahr die Vögel und zwar monatlich von März bis Juni.
 Die Methode heißt Linienkartierung:
 Eine festgelegte, rund 3 Kilometer lange Route wird langsam abgeschritten.
-Dabei wird jeder einzelne auf der Probefläche erkannt Vogel mit Art- und Verhaltenskürzel auf der Feldkarte notiert.
-
-Auf einer echten Papierkarte an einem sperrigen Klemmbrett?
-Hier beginnt die Digitalisierung.
+Dabei wird jeder einzelne auf der Probefläche erkannte Vogel mit Art- und Verhaltenskürzel auf der Feldkarte notiert.
 
 # Damals mit Papier und Bleistift
 
