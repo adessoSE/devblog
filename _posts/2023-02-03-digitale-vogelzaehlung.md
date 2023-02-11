@@ -9,7 +9,7 @@ tags: [Open Source, Applications] # Bitte auf Großschreibung achten.
 ---
 
 Politik und Verwaltung sind auf kompakte Informationen angewiesen.
-Wo die Wirklichkeit zu komplex ist, wird sie auf knappe Zahlen reduziert, die sogenannten Indikatoren.
+Wo die Wirklichkeit zu komplex ist, wird sie auf vergleichbare Zahlen, sogenannte Indikatoren, reduziert.
 Dieser Artikel beleuchtet zwei beispielhafte Indikatoren bis hinab zur Rohdatenerfassung im Gelände.
 
 # Harte Fakten für große Politik
@@ -20,11 +20,11 @@ Dafür wird eine Vielzahl von Indikatoren regelmäßig aktualisiert.
 Indikatoren fassen empirische Daten zusammen und bilden die Wirklichkeit in verständlicher Form ab.
 Sie sind unerlässlich, um Erfolge und Misserfolge der Zielerreichung aufzuzeigen.
 
-![Komplexe Ökosysteme in griffigen Zahlen zusammengefasst](/assets/images/posts/digitale-vogelzaehlung/startbild.png)
-
 Dieser Artikel stellt die Datengrundlage zweier typischer Indikatoren vor.
 Einer wird auf EU-Ebene eingesetzt, der andere ist seit 20 Jahren in Deutschland geläufig.
 Statt um Ergebnisse, soll es hier um die Frage gehen, wie ganz unten am Beginn der Verarbeitungskette die rohen Datenpunkte entstehen.
+
+![Komplexe Ökosysteme in griffigen Zahlen zusammengefasst](/assets/images/posts/digitale-vogelzaehlung/startbild.png)
 
 ## Ein europäischer Indikator
 
