@@ -244,13 +244,13 @@ Vorsicht ist noch geboten bei Koloniebrütern, wie etwa einer Hecke voller Spatz
 
 Den Ehrenamtlichen bleibt dann nur noch zu tun, was sie ohnehin am liebsten mögen:
 Sie gehen durchs Gelände und kartieren Vögel mit der NaturaList-App.
-Wenn alle vier Listen an Ornitho gesendet sind, läuft die Verarbeitung automatisch durch.
+Sobald alle vier Listen an Ornitho gesendet sind, läuft die Verarbeitung automatisch durch.
 
 Natürlich werden die selbst gesammelten Datenpunkte weiterhin in Ornitho und DigiBird angezeigt.
 Eine Auswertung ist zwar nicht mehr notwendig, aber dennoch erwünscht.
 Denn jedes Revier, bei dem ein Birdwatcher zu einem anderen Schluss kommt als AutoTerri, ist wichtig für die Feinjustierung des Algorithmus.
 Im Idealfall sollen über mehrere Jahre hinweg Vergleiche zwischen AutoTerri und menschlicher Einschätzung berechnet werden.
-Wie viele Ehrenamtliche noch freiwillig die Arbeit eines Computers machen, muss aber die Zeit zeigen.
+Wie viele Ehrenamtliche noch freiwillig die Arbeit eines Computers machen, muss jedoch die Zeit zeigen.
 
 # Ausblick
 
@@ -274,5 +274,5 @@ Sollte sich sie Erkennungsrate verbessern, wäre es durchaus denkbar, Freiwillig
 
 Politische Entscheidungen werden auf Basis von Daten getroffen, die jedes Jahr neu von tausenden Ehrenamtlichen zusammengetragen werden.
 Ohne deren kostenlose Expertise wäre ein Überblick über europaweite Umweltdaten kaum möglich.
-Die Digitalisierung von Kartierungen spart ihnen viel Arbeit und motiviert zum Mithelfen.
+Die Digitalisierung von Auswertungen spart ihnen viel Arbeit und motiviert zum Mithelfen.
 Gleichzeitig steigt die Genauigkeit und damit Aussagekraft der Indikatoren.
