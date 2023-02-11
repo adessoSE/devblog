@@ -68,15 +68,15 @@ Wird hingegen eine Landschaft durch Umweltbelastungen oder nicht nachhaltige Nut
 # Monitoring häufiger Brutvögel
 
 Als Beispiel für die Erfassung von Rohdaten soll hier das Monitoring häufiger Brutvögel im Detail beleuchtet werden.
-Denn es liefert die Daten für mehrere Indikatoren, die sowohl von der Bundesregierung selbst genutzt als auch an die EU gemeldet werden.
+Denn es liefert die Daten für Indikatoren, die sowohl von der Bundesregierung selbst genutzt als auch an die EU gemeldet werden.
 
 Verantwortlich ist der, oben bereits erwähnte, Dachverband Deutscher Avifaunisten e.V. mit Sitz in Münster.
-Dieser betreut insgesamt 2.637, je 1 km2 große Probeflächen, die vom Statistischen Bundesamt repräsentativ festgelegt wurden.
+Dieser betreut insgesamt 2.637, je einen Quadratkilometer große Probeflächen, die vom Statistischen Bundesamt repräsentativ festgelegt wurden.
 
 Auf jeder Probefläche zählen ehrenamtliche Helferinnen und Helfer vier Mal im Jahr die Vögel und zwar monatlich von März bis Juni.
-Die Methode ist einfach:
+Die Methode heißt Linienkartierung:
 Eine festgelegte, rund 3 Kilometer lange Route wird langsam abgeschritten.
-Dabei wird jeder einzelne Vogel, der auf der Probefläche beobachtet wird, mit Art- und Verhaltenskürzel auf der Feldkarte notiert.
+Dabei wird jeder einzelne auf der Probefläche erkannt Vogel mit Art- und Verhaltenskürzel auf der Feldkarte notiert.
 
 Auf einer echten Papierkarte an einem sperrigen Klemmbrett?
 Hier beginnt die Digitalisierung.
