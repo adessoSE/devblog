@@ -10,7 +10,7 @@ tags: [Open Source, Applications] # Bitte auf Großschreibung achten.
 
 Politik und Verwaltung sind auf kompakte Informationen angewiesen.
 Wo die Wirklichkeit zu komplex ist, wird sie auf vergleichbare Zahlen, sogenannte Indikatoren, reduziert.
-Dieser Artikel beleuchtet für zwei beispielhafte Indikatoren den Digitalisierungsprozess bei der Gewinnung von Rohdaten im Gelände.
+Dieser Artikel beleuchtet für zwei Indikatoren den Digitalisierungsprozess bei der Gewinnung von Rohdaten im Gelände.
 
 # Harte Fakten für große Politik
 
@@ -257,11 +257,11 @@ Wie viele Ehrenamtliche noch freiwillig die Arbeit eines Computers machen, muss 
 
 # Ausblick
 
-Die Digitalisierung überlässt den Ehrenamtlichen die schönen Tätigkeiten und nimmt ihnen die meist unbeliebte Schreibtischarbeit ab.
+Die Digitalisierung überlässt den Ehrenamtlichen die schönen Tätigkeiten und nimmt ihnen die unbeliebte Schreibtischarbeit ab.
 Vor vier Jahren mussten MhB-Kartierende noch ähnlich viel Zeit am Schreibtisch wie auf der Probefläche verbringen.
-Davon ist nur die Erfassung nach Sicht und Gehör im Gelände übrig, die Auswertung soll ab diesem Jahr vollständig automatisch ablaufen.
+Davon bleibt nur die Erfassung nach Sicht und Gehör im Gelände übrig, die Auswertung soll ab diesem Jahr vollständig automatisch ablaufen.
 
-Dadurch wird auch der Datenfluss beschleunigt, manuelle Kopierfehler entfallen und es wird kiloweise Papier gespart.
+Dadurch wird auch der Datenfluss beschleunigt, Kopierfehler entfallen und es wird kiloweise Papier gespart.
 Darüber hinaus wird es deutlich leichter, Ehrenamtliche für Kartierarbeiten zu gewinnen.
 
 Für die Zukunft zeichnet sich jedoch ein Mangel an Artenkenntnis in der Gesellschaft ab.
