@@ -78,6 +78,10 @@ Die Methode heißt Linienkartierung:
 Eine festgelegte, rund 3 Kilometer lange Route wird langsam abgeschritten.
 Dabei wird jeder einzelne auf der Probefläche erkannte Vogel mit Art- und Verhaltenskürzel auf der Feldkarte notiert.
 
+Im Anschluss an die Kartiersaison werden aus den vier Feldkarten die mutmaßlichen Brutreviere der einzelnen Vogelpärchen ermittelt.
+An den DDA eingeschickt werden letzten Endes die Anzahlen der Reviere pro Vogelart und Landschaftstyp.
+Der Weg von der Feldkarte zur fertigen Tabelle wurde über die letzten Jahre schrittweise digitalisiert.
+
 # Damals mit Papier und Bleistift
 
 Tatsächlich wurden die Vögel bis vor wenigen Jahren mit Bleistift und Papier in die Tageskarten gezeichnet.
