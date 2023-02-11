@@ -170,11 +170,11 @@ Allerdings lässt die Auflösung zu wünschen übrig und die Arbeit mit Powerpoi
 Versierte "Birdnerds" dürfen die selbst erfassten Rohdaten auch auf eine angenehmere Art verarbeiten.
 Zuerst laden Sie Ihre MhB-Daten im Format GeoJSON von Ornitho herunter und öffnen die Datei im Open-Source-Programm [QGIS](https://qgis.org/de/site/).
 Für einen besseren Überblick legen Sie dann am besten ein OpenStreetMap-Layer darunter.
-Jetzt sehen Sie alle Beobachtungen aus allen vier Durchgängen aus chaotische Punktwolke über Ihrer Probefläche.
+Jetzt sehen Sie alle Beobachtungen aus allen vier Durchgängen als chaotische Punktwolke über Ihrer Probefläche.
 
-Was Sie brauchen, sind die klassischen Artkarten: eine Ebene pro Spezies, auf der die Punkte mit dem jeweiligen Monat und Atlascode markiert sind.
-Dafür bereiten Sie zuerst die Markierungen vor, indem Sie die Ebeneneigenschaften öffnen unter "Beschriftungen" eine regelbasierte Beschriftung hinzufügen.
-Diese Beschriftung erhält als Wert einen regulären Ausdruck, der den Monat aus dem Datumsfeld herauspickt (siehe Abbildung) und zusätzlich den Atlascode.
+Was Sie brauchen, sind die klassischen Artkarten: eine Ebene pro Spezies, auf der die Punkte mit Monat und Atlascode markiert sind.
+Dafür bereiten Sie zuerst die Markierungen vor, indem Sie in den Ebeneneigenschaften unter "Beschriftungen" eine regelbasierte Beschriftung hinzufügen.
+Diese erhält als Wert einen regulären Ausdruck, der den Monat aus dem Datumsfeld herauspickt (siehe Abbildung) und zusätzlich den Atlascode.
 
 Für noch bessere Übersicht können die Punkte noch nach Monat eingefärbt werden.
 Klicken Sie dafür unter "Symbolisierung" auf "gewählte Regel verfeinern" und dann auf "Kategorien hinzufügen".
