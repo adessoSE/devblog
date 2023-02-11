@@ -79,8 +79,8 @@ Eine festgelegte, rund 3 Kilometer lange Route wird langsam abgeschritten.
 Dabei wird jeder einzelne auf der Probefläche erkannte Vogel mit Art- und Verhaltenskürzel auf der Feldkarte notiert.
 
 Im Anschluss an die Kartiersaison werden aus den vier Feldkarten die mutmaßlichen Brutreviere der einzelnen Vogelpärchen ermittelt.
-An den DDA eingeschickt werden letzten Endes die Anzahlen der Reviere pro Vogelart und Landschaftstyp.
-Der Weg von der Feldkarte zur fertigen Tabelle wurde über die letzten Jahre schrittweise digitalisiert.
+An den DDA eingeschickt wird letzten Endes eine Excel-Tabelle mit den Anzahlen der Reviere pro Vogelart und Landschaftstyp.
+Der Weg von den Feldkarten zur fertigen Tabelle wurde über die letzten Jahre schrittweise digitalisiert.
 
 # Damals mit Papier und Bleistift
 
