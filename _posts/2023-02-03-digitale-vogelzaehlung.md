@@ -182,7 +182,6 @@ Der reguläre Ausdruck, nach dem klassifiziert werden soll, ist wieder der für 
 
 ![Ebenenstile für Symbolisierung (links) und Beschriftung (rechts)](/assets/images/posts/digitale-vogelzaehlung/layer-settings.png)
 
-Jetzt entspricht die Ebene ziemlich genau den vier klassischen Tageskarten.
 Das Auftrennen in Artkarten, früher ein halber Tag am Schreibtisch, kostet jetzt nur wenige Klicks.
 Suchen Sie bei den Vektorwerkzeugen nach "Vektorlayer teilen" und wählen Sie im Dialog dieses Werkzeugs das Schlüsselfeld "species_name" aus.
 Schon erzeugt QGIS sauber getrennte Shapefiles pro Vogelart.
