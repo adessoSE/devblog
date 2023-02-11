@@ -107,7 +107,7 @@ Welches hat dort sein Revier, welches flog nur zufällig vorbei?
 
 Die Kartieranleitung enthält eine Tabelle mit der Kernbrutzeit jeder Art an.
 In diesen Monaten zählt eine Sichtung als Reviernachweis, Sichtungen außerhalb des Zeitraums gelten im Zweifel als Durchzügler und werden ignoriert.
-So darf man etwa eine einzelne Bachstelze in März oder April als Revier zählen, da diese Vögel in jedem Zeitraum ortstreu sind.
+So darf man etwa eine einzelne Bachstelze in März oder April als Revier zählen, da diese Vögel in dem Zeitraum ortstreu sind.
 Davor und danach ziehen sie umher, so dass eine Beobachtung ab Mai als Zufall verworfen wird.
 
 Von den verbleibenden Punkten auf der Artkarte kreisten Sie nun jeweils die ein, die räumlich beieinander, also vermutlich im selben Revier lagen.
@@ -115,7 +115,7 @@ Schließlich zählten Sie die Reviere durch und trugen das Ergebnis in den Zähl
 Falls Ihre Probefläche mehrere Lebensraumtypen enthält, teilten Sie diese auf getrennte Spalten auf.
 In diesem Beispiel gibt es unter anderem Buchfinken in der Siedlung und im Industriegebiet, deshalb werden diese Reviere getrennt gezählt.
 
-![Ausschnitt aus dem Ergebnisbogen](/assets/images/posts/digitale-vogelzaehlung/zaehlbogen.jpg)
+![Ausschnitt aus dem Ergebnisbogen](/assets/images/posts/digitale-vogelzaehlung/zaehlbogen.png)
 
 Zu Schluss steckten Sie den Zählbogen und die Papierkarten in einen großen Briefumschlag und schickten alles an den DDA.
 
