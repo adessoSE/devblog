@@ -183,15 +183,13 @@ Der reguläre Ausdruck, nach dem klassifiziert werden soll, ist wieder der für 
 ![Ebenenstile für Symbolisierung (links) und Beschriftung (rechts)](/assets/images/posts/digitale-vogelzaehlung/layer-settings.png)
 
 Jetzt entspricht die Ebene ziemlich genau den vier klassischen Tageskarten.
-Das Auftrennen in Artkarten, früher ein halber Tag am Schreibtisch, läuft nun mit wenigen Klicks ab.
-
+Das Auftrennen in Artkarten, früher ein halber Tag am Schreibtisch, kostet jetzt nur wenige Klicks.
 Suchen Sie bei den Vektorwerkzeugen nach "Vektorlayer teilen" und wählen Sie im Dialog dieses Werkzeugs das Schlüsselfeld "species_name" aus.
 Schon erzeugt QGIS sauber getrennte Shapefiles pro Vogelart.
 Die Einstellungen für die Markierungen können Sie mit "Stil kopieren" auf alle neuen Ebenen gleichzeitig übertragen, fertig sind alle Artkarten.
 
 Nun können Sie alle Ebenen außer OpenStreetMap erstmal ausblenden.
 Um in Ruhe die Reviere zu zählen, blenden Sie eine Spezies nach der anderen ein.
-Bei sehr vielen Punkten ist es hilfreich, die Reviere auf einer neuen Polygon-Ebene einzuzeichnen.
 Dann tragen Sie die Anzahl in den Meldebogen ein und klicken weiter zur nächsten Vogelart.
 
 # Zweite Teilautomatisierung 2022
