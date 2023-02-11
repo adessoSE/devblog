@@ -132,7 +132,7 @@ Laut seinen eigenen Grundsätzen soll Ornitho
 
 Tausende Melderinnen und Melder sammeln dort ihre Beobachtungen, eine geografische Suche ist vorhanden und zur schnellen Erfassung im Gelände hat sich die App [NaturaList](https://www.ornitho.de/index.php?m_id=20033) etabliert.
 
-Nichts lag da näher, als das Meldesystem, das ohnehin auf fast jedem Birder-Telefon installiert ist, auch fürs Monitoring einzusetzen.
+Nichts lag da näher, als das Meldesystem, das ohnehin auf vielen Birder-Telefonen installiert ist, auch fürs Monitoring einzusetzen.
 Das normale Frontend war aber nur eingeschränkt geeignet, unter anderem erforderte das MhB drei große Änderungen:
 
 * Normalerweise ordnet Ornitho jede Zufallsbeobachtung einer Rasterfläche zu. Fürs MhB müssen stattdessen exakte GPS-Koordinaten erfasst werden.
