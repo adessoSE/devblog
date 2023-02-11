@@ -229,9 +229,10 @@ Alle dafür nötigen Informationen liegen maschinenlesbar vor:
 * die Tabelle der Reviergrößen jeder Spezies
 * die Tabelle der Kernbrutzeiten jeder Spezies
 
+Das Feature AutoTerri soll ab 2023 die letzten Hausaufgaben in DigiBird überflüssig machen.
+
 ## AutoTerri zieht Grenzen
 
-Das Feature AutoTerri, das schon für letzes Jahr als Teil von DigiBird angekündigt war, soll nun ab 2023 die Hausaufgaben überflüssig machen.
 AutoTerri ist ein Algorithmus, der von der Schweizerischen Vogelwarte entwickelt wurde.
 Er berechnet zunächst die geografische Distanz zwischen allen Beobachtungspunkten in der Artkarte.
 Dann prüft er nahe beieinander liegende Punkte auf Details wie Verhaltenscodes und Geschlecht.
@@ -242,7 +243,7 @@ Für Vogelarten mit ausgeprägtem Revierverhalten können so zuverlässige Revie
 Vorsicht ist noch geboten bei Koloniebrütern, wie etwa einer Hecke voller Spatzen, oder Wasservögeln die sich einen See teilen.
 
 Den Ehrenamtlichen bleibt dann nur noch zu tun, was sie ohnehin am liebsten mögen:
-Sie sind gehen durchs Gelände und kartieren Vögel mit der NaturaList-App.
+Sie gehen durchs Gelände und kartieren Vögel mit der NaturaList-App.
 Wenn alle vier Listen an Ornitho gesendet sind, läuft die Verarbeitung automatisch durch.
 
 Natürlich werden die selbst gesammelten Datenpunkte weiterhin in Ornitho und DigiBird angezeigt.
