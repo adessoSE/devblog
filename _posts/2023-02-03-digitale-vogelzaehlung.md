@@ -85,8 +85,8 @@ Der Weg von den Feldkarten zur fertigen Tabelle wurde über die letzten Jahre sc
 # Damals mit Papier und Bleistift
 
 Tatsächlich wurden die Vögel bis vor wenigen Jahren mit Bleistift und Papier in die Tageskarten gezeichnet.
-Dafür gibt es allgemein gebräuchliche Abkürzungen für die 99 zu zählenden Spezies sowie einen Satz von Verhaltenssymbolen, etwa "singend" oder "Nistmaterial tragend".
-Diese Codes entsprechen den Brutzeitcodes für den europäischen Brutvogelatlas - auch als "Atlascodes" bekannt - sind jedoch leichter zu merken.
+Dafür lernte man Abkürzungen für die 99 zu zählenden Spezies auswendig sowie einen Satz von Verhaltenssymbolen, etwa "singend" oder "Nistmaterial tragend".
+Letztere entsprechen den Brutzeitcodes für den europäischen Brutvogelatlas - auch als "Atlascodes" bekannt - sind jedoch leichter zu merken.
 
 Ein traditioneller Kartierdurchgang lief so ab, dass man die Tageskarte - im A3-Format - so faltete, dass sie aufs Klemmbrett passte, ohne dass man sie allzu oft wenden musste.
 Damit spazierte man an einem ruhigen, sonnigen Morgen die Linie durch die Probefläche ab.
@@ -135,7 +135,7 @@ Nichts lag da näher, als das Meldesystem, das ohnehin auf fast jedem Birder-Tel
 Das normale Frontend war aber nur eingeschränkt geeignet, unter anderem erforderte das MhB drei große Änderungen:
 
 * Normalerweise ordnet Ornitho jede Zufallsbeobachtung einer Rasterfläche zu. Fürs MhB müssen stattdessen exakte GPS-Koordinaten erfasst werden.
-* NaturaList bietet eine Fülle von Detailfeldern an, um eine Beobachtung zu spezifizieren. Für das schnelle Wegklicken von Atlas-Codes absolut aller gehörten Vögel ist das zu kompliziert.
+* NaturaList bietet eine Fülle von Detailfeldern an, um eine Beobachtung zu spezifizieren. Für das schnelle Wegklicken von Atlascodes absolut aller gehörten Vögel ist das zu kompliziert.
 * Um die Datenqualität sicherzustellen, muss die Beobachtungsliste auf die Probefläche beschränkt, der User gewissermaßen per GPS auf seiner Route "eingesperrt" werden.
 
 Im Forschungsprojekt "Beschleunigung des Datenflusses im Vogelmonitoring" - gefördert von Bundesumweltministerium - konnte im Jahr 2019 endlich ein MhB-Plugin für NaturaList entwickelt werden.
@@ -172,9 +172,9 @@ Zuerst laden Sie Ihre MhB-Daten im Format GeoJSON von Ornitho herunter und öffn
 Für einen besseren Überblick legen Sie dann am besten ein OpenStreetMap-Layer darunter.
 Jetzt sehen Sie alle Beobachtungen aus allen vier Durchgängen aus chaotische Punktwolke über Ihrer Probefläche.
 
-Was Sie brauchen, sind die klassischen Artkarten: eine Ebene pro Spezies, auf der die Punkte mit dem jeweiligen Monat und Atlas-Code markiert sind.
+Was Sie brauchen, sind die klassischen Artkarten: eine Ebene pro Spezies, auf der die Punkte mit dem jeweiligen Monat und Atlascode markiert sind.
 Dafür bereiten Sie zuerst die Markierungen vor, indem Sie die Ebeneneigenschaften öffnen unter "Beschriftungen" eine regelbasierte Beschriftung hinzufügen.
-Diese Beschriftung erhält als Wert einen regulären Ausdruck, der den Monat aus dem Datumsfeld herauspickt (siehe Abbildung) und zusätzlich den Atlas-Code.
+Diese Beschriftung erhält als Wert einen regulären Ausdruck, der den Monat aus dem Datumsfeld herauspickt (siehe Abbildung) und zusätzlich den Atlascode.
 
 Für noch bessere Übersicht können die Punkte noch nach Monat eingefärbt werden.
 Klicken Sie dafür unter "Symbolisierung" auf "gewählte Regel verfeinern" und dann auf "Kategorien hinzufügen".
