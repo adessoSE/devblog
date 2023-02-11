@@ -24,7 +24,7 @@ Dieser Artikel stellt die Datengrundlage zweier typischer Indikatoren vor.
 Einer wird auf EU-Ebene eingesetzt, der andere ist seit 20 Jahren in Deutschland geläufig.
 Statt um Ergebnisse, soll es hier um die Frage gehen, wie ganz unten am Beginn der Verarbeitungskette die rohen Datenpunkte entstehen.
 
-![Komplexe Ökosysteme in griffigen Zahlen zusammengefasst](/assets/images/posts/digitale-vogelzaehlung/startbild.png)
+![Komplexe Ökosysteme in griffigen Zahlen zusammengefasst](/assets/images/posts/digitale-vogelzaehlung/startbild.png "Komplexe Ökosysteme in griffigen Zahlen zusammengefasst")
 
 ## Ein europäischer Indikator
 
@@ -100,6 +100,7 @@ Für jede beobachtete Spezies nahmen Sie eine saubere Karte im A4-Format und mar
 Beispielsweise kopierten Sie alle Buchfinkenpunkte von Tag 1, Tag 2, Tag 3 und Tag 4 in eine Karte, wiederholten dasselbe mit einer neuen Artkarte für alle Amselpunkte und dann für alle Spatzen, bis Sie so viele Artkarten am Schreibtisch ausgefüllt hatten, wie Sie Vogelarten im Feld entdeckt hatten.
 
 ![Eine von vier Tageskarten, zwei von vielen Artkarten](/assets/images/posts/digitale-vogelzaehlung/feldkarte.jpg)
+*Eine von vier Tageskarten, zwei von vielen Artkarten*
 
 Anschließend schauten Sie sich jede Artkarte genau an:
 Welche Punkte sind wahrscheinlich dasselbe Individuum an unterschiedlichen Tagen?
