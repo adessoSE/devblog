@@ -139,13 +139,13 @@ Das normale Frontend war aber nur eingeschränkt geeignet, unter anderem erforde
 * NaturaList bietet eine Fülle von Detailfeldern an, um eine Beobachtung zu spezifizieren. Für das schnelle Wegklicken von Atlascodes absolut aller gehörten Vögel ist das zu kompliziert.
 * Um die Datenqualität sicherzustellen, muss die Beobachtungsliste auf die Probefläche beschränkt, der User gewissermaßen per GPS auf einer Route "eingesperrt" werden.
 
-Im Forschungsprojekt "Beschleunigung des Datenflusses im Vogelmonitoring" - gefördert von Bundesumweltministerium - konnte im Jahr 2019 endlich ein MhB-Plugin für NaturaList entwickelt werden.
+Im Forschungsprojekt "Beschleunigung des Datenflusses im Vogelmonitoring" - gefördert von Bundesumweltministerium - konnte im Jahr 2019 ein MhB-Plugin für NaturaList entwickelt werden.
 Seitdem sieht jeder User, für den eine Probefläche auf Ornitho hinterlegt ist, den zusätzlichen Menüpunkt "MhB - Beobachtungsliste live im Feld".
 Dahinter verbirgt sich eine ganz neue Oberfläche.
 
 ![Erfassung eines Vogels im Gelände](/assets/images/posts/digitale-vogelzaehlung/naturalist-karte.jpg)
 
-Die Erfassung ist auf die eigene Probefläche beschränkt, markiert mit zwei roten Linien für die innere Grenze und den äußeren Toleranzbereich.
+Die Erfassung ist auf die eigene Probefläche beschränkt.
 Darin ist die abzulaufende Zähllinie eingezeichnet, im Screenshot ist das die orange Linie.
 In diesem Beispiel entdecken Sie von der Bahnhofsbrücke aus eine Krähe mit Zweigen im Schnabel auf dem Dach des Kiosks.
 Also schieben Sie den roten Cursor auf den genauen Beobachtungsort, hier das kleine Haus.
