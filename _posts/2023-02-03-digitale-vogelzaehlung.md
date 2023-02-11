@@ -182,8 +182,8 @@ Der reguläre Ausdruck, nach dem klassifiziert werden soll, ist wieder der für 
 
 ![Ebenenstile für Symbolisierung (links) und Beschriftung (rechts)](/assets/images/posts/digitale-vogelzaehlung/layer-settings.png)
 
-Jetzt entspricht die Ebene ziemlich genau den vier klassischen Tageskarten, hätte man sie übereinander gelegt.
-Das Auftrennen in Artkarten, früher ein halber Tag am Schreibtisch, läuft nun mit wenigen Klicks automatisch ab.
+Jetzt entspricht die Ebene ziemlich genau den vier klassischen Tageskarten.
+Das Auftrennen in Artkarten, früher ein halber Tag am Schreibtisch, läuft nun mit wenigen Klicks ab.
 
 Suchen Sie bei den Vektorwerkzeugen nach "Vektorlayer teilen" und wählen Sie im Dialog dieses Werkzeugs das Schlüsselfeld "species_name" aus.
 Schon erzeugt QGIS sauber getrennte Shapefiles pro Vogelart.
@@ -203,7 +203,7 @@ Immer wird es einige User geben, die sie nicht mögen.
 Beim Vogelmonitoring gibt es außerdem einen gewissen Gewohnheitsfaktor.
 Das MhB startete offiziell im Jahr 2004, jedoch als Anschlussprogramm an das seit 1989 durchgeführte Monitoring häufiger Vogelarten.
 Ehrenamtliche, die seit 20 oder sogar 30 Jahren auf Papier kartieren, sehen nicht unbedingt die Notwendigkeit einer Digitalisierung.
-Bei Frost oder unerwartetem Nieselregen halten Bleistift und Klemmbrett mehr aus als Finger und Telefon.
+Bei Frost oder unerwartetem Nieselregen halten Bleistift und Klemmbrett mehr aus, als Finger und Telefon.
 Und wer zum ersten Mal den Stromverbrauch von GPS erlebt, kehrt dankend zur analogen Methode zurück, sobald im Feld der Akku leer ist.
 
 ## DigiBird digitalisiert Papierkarten
@@ -220,7 +220,7 @@ Haben Sie Papierkarten eingescannt, dann sehen Sie dort die Scans und die selbst
 
 Das beste Feature ist der unscheinbare Button "Artkarten":
 Die nach Vogelart getrennten und nach Monat eingefärbten Karten, die Sie letztes Jahr noch in QGIS erzeugen mussten, werden fertig auf OpenStreetMap angezeigt.
-Falls die Reviere nicht offensichtlich sind - im folgenden Beispiel müssen über 50 Amseln entwirrt werden - können Sie hineinzoomen und den sichtbaren Ausschnitt in ein beliebiges Grafikprogramm importieren.
+Falls die Reviere nicht offensichtlich sind - im folgenden Bild müssen 54 Amseln entwirrt werden - können Sie hineinzoomen und den sichtbaren Ausschnitt in ein beliebiges Grafikprogramm importieren.
 
 ![Nach Spezies getrennte Karten in DigiBird](/assets/images/posts/digitale-vogelzaehlung/digibird-artkarten.png)
 
