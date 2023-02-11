@@ -18,6 +18,10 @@ Hier kommt der Teaser hin, ohne Links, ohne Bilder
 
 # Harte Fakten für große Politik
 
+...
+
+![Komplexe Ökosysteme in griffigen Zahlen zusammengefasst](/assets/images/posts/digitale-vogelzaehlung/startbild.png)
+
 ## Ein europäischer Indikator
 
 Die Biodiversitätsstrategie 2030 wurde vor zwei Jahren von der EU-Kommission veröffentlicht.
@@ -110,14 +114,70 @@ In diesem Beispiel gibt es unter anderem Buchfinken in der Siedlung und im Indus
 
 Zu Schluss steckte man den Zählbogen und die Papierkarten in einen großen Briefumschlag und schickte alles an den DDA.
 
-# Erste Teilautomatisierung 2021
+# Erste Teilautomatisierung 2020
 
-- Erfassung mit NaturaList
-- Export als GeoJson für IT-Affine, PowerPoint-Artkarten für Normal-User
-- Split nach Species, Symbolisierung nach Datum und Atlascode, Einkreisen der Reviere
-- Zählen der Reviere, Einsenden des Meldebogens wie bisher
+Die größte Systembremse war offensichtlich das Papier.
+Es musste durchs Feld getragen, mit der Post verschickt und immer wieder von Hand beschriftet werden.
+Und das, während viele Birdwatcher ihre Zufallsbeobachtungen seit über 15 Jahren digital meldeten.
+So lange schon ist das - ebenfalls vom DDA betriebene - [Meldeportal Ornitho](https://www.ornitho.de/) verfügbar.
 
-...
+Laut seinen eigenen Grundsätzen soll Ornitho
+* einen aktuellen Überblick über das avifaunistische Geschehen geben sowie
+* avifaunistische Daten an einem Ort bündeln und in geprüfter Form für wissenschaftliche Auswertungen bereitstellen.
+Tausende Melderinnen und Melder sammeln dort ihre Beobachtungen, eine geografische Suche ist vorhanden und zur schnellen Erfassung im Gelände hat sich die App [NaturaList](https://www.ornitho.de/index.php?m_id=20033) etabliert.
+
+Nichts lag da näher, als das Meldesystem, das ohnehin auf jedem Birder-Telefon installiert ist, auch fürs Monitoring einzusetzen.
+Das normale Frontend war aber nur eingeschränkt geeignet, unter anderem erforderte das MhB drei große Änderungen:
+
+* Normalerweise ordnet Ornitho jede Zufallsbeobachtung einer Rasterfläche zu. Fürs MhB müssen stattdessen exakte GPS-Koordinaten erfasst werden.
+* NaturaList bietet eine Fülle von Detailfeldern an, um eine Beobachtung zu spezifizieren. Für das schnelle Wegklicken von Atlas-Codes absolut aller gehörten Vögel ist das zu kompliziert.
+* Um die Datenqualität sicherzustellen, muss die Beobachtungsliste auf die Probefläche beschränkt, der User gewissermaßen per GPS auf seiner Route "eingesperrt" werden.
+
+Im Forschungsprojekt "Beschleunigung des Datenflusses im Vogelmonitoring" - gefördert von Bundesumweltministerium - konnte im Jahr 2019 endlich ein MhB-Plugin für NaturaList entwickelt werden.
+Seitdem sieht jeder User, für den eine Probefläche auf Ornitho hinterlegt ist, den zusätzlichen Menüpunkt /MhB - Beobachtungsliste live im Feld/.
+Dahinter verbirgt sich eine ganz neue Oberfläche.
+
+![Erfassung eines Vogels im Gelände](/assets/images/posts/digitale-vogelzaehlung/naturalist-karte.jpg)
+
+Die Erfassung ist auf die eigene Probefläche beschränkt, markiert mit zwei roten Linien für die innere Grenze und den äußeren Toleranzbereich.
+Darin ist die abzulaufende Zähllinie eingezeichnet, im Screenshot ist das die orange Linie.
+In diesem Beispiel entdecken Sie von der Bahnhofsbrücke aus eine Krähe mit Zweigen im Schnabel auf dem Dach des Kiosks.
+Also schieben Sie den roten Cursor auf den genauen Beobachtungsort, hier das kleine Haus.
+Dann wischen Sie den Bildschirm zu Seite, so dass die Artensuche erscheint.
+Dort können Sie die Rabenkrähe nach Namen suchen oder die - zuvor konfigurierte - Schnellwahltaste drücken.
+Dann drücken Sie das das Verhaltenssymbol "Nistmaterial tragend", schon ist die Beobachtung gespeichert und die Tour geht weiter.
+Am Ende des Rundgangs speichern Sie die Liste direkt auf Ornitho.
+
+Wenn draußen der Sommer beginnt und alle Kartierrunden abgeschlossen sind, beginnt das Warten auf einen verregneten Sonntagnachmittag.
+Denn die gesammelten Datenpunkte müssen Sie noch als GeoJSON-Datei herunterladen, um die Reviere herauszuarbeiten.
+Letzteres läuft jetzt erstaunlich schnell und bequem ab.
+
+Zuerst laden Sie Ihre MhB-Daten im Format GeoJSON von Ornitho herunter und öffnen die Datei im Open-Source-Programm [QGIS](https://qgis.org/de/site/).
+Für einen besseren Überblick legen Sie dann am besten ein OpenStreetMap-Layer darunter.
+Jetzt sehen Sie alle Beobachtungen aus allen vier Durchgängen aus chaotische Punktwolke über Ihrer Probefläche.
+Was Sie brauchen, sind die klassischen Artkarten: eine Ebene pro Spezies, auf der die Punkte mit dem jeweiligen Monat und Atlas-Code markiert sind.
+Dafür bereiten Sie zuerst die Markierungen vor, indem Sie die Ebeneneigenschaften öffnen unter "Beschriftungen" eine regelbasierte Beschriftung hinzufügen.
+Diese Beschriftung erhält als Wert einen regulären Ausdruck, der den Monat aus dem Datumsfeld herauspickt, und zusätzlich den Atlas-Code.
+
+concat( regexp_substr(date, '\\s(\\S+)\\s') , ' ', atlas_code )
+
+Für noch bessere Übersicht können die Punkte noch nach Monat eingefärbt werden.
+Klicken Sie dafür unter "Symbolisierung" auf "gewählte Regel verfeinern" und dann auf "Kategorien hinzufügen".
+Der reguläre Ausdruck, nach dem klassifiziert werden soll, ist wieder der für den Monat im Feld 'date'.
+
+![Ebenenstile für Symbolisierung (links) und Beschriftung (rechts)](/assets/images/posts/digitale-vogelzaehlung/layer-settings.png)
+
+Jetzt entspricht die Ebene ziemlich genau den vier klassischen Tageskarten, hätte man sie übereinander gelegt.
+Das Auftrennen in Artkarten, früher ein halber Tag am Schreibtisch, geht nun mit wenigen Klicks automatisch.
+
+Suche Sie bei den Vektorwerkzeugen nach "Vektorlayer teilen" und wählen Sie im Dialog dieses Werkzeugs das Schlüsselfeld "species_name" aus.
+Schon erzeugt QGIS sauber getrennte Shapefiles pro Vogelart.
+Die Einstellungen für die Markierungen können Sie mit "Stil kopieren" auf alle neuen Ebenen gleichzeitig übertragen, fertig sind alle Artkarten.
+
+Nun können Sie alle Ebenen außer OpenStreetMap erstmal ausblenden.
+Um in Ruhe die Reviere zu zählen, blenden Sie eine Spezies nach der anderen ein.
+Bei sehr vielen Punkten ist es hilfreich, die Reviere auf einer neuen Polygon-Ebene einzuzeichnen.
+Dann tragen Sie die Anzahl in den Meldebogen ein und klicken weiter zur nächsten Vogelart.
 
 # Zweite Teilautomatisierung 2021
 
