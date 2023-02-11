@@ -99,8 +99,7 @@ Dafür breiteten Sie die vier gesammelten Tageskarten zu Hause aus.
 Für jede beobachtete Spezies nahmen Sie eine saubere Karte im A4-Format und markierten darin die Sichtungen der vier Tage mit unterschiedlichen Ziffern.
 Beispielsweise kopierten Sie alle Buchfinkenpunkte von Tag 1, Tag 2, Tag 3 und Tag 4 in eine Karte, wiederholten dasselbe mit einer neuen Artkarte für alle Amselpunkte und dann für alle Spatzen, bis Sie so viele Artkarten am Schreibtisch ausgefüllt hatten, wie Sie Vogelarten im Feld entdeckt hatten.
 
-![Eine von vier Tageskarten, zwei von vielen Artkarten](/assets/images/posts/digitale-vogelzaehlung/feldkarte.jpg)
-*Eine von vier Tageskarten, zwei von vielen Artkarten*
+![Eine von vier Tageskarten, zwei von vielen Artkarten](/assets/images/posts/digitale-vogelzaehlung/feldkarte.jpg "Eine von vier Tageskarten, zwei von vielen Artkarten")
 
 Anschließend schauten Sie sich jede Artkarte genau an:
 Welche Punkte sind wahrscheinlich dasselbe Individuum an unterschiedlichen Tagen?
@@ -116,7 +115,7 @@ Schließlich zählten Sie die Reviere durch und trugen das Ergebnis in den Zähl
 Falls Ihre Probefläche mehrere Lebensraumtypen enthält, teilten Sie diese auf getrennte Spalten auf.
 In diesem Beispiel gibt es unter anderem Buchfinken in der Siedlung und im Industriegebiet, deshalb werden diese Reviere getrennt gezählt.
 
-![Ausschnitt aus dem Ergebnisbogen](/assets/images/posts/digitale-vogelzaehlung/zaehlbogen.png)
+![Ausschnitt aus dem Ergebnisbogen](/assets/images/posts/digitale-vogelzaehlung/zaehlbogen.png "Ausschnitt aus dem Ergebnisbogen")
 
 Zu Schluss steckten Sie den Zählbogen und die Papierkarten in einen großen Briefumschlag und schickten alles an den DDA.
 
@@ -144,7 +143,7 @@ Im Forschungsprojekt "Beschleunigung des Datenflusses im Vogelmonitoring" - gef�
 Seitdem sieht jeder User, für den eine Probefläche auf Ornitho hinterlegt ist, den zusätzlichen Menüpunkt "MhB - Beobachtungsliste live im Feld".
 Dahinter verbirgt sich eine ganz neue Oberfläche.
 
-![Erfassung eines Vogels im Gelände](/assets/images/posts/digitale-vogelzaehlung/naturalist-karte.jpg)
+![Erfassung eines Vogels im Gelände](/assets/images/posts/digitale-vogelzaehlung/naturalist-karte.jpg "Erfassung eines Vogels im Gelände")
 
 Die Erfassung ist auf die eigene Probefläche beschränkt.
 Darin ist die abzulaufende Zähllinie eingezeichnet, im Screenshot ist das die orange Linie.
@@ -181,7 +180,7 @@ Für noch bessere Übersicht können die Punkte noch nach Monat eingefärbt werd
 Klicken Sie dafür unter "Symbolisierung" auf "gewählte Regel verfeinern" und dann auf "Kategorien hinzufügen".
 Der reguläre Ausdruck, nach dem klassifiziert werden soll, ist wieder der für den Monat im Feld 'date'.
 
-![Ebenenstile für Symbolisierung (links) und Beschriftung (rechts)](/assets/images/posts/digitale-vogelzaehlung/layer-settings.png)
+![Ebenenstile für Symbolisierung (links) und Beschriftung (rechts)](/assets/images/posts/digitale-vogelzaehlung/layer-settings.png "Ebenenstile für Symbolisierung (links) und Beschriftung (rechts)")
 
 Das Auftrennen in Artkarten, früher ein halber Tag am Schreibtisch, kostet jetzt nur wenige Klicks.
 Suchen Sie bei den Vektorwerkzeugen nach "Vektorlayer teilen" und wählen Sie im Dialog dieses Werkzeugs das Schlüsselfeld "species_name" aus.
@@ -219,7 +218,7 @@ Das beste Feature ist der unscheinbare Button "Artkarten":
 Die nach Vogelart getrennten und nach Monat eingefärbten Karten, die Sie letztes Jahr noch in QGIS oder Office bearbeiten mussten, werden fertig auf OpenStreetMap angezeigt.
 Falls die Reviere nicht offensichtlich sind - im folgenden Bild müssen 54 Amseln entwirrt werden - können Sie hineinzoomen und den sichtbaren Ausschnitt in ein beliebiges Grafikprogramm importieren.
 
-![Nach Spezies getrennte Karten in DigiBird](/assets/images/posts/digitale-vogelzaehlung/digibird-artkarten.png)
+![Nach Spezies getrennte Karten in DigiBird](/assets/images/posts/digitale-vogelzaehlung/digibird-artkarten.png "Nach Spezies getrennte Karten in DigiBird")
 
 # Dritte Teilautomatisierung 2023
 
