@@ -167,7 +167,7 @@ Allerdings lässt die Auflösung zu wünschen übrig und die Arbeit mit Powerpoi
 
 ## Spaß mit QGIS
 
-Versierte "Birdnerds" dürfen die selbst erfassten Rohdaten auch auf eine angenehmere Art verarbeiten.
+Versierte "Birdnerds" dürfen die selbst erfassten Rohdaten auch auf angenehmere Art verarbeiten.
 Zuerst laden Sie Ihre MhB-Daten im Format GeoJSON von Ornitho herunter und öffnen die Datei im Open-Source-Programm [QGIS](https://qgis.org/de/site/).
 Für einen besseren Überblick legen Sie dann am besten ein OpenStreetMap-Layer darunter.
 Jetzt sehen Sie alle Beobachtungen aus allen vier Durchgängen als chaotische Punktwolke über Ihrer Probefläche.
