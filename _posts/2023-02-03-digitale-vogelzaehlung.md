@@ -235,14 +235,14 @@ Alle dafür nötigen Informationen liegen maschinenlesbar vor:
 
 ## AutoTerri zieht Grenzen
 
-Das Feature AutoTerri, das schon für letzes Jahr als Teil von DigiBird angekündigt war, soll nun ab 2023 die Hausaufgaben ganz überflüssig machen.
+Das Feature AutoTerri, das schon für letzes Jahr als Teil von DigiBird angekündigt war, soll nun ab 2023 die Hausaufgaben überflüssig machen.
 AutoTerri ist ein Algorithmus, der von der Schweizerischen Vogelwarte entwickelt wurde.
 Er berechnet zunächst die geografische Distanz zwischen allen Beobachtungspunkten in der Artkarte.
 Dann prüft er nahe beieinander liegende Punkte auf Details wie Verhaltenscodes und Geschlecht.
 Kompatible Punkte, die zum selben Revier gehören könnten, werden gruppiert.
 
-Aus der geografischen Lage der Gruppen und bekannten Revieransprüchen der Spezies im jeweiligen Landschaftsraum wird dann eine Revierdistanz berechnet.
-Für Vogelarten mit ausgeprägtem Revierverhalten können so zuverlässige Reviergrenzen in die Karte eingezeichnet werden.
+Aus der geografischen Lage der Gruppen und den bekannten Revieransprüchen der Spezies im jeweiligen Landschaftsraum wird dann eine Revierdistanz berechnet.
+Für Vogelarten mit ausgeprägtem Revierverhalten können so zuverlässige Reviergrenzen berechnet werden.
 Vorsicht ist noch geboten bei Koloniebrütern, wie etwa einer Hecke voller Spatzen, oder Wasservögeln die sich einen See teilen.
 
 Den Ehrenamtlichen bleibt dann nur noch zu tun, was sie ohnehin am liebsten mögen:
