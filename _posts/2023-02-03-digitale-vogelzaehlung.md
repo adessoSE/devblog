@@ -1,15 +1,15 @@
 ---
 layout: [post, post-xml]              # Pflichtfeld. Nicht ändern!
-title:  "Digitalisierung im Monitoring von Tierarten" # Pflichtfeld. Bitte einen Titel für den Blog Post angeben.
+title:  "Digitalisierung im Umwelt-Monitoring" # Pflichtfeld. Bitte einen Titel für den Blog Post angeben.
 date:   2023-02-03 11:00              # Pflichtfeld. Format "YYYY-MM-DD HH:MM". Muss für Veröffentlichung in der Vergangenheit liegen. (Für Preview egal)
 modified_date: 2023-02-03 11:00             # Optional. Muss angegeben werden, wenn eine bestehende Datei geändert wird.
 author_ids: [cjohn]                   # Pflichtfeld. Es muss in der "authors.yml" einen Eintrag mit diesen Namen geben.
 categories: [Branchen]                # Pflichtfeld. Maximal eine der angegebenen Kategorien verwenden.
-tags: [Open Source, Applications] # Bitte auf Großschreibung achten.
+tags: [Open Source, Applications, Umwelt, Politik, Monitoring] # Bitte auf Großschreibung achten.
 ---
 
 Politik und Verwaltung sind auf kompakte Informationen angewiesen.
-Wo die Wirklichkeit zu komplex ist, wird sie auf vergleichbare Zahlen, sogenannte Indikatoren, reduziert.
+Ist die Wirklichkeit zu komplex ist, so wird sie auf vergleichbare Zahlen, sogenannte Indikatoren, reduziert.
 Dieser Artikel beleuchtet für zwei Indikatoren den Digitalisierungsprozess bei der Gewinnung von Rohdaten im Gelände.
 
 # Harte Fakten für große Politik
