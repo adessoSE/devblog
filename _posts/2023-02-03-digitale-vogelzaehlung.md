@@ -129,6 +129,7 @@ So lange schon ist das - ebenfalls vom DDA betriebene - [Meldeportal Ornitho](ht
 Laut seinen eigenen Grundsätzen soll Ornitho
 * einen aktuellen Überblick über das avifaunistische Geschehen geben sowie
 * avifaunistische Daten an einem Ort bündeln und in geprüfter Form für wissenschaftliche Auswertungen bereitstellen.
+
 Tausende Melderinnen und Melder sammeln dort ihre Beobachtungen, eine geografische Suche ist vorhanden und zur schnellen Erfassung im Gelände hat sich die App [NaturaList](https://www.ornitho.de/index.php?m_id=20033) etabliert.
 
 Nichts lag da näher, als das Meldesystem, das ohnehin auf fast jedem Birder-Telefon installiert ist, auch fürs Monitoring einzusetzen.
@@ -136,7 +137,7 @@ Das normale Frontend war aber nur eingeschränkt geeignet, unter anderem erforde
 
 * Normalerweise ordnet Ornitho jede Zufallsbeobachtung einer Rasterfläche zu. Fürs MhB müssen stattdessen exakte GPS-Koordinaten erfasst werden.
 * NaturaList bietet eine Fülle von Detailfeldern an, um eine Beobachtung zu spezifizieren. Für das schnelle Wegklicken von Atlascodes absolut aller gehörten Vögel ist das zu kompliziert.
-* Um die Datenqualität sicherzustellen, muss die Beobachtungsliste auf die Probefläche beschränkt, der User gewissermaßen per GPS auf seiner Route "eingesperrt" werden.
+* Um die Datenqualität sicherzustellen, muss die Beobachtungsliste auf die Probefläche beschränkt, der User gewissermaßen per GPS auf einer Route "eingesperrt" werden.
 
 Im Forschungsprojekt "Beschleunigung des Datenflusses im Vogelmonitoring" - gefördert von Bundesumweltministerium - konnte im Jahr 2019 endlich ein MhB-Plugin für NaturaList entwickelt werden.
 Seitdem sieht jeder User, für den eine Probefläche auf Ornitho hinterlegt ist, den zusätzlichen Menüpunkt "MhB - Beobachtungsliste live im Feld".
