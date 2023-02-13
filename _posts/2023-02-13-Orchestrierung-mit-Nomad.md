@@ -1,8 +1,8 @@
 ---
 layout:			[post, post-xml]											# Pflichtfeld. Nicht ändern!
 title:			"Orchestrierung mit Nomad"                                  # Pflichtfeld. Bitte einen Titel für den Blog Post angeben.
-date:			2022-10-20 18:00											# Pflichtfeld. Format "YYYY-MM-DD HH:MM". Muss für Veröffentlichung in der Vergangenheit liegen. (Für Preview egal)
-modified_date: 	2022-10-20 18:00											# Optional. Muss angegeben werden, wenn eine bestehende Datei geändert wird.
+date:			2023-02-13 11:00											# Pflichtfeld. Format "YYYY-MM-DD HH:MM". Muss für Veröffentlichung in der Vergangenheit liegen. (Für Preview egal)
+modified_date: 	2023-02-13 11:00											# Optional. Muss angegeben werden, wenn eine bestehende Datei geändert wird.
 author_ids:			[unexist]								                # Pflichtfeld. Es muss in der "authors.yml" einen Eintrag mit diesem Namen geben.
 categories: 	[Softwareentwicklung]										# Pflichtfeld. Maximal eine der angegebenen Kategorien verwenden.
 tags:			[Orchestrierung, Kubernetes, Nomad, Consul, Fabio]	        # Bitte auf Großschreibung achten.
