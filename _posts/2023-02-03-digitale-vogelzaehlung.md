@@ -9,7 +9,7 @@ tags: [Open Source, Applications, Umwelt, Politik, Monitoring] # Bitte auf Groß
 ---
 
 Politik und Verwaltung sind auf kompakte Informationen angewiesen.
-Ist die Wirklichkeit zu komplex ist, so wird sie auf vergleichbare Zahlen, sogenannte Indikatoren, reduziert.
+Ist die Wirklichkeit zu komplex, so wird sie auf vergleichbare Zahlen, sogenannte Indikatoren, reduziert.
 Dieser Artikel beleuchtet für zwei Indikatoren den Digitalisierungsprozess bei der Gewinnung von Rohdaten im Gelände.
 
 # Harte Fakten für große Politik
@@ -38,7 +38,7 @@ Die SEBI-Indikatoren fließen außerdem in nationale, europäische sowie globale
 Einer der SEBI-Indikatoren heißt ["Abundance and Distribution of Selected Species"](https://www.eea.europa.eu/ims/abundance-and-distribution-of-selected).
 Seine Datengrundlage liefert das [Pan-European Common Bird Monitoring Scheme](https://pecbms.info/) (PECBMS).
 Aus jedem EU-Staat steuert eine regionale Organisation ihre aktuellen Daten zum PECBMS bei.
-In Deutschland wird das Monitoring vom Dachverband Deutscher Avifaunisten koordiniert.
+In Deutschland wird das Monitoring vom Dachverband Deutscher Avifaunisten (DDA) koordiniert.
 Hier fließen zwei Programme in den Indikator ein:
 * [Monitoring häufiger Brutvögel](http://www.dda-web.de/mhb)
 * [Monitoring seltener Brutvögel](http://www.dda-web.de/msb)
@@ -52,12 +52,10 @@ Ein Schlüsselindikator für die Nachhaltigkeit von Landnutzung trägt den Namen
 Er war der erste Indikator, der bundesweit Aussagen über den Zustand von Natur und Landschaft ermöglichen sollte.
 Seitdem wird er jedes Jahr aktualisiert und geht in diverse Veröffentlichungen der Bundesbehörden ein.
 
-Woher stammt hier die Datengrundlage?
-Ebenfalls aus dem Monitoring häufiger Brutvögel.
-
 Den Zustand unterschiedlich genutzter Landschaften auf der gesamten Landesfläche zu erfassen, klingt nach ungeheuer vielen fortlaufenden Messungen.
 Doch das Bundesamt für Naturschutz bedient sich einer indirekten Methode:
 Der Indikator bilanziert die Veränderungen der Bestände ausgewählter Vogelarten.
+Die Daten dafür stammen wiederum aus dem Monitoring häufiger Brutvögel.
 
 Dafür wurden die Landschafts- und Lebensraumtypen in Deutschland in fünf Kategorien eingeteilt:
 Agrarland, Wälder, Siedlungen, Binnengewässer sowie Küsten und Meere.
@@ -67,7 +65,7 @@ Wird hingegen eine Landschaft durch Umweltbelastungen oder nicht nachhaltige Nut
 
 # Monitoring häufiger Brutvögel
 
-Als Beispiel für die Erfassung von Rohdaten soll hier das Monitoring häufiger Brutvögel im Detail beleuchtet werden.
+Als Beispiel für die Erfassung von Rohdaten soll hier das Monitoring häufiger Brutvögel, meistens kurz als MhB bezeichnet, im Detail beleuchtet werden.
 Denn es liefert die Daten für Indikatoren, die sowohl von der Bundesregierung selbst genutzt als auch an die EU gemeldet werden.
 
 Verantwortlich ist der, oben bereits erwähnte, Dachverband Deutscher Avifaunisten e.V. mit Sitz in Münster.
@@ -111,7 +109,7 @@ So darf man etwa eine einzelne Bachstelze in März oder April als Revier zählen
 Davor und danach ziehen sie umher, so dass eine Beobachtung ab Mai als Zufall verworfen wird.
 
 Von den verbleibenden Punkten auf der Artkarte kreisten Sie nun jeweils die ein, die räumlich beieinander, also vermutlich im selben Revier lagen.
-Schließlich zählten Sie die Reviere durch und trugen das Ergebnis in den Zählbogen sein.
+Schließlich zählten Sie die Reviere durch und trugen das Ergebnis in den Zählbogen ein.
 Falls Ihre Probefläche mehrere Lebensraumtypen enthält, teilten Sie diese auf getrennte Spalten auf.
 In diesem Beispiel gibt es unter anderem Buchfinken in der Siedlung und im Industriegebiet, deshalb werden diese Reviere getrennt gezählt.
 
@@ -174,11 +172,12 @@ Jetzt sehen Sie alle Beobachtungen aus allen vier Durchgängen als chaotische Pu
 
 Was Sie brauchen, sind die klassischen Artkarten: eine Ebene pro Spezies, auf der die Punkte mit Monat und Atlascode markiert sind.
 Dafür bereiten Sie zuerst die Markierungen vor, indem Sie in den Ebeneneigenschaften unter "Beschriftungen" eine regelbasierte Beschriftung hinzufügen.
-Diese erhält als Wert einen regulären Ausdruck, der den Monat aus dem Datumsfeld herauspickt (siehe Abbildung) und zusätzlich den Atlascode.
+Diese erhält als Wert einen regulären Ausdruck, der den Monat aus dem Datumsfeld herauspickt (siehe Abbildung), und zusätzlich den Atlascode.
 
 Für noch bessere Übersicht können die Punkte noch nach Monat eingefärbt werden.
 Klicken Sie dafür unter "Symbolisierung" auf "gewählte Regel verfeinern" und dann auf "Kategorien hinzufügen".
 Der reguläre Ausdruck, nach dem klassifiziert werden soll, ist wieder der für den Monat im Feld 'date'.
+Für weitere Tricks mit der Symbolisierung in QGIS sei auch der Artikel [Mit QGIS eine Fotolandkarte erstellen](https://www.adesso.de/de/news/blog/mit-qgis-eine-fotolandkarte-erstellen.jsp) empfohlen.
 
 ![Ebenenstile für Symbolisierung (links) und Beschriftung (rechts)](/assets/images/posts/digitale-vogelzaehlung/layer-settings.png "Ebenenstile für Symbolisierung (links) und Beschriftung (rechts)")
 
@@ -240,7 +239,7 @@ Kompatible Punkte, die zum selben Revier gehören könnten, werden gruppiert.
 
 Aus der geografischen Lage der Gruppen und den bekannten Revieransprüchen der Spezies im jeweiligen Landschaftsraum wird dann eine Revierdistanz berechnet.
 Für Vogelarten mit ausgeprägtem Revierverhalten können so zuverlässige Reviergrenzen berechnet werden.
-Vorsicht ist noch geboten bei Koloniebrütern, wie etwa einer Hecke voller Spatzen, oder Wasservögeln die sich einen See teilen.
+Vorsicht ist noch geboten bei Koloniebrütern, wie etwa einer Hecke voller Spatzen, oder Wasservögeln, die sich einen See teilen.
 
 Den Ehrenamtlichen bleibt dann nur noch zu tun, was sie ohnehin am liebsten mögen:
 Sie gehen durchs Gelände und kartieren Vögel mit der NaturaList-App.
@@ -276,3 +275,8 @@ Politische Entscheidungen werden auf Basis von Daten getroffen, die jedes Jahr n
 Ohne deren kostenlose Expertise wäre ein Überblick über europaweite Umweltdaten kaum möglich.
 Die Digitalisierung von Auswertungen spart ihnen viel Arbeit und motiviert zum Mithelfen.
 Gleichzeitig steigt die Genauigkeit und damit Aussagekraft der Indikatoren.
+
+Nebenbei spiegelt das Monitoring auch die Bedeutung von Vögeln in den Kulturen wieder.
+Denn die Zählungen des Pan-European Common Bird Monitoring Scheme (PECBMS) werden in ganz Europa von Freiwilligen durchgeführt.
+Allerdings sind in Großbritannien 2800 Fieldworkers am Monitoring beteiligt, in Deutschland 1300 und in Italien nur 200.
+
