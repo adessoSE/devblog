@@ -276,7 +276,7 @@ Ohne deren kostenlose Expertise wäre ein Überblick über europaweite Umweltdat
 Die Digitalisierung von Auswertungen spart ihnen viel Arbeit und motiviert zum Mithelfen.
 Gleichzeitig steigt die Genauigkeit und damit Aussagekraft der Indikatoren.
 
-Nebenbei spiegelt das Monitoring auch die Bedeutung von Vögeln in den Kulturen wieder.
+Nebenbei spiegelt das Monitoring auch die Bedeutung von Vögeln in den Kulturen wider.
 Denn die Zählungen des Pan-European Common Bird Monitoring Scheme (PECBMS) werden in ganz Europa von Freiwilligen durchgeführt.
 Allerdings sind in Großbritannien 2800 Fieldworkers am Monitoring beteiligt, in Deutschland 1300 und in Italien nur 200.
 
