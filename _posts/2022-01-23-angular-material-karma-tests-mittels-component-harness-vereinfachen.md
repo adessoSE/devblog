@@ -69,7 +69,7 @@ Hierfür benötigen wir folgenden Testcode:
 ```
 
 An dieser Stelle wird deutlich, dass der Test aufgrund der technischen Bindung an Lesbarkeit und Verständnis verliert.
-Beim nächsten Überarbeiten des Tests, werden sich uns einige Fragen stellen:
+Beim nächsten Überarbeiten des Tests werden sich uns einige Fragen stellen:
 
 * Warum müssen wir an dieser Stelle ein Mat-Form-Field suchen und nicht einen Mat-Datepicker?
 * Weswegen müssen wir nach dem Setzen des Wertes ein Event feuern?
@@ -158,7 +158,7 @@ Der Nachteil entsteht, wenn eine Mischung von traditionellem Vorgehen und Compon
 
 In diesem Artikel haben wir gesehen, dass Angular Component Harness ein großes Potenzial zur Vereinfachung von Testcode haben.
 Trotzdem sollte ihr Einsatz evaluiert werden, damit der zusätzliche Einrichtungs- und Konfigurationsaufwand nicht zu hoch ist.
-Weitere Informationen und Beispiele findet ihr unter [Angular Material](https://material.angular.io/cdk/test-harnesses/overview#component-test-harnesses) eingesehen werden. 
+Weitere Informationen und Beispiele findet ihr unter [Angular Material](https://material.angular.io/cdk/test-harnesses/overview#component-test-harnesses).
 
 
 
