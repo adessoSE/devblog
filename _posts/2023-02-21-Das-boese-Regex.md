@@ -1,7 +1,8 @@
 ---
 layout: [post, post-xml]              
 title:  "Die bösen regulären Ausdrücke"        
-date:   2022-10-25 09:00              # Pflichtfeld. Format "YYYY-MM-DD HH:MM". Muss für Veröffentlichung in der Vergangenheit liegen. (Für Preview egal)
+date:   2023-02-21 09:00              # Pflichtfeld. Format "YYYY-MM-DD HH:MM". Muss für Veröffentlichung in der Vergangenheit liegen. (Für Preview egal)
+modified_date: 2023-02-21 09:00
 author_ids: [komenda]                     
 categories: [Softwareentwicklung]       
 tags: [Security Development, Regex]     
