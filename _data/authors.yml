@@ -442,6 +442,12 @@ nirumand:
   last_name: Nirumand
   bio: "Reza Nirumand is a Senior Software Engineer at adesso located in Dortmund. He is involved in various projects in the Banking industry and he is responsible for the designing and delivering of cloud-native applications."
   avatar_url: /assets/images/avatars/nirumand.jpg
+ 
+komenda:
+  first_name: Rico
+  last_name: Komenda
+  bio: "Rico Komenda arbeitet als Entwickler bei adesso in Stuttgart. Sein Schwerpunkt liegt in der IT-Sicherheit."
+  avatar_url: /assets/images/avatars/komenda.jpg
 
 kenneth-may-adesso:
   first_name: Kenneth
@@ -454,4 +460,3 @@ sypste:
   last_name: Stemper
   bio: "Simon Stemper arbeitet seit 2019 als Cloud Data Engineer bei adesso in Dortmund. Im Bereich Data & Analytics berät er Kunden zu Einsatz und Betrieb von Big-Data-Technologien."
   avatar_url: /assets/images/avatars/stemper.jpg
-
