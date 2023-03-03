@@ -460,3 +460,9 @@ sypste:
   last_name: Stemper
   bio: "Simon Stemper arbeitet seit 2019 als Cloud Data Engineer bei adesso in Dortmund. Im Bereich Data & Analytics berät er Kunden zu Einsatz und Betrieb von Big-Data-Technologien."
   avatar_url: /assets/images/avatars/stemper.jpg
+
+utschenik:
+  first_name: Paul
+  last_name: Schüler
+  bio: "Paul beschäftigt sich gerne mit neuen Technologien und begeistert sich für neue Themen im Bereich der Softwarearchitektur"
+  avatar_url: /assets/images/avatars/paulschueler.jpg
