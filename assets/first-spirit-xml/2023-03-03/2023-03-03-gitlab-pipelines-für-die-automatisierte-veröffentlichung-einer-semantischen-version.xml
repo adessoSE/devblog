@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<documents>
+    <document uid="3e2b768c207d2c53fb61c0f62d04616a">
+        <field name="title"><![CDATA[GitLab Pipelines für die automatisierte Veröffentlichung einer semantischen Version]]></field>
+        <field name="subline"><![CDATA[]]></field>
+        <field name="teaser"><![CDATA[<p>Softwareversionierung ist ein praktisches Mittel, um den aktuellen Entwicklungsstand festzuhalten.
+Jedoch werden Softwareversionen oft nur inkrementiert und bringen dadurch keinen Mehrwert.
+Weil Versionierung in Regeln wiedergegeben werden kann, sollten wir diesen Prozess automatisieren.
+Semantische Versionierung gibt Softwareversionen eine Struktur, die allen Stakeholdern und dem Entwicklungsteam wichtige Informationen liefern kann.</p>
+
+]]></field>
+        <field name="language_multi_keyword"><![CDATA[de]]></field>
+        <field name="content_type_multi_keyword"><![CDATA[blog]]></field>
+        <field name="mime_type_multi_keyword"><![CDATA[text/html]]></field>
+        <field name="category_multi_keyword"><![CDATA[Softwareentwicklung]]></field>
+        <field name="tag_multi_keyword"><![CDATA[CI/CD]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Docker]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Git]]></field>
+        <field name="date_date"><![CDATA[2023-03-03T10:00:00+01:00]]></field>
+        <field name="date_l"><![CDATA[1677834000000]]></field>
+        <field name="change_date"><![CDATA[1677834000000]]></field>
+
+        <!--Author Information-->
+        
+        <field name="author_id"><![CDATA[utschenik]]></field><!--Postcontent-->
+        <field name="headlines"><![CDATA[GitLab Pipelines für die automatisierte Veröffentlichung einer semantischen Version]]></field>
+        <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
+            <p>Softwareversionierung ist ein praktisches Mittel, um den aktuellen Entwicklungsstand festzuhalten.
+Jedoch werden Softwareversionen oft nur inkrementiert und bringen dadurch keinen Mehrwert.
+Weil Versionierung in Regeln wiedergegeben werden kann, sollten wir diesen Prozess automatisieren.
+Semantische Versionierung gibt Softwareversionen eine Struktur, die allen Stakeholdern und dem Entwicklungsteam wichtige Informationen liefern kann.</p>
+
+</div>]]></field>
+        <field name="content"><![CDATA[<div class="adesso-text-formate">
+<div class="row p-t-2">
+<div class="adesso-container">
+<div class="col-xl-8 adesso-center p-b-1 p-l-0 p-r-0">
+    <p>Softwareversionierung ist ein praktisches Mittel, um den aktuellen Entwicklungsstand festzuhalten.
+Jedoch werden Softwareversionen oft nur inkrementiert und bringen dadurch keinen Mehrwert.
+Weil Versionierung in Regeln wiedergegeben werden kann, sollten wir diesen Prozess automatisieren.
+Semantische Versionierung gibt Softwareversionen eine Struktur, die allen Stakeholdern und dem Entwicklungsteam wichtige Informationen liefern kann.</p>
+
+<p>Um diesen Blog-Post verfolgen zukönnen, sollten Grundkenntnise in <a href="https://docs.gitlab.com/ee/ci/">GitLab CI/CD</a> und <a href="https://docs.docker.com">Docker</a> vorhanden sein.</p>
+
+<h4 id="hölle-der-abhängigkeit">Hölle der Abhängigkeit</h4>
+
+<p>Software zu versionieren ist keine revolutionäre Idee.
+Nehmen wir an, dass Softwarepaket A weiterentwickelt worden ist.
+Die Versionierung von Softwarepaket A passiert durch inkrementieren einer fortlaufenden Zahl.</p>
+
+<p>Softwarepaket A wird mit einer neuen Version veröffentlicht und Softwarepaket B aktualisiert blind seine Abhängigkeit zu Softwarepaket A.
+Dabei kann es passieren, dass die Software von Paket B nicht mehr so funktioniert wie erwartet.
+Die neue Version von Softwarepaket A enthält Änderungen, die die API grundlegend umstrukturiert haben.</p>
+
+<p>Mithilfe einer semantischen Version wäre bei der Entwicklung von Softwarepaket B aufgefallen, dass die neue Version von Softwarepaket A wichtige Änderungen enthielt.</p>
+
+<h4 id="semantische-versionierung">Semantische Versionierung</h4>
+
+<p>Eine semantische Version wird auf Grundlage von <code>MAJOR.MINOR.PATCH</code> gebildet.
+Die einzelnen Elemente werden wie folgt erhöht:</p>
+
+<ol>
+  <li>MAJOR wird erhöht, wenn sich die API grundlegend verändert hat.</li>
+  <li>MINOR wird erhöht, wenn neue Funktionalitäten eingebaut worden sind.</li>
+  <li>PATCH wird erhöht, wenn Änderungen nur Fehler an bestehenden Funktionalitäten beheben.</li>
+</ol>
+
+<p>Anhand dieser Struktur können wir Nutzer über die Art und den Umfang der Änderungen informieren.
+Wenn wir Softwareabhängigkeiten in einem unserer Projekte aktualisieren, müssen wir trotzdem verantwortungsbewusst sein und prüfen ob die Softwarepakete wie beschrieben funktionieren.</p>
+
+<p>Wir können die Bestimmung einer neuen Version von einem Softwarepaket in einer CI-Pipeline automatisieren.
+Um diesen Prozess zu automatisieren, brauchen wir eine Grundlage und ein festes Regelwerk, um festzustellen was sich seit der letzten Veröffentlichung unserer Software verändert hat.</p>
+
+<h4 id="git-commits-und-commit-conventions">Git Commits und Commit Conventions</h4>
+
+<p>Um festzuhalten, welche Änderungen an der Software gemacht worden sind, benutzen wir die Commit Messages von Git.
+Es gibt viele Strukturen, um die Commit Messages von Git zu strukturieren, ich verfolge dafür gerne die <a href="https://gist.github.com/brianclements/841ea7bffdb01346392c">Angular Commit Conventions</a>.
+Die Angular Commit Conventions definieren strikte Regeln, um die Commit Messages leserlicher zumachen.</p>
+
+<h5 id="angular-commit-message-convention">Angular Commit Message Convention</h5>
+
+<p>Der Aufbau der Message ist einfach:</p>
+<pre><code class="language-txt">type(scope): body
+</code></pre>
+
+<p>Es gibt per Definition folgende Commit-Typen:</p>
+<ul>
+  <li>build</li>
+  <li>ci</li>
+  <li>docs</li>
+  <li>feat</li>
+  <li>fix</li>
+  <li>perf</li>
+  <li>refactor</li>
+  <li>style</li>
+  <li>test</li>
+</ul>
+
+<p>Der Scope ist optional und wird in Klammern geschrieben, dort können wir auf eine Ticketnummer aus unserem Projektmanagment-Tool verweisen.
+Im Body machen wir eine kurze Beschreibung, was dieser Commit verändert.
+Das Besondere ist nun, dass wir aus den verschiedenen Typen rückschließen können, wie sich die Version verändern wird.
+Zum Beispiel wird die folgende Commit Message eine Erhöhung der Minor-Version hervorrufen:</p>
+
+<pre><code class="language-txt">feat(#TICKET_NUMMER): neues feature XY erarbeitet
+</code></pre>
+
+<h4 id="gitlab-pipelines-zur-automatisierung-der-erstellung-einer-semantischen-version">GitLab-Pipelines zur Automatisierung der Erstellung einer semantischen Version</h4>
+
+<p>Pipelines sind ein grundlegender Baustein in der Continuous Integration.
+Eine Pipeline besteht aus Stages und Jobs.
+Eine Stage beschreibt, wann Jobs ausgeführt werden sollen, zum Beispiel bei einem Merge Request für automatische Tests oder nach einem Merge zum Hauptbranch.</p>
+
+<p>Es können viele Jobs in einer Stage existieren. Ein Job enthält Code oder kann Skripte ausführen, wir könenn zum Beispiel die Codequalität des Branches überprüfen.
+Jobs einer Stage müssen erfolgreich sein, das heißt, sie müssen mit dem Exit Code 0 abschließen, sodass die Pipeline zur nächsten Stage wechseln kann oder erfolgreich enden kann.</p>
+
+<p>Stages und Jobs werden in einer YAML-Datei mit dem Namen <code>.gitlab-ci.yaml</code> definiert.</p>
+
+<p><img src="/assets/images/posts/semantische-versionierung-von-docker-images-in-gitlab-pipelines/pipeline-visualization.gif" alt="Animierte Pipeline für GitLab" /></p>
+
+<h5 id="versioning-stage">Versioning-Stage</h5>
+
+<p>Um nun automatisch eine neue Version aus den Commit Messages zu erzeugen, legen wir als erstes die <code>.gitlab-ci.yaml-Datei</code> an, wenn sie noch nicht existiert.</p>
+
+<p>Wir werden die <code>Versioning-Stage</code> und einen Job für die <code>Versioning-Stage</code> anlegen.
+Der Job benötigt als Basis ein Node.js Docker Image.
+Dafür muss der GitLab-Runner Zugang zur Docker Engine haben.</p>
+
+<p>Um das einzurichten, verfolgt gerne dazu die GitLab-Dokumentation zum <a href="https://docs.gitlab.com/runner/executors/docker.html">Docker-Executor</a></p>
+
+<h5 id="versioning-stage-und-build-tag-job-in-gitlab-ciyaml">Versioning-Stage und build-tag Job in .gitlab-ci.yaml</h5>
+
+<p>Als erstes erstellen wir eine neue Stage und einen neuen Job, der für uns die semantische Version erstellen lassen soll.</p>
+
+<pre><code class="language-yaml">stages:
+    - versioning
+</code></pre>
+
+<p>Das <code>stages</code>-Objekt kann eine Liste von Stages haben.
+Haben wir die Stage angelegt, können wir nun Jobs für die Stage definieren.</p>
+
+<p>Wir legen einen neuen Job <code>build-tag</code> an.
+Der Job wird wie folgt definiert und wird für uns eine neue Version erzeugen:</p>
+
+<pre><code class="language-yaml">build-tag:
+    image: node:18.10-buster-slim
+    stage: versioning
+    before_script:
+        - apt get update &amp;&amp; apt-get install -y --no-install-recommends git-core ca-certificates
+        - npm install -g semantic-release @semantic-release/gitlab @semantic-release/git
+        - echo "$RELEASE_RC" &gt; .releaserc.json
+    script:
+        - semantic-release
+    rules:
+        - if: $CI_COMMIT_BRANCH == "main"
+</code></pre>
+
+<p>Im Job installieren wir das NPM-Package <a href="https://github.com/semantic-release/semantic-release">Semantic-Release</a> und installieren Git im Node.js Docker Image.
+Semantic-Release nimmt uns die Arbeit ab und kümmert sich um das Bestimmen der nächsten Versionsnummer.</p>
+
+<p>Der Vorteil ist, dass Semantic-Release menschliche Emotionen aus dem Versionierungsprozess nimmt und klaren Regeln folgt, den Regeln der semantischen Versionierung.
+Wir können jedoch selbst bestimmen, auf welche Commit Message Types das Package reagieren soll, um eine neue Version zu definieren.</p>
+
+<p>Um Regeln festzulegen, auf welche Types Semantic-Release reagieren soll, muss im aktuellen Pfad der Ausführung eine <code>.releaserc.json-Datei</code> exisieren.
+Hier seht ihr einmal die <a href="https://github.com/semantic-release/semantic-release/blob/master/docs/usage/configuration.md#configuration">Konfigurationsreferenz zu Semantic-Release</a>.</p>
+
+<p>Meine Konfiguration ist in einer Environment-Variable <code>$RELEASE_RC</code> gespeichert.
+Diese Variable ist in den CI/CD-Einstellungen des Repositories gespeichert.</p>
+
+<p><img src="/assets/images/posts/semantische-versionierung-von-docker-images-in-gitlab-pipelines/CI-CD-Settings.png" alt="CI/CD Settings aus GitLab" /></p>
+
+<p>Außerdem brauchen wir noch eine Environment-Variable, die <code>$GITLAB_TOKEN</code> heißt.
+Die <code>$GITLAB_TOKEN</code>-Variable beinhaltet einen Access Token für euer Repository.
+<a href="https://docs.gitlab.com/ee/user/project/settings/project_access_tokens.html">Hier</a> könnt ihr nachlesen, wie ihr einen Access Token erstellen könnt.
+Semantic-Release schaut nach dieser Variable, um einen Git Tag in eurem Repository zu veröffentlichen.
+Ein Git Tag ist eine Funktion, um Punkte in einer Versionshistorie als wichtig zu kennzeichnen.</p>
+
+<p>Semantic-Release überprüft zunächst das Git Repository auf Versions-Tags.
+Semantic-Release setzt beim Bauen einer Version ein neues Git Tag, welches die Version beinhaltet.
+Wurde ein entsprechendes Versions-Tag gefunden, werden nur alle Commits bis zu diesem Tag untersucht.
+Für alle gefunden Commits wird dann jeweils die Commit Message untersucht.
+Anhand der verwendeten Commit Message Types kann dann die Versionsnummer berechnet werden.
+Die neue semantische Version wird dann als Git Tag im Repository veröffentlicht.</p>
+
+<p>Wurde kein Tag gefunden, wird automatisch ein Git Tag mit der Version <code>v1.0.0</code> erzeugt.
+Die initiale Version können wir Semantic-Release in der Konfiguration mitgeben.</p>
+
+<p><img src="/assets/images/posts/semantische-versionierung-von-docker-images-in-gitlab-pipelines/workflow-semantic-release.png" alt="Workflow von Semantic-Release" /></p>
+
+<h5 id="anwendungsfall-bauen-des-docker-image-mit-neuer-versionsnummer">Anwendungsfall: Bauen des Docker Image mit neuer Versionsnummer</h5>
+
+<p>Damit wir nun auf Basis unseres Codes ein Docker Image bauen können, definieren wir eine neue Stage namens <code>deploy</code> und einen neuen Job mit dem Namen <code>build_docker_image</code>.
+Der Job soll ausgeführt werden, sobald ein neuer Git Tag im Repository angelegt wird und der Name des Tags eine semantische Versionsnummer ist.</p>
+
+<p>Der Git Tag mit der semantischen Version sollte im vorherigen Schritt erzeugt worden sein.
+Wenn kein neuer Git Tag erzeugt wurde, hat der Type des Commit nicht gepasst oder die Commit Message Struktur wurde nicht beachtet.</p>
+
+<p>Die neue Stage definieren wir wie folgt:</p>
+<pre><code class="language-yaml">stages:
+    - versioning
+    - deploy
+</code></pre>
+
+<p>Wir haben das <code>stages</code>-Objekt um eine weitere Stage <code>deploy</code> ergänzt.</p>
+
+<p>Der neue Job in der Deploy-Stage soll für uns diese Aufgabe übernehmen:</p>
+<pre><code class="language-yaml">build_docker_image:
+    stage: deploy
+    variables:
+        IMAGE_TAG: '$CONTAINER_REGISTRY/tag-name:$CI_COMMIT_TAG'
+    script:
+        - echo $CONTAINER_REGISTRY_PASSWORD | docker login -u $CONTAINER_REGISTRY_USER $CONTAINER_REGISTRY --password-stdin
+        - docker build -t $IMAGE_TAG .
+        - docker push $IMAGE_TAG
+    rules:
+        - if: $CI_COMMIT_TAG &amp;&amp; $CI_COMMIT_TAG =~ /^(v[0-9]+)\.([0-9]+)\.([0-9]+)(?:-([0-9A-Za-z-]+(?:\.[0-9A-Za-z-]+)*))?(?:\+[0-9A-Za-z-]+)?$/
+</code></pre>
+
+<p>Folgende Variablen haben wir wieder in den CI/CD-Einstellungen des Repository gespeichert:</p>
+<ul>
+  <li><code>$CONTAINER_REGISTRY</code> (Domain eurer Docker Image Registry)</li>
+  <li><code>$CONTAINER_REGISTRY_PASSWORD</code> (Passwort für die Registry)</li>
+  <li><code>$CONTAINER_REGISTRY_USER</code> (Benutzername für die Registry)</li>
+</ul>
+
+<p>Unser neuer Git Tag mit unserer neuen Versionsnummer ist in der GitLab-Variable <code>$CI_COMMIT_TAG</code> hinterlegt.
+Was besonders wichtig ist, ist die Regel wann der Job laufen soll.
+Der Job darf nur ausgeführt werden, wenn die Variable <code>$CI_COMMIT_TAG</code> einen Wert hat und die Variable einer semantischen Version entspricht, zum Beispiel v1.2.5.</p>
+
+<p>Mit diesem Git Tag können wir nun beim build-Prozess unser neues Docker Image kennzeichnen und in der Registry veröffentlichen.</p>
+
+<h4 id="fazit">Fazit</h4>
+<p>Durch eine definierte Commit-Message-Struktur können wir den Prozess der Versionierung automatisieren.
+Außerdem haben wir das Tool Semantic-Release benutzt, was für uns Git Tags anhand der Commit Messages erzeugt.
+Mit dem neu veröffentlichten Git Tag haben wir uns einen Anwendungsfall angeschaut, wo wir die neue semantische Version für das Bauen eines Docker Image benutzen.
+Falls ihr Fragen zu dem Thema oder der Implementierung habt, könnt ihr mich gerne per E-Mail <a href="mailto:paul.schueler@adesso.de">paul.schueler@adesso.de</a> oder Teams kontaktieren.</p>
+
+</div>
+</div>
+</div>
+</div>]]></field>
+    </document>
+</documents>
