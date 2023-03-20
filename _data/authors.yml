@@ -10,6 +10,12 @@ shsanayei:
   bio: "Shahin Sanayei ist Softwareengineer bei adesso in Dortmund und entwickelt aktuell Software für Kunden der öffentlichen Verwaltung."
   avatar_url: /assets/images/avatars/shsanayei.png
 
+andreasmaita:
+  first_name: Andreas
+  last_name: Maita
+  bio: "Andreas Maita ist Software Engineer bei adesso. Neben seiner Arbeit in Kundenprojekten beschäftigt er sich gerne mit Java-Technologien und Themen aus dem Bereich KI"
+  avatar_url: /assets/images/avatars/andreas_maita.jpg
+
 daklassen:
   first_name: David
   last_name: Klassen
