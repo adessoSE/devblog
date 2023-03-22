@@ -442,7 +442,13 @@ nirumand:
   last_name: Nirumand
   bio: "Reza Nirumand is a Senior Software Engineer at adesso located in Dortmund. He is involved in various projects in the Banking industry and he is responsible for the designing and delivering of cloud-native applications."
   avatar_url: /assets/images/avatars/nirumand.jpg
- 
+
+vscherb:
+  first_name: Vincent
+  last_name: Scherb
+  bio: "Vincent Scherb is a Software Engineer at adesso located in Nuremberg. He works mainly as a backend developer in manifacturing industries with Microsoft technologies."
+  avatar_url: /assets/images/avatars/vscherb.jpg
+
 komenda:
   first_name: Rico
   last_name: Komenda
