@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<documents>
+    <document uid="47a1fa32be010ad26a86d792d70ec499">
+        <field name="title"><![CDATA[Troubleshooting open source NuGet package]]></field>
+        <field name="subline"><![CDATA[]]></field>
+        <field name="teaser"><![CDATA[<p>For a project I decided to use the libgit2 library which, fortunately, has a port to C#.
+When adding the NuGet package in the latest version <code>0.26.2</code> (release December 11, 2019) the program ran into a problem at runtime as the shared library cannot be loaded.</p>
+
+]]></field>
+        <field name="language_multi_keyword"><![CDATA[de]]></field>
+        <field name="content_type_multi_keyword"><![CDATA[blog]]></field>
+        <field name="mime_type_multi_keyword"><![CDATA[text/html]]></field>
+        <field name="category_multi_keyword"><![CDATA[Softwareentwicklung]]></field>
+        <field name="tag_multi_keyword"><![CDATA[NuGet]]></field>
+        <field name="date_date"><![CDATA[2023-03-22T12:00:00+01:00]]></field>
+        <field name="date_l"><![CDATA[1679482800000]]></field>
+        <field name="change_date"><![CDATA[1679482800000]]></field>
+
+        <!--Author Information-->
+        
+        <field name="author_id"><![CDATA[vscherb]]></field><!--Postcontent-->
+        <field name="headlines"><![CDATA[Troubleshooting open source NuGet package]]></field>
+        <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
+            <p>For a project I decided to use the libgit2 library which, fortunately, has a port to C#.
+When adding the NuGet package in the latest version <code>0.26.2</code> (release December 11, 2019) the program ran into a problem at runtime as the shared library cannot be loaded.</p>
+
+</div>]]></field>
+        <field name="content"><![CDATA[<div class="adesso-text-formate">
+<div class="row p-t-2">
+<div class="adesso-container">
+<div class="col-xl-8 adesso-center p-b-1 p-l-0 p-r-0">
+    <p>For a project I decided to use the libgit2 library which, fortunately, has a port to C#.
+When adding the NuGet package in the latest version <code>0.26.2</code> (release December 11, 2019) the program ran into a problem at runtime as the shared library cannot be loaded.</p>
+
+<p>Let’s explore the steps to find more about that error and the resulting actions to resolve that problem and continue on with the project.</p>
+
+<p>First I will create a MVP to replicate the problem and explore further without the other dependencies of the project.
+Then I will follow the process of resolving the problem and finding a solution.</p>
+
+<p>This happens on the machine with <a href="https://manjaro.org/">Majaro x64</a> with <a href="https://docs.microsoft.com/en-us/dotnet/core/whats-new/dotnet-6">.Net 6</a>.</p>
+
+<h4 id="replicate-the-error-with-a-mvp">Replicate the error with a MVP</h4>
+
+<p>So far, my observation was, that every call to the library caused a problem.
+Therefore a minimal reproduction of that problem would be achieved by including the NuGet package and calling anything from the library.</p>
+
+<pre><code class="language-csharp">// Get the directory where the executable is run.
+string currentDirectory = Directory.GetCurrentDirectory();
+// Call the library to check whether the provided location is a valid
+// git repository.
+bool directoryIsARepository = LibGit2Sharp.Repository.IsValid(currentDirectory);
+
+// Set the exit code to non zero to indicate an error or the uncaught
+// exception will print the details.
+return directoryIsARepository ? 0 : 1;
+</code></pre>
+<p><em>Fig1: Simplified version of <a href="https://git.sr.ht/~vince/poc_libgit2sharp/tree/main/item/poc_libgit2sharp/Program.cs">Program.cs</a></em></p>
+
+<p>So after recreating the error on my machine, I created a new repository and added the least required code to reproduce the error.
+The repository is uploaded at <a href="https://git.sr.ht/~vince/poc_libgit2sharp">sr.ht</a>.</p>
+
+<pre><code class="language-bash">$ git log --oneline -n1
+e8f4902 Add simple check for the library
+
+~/Projects/poc_libgit2sharp main $ make run
+dotnet build ./poc_libgit2sharp/poc_libgit2sharp.csproj
+Microsoft (R) Build Engine version 17.0.0+c9eb9dd64 for .NET
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+  Determining projects to restore...
+  All projects are up-to-date for restore.
+  poc_libgit2sharp -&gt; /home/vince/Projects/poc_libgit2sharp/poc_libgit2sharp/bin/Debug/net6.0/poc_libgit2sharp.dll
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:01.33
+dotnet run --project ./poc_libgit2sharp/poc_libgit2sharp.csproj
+Current directory is '/home/vince/Projects/poc_libgit2sharp'
+Checking whether the directory contains a valid git repository.
+Should return true as the program is run from a repository.
+Unhandled exception. System.TypeInitializationException: The type initializer for 'LibGit2Sharp.Core.NativeMethods' threw an exception.
+---&gt; System.DllNotFoundException: Unable to load shared library 'git2-106a5f2' or one of its dependencies. In order to help diagnose loading problems, consider setting the LD_DEBUG environment variable: libgit2-106a5f2: cannot open shared object file: No such file or directory
+at LibGit2Sharp.Core.NativeMethods.git_libgit2_init()
+at LibGit2Sharp.Core.NativeMethods.InitializeNativeLibrary()
+at LibGit2Sharp.Core.NativeMethods..cctor()
+--- End of inner exception stack trace ---
+at LibGit2Sharp.Core.NativeMethods.git_repository_open_ext(git_repository*&amp; repository, FilePath path, RepositoryOpenFlags flags, FilePath ceilingDirs)
+at LibGit2Sharp.Core.Proxy.git_repository_open_ext(String path, RepositoryOpenFlags flags, String ceilingDirs)
+at LibGit2Sharp.Repository.IsValid(String path)
+at Program.&lt;Main&gt;$(String[] args) in /home/vince/Projects/poc_libgit2sharp/poc_libgit2sharp/Program.cs:line 7
+make: *** [Makefile:18: run] Error 134
+</code></pre>
+<p><em>Fig2: Recreating the error on the MVP</em></p>
+
+<p>Now let us dissect the thrown error message a bit further to understand the underlying problem before taking further actions or diving deeper into the code of the open source repository <a href="https://github.com/libgit2/libgit2sharp">libgit2</a>.</p>
+
+<pre><code class="language-bash">Unhandled exception. System.TypeInitializationException:
+	The type initializer for 'LibGit2Sharp.Core.NativeMethods' threw an exception.
+---&gt; System.DllNotFoundException:
+	Unable to load shared library 'git2-106a5f2' or one of its dependencies.
+	In order to help diagnose loading problems, consider setting the LD_DEBUG environment variable:
+	libgit2-106a5f2: cannot open shared object file: No such file or directory
+</code></pre>
+<p><em>Fig3: Information from the exception</em></p>
+
+<p>We know, that the library is a wrapper around the C implementation of libgit2 to enjoy it in the managed world of dotnet.
+Armed with this knowledge, we can suspect that the reference to <code>git2-106a5f2</code> of the <code>System.DllNotFoundException</code> is about the native library.
+The next step is to find out where the library is loaded from and where the error occurs to get a better understanding of the problem.</p>
+
+<h4 id="exploration-with-debug-options">Exploration with Debug options</h4>
+
+<p>The error message gives us all the information we need to proceed further as it indicated the usage of <code>LD_DEBUG</code>.
+So lets explore the output with that environment variable set (output is greatly condensed):</p>
+
+<pre><code class="language-bash">~/Projects/poc_libgit2sharp main $ LD_DEBUG=libs make run
+dotnet run --project ./poc_libgit2sharp/poc_libgit2sharp.csproj
+   1022222:	initialize program: /home/vince/Projects/poc_libgit2sharp/poc_libgit2sharp/bin/Debug/net6.0/poc_libgit2sharp
+Current directory is '/home/vince/Projects/poc_libgit2sharp'
+Checking whether the directory contains a valid git repository.
+Should return true as the program is run from a repository.
+   1022222:	find library=git2-106a5f2.so [0]; searching
+   1022222:	 search cache=/etc/ld.so.cache
+   1022222:	 search path=/usr/lib/tls:/usr/lib		(system search path)
+   1022222:	  trying file=/usr/lib/tls/git2-106a5f2.so
+   1022222:	  trying file=/usr/lib/git2-106a5f2.so
+   1022222:
+   1022222:	[...]
+   1022222:	find library=libgit2-106a5f2.so [0]; searching
+   1022222:	 search cache=/etc/ld.so.cache
+   1022222:	 search path=/usr/lib/tls:/usr/lib		(system search path)
+   1022222:	  trying file=/usr/lib/tls/libgit2-106a5f2.so
+   1022222:	  trying file=/usr/lib/libgit2-106a5f2.so
+   1022222:
+   1022222:	[...]
+   1022222:	find library=git2-106a5f2 [0]; searching
+   1022222:	 search cache=/etc/ld.so.cache
+   1022222:	 search path=/usr/lib/tls:/usr/lib		(system search path)
+   1022222:	  trying file=/usr/lib/tls/git2-106a5f2
+   1022222:	  trying file=/usr/lib/git2-106a5f2
+   1022222:
+   1022222:	find library=libgit2-106a5f2 [0]; searching
+   1022222:	 search cache=/etc/ld.so.cache
+   1022222:	 search path=/usr/lib/tls:/usr/lib		(system search path)
+   1022222:	  trying file=/usr/lib/tls/libgit2-106a5f2
+   1022222:	  trying file=/usr/lib/libgit2-106a5f2
+   1022222:
+Unhandled exception.
+System.TypeInitializationException: The type initializer for 'LibGit2Sharp.Core.NativeMethods' threw an exception.
+ ---&gt; System.DllNotFoundException: Unable to load shared library 'git2-106a5f2' or one of its dependencies.
+      [...]
+make: *** [Makefile:18: run] Error 134
+</code></pre>
+<p><em>Fig4: LD_DEBUG run to list the libraries</em></p>
+
+<p>When setting the <code>LD_DEBUG</code> parameter to <code>all</code> or <code>files</code> we get similar results:</p>
+
+<pre><code class="language-bash">   1022654:	file=/home/vince/Projects/poc_libgit2sharp/poc_libgit2sharp/bin/Debug/net6.0/runtimes/linux-x64/native/git2-106a5f2.so [0];  dynamically loaded by /usr/share/dotnet/shared/Microsoft.NETCore.App/6.0.2/libcoreclr.so [0]
+   1022654:
+   1022654:	file=/usr/share/dotnet/shared/Microsoft.NETCore.App/6.0.2/git2-106a5f2.so [0];  dynamically loaded by /usr/share/dotnet/shared/Microsoft.NETCore.App/6.0.2/libcoreclr.so [0]
+   1022654:
+   1022654:	file=/home/vince/Projects/poc_libgit2sharp/poc_libgit2sharp/bin/Debug/net6.0/git2-106a5f2.so [0];  dynamically loaded by /usr/share/dotnet/shared/Microsoft.NETCore.App/6.0.2/libcoreclr.so [0]
+   1022654:
+   1022654:	file=git2-106a5f2.so [0];  dynamically loaded by /usr/share/dotnet/shared/Microsoft.NETCore.App/6.0.2/libcoreclr.so [0]
+   [...]
+   1022654:	file=/home/vince/Projects/poc_libgit2sharp/poc_libgit2sharp/bin/Debug/net6.0/runtimes/linux-x64/native/libgit2-106a5f2.so [0];  dynamically loaded by /usr/share/dotnet/shared/Microsoft.NETCore.App/6.0.2/libcoreclr.so [0]
+   1022654:	file=/home/vince/Projects/poc_libgit2sharp/poc_libgit2sharp/bin/Debug/net6.0/runtimes/linux-x64/native/libgit2-106a5f2.so [0];  generating link map
+   1022654:	  dynamic: 0x00007fda6ad24d90  base: 0x00007fda6aa00000   size: 0x000000000032a5d0
+   1022654:	    entry: 0x00007fda6aa166f0  phdr: 0x00007fda6aa00040  phnum:                  7
+</code></pre>
+<p><em>Fig5: Output from <code>LD_DEBUG=files</code></em></p>
+
+<p>The library files <code>./bin/Debug/net6.0/runtimes/linux-x64/native/libgit2-106a5f2.so</code> do exist and they are imported correctly.
+On the other hand the referenced file <code>/usr/share/dotnet/shared/Microsoft.NETCore.App/6.0.2/git2-106a5f2.so</code> does not exist at this global location.</p>
+
+<p>If there would be no specific version applied to the shared object file I would say the file, should come from the system.
+Let’s check the package manager and install the latest version of the underlying library <code>libgit2</code> on the system.</p>
+
+<pre><code class="language-bash">$ sudo pacman -S libgit2
+</code></pre>
+<p><em>Fig6: Installing the <a href="https://archlinux.org/packages/extra/x86_64/libgit2/">libgit2 package</a> globally</em></p>
+
+<p>Even after the installation/update the error persists.
+So, as expected, there is no correlation with the global installation of the library and it should come all bundled with the NuGet package.</p>
+
+<p>Going further and exploring the issues on GitHub and discovering a potential fix will be the next step.</p>
+
+<h4 id="exploring-github-issues-for-potential-fixes">Exploring GitHub issues for potential fixes</h4>
+
+<p>Before exploring the installation scripts or the code of the library let us explore the issues on GitHub.</p>
+
+<p>There are some issues hinting that the correct dependency of the package should be used, which is <code>LibGit2Sharp.NativeBinaries</code> in version <code>2.0.306</code>, which was already the case when inspecting the file <code>./obj/project.assets.json</code>.</p>
+
+<p>On the other hand, there are multiple issues indicating that there are issues with .Net 5, which should be fixed with the preview version of <code>0.27.0</code> of the <code>LibGit2Sharp</code> NuGet package.</p>
+
+<h5 id="installing-the-preview-version-of-the-library">Installing the preview version of the library</h5>
+
+<p>Now lets just update the package reference to check if the preview version will fix it for our .Net 6 application.</p>
+
+<pre><code class="language-xml">  &lt;ItemGroup&gt;
+    &lt;PackageReference Include="LibGit2Sharp" Version="0.27.0-preview-0182" /&gt;
+  &lt;/ItemGroup&gt;
+</code></pre>
+<p><em>Fig7: <a href="https://git.sr.ht/~vince/poc_libgit2sharp/tree/b10eb21f98dcffe40dcfcd792933a795bbcff3dd/item/poc_libgit2sharp/poc_libgit2sharp.csproj">poc_libgit2sharp.csproj</a></em></p>
+
+<pre><code class="language-bash">~/Projects/poc_libgit2sharp main $ make run
+[...]
+dotnet run --project ./poc_libgit2sharp/poc_libgit2sharp.csproj
+Current directory is '/home/vince/Projects/poc_libgit2sharp'
+Checking whether the directory contains a valid git repository.
+Should return true as the program is run from a repository.
+This message indicates that no exception was thrown and the library works as expected.
+The directory '/home/vince/Projects/poc_libgit2sharp' is a git repository 'True'
+</code></pre>
+<p><em>Fig8: Execute with preview version</em></p>
+
+<p>Perfect, now no exception gets thrown from the library and the expected result holds true.
+The working directory is indeed a <a href="https://git.sr.ht/~vince/poc_libgit2sharp">git repository</a>.</p>
+
+<p>Now, having a reference to a preview version is always unpleasant and should be avoided.
+As we know with git itself, we have the possibility of including the sources directly and building them within our project.
+To draw a conclusion for the project, lets explore both options in this MVP.</p>
+
+<h4 id="building-from-source">Building from source</h4>
+
+<p>Now for the last step, lets try to build the project ourselves and include the result in our project.
+With this option, we can directly link the <code>master</code> branch of the repository and update it accordingly to receive the latest updates instead of waiting for an update on the NuGet package.</p>
+
+<pre><code class="language-bash">$ git submodule add https://github.com/libgit2/libgit2sharp.git libgit2sharp
+[...]
+
+$ ls -l
+-rw-r--r--  1 vince vince  349 Apr 21 20:23 .gitignore
+-rw-r--r--  1 vince vince   99 Apr 21 22:16 .gitmodules
+[...]
+drwxr-xr-x 9 vince vince  4096 Apr 21 22:24 libgit2sharp
+-rw-r--r-- 1 vince vince   432 Apr 21 20:54 Makefile
+drwxr-xr-x 4 vince vince  4096 Apr 21 20:21 poc_libgit2sharp
+
+$ cat .gitmodules
+[submodule "libgit2sharp"]
+	path = libgit2sharp
+	url = https://github.com/libgit2/libgit2sharp.git
+</code></pre>
+<p><em>Fig9: Installing the submodule</em></p>
+
+<p>And finally, we can update the project reference.</p>
+
+<pre><code class="language-bash">$ git diff d85adbb~..d85adbb
+diff --git a/poc_libgit2sharp/poc_libgit2sharp.csproj b/poc_libgit2sharp/poc_libgit2sharp.csproj
+index 4329b2b..f3f8c62 100644
+--- a/poc_libgit2sharp/poc_libgit2sharp.csproj
++++ b/poc_libgit2sharp/poc_libgit2sharp.csproj
+@@ -8,7 +8,7 @@
+   &lt;/PropertyGroup&gt;
+
+   &lt;ItemGroup&gt;
+-    &lt;PackageReference Include="LibGit2Sharp" Version="0.27.0-preview-0182" /&gt;
++    &lt;ProjectReference Include="..\libgit2sharp\LibGit2Sharp\LibGit2Sharp.csproj" /&gt;
+   &lt;/ItemGroup&gt;
+
+ &lt;/Project
+</code></pre>
+<p><em>Fig10: Update the reference</em></p>
+
+<p>The submodule works as expected just as the preview version of the NuGet package.
+With the submodule, we have similar downsides to using a package manager, as the reference has to be updated manually when a new version is published.</p>
+
+<p>When using the submodule, we can directly check out the <code>master</code> branch and check the latest development version.
+It is worth noting that when a stable release of <code>0.27.0</code> is released of the package this choice has to be reevaluated.</p>
+
+<h4 id="conclusion">Conclusion</h4>
+
+<p>To see all the changes made since the last published version, we can check out the diff on GitHub directly <a href="https://github.com/libgit2/libgit2sharp/compare/v0.26..master">v0.26..master</a>.</p>
+
+<p>The help on submodules is extensive and can be viewed under <code>man 1 git-submodule</code> and <code>man 7 gitsubmodules</code>.</p>
+
+<p>For my project I decided to go with the submodule workaround since it gives me a few advantages:</p>
+
+<ul>
+  <li>Building regularly lets me observe the submodule for updates</li>
+  <li>I can keep up with changes to the library</li>
+  <li>Give feedback to the library developers since I work with a version containing new features and fixes</li>
+  <li>On different branches I can try different versions of the library</li>
+</ul>
+
+</div>
+</div>
+</div>
+</div>]]></field>
+    </document>
+</documents>
