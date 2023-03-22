@@ -448,3 +448,27 @@ vscherb:
   last_name: Scherb
   bio: "Vincent Scherb is a Software Engineer at adesso located in Nuremberg. He works mainly as a backend developer in manifacturing industries with Microsoft technologies."
   avatar_url: /assets/images/avatars/vscherb.jpg
+
+komenda:
+  first_name: Rico
+  last_name: Komenda
+  bio: "Rico Komenda arbeitet als Entwickler bei adesso in Stuttgart. Sein Schwerpunkt liegt in der IT-Sicherheit."
+  avatar_url: /assets/images/avatars/komenda.jpg
+
+kenneth-may-adesso:
+  first_name: Kenneth
+  last_name: May
+  bio: "Kenneth May arbeitet seit 2021 als Softwareentwickler in der automatischen KFZ-Betrugserkennung (AFM) der LOB Insurance."
+  avatar_url: /assets/images/avatars/kenneth-may-adesso.jpg
+
+sypste:
+  first_name: Simon
+  last_name: Stemper
+  bio: "Simon Stemper arbeitet seit 2019 als Cloud Data Engineer bei adesso in Dortmund. Im Bereich Data & Analytics berät er Kunden zu Einsatz und Betrieb von Big-Data-Technologien."
+  avatar_url: /assets/images/avatars/stemper.jpg
+
+utschenik:
+  first_name: Paul
+  last_name: Schüler
+  bio: "Paul beschäftigt sich gerne mit neuen Technologien und begeistert sich für neue Themen im Bereich der Softwarearchitektur"
+  avatar_url: /assets/images/avatars/paulschueler.jpg
