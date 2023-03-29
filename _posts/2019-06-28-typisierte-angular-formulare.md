@@ -2,6 +2,7 @@
 layout: [post, post-xml]
 title:  "Typisierte Forms in Angular"
 date:   2019-06-28 10:25
+modified_date: 2023-03-29 12:00
 author_ids: [no0x9d]
 categories: [Softwareentwicklung]
 tags: [Angular, Typescript, Angular forms]
@@ -117,7 +118,7 @@ Wie man sieht ist die Umstellung ohne großen Aufwand machbar. Auch der Zugriff 
     this.heroForm.get('secretLairs') as FormArray<string>; // Falscher Datentyp
     // Compile Error TS2322: Type 'FormArray<string>' is not assignable to type 'FormArray<Address>'.
 ```
-![Code Completion](/assets/images/posts/typisierte-angular-formulare/code-completion.png)
+![Code Completion](/assets/images/posts/typisierte-angular-formulare/code-completion.PNG)
 
 # Eigene Validator-Funktionen
 
