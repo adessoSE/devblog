@@ -15,7 +15,7 @@
         <field name="tag_multi_keyword"><![CDATA[Angular forms]]></field>
         <field name="date_date"><![CDATA[2019-06-28T10:25:00+02:00]]></field>
         <field name="date_l"><![CDATA[1561710300000]]></field>
-        <field name="change_date"><![CDATA[1561710300000]]></field>
+        <field name="change_date"><![CDATA[1680084000000]]></field>
 
         <!--Author Information-->
         
@@ -133,7 +133,7 @@ export class HeroDetailComponent implements OnChanges {
     this.heroForm.get('secretLairs') as FormArray&lt;string&gt;; // Falscher Datentyp
     // Compile Error TS2322: Type 'FormArray&lt;string&gt;' is not assignable to type 'FormArray&lt;Address&gt;'.
 </code></pre>
-<p><img src="/assets/images/posts/typisierte-angular-formulare/code-completion.png" alt="Code Completion" /></p>
+<p><img src="/assets/images/posts/typisierte-angular-formulare/code-completion.PNG" alt="Code Completion" /></p>
 
 <h4 id="eigene-validator-funktionen">Eigene Validator-Funktionen</h4>
 
