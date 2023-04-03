@@ -152,14 +152,12 @@ spring.datasource:
   password=sa
 ```
 
----
-_Remarks on clarity from the start_
-
-This is a little off topic, but very important.
-Many projects fail to set up their codebase as early as possible for this type of test (integrative component test with an embedded database).
-I suggest, you set this up as early as possible, before starting to write a single line of productive code in your project.
-It provides clean test possibilities for all developers during the development of the project.
----
+> _Remarks on clarity from the start_
+> 
+> This is a little off topic, but very important.
+> Many projects fail to set up their codebase as early as possible for this type of test (integrative component test with an embedded database).
+> I suggest, you set this up as early as possible, before starting to write a single line of productive code in your project.
+> It provides clean test possibilities for all developers during the development of the project.
 
 ## Add Cucumber Maven dependency and configure it
 
@@ -294,12 +292,10 @@ Let's write a this glue code (src/test/java/de/adesso/thalheim/gtd/CaptureStepDe
 ```
 
 
----
-_Note on the level of abstraction_
-
-Here you can see, I kept the glue code and therefore the acceptance test on an abstraction level above the concrete interface.
-Of course one could have just @Inject the REST controller, that would make things easier but more concrete than necessary, thereby binding the test to implementation details.
----
+> _Note on the level of abstraction_
+> 
+> Here you can see, I kept the glue code and therefore the acceptance test on an abstraction level above the concrete interface.
+> Of course one could have just @Inject the REST controller, that would make things easier but more concrete than necessary, thereby binding the test to implementation details.
 
 Now, we can write an method for the GET endpoint.
 It should return a list of classes containing exactly one field named "description".
