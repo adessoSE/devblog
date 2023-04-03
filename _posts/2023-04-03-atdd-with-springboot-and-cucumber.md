@@ -152,10 +152,249 @@ spring.datasource:
   username=sa
   password=sa
 ```
-
-## Remarks on clarity from the start
+---
+_Remarks on clarity from the start_
 
 This is a little off topic, but very important.
 Many projects fail to set up their codebase as early as possible for this type of test (integrative component test with an embedded database).
 I suggest, you set this up as early as possible, before starting to write a single line of productive code in your project.
 It provides clean test possibilities for all developers during the development of the project.
+---
+
+## Add Cucumber Maven dependency and configure it
+
+In order to run the test specification, we need a few dependencies in the pom.xml:
+```
+<dependency>
+   <groupId>io.cucumber</groupId>
+   <artifactId>cucumber-java</artifactId>
+   <version>6.11.0</version>
+</dependency>
+<dependency>
+   <groupId>io.cucumber</groupId>
+   <artifactId>cucumber-spring</artifactId>
+   <version>6.11.0</version>
+</dependency>
+<dependency>
+   <groupId>io.cucumber</groupId>
+   <artifactId>cucumber-junit</artifactId>
+   <version>6.11.0</version>
+</dependency>
+```
+
+Now, we can add the acceptance test we have already defined above into our codebase:
+```
+Feature: Capture Stage
+
+  Scenario: Collect Thought
+    When Thought "Send Birthday Wishes to Mike" is collected
+    Then Inbox contains "Send Birthday Wishes to Mike"
+```
+
+## Making the cucumber test specification run
+
+To make Maven run this specification, we need some boilerplate code.
+
+First, a test class which points to the cucumber test specifications:
+```
+@RunWith(Cucumber.class)
+@CucumberOptions(features = {"src/test/resources/features"})
+public class CucumberTest {
+}
+```
+
+Also, a Cucumber Context needs to be provided, we use the @SpringBootTest for that:
+```
+@CucumberContextConfiguration
+@SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
+class CucumberSpringBootDemoApplicationTest {
+```
+
+You will need the RANDOM port to not interfere with your regular running local instance of this service.
+
+Now, if we let Maven run, during the test run an error will pop up that the Glue-Code is missing. So let's add that:
+```
+package de.adesso.thalheim.gtd;
+
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+import org.junit.Assert;
+
+public class CaptureStepDefinitions {
+
+    @When("Thought {string} is collected")
+    public void thought_is_collected(String thought) {
+        Assert.fail("Implement me!");
+    }
+
+    @Then("Inbox contains {string}")
+    public void inbox_contains(String thought) {
+        Assert.fail("Implement me!");
+    }
+}
+```
+
+Now, our test specification fails. _But it does not fail for the correct reason._ So let's try to implement the glue code (test code):
+```
+    @When("Thought {string} is collected")
+    public void thought_is_collected(String thought) throws IOException {
+        // given                 
+        HttpUriRequest post = new HttpPost( "http://localhost:8080/gtd/inbox/" + URLEncoder.encode(thought, StandardCharsets.UTF_8.name()));
+        // when
+        HttpResponse httpResponse = HttpClientBuilder.create().build().execute( request );
+        // then
+        Assertions.assertThat(httpResponse.getStatusLine().getStatusCode()).isEqualTo(200);
+    }
+```
+
+Now, the test defines that we need a POST endpoint which is exposed on Port 8080 and in the context path gtd/thoughts. It should return an http status code 200.
+
+While I was at it I added the AssertJ Core Library to the Maven dependencies. assertThat(...)... sounds more like BDD than standard JUnit assert-Statements.
+
+If you run now the Cucumber tests or Maven build, the test execution will fail, because no REST controller offers a proper endpoint. Now we have a test which fails for the right reason.
+
+```
+[ERROR] Collect Thought  Time elapsed: 0.248 s  <<< ERROR!
+org.apache.http.conn.HttpHostConnectException: Connect to localhost:8080 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect
+Caused by: java.net.ConnectException: Connection refused: connect
+```
+The reason why our test fails is because there is no REST endpoint listining where we expect it.
+
+This means we can finally write production code.
+```
+@RestController
+@RequestMapping("gtd/inbox")
+@Slf4j
+public class InboxController {
+    @PostMapping("/{thought}")
+    public void collect(@PathVariable("thought") String thought) {
+        // TODO: implement me!
+        log.debug("Received " + thought);
+    }
+}
+```
+
+Now, the acceptance test fails again as there is no glue code for the when clause in the cucumber then scenario. 
+Let's write a this glue code:
+```
+    @Value(value = "${local.server.port}")
+    private int port;
+
+    @Then("Inbox contains {string}")
+    public void inbox_contains(String thought) throws IOException {
+        // given
+        HttpUriRequest get = new HttpGet("http://localhost:%d/gtd/inbox".formatted(port));
+        // when
+        CloseableHttpResponse response = HttpClientBuilder.create().build().execute(get);
+        // then
+        String entity = EntityUtils.toString(response.getEntity());
+        assertThat(StringUtils.strip(entity)).isEqualTo("[{\"description\":\"%s\"}]".formatted(thought));
+    }
+```
+
+
+---
+_Note on the level of abstraction_
+
+Here you can see, I kept the glue code and therefore the acceptance test on an abstraction level above the concrete interface.
+Of course one could have just @Inject the REST controller, that would make things easier but more concrete than necessary, thereby binding the test to implementation details.
+---
+
+Now, we can write an method for the GET endpoint.
+It should return a list of classes containing exactly one field named "description".
+We need to implement the controller, so let's write a this in a normal TDD style with a test case first:
+```
+@ExtendWith(MockitoExtension.class)
+class InboxControllerTest {
+
+    @InjectMocks
+    InboxController controller;
+
+    @Mock
+    ThoughtRepository repository;
+
+    @Captor
+    ArgumentCaptor<Thought> thoughtArgumentCaptor;
+
+    @Test
+    public void testPutThoughtIntoRepository() throws UnsupportedEncodingException {
+        // given
+        String thoughtDescription = "foiaxöniso";
+        // when
+        controller.collect(thoughtDescription);
+        // then
+        verify(repository).save(thoughtArgumentCaptor.capture());
+        assertThat(thoughtArgumentCaptor.getValue().getDescription()).isEqualTo(thoughtDescription);
+    }
+
+    @Test
+    public void testGetAllThoughts() {
+        // given
+        String thoughtDescription = "foiaxöniso";
+        Thought thought = new Thought(UUID.randomUUID(), thoughtDescription);
+        when(repository.findAll()).thenReturn(Set.of(thought));
+        // when
+        List<Thought> thoughts = controller.get();
+        // then
+        assertThat(thoughts).hasSize(1);
+        assertThat(thoughts.iterator().next()).isEqualTo(thought);
+    }
+}
+```
+
+Now we can finish writing the Controller, Entity, Repository etc.
+```
+@RestController
+@RequestMapping("gtd/inbox")
+@Slf4j
+public class InboxController {
+
+    @Inject
+    private ThoughtRepository thoughtRepository;
+
+    @PostMapping("/{thought}")
+    public void collect(@PathVariable("thought") String thought) throws UnsupportedEncodingException {
+        log.debug("Received " + thought);
+        Thought theThought = new Thought(UUID.randomUUID(), URLDecoder.decode(thought, StandardCharsets.UTF_8.name()));
+        thoughtRepository.save(theThought);
+    }
+
+    @GetMapping
+    public List<Thought> get() {
+        Iterable<Thought> all = thoughtRepository.findAll();
+        return StreamSupport.stream(all.spliterator(), false).toList();
+    }
+}
+
+@RequiredArgsConstructor
+@AllArgsConstructor
+@Entity
+public class Thought {
+
+    @Id
+    private UUID id;
+
+    @Getter
+    private String description;
+
+}
+
+public interface ThoughtRepository extends CrudRepository<Thought, UUID> {}
+```
+
+Of course, you would never expose an @Entity as the result type of a REST call.
+But for demonstration purposes, we're fine here.
+
+# Wrapping it up
+
+I have said I would do ATTD here. 
+This means I first created a failing acceptance test, and then implemented only interfaces. 
+And when I got further, I used normal unittests to finish the internals of my implementation. The acceptance tests form an outer, the unit tests an inner loop of the implementation process.
+
+Writing Cucumber scenarios first has the big advantage of forcing your requirements engineer to make requirements as clear as possible.
+
+Before writing a single line of productive code, I took the time in this dummy project that the execution of unittests, @SpringBootTest, and Cucumber tests were possible.
+
+I have kept the acceptance tests free of details which are not relevant to them, hence raising refactoring safety. I would try to do the same with regular @SpringBootTests.
+
+If you like, you can see all code here: [link](https://github.com/bjoern-thalheim/cucumber_demo) Demo Code
