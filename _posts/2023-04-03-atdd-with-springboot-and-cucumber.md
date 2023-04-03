@@ -36,8 +36,7 @@ At any time, it can be retrieved from the inbox.
 
 ## Defining acceptance test scenarios
 
-Before even starting on our feature, let’s define the acceptance tests of our feature.
-
+Before even starting on our feature, let’s define the acceptance tests of our feature (src/test/resources/features/collect-thought.feature):
 ```
 Feature: Capture Stage
 
@@ -54,8 +53,8 @@ This approach is very charming as it forces the requirements engineer to formula
 
 # Setting Things Up
 
-We do now something fairly standard: we start a Java/Maven project and let IntelliJ generate the initial.pom.xml for us. In the process, we will add a few dependencies for an in-memory DB for testing or cucumber.
-
+We do now something fairly standard: we start a Java/Maven project and let IntelliJ generate the initial.pom.xml for us. 
+In the process, we will add a few dependencies for an in-memory DB for testing or cucumber (pom.xml):
 ```
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
@@ -76,7 +75,7 @@ We do now something fairly standard: we start a Java/Maven project and let Intel
 </project>
 ```
 
-Because I want to start a Spring Boot project and I'm a fan of Lombok, I add the following dependencies and add the Spring Boot Starter parent relation:
+Because I want to start a Spring Boot project and I'm a fan of Lombok, I add the following dependencies and add the Spring Boot Starter parent relation (pom.xml):
 ```
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -127,7 +126,7 @@ The pom.xml needed a few more dependencies:
         </dependency>
 ```
 
-We need to configure a datasource which will be used in normal operations of our application:
+We need to configure a datasource which will be used in normal operations of our application (src/main/resources/application.yml):
 ```
 spring.jpa:
   database: POSTGRESQL
@@ -144,7 +143,7 @@ spring.datasource:
 In case you wondered: 
 The PostgreSQL DB can be easily started with "docker run --name postgres-db -e POSTGRES_PASSWORD=docker -p 5432:5432 -d postgres" and the DB and user simply created with "CREATE DATABASE ..." and "CREATE USER ...".
 
-We need to configure an alternative datasource which will be used when unittesting our application.
+We need to configure an alternative datasource which will be used when unittesting our application (src/test/resources/application.yml):
 ```
 spring.datasource:
   driver-class-name=org.h2.Driver
@@ -152,6 +151,7 @@ spring.datasource:
   username=sa
   password=sa
 ```
+
 ---
 _Remarks on clarity from the start_
 
@@ -182,7 +182,7 @@ In order to run the test specification, we need a few dependencies in the pom.xm
 </dependency>
 ```
 
-Now, we can add the acceptance test we have already defined above into our codebase:
+Now, we can add the acceptance test we have already defined above into our codebase (src/test/resources/features/collect-thought.feature):
 ```
 Feature: Capture Stage
 
@@ -195,7 +195,7 @@ Feature: Capture Stage
 
 To make Maven run this specification, we need some boilerplate code.
 
-First, a test class which points to the cucumber test specifications:
+First, a test class which points to the cucumber test specifications (src/test/java/de/adesso/thalheim/gtd/CucumberTest.java):
 ```
 @RunWith(Cucumber.class)
 @CucumberOptions(features = {"src/test/resources/features"})
@@ -203,7 +203,7 @@ public class CucumberTest {
 }
 ```
 
-Also, a Cucumber Context needs to be provided, we use the @SpringBootTest for that:
+Also, a Cucumber Context needs to be provided, we use the @SpringBootTest for that (src/test/java/de/adesso/thalheim/gtd/CucumberSpringBootDemoApplicationTest.java):
 ```
 @CucumberContextConfiguration
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
@@ -212,7 +212,7 @@ class CucumberSpringBootDemoApplicationTest {
 
 You will need the RANDOM port to not interfere with your regular running local instance of this service.
 
-Now, if we let Maven run, during the test run an error will pop up that the Glue-Code is missing. So let's add that:
+Now, if we let Maven run, during the test run an error will pop up that the Glue-Code is missing. So let's add that (src/test/java/de/adesso/thalheim/gtd/CaptureStepDefinitions.java):
 ```
 package de.adesso.thalheim.gtd;
 
@@ -234,7 +234,7 @@ public class CaptureStepDefinitions {
 }
 ```
 
-Now, our test specification fails. _But it does not fail for the correct reason._ So let's try to implement the glue code (test code):
+Now, our test specification fails. _But it does not fail for the correct reason._ So let's try to implement the glue code (src/test/java/de/adesso/thalheim/gtd/CaptureStepDefinitions.java):
 ```
     @When("Thought {string} is collected")
     public void thought_is_collected(String thought) throws IOException {
@@ -247,12 +247,13 @@ Now, our test specification fails. _But it does not fail for the correct reason.
     }
 ```
 
-Now, the test defines that we need a POST endpoint which is exposed on Port 8080 and in the context path gtd/thoughts. It should return an http status code 200.
+Now, the test defines that we need a POST endpoint which is exposed on Port 8080 and in the context path gtd/thoughts.
+It should return an http status code 200.
 
-While I was at it I added the AssertJ Core Library to the Maven dependencies. assertThat(...)... sounds more like BDD than standard JUnit assert-Statements.
+While I was at it I added the AssertJ Core Library to the Maven dependencies. 
+assertThat(...)... sounds more like BDD than standard JUnit assert-Statements.
 
-If you run now the Cucumber tests or Maven build, the test execution will fail, because no REST controller offers a proper endpoint. Now we have a test which fails for the right reason.
-
+If you run now the Cucumber tests or Maven build, the test execution will fail, because no REST controller offers a proper endpoint. Now we have a test which fails for the right reason:
 ```
 [ERROR] Collect Thought  Time elapsed: 0.248 s  <<< ERROR!
 org.apache.http.conn.HttpHostConnectException: Connect to localhost:8080 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect
@@ -260,7 +261,7 @@ Caused by: java.net.ConnectException: Connection refused: connect
 ```
 The reason why our test fails is because there is no REST endpoint listining where we expect it.
 
-This means we can finally write production code.
+This means we can finally write production code (src/main/java/de/adesso/thalheim/gtd/controller/InboxController.java):
 ```
 @RestController
 @RequestMapping("gtd/inbox")
@@ -275,7 +276,7 @@ public class InboxController {
 ```
 
 Now, the acceptance test fails again as there is no glue code for the when clause in the cucumber then scenario. 
-Let's write a this glue code:
+Let's write a this glue code (src/test/java/de/adesso/thalheim/gtd/CaptureStepDefinitions.java):
 ```
     @Value(value = "${local.server.port}")
     private int port;
@@ -302,7 +303,7 @@ Of course one could have just @Inject the REST controller, that would make thing
 
 Now, we can write an method for the GET endpoint.
 It should return a list of classes containing exactly one field named "description".
-We need to implement the controller, so let's write a this in a normal TDD style with a test case first:
+We need to implement the controller, so let's write a this in a normal TDD style with a test case first (src/test/java/de/adesso/thalheim/gtd/controller/InboxControllerTest.java):
 ```
 @ExtendWith(MockitoExtension.class)
 class InboxControllerTest {
@@ -342,7 +343,7 @@ class InboxControllerTest {
 }
 ```
 
-Now we can finish writing the Controller, Entity, Repository etc.
+Now we can finish writing the Controller, Entity, Repository etc. (src/main/java/de/adesso/thalheim/gtd/controller/InboxController.java, src/main/java/de/adesso/thalheim/gtd/controller/Thought.java, src/main/java/de/adesso/thalheim/gtd/repository/ThoughtRepository.java):
 ```
 @RestController
 @RequestMapping("gtd/inbox")
@@ -389,7 +390,8 @@ But for demonstration purposes, we're fine here.
 
 I have said I would do ATTD here. 
 This means I first created a failing acceptance test, and then implemented only interfaces. 
-And when I got further, I used normal unittests to finish the internals of my implementation. The acceptance tests form an outer, the unit tests an inner loop of the implementation process.
+And when I got further, I used normal unittests to finish the internals of my implementation. 
+The acceptance tests form an outer, the unit tests an inner loop of the implementation process.
 
 Writing Cucumber scenarios first has the big advantage of forcing your requirements engineer to make requirements as clear as possible.
 
