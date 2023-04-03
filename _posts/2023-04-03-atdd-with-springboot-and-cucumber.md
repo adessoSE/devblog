@@ -1,4 +1,3 @@
-
 ---
 layout: [post, post-xml]                            # Pflichtfeld. Nicht ändern!
 title:  "ATDD on Spring Boot with Cucumber"         # Pflichtfeld. Bitte einen Titel für den Blog Post angeben.
