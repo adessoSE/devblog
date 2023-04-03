@@ -15,7 +15,7 @@ This article demonstrates this with a small testcase and a fully functional, lit
 
 # Introduction: Getting Things Done
 
-As a use case, I took David Allens Getting Things Done method ([Wikipedia]([http://jekyllrb.com](https://en.wikipedia.org/wiki/Getting_Things_Done)):
+As a use case, I took David Allens Getting Things Done method ([Wikipedia]([http://jekyllrb.com](https://en.wikipedia.org/wiki/Getting_Things_Done))):
 > Getting Things Done (GTD) is a personal productivity system developed by David Allen and published in a book of the same name. 
 > GTD is described as a time management system.
 > Allen states "there is an inverse relationship between things on your mind and those things getting done".
