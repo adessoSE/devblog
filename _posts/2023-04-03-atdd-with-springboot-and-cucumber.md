@@ -143,7 +143,7 @@ spring.datasource:
 In case you wondered: 
 The PostgreSQL DB can be easily started with "docker run --name postgres-db -e POSTGRES_PASSWORD=docker -p 5432:5432 -d postgres" and the DB and user simply created with "CREATE DATABASE ..." and "CREATE USER ...".
 
-We need to configure an alternative datasource which will be used when unittesting our application (src/test/resources/application.yml):
+We need to configure an alternative datasource which will be used when unit testing our application (src/test/resources/application.yml):
 ```
 spring.datasource:
   driver-class-name=org.h2.Driver
@@ -154,12 +154,12 @@ spring.datasource:
 
 > _Remarks on clarity from the start_
 > 
-> This is a little off topic, but very important.
+> This is a little off topic, but particularly important.
 > Many projects fail to set up their codebase as early as possible for this type of test (integrative component test with an embedded database).
 > I suggest, you set this up as early as possible, before starting to write a single line of productive code in your project.
 > It provides clean test possibilities for all developers during the development of the project.
 
-## Add Cucumber Maven dependency and configure it
+## Add and configure the Cucumber Maven dependency
 
 In order to run the test specification, we need a few dependencies in the pom.xml:
 ```
@@ -210,7 +210,8 @@ class CucumberSpringBootDemoApplicationTest {
 
 You will need the RANDOM port to not interfere with your regular running local instance of this service.
 
-Now, if we let Maven run, during the test run an error will pop up that the Glue-Code is missing. So let's add that (src/test/java/de/adesso/thalheim/gtd/CaptureStepDefinitions.java):
+Now, if we let Maven run, during the test run an error will pop up that the Glue-Code is missing. 
+So, let's add that (src/test/java/de/adesso/thalheim/gtd/CaptureStepDefinitions.java):
 ```
 package de.adesso.thalheim.gtd;
 
@@ -232,7 +233,8 @@ public class CaptureStepDefinitions {
 }
 ```
 
-Now, our test specification fails. _But it does not fail for the correct reason._ So let's try to implement the glue code (src/test/java/de/adesso/thalheim/gtd/CaptureStepDefinitions.java):
+Now, our test specification fails. _But it does not fail for the correct reason._ 
+So, let's implement the glue code (src/test/java/de/adesso/thalheim/gtd/CaptureStepDefinitions.java):
 ```
     @When("Thought {string} is collected")
     public void thought_is_collected(String thought) throws IOException {
@@ -251,13 +253,14 @@ It should return an http status code 200.
 While I was at it I added the AssertJ Core Library to the Maven dependencies. 
 assertThat(...)... sounds more like BDD than standard JUnit assert-Statements.
 
-If you run now the Cucumber tests or Maven build, the test execution will fail, because no REST controller offers a proper endpoint. Now we have a test which fails for the right reason:
+If now you run the Cucumber tests or Maven build, the test execution will fail, because no REST controller offers a proper endpoint. 
+Now we have a test which fails for the right reason:
 ```
 [ERROR] Collect Thought  Time elapsed: 0.248 s  <<< ERROR!
 org.apache.http.conn.HttpHostConnectException: Connect to localhost:8080 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect
 Caused by: java.net.ConnectException: Connection refused: connect
 ```
-The reason why our test fails is because there is no REST endpoint listining where we expect it.
+The reason our test fails is because there is no REST endpoint listining where we expect it.
 
 This means we can finally write production code (src/main/java/de/adesso/thalheim/gtd/controller/InboxController.java):
 ```
@@ -273,8 +276,8 @@ public class InboxController {
 }
 ```
 
-Now, the acceptance test fails again as there is no glue code for the when clause in the cucumber then scenario. 
-Let's write a this glue code (src/test/java/de/adesso/thalheim/gtd/CaptureStepDefinitions.java):
+Now, the acceptance test fails again as there is no glue code for the when clause in the cucumber scenario. 
+Let's write this glue code (src/test/java/de/adesso/thalheim/gtd/CaptureStepDefinitions.java):
 ```
     @Value(value = "${local.server.port}")
     private int port;
@@ -295,9 +298,10 @@ Let's write a this glue code (src/test/java/de/adesso/thalheim/gtd/CaptureStepDe
 > _Note on the level of abstraction_
 > 
 > Here you can see, I kept the glue code and therefore the acceptance test on an abstraction level above the concrete interface.
-> Of course one could have just @Inject the REST controller, that would make things easier but more concrete than necessary, thereby binding the test to implementation details.
+> Of course, one could have just @Inject the REST controller and use plain Java for testing, which would have made things easier.
+> But it would have made the test more concrete than necessary, thereby binding the test to implementation details.
 
-Now, we can write an method for the GET endpoint.
+Now, we can write a method for the GET endpoint.
 It should return a list of classes containing exactly one field named "description".
 We need to implement the controller, so let's write a this in a normal TDD style with a test case first (src/test/java/de/adesso/thalheim/gtd/controller/InboxControllerTest.java):
 ```
@@ -382,16 +386,18 @@ public interface ThoughtRepository extends CrudRepository<Thought, UUID> {}
 Of course, you would never expose an @Entity as the result type of a REST call.
 But for demonstration purposes, we're fine here.
 
+That's it. We have driven a small feature implementation  by writing an acceptance test scenario and glue code to test the behavior of a part of our application first in Cucumber.
+
 # Wrapping it up
 
 I have said I would do ATTD here. 
 This means I first created a failing acceptance test, and then implemented only interfaces. 
-And when I got further, I used normal unittests to finish the internals of my implementation. 
+And when I got further, I used normal unit tests to finish the internals of my implementation. 
 The acceptance tests form an outer, the unit tests an inner loop of the implementation process.
 
 Writing Cucumber scenarios first has the big advantage of forcing your requirements engineer to make requirements as clear as possible.
 
-Before writing a single line of productive code, I took the time in this dummy project that the execution of unittests, @SpringBootTest, and Cucumber tests were possible.
+Before writing a single line of productive code, I took the time in this dummy project that the execution of unit tests, @SpringBootTest, and Cucumber tests were possible.
 
 I have kept the acceptance tests free of details which are not relevant to them, hence raising refactoring safety. I would try to do the same with regular @SpringBootTests.
 
