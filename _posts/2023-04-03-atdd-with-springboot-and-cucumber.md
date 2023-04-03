@@ -395,4 +395,4 @@ Before writing a single line of productive code, I took the time in this dummy p
 
 I have kept the acceptance tests free of details which are not relevant to them, hence raising refactoring safety. I would try to do the same with regular @SpringBootTests.
 
-If you like, you can see all code here: [link](https://github.com/bjoern-thalheim/cucumber_demo) Demo Code
+If you like, you can see all code here: [Demo Code](https://github.com/bjoern-thalheim/cucumber_demo).
