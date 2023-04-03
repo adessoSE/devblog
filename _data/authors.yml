@@ -472,3 +472,9 @@ utschenik:
   last_name: Schüler
   bio: "Paul beschäftigt sich gerne mit neuen Technologien und begeistert sich für neue Themen im Bereich der Softwarearchitektur"
   avatar_url: /assets/images/avatars/paulschueler.jpg
+  
+thalheim:
+  first_name: Björn
+  last_name: Thalheim
+  bio: "Björn ist Softwareentwickler und Architekt mit einem großen Interesse an Qualität, insbesondere TDD, Clean Code und Architekturthemen."
+  avatar_url: /assets/images/avatars/thalheim_bjoern.jpg
