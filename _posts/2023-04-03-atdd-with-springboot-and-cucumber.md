@@ -37,7 +37,7 @@ At any time, it can be retrieved from the inbox.
 ## Defining acceptance test scenarios
 
 Before even starting on our feature, let’s define the acceptance tests of our feature (src/test/resources/features/collect-thought.feature):
-```
+```gherkin
 Feature: Capture Stage
 
   Scenario: Collect Thought
@@ -55,7 +55,7 @@ This approach is very charming as it forces the requirements engineer to formula
 
 We do now something fairly standard: we start a Java/Maven project and let IntelliJ generate the initial.pom.xml for us. 
 In the process, we will add a few dependencies for an in-memory DB for testing or cucumber (pom.xml):
-```
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -76,7 +76,7 @@ In the process, we will add a few dependencies for an in-memory DB for testing o
 ```
 
 Because I want to start a Spring Boot project and I'm a fan of Lombok, I add the following dependencies and add the Spring Boot Starter parent relation (pom.xml):
-```
+```xml
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
@@ -108,7 +108,7 @@ After doing that, we want to achieve the following two targets:
 
 Long story short, several things needed to be made for this.
 The pom.xml needed a few more dependencies:
-```
+```xml
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
@@ -127,7 +127,7 @@ The pom.xml needed a few more dependencies:
 ```
 
 We need to configure a datasource which will be used in normal operations of our application (src/main/resources/application.yml):
-```
+```yml
 spring.jpa:
   database: POSTGRESQL
   hibernate.ddl-auto: create-drop
@@ -144,7 +144,7 @@ In case you wondered:
 The PostgreSQL DB can be easily started with "docker run --name postgres-db -e POSTGRES_PASSWORD=docker -p 5432:5432 -d postgres" and the DB and user simply created with "CREATE DATABASE ..." and "CREATE USER ...".
 
 We need to configure an alternative datasource which will be used when unit testing our application (src/test/resources/application.yml):
-```
+```yml
 spring.datasource:
   driver-class-name=org.h2.Driver
   url=jdbc:h2:mem:db;DB_CLOSE_DELAY=-1
@@ -162,7 +162,7 @@ spring.datasource:
 ## Add and configure the Cucumber Maven dependency
 
 In order to run the test specification, we need a few dependencies in the pom.xml:
-```
+```yml
 <dependency>
    <groupId>io.cucumber</groupId>
    <artifactId>cucumber-java</artifactId>
@@ -181,7 +181,7 @@ In order to run the test specification, we need a few dependencies in the pom.xm
 ```
 
 Now, we can add the acceptance test we have already defined above into our codebase (src/test/resources/features/collect-thought.feature):
-```
+```gherkin
 Feature: Capture Stage
 
   Scenario: Collect Thought
@@ -194,7 +194,7 @@ Feature: Capture Stage
 To make Maven run this specification, we need some boilerplate code.
 
 First, a test class which points to the cucumber test specifications (src/test/java/de/adesso/thalheim/gtd/CucumberTest.java):
-```
+```java
 @RunWith(Cucumber.class)
 @CucumberOptions(features = {"src/test/resources/features"})
 public class CucumberTest {
@@ -202,7 +202,7 @@ public class CucumberTest {
 ```
 
 Also, a Cucumber Context needs to be provided, we use the @SpringBootTest for that (src/test/java/de/adesso/thalheim/gtd/CucumberSpringBootDemoApplicationTest.java):
-```
+```java
 @CucumberContextConfiguration
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
 class CucumberSpringBootDemoApplicationTest {
@@ -212,13 +212,7 @@ You will need the RANDOM port to not interfere with your regular running local i
 
 Now, if we let Maven run, during the test run an error will pop up that the Glue-Code is missing. 
 So, let's add that (src/test/java/de/adesso/thalheim/gtd/CaptureStepDefinitions.java):
-```
-package de.adesso.thalheim.gtd;
-
-import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
-import org.junit.Assert;
-
+```java
 public class CaptureStepDefinitions {
 
     @When("Thought {string} is collected")
@@ -235,7 +229,7 @@ public class CaptureStepDefinitions {
 
 Now, our test specification fails. _But it does not fail for the correct reason._ 
 So, let's implement the glue code (src/test/java/de/adesso/thalheim/gtd/CaptureStepDefinitions.java):
-```
+```java
     @When("Thought {string} is collected")
     public void thought_is_collected(String thought) throws IOException {
         // given                 
@@ -255,7 +249,7 @@ assertThat(...)... sounds more like BDD than standard JUnit assert-Statements.
 
 If now you run the Cucumber tests or Maven build, the test execution will fail, because no REST controller offers a proper endpoint. 
 Now we have a test which fails for the right reason:
-```
+```log
 [ERROR] Collect Thought  Time elapsed: 0.248 s  <<< ERROR!
 org.apache.http.conn.HttpHostConnectException: Connect to localhost:8080 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect
 Caused by: java.net.ConnectException: Connection refused: connect
@@ -263,7 +257,7 @@ Caused by: java.net.ConnectException: Connection refused: connect
 The reason our test fails is because there is no REST endpoint listining where we expect it.
 
 This means we can finally write production code (src/main/java/de/adesso/thalheim/gtd/controller/InboxController.java):
-```
+```java
 @RestController
 @RequestMapping("gtd/inbox")
 @Slf4j
@@ -278,7 +272,7 @@ public class InboxController {
 
 Now, the acceptance test fails again as there is no glue code for the when clause in the cucumber scenario. 
 Let's write this glue code (src/test/java/de/adesso/thalheim/gtd/CaptureStepDefinitions.java):
-```
+```java
     @Value(value = "${local.server.port}")
     private int port;
 
@@ -304,7 +298,7 @@ Let's write this glue code (src/test/java/de/adesso/thalheim/gtd/CaptureStepDefi
 Now, we can write a method for the GET endpoint.
 It should return a list of classes containing exactly one field named "description".
 We need to implement the controller, so let's write a this in a normal TDD style with a test case first (src/test/java/de/adesso/thalheim/gtd/controller/InboxControllerTest.java):
-```
+```java
 @ExtendWith(MockitoExtension.class)
 class InboxControllerTest {
 
@@ -344,7 +338,7 @@ class InboxControllerTest {
 ```
 
 Now we can finish writing the Controller, Entity, Repository etc. (src/main/java/de/adesso/thalheim/gtd/controller/InboxController.java, src/main/java/de/adesso/thalheim/gtd/controller/Thought.java, src/main/java/de/adesso/thalheim/gtd/repository/ThoughtRepository.java):
-```
+```java
 @RestController
 @RequestMapping("gtd/inbox")
 @Slf4j
