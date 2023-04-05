@@ -262,8 +262,8 @@ This means we can finally write production code (src/main/java/de/adesso/thalhei
 @RequestMapping("gtd/inbox")
 @Slf4j
 public class InboxController {
-    @PostMapping("/{thought}")
-    public void collect(@PathVariable("thought") String thought) {
+    @PostMapping
+    public void collect(@RequestBody String thought) {
         // TODO: implement me!
         log.debug("Received " + thought);
     }
