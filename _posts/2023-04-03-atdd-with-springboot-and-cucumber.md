@@ -337,7 +337,8 @@ class InboxControllerTest {
 }
 ```
 
-Now we can finish writing the Controller, Entity, Repository etc. (src/main/java/de/adesso/thalheim/gtd/controller/InboxController.java, src/main/java/de/adesso/thalheim/gtd/controller/Thought.java, src/main/java/de/adesso/thalheim/gtd/repository/ThoughtRepository.java):
+Now we can finish writing the Controller, Entity, Repository etc. 
+src/main/java/de/adesso/thalheim/gtd/controller/InboxController.java:
 ```java
 @RestController
 @RequestMapping("gtd/inbox")
@@ -360,7 +361,10 @@ public class InboxController {
         return StreamSupport.stream(all.spliterator(), false).toList();
     }
 }
+```
 
+src/main/java/de/adesso/thalheim/gtd/controller/Thought.java:
+```java
 @RequiredArgsConstructor
 @AllArgsConstructor
 @Entity
@@ -373,7 +377,10 @@ public class Thought {
     private String description;
 
 }
+```
 
+src/main/java/de/adesso/thalheim/gtd/repository/ThoughtRepository.java):
+```java
 public interface ThoughtRepository extends CrudRepository<Thought, UUID> {}
 ```
 
