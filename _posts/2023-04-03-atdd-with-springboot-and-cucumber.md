@@ -36,7 +36,7 @@ At any time, it can be retrieved from the inbox.
 
 ## Defining acceptance test scenarios
 
-Before even starting on our feature, let's define the acceptance tests of our feature (src/test/resources/features/collect-thought.feature):
+Before even starting on our feature, let's define the acceptance tests of our feature [src/test/resources/features/collect-thought.feature](https://github.com/bjoern-thalheim/cucumber_demo/blob/master/src/test/resources/features/collect-thought.feature):
 ```gherkin
 Feature: Capture Stage
 
@@ -107,7 +107,7 @@ After doing that, we want to achieve the following two targets:
 * We want a simple @SpringBootTest to start up with an embedded H2 DB.
 
 Long story short, several things need to be made for this.
-The `pom.xml` needs a few more dependencies:
+The `[pom.xml](https://github.com/bjoern-thalheim/cucumber_demo/blob/master/pom.xml)` needs a few more dependencies:
 ```xml
         <dependency>
             <groupId>org.postgresql</groupId>
@@ -161,7 +161,7 @@ spring.datasource:
 
 ## Add and configure the Cucumber Maven dependency
 
-In order to run the test specification, we need a few dependencies in the `pom.xml`:
+In order to run the test specification, we need a few dependencies in the `[pom.xml](https://github.com/bjoern-thalheim/cucumber_demo/blob/master/pom.xml)`:
 ```xml
 <dependency>
    <groupId>io.cucumber</groupId>
@@ -230,18 +230,22 @@ public class CaptureStepDefinitions {
 Now, our test specification fails. _But it does not fail for the correct reason._ 
 So, let's implement the glue code [src/test/java/de/adesso/thalheim/gtd/CaptureStepDefinitions.java](https://github.com/bjoern-thalheim/cucumber_demo/blob/master/src/test/java/de/adesso/thalheim/gtd/CaptureStepDefinitions.java):
 ```java
+    @Value(value = "${local.server.port}")
+    private int port;
+    
     @When("Thought {string} is collected")
-    public void thought_is_collected(String thought) throws IOException {
-        // given                 
-        HttpUriRequest post = new HttpPost( "http://localhost:8080/gtd/inbox/" + URLEncoder.encode(thought, StandardCharsets.UTF_8.name()));
+    public void thoughtIsCollected(String thought) throws IOException {
+        // given
+        HttpPost post = new HttpPost("http://localhost:%d/gtd/inbox".formatted(port));
+        post.setEntity(new StringEntity(thought));
         // when
-        HttpResponse httpResponse = HttpClientBuilder.create().build().execute(request);
+        HttpResponse postResponse = HttpClientBuilder.create().build().execute(post);
         // then
-        Assertions.assertThat(httpResponse.getStatusLine().getStatusCode()).isEqualTo(200);
+        Assertions.assertThat(postResponse.getStatusLine().getStatusCode()).isEqualTo(200);
     }
 ```
 
-Now, the test defines that we need a `POST` endpoint which is exposed on Port 8080 and in the context path `gtd/thoughts`.
+Now, the test defines that we need a `POST` endpoint which is exposed in the context path `gtd/thoughts`.
 It should return an http status code 200.
 
 While I was at it I added the AssertJ Core Library to the Maven dependencies. 
@@ -277,7 +281,7 @@ Let's write this glue code [src/test/java/de/adesso/thalheim/gtd/CaptureStepDefi
     private int port;
 
     @Then("Inbox contains {string}")
-    public void inbox_contains(String thought) throws IOException {
+    public void inboxContains(String thought) throws IOException {
         // given
         HttpUriRequest get = new HttpGet("http://localhost:%d/gtd/inbox".formatted(port));
         // when
