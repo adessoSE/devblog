@@ -107,7 +107,7 @@ After doing that, we want to achieve the following two targets:
 * We want a simple @SpringBootTest to start up with an embedded H2 DB.
 
 Long story short, several things need to be made for this.
-The `[pom.xml](https://github.com/bjoern-thalheim/cucumber_demo/blob/master/pom.xml)` needs a few more dependencies:
+The `pom.xml` ([pom.xml](https://github.com/bjoern-thalheim/cucumber_demo/blob/master/pom.xml)) needs a few more dependencies:
 ```xml
         <dependency>
             <groupId>org.postgresql</groupId>
@@ -161,7 +161,7 @@ spring.datasource:
 
 ## Add and configure the Cucumber Maven dependency
 
-In order to run the test specification, we need a few dependencies in the `[pom.xml](https://github.com/bjoern-thalheim/cucumber_demo/blob/master/pom.xml)`:
+In order to run the test specification, we need a few dependencies in the `pom.xml` ([pom.xml](https://github.com/bjoern-thalheim/cucumber_demo/blob/master/pom.xml)):
 ```xml
 <dependency>
    <groupId>io.cucumber</groupId>
