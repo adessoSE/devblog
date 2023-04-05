@@ -146,10 +146,10 @@ The PostgreSQL DB can be easily started with "docker run --name postgres-db -e P
 We need to configure an alternative datasource which will be used when unit testing our application (src/test/resources/application.yml):
 ```yml
 spring.datasource:
-  driver-class-name=org.h2.Driver
-  url=jdbc:h2:mem:db;DB_CLOSE_DELAY=-1
-  username=sa
-  password=sa
+  driver-class-name: org.h2.Driver
+  url: jdbc:h2:mem:db;DB_CLOSE_DELAY=-1
+  username: sa
+  password: sa
 ```
 
 > _Remarks on clarity from the start_
