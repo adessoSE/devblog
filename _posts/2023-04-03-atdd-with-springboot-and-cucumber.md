@@ -347,10 +347,10 @@ public class InboxController {
     @Inject
     private ThoughtRepository thoughtRepository;
 
-    @PostMapping("/{thought}")
-    public void collect(@PathVariable("thought") String thought) throws UnsupportedEncodingException {
+    @PostMapping
+    public void collect(@RequestBody String thought) {
         log.debug("Received " + thought);
-        Thought theThought = new Thought(UUID.randomUUID(), URLDecoder.decode(thought, StandardCharsets.UTF_8.name()));
+        Thought theThought = new Thought(UUID.randomUUID(), thought);
         thoughtRepository.save(theThought);
     }
 
