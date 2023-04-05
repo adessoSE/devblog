@@ -54,7 +54,7 @@ This approach is very charming as it forces the requirements engineer to formula
 # Setting Things Up
 
 We now do something fairly standard: we start a Java/Maven project and let IntelliJ generate the initial `pom.xml` for us. 
-In the process, we will add a few dependencies for an in-memory DB for testing or cucumber (pom.xml):
+In the process, we will add a few dependencies for an in-memory DB for testing or cucumber [pom.xml](https://github.com/bjoern-thalheim/cucumber_demo/blob/master/pom.xml):
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
@@ -75,14 +75,14 @@ In the process, we will add a few dependencies for an in-memory DB for testing o
 </project>
 ```
 
-Because I want to start a Spring Boot project and I'm a fan of Lombok, I add the following dependencies and add the Spring Boot Starter parent relation (pom.xml):
+Because I want to start a Spring Boot project and I'm a fan of Lombok, I add the following dependencies and add the Spring Boot Starter parent relation [pom.xml](https://github.com/bjoern-thalheim/cucumber_demo/blob/master/pom.xml):
 ```xml
-	<parent>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.5.4</version>
-		<relativePath /> <!-- lookup parent from repository -->
-	</parent>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.5.4</version>
+        <relativePath /> <!-- lookup parent from repository -->
+    </parent>
 ...
     <dependencies>
         <dependency>
@@ -126,7 +126,7 @@ The `pom.xml` needs a few more dependencies:
         </dependency>
 ```
 
-We need to configure a datasource which will be used in normal operations of our application (src/main/resources/application.yml):
+We need to configure a datasource which will be used in normal operations of our application [src/main/resources/application.yml](https://github.com/bjoern-thalheim/cucumber_demo/blob/master/src/main/resources/application.yml):
 ```yml
 spring.jpa:
   database: POSTGRESQL
@@ -143,7 +143,7 @@ spring.datasource:
 In case you wondered: 
 The PostgreSQL DB can be easily started with `docker run --name postgres-db -e POSTGRES_PASSWORD=docker -p 5432:5432 -d postgres` and the DB and user simply created with `CREATE DATABASE ...` and `CREATE USER ...`.
 
-We need to configure an alternative datasource which will be used when unit testing our application (src/test/resources/application.yml):
+We need to configure an alternative datasource which will be used when unit testing our application [src/test/resources/application.yml](https://github.com/bjoern-thalheim/cucumber_demo/blob/master/src/test/resources/application.yml):
 ```yml
 spring.datasource:
   driver-class-name: org.h2.Driver
@@ -180,7 +180,7 @@ In order to run the test specification, we need a few dependencies in the `pom.x
 </dependency>
 ```
 
-Now, we can add the acceptance test we have already defined above into our codebase (src/test/resources/features/collect-thought.feature):
+Now, we can add the acceptance test we have already defined above into our codebase [src/test/resources/features/collect-thought.feature](https://github.com/bjoern-thalheim/cucumber_demo/blob/master/src/test/resources/features/collect-thought.feature):
 ```gherkin
 Feature: Capture Stage
 
@@ -193,7 +193,7 @@ Feature: Capture Stage
 
 To make Maven run this specification, we need some boilerplate code.
 
-First, a test class which points to the cucumber test specifications (src/test/java/de/adesso/thalheim/gtd/CucumberTest.java):
+First, a test class which points to the cucumber test specifications [src/test/java/de/adesso/thalheim/gtd/CucumberTest.java](https://github.com/bjoern-thalheim/cucumber_demo/blob/master/src/test/java/de/adesso/thalheim/gtd/CucumberTest.java):
 ```java
 @RunWith(Cucumber.class)
 @CucumberOptions(features = {"src/test/resources/features"})
@@ -201,7 +201,7 @@ public class CucumberTest {
 }
 ```
 
-Also, a Cucumber Context needs to be provided, we use the @SpringBootTest for that (src/test/java/de/adesso/thalheim/gtd/CucumberSpringBootDemoApplicationTest.java):
+Also, a Cucumber Context needs to be provided, we use the @SpringBootTest for that [src/test/java/de/adesso/thalheim/gtd/CucumberSpringBootDemoApplicationTest.java](https://github.com/bjoern-thalheim/cucumber_demo/blob/master/src/test/java/de/adesso/thalheim/gtd/CucumberSpringBootDemoApplicationTest.java):
 ```java
 @CucumberContextConfiguration
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
@@ -211,24 +211,24 @@ class CucumberSpringBootDemoApplicationTest {
 You will need the `RANDOM` port to not interfere with your regular running local instance of this service.
 
 Now, if we let Maven run, during the test run an error will pop up that the glue code is missing. 
-So, let's add that (src/test/java/de/adesso/thalheim/gtd/CaptureStepDefinitions.java):
+So, let's add that [src/test/java/de/adesso/thalheim/gtd/CaptureStepDefinitions.java](https://github.com/bjoern-thalheim/cucumber_demo/blob/master/src/test/java/de/adesso/thalheim/gtd/CaptureStepDefinitions.java):
 ```java
 public class CaptureStepDefinitions {
 
     @When("Thought {string} is collected")
-    public void thought_is_collected(String thought) {
+    public void thoughtIsCollected(String thought) {
         Assert.fail("Implement me!");
     }
 
     @Then("Inbox contains {string}")
-    public void inbox_contains(String thought) {
+    public void inboxContains(String thought) {
         Assert.fail("Implement me!");
     }
 }
 ```
 
 Now, our test specification fails. _But it does not fail for the correct reason._ 
-So, let's implement the glue code (src/test/java/de/adesso/thalheim/gtd/CaptureStepDefinitions.java):
+So, let's implement the glue code [src/test/java/de/adesso/thalheim/gtd/CaptureStepDefinitions.java](https://github.com/bjoern-thalheim/cucumber_demo/blob/master/src/test/java/de/adesso/thalheim/gtd/CaptureStepDefinitions.java):
 ```java
     @When("Thought {string} is collected")
     public void thought_is_collected(String thought) throws IOException {
@@ -256,7 +256,7 @@ Caused by: java.net.ConnectException: Connection refused: connect
 ```
 The reason our test fails is because there is no REST endpoint listining where we expect it.
 
-This means we can finally write production code (src/main/java/de/adesso/thalheim/gtd/controller/InboxController.java):
+This means we can finally write production code [src/main/java/de/adesso/thalheim/gtd/controller/InboxController.java](https://github.com/bjoern-thalheim/cucumber_demo/blob/master/src/main/java/de/adesso/thalheim/gtd/controller/InboxController.java):
 ```java
 @RestController
 @RequestMapping("gtd/inbox")
@@ -271,7 +271,7 @@ public class InboxController {
 ```
 
 Now, the acceptance test fails again as there is no glue code for the when clause in the cucumber scenario. 
-Let's write this glue code (src/test/java/de/adesso/thalheim/gtd/CaptureStepDefinitions.java):
+Let's write this glue code [src/test/java/de/adesso/thalheim/gtd/CaptureStepDefinitions.java](https://github.com/bjoern-thalheim/cucumber_demo/blob/master/src/test/java/de/adesso/thalheim/gtd/CaptureStepDefinitions.java):
 ```java
     @Value(value = "${local.server.port}")
     private int port;
@@ -297,7 +297,7 @@ Let's write this glue code (src/test/java/de/adesso/thalheim/gtd/CaptureStepDefi
 
 Now, we can write a method for the GET endpoint.
 It should return a list of classes containing exactly one field named "description".
-We need to implement the controller, so let's write this in normal TDD style with a test case first (src/test/java/de/adesso/thalheim/gtd/controller/InboxControllerTest.java):
+We need to implement the controller, so let's write this in normal TDD style with a test case first [src/test/java/de/adesso/thalheim/gtd/controller/InboxControllerTest.java](https://github.com/bjoern-thalheim/cucumber_demo/blob/master/src/test/java/de/adesso/thalheim/gtd/controller/InboxControllerTest.java):
 ```java
 @ExtendWith(MockitoExtension.class)
 class InboxControllerTest {
@@ -338,7 +338,8 @@ class InboxControllerTest {
 ```
 
 Now we can finish writing the Controller, Entity, Repository etc. 
-src/main/java/de/adesso/thalheim/gtd/controller/InboxController.java:
+
+[src/main/java/de/adesso/thalheim/gtd/controller/InboxController.java](https://github.com/bjoern-thalheim/cucumber_demo/blob/master/src/main/java/de/adesso/thalheim/gtd/controller/InboxController.java):
 ```java
 @RestController
 @RequestMapping("gtd/inbox")
@@ -363,7 +364,7 @@ public class InboxController {
 }
 ```
 
-src/main/java/de/adesso/thalheim/gtd/controller/Thought.java:
+[src/main/java/de/adesso/thalheim/gtd/controller/Thought.java](https://github.com/bjoern-thalheim/cucumber_demo/blob/master/src/main/java/de/adesso/thalheim/gtd/controller/Thought.java):
 ```java
 @RequiredArgsConstructor
 @AllArgsConstructor
@@ -379,7 +380,7 @@ public class Thought {
 }
 ```
 
-src/main/java/de/adesso/thalheim/gtd/repository/ThoughtRepository.java):
+[src/main/java/de/adesso/thalheim/gtd/repository/ThoughtRepository.java](https://github.com/bjoern-thalheim/cucumber_demo/blob/master/src/main/java/de/adesso/thalheim/gtd/repository/ThoughtRepository.java):
 ```java
 public interface ThoughtRepository extends CrudRepository<Thought, UUID> {}
 ```
