@@ -36,7 +36,7 @@ At any time, it can be retrieved from the inbox.
 
 ## Defining acceptance test scenarios
 
-Before even starting on our feature, let’s define the acceptance tests of our feature (src/test/resources/features/collect-thought.feature):
+Before even starting on our feature, let's define the acceptance tests of our feature (src/test/resources/features/collect-thought.feature):
 ```gherkin
 Feature: Capture Stage
 
@@ -47,13 +47,13 @@ Feature: Capture Stage
 
 Here, we let something magical happen! 
 Instead of defining acceptance tests scenarios in the QA phase after implementing the feature, creating the acceptance happened before giving the implementation task to the developer. 
-This is called “shift left” as the QA activity of defining acceptance scenarios is moved from the right (end) to the left (more in the beginning) of the process. 
+This is called "shift left" as the QA activity of defining acceptance scenarios is moved from the right (end) to the left (more in the beginning) of the process. 
 This approach is very charming as it forces the requirements engineer to formulate a more concrete description of the feature and not just some rough idea presented in one or two sentences 
-(no offence – this is the type of “laziness” that also developers display oftentimes).
+(no offence – this is the type of "laziness" that also developers display oftentimes).
 
 # Setting Things Up
 
-We do now something fairly standard: we start a Java/Maven project and let IntelliJ generate the initial.pom.xml for us. 
+We now do something fairly standard: we start a Java/Maven project and let IntelliJ generate the initial `pom.xml` for us. 
 In the process, we will add a few dependencies for an in-memory DB for testing or cucumber (pom.xml):
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -103,11 +103,11 @@ Because I want to start a Spring Boot project and I'm a fan of Lombok, I add the
 ```
 
 After doing that, we want to achieve the following two targets:
-* We want the Application to start up with an external database (on my local machine, I let a PostgreSQL DB run in Docker)
+* We want the application to start up with an external database (on my local machine, I let a PostgreSQL DB run in Docker)
 * We want a simple @SpringBootTest to start up with an embedded H2 DB.
 
-Long story short, several things needed to be made for this.
-The pom.xml needed a few more dependencies:
+Long story short, several things need to be made for this.
+The `pom.xml` needs a few more dependencies:
 ```xml
         <dependency>
             <groupId>org.postgresql</groupId>
@@ -141,7 +141,7 @@ spring.datasource:
 ```
 
 In case you wondered: 
-The PostgreSQL DB can be easily started with "docker run --name postgres-db -e POSTGRES_PASSWORD=docker -p 5432:5432 -d postgres" and the DB and user simply created with "CREATE DATABASE ..." and "CREATE USER ...".
+The PostgreSQL DB can be easily started with `docker run --name postgres-db -e POSTGRES_PASSWORD=docker -p 5432:5432 -d postgres` and the DB and user simply created with `CREATE DATABASE ...` and `CREATE USER ...`.
 
 We need to configure an alternative datasource which will be used when unit testing our application (src/test/resources/application.yml):
 ```yml
@@ -161,7 +161,7 @@ spring.datasource:
 
 ## Add and configure the Cucumber Maven dependency
 
-In order to run the test specification, we need a few dependencies in the pom.xml:
+In order to run the test specification, we need a few dependencies in the `pom.xml`:
 ```xml
 <dependency>
    <groupId>io.cucumber</groupId>
@@ -208,9 +208,9 @@ Also, a Cucumber Context needs to be provided, we use the @SpringBootTest for th
 class CucumberSpringBootDemoApplicationTest {
 ```
 
-You will need the RANDOM port to not interfere with your regular running local instance of this service.
+You will need the `RANDOM` port to not interfere with your regular running local instance of this service.
 
-Now, if we let Maven run, during the test run an error will pop up that the Glue-Code is missing. 
+Now, if we let Maven run, during the test run an error will pop up that the glue code is missing. 
 So, let's add that (src/test/java/de/adesso/thalheim/gtd/CaptureStepDefinitions.java):
 ```java
 public class CaptureStepDefinitions {
@@ -235,19 +235,19 @@ So, let's implement the glue code (src/test/java/de/adesso/thalheim/gtd/CaptureS
         // given                 
         HttpUriRequest post = new HttpPost( "http://localhost:8080/gtd/inbox/" + URLEncoder.encode(thought, StandardCharsets.UTF_8.name()));
         // when
-        HttpResponse httpResponse = HttpClientBuilder.create().build().execute( request );
+        HttpResponse httpResponse = HttpClientBuilder.create().build().execute(request);
         // then
         Assertions.assertThat(httpResponse.getStatusLine().getStatusCode()).isEqualTo(200);
     }
 ```
 
-Now, the test defines that we need a POST endpoint which is exposed on Port 8080 and in the context path gtd/thoughts.
+Now, the test defines that we need a `POST` endpoint which is exposed on Port 8080 and in the context path `gtd/thoughts`.
 It should return an http status code 200.
 
 While I was at it I added the AssertJ Core Library to the Maven dependencies. 
-assertThat(...)... sounds more like BDD than standard JUnit assert-Statements.
+`assertThat(...)...` sounds more like BDD than standard JUnit assert statements.
 
-If now you run the Cucumber tests or Maven build, the test execution will fail, because no REST controller offers a proper endpoint. 
+If you now run the Cucumber tests or Maven build, the test execution will fail, because no REST controller offers a proper endpoint. 
 Now we have a test which fails for the right reason:
 ```log
 [ERROR] Collect Thought  Time elapsed: 0.248 s  <<< ERROR!
@@ -292,12 +292,12 @@ Let's write this glue code (src/test/java/de/adesso/thalheim/gtd/CaptureStepDefi
 > _Note on the level of abstraction_
 > 
 > Here you can see, I kept the glue code and therefore the acceptance test on an abstraction level above the concrete interface.
-> Of course, one could have just @Inject the REST controller and use plain Java for testing, which would have made things easier.
+> Of course, one could have just `@Inject` the REST controller and use plain Java for testing, which would have made things easier.
 > But it would have made the test more concrete than necessary, thereby binding the test to implementation details.
 
 Now, we can write a method for the GET endpoint.
 It should return a list of classes containing exactly one field named "description".
-We need to implement the controller, so let's write a this in a normal TDD style with a test case first (src/test/java/de/adesso/thalheim/gtd/controller/InboxControllerTest.java):
+We need to implement the controller, so let's write this in normal TDD style with a test case first (src/test/java/de/adesso/thalheim/gtd/controller/InboxControllerTest.java):
 ```java
 @ExtendWith(MockitoExtension.class)
 class InboxControllerTest {
@@ -384,10 +384,10 @@ src/main/java/de/adesso/thalheim/gtd/repository/ThoughtRepository.java):
 public interface ThoughtRepository extends CrudRepository<Thought, UUID> {}
 ```
 
-Of course, you would never expose an @Entity as the result type of a REST call.
+Of course, you would never expose an `@Entity` as the result type of a REST call.
 But for demonstration purposes, we're fine here.
 
-That's it. We have driven a small feature implementation  by writing an acceptance test scenario and glue code to test the behavior of a part of our application first in Cucumber.
+That's it. We have driven a small feature implementation by writing an acceptance test scenario and glue code to test the behavior of a part of our application first in Cucumber.
 
 # Wrapping it up
 
@@ -398,8 +398,8 @@ The acceptance tests form an outer, the unit tests an inner loop of the implemen
 
 Writing Cucumber scenarios first has the big advantage of forcing your requirements engineer to make requirements as clear as possible.
 
-Before writing a single line of productive code, I took the time in this dummy project that the execution of unit tests, @SpringBootTest, and Cucumber tests were possible.
+Before writing a single line of productive code, I took the time and made sure that in this dummy project the execution of unit tests, `@SpringBootTest`, and Cucumber tests were possible.
 
-I have kept the acceptance tests free of details which are not relevant to them, hence raising refactoring safety. I would try to do the same with regular @SpringBootTests.
+I have kept the acceptance tests free of implementation details which are not relevant to them, hence raising refactoring safety. I would try to do the same with regular `@SpringBootTests`.
 
-If you like, you can see all code here: [Demo Code](https://github.com/bjoern-thalheim/cucumber_demo).
+If you like, you can see all code [in this repository](https://github.com/bjoern-thalheim/cucumber_demo).
