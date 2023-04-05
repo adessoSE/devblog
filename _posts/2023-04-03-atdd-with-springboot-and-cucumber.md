@@ -162,7 +162,7 @@ spring.datasource:
 ## Add and configure the Cucumber Maven dependency
 
 In order to run the test specification, we need a few dependencies in the pom.xml:
-```yml
+```xml
 <dependency>
    <groupId>io.cucumber</groupId>
    <artifactId>cucumber-java</artifactId>
