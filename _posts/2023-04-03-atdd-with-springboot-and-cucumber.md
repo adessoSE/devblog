@@ -7,7 +7,7 @@ categories: [Softwareentwicklung]                   # Pflichtfeld. Maximal eine 
 tags: [Spring Boot, Java, Cucumber, JUnit, ATDD]    # Bitte auf Großschreibung achten.
 ---
 
-Developers know unit tests fairly well, even more integrative approaches like @SpringBootTest.
+Developers know unit tests fairly well, even more integrative approaches like `@SpringBootTest`.
 But many lack a clear design/development/test strategy and stick to their favorite programming language.
 Acceptance Test Driven Design (ATDD) is a structured approach to design your tests and program outside in, keeping the focus on the larger function blocks instead of individual classes (e.g. test behavior, not classes).
 This approach may benefit from abstracting the acceptance tests to a non-programming language like cucumber, allowing even non-programmers to write test scenarios which will eventually be executed automatically.
@@ -104,7 +104,7 @@ Because I want to start a Spring Boot project and I'm a fan of Lombok, I add the
 
 After doing that, we want to achieve the following two targets:
 * We want the application to start up with an external database (on my local machine, I let a PostgreSQL DB run in Docker)
-* We want a simple @SpringBootTest to start up with an embedded H2 DB.
+* We want a simple ´@SpringBootTest` to start up with an embedded H2 DB.
 
 Long story short, several things need to be made for this.
 The `pom.xml` ([pom.xml](https://github.com/bjoern-thalheim/cucumber_demo/blob/master/pom.xml)) needs a few more dependencies:
@@ -161,7 +161,7 @@ spring.datasource:
 
 ## Add and configure the Cucumber Maven dependency
 
-In order to run the test specification, we need a few dependencies in the `pom.xml` ([pom.xml](https://github.com/bjoern-thalheim/cucumber_demo/blob/master/pom.xml)):
+In order to run the test specification, we need a few dependencies in the [pom.xml](https://github.com/bjoern-thalheim/cucumber_demo/blob/master/pom.xml):
 ```xml
 <dependency>
    <groupId>io.cucumber</groupId>
@@ -201,7 +201,7 @@ public class CucumberTest {
 }
 ```
 
-Also, a Cucumber Context needs to be provided, we use the @SpringBootTest for that [src/test/java/de/adesso/thalheim/gtd/CucumberSpringBootDemoApplicationTest.java](https://github.com/bjoern-thalheim/cucumber_demo/blob/master/src/test/java/de/adesso/thalheim/gtd/CucumberSpringBootDemoApplicationTest.java):
+Also, a Cucumber Context needs to be provided, we use the `@SpringBootTest` for that [src/test/java/de/adesso/thalheim/gtd/CucumberSpringBootDemoApplicationTest.java](https://github.com/bjoern-thalheim/cucumber_demo/blob/master/src/test/java/de/adesso/thalheim/gtd/CucumberSpringBootDemoApplicationTest.java):
 ```java
 @CucumberContextConfiguration
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
