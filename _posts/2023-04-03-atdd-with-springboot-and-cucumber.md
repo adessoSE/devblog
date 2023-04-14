@@ -77,29 +77,30 @@ In the process, we will add a few dependencies for an in-memory DB for testing o
 
 Because I want to start a Spring Boot project and I'm a fan of Lombok, I add the following dependencies and add the Spring Boot Starter parent relation [pom.xml](https://github.com/bjoern-thalheim/cucumber_demo/blob/master/pom.xml):
 ```xml
-<parent>
-    <groupId>org.springframework.boot</groupId>
-    <artifactId>spring-boot-starter-parent</artifactId>
-    <version>2.5.4</version>
-    <relativePath /> <!-- lookup parent from repository -->
-</parent>
-...
-<dependencies>
-    <dependency>
+    <parent>
         <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-data-jpa</artifactId>
-    </dependency>
-    <dependency>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-web</artifactId>
-    </dependency>
-    <dependency>
-        <groupId>org.projectlombok</groupId>
-        <artifactId>lombok</artifactId>
-        <optional>true</optional>
-        <scope>provided</scope>
-    </dependency>
-</dependencies>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.5.4</version>
+        <relativePath /> <!-- lookup parent from repository -->
+    </parent>
+
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
 ```
 
 After doing that, we want to achieve the following two targets:
