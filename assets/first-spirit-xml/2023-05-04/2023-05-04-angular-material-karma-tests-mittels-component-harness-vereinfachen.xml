@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<documents>
+    <document uid="bad6d2725e926d4e8a0510d4911e6d51">
+        <field name="title"><![CDATA[Angular Material Karma-Tests mittels Component Harness vereinfachen]]></field>
+        <field name="subline"><![CDATA[]]></field>
+        <field name="teaser"><![CDATA[<p>Das Problem ist nahezu jedem Frontend Entwickler bekannt: Ein simpler Unit-Test wird durch die Implementierungsdetails unglaublich komplex.
+Dies bringt einige Nachteile mit sich, weshalb Angular seit Version 9 Component Harness zur Verfügung stellt.</p>
+
+]]></field>
+        <field name="language_multi_keyword"><![CDATA[de]]></field>
+        <field name="content_type_multi_keyword"><![CDATA[blog]]></field>
+        <field name="mime_type_multi_keyword"><![CDATA[text/html]]></field>
+        <field name="category_multi_keyword"><![CDATA[Softwareentwicklung]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Angular]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Karma]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Unit-Testing]]></field>
+        <field name="date_date"><![CDATA[2023-05-04T10:25:00+02:00]]></field>
+        <field name="date_l"><![CDATA[1683188700000]]></field>
+        <field name="change_date"><![CDATA[1683188700000]]></field>
+
+        <!--Author Information-->
+        
+        <field name="author_id"><![CDATA[frederikschlemmer]]></field><!--Postcontent-->
+        <field name="headlines"><![CDATA[Angular Material Karma-Tests mittels Component Harness vereinfachen]]></field>
+        <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
+            <p>Das Problem ist nahezu jedem Frontend Entwickler bekannt: Ein simpler Unit-Test wird durch die Implementierungsdetails unglaublich komplex.
+Dies bringt einige Nachteile mit sich, weshalb Angular seit Version 9 Component Harness zur Verfügung stellt.</p>
+
+</div>]]></field>
+        <field name="content"><![CDATA[<div class="adesso-text-formate">
+<div class="row p-t-2">
+<div class="adesso-container">
+<div class="col-xl-8 adesso-center p-b-1 p-l-0 p-r-0">
+    <p>Das Problem ist nahezu jedem Frontend Entwickler bekannt: Ein simpler Unit-Test wird durch die Implementierungsdetails unglaublich komplex.
+Dies bringt einige Nachteile mit sich, weshalb Angular seit Version 9 Component Harness zur Verfügung stellt.</p>
+
+<h4 id="welches-problem-adressieren-component-harness">Welches Problem adressieren Component Harness?</h4>
+<p>Wie bereits erwähnt, können die Tests aufgrund der Implementierungsdetails sehr schnell unübersichtlich werden.
+Dadurch geht der Grundgedanke verloren, dass ein Test das gewünschte Verhalten darstellen soll, bzw. der Aufwand den Anwendungsfall zu verstehen, steigt an.</p>
+
+<p>Beispielsweise wollen wir eine Komponente implementieren, welche einen Datepicker rendert und das ausgewählte Datum in passender Formatierung anzeigt.
+Der Anwendungsfall klingt trivial und wir würden erwarten, der Test besteht aus wenigen Zeilen Code oder?
+Den Button zum Öffnen des Datepickers können wir mit einer ID versehen und daher im DOM problemlos auswählen.
+Allerdings erhöht sich enorm die Komplexität, wenn sich der Datepicker in einem Overlay, wie es beispielsweise Angular Material macht, rendert.
+Dies ist der Moment, in dem der Test sich anhand der Implementierung der Komponente orientieren muss.
+Hierdurch entsteht eine Abhängigkeit zur Implementierung der Komponente, wodurch unsere Tests bei Änderungen ebenfalls Anpassungen benötigen.
+Dies senkt die Wartbarkeit der Tests und benötigen eine dauerhafte Anpassung an technische Änderungen in der Komponentenbibliothek.</p>
+
+<p>Dieses Problem, sowie viele Weitere, werden durch Component Harness gelöst!</p>
+
+<h4 id="was-sind-component-harness">Was sind Component Harness?</h4>
+<p>Bevor wir uns anschauen, wie unsere Probleme gelöst werden, sollte zunächst die Begrifflichkeit erläutert werden.
+Es handelt sich hierbei um eine Schnittstelle, welche dem Entwickler geboten wird, um der Komponente zu interagieren.
+Die Aufrufe dieser Schnittstelle interagieren in der identischen Art und Weise wie ein Nutzer.
+Durch diese Zwischenschicht werden die Tests von der Implementierung der Komponente entkoppelt.
+Ein Component Harness ist dementsprechend eine Klasse, welche dem Entwickler ermöglicht, mittels einer API das Nutzerverhalten abzubilden.
+Dadurch werden Tests weniger anfällig für Änderungen in der Implementierung und somit wartbarer.
+Zusätzlich können komplexere Funktionalitäten einer Komponente im Test abstrahiert werden.</p>
+
+<h4 id="wie-sehen-unsere-unit-tests-aktuell-aus">Wie sehen unsere Unit-Tests aktuell aus?</h4>
+<p>Zunächst werfen wir ein Blick auf den aktuellen Aufbau unseres Karma-Tests.
+Wie bereits angesprochen verwenden wir als Beispiel eine Datepicker-Komponente.
+Zu Beginn wollen wir erstmal nur prüfen, dass unsere Komponente mit dem richtigen Titel dargestellt wird.
+Hierfür benötigen wird folgenden Testcode:</p>
+
+<pre><code class="language-js"> it('should have a title', () =&gt; {
+    init(component);
+
+    const matLabel: HTMLElement = fixture.nativeElement.querySelector('mat-label');
+    
+    expect(matLabel.textContent).toBe('Archivierungsdatum');
+});
+</code></pre>
+
+<p>Auf den ersten Blick kann hier erkannt werden, dass der Titel getestet wird.
+Allerdings wird auf dem zweiten Blick die starke Koppelung zu der technischen Umsetzung der Komponente deutlich.
+Im nächsten Test wird die Komplexität erhöht und wir prüfen eine Nutzereingabe.
+Hierfür benötigen wir folgenden Testcode:</p>
+
+<pre><code class="language-js"> it('should have user input', () =&gt; {
+    init(component);
+
+    const input: HTMLInputElement = fixture.nativeElement.querySelector('mat-form-field').querySelector('input');
+    input.value = '2021-05-27';
+    input.dispatchEvent(new Event('input'));
+    fixture.detectChanges();
+
+    expect(component.getControl().value).toEqual(new Date('2021-05-27'));
+});
+</code></pre>
+
+<p>An dieser Stelle wird deutlich, dass der Test aufgrund der technischen Bindung an Lesbarkeit und Verständnis verliert.
+Beim nächsten Überarbeiten des Tests werden sich uns einige Fragen stellen:</p>
+
+<ul>
+  <li>Warum müssen wir an dieser Stelle ein Mat-Form-Field suchen und nicht einen Mat-Datepicker?</li>
+  <li>Weswegen müssen wir nach dem Setzen des Wertes ein Event feuern?</li>
+</ul>
+
+<p>Dies sind nur einige dieser Fragen.
+Dabei sollte der Test nur <strong>drei</strong> Schritte beinhalten:</p>
+
+<ol>
+  <li>Das Suchen des Datepickers</li>
+  <li>Die Nutzereingabe des Datums</li>
+  <li>Die anschließende Prüfung des Wertes vom Datepicker</li>
+</ol>
+
+<p>Dies erreichen wir durch die Umstellung auf Component Harness.</p>
+
+<h4 id="die-umstellung-der-tests-auf-component-harness">Die Umstellung der Tests auf Component Harness</h4>
+<p>Die beiden vorherigen Tests sollen nun auf Component Harness umgestellt werden.
+Wir beginnen ebenfalls zunächst mit dem einfachen Testfall, welcher nur den Titel prüft.
+Durch die Umstellung erhalten wir folgenden Testcode:</p>
+
+<pre><code class="language-js"> it('should have a title', async () =&gt; {
+    init(component);
+
+    const matFormField: MatFormFieldHarness = await loader.getHarness(MatFormFieldHarness);
+
+    expect(await matFormField.getLabel()).toEqual('Archivierungsdatum');
+});
+</code></pre>
+
+<p>Es wird deutlich, dass in diesem Fall tatsächlich das Feld des Datepickers gesucht wird.
+Auf diesem Feld kann anschließend das Label geprüft werden.
+Der Vorteil hierdurch ist, dass wird nicht mehr wissen müssen, dass der Titel als Mat-Label gerendert wird.
+Des Weiteren ist dieser Test deutlich robuster, da er von der technischen Umsetzung entkoppelt ist.
+Falls sich der Titel in der Zukunft nicht mehr als Mat-Label darstellt, würde dieser Test weiterhin funktionieren.</p>
+
+<p>Noch deutlicher wird der Mehrwert bei dem zweiten Testfall.
+Dieser soll eine Nutzereingabe bei dem Datepicker prüfen.
+Ohne den Einsatz von Component Harness waren viele technische Vorkenntnisse und Funktionalitäten notwendig.
+Diese fallen durch die Umstellung vollständig weg:</p>
+
+<pre><code class="language-js"> it('should have user input', async () =&gt; {
+    init(component);
+
+    const matDatePicker: MatDatepickerInputHarness = await loader.getHarness(MatDatepickerInputHarness);
+    await matDatePicker.setValue('2021-05-27');
+
+    expect(await matDatePicker.getValue()).toEqual('2021-05-27');
+});
+</code></pre>
+
+<p>Die Komplexität, welche durch den Testaufbau hinzukam, ist vollständig weggefallen.
+Bei einer erneuten Einarbeitung sollten wir keine Probleme haben, diesen Test zu verstehen und mögliche Anpassungen vorzunehmen.
+Wie müssten wir den Test anpassen, wenn es mehrere Datepicker geben würde?
+Beispielsweise könnten wir den gesetzten Placeholder in dem jeweiligen Datepicker als Referenz nutzen.</p>
+
+<pre><code class="language-js">    await loader.getHarness(MatDatepickerInputHarness.with({ placeholder: 'Geburtsdatum' }));
+</code></pre>
+
+<p>Dadurch erhalten wir nur den Datepicker mit dem Placeholder “Geburtsdatum”.</p>
+
+<h4 id="fazit">Fazit</h4>
+
+<p>Nach der Gegenüberstellung von einem Karma-Test mit und ohne Angular Component Harness sehen wir uns nun die Vor- und Nachteile an.
+Folgende Punkte können als Vorteil genannt werden:</p>
+
+<ul>
+  <li>Deutlich lesbarer und wartbarer Testcode</li>
+  <li>Vereinfachung der Erstellung von robusten Tests</li>
+  <li>High-Level-API zur Interaktion und Abfrage von Komponenten</li>
+  <li>Verbesserte Unterstützung von asynchronen Interaktionen</li>
+</ul>
+
+<p>Letzteres ist allerdings ein größeres Thema, weshalb wir uns dies hier nicht im Detail ansehen.</p>
+
+<p>Neben den Vorteilen haben Angular Component Harness auch Nachteile:</p>
+
+<ul>
+  <li>Zusätzliche Einrichtung und Konfiguration</li>
+  <li>Mögliche Verlangsamung durch die Abstraktionsebene</li>
+  <li>Höhere Komplexität im Vergleich zum direktem Zugriff</li>
+</ul>
+
+<p>Die letzten beiden Nachteile kommen nur in seltenen Einsatzszenarien vor.
+Die Verlangsamung ist abhängig von der Anzahl, sowie der Komplexität der Tests.
+In den meisten Fällen sollte diese kaum bis gar nicht messbar sein.
+Des Weiteren sollte sich die Komplexität nicht erhöhen, wenn alle Komponenten eine Component-Harness-Unterstützung besitzen.
+Der Nachteil entsteht, wenn eine Mischung von traditionellem Vorgehen und Component Harness vorliegt.</p>
+
+<p>In diesem Artikel haben wir gesehen, dass Angular Component Harness ein großes Potenzial zur Vereinfachung von Testcode haben.
+Trotzdem sollte ihr Einsatz evaluiert werden, damit der zusätzliche Einrichtungs- und Konfigurationsaufwand nicht zu hoch ist.
+Weitere Informationen und Beispiele findet ihr unter <a href="https://material.angular.io/cdk/test-harnesses/overview#component-test-harnesses">Angular Material</a>.</p>
+
+
+</div>
+</div>
+</div>
+</div>]]></field>
+    </document>
+</documents>
