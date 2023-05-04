@@ -1,8 +1,8 @@
 ---
 layout: [post, post-xml]              # Pflichtfeld. Nicht ändern!
 title:  "Angular Material Karma-Tests mittels Component Harness vereinfachen"         # Pflichtfeld. Bitte einen Titel für den Blog Post angeben.
-date:   2022-01-23 10:25              # Pflichtfeld. Format "YYYY-MM-DD HH:MM". Muss für Veröffentlichung in der Vergangenheit liegen. (Für Preview egal)
-modified_date: 2022-02-13             # Optional. Muss angegeben werden, wenn eine bestehende Datei geändert wird.
+date:   2023-05-04 10:25              # Pflichtfeld. Format "YYYY-MM-DD HH:MM". Muss für Veröffentlichung in der Vergangenheit liegen. (Für Preview egal)
+modified_date: 2023-05-04 10:25             # Optional. Muss angegeben werden, wenn eine bestehende Datei geändert wird.
 author_ids: [frederikschlemmer]       # Pflichtfeld. Es muss in der "authors.yml" einen Eintrag mit diesen Namen geben.
 categories: [Softwareentwicklung]     # Pflichtfeld. Maximal eine der angegebenen Kategorien verwenden.
 tags: [Angular, Karma, Unit-Testing]   # Bitte auf Großschreibung achten.
