@@ -1,0 +1,443 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<documents>
+    <document uid="1a92a1dd60f1b4c4f4e0eccb7dcfc94c">
+        <field name="title"><![CDATA[ATDD on Spring Boot with Cucumber]]></field>
+        <field name="subline"><![CDATA[]]></field>
+        <field name="teaser"><![CDATA[<p>Developers know unit tests fairly well, even more integrative approaches like <code>@SpringBootTest</code>.
+But many lack a clear design/development/test strategy and stick to their favorite programming language.
+Acceptance Test Driven Design (ATDD) is a structured approach to design your tests and program outside in, keeping the focus on the larger function blocks instead of individual classes (e.g. test behavior, not classes).
+This approach may benefit from abstracting the acceptance tests to a non-programming language like cucumber, allowing even non-programmers to write test scenarios which will eventually be executed automatically.
+This article demonstrates this with a small testcase and a fully functional, little Spring Boot/Java project.</p>
+
+]]></field>
+        <field name="language_multi_keyword"><![CDATA[de]]></field>
+        <field name="content_type_multi_keyword"><![CDATA[blog]]></field>
+        <field name="mime_type_multi_keyword"><![CDATA[text/html]]></field>
+        <field name="category_multi_keyword"><![CDATA[Softwareentwicklung]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Spring Boot]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Java]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Cucumber]]></field>
+        <field name="tag_multi_keyword"><![CDATA[JUnit]]></field>
+        <field name="tag_multi_keyword"><![CDATA[ATDD]]></field>
+        <field name="date_date"><![CDATA[2023-05-11T10:00:00+02:00]]></field>
+        <field name="date_l"><![CDATA[1683792000000]]></field>
+        <field name="change_date"><![CDATA[1683792000000]]></field>
+
+        <!--Author Information-->
+        
+        <field name="author_id"><![CDATA[thalheim]]></field><!--Postcontent-->
+        <field name="headlines"><![CDATA[ATDD on Spring Boot with Cucumber]]></field>
+        <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
+            <p>Developers know unit tests fairly well, even more integrative approaches like <code>@SpringBootTest</code>.
+But many lack a clear design/development/test strategy and stick to their favorite programming language.
+Acceptance Test Driven Design (ATDD) is a structured approach to design your tests and program outside in, keeping the focus on the larger function blocks instead of individual classes (e.g. test behavior, not classes).
+This approach may benefit from abstracting the acceptance tests to a non-programming language like cucumber, allowing even non-programmers to write test scenarios which will eventually be executed automatically.
+This article demonstrates this with a small testcase and a fully functional, little Spring Boot/Java project.</p>
+
+</div>]]></field>
+        <field name="content"><![CDATA[<div class="adesso-text-formate">
+<div class="row p-t-2">
+<div class="adesso-container">
+<div class="col-xl-8 adesso-center p-b-1 p-l-0 p-r-0">
+    <p>Developers know unit tests fairly well, even more integrative approaches like <code>@SpringBootTest</code>.
+But many lack a clear design/development/test strategy and stick to their favorite programming language.
+Acceptance Test Driven Design (ATDD) is a structured approach to design your tests and program outside in, keeping the focus on the larger function blocks instead of individual classes (e.g. test behavior, not classes).
+This approach may benefit from abstracting the acceptance tests to a non-programming language like cucumber, allowing even non-programmers to write test scenarios which will eventually be executed automatically.
+This article demonstrates this with a small testcase and a fully functional, little Spring Boot/Java project.</p>
+
+<h4 id="introduction-getting-things-done">Introduction: Getting Things Done</h4>
+
+<p>As a use case, I took David Allens Getting Things Done method (<a href="https://en.wikipedia.org/wiki/Getting_Things_Done">Wikipedia</a>):</p>
+<blockquote>
+  <p>Getting Things Done (GTD) is a personal productivity system developed by David Allen and published in a book of the same name. 
+GTD is described as a time management system.
+Allen states “there is an inverse relationship between things on your mind and those things getting done”.</p>
+
+  <p>The GTD method rests on the idea of moving all items of interest, relevant information, issues, tasks and projects out of one’s mind by recording them externally and then breaking them into actionable work items with known time limits.
+This allows one’s attention to focus on taking action on each task listed in an external record, instead of recalling them intuitively.</p>
+</blockquote>
+
+<h5 id="first-feature-collect-thoughts">First feature: Collect Thoughts</h5>
+
+<p>The first, very charming idea of GTD is to get everything that pops into your mind out of it into a safe place where it can be retrieved later for further processing. 
+The idea is to think as little as possible about whatever came into your mind. 
+It might be anything, from an item you need to put onto your grocery store list to an electric car business idea which might make you the second-richest person in the world.</p>
+
+<p>The verbal description of the use-case is: 
+A thought can be collected into your inbox. 
+A thought is just a few words, a little text. 
+At any time, it can be retrieved from the inbox.</p>
+
+<h5 id="defining-acceptance-test-scenarios">Defining acceptance test scenarios</h5>
+
+<p>Before even starting on our feature, let’s define the acceptance tests of our feature:</p>
+<pre><code class="language-gherkin">Feature: Capture Stage
+
+  Scenario: Collect Thought
+    When Thought "Send Birthday Wishes to Mike" is collected
+    Then Inbox contains "Send Birthday Wishes to Mike"
+</code></pre>
+<p><em><a href="https://github.com/bjoern-thalheim/cucumber_demo/blob/master/src/test/resources/features/collect-thought.feature">src/test/resources/features/collect-thought.feature</a></em></p>
+
+<p>Here, we let something magical happen! 
+Instead of defining acceptance tests scenarios in the QA phase after implementing the feature, creating the acceptance happened before giving the implementation task to the developer. 
+This is called “shift left” as the QA activity of defining acceptance scenarios is moved from the right (end) to the left (more in the beginning) of the process. 
+This approach is very charming as it forces the requirements engineer to formulate a more concrete description of the feature and not just some rough idea presented in one or two sentences 
+(no offence – this is the type of “laziness” that also developers display oftentimes).</p>
+
+<h4 id="setting-things-up">Setting Things Up</h4>
+
+<p>We now do something fairly standard: we start a Java/Maven project and let IntelliJ generate the initial <code>pom.xml</code> for us. 
+In the process, we will add a few dependencies for an in-memory DB for testing and cucumber into the <a href="https://github.com/bjoern-thalheim/cucumber_demo/blob/master/pom.xml">pom.xml</a>:</p>
+<pre><code class="language-xml">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"&gt;
+    &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
+
+    &lt;groupId&gt;de.adesso.thalheim.gtd&lt;/groupId&gt;
+    &lt;artifactId&gt;cucumber_demo&lt;/artifactId&gt;
+    &lt;version&gt;1.0-SNAPSHOT&lt;/version&gt;
+
+    &lt;properties&gt;
+        &lt;maven.compiler.source&gt;17&lt;/maven.compiler.source&gt;
+        &lt;maven.compiler.target&gt;17&lt;/maven.compiler.target&gt;
+        &lt;project.build.sourceEncoding&gt;UTF-8&lt;/project.build.sourceEncoding&gt;
+    &lt;/properties&gt;
+
+&lt;/project&gt;
+</code></pre>
+
+<p>Because I want to start a Spring Boot project and I’m a fan of Lombok, I add the following dependencies and the Spring Boot Starter parent relation to the <a href="https://github.com/bjoern-thalheim/cucumber_demo/blob/master/pom.xml">pom.xml</a>:</p>
+<pre><code class="language-xml">    &lt;parent&gt;
+        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+        &lt;artifactId&gt;spring-boot-starter-parent&lt;/artifactId&gt;
+        &lt;version&gt;2.5.4&lt;/version&gt;
+        &lt;relativePath /&gt; &lt;!-- lookup parent from repository --&gt;
+    &lt;/parent&gt;
+    ...
+    &lt;dependencies&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-boot-starter-data-jpa&lt;/artifactId&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.projectlombok&lt;/groupId&gt;
+            &lt;artifactId&gt;lombok&lt;/artifactId&gt;
+            &lt;optional&gt;true&lt;/optional&gt;
+            &lt;scope&gt;provided&lt;/scope&gt;
+        &lt;/dependency&gt;
+    &lt;/dependencies&gt;
+</code></pre>
+
+<p>After doing that, we want to achieve the following two targets:</p>
+<ul>
+  <li>We want the application to start up with an external database (on my local machine, I let a PostgreSQL DB run in Docker)</li>
+  <li>We want a simple ´@SpringBootTest` to start up with an embedded H2 DB.</li>
+</ul>
+
+<p>Long story short, several things need to be made for this.
+The <a href="https://github.com/bjoern-thalheim/cucumber_demo/blob/master/pom.xml">pom.xml</a> needs a few more dependencies:</p>
+<pre><code class="language-xml">        &lt;dependency&gt;
+            &lt;groupId&gt;org.postgresql&lt;/groupId&gt;
+            &lt;artifactId&gt;postgresql&lt;/artifactId&gt;
+        &lt;/dependency&gt;
+
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-boot-starter-test&lt;/artifactId&gt;
+            &lt;scope&gt;test&lt;/scope&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;com.h2database&lt;/groupId&gt;
+            &lt;artifactId&gt;h2&lt;/artifactId&gt;
+            &lt;scope&gt;test&lt;/scope&gt;
+        &lt;/dependency&gt;
+</code></pre>
+
+<p>We need to configure a datasource which will be used in normal operations of our application in the <a href="https://github.com/bjoern-thalheim/cucumber_demo/blob/master/src/main/resources/application.yml">src/main/resources/application.yml</a>:</p>
+<pre><code class="language-yml">spring.jpa:
+  database: POSTGRESQL
+  hibernate.ddl-auto: create-drop
+  show-sql: true
+
+spring.datasource:
+  driverClassName: org.postgresql.Driver
+  url: jdbc:postgresql://localhost:5432/mydb
+  username: foo
+  password: bar
+</code></pre>
+
+<p>In case you wondered: 
+The PostgreSQL DB can be easily started with <code>docker run --name postgres-db -e POSTGRES_PASSWORD=docker -p 5432:5432 -d postgres</code> and the DB and user simply created with <code>CREATE DATABASE ...</code> and <code>CREATE USER ...</code>.</p>
+
+<p>We need to configure an alternative datasource which will be used when unit testing our application in the <a href="https://github.com/bjoern-thalheim/cucumber_demo/blob/master/src/test/resources/application.yml">src/test/resources/application.yml</a>:</p>
+<pre><code class="language-yml">spring.datasource:
+  driver-class-name: org.h2.Driver
+  url: jdbc:h2:mem:db;DB_CLOSE_DELAY=-1
+  username: sa
+  password: sa
+</code></pre>
+
+<blockquote>
+  <p><em>Remarks on clarity from the start</em></p>
+
+  <p>This is a little off topic, but particularly important.
+Many projects fail to set up their codebase as early as possible for this type of test (integrative component test with an embedded database).
+I suggest, you set this up as early as possible, before starting to write a single line of productive code in your project.
+It provides clean test possibilities for all developers during the development of the project.</p>
+</blockquote>
+
+<h5 id="add-and-configure-the-cucumber-maven-dependency">Add and configure the Cucumber Maven dependency</h5>
+
+<p>In order to run the test specification, we need a few dependencies in the <a href="https://github.com/bjoern-thalheim/cucumber_demo/blob/master/pom.xml">pom.xml</a>:</p>
+<pre><code class="language-xml">&lt;dependency&gt;
+   &lt;groupId&gt;io.cucumber&lt;/groupId&gt;
+   &lt;artifactId&gt;cucumber-java&lt;/artifactId&gt;
+   &lt;version&gt;6.11.0&lt;/version&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+   &lt;groupId&gt;io.cucumber&lt;/groupId&gt;
+   &lt;artifactId&gt;cucumber-spring&lt;/artifactId&gt;
+   &lt;version&gt;6.11.0&lt;/version&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+   &lt;groupId&gt;io.cucumber&lt;/groupId&gt;
+   &lt;artifactId&gt;cucumber-junit&lt;/artifactId&gt;
+   &lt;version&gt;6.11.0&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre>
+
+<p>Now, we can add the acceptance test we have already defined above into our codebase in <a href="https://github.com/bjoern-thalheim/cucumber_demo/blob/master/src/test/resources/features/collect-thought.feature">src/test/resources/features/collect-thought.feature</a>:</p>
+<pre><code class="language-gherkin">Feature: Capture Stage
+
+  Scenario: Collect Thought
+    When Thought "Send Birthday Wishes to Mike" is collected
+    Then Inbox contains "Send Birthday Wishes to Mike"
+</code></pre>
+
+<h5 id="making-the-cucumber-test-specification-run">Making the cucumber test specification run</h5>
+
+<p>To make Maven run this specification, we need some boilerplate code.</p>
+
+<p>First, a test class which points to the cucumber test specifications:</p>
+<pre><code class="language-java">@RunWith(Cucumber.class)
+@CucumberOptions(features = {"src/test/resources/features"})
+public class CucumberTest {
+}
+</code></pre>
+<p><em><a href="https://github.com/bjoern-thalheim/cucumber_demo/blob/master/src/test/java/de/adesso/thalheim/gtd/CucumberTest.java">src/test/java/de/adesso/thalheim/gtd/CucumberTest.java</a></em></p>
+
+<p>Also, a Cucumber Context needs to be provided, we use the <code>@SpringBootTest</code> for that:</p>
+<pre><code class="language-java">@CucumberContextConfiguration
+@SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
+class CucumberSpringBootDemoApplicationTest {
+</code></pre>
+<p><em><a href="https://github.com/bjoern-thalheim/cucumber_demo/blob/master/src/test/java/de/adesso/thalheim/gtd/CucumberSpringBootDemoApplicationTest.java">src/test/java/de/adesso/thalheim/gtd/CucumberSpringBootDemoApplicationTest.java</a></em></p>
+
+<p>You will need the <code>RANDOM</code> port to not interfere with your regular running local instance of this service.</p>
+
+<p>Now, if we let Maven run, during the test run an error will pop up that the glue code is missing. 
+So, let’s add that:</p>
+<pre><code class="language-java">public class CaptureStepDefinitions {
+
+    @When("Thought {string} is collected")
+    public void thoughtIsCollected(String thought) {
+        Assert.fail("Implement me!");
+    }
+
+    @Then("Inbox contains {string}")
+    public void inboxContains(String thought) {
+        Assert.fail("Implement me!");
+    }
+}
+</code></pre>
+<p><em><a href="https://github.com/bjoern-thalheim/cucumber_demo/blob/master/src/test/java/de/adesso/thalheim/gtd/CaptureStepDefinitions.java">src/test/java/de/adesso/thalheim/gtd/CaptureStepDefinitions.java</a></em></p>
+
+<p>Now, our test specification fails. <em>But it does not fail for the correct reason.</em> 
+So, let’s implement the glue code in <a href="https://github.com/bjoern-thalheim/cucumber_demo/blob/master/src/test/java/de/adesso/thalheim/gtd/CaptureStepDefinitions.java">src/test/java/de/adesso/thalheim/gtd/CaptureStepDefinitions.java</a>:</p>
+<pre><code class="language-java">    @Value(value = "${local.server.port}")
+    private int port;
+    
+    @When("Thought {string} is collected")
+    public void thoughtIsCollected(String thought) throws IOException {
+        // given
+        HttpPost post = new HttpPost("http://localhost:%d/gtd/inbox".formatted(port));
+        post.setEntity(new StringEntity(thought));
+        // when
+        HttpResponse postResponse = HttpClientBuilder.create().build().execute(post);
+        // then
+        Assertions.assertThat(postResponse.getStatusLine().getStatusCode()).isEqualTo(200);
+    }
+</code></pre>
+
+<p>Now, the test defines that we need a <code>POST</code> endpoint which is exposed in the context path <code>gtd/thoughts</code>.
+It should return an http status code 200.</p>
+
+<p>While I was at it I added the AssertJ Core Library to the Maven dependencies. 
+<code>assertThat(...)...</code> sounds more like BDD than standard JUnit assert statements.</p>
+
+<p>If you now run the Cucumber tests or Maven build, the test execution will fail, because no REST controller offers a proper endpoint. 
+Now we have a test which fails for the right reason:</p>
+<pre><code class="language-log">[ERROR] Collect Thought  Time elapsed: 0.248 s  &lt;&lt;&lt; ERROR!
+org.apache.http.conn.HttpHostConnectException: Connect to localhost:8080 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect
+Caused by: java.net.ConnectException: Connection refused: connect
+</code></pre>
+<p>The reason our test fails is because there is no REST endpoint listining where we expect it.</p>
+
+<p>This means we can finally write production code:</p>
+<pre><code class="language-java">@RestController
+@RequestMapping("gtd/inbox")
+@Slf4j
+public class InboxController {
+    @PostMapping
+    public void collect(@RequestBody String thought) {
+        // TODO: implement me!
+        log.debug("Received " + thought);
+    }
+}
+</code></pre>
+<p><em><a href="https://github.com/bjoern-thalheim/cucumber_demo/blob/master/src/main/java/de/adesso/thalheim/gtd/controller/InboxController.java">src/main/java/de/adesso/thalheim/gtd/controller/InboxController.java</a></em></p>
+
+<p>Now, the acceptance test fails again as there is no glue code for the when-clause in the cucumber scenario. 
+Let’s write this glue code in <a href="https://github.com/bjoern-thalheim/cucumber_demo/blob/master/src/test/java/de/adesso/thalheim/gtd/CaptureStepDefinitions.java">src/test/java/de/adesso/thalheim/gtd/CaptureStepDefinitions.java</a>:</p>
+<pre><code class="language-java">    @Value(value = "${local.server.port}")
+    private int port;
+
+    @Then("Inbox contains {string}")
+    public void inboxContains(String thought) throws IOException {
+        // given
+        HttpUriRequest get = new HttpGet("http://localhost:%d/gtd/inbox".formatted(port));
+        // when
+        CloseableHttpResponse response = HttpClientBuilder.create().build().execute(get);
+        // then
+        String entity = EntityUtils.toString(response.getEntity());
+        assertThat(StringUtils.strip(entity)).isEqualTo("[{\"description\":\"%s\"}]".formatted(thought));
+    }
+</code></pre>
+
+<blockquote>
+  <p><em>Note on the level of abstraction</em></p>
+
+  <p>Here you can see, I kept the glue code and therefore the acceptance test on an abstraction level above the concrete interface.
+Of course, one could have just <code>@Inject</code> the REST controller and use plain Java for testing, which would have made things easier.
+But it would have made the test more concrete than necessary, thereby binding the test to implementation details.</p>
+</blockquote>
+
+<p>Now, we can write a method for the GET endpoint.
+It should return a list of classes containing exactly one field named “description”.
+We need to implement the controller, so let’s write this in normal TDD style with a test case first:</p>
+<pre><code class="language-java">@ExtendWith(MockitoExtension.class)
+class InboxControllerTest {
+
+    @InjectMocks
+    InboxController controller;
+
+    @Mock
+    ThoughtRepository repository;
+
+    @Captor
+    ArgumentCaptor&lt;Thought&gt; thoughtArgumentCaptor;
+
+    @Test
+    public void testPutThoughtIntoRepository() throws UnsupportedEncodingException {
+        // given
+        String thoughtDescription = "foiaxöniso";
+        // when
+        controller.collect(thoughtDescription);
+        // then
+        verify(repository).save(thoughtArgumentCaptor.capture());
+        assertThat(thoughtArgumentCaptor.getValue().getDescription()).isEqualTo(thoughtDescription);
+    }
+
+    @Test
+    public void testGetAllThoughts() {
+        // given
+        String thoughtDescription = "foiaxöniso";
+        Thought thought = new Thought(UUID.randomUUID(), thoughtDescription);
+        when(repository.findAll()).thenReturn(Set.of(thought));
+        // when
+        List&lt;Thought&gt; thoughts = controller.get();
+        // then
+        assertThat(thoughts).hasSize(1);
+        assertThat(thoughts.iterator().next()).isEqualTo(thought);
+    }
+}
+</code></pre>
+<p><em><a href="https://github.com/bjoern-thalheim/cucumber_demo/blob/master/src/test/java/de/adesso/thalheim/gtd/controller/InboxControllerTest.java">src/test/java/de/adesso/thalheim/gtd/controller/InboxControllerTest.java</a></em></p>
+
+<p>Now we can finish writing the Controller, Entity, Repository etc.</p>
+
+<pre><code class="language-java">@RestController
+@RequestMapping("gtd/inbox")
+@Slf4j
+public class InboxController {
+
+    @Inject
+    private ThoughtRepository thoughtRepository;
+
+    @PostMapping
+    public void collect(@RequestBody String thought) {
+        log.debug("Received " + thought);
+        Thought theThought = new Thought(UUID.randomUUID(), thought);
+        thoughtRepository.save(theThought);
+    }
+
+    @GetMapping
+    public List&lt;Thought&gt; get() {
+        Iterable&lt;Thought&gt; all = thoughtRepository.findAll();
+        return StreamSupport.stream(all.spliterator(), false).toList();
+    }
+}
+</code></pre>
+<p><em><a href="https://github.com/bjoern-thalheim/cucumber_demo/blob/master/src/main/java/de/adesso/thalheim/gtd/controller/InboxController.java">src/main/java/de/adesso/thalheim/gtd/controller/InboxController.java</a></em></p>
+
+<pre><code class="language-java">@RequiredArgsConstructor
+@AllArgsConstructor
+@Entity
+public class Thought {
+
+    @Id
+    private UUID id;
+
+    @Getter
+    private String description;
+
+}
+</code></pre>
+<p><em><a href="https://github.com/bjoern-thalheim/cucumber_demo/blob/master/src/main/java/de/adesso/thalheim/gtd/controller/Thought.java">src/main/java/de/adesso/thalheim/gtd/controller/Thought.java</a></em></p>
+
+<pre><code class="language-java">public interface ThoughtRepository extends CrudRepository&lt;Thought, UUID&gt; {}
+</code></pre>
+<p><em><a href="https://github.com/bjoern-thalheim/cucumber_demo/blob/master/src/main/java/de/adesso/thalheim/gtd/repository/ThoughtRepository.java">src/main/java/de/adesso/thalheim/gtd/repository/ThoughtRepository.java</a></em></p>
+
+<p>Of course, you would never expose an <code>@Entity</code> as the result type of a REST call.
+But for demonstration purposes, we’re fine here.</p>
+
+<p>That’s it. We have driven a small feature implementation by writing an acceptance test scenario and glue code to test the behavior of a part of our application first in Cucumber.</p>
+
+<h4 id="wrapping-it-up">Wrapping it up</h4>
+
+<p>I have said I would do ATTD here. 
+This means I first created a failing acceptance test, and then implemented only interfaces. 
+And when I got further, I used normal unit tests to finish the internals of my implementation. 
+The acceptance tests form an outer, the unit tests an inner loop of the implementation process.</p>
+
+<p>Writing Cucumber scenarios first has the big advantage of forcing your requirements engineer to make requirements as clear as possible.</p>
+
+<p>Before writing a single line of productive code, I took the time and made sure that in this dummy project the execution of unit tests, <code>@SpringBootTest</code>, and Cucumber tests were possible.</p>
+
+<p>I have kept the acceptance tests free of implementation details which are not relevant to them, hence raising refactoring safety. I would try to do the same with regular <code>@SpringBootTests</code>.</p>
+
+<p>If you like, you can see all code <a href="https://github.com/bjoern-thalheim/cucumber_demo">in this repository</a>.</p>
+
+</div>
+</div>
+</div>
+</div>]]></field>
+    </document>
+</documents>
