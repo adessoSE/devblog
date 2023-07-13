@@ -1,6 +1,6 @@
 ---
 layout: [post, post-xml]              # Pflichtfeld. Nicht ändern!
-title:  "Einfache Bildverarbeitung mit Python und der OpenCV-Bibliothek"         # Pflichtfeld. Bitte einen Titel für den Blog Post angeben.
+title:  "Einfache Bildverarbeitung mit Python und OpenCV Bibliothek"         # Pflichtfeld. Bitte einen Titel für den Blog Post angeben.
 date:   2023-07-13 18:05              # Pflichtfeld. Format "YYYY-MM-DD HH:MM". Muss für Veröffentlichung in der Vergangenheit liegen. (Für Preview egal)
 author_ids: [alexej_sevas]       # Pflichtfeld. Es muss in der "authors.yml" einen Eintrag mit diesen Namen geben.
 categories: [Softwareentwicklung]     # Pflichtfeld. Maximal eine der angegebenen Kategorien verwenden.
@@ -8,11 +8,11 @@ tags: [Python, OpenCV]   # Bitte auf Großschreibung achten.
 ---
 
 
-Python ist eine populäre Programmiersprache, die vor allem in Bereich Machine Learning zum Einsatz kommt.
-Ein großer Vorteil von Python ist, dass es eine umfangreiche Sammlung von Open-Source-Bibliotheken wie NumPy, TensorFlow, OpenCV gibt.
+Python ist eine populäre Programmiersprache, die vor allem in Bereich machine learning zum Einsatz kommt.
+Ein großer Vorteil von Python ist, dass es eine umfangreiche Sammlung von Open Source Bibliotheken wie z.B NumPy, TensorFlow, OpenCV gibt.
 Dieser Artikel gibt Einblick auf einige Möglichkeiten der Bibliothek OpenCV.
 
-# OpenCV-Bibliothek
+# OpenCV Bibliothek
 Ursprünglich von Intel entwickelt, ist OpenCV heute eine der am weitesten verbreiteten Bibliotheken in Bereich Computer Vision.
 OpenCV bietet eine breite Palette von Funktionen und Algorithmen zur Verarbeitung und Analyse von Bildern und Videos.
 Es enthält Module für grundlegende Operationen wie das Lesen und Schreiben von Bildern, das Ändern der Bildgröße,
@@ -22,6 +22,7 @@ das Extrahieren von Merkmalen, das Messen von Abständen und das Durchführen vo
 OpenCV ist in C++ geschrieben, bietet aber auch Schnittstellen für viele andere Programmiersprachen wie Python und Java.
 Dadurch ist es einfach, OpenCV in verschiedene Projekte und Anwendungen zu integrieren.
 
+<<<<<<< HEAD
 # Python-Projekt mit OpenCV aufsetzen
 Wir wollen eine einfache Slideshow aus mehreren Bildern mithilfe der OpenCV-Bibliothek erstellen.
 Diese Slideshow soll aus zwei Bildern eine Videodatei erstellen, die ähnliche Effekte verwendet wie es bei Powerpoint der Fall ist.
@@ -39,6 +40,20 @@ Mit dem Schritt installieren wie die aktuellste Version von OpenCV, zum 10.07.20
 Wir werden erstmal damit anfangen, dass wir ein Bild mit OpenCV einlesen und es danach anzeigen.
 Das Bild muss in diesem Fall innerhalb des Projektverzeichnisses in dem Ordner "images" liegen und "image1.jpg" heißen.
 Jetzt erstellen wir ein Python Script File und nennen es zum Beispiel "Slideshow.py".
+=======
+# Python Projekt mit OpenCV aufsetzen
+Wir wollen eine einfache Slideshow aus mehreren Bildern mithilfe von OpenCV Bibliothek erstellen.
+Diese Slideshow soll aus zwei Bilder eine Videodatei erstellen, die ähnliche Effekte verwendet wie es bei Powerpoint der Fall ist.
+
+Um OpenCV Bibliothek verwenden zu können, müssen wir erstmal diese installieren.
+Das geht zum Beispiel mit dem Paketverwaltungsprogramm für Python Pip und dem Befehl:
+pip install opencv-python
+Mit dem Schritt installieren wie die aktuellste Version von OpenCV, zum 10.07.2023 ist das die Version 4.8.0.74.
+
+# Wie ein Video aus dem Bild erstellt wird
+Wir werden erstmal damit anfangen, dass wir ein Bild einlesen mit OpenCV und diesen anzeigen.
+Das Bild muss in diesem Fall innerhalb vom Projektverzeichnis in dem Ordner "images" liegen und "image1.jpg" heißen.
+Jetzt erstellen wir ein Python Script File und nennen den zum Beispiel Slideshow.py
 
 ```python
     import cv2
@@ -125,7 +140,6 @@ for (kX, kY) in kernelSizes:
 ```
 
 ![BlurEffekt](/assets/images/posts/python-bildverarbeitung/blurEffekt.gif)
-
 # Fazit
 
 Wir haben gesehen, wie einfach es mit Python und der OpenCV-Bibliothek ist, aus mehreren Bildern ein Video zu erstellen.
