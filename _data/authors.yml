@@ -478,3 +478,9 @@ thalheim:
   last_name: Thalheim
   bio: "Björn ist Softwareentwickler und Architekt mit einem großen Interesse an Softwarequalität, insbesondere durch TDD, Clean Code und Architekturthemen."
   avatar_url: /assets/images/avatars/thalheim_bjoern.jpg
+
+alexej_sevas:
+  first_name: Alexej
+  last_name: Kats
+  bio: "Alexej ist seit 2022 als Senior Software Engineer bei adesso in Stuttgart tätig. Dort unterstützt er den Bereich Public als Entwickler im Java-Umfeld."
+  avatar_url: /assets/images/avatars/alexej_sevas.jpg
