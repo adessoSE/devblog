@@ -30,25 +30,6 @@ Um die OpenCV-Bibliothek verwenden zu können, müssen wir diese erstmal install
 Das geht zum Beispiel mit dem Paketverwaltungsprogramm für Python Pip und dem Befehl:
 
 ```powershell
-<<<<<<< HEAD
-pip install opencv-python
-```
-
-Mit dem Schritt installieren wie die aktuellste Version von OpenCV, zum 10.07.2023 ist das die Version 4.8.0.74.
-
-# Wie ein Video aus dem Bild erstellt wird
-Wir werden erstmal damit anfangen, dass wir ein Bild mit OpenCV einlesen und es danach anzeigen.
-Das Bild muss in diesem Fall innerhalb des Projektverzeichnisses in dem Ordner "images" liegen und "image1.jpg" heißen.
-Jetzt erstellen wir ein Python Script File und nennen es zum Beispiel "Slideshow.py".
-=======
-# Python-Projekt mit OpenCV aufsetzen
-Wir wollen eine einfache Slideshow aus mehreren Bildern mithilfe der OpenCV-Bibliothek erstellen.
-Diese Slideshow soll aus zwei Bildern eine Videodatei erstellen, die ähnliche Effekte verwendet wie es bei Powerpoint der Fall ist.
-
-Um die OpenCV-Bibliothek verwenden zu können, müssen wir diese erstmal installieren.
-Das geht zum Beispiel mit dem Paketverwaltungsprogramm für Python Pip und dem Befehl:
-=======
->>>>>>> efc0882 (Namen der gifs geändert)
 pip install opencv-python
 ```
 
@@ -124,12 +105,8 @@ Das Bild, das daraus entsteht, wird zum Video hinzugefügt.
 Hier setzen wir mit `cv2.waitKey(200)` die Verzögerung beim Wechsel der Bilder auf 200 Millisekunden, um den Bilderübergang langsamer zu machen.
 Die Funktion rufen wir 3 Mal auf, um das Ergebnis der Umwandlung der Bilder besser zu sehen.
 
-<<<<<<< HEAD
 ![VerblassenEffekt](/assets/images/posts/python-bildverarbeitung/verblassenEffekt.gif)
-=======
-![VerblassenEffekt](/assets/images/posts/python-bildverarbeitung/verblassen-effekt.gif)
 
->>>>>>> efc0882 (Namen der gifs geändert)
 # Video mit einem "Blur"-Effekt
 Um das Bild zu blurren, werden wir die Funktion `cv2.blur(src, ksize[, dst[, anchor[, borderType]]])` verwenden.
 Die blur()-Funktion ermöglicht es, ein Bild zu verwischen oder zu glätten. Sie wird verwendet, um störende Details zu reduzieren oder Rauschen zu entfernen, indem die Pixelwerte im Bild verwischt werden.
@@ -147,12 +124,8 @@ for (kX, kY) in kernelSizes:
     bluren(img1, video, (kX, kY))
 ```
 
-<<<<<<< HEAD
 ![BlurEffekt](/assets/images/posts/python-bildverarbeitung/blurEffekt.gif)
-=======
-![BlurEffekt](/assets/images/posts/python-bildverarbeitung/blur-effekt.gif)
 
->>>>>>> efc0882 (Namen der gifs geändert)
 # Fazit
 
 Wir haben gesehen, wie einfach es mit Python und der OpenCV-Bibliothek ist, aus mehreren Bildern ein Video zu erstellen.
