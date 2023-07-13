@@ -22,11 +22,11 @@ das Extrahieren von Merkmalen, das Messen von Abständen und das Durchführen vo
 OpenCV ist in C++ geschrieben, bietet aber auch Schnittstellen für viele andere Programmiersprachen wie Python und Java.
 Dadurch ist es einfach, OpenCV in verschiedene Projekte und Anwendungen zu integrieren.
 
-# Python-Projekt mit OpenCV aufsetzen
-Wir wollen eine einfache Slideshow aus mehreren Bildern mithilfe der OpenCV-Bibliothek erstellen.
-Diese Slideshow soll aus zwei Bildern eine Videodatei erstellen, die ähnliche Effekte verwendet wie es bei Powerpoint der Fall ist.
+# Python Projekt mit OpenCV aufsetzen
+Wir wollen eine einfache Slideshow aus mehreren Bildern mithilfe von OpenCV Bibliothek erstellen.
+Diese Slideshow soll aus zwei Bilder eine Videodatei erstellen, die ähnliche Effekte verwendet wie es bei Powerpoint der Fall ist.
 
-Um die OpenCV-Bibliothek verwenden zu können, müssen wir diese erstmal installieren.
+Um OpenCV Bibliothek verwenden zu können, müssen wir erstmal diese installieren.
 Das geht zum Beispiel mit dem Paketverwaltungsprogramm für Python Pip und dem Befehl:
 
 ```powershell
@@ -131,6 +131,3 @@ for (kX, kY) in kernelSizes:
 Wir haben gesehen, wie einfach es mit Python und der OpenCV-Bibliothek ist, aus mehreren Bildern ein Video zu erstellen.
 Ebenfalls haben wir zwei Videoeffekte mit nur ein paar Zeilen Code implementiert.
 Die OpenCV-Bibliothek bietet neben den gezeigten Funktionen noch sehr viele weitere Möglichkeiten für die Bild- und Videobearbeitung.
-
-
-
