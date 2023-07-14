@@ -1,7 +1,7 @@
 ---
 layout: [post, post-xml]              
 title:  "Passworthashing - Aber sicher!"        
-date:   2021-03-01 11:00 Pflichtfeld. Format "YYYY-MM-DD HH:MM". Muss für Veröffentlichung in der Vergangenheit liegen. (Für Preview egal)
+date:   2021-03-01 11:00 # Pflichtfeld. Format "YYYY-MM-DD HH:MM". Muss für Veröffentlichung in der Vergangenheit liegen. (Für Preview egal)
 modified_date: 2023-07-14 09:45
 author_ids: [tboettinger]                     
 categories: [Softwareentwicklung]       
