@@ -1,7 +1,8 @@
 ---
 layout: [post, post-xml]              
 title:  "Passworthashing - Aber sicher!"        
-date:   2021-03-01 11:00              # Pflichtfeld. Format "YYYY-MM-DD HH:MM". Muss für Veröffentlichung in der Vergangenheit liegen. (Für Preview egal)
+date:   2021-03-01 11:00 # Pflichtfeld. Format "YYYY-MM-DD HH:MM". Muss für Veröffentlichung in der Vergangenheit liegen. (Für Preview egal)
+modified_date: 2023-07-14 09:45
 author_ids: [tboettinger]                     
 categories: [Softwareentwicklung]       
 tags: [Security, Kryptographie, Java]      
@@ -155,7 +156,7 @@ Da die Bouncy-Castle Implementierung die Parallelisierung aktuell nicht ausnutzt
 Die Verwendung in Spring-Security funktioniert analog zu den anderen beiden Verfahren für ein 32 Byte Hash zusammen mit einem 16 Byte Salt:
 ```java
 Argon2PasswordEncoder encoder = new Argon2PasswordEncoder(16, 32, 1, 4_096, 90);
-// Erzeugen den Hash
+// erzeuge den Hash
 String encoded = encoder.encode("geheim");
 // validiere eine Passwort mithilfe des Hashes
 boolean isValidPassword = encoder.matches("geheim", encoded);
