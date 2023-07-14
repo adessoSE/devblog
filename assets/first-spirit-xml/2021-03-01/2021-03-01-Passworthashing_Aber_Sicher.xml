@@ -19,7 +19,7 @@ Illustriert werden die Beispiele in Java und Spring-Security.</p>
         <field name="tag_multi_keyword"><![CDATA[Java]]></field>
         <field name="date_date"><![CDATA[2021-03-01T11:00:00+01:00]]></field>
         <field name="date_l"><![CDATA[1614592800000]]></field>
-        <field name="change_date"><![CDATA[1614592800000]]></field>
+        <field name="change_date"><![CDATA[1689320700000]]></field>
 
         <!--Author Information-->
         
@@ -188,7 +188,7 @@ Da die Bouncy-Castle Implementierung die Parallelisierung aktuell nicht ausnutzt
 
 <p>Die Verwendung in Spring-Security funktioniert analog zu den anderen beiden Verfahren für ein 32 Byte Hash zusammen mit einem 16 Byte Salt:</p>
 <pre><code class="language-java">Argon2PasswordEncoder encoder = new Argon2PasswordEncoder(16, 32, 1, 4_096, 90);
-// Erzeugen den Hash
+// erzeuge den Hash
 String encoded = encoder.encode("geheim");
 // validiere eine Passwort mithilfe des Hashes
 boolean isValidPassword = encoder.matches("geheim", encoded);
