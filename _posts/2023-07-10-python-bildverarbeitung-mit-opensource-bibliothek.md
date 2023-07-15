@@ -28,7 +28,11 @@ Diese Slideshow soll aus zwei Bildern eine Videodatei erstellen, die ähnliche E
 
 Um die OpenCV-Bibliothek verwenden zu können, müssen wir diese erstmal installieren.
 Das geht zum Beispiel mit dem Paketverwaltungsprogramm für Python Pip und dem Befehl:
+
+```powershell
 pip install opencv-python
+```
+
 Mit dem Schritt installieren wie die aktuellste Version von OpenCV, zum 10.07.2023 ist das die Version 4.8.0.74.
 
 # Wie ein Video aus dem Bild erstellt wird
@@ -86,9 +90,9 @@ def verblassen(img1, img2, index):
     dest = cv2.addWeighted(img2, 1 - index, img1, index , 0.0)
     return dest
 
-images = [0, 0.5, 1]
-for x in images:
-    img_changed = verblassen(img1, img2, x)
+steps = [0, 0.5, 1]
+for step in steps:
+    img_changed = verblassen(img1, img2, step)
     video.write(img_changed)
     cv2.waitKey(200)
 
@@ -101,11 +105,12 @@ Das Bild, das daraus entsteht, wird zum Video hinzugefügt.
 Hier setzen wir mit `cv2.waitKey(200)` die Verzögerung beim Wechsel der Bilder auf 200 Millisekunden, um den Bilderübergang langsamer zu machen.
 Die Funktion rufen wir 3 Mal auf, um das Ergebnis der Umwandlung der Bilder besser zu sehen.
 
+![VerblassenEffekt](/assets/images/posts/python-bildverarbeitung/verblassen-effekt.gif)
+
 # Video mit einem "Blur"-Effekt
 Um das Bild zu blurren, werden wir die Funktion `cv2.blur(src, ksize[, dst[, anchor[, borderType]]])` verwenden.
-Diese Funktion verwendet die Mittelwertmethode, um unscharfe Bilder zu erstellen.
-Die Funktion nimmt als Parameter das Bild und die sogenannte Kernelgröße, je größer diese ist, desto unschärfer wird das
-Bild.
+Die blur()-Funktion ermöglicht es, ein Bild zu verwischen oder zu glätten. Sie wird verwendet, um störende Details zu reduzieren oder Rauschen zu entfernen, indem die Pixelwerte im Bild verwischt werden.
+Die Funktion blur() akzeptiert zwei Parameter: das Eingangsbild (src) und die Größe des Kernel-Fensters (ksize), das angibt, wie stark das Bild verwischt werden soll.
 Als nächstes schreiben wir die Funktion, die das Bild unschärfer macht.
 Anschließend rufen wir die Funktion drei Mal mit jeweils größeren Parameter auf, um die Schärfe des Bildes zu reduzieren und so einen "Blur"-Effekt zu erreichen.
 
@@ -114,10 +119,12 @@ def bluren(img, video, ksize):
     blurred = cv2.blur(img, (ksize))
     video.write(blurred)
 
-kernelSizes = [(3, 3), (9, 9), (15, 15)]
+kernelSizes = [(3, 3), (6, 6), (9, 9)]
 for (kX, kY) in kernelSizes:
     bluren(img1, video, (kX, kY))
 ```
+
+![BlurEffekt](/assets/images/posts/python-bildverarbeitung/blur-effekt.gif)
 
 # Fazit
 
