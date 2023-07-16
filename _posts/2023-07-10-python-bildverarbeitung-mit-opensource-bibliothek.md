@@ -105,7 +105,7 @@ Das Bild, das daraus entsteht, wird zum Video hinzugefügt.
 Hier setzen wir mit `cv2.waitKey(200)` die Verzögerung beim Wechsel der Bilder auf 200 Millisekunden, um den Bilderübergang langsamer zu machen.
 Die Funktion rufen wir 3 Mal auf, um das Ergebnis der Umwandlung der Bilder besser zu sehen.
 
-![VerblassenEffekt](/assets/images/posts/python-bildverarbeitung/verblassen-effekt.gif)
+![VerblassenEffekt](/assets/images/posts/python-bildverarbeitung/verblassenEffekt.gif)
 
 # Video mit einem "Blur"-Effekt
 Um das Bild zu blurren, werden wir die Funktion `cv2.blur(src, ksize[, dst[, anchor[, borderType]]])` verwenden.
@@ -124,7 +124,7 @@ for (kX, kY) in kernelSizes:
     bluren(img1, video, (kX, kY))
 ```
 
-![BlurEffekt](/assets/images/posts/python-bildverarbeitung/blur-effekt.gif)
+![BlurEffekt](/assets/images/posts/python-bildverarbeitung/blurEffekt.gif)
 
 # Fazit
 
