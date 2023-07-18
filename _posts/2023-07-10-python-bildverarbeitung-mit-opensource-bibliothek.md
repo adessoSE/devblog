@@ -109,8 +109,8 @@ Die Funktion rufen wir 3 Mal auf, um das Ergebnis der Umwandlung der Bilder bess
 
 # Video mit einem "Blur"-Effekt
 Um das Bild zu blurren, werden wir die Funktion `cv2.blur(src, ksize[, dst[, anchor[, borderType]]])` verwenden.
-Die blur()-Funktion ermöglicht es, ein Bild zu verwischen oder zu glätten. Sie wird verwendet, um störende Details zu reduzieren oder Rauschen zu entfernen, indem die Pixelwerte im Bild verwischt werden.
-Die Funktion blur() akzeptiert zwei Parameter: das Eingangsbild (src) und die Größe des Kernel-Fensters (ksize), das angibt, wie stark das Bild verwischt werden soll.
+Die `blur()`-Funktion ermöglicht es, ein Bild zu verwischen oder zu glätten. Sie wird verwendet, um störende Details zu reduzieren oder Rauschen zu entfernen, indem die Pixelwerte im Bild verwischt werden.
+Die Funktion `blur()` akzeptiert zwei Parameter: das Eingangsbild `(src)` und die Größe des Kernel-Fensters `(ksize)`, das angibt, wie stark das Bild verwischt werden soll.
 Als nächstes schreiben wir die Funktion, die das Bild unschärfer macht.
 Anschließend rufen wir die Funktion drei Mal mit jeweils größeren Parameter auf, um die Schärfe des Bildes zu reduzieren und so einen "Blur"-Effekt zu erreichen.
 
