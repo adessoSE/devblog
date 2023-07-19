@@ -8,7 +8,7 @@ categories: [Softwareentwicklung]
 tags: [Testing, CleanCode]
 ---
 
-F.I.R.S.T. ist ein Akronym, welches verschiedene Prinzipien beim Schreiben von Tests umfasst.
+F.I.R.S.T. ist ein Akronym, welches verschiedene Prinzipien beim Schreiben von Unit-Tests umfasst.
 Die F.I.R.S.T. Prinzipien wurden von Robert C. Martin in Clean Code kurz vorgestellt und in diesem Blog möchte ich weiter in die Tiefe dieser Prinzipien eingehen.
 Gerade beim Einstieg in die Programmierung können diese Prinzipien als Leitfaden dienen.
 Diese Prinzipien haben das Ziel, dass Unit-Tests verständlich, wartbar und aussagekräftig sind.
