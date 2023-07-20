@@ -33,7 +33,7 @@ Dauert ein Unit-Test länger als eine Sekunde, sollte man diesen nochmal genauer
 Bei einem Integrations-Test wird weiterer Code außerhalb unserer zu testenden Methode oder Funktion ausgeführt.
 Dies kann sehr schnell passieren, indem bspw. Abhängigkeiten nicht "gemockt" wurden.
 Mocks sind Stellvertreter-Objekte/-Funktionen, welche nur in Unit-Tests existieren und so tun, als wären diese ein konkretes Objekt von einer Klasse oder einer Funktion.
-Im schlimmsten Fall werden ohne Mocks Live-Services aufgerufen und ehe man sich versieht, hat man erfolgreich seinen ersten kleinen DOS-Angriff durchgeführt.
+Im schlimmsten Fall werden ohne Mocks Live-Services aufgerufen und ehe man sich versieht, hat man erfolgreich seinen ersten kleinen DOS-Angriff durchgeführt oder Testdaten in eine Produktivdatenbank geschrieben.
 Es sollte somit klar sein, was für Auswirkungen Tests haben können, wenn diese nicht nur den zu testenden Code ausführen.
 
 # I - Isolated / Independent ✊
@@ -177,14 +177,12 @@ Aus dieser Aufgabe ergeben sich nun diverse Testfälle:
 **Grenzwert-Testfälle**
 - **Given** is number 1. **When** fizzbuzz function executes, **Then** the answer should be "1".
 - **Given** is number 30. **When** fizzbuzz function executes, **Then** the answer should be "fizzbuzz".
-- **Given** is number -1. **When** fizzbuzz function executes, **Then** an error should be thrown.
+- **Given** is number 0. **When** fizzbuzz function executes, **Then** an error should be thrown.
 - **Given** is number 31. **When** fizzbuzz function executes, **Then** an error should be thrown.
 
 **Testfälle für Äquivalenzklassenabdeckung**
 - **Given** is number 6. **When** fizzbuzz function executes, **Then** the answer should be "fizz".
 - **Given** is number 10. **When** fizzbuzz function executes, **Then** the answer should be "buzz".
-- **Given** is number -5. **When** fizzbuzz function executes, **Then** an error should be thrown.
-- **Given** is number 100. **When** fizzbuzz function executes, **Then** an error should be thrown.
 
 Man sieht in diesem Beispiel sehr gut, wie viele Testfälle sich für solch eine einfache Aufgabe schreiben lassen, damit dieses Prinzip erfüllt ist.
 Wir haben hier Erfolgsfall-, Fehlerfall- und Grenzwerttestfälle geschrieben und zusätzlich noch weitere, um alle Äquivalenzklassen abzudecken.
