@@ -1,7 +1,7 @@
 ---
 layout: [post, post-xml]              # Pflichtfeld. Nicht ändern!
 title:  "Einfache Bildverarbeitung mit Python und der OpenCV-Bibliothek"         # Pflichtfeld. Bitte einen Titel für den Blog Post angeben.
-date:   2023-07-13 18:05              # Pflichtfeld. Format "YYYY-MM-DD HH:MM". Muss für Veröffentlichung in der Vergangenheit liegen. (Für Preview egal)
+date:   2023-08-16 10:00              # Pflichtfeld. Format "YYYY-MM-DD HH:MM". Muss für Veröffentlichung in der Vergangenheit liegen. (Für Preview egal)
 author_ids: [alexej_sevas]       # Pflichtfeld. Es muss in der "authors.yml" einen Eintrag mit diesen Namen geben.
 categories: [Softwareentwicklung]     # Pflichtfeld. Maximal eine der angegebenen Kategorien verwenden.
 tags: [Python, OpenCV]   # Bitte auf Großschreibung achten.
