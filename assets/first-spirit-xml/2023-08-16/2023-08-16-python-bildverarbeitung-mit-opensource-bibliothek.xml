@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<documents>
+    <document uid="f87080fc66636437e2524149145b303a">
+        <field name="title"><![CDATA[Einfache Bildverarbeitung mit Python und der OpenCV-Bibliothek]]></field>
+        <field name="subline"><![CDATA[]]></field>
+        <field name="teaser"><![CDATA[<p>Python ist eine populäre Programmiersprache, die vor allem in Bereich Machine Learning zum Einsatz kommt.
+Ein großer Vorteil von Python ist, dass es eine umfangreiche Sammlung von Open-Source-Bibliotheken wie NumPy, TensorFlow, OpenCV gibt.
+Dieser Artikel gibt Einblick auf einige Möglichkeiten der Bibliothek OpenCV.</p>
+
+]]></field>
+        <field name="language_multi_keyword"><![CDATA[de]]></field>
+        <field name="content_type_multi_keyword"><![CDATA[blog]]></field>
+        <field name="mime_type_multi_keyword"><![CDATA[text/html]]></field>
+        <field name="category_multi_keyword"><![CDATA[Softwareentwicklung]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Python]]></field>
+        <field name="tag_multi_keyword"><![CDATA[OpenCV]]></field>
+        <field name="date_date"><![CDATA[2023-08-16T10:00:00+02:00]]></field>
+        <field name="date_l"><![CDATA[1692172800000]]></field>
+        <field name="change_date"><![CDATA[1692172800000]]></field>
+
+        <!--Author Information-->
+        
+        <field name="author_id"><![CDATA[alexej_sevas]]></field><!--Postcontent-->
+        <field name="headlines"><![CDATA[Einfache Bildverarbeitung mit Python und der OpenCV-Bibliothek]]></field>
+        <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
+            <p>Python ist eine populäre Programmiersprache, die vor allem in Bereich Machine Learning zum Einsatz kommt.
+Ein großer Vorteil von Python ist, dass es eine umfangreiche Sammlung von Open-Source-Bibliotheken wie NumPy, TensorFlow, OpenCV gibt.
+Dieser Artikel gibt Einblick auf einige Möglichkeiten der Bibliothek OpenCV.</p>
+
+</div>]]></field>
+        <field name="content"><![CDATA[<div class="adesso-text-formate">
+<div class="row p-t-2">
+<div class="adesso-container">
+<div class="col-xl-8 adesso-center p-b-1 p-l-0 p-r-0">
+    <p>Python ist eine populäre Programmiersprache, die vor allem in Bereich Machine Learning zum Einsatz kommt.
+Ein großer Vorteil von Python ist, dass es eine umfangreiche Sammlung von Open-Source-Bibliotheken wie NumPy, TensorFlow, OpenCV gibt.
+Dieser Artikel gibt Einblick auf einige Möglichkeiten der Bibliothek OpenCV.</p>
+
+<h4 id="opencv-bibliothek">OpenCV-Bibliothek</h4>
+<p>Ursprünglich von Intel entwickelt, ist OpenCV heute eine der am weitesten verbreiteten Bibliotheken in Bereich Computer Vision.
+OpenCV bietet eine breite Palette von Funktionen und Algorithmen zur Verarbeitung und Analyse von Bildern und Videos.
+Es enthält Module für grundlegende Operationen wie das Lesen und Schreiben von Bildern, das Ändern der Bildgröße,
+das Zeichnen von Formen und das Anwenden von Filtern.
+Darüber hinaus bietet OpenCV fortgeschrittenere Funktionen wie das Erkennen von Gesichtern, das Verfolgen von Objekten, 
+das Extrahieren von Merkmalen, das Messen von Abständen und das Durchführen von Kamera-Kalibrierung.
+OpenCV ist in C++ geschrieben, bietet aber auch Schnittstellen für viele andere Programmiersprachen wie Python und Java.
+Dadurch ist es einfach, OpenCV in verschiedene Projekte und Anwendungen zu integrieren.</p>
+
+<h4 id="python-projekt-mit-opencv-aufsetzen">Python-Projekt mit OpenCV aufsetzen</h4>
+<p>Wir wollen eine einfache Slideshow aus mehreren Bildern mithilfe der OpenCV-Bibliothek erstellen.
+Diese Slideshow soll aus zwei Bildern eine Videodatei erstellen, die ähnliche Effekte verwendet wie es bei Powerpoint der Fall ist.</p>
+
+<p>Um die OpenCV-Bibliothek verwenden zu können, müssen wir diese erstmal installieren.
+Das geht zum Beispiel mit dem Paketverwaltungsprogramm für Python Pip und dem Befehl:</p>
+
+<pre><code class="language-powershell">pip install opencv-python
+</code></pre>
+
+<p>Mit dem Schritt installieren wie die aktuellste Version von OpenCV, zum 10.07.2023 ist das die Version 4.8.0.74.</p>
+
+<h4 id="wie-ein-video-aus-dem-bild-erstellt-wird">Wie ein Video aus dem Bild erstellt wird</h4>
+<p>Wir werden erstmal damit anfangen, dass wir ein Bild mit OpenCV einlesen und es danach anzeigen.
+Das Bild muss in diesem Fall innerhalb des Projektverzeichnisses in dem Ordner “images” liegen und “image1.jpg” heißen.
+Jetzt erstellen wir ein Python Script File und nennen es zum Beispiel “Slideshow.py”.</p>
+
+<pre><code class="language-python">    import cv2
+
+    img1 = cv2.imread("images/image1.jpg", cv2.IMREAD_COLOR)
+    height, width, layers = img1.shape
+    video_name = 'Slideshow.mp4'
+    fourcc = cv2.VideoWriter_fourcc(*'mp4v')
+    video = cv2.VideoWriter(video_name, fourcc, 1, (width, height))
+    video.write(img1)
+    cv2.waitKey(0)
+    cv2.destroyAllWindows()
+</code></pre>
+
+<p>Hier verwenden wir die Funktion <code>cv2.imread()</code>, um das Bild einzulesen, und die Funktion <code>cv2.VideoWriter()</code> mit dem folgenden
+Parameter <code>(const String &amp;filename, int fourcc, double fps, Size frameSize, bool isColor=true)</code>,
+um eine Videodatei mit dem Namen “Slideshow.mp4” aus diesem Bild zu erstellen. Als Videocodec
+wird in diesem Beispiel “mp4” genommen, die fps (Frames per Second) setzen wir auf 1, frameSize setzen wird auf die Breite und 
+Länge von dem Bild “image1”.
+Die Liste der möglichen Videocodecs findet man unter <a href="https://learn.microsoft.com/en-us/windows/win32/medfound/video-fourccs">https://learn.microsoft.com/en-us/windows/win32/medfound/video-fourccs</a>.
+Eine weitere Funktion von OpenCV, die wir verwenden, ist <code>video.write()</code>, die ein Bild zu dem Video hinzufügt.</p>
+
+<h4 id="video-mit-einem-verblassen-effekt">Video mit einem “Verblassen”-Effekt</h4>
+<p>In der OpenCV-Bibliothek gibt es viele Möglichkeiten, ein Bild zu verändern.
+Zum Beispiel es ist möglich, ein Bild auszublenden und ein anderes Bild anzuzeigen.
+Dieser Effekt heißt in Powerpoint “Verblassen”.
+Dafür eignet sich die Funktion <code>addWeighted(src1, alpha, src2, beta, gamma[, dst[, dtype]])</code> von OpenCV.
+<code>src1</code> ist das erste Bild, <code>src2</code> ist das zweite Bild.
+<code>alpha</code> ist der Transparenzwert für das erste Bild,
+<code>beta</code> ist der Transparenzwert für das zweite Bild.
+<code>gamma</code> ist eine Konstante, die zu dem Transparenzindex beider Bilder hinzugefügt werden kann, wir setzen sie auf 0.
+Je kleiner <code>alpha</code> bzw. <code>beta</code> ist, desto durchsichtiger ist das entsprechende Bild, wobei die möglichen Werte von 0 bis 1 liegen.
+Als nächstes schreiben wir eine Methode, die das erste Bild schrittweise ausblendet und dafür das zweite Bild einblendet.
+Sehr wichtig ist, dass die beiden Bilder die gleiche Größe haben, sonst kommt eine Fehlermeldung beim Ausführen des Programms.
+Unser Programm sieht jetzt so aus:</p>
+
+<pre><code class="language-python">import cv2
+
+img1 = cv2.imread("images/image1.jpg", cv2.IMREAD_COLOR)
+img2 = cv2.imread("images/image2.jpg", cv2.IMREAD_COLOR)
+
+video_name = 'slideshow.mp4'
+fourcc = cv2.VideoWriter_fourcc(*'mp4v')
+height, width, layers = img1.shape
+video = cv2.VideoWriter(video_name, fourcc, 1, (width, height))
+
+def verblassen(img1, img2, index):
+    dest = cv2.addWeighted(img2, 1 - index, img1, index , 0.0)
+    return dest
+
+steps = [0, 0.5, 1]
+for step in steps:
+    img_changed = verblassen(img1, img2, step)
+    video.write(img_changed)
+    cv2.waitKey(200)
+
+cv2.destroyAllWindows()
+</code></pre>
+
+<p>Wir haben die Funktion <code>verblassen()</code> geschrieben, die je größer der <code>index</code>-Parameter ist, das erste Bild verblassen lässt und
+das zweite dafür sichtbarer macht. 
+Das Bild, das daraus entsteht, wird zum Video hinzugefügt.
+Hier setzen wir mit <code>cv2.waitKey(200)</code> die Verzögerung beim Wechsel der Bilder auf 200 Millisekunden, um den Bilderübergang langsamer zu machen.
+Die Funktion rufen wir 3 Mal auf, um das Ergebnis der Umwandlung der Bilder besser zu sehen.</p>
+
+<p><img src="/assets/images/posts/python-bildverarbeitung/verblassenEffekt.gif" alt="VerblassenEffekt" /></p>
+
+<h4 id="video-mit-einem-blur-effekt">Video mit einem “Blur”-Effekt</h4>
+<p>Um das Bild zu blurren, werden wir die Funktion <code>cv2.blur(src, ksize[, dst[, anchor[, borderType]]])</code> verwenden.
+Die <code>blur()</code>-Funktion ermöglicht es, ein Bild zu verwischen oder zu glätten. Sie wird verwendet, um störende Details zu reduzieren oder Rauschen zu entfernen, indem die Pixelwerte im Bild verwischt werden.
+Die Funktion <code>blur()</code> akzeptiert zwei Parameter: das Eingangsbild <code>(src)</code> und die Größe des Kernel-Fensters <code>(ksize)</code>, das angibt, wie stark das Bild verwischt werden soll.
+Als nächstes schreiben wir die Funktion, die das Bild unschärfer macht.
+Anschließend rufen wir die Funktion drei Mal mit jeweils größeren Parameter auf, um die Schärfe des Bildes zu reduzieren und so einen “Blur”-Effekt zu erreichen.</p>
+
+<pre><code class="language-python">def bluren(img, video, ksize):
+    blurred = cv2.blur(img, (ksize))
+    video.write(blurred)
+
+kernelSizes = [(3, 3), (6, 6), (9, 9)]
+for (kX, kY) in kernelSizes:
+    bluren(img1, video, (kX, kY))
+</code></pre>
+
+<p><img src="/assets/images/posts/python-bildverarbeitung/blurEffekt.gif" alt="BlurEffekt" /></p>
+
+<h4 id="fazit">Fazit</h4>
+
+<p>Wir haben gesehen, wie einfach es mit Python und der OpenCV-Bibliothek ist, aus mehreren Bildern ein Video zu erstellen.
+Ebenfalls haben wir zwei Videoeffekte mit nur ein paar Zeilen Code implementiert.
+Die OpenCV-Bibliothek bietet neben den gezeigten Funktionen noch sehr viele weitere Möglichkeiten für die Bild- und Videobearbeitung.</p>
+
+</div>
+</div>
+</div>
+</div>]]></field>
+    </document>
+</documents>
