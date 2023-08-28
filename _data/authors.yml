@@ -484,3 +484,9 @@ alexej_sevas:
   last_name: Kats
   bio: "Alexej ist seit 2022 als Senior Software Engineer bei adesso in Stuttgart tätig. Dort unterstützt er den Bereich Public als Entwickler im Java-Umfeld."
   avatar_url: /assets/images/avatars/alexej_sevas.jpg
+
+jhoppe:
+  first_name: Jan
+  last_name: Hoppe
+  bio: "Jan Hoppe ist Software Engineer bei adesso in Hannover. Er beschäftigt sich mit der Unity Engine und entwickelt Anwendungen in C#."
+  avatar_url: /assets/images/avatars/jhoppe.jpg
