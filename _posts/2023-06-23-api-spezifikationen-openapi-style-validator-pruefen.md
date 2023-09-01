@@ -51,7 +51,7 @@ Listing 1: Info Object
 Aber die meisten Regelverstöße sind auf Ebene der Path bzw. Operation Objects. 
 Diese Objekte hängen unter dem Paths Object. 
 Das Paths-Objekt beinhaltet alle Pfade zu den existieren Endpunkten (Path Items). Ein einzelner Path (z.B. /pets GET)
-enthält dann die Operationen, also den erlaubten Methoden.
+enthält dann die Operationen, also die erlaubten Methoden.
 
 
 ```json
