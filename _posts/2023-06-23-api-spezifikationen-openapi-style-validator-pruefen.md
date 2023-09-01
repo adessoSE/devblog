@@ -85,7 +85,7 @@ Das Tool kann hier erkennen, ob bestimmte Properties existieren und gefüllt sin
 Im Listing 2 fehlt z.B. das Property "summary". 
 Dafür ist eine "description" vorhanden.
 
-Nächster interessanter Abschnitt in Reviews sind im Allgemeinen die Datentypen.
+Der nächste interessante Abschnitt in Reviews sind im Allgemeinen die Datentypen.
 Datentypen sind in der OpenAPI-Spezifikation als Schema-Objekte definiert, die dann in Requests oder Responses referenziert werden
 (z.B. $ref": "#/components/schemas/NewPet).
 So prüft der Validator bei Schema Objekten, ob alle Schema-Properties vorhanden und nicht leer sind.
