@@ -117,7 +117,7 @@ Listing 3: Das Schema Object NewPet
 # Namenskonventionen
 Schauen wir uns nun die Konventionen an. 
 Namenskonventionen sind meines Erachtens bei API-Richtlinien ebenfalls ein wichtiger Bestandteil. 
-Denn mit solchen Richtlinien soll die Zusammenarbeit, Stabilität und Erweiterungen von APIs gewährleistet werden.
+Denn mit solchen Richtlinien soll die Zusammenarbeit, Stabilität und Erweiterbarkeit von APIs gewährleistet werden.
 
 OpenAPI Style Validator unterstützt eine Reihe von verschiedenen Namenskonventionen, die wir für Pfade, Parameter, Header oder Properties verwenden können. 
 Ich rede hier z.B. von underscore_Case, camelCase oder Kebab-Case.
