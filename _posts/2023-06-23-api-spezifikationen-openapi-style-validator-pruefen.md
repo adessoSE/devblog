@@ -82,7 +82,7 @@ enthält dann die Operationen, also die erlaubten Methoden.
 Listing 2: Das Operation Object GET
 
 Das Tool kann hier erkennen, ob bestimmte Properties existieren und gefüllt sind. 
-Im Listing 2 fehlz z.B. das Property „summary“. 
+Im Listing 2 fehlt z.B. das Property "summary". 
 Dafür ist eine "description" vorhanden.
 
 Nächster interessanter Abschnitt in Reviews sind im Allgemeinen die Datentypen.
