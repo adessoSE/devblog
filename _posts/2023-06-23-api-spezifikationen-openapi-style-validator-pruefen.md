@@ -24,7 +24,7 @@ Für die nähere Erläuterung der Vorteile, die der OpenAPI Validator mitbringt,
 
 Eine OpenAPI-Beschreibung beginnt ja bekanntlich mit dem Info-Objekt und den dazugehörigen Contact- und License-Objekten (siehe Listing 1). 
 An dieser Stelle finden wir oft schon die ersten Regelverstöße. 
-Beim Info-Object wird der Titel und die Beschreibung vernachlässigt, Kontakt- oder Lizenzinformationen fehlen meistens komplett.
+Beim Info-Objekt wird der Titel und die Beschreibung vernachlässigt, Kontakt- oder Lizenzinformationen fehlen meistens komplett.
 
 ```json
 {
@@ -46,10 +46,10 @@ Beim Info-Object wird der Titel und die Beschreibung vernachlässigt, Kontakt- o
 …
 }
 ```
-Listing 1: Info Object
+Listing 1: Info-Objekt
 
-Aber die meisten Regelverstöße sind auf Ebene der Path bzw. Operation Objects. 
-Diese Objekte hängen unter dem Paths Object. 
+Aber die meisten Regelverstöße sind auf Ebene der Path bzw. Operation-Objekte. 
+Diese Objekte hängen unter dem Paths-Objekt. 
 Das Paths-Objekt beinhaltet alle Pfade zu den existieren Endpunkten (Path Items). Ein einzelner Path (z.B. /pets GET)
 enthält dann die Operationen, also die erlaubten Methoden.
 
@@ -79,7 +79,7 @@ enthält dann die Operationen, also die erlaubten Methoden.
 …
 }
 ```
-Listing 2: Das Operation Object GET
+Listing 2: Das Operation-Objekt GET
 
 Das Tool kann hier erkennen, ob bestimmte Properties existieren und gefüllt sind. 
 Im Listing 2 fehlt z.B. das Property "summary". 
@@ -112,7 +112,7 @@ Wenn wir uns aus dem Petstore-Beispiel NewPet im Listing 3 anschauen, dann fäll
 …
 }
 ```
-Listing 3: Das Schema Object NewPet
+Listing 3: Das Schema-Objekt NewPet
 
 # Namenskonventionen
 Schauen wir uns nun die Konventionen an. 
