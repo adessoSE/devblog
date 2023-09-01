@@ -158,7 +158,7 @@ Für Maven kann ein Plug-in konfiguriert werden:
 </plugin>
 …
 ```
-Listing 4: Konfiguration des Maven Plugins in der pom.xml
+Listing 4: Konfiguration des Maven Plug-ins in der pom.xml
 
 Jede Option kann als Parameter unter <configuration> als XML-Tag hinzugefügt werden. Stellen wir uns folgenden hypothetischen Fall vor. Wir haben eine kleine OpenAPI-Beschreibungen und möchten hier auf den Operation Tag verzichten. Dann können wir, wie in Listing 4 gezeigt, die Validierung mit der Option "validateOperationTag" und  "false" als Content ausschalten. Schließlich kann der Validator mit folgendem Befehl ausgeführt werden:
 
@@ -200,4 +200,4 @@ Das Werkzeug ist eine Hilfe bei der Umsetzung von API-Richtlinien. Mit definiert
 
 [2] Petstore-Beispiel https://github.com/OAI/OpenAPI-Specification/blob/main/examples/v3.0/petstore-expanded.json
 
-[3] OpenAPI Style Validator Maven Plugin https://central.sonatype.com/artifact/org.openapitools.openapistylevalidator/openapi-style-validator-maven-plugin/1.8
+[3] OpenAPI Style Validator Maven Plug-in https://central.sonatype.com/artifact/org.openapitools.openapistylevalidator/openapi-style-validator-maven-plugin/1.8
