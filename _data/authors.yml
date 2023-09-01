@@ -490,3 +490,9 @@ claudioaltamura:
   last_name: Altamura
   bio: "Claudio Altamura ist Softwareentwickler und Softwarearchitekt. Er unterstützt Kunden beim Design und bei der Umsetzung von Applikationen in der Cloud."
   avatar_url: /assets/images/avatars/claudioaltamura.jpg
+
+jhoppe:
+  first_name: Jan
+  last_name: Hoppe
+  bio: "Jan Hoppe ist Software Engineer bei adesso in Hannover. Er beschäftigt sich mit der Unity Engine und entwickelt Anwendungen in C#."
+  avatar_url: /assets/images/avatars/jhoppe.jpg
