@@ -160,7 +160,7 @@ Für Maven kann ein Plug-in konfiguriert werden:
 ```
 Listing 4: Konfiguration des Maven Plugins in der pom.xml
 
-Jede Option kann als Parameter unter <configuration> als XML-Tag hinzugefügt werden. Stellen wir uns folgenden hypothetischen Fall vor. Wir haben eine kleine OpenAPI-Beschreibungen und möchte hier auf den Operation Tag verzichten. Dann können wir, wie in Listing 4 gezeigt, die Validierung mit der Option "validateOperationTag" und  "false" als Content ausschalten. Schließlich kann der Validator mit folgendem Befehl ausgeführt werden:
+Jede Option kann als Parameter unter <configuration> als XML-Tag hinzugefügt werden. Stellen wir uns folgenden hypothetischen Fall vor. Wir haben eine kleine OpenAPI-Beschreibungen und möchten hier auf den Operation Tag verzichten. Dann können wir, wie in Listing 4 gezeigt, die Validierung mit der Option "validateOperationTag" und  "false" als Content ausschalten. Schließlich kann der Validator mit folgendem Befehl ausgeführt werden:
 
 ```
 mvn openapi-style-validator:validate
