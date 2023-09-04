@@ -52,7 +52,7 @@ Weiterhin sollte die eingesetzte KI keine vollkommene Blackbox sein, sondern ihr
 Daher sollte eine KI Entscheidungen und Einschätzungen nur vorbereiten, die finale Bewertung und Handlung sollte uns Menschen vorbehalten bleiben.
 
 ## KI ist bereits bei einigen Versicherern im Einsatz
-Seit Ende 2021 setzt die Allianz Deutschland verstärkt Künstliche Intelligenz ein, um kleinere selbst verschuldete KFZ-Unfallschäden zu bewältigen.
+Seit Ende 2021 setzt die Allianz Deutschland verstärkt Künstliche Intelligenz ein, um kleinere selbst verschuldete KFZ-Unfallschäden zu regulieren.
 Die KI wird zur Bearbeitung von Kaskoschäden eingesetzt und hat sich in den ersten Testwochen schon bewährt.
 Von Oktober bis ca. zum Ende 2021 hat die Allianz ca. 30.000 Schadensfälle automatisiert prüfen lassen.
 Vollkaskoschäden mit geringer Komplexität können bereits vollständig innerhalb eines Tages automatisiert geregelt werden.
