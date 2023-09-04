@@ -4,8 +4,8 @@ title:  "Künstliche Intelligenz in der Schadenregulierung: Prozessoptimierung u
 date:   2023-09-04 10:29
 modified_date: 2023-09-04 10:29
 author_ids: [JuergenWarias]
-categories: [Versicherung, Insurance]
-tags: [Künstliche Intelligenz, Schadenregulierung]
+[categories: [KI]
+tags: [Künstliche Intelligenz, Versicherung, Insurance, Schadenregulierung]
 ---
 
 Die Versicherungsbranche hat sich im digitalen Zeitalter schnell weiterentwickelt und zeitgemäße Technologie wird bei der Bewältigung komplexer Probleme immer wichtiger.
@@ -18,24 +18,24 @@ Die Künstliche Intelligenz ist eine Technologie, die sich mit der Automatisieru
 Darunter fällt nicht nur die Ergänzung des menschlichen Sehevermögens, sondern auch Fähigkeiten wie Hören, Analysieren, Entscheiden und Handeln.
 Die herausragendste Fähigkeit von KI und essentiell wichtigste Eigenschaft von KIs ist die Lernfähigkeit durch Machine Learning (ML).
 
-## Die Herausforderungen der traditionellen Schadenregulierung
+# Die Herausforderungen der traditionellen Schadenregulierung
 In der Versicherungsbranche ist die herkömmliche Schadenregulierung ein zeitaufwändiger Prozess, der menschliches Fachwissen erfordert.
 Experten, Berater und Aufsichtsbehörden müssen sich häufig durch umfangreiche Informationen und Dokumentationen kämpfen, um einen Schaden genau einzuschätzen.
 Dies kann zu Verzögerungen und unvorhergesehenen Umständen führen, die sowohl für den Versicherer als auch für den Gutachter frustrierend sein können.
 
-## Wie KI die Schadenregulierung verbessert
+# Wie KI die Schadenregulierung verbessert
 # 1. Automatisierung und Effizienzsteigerung
 Mithilfe von KI-Technologien wie maschinellem Lernen und Bilderkennung können Versicherer den Schadenregulierungsprozess automatisieren und beschleunigen.
 Große Datensätze können durch KI-gesteuerte Algorithmen schnell analysiert und relevante Informationen extrahiert werden.
 So können beispielsweise neben der Analyse von Dokumente auch Schadenbilder automatisch ausgewertet und entsprechende Kostenvoranschläge erstellt werden.
 Dies führt zu einer deutlichen Effizienzsteigerung, da Routineaufgaben nun durch KI abgewickelt werden können.
 Den Schadenregulierungsbeamten bleibt somit mehr Zeit für die Bearbeitung komplexer Fälle und den direkten Kundenkontakt.
-# 2. Präzisere Schadensbewertung
+### 2. Präzisere Schadensbewertung
 Um aus historischen Schadendaten zu lernen und genauere Einschätzungen treffen zu können, werden KI-Modelle kontinuierlich trainiert und verbessert.
 Durch die Kombination von maschinellem Lernen und fortschrittlichen Analysetechniken kann die KI Muster in den Daten erkennen und präzise Schätzungen für Schadenersatzansprüche liefern.
 Mittels Deep Learning und KI sind Computer in der Lage, Bildinhalte auch dann auszuwerten, wenn diese nicht unter optimalen Bedingungen erfasst wurden.
 Dies verbessert die Genauigkeit und Transparenz des Schadenregulierungsprozesses, was das Vertrauen der Kunden in ihre Versicherungsgesellschaft stärkt.
-# 3. Die Vorteile für Versicherungsunternehmen und Kunden
+### 3. Die Vorteile für Versicherungsunternehmen und Kunden
 a) Schnellere Abwicklung von Schadenansprüchen:
 Der Einsatz von KI ermöglicht es Versicherungsunternehmen, Schadenfälle schneller abzuwickeln und zu regulieren.
 Die deutlich beschleunigte Bearbeitung von Reklamationen führt zu einer kürzeren Wartezeit für Kunden, was ihre Zufriedenheit erhöht.
