@@ -48,15 +48,15 @@ Beim Einsaz von KI in der Schadenregulierung ist es wichtig, dass ein Mensch sic
 So viele Vorteile, wie ihr Einsatz versprechen und auch bringen mag, kann es durch einen Bias in den Daten auch zu fehlerhaften Ergebnissen kommen.
 Ein einfaches Beispiel ist die Risikoeinschätzung in der Kfz-Versicherung.
 Wenn mehrheitlich Daten von männlichen Fahrern existieren, kann es zu einer für Frauen ungünstigeren Risikobewertung kommen, obwohl Fahrerinnen allgemein und erwiesenermaßen ein deutlich geringeres Unfallrisiko besitzen.
-Weiterhin sollte die eingesetzte KI keine vollkommene Blackbox, sondern ihre Entscheidungen stets transparent, nachvollziehbar, erklärbar und überprüfbar sein.
+Weiterhin sollte die eingesetzte KI keine vollkommene Blackbox sein, sondern ihre Entscheidungen stets transparent, nachvollziehbar, erklärbar und überprüfbar.
 Daher sollte eine KI Entscheidungen und Einschätzungen nur vorbereiten, die finale Bewertung und Handlung sollte uns Menschen vorbehalten bleiben.
 
 ## Fazit
 Ohne Zweifel hat künstliche Intelligenz das Potenzial, die Art und Weise, wie die Versicherungsbranche Schäden reguliert, grundlegend zu verändern.
 Automatisierung und Effizienzsteigerung ermöglichen es Versicherern, schneller auf Schadenfälle zu reagieren und einen besseren Kundenservice zu bieten.
 Darüber hinaus ermöglicht die Genauigkeit KI-gesteuerter Auswertungen eine faire und offene Schadenregulierung.
-KI kann Menschen nicht ersetzen, jedoch stark unterstützen.
 Gerade in der Schadenregulierung kann KI eine große Bereicherung für Versicherungsunternehmen und ihre Kunden sein, allerdings auch bei Produktvorschlägen, der Ermittlung von Kaufwahrscheinlichkeiten und der Analyse von Kundenzufriedenheit.
+KI kann Menschen nicht ersetzen, jedoch stark unterstützen.
 Beim Einsatz von KI ist dennoch stets Vorsicht geboten, da sie keine 100%-ige Verlässlichkeit bietet.
 Daher sollten die gelieferten Ergebnisse nur zur Vorbereitung dienen und von Menschen final bewertet werden.
 
