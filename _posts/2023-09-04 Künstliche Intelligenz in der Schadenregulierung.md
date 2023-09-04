@@ -4,7 +4,7 @@ title:  "Künstliche Intelligenz in der Schadenregulierung: Prozessoptimierung u
 date:   2023-09-04 10:29
 modified_date: 2023-09-04 10:29
 author_ids: [JuergenWarias]
-[categories: [KI]
+categories: [KI]
 tags: [Künstliche Intelligenz, Versicherung, Insurance, Schadenregulierung]
 ---
 
