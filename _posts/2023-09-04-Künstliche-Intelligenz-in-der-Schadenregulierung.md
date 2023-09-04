@@ -40,7 +40,7 @@ Dies verbessert die Genauigkeit und Transparenz des Schadensregulierungsprozesse
 Der Einsatz von KI ermöglicht es Versicherungsunternehmen, Schadensfälle schneller abzuwickeln und zu regulieren.
 Die deutlich beschleunigte Bearbeitung von Reklamationen führt zu einer kürzeren Wartezeit für Kunden, was ihre Zufriedenheit erhöht.
 ### b) Reduzierte Betrugsfälle:
-Die Fähigkeit von KI-Systemen, verdächtige Muster und Anomalien in Schadendaten zu erkennen, führt zu einer verbesserten Betrugsprävention.
+Die Fähigkeit von KI-Systemen, verdächtige Muster und Anomalien in Schadensdaten zu erkennen, führt zu einer verbesserten Betrugsprävention.
 Versicherungsunternehmen können mögliche betrügerische Schadensfälle früher erkennen und geeignete Maßnahmen ergreifen, um finanzielle Verluste zu reduzieren.
 
 ## Mögliche Probleme beim KI-Einsatz
