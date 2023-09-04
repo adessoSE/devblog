@@ -11,7 +11,7 @@ tags: [Künstliche Intelligenz, Versicherung, Insurance, Schadenregulierung]
 Die Versicherungsbranche hat sich im digitalen Zeitalter schnell weiterentwickelt und zeitgemäße Technologie wird bei der Bewältigung komplexer Probleme immer wichtiger.
 Ein Bereich, der zunehmend von den Vorteilen der Künstlichen Intelligenz (KI) oder Artificial Intelligence (AI) profitiert, ist die Schadenregulierung.
 Dieser Prozess wird revolutioniert durch KI-basierte Lösungen, die zu einer deutlichen Optimierung und Genauigkeitsverbesserung führen.
-Dieser Artikel soll kurz auf die Rolle von KI bei der Schadenregulierung eingehen und die Vorteile untersuchen, die sie Versicherungsunternehmen und ihren Kunden bietet.
+Dieser Artikel soll kurz auf die Rolle von KI bei der Schadenregulierung eingehen sowie die Vor- und Nachteile für Versicherungsunternehmen beleuchten.
 
 ## Was ist KI?
 Die Künstliche Intelligenz ist eine Technologie, die sich mit der Automatisierung intelligenten Verhaltens und maschinellem Lernen befasst.
@@ -61,6 +61,6 @@ Beim Einsatz von KI ist dennoch stets Vorsicht geboten, da sie keine 100%-ige Ve
 Daher sollten die gelieferten Ergebnisse nur zur Vorbereitung dienen und von Menschen final bewertet werden.
 
 ## Quellen: 
-[1] https://www.versicherungsbote.de/id/4899470/Einsatz-von-KI-im-Schadensmanagement-von-Versicherungen-/
-[2] https://www.versicherungsbote.de/id/4902968/Kunstliche-Intelligenz-So-heben-Versicherungen-ihr-Potenzial/
+[1] https://www.versicherungsbote.de/id/4899470/Einsatz-von-KI-im-Schadensmanagement-von-Versicherungen-/</br>
+[2] https://www.versicherungsbote.de/id/4902968/Kunstliche-Intelligenz-So-heben-Versicherungen-ihr-Potenzial/</br>
 [3] https://www.it-finanzmagazin.de/kuenstliche-intelligenz-in-der-bilderkennung-automatisierung-im-kfz-schadenprozess-51182/
