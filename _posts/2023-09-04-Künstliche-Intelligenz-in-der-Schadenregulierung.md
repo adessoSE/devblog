@@ -51,6 +51,16 @@ Wenn mehrheitlich Daten von männlichen Fahrern existieren, kann es zu einer fü
 Weiterhin sollte die eingesetzte KI keine vollkommene Blackbox sein, sondern ihre Entscheidungen sollten stets transparent, nachvollziehbar, erklärbar und überprüfbar sein.
 Daher sollte eine KI Entscheidungen und Einschätzungen nur vorbereiten, die finale Bewertung und Handlung sollte uns Menschen vorbehalten bleiben.
 
+## KI ist bereits bei einigen Versicherern im Einsatz
+Seit Ende 2021 setzt die Allianz Deutschland verstärkt Künstliche Intelligenz ein, um kleinere selbst verschuldete KFZ-Unfallschäden zu bewältigen.
+Die KI wird zur Bearbeitung von Kaskoschäden eingesetzt und hat sich in den ersten Testwochen schon bewährt.
+Von Oktober bis ca. zum Ende 2021 hat die Allianz ca. 30.000 Schadensfälle automatisiert prüfen lassen.
+Vollkaskoschäden mit geringer Komplexität können bereits vollständig innerhalb eines Tages automatisiert geregelt werden.
+Kunden können mit dem Smartphone fotografierte Bilder eines Schadens an die Versicherung senden und die KI berechnet die Reparaturkosten.
+Der Betrag kann auf Wunsch des Kunden für einfache Schäden sofort und ohne menschliches Eingreifen überwiesen werden.
+Komplexere Fälle werden an menschliche Sachbearbeiter weitergeleitet.
+Die Nürnberger Versicherung nutzt KI bisher nur zur Erkennung von Betrugsversuchen.
+
 ## Fazit
 Ohne Zweifel hat Künstliche Intelligenz das Potenzial, die Art und Weise, wie die Versicherungsbranche Schäden reguliert, grundlegend zu verändern.
 Automatisierung und Effizienzsteigerung ermöglichen es Versicherern, schneller auf Schadensfälle zu reagieren und einen besseren Kundenservice zu bieten.
@@ -63,4 +73,6 @@ Daher sollten die gelieferten Ergebnisse nur zur Vorbereitung dienen und von Men
 ## Quellen: 
 [1] https://www.versicherungsbote.de/id/4899470/Einsatz-von-KI-im-Schadensmanagement-von-Versicherungen-/</br>
 [2] https://www.versicherungsbote.de/id/4902968/Kunstliche-Intelligenz-So-heben-Versicherungen-ihr-Potenzial/</br>
-[3] https://www.it-finanzmagazin.de/kuenstliche-intelligenz-in-der-bilderkennung-automatisierung-im-kfz-schadenprozess-51182/
+[3] https://www.it-finanzmagazin.de/kuenstliche-intelligenz-in-der-bilderkennung-automatisierung-im-kfz-schadenprozess-51182/</brY
+[4] https://www.heise.de/news/Kfz-Versicherung-mit-KI-Allianz-regelt-Kaskoschaeden-zunehmend-automatisiert-6330172.html</br>
+[5] https://www.nordbayern.de/wirtschaft/ki-hilft-nurnberger-versicherung-bei-erkennung-von-betrugsversuchen-1.11153171
