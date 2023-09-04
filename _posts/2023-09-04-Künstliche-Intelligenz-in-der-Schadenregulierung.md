@@ -9,12 +9,12 @@ tags: [Künstliche Intelligenz, Versicherung, Insurance, Schadensregulierung]
 ---
 
 Die Versicherungsbranche hat sich im digitalen Zeitalter schnell weiterentwickelt und zeitgemäße Technologie wird bei der Bewältigung komplexer Probleme immer wichtiger.
-Ein Bereich, der zunehmend von den Vorteilen der Künstlichen Intelligenz (KI) oder Artificial Intelligence (AI) profitiert, ist die Schadensregulierung.
+Ein Bereich, der zunehmend von den Vorteilen der künstlichen Intelligenz (KI) oder Artificial Intelligence (AI) profitiert, ist die Schadensregulierung.
 Dieser Prozess wird revolutioniert durch KI-basierte Lösungen, die zu einer deutlichen Optimierung und Genauigkeitsverbesserung führen.
 Dieser Artikel soll kurz auf die Rolle von KI bei der Schadensregulierung eingehen sowie die Vor- und Nachteile für Versicherungsunternehmen beleuchten.
 
 # Was ist KI?
-Die Künstliche Intelligenz ist eine Technologie, die sich mit der Automatisierung intelligenten Verhaltens und maschinellem Lernen befasst.
+Die künstliche Intelligenz ist eine Technologie, die sich mit der Automatisierung intelligenten Verhaltens und maschinellem Lernen befasst.
 Darunter fällt nicht nur die Ergänzung des menschlichen Sehvermögens, sondern auch Fähigkeiten wie Hören, Analysieren, Entscheiden und Handeln.
 Die herausragendste Fähigkeit von KI und essentiell wichtigste Eigenschaft von KIs ist die Lernfähigkeit durch Machine Learning (ML).
 
@@ -52,7 +52,7 @@ Weiterhin sollte die eingesetzte KI keine vollkommene Blackbox sein, sondern ihr
 Daher sollte eine KI Entscheidungen und Einschätzungen nur vorbereiten, die finale Bewertung und Handlung sollte uns Menschen vorbehalten bleiben.
 
 ## KI ist bereits bei einigen Versicherern im Einsatz
-Seit Ende 2021 setzt die Allianz Deutschland verstärkt Künstliche Intelligenz ein, um kleinere selbst verschuldete KFZ-Unfallschäden zu regulieren.
+Seit Ende 2021 setzt die Allianz Deutschland verstärkt künstliche Intelligenz ein, um kleinere selbst verschuldete KFZ-Unfallschäden zu regulieren.
 Die KI wird zur Bearbeitung von Kaskoschäden eingesetzt und hat sich in den ersten Testwochen schon bewährt.
 Von Oktober bis ca. zum Ende 2021 hat die Allianz ca. 30.000 Schadensfälle automatisiert prüfen lassen.
 Vollkaskoschäden mit geringer Komplexität können bereits vollständig innerhalb eines Tages automatisiert geregelt werden.
@@ -62,7 +62,7 @@ Komplexere Fälle werden an menschliche Sachbearbeiter weitergeleitet.</br>
 Die Nürnberger Versicherung nutzt KI bisher nur zur Erkennung von Betrugsversuchen.
 
 ## Fazit
-Ohne Zweifel hat Künstliche Intelligenz das Potenzial, die Art und Weise, wie die Versicherungsbranche Schäden reguliert, grundlegend zu verändern.
+Ohne Zweifel hat künstliche Intelligenz das Potenzial, die Art und Weise, wie die Versicherungsbranche Schäden reguliert, grundlegend zu verändern.
 Automatisierung und Effizienzsteigerung ermöglichen es Versicherern, schneller auf Schadensfälle zu reagieren und einen besseren Kundenservice zu bieten.
 Darüber hinaus ermöglicht die Genauigkeit KI-gesteuerter Auswertungen eine faire und offene Schadensregulierung.
 Gerade in der Schadensregulierung kann KI eine große Bereicherung für Versicherungsunternehmen und ihre Kunden sein, allerdings auch bei Produktvorschlägen, der Ermittlung von Kaufwahrscheinlichkeiten und der Analyse von Kundenzufriedenheit.
