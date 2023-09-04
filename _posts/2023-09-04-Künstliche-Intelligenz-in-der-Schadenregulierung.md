@@ -58,7 +58,7 @@ Von Oktober bis ca. zum Ende 2021 hat die Allianz ca. 30.000 Schadensfälle auto
 Vollkaskoschäden mit geringer Komplexität können bereits vollständig innerhalb eines Tages automatisiert geregelt werden.
 Kunden können mit dem Smartphone fotografierte Bilder eines Schadens an die Versicherung senden und die KI berechnet die Reparaturkosten.
 Der Betrag kann auf Wunsch des Kunden für einfache Schäden sofort und ohne menschliches Eingreifen überwiesen werden.
-Komplexere Fälle werden an menschliche Sachbearbeiter weitergeleitet.
+Komplexere Fälle werden an menschliche Sachbearbeiter weitergeleitet.</br>
 Die Nürnberger Versicherung nutzt KI bisher nur zur Erkennung von Betrugsversuchen.
 
 ## Fazit
