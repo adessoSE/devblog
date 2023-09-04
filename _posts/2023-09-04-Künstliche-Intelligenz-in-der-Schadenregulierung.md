@@ -73,6 +73,6 @@ Daher sollten die gelieferten Ergebnisse nur zur Vorbereitung dienen und von Men
 ## Quellen: 
 [1] https://www.versicherungsbote.de/id/4899470/Einsatz-von-KI-im-Schadensmanagement-von-Versicherungen-/</br>
 [2] https://www.versicherungsbote.de/id/4902968/Kunstliche-Intelligenz-So-heben-Versicherungen-ihr-Potenzial/</br>
-[3] https://www.it-finanzmagazin.de/kuenstliche-intelligenz-in-der-bilderkennung-automatisierung-im-kfz-schadenprozess-51182/</brY
+[3] https://www.it-finanzmagazin.de/kuenstliche-intelligenz-in-der-bilderkennung-automatisierung-im-kfz-schadenprozess-51182/</br>
 [4] https://www.heise.de/news/Kfz-Versicherung-mit-KI-Allianz-regelt-Kaskoschaeden-zunehmend-automatisiert-6330172.html</br>
 [5] https://www.nordbayern.de/wirtschaft/ki-hilft-nurnberger-versicherung-bei-erkennung-von-betrugsversuchen-1.11153171
