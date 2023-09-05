@@ -1,7 +1,7 @@
 ---
 layout: [post, post-xml]
 title: "F.I.R.S.T.-Prinzipien für solides Unit-Testen"
-date: 2023-07-19 23:15
+date: 2023-09-05 15:00
 modified_date: 2023-07-19
 author_ids: [dkstern]
 categories: [Softwareentwicklung]
