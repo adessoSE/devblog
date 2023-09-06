@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<documents>
+    <document uid="54b331461e9912c6f2b4eababe13c169">
+        <field name="title"><![CDATA[API Spezifikationen mit OpenAPI Style Validator prüfen]]></field>
+        <field name="subline"><![CDATA[]]></field>
+        <field name="teaser"><![CDATA[<p>APIs und deren Spezifikationen sind dann verständlicher, wenn diese Beschreibungen, Beispiele und Namenskonventionen nutzen.
+Genau hier hilft der OpenAPI Style Validator.
+Das Tool kann als Bibliothek im Java-Code oder mithilfe eines Maven-Plug-ins in einer CI/CD-Pipeline genutzt werden.</p>
+
+]]></field>
+        <field name="language_multi_keyword"><![CDATA[de]]></field>
+        <field name="content_type_multi_keyword"><![CDATA[blog]]></field>
+        <field name="mime_type_multi_keyword"><![CDATA[text/html]]></field>
+        <field name="category_multi_keyword"><![CDATA[Softwareentwicklung]]></field>
+        <field name="tag_multi_keyword"><![CDATA[API]]></field>
+        <field name="tag_multi_keyword"><![CDATA[OPENAPI]]></field>
+        <field name="tag_multi_keyword"><![CDATA[JAVA]]></field>
+        <field name="date_date"><![CDATA[2023-09-06T16:00:00+02:00]]></field>
+        <field name="date_l"><![CDATA[1694008800000]]></field>
+        <field name="change_date"><![CDATA[1694008800000]]></field>
+
+        <!--Author Information-->
+        
+        <field name="author_id"><![CDATA[claudioaltamura]]></field><!--Postcontent-->
+        <field name="headlines"><![CDATA[API Spezifikationen mit OpenAPI Style Validator prüfen]]></field>
+        <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
+            <p>APIs und deren Spezifikationen sind dann verständlicher, wenn diese Beschreibungen, Beispiele und Namenskonventionen nutzen.
+Genau hier hilft der OpenAPI Style Validator.
+Das Tool kann als Bibliothek im Java-Code oder mithilfe eines Maven-Plug-ins in einer CI/CD-Pipeline genutzt werden.</p>
+
+</div>]]></field>
+        <field name="content"><![CDATA[<div class="adesso-text-formate">
+<div class="row p-t-2">
+<div class="adesso-container">
+<div class="col-xl-8 adesso-center p-b-1 p-l-0 p-r-0">
+    <p>APIs und deren Spezifikationen sind dann verständlicher, wenn diese Beschreibungen, Beispiele und Namenskonventionen nutzen.
+Genau hier hilft der OpenAPI Style Validator.
+Das Tool kann als Bibliothek im Java-Code oder mithilfe eines Maven-Plug-ins in einer CI/CD-Pipeline genutzt werden.</p>
+
+<h4 id="das-problem-mit-api-beschreibungen">Das Problem mit API-Beschreibungen</h4>
+<p>Häufig sind Spezifikationen nicht klar und präzise. So fehlen neben aussagekräftigen Beschreibungen eben auch Beispiele, die den Einsatz verdeutlichen. 
+Hier kann der OpenAPI Style Validator [1] helfen, genau solche Schwächen in OpenAPI-Spezifikationen zu finden. 
+Mit definierten Regeln wird beschrieben, wie Elemente einer API-Spezifikation auszusehen haben.
+So kann das Werkzeug automatisiert Spezifikationen prüfen. 
+Bei einer Nutzung in einer Build-Pipeline können sogar Regelverstöße zum Build Break führen.</p>
+
+<h4 id="vollständige-beschreibungen">Vollständige Beschreibungen</h4>
+<p>Für die nähere Erläuterung der Vorteile, die der OpenAPI Validator mitbringt, nehmen wir das beliebte Petstore-Beispiel [2].</p>
+
+<p>Eine OpenAPI-Beschreibung beginnt ja bekanntlich mit dem Info-Objekt und den dazugehörigen Contact- und License-Objekten (siehe Listing 1). 
+An dieser Stelle finden wir oft schon die ersten Regelverstöße. 
+Beim Info-Objekt wird der Titel und die Beschreibung vernachlässigt, Kontakt- oder Lizenzinformationen fehlen meistens komplett.</p>
+
+<pre><code class="language-json">{
+    "info": {
+        "version": "1.0.0",
+        "title": "Swagger Petstore",
+        "description": "A sample API that uses a petstore as an example to demonstrate features in the OpenAPI 3.0 specification",
+        "termsOfService": "http://swagger.io/terms/",
+        "contact": {
+            "name": "Swagger API Team",
+            "email": "apiteam@swagger.io",
+            "url": "http://swagger.io"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
+        }
+    }
+…
+}
+</code></pre>
+<p>Listing 1: Info-Objekt</p>
+
+<p>Aber die meisten Regelverstöße sind auf Ebene der Path bzw. Operation-Objekte. 
+Diese Objekte hängen unter dem Paths-Objekt. 
+Das Paths-Objekt beinhaltet alle Pfade zu den existieren Endpunkten (Path Items). Ein einzelner Path (z.B. /pets GET)
+enthält dann die Operationen, also die erlaubten Methoden.</p>
+
+<pre><code class="language-json">{
+…
+"/pets/{id}": {
+        "get": {
+            "description": "Returns a user based on a single ID, if the user does not have access to the pet",
+            "operationId": "find pet by id",
+            "parameters": [
+                {
+                    "name": "id",
+                    "in": "path",
+                    "description": "ID of pet to fetch",
+                    "required": true,
+                    "schema": {
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                }
+            ],
+     …
+        }
+    }
+…
+}
+</code></pre>
+<p>Listing 2: Das Operation-Objekt GET</p>
+
+<p>Das Tool kann hier erkennen, ob bestimmte Properties existieren und gefüllt sind. 
+Im Listing 2 fehlt z.B. das Property “summary”. 
+Dafür ist eine “description” vorhanden.</p>
+
+<p>Der nächste interessante Abschnitt in Reviews sind im Allgemeinen die Datentypen.
+Datentypen sind in der OpenAPI-Spezifikation als Schema-Objekte definiert, die dann in Requests oder Responses referenziert werden
+(z.B. $ref”: “#/components/schemas/NewPet).
+So prüft der Validator bei Schema Objekten, ob alle Schema-Properties vorhanden und nicht leer sind.</p>
+
+<p>Wenn wir uns aus dem Petstore-Beispiel NewPet im Listing 3 anschauen, dann fällt auf, dass keine Beschreibungen und Beispiele vorhanden sind. Descriptions und Examples sind meiner Meinung nach ein zentrales Element, um API-Dokumentationen verständlicher zu machen und APIs zu erlernen.</p>
+
+<pre><code class="language-json">{
+…
+"NewPet": {
+        "type": "object",
+        "required": [
+            "name"
+        ],
+        "properties": {
+            "name": {
+                "type": "string"
+            },
+            "tag": {
+                "type": "string"
+            }
+        }
+    },
+…
+}
+</code></pre>
+<p>Listing 3: Das Schema-Objekt NewPet</p>
+
+<h4 id="namenskonventionen">Namenskonventionen</h4>
+<p>Schauen wir uns nun die Konventionen an. 
+Namenskonventionen sind meines Erachtens bei API-Richtlinien ebenfalls ein wichtiger Bestandteil. 
+Denn mit solchen Richtlinien soll die Zusammenarbeit, Stabilität und Erweiterbarkeit von APIs gewährleistet werden.</p>
+
+<p>OpenAPI Style Validator unterstützt eine Reihe von verschiedenen Namenskonventionen, die wir für Pfade, Parameter, Header oder Properties verwenden können. 
+Ich rede hier z.B. von underscore_Case, camelCase oder Kebab-Case.
+Über Optionen wie</p>
+<ul>
+  <li>pathNamingConvention,</li>
+  <li>parameterNamingConvention,</li>
+  <li>pathParamNamingConvention,</li>
+  <li>queryParamNamingConvention,</li>
+</ul>
+
+<p>können wir bestimmen, wie beispielweise ein Path auszusehen hat. Unter [1] sind alle Optionen genannt.</p>
+
+<h4 id="aufruf">Aufruf</h4>
+<p>Für Maven kann ein Plug-in konfiguriert werden:</p>
+
+<pre><code class="language-xml">…
+&lt;plugin&gt;
+    &lt;groupId&gt;org.openapitools.openapistylevalidator&lt;/groupId&gt;
+    &lt;artifactId&gt;openapi-style-validator-maven-plugin&lt;/artifactId&gt;
+    &lt;version&gt;1.9&lt;/version&gt;
+    &lt;configuration&gt;
+        &lt;inputFile&gt;petstore-expanded.json&lt;/inputFile&gt;
+        &lt;validateOperationTag&gt;false&lt;/validateOperationTag&gt;
+    &lt;/configuration&gt;
+    &lt;dependencies&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.openapitools.empoa&lt;/groupId&gt;
+            &lt;artifactId&gt;empoa-swagger-core&lt;/artifactId&gt;
+            &lt;version&gt;2.1.0&lt;/version&gt;
+            &lt;exclusions&gt;
+                &lt;exclusion&gt;
+                    &lt;groupId&gt;io.swagger.core.v3&lt;/groupId&gt;
+                    &lt;artifactId&gt;swagger-models&lt;/artifactId&gt;
+                &lt;/exclusion&gt;
+            &lt;/exclusions&gt;
+        &lt;/dependency&gt;
+    &lt;/dependencies&gt;
+&lt;/plugin&gt;
+…
+</code></pre>
+<p>Listing 4: Konfiguration des Maven Plug-ins in der pom.xml</p>
+
+<p>Jede Option kann als Parameter unter <configuration> als XML-Tag hinzugefügt werden. Stellen wir uns folgenden hypothetischen Fall vor. Wir haben eine kleine OpenAPI-Beschreibungen und möchten hier auf den Operation Tag verzichten. Dann können wir, wie in Listing 4 gezeigt, die Validierung mit der Option "validateOperationTag" und  "false" als Content ausschalten. Schließlich kann der Validator mit folgendem Befehl ausgeführt werden:</configuration></p>
+
+<pre><code>mvn openapi-style-validator:validate
+</code></pre>
+
+<p>Mit dieer Konfiguration erhalten wir für das Petstore-Beispiel ein schön demonstratives Prüfergebnis, das aufgrund von Regelverstößen zum Build Break führt:</p>
+
+<pre><code>[INFO] --- openapi-style-validator:1.9:validate (default-cli) @ openapi-style-validator-example ---
+[INFO] Validating spec: petstore-expanded.json
+[ERROR] OpenAPI Specification does not meet the requirements. Issues:
+
+[ERROR]         *ERROR* in Operation GET /pets 'summary' -&gt; This field should be present and not empty
+[ERROR]         *ERROR* in Operation POST /pets 'summary' -&gt; This field should be present and not empty
+[ERROR]         *ERROR* in Operation GET /pets/{id} 'summary' -&gt; This field should be present and not empty
+[ERROR]         *ERROR* in Operation DELETE /pets/{id} 'summary' -&gt; This field should be present and not empty
+[ERROR]         *ERROR* in Model 'NewPet', property 'name', field 'example' -&gt; This field should be present and not empty
+[ERROR]         *ERROR* in Model 'NewPet', property 'name', field 'description' -&gt; This field should be present and not empty
+[ERROR]         *ERROR* in Model 'NewPet', property 'tag', field 'example' -&gt; This field should be present and not empty
+[ERROR]         *ERROR* in Model 'NewPet', property 'tag', field 'description' -&gt; This field should be present and not empty
+[ERROR]         *ERROR* in Model 'Error', property 'code', field 'example' -&gt; This field should be present and not empty
+[ERROR]         *ERROR* in Model 'Error', property 'code', field 'description' -&gt; This field should be present and not empty
+[ERROR]         *ERROR* in Model 'Error', property 'message', field 'example' -&gt; This field should be present and not empty
+[ERROR]         *ERROR* in Model 'Error', property 'message', field 'description' -&gt; This field should be present and not empty
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  2.067 s
+</code></pre>
+
+<h4 id="fazit">Fazit</h4>
+<p>Der OpenAPI Style Validator findet unvollständige Beschreibungen und inkonsistente Nutzung von Namenskonventionen. 
+Das Werkzeug ist eine Hilfe bei der Umsetzung von API-Richtlinien. Mit definierten Regeln kann API-Spezifikationen ein einheitliches “Look and Feel” gegeben werden.</p>
+
+<h4 id="quellen">Quellen</h4>
+<p>[1] OpenAPI Style Validator https://github.com/OpenAPITools/openapi-style-validator</p>
+
+<p>[2] Petstore-Beispiel https://github.com/OAI/OpenAPI-Specification/blob/main/examples/v3.0/petstore-expanded.json</p>
+
+<p>[3] OpenAPI Style Validator Maven Plug-in https://central.sonatype.com/artifact/org.openapitools.openapistylevalidator/openapi-style-validator-maven-plugin/1.8</p>
+
+</div>
+</div>
+</div>
+</div>]]></field>
+    </document>
+</documents>
