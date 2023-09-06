@@ -485,6 +485,12 @@ alexej_sevas:
   bio: "Alexej ist seit 2022 als Senior Software Engineer bei adesso in Stuttgart tätig. Dort unterstützt er den Bereich Public als Entwickler im Java-Umfeld."
   avatar_url: /assets/images/avatars/alexej_sevas.jpg
 
+claudioaltamura:
+  first_name: Claudio
+  last_name: Altamura
+  bio: "Claudio Altamura ist Softwareentwickler und Softwarearchitekt. Er unterstützt Kunden beim Design und bei der Umsetzung von Applikationen in der Cloud."
+  avatar_url: /assets/images/avatars/claudioaltamura.jpg
+
 jhoppe:
   first_name: Jan
   last_name: Hoppe
