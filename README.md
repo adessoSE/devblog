@@ -2,6 +2,10 @@
 
 # adesso SE devblog
 
+**WICHTIG**:
+Aufgrund einer Umstellung im adesso-Blog wird das Einreichen neuer Artikel ab Oktober 2023 nicht mehr möglich sein.
+Außer den Personen die bereits darüber informiert sind, werden keine neuen PRs mehr angenommen.
+
 Dieses Repository beinhaltet Blog Posts für den [adesso Blog](https://blog.adesso.de/).
 
 ## Wie kann ich einen Blog Post veröffentlichen?
