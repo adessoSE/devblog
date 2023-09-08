@@ -41,7 +41,7 @@ Das Schlüsselkonzept besteht hier darin, den Ton anzugeben und die Sicherheitsa
 
 Ein Beispiel: Es wird ein neuer Benachrichtigungsdienst entwickelt, der die Kunden über wichtige Ereignisse informieren soll. Zu den Sicherheitsanforderungen sollte beispielsweise die Trennung von Benutzern gehören, damit eine Benachrichtigung nie den "falschen" Empfänger erreicht. Werden die Benachrichtigungen auch sensible Daten enthalten? Wenn ja, führt dies zu einer Reihe von Bedenken hinsichtlich Sicherheit und Datenschutz, die berücksichtigt werden müssen.
 
-Das Ziel in dieser Phase sollte sein, ein Bedrohungsmodell (Threat Model) zu erstellen, das während des gesamten Entwicklungszyklus des Produkts oder der Funktion verwendet wird. Dieses Modell sollte auf bewährten Sicherheitspraktiken beruhen, wie z. B. dem von OWASP definierten Modell.
+Das Ziel in dieser Phase sollte sein, ein Bedrohungsmodell (Threat Model) zu erstellen, das während des gesamten Entwicklungszyklus des Produkts oder der Funktion verwendet wird. Dieses Modell sollte auf bewährten Sicherheitspraktiken beruhen, z. B. dem von OWASP definierten Modell.
 
 Das Bedrohungsmodell sollte die Grundlage für eigene Anforderungsbesprechungen sein. Ein empfehlenswerter erster Schritt ist die Planung einer solchen Anforderungsbesprechung unter Verwendung eines generischen Bedrohungsmodells als Vorlage. Definiere in dieser Sitzung die Prinzipien und Leitfäden, die während der Entwicklung und des Testens verwendet werden sollen - was ist wichtig für die Sicherheit? Welches sind die besten Sicherheitsverfahren? Außerdem sollten alle Sicherheitskomponenten festgelegt werden, die im Rahmen des Entwicklungszyklus implementiert werden sollten.
 
