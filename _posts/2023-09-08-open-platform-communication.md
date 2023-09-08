@@ -44,7 +44,6 @@ Damit ist er plattformunabhängig und könnte sogar auf eingebetteten Steuerger�
 ## OPC UA als gemeinsame Sprache
 
 In einem Windpark steht üblicherweise eine Technikhütte, die alle Windräder gemeinsam mit dem Internet verbindet.
-
 Der Windpark muss unterschiedliche Datenpunkte zur Verfügung stellen, etwa die technische Beschreibung seiner Turbinen und deren momentane Leistung.
 Solche Informationen werden bei Bedarf abgefragt, im sogenannten Request-Response-Verfahren.
 
@@ -54,7 +53,7 @@ Sie werden im Publish-Subscribe-Verfahren sofort an alle interessierten Gegenste
 Wenn Fachkräfte entscheiden, ein Windrad aus oder wieder ein zu schalten, wird ein Rückkanal benötigt, der die Steueranweisung zielsicher an die richtige Turbine zustellt.
 Das heißt, jeder Knoten im Gerätenetz muss eindeutig adressierbar sein.
 
-Diese Fälle werden von den OPC-Unterprotokollen *Direct Access* (DA) beziehungsweise *(Alarms + Conditions)* abgedeckt.
+Diese Fälle werden von den OPC-Unterprotokollen *Direct Access* (DA) beziehungsweise *Alarms + Conditions* (AC) abgedeckt.
 Es gibt zwei weitere Unterprotokolle *Historical Data Access* (HA) und *Programs* (Prog), die weniger gebräuchlich sind und hier nicht näher betrachtet werden.
 
 ## Der Adressraum
