@@ -94,7 +94,7 @@ Darüber hinaus werden bei SSDLC die Sicherheitsmaßnahmen im Kern vom Entwicklu
 
 Der zusätzliche Aufwand für Sicherheitstests im Rahmen des SDLC-Prozesses mag zwar nach viel Arbeit und hohen Kosten für die Erstellung klingen, doch heute wird der größte Teil davon automatisiert. Dies gilt insbesondere für den Entwicklungsbetrieb oder DevOps. Die sichere SDLC-Umgebung erfordert eine häufige Zusammenarbeit zwischen DevOps und den Entwicklern, die die Funktionalität der Anwendung implementieren, und diese Zusammenarbeit muss in den SDLC selbst integriert werden.
 
-Durch die Behebung dieser Probleme in einem frühen Stadium des Prozesses können Entwicklungsteams die Gesamtbetriebskosten ihrer Anwendungen senken. Die späte Entdeckung von Problemen im SDLC kann zu einem 100-fachen Anstieg der Entwicklungskosten führen, die für die Behebung dieser Probleme erforderlich sind, wie in der nachstehenden Tabelle dargestellt.
+Durch die Behebung dieser Probleme in einem frühen Stadium des Prozesses können Entwicklungsteams die Gesamtbetriebskosten ihrer Anwendungen senken. Die späte Entdeckung von Problemen im SDLC kann zu einem 100-fachen Anstieg der Entwicklungskosten führen, die für die Behebung dieser Probleme erforderlich sind, wie in der nachstehenden Grafik dargestellt.
 
 ![image](/assets/images/posts/ssdlc/softwaredefectcost.png)
 *IBM System Science Institute: Relative Cost of Fixing Defects, 2010*
