@@ -75,7 +75,7 @@ In der Anforderungsphase muss festgelegt werden, wo die Sicherheitstests durchge
 
 Zusammenfassend kann man sagen, dass zwei Bereiche für diese Phase wichtig sind:
 
-*	Entscheide auf Grundlage der Release-Strategie, welche Tests gebraucht werden und wo sie benötigt werden.
+*	Entscheide auf Grundlage der Release-Strategie, welche Tests gebraucht und wo sie benötigt werden.
 *	Implementiere diese Tests, vorzugsweise auf automatisierte Weise, damit die Entwickler so schnell wie möglich ein Feedback erhalten.
 
 # Bereitstellung und Wartung
