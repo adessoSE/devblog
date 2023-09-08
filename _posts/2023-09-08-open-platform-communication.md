@@ -30,7 +30,7 @@ Für den stabilen Netzbetrieb ist es außerdem wichtig, die aktuelle Einspeisele
 ## Geschichte
 
 Bereits in den 1990er Jahren gründeten einige Hersteller eine Task Force, um die Steuerung von Geräten per Software zu vereinheitlichen.
-Diese [OPC Foundation](https://opcfoundation.org/about/opc-foundation/history/) veröffentlichte einen Standard, der zunächst "OLE for Process Control".
+Sie nannten sich [OPC Foundation](https://opcfoundation.org/about/opc-foundation/history/) und veröffentlichten einen Standard, der zunächst "OLE for Process Control" hieß.
 OLE steht für "Microsoft Object Linking and Embedding", denn der erste OPC Standard basierte vollständig auf dem Component Object Model von Windows.
 Erst als der Standard sich über Prozesssteuerungen hinaus etablierte, wurde er umbenannt in "Open Platform Communication".
  
