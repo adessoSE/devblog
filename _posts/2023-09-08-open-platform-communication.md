@@ -27,7 +27,7 @@ Deshalb müssen bevorstehender Wartungsbedarf und akute Schäden sofort an die T
 Letztere antwortet darauf mit Steuerbefehlen, die der Windpark umsetzen muss.
 Für den stabilen Netzbetrieb ist es außerdem wichtig, die aktuelle Einspeiseleistung genau zu kennen und gegebenenfalls herunter regeln zu können.
 
-## Geschichte
+# Geschichte
 
 Bereits in den 1990er Jahren gründeten einige Hersteller eine Task Force, um die Steuerung von Geräten per Software zu vereinheitlichen.
 Sie nannten sich [OPC Foundation](https://opcfoundation.org/about/opc-foundation/history/) und veröffentlichten einen Standard, der zunächst "OLE for Process Control" hieß.
@@ -41,7 +41,7 @@ Im Jahr 2006 veröffentlichte die OPC Foundation schließlich den Folgestandard 
 Er basiert auf TCP, wobei wahlweise ein binäres oder ein XML-Protokoll eingesetzt werden kann.
 Damit ist er plattformunabhängig und könnte sogar auf eingebetteten Steuergeräten laufen.
 
-## OPC UA als gemeinsame Sprache
+# OPC UA als gemeinsame Sprache
 
 In einem Windpark steht üblicherweise eine Technikhütte, die alle Windräder gemeinsam mit dem Internet verbindet.
 Der Windpark muss unterschiedliche Datenpunkte zur Verfügung stellen, etwa die technische Beschreibung seiner Turbinen und deren momentane Leistung.
