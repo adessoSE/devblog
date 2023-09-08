@@ -69,7 +69,7 @@ Eine mögliche Option für die Integration von Scans in den Prozess sind Quellco
 
 Diese Phase ist ein wenig verzwickt. Einen echten agilen SDLC kennzeichnet, dass es keinen linearen Prozess gibt, bei dem alles stehen bleibt und nur noch getestet wird. Die meisten Teams bauen heute eine Art CI/CD-Pipeline auf, in der kontinuierliche Integration stattfindet und die Software ständig getestet wird.
 
-Bei diesem Modell gibt es eine Reihe von Tests, die in mehreren Phasen durchgeführt werden. Einige während der Programmierung, einige nach jeder Codeübermittlung, einige nachts und einige in der Live-Produktionsumgebung.
+Bei diesem Modell gibt es eine Reihe von Tests, die in mehreren Phasen durchgeführt werden, einige während der Programmierung, einige nach jeder Codeübermittlung, einige nachts und einige in der Produktionsumgebung.
 
 In der Anforderungsphase muss festgelegt werden, wo die Sicherheitstests durchgeführt werden sollen. Wir haben bereits Tests während der Entwicklungsphase erwähnt. Es ist jedoch möglich, zusätzliche Tests vor der Bereitstellung einzuführen - dies hängt von der Release-Strategie ab.
 
