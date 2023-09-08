@@ -37,8 +37,8 @@ Erst als der Standard sich über Prozesssteuerungen hinaus etablierte, wurde er 
 Seitdem verlor Windows in hardware-nahen Systemen an Relevanz.
 Gleichzeitig entstanden flexiblere Netzwerkprotokolle, so dass heute niemand mehr DCOM in einer Systemarchitektur einplant.
 
-Im Jahr 2006 veröffentlichte die Foundation schließlich den Folgestandard OPC Unified Architecture (UA).
-Er basiert auf TCP, wobei wahlweise ein binäres oder ein XML-Protokoll eingesetzt werden können.
+Im Jahr 2006 veröffentlichte die OPC Foundation schließlich den Folgestandard Unified Architecture (UA).
+Er basiert auf TCP, wobei wahlweise ein binäres oder ein XML-Protokoll eingesetzt werden kann.
 Damit ist er plattformunabhängig und könnte sogar auf eingebetteten Steuergeräten laufen.
 
 ## OPC UA als gemeinsame Sprache
