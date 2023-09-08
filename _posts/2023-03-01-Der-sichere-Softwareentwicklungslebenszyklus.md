@@ -54,7 +54,7 @@ Hier werden die Sicherheitsmechanismen innerhalb des Entwurfs definiert. Zu den 
 *	Durch Brainstorming Schwachstellen und mögliche Designfehler aufdecken. In die Denkweise eines Angreifers hineinversetzen, um Schwachstellen zu finden.
 *	Bewerten der verschiedenen Risiken mithilfe von Bedrohungsmodellierungstechniken - geordnet nach dem Gefährdungsgrad und der Wahrscheinlichkeit des Risikos.
 
-Hier ist wichtig, dass die Priorisierung der jeweiligen Aufgaben an das Entwicklungsteam kommuniziert werden. Es muss ersichtlich sein, welche Aufgaben definitiv umgesetzt werden müssen oder welche auch anhand der Wahrscheinlichkeit erst zu einem späteren Zeitpunkt entwickelt, werden können.
+Hier ist wichtig, dass die Priorisierung der jeweiligen Aufgaben an das Entwicklungsteam kommuniziert werden. Es muss ersichtlich sein, welche Aufgaben definitiv umgesetzt werden müssen oder welche auch anhand der Wahrscheinlichkeit erst zu einem späteren Zeitpunkt entwickelt werden können.
 
 # Die Entwicklungsphase
 
