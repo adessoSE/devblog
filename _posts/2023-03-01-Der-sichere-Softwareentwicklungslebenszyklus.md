@@ -84,7 +84,7 @@ In dieser Phase geht es vor allem darum, einen Reaktionsplan zu haben und den An
 
 *	Such nach externen Risiken - Verfahren wie Penetrationstests sind wichtig. Diese decken Risiken auf, die möglicherweise durch alle bisherigen Sicherheitsschleusen geschlüpft sind. Die sollten regelmäßig durchgeführt werden, um die Chance zu erhöhen, sie zu finden.
 *	Umgang mit Warnmeldungen - einige Tools versorgen uns mit Bedrohungsinformationen, die aus neuen Enthüllungen stammen. Die log4shell-Schwachstelle war beispielsweise bereits in der Produktion vorhanden, aber sobald die Schwachstelle vollständig erkannt wurde, alarmierten die SCA-Tools ihre Benutzer und Sicherheitsteams, um die anfälligen Komponenten schnell zu blockieren und zu entfernen. Wir müssen davon ausgehen, dass auch in unseren Anwendungen "0-Day"-Schwachstellen lauern, die jeden Moment entdeckt werden könnten.
-*	Bleib auf dem Laufenden über Sicherheitstrends und -technologien - Es ist ein ständiges Wettrüsten zwischen Sicherheitsexperten und Cyber-Kriminellen. Die Sicherheits-Community veröffentlicht neue Bedrohungsmodelle und es gibt ständige Innovationen bei den Sicherheitswerkzeugen und -techniken.
+*	Bleibe auf dem Laufenden über Sicherheitstrends und -technologien - Es ist ein ständiges Wettrüsten zwischen Sicherheitsexperten und Cyber-Kriminellen. Die Sicherheits-Community veröffentlicht neue Bedrohungsmodelle und es gibt ständige Innovationen bei den Sicherheitswerkzeugen und -techniken.
 
 # Die Vorteile eines SSDLC
 
