@@ -81,13 +81,13 @@ Das löst den ersten Anwendungsfall, der Windpark stellt auf Abruf seine Selbstb
 So könnte man bei "DemoWindfarm/Turbine1/MaxPower" etwa die maximale Leistung drosseln, indem man den Wert von "MaxPower" von 100 auf 50 herabsetzt.
 Das kann notwendig sein, um die Netzfrequenz zu stabilisieren, wenn mehr Energie eingespeist als verbraucht wird.
 
-Die Methoden *Stop* und *Start* kann ein Client aufrufen, um das Windrad ganz abzuschalten und später wieder zu starten.
+Die Methoden *Stop* und *Start* kann ein Client aufrufen, um das Windrad abzuschalten und später wieder zu starten.
 Damit löst DA auch den dritten Anwendungsfall, der Windpark kann ferngesteuert werden.
 
 ## Alarms & Conditions
 
 Um Probleme sofort mitzubekommen, wird ein Publish-Subscribe-Verfahren benötigt.
-Dabei meldet sich der Client einmal für Ereignisse eines Knoten an, von da an wird er über jede Zustandsänderung aktiv informiert.
+Dabei meldet sich der Client einmal für Ereignisse eines Knotens an, von da an wird er über jede Zustandsänderung aktiv informiert.
 
 In der Abbildung ist "Alarm" ein solcher Ereignisknoten. Er enthält von jeder Turbine einen Notifier.
 Dieselben Notifier "T1-Error" und "T2-Error" finden sich auch unterhalb der jeweiligen Turbine.
