@@ -16,7 +16,7 @@ Entwicklungsteams arbeiten bereits in einem sehr methodischen, sich wiederholend
 # Wieso brauchen wir einen sicheren Softwareentwicklungszyklus?
 Die Sicherheit spielt in jeder Phase des Softwareentwicklungszyklus (SDLC) eine Rolle und muss bei der Umsetzung einer Software im Vordergrund stehen. In diesem Artikel erfahren wir, wie wir einen sicheren SDLC (SSDLC) erstellen können, der uns hilft, Probleme in den Anforderungen zu erkennen, bevor wir diese in der Implementierung unserer Software wiederfinden.
 
-Mit entsprechendem Aufwand können Sicherheitsprobleme in der SDLC-Pipeline bereits vor der Produktionsbereitstellung behoben werden. Dies verringert das Risiko, Sicherheitslücken in einer Applikation zu finden, und minimiert die Auswirkungen, wenn sie gefunden werden.
+Mit entsprechendem Aufwand können Sicherheitsprobleme in der SDLC-Pipeline bereits vor der Produktionsbereitstellung behoben werden. Dadurch kann das Risiko von Sicherheitslücken in einer Applikation verringert werden. Außerdem kann der mögliche Schaden im Risikofall reduziert werden.
 
 Der SSDLC zielt nicht darauf ab, herkömmliche Sicherheitsprüfungen wie Penetrationstests vollständig abzuschaffen, sondern die Sicherheit in den Verantwortungsbereich der Entwickler einzubeziehen und sie zu befähigen, von Anfang an sichere Anwendungen zu entwickeln.
 
