@@ -88,7 +88,7 @@ In dieser Phase geht es vor allem darum, einen Reaktionsplan zu haben und den An
 
 # Die Vorteile eines SSDLC
 
-Secure SDLC ist das ultimative Beispiel für eine so genannte "shift-left"-Initiative, die darauf abzielt, Sicherheitsprüfungen so früh wie möglich in den SDLC zu integrieren.
+Secure SDLC ist das ultimative Beispiel für eine sogenannte "shift-left"-Initiative, die darauf abzielt, Sicherheitsprüfungen so früh wie möglich in den SDLC zu integrieren.
 
 Darüber hinaus werden bei SSDLC die Sicherheitsmaßnahmen im Kern vom Entwicklungsteam selbst geleitet. So können die Probleme von den Experten behoben werden, die die Software geschrieben haben, und nicht von einem anderen Team, das die Fehler nachträglich behebt. Dies ermöglicht es den Entwicklern, die Verantwortung für die Gesamtqualität ihrer Anwendungen zu übernehmen, was dazu führt, dass sicherere Anwendungen in der Produktion eingesetzt werden.
 
