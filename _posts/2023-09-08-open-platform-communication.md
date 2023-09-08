@@ -110,7 +110,7 @@ Wer zu spät mit der Umstellung beginnt, wird in Kürze jedoch vor Problemen ste
 DCOM läuft ausschließlich auf Windows-Betriebssystemen und ist anfällig für Konfigurationsfehler.
 Dabei sind brandneue Komponenten, die in den bestehenden Prozess eingebunden werden sollen, heute oft außen vor.
 
-Dazu kommt, dass Microsoft im Jahr 2023 per automatischem Update [DCOM Hardening](https://support.microsoft.com/en-us/topic/kb5004442-manage-changes-for-windows-dcom-server-security-feature-bypass-cve-2021-26414-f1400b52-c141-43d2-941e-37ed901c769c) verpflichtend eingeführt hat.
+Dazu kommt, dass Microsoft im Jahr 2023 per automatischem Update [DCOM Hardening](https://techcommunity.microsoft.com/t5/windows-it-pro-blog/dcom-authentication-hardening-what-you-need-to-know/ba-p/3657154) verpflichtend eingeführt hat.
 Die DCOM-Sicherheit abzuschalten, um sich nicht um deren Konfiguration kümmern zu müssen, ist seitdem nicht mehr möglich.
 Alte OPC-Anwendungen verlassen sich eventuell darauf und müssen schlimmstenfalls umprogrammiert werden.
 
