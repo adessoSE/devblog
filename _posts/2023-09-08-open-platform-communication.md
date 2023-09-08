@@ -8,7 +8,7 @@ categories: [Branchen]                # Pflichtfeld. Maximal eine der angegebene
 tags: [Open Platform Communication, OPC, Applications, Hardware, Prozesssteuerung] # Bitte auf Großschreibung achten.
 ---
 
-Maschinen müssen miteinander sprechen.
+Maschinen sprechen miteinander.
 Sie stimmen Prozessschritte ab, nehmen Anweisungen entgegen und melden ihren Zustand.
 Eine ihrer Sprachen ist Open Platform Communication.
 
