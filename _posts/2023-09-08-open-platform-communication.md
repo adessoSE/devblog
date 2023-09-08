@@ -53,7 +53,7 @@ Sie werden im Publish-Subscribe-Verfahren sofort an alle interessierten Gegenste
 Wenn Fachkräfte entscheiden, ein Windrad aus oder wieder ein zu schalten, wird ein Rückkanal benötigt, der die Steueranweisung zielsicher an die richtige Turbine zustellt.
 Das heißt, jeder Knoten im Gerätenetz muss eindeutig adressierbar sein.
 
-Diese Fälle werden von den OPC-Unterprotokollen *Direct Access* (DA) beziehungsweise *Alarms + Conditions* (AC) abgedeckt.
+Diese Fälle werden von den OPC-Unterprotokollen *Direct Access* (DA) beziehungsweise *Alarms & Conditions* (AC) abgedeckt.
 Es gibt zwei weitere Unterprotokolle *Historical Data Access* (HA) und *Programs* (Prog), die weniger gebräuchlich sind und hier nicht näher betrachtet werden.
 
 ## Der Adressraum
@@ -84,7 +84,7 @@ Das kann notwendig sein, um die Netzfrequenz zu stabilisieren, wenn mehr Energie
 Die Methoden *Stop* und *Start* kann ein Client aufrufen, um das Windrad ganz abzuschalten und später wieder zu starten.
 Damit löst DA auch den dritten Anwendungsfall, der Windpark kann ferngesteuert werden.
 
-## Alarm Conditions
+## Alarms & Conditions
 
 Um Probleme sofort mitzubekommen, wird ein Publish-Subscribe-Verfahren benötigt.
 Dabei meldet sich der Client einmal für Ereignisse eines Knoten an, von da an wird er über jede Zustandsänderung aktiv informiert.
