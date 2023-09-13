@@ -36,7 +36,7 @@ OLE steht für "Microsoft Object Linking and Embedding", denn der erste OPC-Stan
 Erst als der Standard sich über Prozesssteuerungen hinaus etablierte, wurde er umbenannt in "Open Platform Communication".
  
 Seitdem verlor Windows in hardware-nahen Systemen an Relevanz.
-Gleichzeitig entstanden flexiblere Netzwerkprotokolle, so dass heute niemand mehr DCOM in einer Systemarchitektur einplant.
+Gleichzeitig entstanden flexiblere Netzwerkprotokolle, sodass heute niemand mehr DCOM in einer Systemarchitektur einplant.
 
 Im Jahr 2006 veröffentlichte die OPC Foundation schließlich den Folgestandard Unified Architecture (UA).
 Er basiert auf TCP, wobei wahlweise ein binäres oder ein XML-Protokoll eingesetzt werden kann.
