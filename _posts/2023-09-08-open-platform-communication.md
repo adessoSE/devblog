@@ -104,7 +104,7 @@ Obwohl OPC UA seit mehr als 15 Jahren existiert, bauen viele produktive Systeme 
 Denn um die Software umzustellen, müssen alle beteiligten Geräte und Anwendungen OPC UA unterstützen.
 Bei der Steuersoftware für Maschinen, die über Jahrzehnte in der Produktion oder in Kraftwerken genutzt wird, ist kaum mit tiefgreifenden Updates zu rechnen.
 
-Andere Geräte sind systemkritisch, so dass sie nicht für ein riskantes Upgrade mehrerer Software-Komponenten abgeschaltet werden sollen.
+Andere Geräte sind systemkritisch, sodass sie nicht für ein riskantes Upgrade mehrerer Softwarekomponenten abgeschaltet werden sollen.
 In manchen Betrieben fehlt möglicherweise auch die Einsicht des Managements oder schlichtweg das qualifizierte Fachpersonal.
 
 Wer zu spät mit der Umstellung beginnt, wird in Kürze jedoch vor Problemen stehen.
