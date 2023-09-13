@@ -57,7 +57,11 @@ Andernfalls war absehbar, dass das Protokoll vom Markt verschwinden würde.
 Im Jahr 2006 veröffentlichte die OPC Foundation schließlich den Folgestandard Unified Architecture (UA).
 Er basiert auf TCP, wobei wahlweise ein binäres oder ein XML-Protokoll eingesetzt werden kann.
 Damit ist er plattformunabhängig und könnte sogar auf eingebetteten Steuergeräten laufen.
-Der veraltete Standard ist heute nur noch als "OPC Classic" bekannt.
+
+Der veraltete Standard wird heute als "OPC Classic" bezeichnet.
+Seine offizielle Dokumentation wurde weitgehend entfernt.
+Die Menge frei verfügbarer Entwicklertools weist jedoch darauf hin, dass er noch vielerorts in Betrieb ist, was bei der Nutzungsdauer teurer Spezialmaschinen auch nicht verwundert.
+Umso wichtiger ist es, die eigenen OPC-Einsatzorte im Blick zu behalten und alle Classic-Anwendungen möglichst bald auf UA zu aktualisieren.
 
 # OPC UA als gemeinsame Sprache
 
