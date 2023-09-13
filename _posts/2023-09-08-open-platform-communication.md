@@ -11,6 +11,7 @@ tags: [Open Platform Communication, OPC, Applications, Hardware, Prozesssteuerun
 Maschinen sprechen miteinander.
 Sie stimmen Prozessschritte ab, nehmen Anweisungen entgegen und melden ihren Zustand.
 Eine ihrer Sprachen ist Open Platform Communication.
+Diese Sprache wollen wir uns in diesem Artikel näher ansehen.
 
 # Wir müssen reden
 
