@@ -32,15 +32,32 @@ Für den stabilen Netzbetrieb ist es außerdem wichtig, die aktuelle Einspeisele
 
 Bereits in den 1990er Jahren gründeten einige Hersteller eine Task Force, um die Steuerung von Geräten per Software zu vereinheitlichen.
 Sie nannten sich [OPC Foundation](https://opcfoundation.org/about/opc-foundation/history/) und veröffentlichten einen Standard, der zunächst "OLE for Process Control" hieß.
-OLE steht für "Microsoft Object Linking and Embedding", denn der erste OPC-Standard basierte vollständig auf dem Component Object Model von Windows.
+OLE steht für "Microsoft Object Linking and Embedding", denn der erste OPC-Standard basierte vollständig auf dem Component Object Model (COM) von Windows.
 Erst als der Standard sich über Prozesssteuerungen hinaus etablierte, wurde er umbenannt in "Open Platform Communication".
- 
-Seitdem verlor Windows in hardware-nahen Systemen an Relevanz.
-Gleichzeitig entstanden flexiblere Netzwerkprotokolle, sodass heute niemand mehr DCOM in einer Systemarchitektur einplant.
+
+COM geht auf Windows 3.1 zurück, wo es die Kommunikation zwischen Prozessen transparent machte.
+Transparenz bedeutet hier, dass die Clients sich nicht darum kümmern sollten, wo ihr Serverprozess läuft.
+Ältere Mitlesende erinnern sich noch, wie jedes eigene Programm eine Word- oder Excel-Schnittstelle anfordern konnte.
+Das fernsteuerbare Programm - zu Beispiel Excel - registrierte sich genau einmal als COM-Komponente in einer zentralen Registry.
+Client-Programme schlugen dort nach und forderten vom Betriebssystem einen COM-Server vom Typ Excel an.
+Im Hintergrund sorgten Remote Procedure Calls (RPC) dafür, dass der Client das Serverprogramm steuern konnte, fast als liefen beide im selben Prozess.
+
+Mit Distributed COM (DCOM) kam später Ortstransparenz dazu, so dass die COM-Registry auch auf entfernte Rechner verweisen konnte.
+Der Client sollte DCOM-Komponenten genauso verwenden, als wären sie Programmteile im eigenen Prozess - im Idealfall, ohne mitzubekommen, auf welchem Rechner sie tatsächlich liefen.
+In der Praxis führte das oft zu komplizierten Konfigurationen.
+Nach und nach wurden auch gravierende Sicherheitslücken bekannt.
+Schließlich riet Microsoft von der Verwendung ab und präsentierte als Nachfolger die Windows Communication Foundation (WCF).
+Seit dem Release von .NET 5 ist selbst diese wieder abgekündigt.
+
+Dazu kommt, dass Windows in hardware-nahen Systemen an Relevanz verloren hat.
+Moderne Services laufen meist in der Cloud oder auf schlanken Linux-Containern.
+Es wurde also höchste Zeit, das Fundament von OPen Platform Communication komplett auszuwechseln.
+Andernfalls war absehbar, dass das Protokoll vom Markt verschwinden würde.
 
 Im Jahr 2006 veröffentlichte die OPC Foundation schließlich den Folgestandard Unified Architecture (UA).
 Er basiert auf TCP, wobei wahlweise ein binäres oder ein XML-Protokoll eingesetzt werden kann.
 Damit ist er plattformunabhängig und könnte sogar auf eingebetteten Steuergeräten laufen.
+Der veraltete Standard ist heute nur noch als "OPC Classic" bekannt.
 
 # OPC UA als gemeinsame Sprache
 
