@@ -26,7 +26,7 @@ Mit ihren Sensoren überwachen die Windräder sich selbst, doch allein repariere
 
 Deshalb müssen bevorstehender Wartungsbedarf und akute Schäden sofort an die Technikabteilung gemeldet werden.
 Letztere antwortet darauf mit Steuerbefehlen, die der Windpark umsetzen muss.
-Für den stabilen Netzbetrieb ist es außerdem wichtig, die aktuelle Einspeiseleistung genau zu kennen und gegebenenfalls herunter regeln zu können.
+Für den stabilen Netzbetrieb ist es außerdem wichtig, die aktuelle Einspeiseleistung genau zu kennen und gegebenenfalls herunterregeln zu können.
 
 # Geschichte
 
