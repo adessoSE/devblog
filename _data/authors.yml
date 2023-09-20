@@ -443,6 +443,11 @@ nirumand:
   bio: "Reza Nirumand is a Senior Software Engineer at adesso located in Dortmund. He is involved in various projects in the Banking industry and he is responsible for the designing and delivering of cloud-native applications."
   avatar_url: /assets/images/avatars/nirumand.jpg
 
+dkstern:
+  first_name: Dennis-Karim
+  last_name: Stern
+  bio: "Dennis-Karim Stern ist als Senior Software Engineer bei adesso in Essen tätig. Dort unterstützt er den Bereich Public mit seinen Erfahrungen in der Entwicklung von Full-Stack-Anwendungen im Java- und JavaScript-Kosmos."
+  avatar_url: /assets/images/avatars/dkstern.jpg
 vscherb:
   first_name: Vincent
   last_name: Scherb
@@ -472,7 +477,7 @@ utschenik:
   last_name: Schüler
   bio: "Paul beschäftigt sich gerne mit neuen Technologien und begeistert sich für neue Themen im Bereich der Softwarearchitektur"
   avatar_url: /assets/images/avatars/paulschueler.jpg
-  
+
 thalheim:
   first_name: Björn
   last_name: Thalheim
