@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<documents>
+    <document uid="154bc12dba6cba16a7eed27d6d9c8af5">
+        <field name="title"><![CDATA[F.I.R.S.T.-Prinzipien für solides Unit-Testen]]></field>
+        <field name="subline"><![CDATA[]]></field>
+        <field name="teaser"><![CDATA[<p>F.I.R.S.T. ist ein Akronym, welches verschiedene Prinzipien beim Schreiben von Unit-Tests umfasst.
+Die F.I.R.S.T.-Prinzipien wurden von Robert C. Martin in Clean Code kurz vorgestellt und in diesem Blog möchte ich weiter in die Tiefe dieser Prinzipien eingehen.
+Gerade beim Einstieg in die Programmierung können diese Prinzipien als Leitfaden dienen.
+Diese Prinzipien haben das Ziel, dass Unit-Tests verständlich, wartbar und aussagekräftig sind.</p>
+
+]]></field>
+        <field name="language_multi_keyword"><![CDATA[de]]></field>
+        <field name="content_type_multi_keyword"><![CDATA[blog]]></field>
+        <field name="mime_type_multi_keyword"><![CDATA[text/html]]></field>
+        <field name="category_multi_keyword"><![CDATA[Softwareentwicklung]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Testing]]></field>
+        <field name="tag_multi_keyword"><![CDATA[CleanCode]]></field>
+        <field name="date_date"><![CDATA[2023-09-20T08:00:00+02:00]]></field>
+        <field name="date_l"><![CDATA[1695189600000]]></field>
+        <field name="change_date"><![CDATA[1695168000000]]></field>
+
+        <!--Author Information-->
+        
+        <field name="author_id"><![CDATA[dkstern]]></field><!--Postcontent-->
+        <field name="headlines"><![CDATA[F.I.R.S.T.-Prinzipien für solides Unit-Testen]]></field>
+        <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
+            <p>F.I.R.S.T. ist ein Akronym, welches verschiedene Prinzipien beim Schreiben von Unit-Tests umfasst.
+Die F.I.R.S.T.-Prinzipien wurden von Robert C. Martin in Clean Code kurz vorgestellt und in diesem Blog möchte ich weiter in die Tiefe dieser Prinzipien eingehen.
+Gerade beim Einstieg in die Programmierung können diese Prinzipien als Leitfaden dienen.
+Diese Prinzipien haben das Ziel, dass Unit-Tests verständlich, wartbar und aussagekräftig sind.</p>
+
+</div>]]></field>
+        <field name="content"><![CDATA[<div class="adesso-text-formate">
+<div class="row p-t-2">
+<div class="adesso-container">
+<div class="col-xl-8 adesso-center p-b-1 p-l-0 p-r-0">
+    <p>F.I.R.S.T. ist ein Akronym, welches verschiedene Prinzipien beim Schreiben von Unit-Tests umfasst.
+Die F.I.R.S.T.-Prinzipien wurden von Robert C. Martin in Clean Code kurz vorgestellt und in diesem Blog möchte ich weiter in die Tiefe dieser Prinzipien eingehen.
+Gerade beim Einstieg in die Programmierung können diese Prinzipien als Leitfaden dienen.
+Diese Prinzipien haben das Ziel, dass Unit-Tests verständlich, wartbar und aussagekräftig sind.</p>
+
+<p>Dieser Blog richtet sich an alle frischen und erfahrenen Entwickelnden, welche sich ein wenig mit dem Schreiben von Unit-Tests auseinandersetzen möchten.</p>
+
+<h4 id="tldr-️⃣">TL;DR #️⃣</h4>
+
+<ul>
+  <li><strong>F</strong>ast: Unit-Tests sind schnell und dauern nur wenige Millisekunden.</li>
+  <li><strong>I</strong>ndependent/<strong>I</strong>solated: Unit-Tests sind unabhängig voneinander und können in beliebiger Reihenfolge ausgeführt werden.</li>
+  <li><strong>R</strong>epeatable: Unit-Tests werden häufig und auf verschiedenen Umgebungen ausgeführt, dabei liefern diese zuverlässig die gleichen Ergebnisse.</li>
+  <li><strong>S</strong>elf Validating: Ergebnisse werden programmatisch ausgewertet und liefern ein binäres Ergebnis (success/fail).</li>
+  <li><strong>T</strong>imely/<strong>T</strong>horough: Unit-Tests werden “rechtzeitig” geschrieben, indem diese schon vor dem produktiven Code erstellt werden. Außerdem wird “gründlich” getestet, indem (neben den Erfolgsfällen) auch Fehlerfälle, Grenzwerte und Äquivalenzklassen getestet werden.</li>
+</ul>
+
+<h4 id="f---fast-">F - Fast 🏇</h4>
+
+<p>Unit-Tests sind schnell!
+Möchte man nach Anpassungen im Code die Unit-Tests nicht ausführen, weil diese einem persönlich zu lange dauern, dann ist dies ein Alarmsignal dafür, dass die Tests keine Unit-Tests sind.
+Denn ein Unit-Test dauert bei der Ausführung nur wenige Millisekunden und dies sollte keinen signifikanten Einfluss auf die persönliche Wahrnehmung haben.
+Alleine das Lesen dieses Satzes dauert länger, als die Zeit die mehrere hundert Unit-Tests für die Ausführung benötigen.
+Dauert ein Unit-Test länger als eine Sekunde, sollte man diesen nochmal genauer betrachten, denn meist verbirgt sich dahinter schon ein Integrationstest.
+Bei einem Integrations-Test wird weiterer Code außerhalb unserer zu testenden Methode oder Funktion ausgeführt.
+Dies kann sehr schnell passieren, indem bspw. Abhängigkeiten nicht “gemockt” wurden.
+Mocks sind Stellvertreter-Objekte/-Funktionen, welche nur in Unit-Tests existieren und so tun, als wären diese ein konkretes Objekt von einer Klasse oder einer Funktion.
+Im schlimmsten Fall werden ohne Mocks Live-Services aufgerufen und ehe man sich versieht, hat man erfolgreich seinen ersten kleinen DOS-Angriff durchgeführt oder Testdaten in eine Produktivdatenbank geschrieben.
+Es sollte somit klar sein, was für Auswirkungen Tests haben können, wenn diese nicht nur den zu testenden Code ausführen.</p>
+
+<h4 id="i---isolated--independent-">I - Isolated / Independent ✊</h4>
+
+<p>Unit-Tests sind unabhängig voneinander!
+Das Ziel: Unit-Tests können in beliebiger Reihenfolge ausgeführt werden und es spielt keine Rolle, welcher Unit-Test davor ausgeführt wurde.
+Dementsprechend sollten keine Variablen und Objekte zwischen Unit-Tests geteilt werden, auch nicht das Testobjekt selbst.
+Generell, sollten alle Abhängigkeiten bei unserer zu testenden Methode oder Funktion betrachtet und isoliert werden, indem diese bspw. durch Mocks ersetzt werden.
+Dadurch werden unerwünschte Seiteneffekte vermieden und Unit-Tests werden nicht nur aussagekräftiger, sondern auch besser wartbar.</p>
+
+<h5 id="die-drei-as-oder-auch-given-when-then">Die drei A’s (oder auch <code>given</code>, <code>when</code>, <code>then</code>)</h5>
+
+<p>Zur besseren Struktur und Auffindbarkeit von Abhängigkeiten, kann die Verwendung von <code>arrange</code>, <code>act</code>, <code>assert</code> oder alternativ <code>given</code>, <code>when</code>, <code>then</code> unterstützen.
+Dabei wird ein Unit-Test in drei Bereiche aufgeteilt, indem diese drei Schlagwörter als Kommentare in Unit-Test geschrieben werden.</p>
+
+<p>Folgendes sollte in diesen drei Bereichen zu finden sein:</p>
+
+<h6 id="arrange-oder-given"><code>arrange</code> (oder <code>given</code>)</h6>
+
+<p>Hier findet die Testvorbereitung statt, wo Variablen definiert und alle weiteren Konfigurationen gesetzt werden.
+Dies ist quasi unsere Einleitung für unseren Unit-Test und sie hilft uns, die Situation besser zu verstehen, die unser Unit-Test abdecken soll.
+Wenn alle Unit-Tests dieselbe Testvorbereitung haben, können und sollten diese ausgelagert werden.
+Dazu bieten in der Regel alle gängigen Test-Frameworks, bspw. JUnit oder Jest, Setup-Möglichkeiten an, worin unsere Testvorbereitungen ausgelagert werden können.
+Bei Jest gibt es die Funktionen <code>beforeEach</code> und <code>beforeAll</code>.
+Bei JUnit die Annotationen <code>@BeforeEach</code> und <code>@BeforeAll</code>.</p>
+
+<h6 id="act-oder-when"><code>act</code> (oder <code>when</code>)</h6>
+
+<p>Hier befindet sich die eigentliche Testausführung.
+Mit anderen Worten, die zu testende Methode oder Funktion wird hier aufgerufen.</p>
+
+<h6 id="assert-oder-then"><code>assert</code> (oder <code>then</code>)</h6>
+
+<p>In diesem Bereich wird das Ergebnis unseres Tests programmatisch ausgewertet, indem das Ergebnis mit unserer Erwartung verglichen wird.
+Grundsätzlich sollten Unit-Tests immer nur ein Ergebnis erwarten und auswerten.
+Mit anderen Worten, ein Unit-Test enthält in der Regel nur einen <code>assert()</code>- oder <code>expect()</code>-Aufruf.</p>
+
+<p>Zur besseren Verständlichkeit ein kleines Beispiel:</p>
+
+<p>Wir stellen uns vor, wir haben einen Online-Shop für Katzenbedarf und möchten allen Premiumkunden 15 % Rabatt gewähren.
+Wir haben eine REST-Schnittstelle, welche angesprochen werden kann, um einem User den Rabatt zu gewähren (bspw. <code>GET /v1/discount</code>).
+Ich persönlich bevorzuge die <code>given</code>-<code>when</code>-<code>then</code>-Schreibweise, denn mit dieser können wir Unit-Tests vorher leicht in Prosa formulieren:</p>
+
+<ul>
+  <li><strong>Given</strong> a user with premium status</li>
+  <li><strong>When</strong> this user makes a request</li>
+  <li><strong>Then</strong> the user should receive 15 % discount</li>
+</ul>
+
+<p>Dies kann dann in einen konkreten Unit-Test wie folgt aussehen:</p>
+
+<pre><code class="language-javascript">describe('getDiscountForUser', () =&gt; {
+    let testSubject: DiscountController;
+    
+    beforeEach(() =&gt; {
+        testSubject = new DiscountController();
+    });
+    
+    it('should return 15 % discount when user has premium status', () =&gt; {
+        // given a user with premium status
+        const user = UserService.newWithPremiumStatus();
+        
+        // when this user makes a request
+        const discount = testSubject.getDiscountForUser(user)
+        
+        // then the user should receive 15 % discount
+        expect(discount.value).toEqual(15);
+    });
+    [...]
+});
+</code></pre>
+
+<p>Keine Sorge, man braucht nicht mehr als <code>given</code>, <code>when</code> und <code>then</code> oder <code>arrange</code>, <code>act</code> und <code>assert</code> in den Unit-Test schreiben.
+Dies habe ich hier nur gemacht, damit der Übergang von den oben in Prosa geschrieben Texten zu der konkreten Testimplementierung besser nachvollzogen werden kann.</p>
+
+<p>Durch das Aufteilen der Unit-Tests in diese drei Bereiche wird die Lesbarkeit gesteigert, was uns wiederum dabei unterstützt, Abhängigkeiten aufzudecken, besonders dann, wenn das Test-Setup mehr als nur eine Zeile Code ist.
+Im Prinzip können wir unseren Unit-Test wie eine kleine Geschichte lesen.
+Wir haben im <code>given</code>-Bereich eine Einleitung in der sich unsere Geschichte (bzw. unser Unit-Test) aufbaut.
+Darauf steigt im <code>when</code>-Bereich der Spannungsbogen zum Höhepunkt, indem dort eine konkrete Handlung erfolgt (die Testausführung).
+Nun neigt sich die Geschichte im <code>then</code>-Bereich dem Ende zu und wir vergleichen die Ergebnisse der Handlung mit unseren Erwartungen, die wir vorher zu unserer Geschichte angenommen haben.
+Zugegeben, es mag keine besonders spannende Geschichte sein, da wir schon im Vorfeld Annahmen treffen, die sich am Ende unserer Geschichte bewahrheiten sollen.
+Allerdings ist dies ja schließlich genau das, was wir in einem Unit-Test haben möchten: Erwartungen, die sich bewahrheiten.
+Letzten Endes sollte ein guter Unit-Test genauso leicht verständlich sein wie eine einfache Geschichte.
+Es sollte also keine plötzlichen Site-Stories (Sprünge im Code) geben, die mich als Lesenden dazu zwingen, in der Geschichte hin und her zu springen, um das Gesamtbild zu durchblicken, sondern ich möchte einen Unit-Test von oben nach unten einfach durchlesen und verstehen können.</p>
+
+<h4 id="r---repeatable-">R - Repeatable 🔄</h4>
+
+<p>Unsere Unit-Tests sollen häufig und auf verschiedenen Umgebungen ausgeführt werden können, dabei liefern sie immer die gleichen Ergebnisse für die gleichen Eingaben.
+Das bedeutet, ein Unit-Test liefert:</p>
+<ul>
+  <li>unabhängig von der Uhrzeit der Ausführung,</li>
+  <li>unabhängig von den zuvor ausgeführten Unit-Tests und</li>
+  <li>unabhängig von der Umgebung</li>
+</ul>
+
+<p>immer das gleiche nachvollziehbare Ergebnis zurück.</p>
+
+<h4 id="s---self-validating-">S - Self Validating 📋</h4>
+
+<p>Unit-Tests sollen programmatisch das Ergebnis auswerten.
+Wir möchten nicht nach jeder Testausführung selbst das Ergebnis auswerten müssen, indem wir bspw. in Log Files schauen.
+Zumal gut getestete Projekte mit Leichtigkeit auf mehrere tausend Unit-Tests kommen.
+Man stelle sich vor, man müsse bei dieser Anzahl von Unit-Tests händisch die Ergebnisse auswerten.
+Außerdem sollte ein Unit-Test ein explizites und binäres Feedback geben, also <code>success</code> oder <code>fail</code> und nichts dazwischen.
+Manchmal ist die Welt eben doch nur schwarz und weiß, bzw. rot und grün.</p>
+
+<h4 id="t---timely--thorough-">T - Timely / Thorough 🕑</h4>
+
+<p>Robert C. Martin definiert das “T” in F.I.R.S.T. mit “timely”.
+Das bedeutet, Unit-Tests sollen schon vor dem produktiven Code geschrieben werden.
+Dies macht das Schreiben von Unit-Tests leichter und der produktive Code wird zwangsläufig testbar.
+Es ist einfach schwerer, produktiven Code auf Anhieb testbar zu schreiben, als wenn man schon vorher einen Unit-Test hat, welcher einen dazu nötigt, den produktiven Code testbar zu gestalten.</p>
+
+<p>Mit der Zeit hat sich zum “T” noch ein weiteres Prinzip eingeschlichen, und zwar “thorough”.
+“Thorough” bedeutet übersetzt “gründlich”.
+Wir schreiben also unsere Unit-Tests gründlich.
+Dies erreichen wir, indem wir nicht nur Testfälle für die Erfolgsfälle, sondern auch für die Fehlerfälle, Grenzfälle und <a href="https://de.wikipedia.org/wiki/%C3%84quivalenzklassentest">Äquivalenzklassen</a> schreiben.</p>
+
+<p>Was dieses Prinzip letzten Endes bedeutet, lässt sich an folgendem Beispiel zeigen:</p>
+
+<p>So nehmen wir eine bekannte Kata (eine kleine abgeschlossene Übung) “FizzBuzz”.
+Diese Aufgabe sieht vor, dass:</p>
+
+<ul>
+  <li>für natürliche Zahlen, die durch 3 teilbar sind, “fizz” auf der Konsole ausgegeben werden soll,</li>
+  <li>für natürlichen Zahlen, die durch 5 teilbar sind, “buzz” auf der Konsole ausgeben werden soll,</li>
+  <li>für natürliche Zahlen, die sowohl durch 3 als auch durch 5 teilbar sind, “fizzbuzz” auf der Konsole ausgegeben werden soll und</li>
+  <li>für alle anderen Zahlen die jeweilige Zahl selbst auf der Konsole ausgeben werden soll.</li>
+</ul>
+
+<p>Zusätzlich nehmen wir noch die Bedingung auf, dass nur Zahlen zwischen 1 und 30 berechnet werden sollen.
+Bei Zahlen außerhalb unseres Intervalls soll ein Fehler geworfen werden.</p>
+
+<p>Aus dieser Aufgabe ergeben sich nun diverse Testfälle:</p>
+
+<p><strong>Positiv-Testfälle</strong></p>
+<ul>
+  <li><strong>Given</strong> is number 2. <strong>When</strong> fizzbuzz function executes, <strong>Then</strong> the answer should be “2”.</li>
+  <li><strong>Given</strong> is number 3. <strong>When</strong> fizzbuzz function executes, <strong>Then</strong> the answer should be “fizz”.</li>
+  <li><strong>Given</strong> is number 5. <strong>When</strong> fizzbuzz function executes, <strong>Then</strong> the answer should be “buzz”.</li>
+  <li><strong>Given</strong> is number 15. <strong>When</strong> fizzbuzz function executes, <strong>Then</strong> the answer should be “fizzbuzz”.</li>
+</ul>
+
+<p><strong>Fehlerfall-Testfälle</strong></p>
+<ul>
+  <li><strong>Given</strong> is number -10. <strong>When</strong> fizzbuzz function executes, <strong>Then</strong> an error should be thrown.</li>
+  <li><strong>Given</strong> is number 310. <strong>When</strong> fizzbuzz function executes, <strong>Then</strong> an error should be thrown.</li>
+</ul>
+
+<p><strong>Grenzwert-Testfälle</strong></p>
+<ul>
+  <li><strong>Given</strong> is number 1. <strong>When</strong> fizzbuzz function executes, <strong>Then</strong> the answer should be “1”.</li>
+  <li><strong>Given</strong> is number 30. <strong>When</strong> fizzbuzz function executes, <strong>Then</strong> the answer should be “fizzbuzz”.</li>
+  <li><strong>Given</strong> is number 0. <strong>When</strong> fizzbuzz function executes, <strong>Then</strong> an error should be thrown.</li>
+  <li><strong>Given</strong> is number 31. <strong>When</strong> fizzbuzz function executes, <strong>Then</strong> an error should be thrown.</li>
+</ul>
+
+<p><strong>Testfälle für Äquivalenzklassenabdeckung</strong></p>
+<ul>
+  <li><strong>Given</strong> is number 6. <strong>When</strong> fizzbuzz function executes, <strong>Then</strong> the answer should be “fizz”.</li>
+  <li><strong>Given</strong> is number 10. <strong>When</strong> fizzbuzz function executes, <strong>Then</strong> the answer should be “buzz”.</li>
+</ul>
+
+<p>Man sieht in diesem Beispiel sehr gut, wie viele Testfälle sich für solch eine einfache Aufgabe schreiben lassen, damit dieses Prinzip erfüllt ist.
+Wir haben hier Erfolgsfall-, Fehlerfall- und Grenzwerttestfälle geschrieben und zusätzlich noch weitere, um alle Äquivalenzklassen abzudecken.
+Zu beachten ist, dass die hier aufgeführten Testfälle nicht in Stein gemeißelt sind.
+Es gibt selbstverständlich noch andere Zahlen, die man hier hätte wählen könnte.
+Auch die Anzahl an notwendigen Testfällen ist variabel.
+Denn Fakt ist, man kann nicht jedes Szenario testen und das möchte man auch nicht.
+Es würde einfach viel zu lange dauern und irgendwann ist der Mehrwert der Unit-Tests auch nicht mehr gegeben, da diese auch gewartet werden müssen.
+Aus diesem Grund versuchen wir, so viele sinnvolle Tests zu schreiben wie möglich, aber gleichzeitig auch so wenig wie nötig.
+Um dies zu erreichen, kann man sich folgende Fragen beim Schreiben von Testfällen stellen:</p>
+
+<ul>
+  <li>Sind alle wichtigen Positivtestfälle vorhanden?</li>
+  <li>Sind alle wichtigen Fehlerfalltestfälle vorhanden?</li>
+  <li>Habe ich alle Grenzwerte abgedeckt?</li>
+  <li>Gibt es noch weitere Äquivalenzklassen, die ich noch testen sollte?</li>
+</ul>
+
+<h4 id="fazit-">Fazit 🎉</h4>
+
+<p>Nach Verinnerlichung und Verstehen dieser Prinzipien sollte das Schreiben von Unit-Tests etwas leichter von der Hand gehen.
+Dennoch sollte man sich immer Bewusst sein, dass diese Prinzipien nicht dogmatisch angewendet werden sollten.
+Man kann sich in einem Projekt auch auf andere Prinzipien festlegen oder diese Prinzipien abwandeln, wichtig ist hier das Verständnis im Team.
+Letzten Endes finden sich die Test-F.I.R.S.T.-Prinzipien in Projekten mit gut strukturierten Unit-Tests immer wieder, wenn auch eventuell in abgewandelter Form.</p>
+
+</div>
+</div>
+</div>
+</div>]]></field>
+    </document>
+</documents>
