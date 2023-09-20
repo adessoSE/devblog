@@ -49,7 +49,7 @@ Nach und nach wurden auch gravierende Sicherheitslücken bekannt.
 Schließlich riet Microsoft von der Verwendung ab und präsentierte als Nachfolger die Windows Communication Foundation (WCF).
 Seit dem Release von .NET 5 ist selbst diese wieder abgekündigt.
 
-Dazu kommt, dass Windows in hardware-nahen Systemen an Relevanz verloren hat.
+Dazu kommt, dass Windows in hardwarenahen Systemen an Relevanz verloren hat.
 Moderne Services laufen meist in der Cloud oder auf schlanken Linux-Containern.
 Es wurde also höchste Zeit, das Fundament von Open Platform Communication komplett auszuwechseln.
 Andernfalls war absehbar, dass das Protokoll vom Markt verschwinden würde.
