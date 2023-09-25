@@ -12,7 +12,7 @@ Dazu gehört unter anderem: Wie gehen wir mit Transaktionalität um?
 Wie soll das System reagieren, wenn mitten in einem verteilten fachlichen Vorgang ein Fehler auftritt?
 In diesem Artikel schauen wir uns Lösungen für diese Problemstellung an.
 
-# Transaktionalität in Microservicearchitekture
+# Transaktionalität in Microservicearchitekturen
 
 Stell dir vor, du versuchst, einen Kuchen zu backen.
 Du nimmst alle Zutaten, mischst sie zusammen und schiebst den Teig in den Ofen.
@@ -23,13 +23,13 @@ Aber was wäre, wenn du diesen Kuchen in einem Restaurant mit 10 verschiedenen K
 Und um alles noch schwieriger zu machen, spricht auch noch jeder Koch eine andere Sprache.
 Dann wird das Kuchenbacken zu einem Albtraum.
 
-Diese Analogie steht für das Problem, mit dem die Microservicearchitektur bei der Implementierung komplexer Geschäftstransaktionen konfrontiert werden kann.
+Diese Analogie steht für das Problem, mit dem eine Microservicearchitektur bei der Implementierung komplexer Geschäftstransaktionen konfrontiert werden kann.
 An dieser Stelle kommt das Saga-Muster ins Spiel.
 
 
 # Was ist das Saga-Muster?
 
-Das Saga-Muster ist ein Entwurfsmuster, das für die Implementierung komplexer Geschäftstransaktionen in der Microservicearchitektur verwendet wird.
+Das Saga-Muster ist ein Entwurfsmuster, das für die Implementierung komplexer Geschäftstransaktionen in Microservicearchitekturen verwendet wird.
 Es stellt sicher, dass die Datenkonsistenz über mehrere Microservices hinweg erhalten bleibt, indem es eine große Transaktion in kleinere, überschaubare Schritte aufteilt.
 Das Muster wird "Saga" genannt, weil es ähnlich funktioniert wie eine Geschichte oder eine Reise, die in kleinere Segmente unterteilt wird, von denen jedes sein eigenes Ergebnis hat, das zum Gesamtergebnis der Reise beiträgt.
 
@@ -64,7 +64,7 @@ Choreografie-Sagas orientieren sich an unserem oben genannte Beispiel:
 Die Microservices, die Teil einer Saga sind, interagieren und steuern selbstständig den gesamten Ablauf.
 
 Eine Choreografie-Saga kann man mit einem einfachen Kochabend mit Freunden vergleichen.
-Der Anzahl der Beteiligten ist überschaubar und die Schritte zur Zubereitung der Zutaten einfach.
+Der Anzahl der Beteiligten ist überschaubar und die Schritte zur Zubereitung der Zutaten sind einfach.
 Folglich, ist es nicht notwendig, dass eine dedizierte Person den ganzen Prozess steuert.
 
 Bei der Choreografie kommunizieren die Microservices direkt miteinander, um die Teiltransaktionen auszuführen.
@@ -74,7 +74,7 @@ Jeder Microservice führt seine Aufgaben aus und löst die entsprechenden Events
 Dies setzt voraus, dass sich die einzelnen Microservices koordinieren können, um den Transaktionszustand aufrechtzuerhalten.
 Es besteht kein zentraler Kontrollpunkt, der die Ausführung überwacht.
 
-Diese Art von Saga ist in der Regel einfach umzusetzen und eignet sich gut für kurzlaufenden Transaktionen mit wenigen Schritten, wo kein Tracing notwendig ist und es keinen Bedarf gibt, den Transaktionsstatus zu tracken.
+Diese Art von Saga ist in der Regel einfach umzusetzen und eignet sich gut für kurzlaufende Transaktionen mit wenigen Schritten, wo kein Tracing notwendig ist und es keinen Bedarf gibt, den Transaktionsstatus zu tracken.
 
 Auf der anderen Seite, wird es bei einer zu großen Anzahl von beteiligten Services zunehmend schwieriger, festzustellen, wo Fehler eingetreten sind.
 Gleichzeitig wird die Anzahl von Laufzeitabhängigkeiten unübersichtlicher und schwerer zu verwalten.
@@ -82,7 +82,7 @@ Gleichzeitig wird die Anzahl von Laufzeitabhängigkeiten unübersichtlicher und 
 Für diese Herausforderung kommt die andere Art von Sagas infrage:
 
 
-### Orchestrator
+## Orchestrator
 
 Bei der Saga-Orchestrierung gibt es einen zentralen Orchestrator, der die Ausführung der Teiltransaktionen steuert.
 Der Orchestrator ist verantwortlich für die Koordination der beteiligten Microservices und die Verwaltung des Transaktionsstatus.
@@ -93,7 +93,7 @@ Der Orchestrator fungiert als zentrale Anlaufstelle für die Transaktionssteueru
 _Beispiel einer Orchestrator-Saga für einen Bestellvorgang_.
 
 
-Im obigen Diagramm können wir den schon benannte Bestellvorgang einsehen, diesmal aber als Orchestrator-Saga:
+Im obigen Diagramm ist der schon bekannten Bestellvorgang abgebildet, diesmal aber als Orchestrator-Saga:
 Der Hauptunterschied besteht aus dem Einsatz eines dedizierten Service, der für die Orchestrierung, das Tracking und das Tracing der notwendigen Schritte zuständig ist.
 
 Ein wichtiger Vorteil für diese Art von Saga ist, dass zyklische Abhängigkeiten vermieden werden, da die Services während der Transaktion nicht untereinander kommunizieren, sondern nur mit dem Orchestrator.
@@ -108,8 +108,8 @@ Falls es Probleme bei einem der Schritte gibt, stellt er sicher, dass alle Betei
 
 # Fazit
 
-Wir haben uns das Saga-Muster und dessen Hauptmerkmale angeschaut.
-Ferner haben wir uns die Hauptarten von Sagas angeschaut: Choreografie und Orchestrierung.
+Wir haben uns das Saga-Muster und dessen Hauptmerkmale kennengelernt.
+Ferner haben wir uns mit den Hauptarten von Sagas beschäftigt: Choreografie und Orchestrierung.
 Jede hat Vorteile und Nachteile, die bei jedem Anwendungsfall abzuwägen sind.
 Bei der Auswahl sind die Anzahl und Dauer der Arbeitsschritte sowie der Bedarf an Status-Tracking entscheidende Faktoren.
 
