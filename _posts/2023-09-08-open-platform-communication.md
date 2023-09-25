@@ -1,8 +1,8 @@
 ---
 layout: [post, post-xml]              # Pflichtfeld. Nicht ändern!
 title:  "Open Platform Communication" # Pflichtfeld. Bitte einen Titel für den Blog Post angeben.
-date:   2023-09-08 08:00              # Pflichtfeld. Format "YYYY-MM-DD HH:MM". Muss für Veröffentlichung in der Vergangenheit liegen. (Für Preview egal)
-modified_date: 2023-09-08 08:00       # Optional. Muss angegeben werden, wenn eine bestehende Datei geändert wird.
+date:   2023-09-25 14:00              # Pflichtfeld. Format "YYYY-MM-DD HH:MM". Muss für Veröffentlichung in der Vergangenheit liegen. (Für Preview egal)
+modified_date: 2023-09-25 14:00       # Optional. Muss angegeben werden, wenn eine bestehende Datei geändert wird.
 author_ids: [cjohn]                   # Pflichtfeld. Es muss in der "authors.yml" einen Eintrag mit diesen Namen geben.
 categories: [Branchen]                # Pflichtfeld. Maximal eine der angegebenen Kategorien verwenden.
 tags: [Open Platform Communication, OPC, Applications, Hardware, Prozesssteuerung] # Bitte auf Großschreibung achten.
