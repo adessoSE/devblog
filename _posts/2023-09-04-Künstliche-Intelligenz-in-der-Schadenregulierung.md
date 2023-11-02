@@ -14,7 +14,7 @@ Dieser Prozess wird revolutioniert durch KI-basierte Lösungen, die zu einer deu
 Dieser Artikel soll kurz auf die Rolle von KI bei der Schadensregulierung eingehen sowie die Vor- und Nachteile für Versicherungsunternehmen beleuchten.
 
 # Was ist KI?
-Die künstliche Intelligenz ist eine Technologie, die sich mit der Automatisierung intelligenten Verhaltens und maschinellem Lernen befasst.
+Die künstliche Intelligenz ist eine Technologie, die sich mit der Automatisierung intelligenten Verhaltens und maschinellen Lernens befasst.
 Darunter fällt nicht nur die Ergänzung des menschlichen Sehvermögens, sondern auch Fähigkeiten wie Hören, Analysieren, Entscheiden und Handeln.
 Die herausragendste Fähigkeit von KI und essentiell wichtigste Eigenschaft von KIs ist die Lernfähigkeit durch Machine Learning (ML).
 
