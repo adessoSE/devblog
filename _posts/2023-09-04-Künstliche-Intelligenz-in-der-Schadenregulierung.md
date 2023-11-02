@@ -65,7 +65,7 @@ Die Nürnberger Versicherung nutzt KI bisher nur zur Erkennung von Betrugsversuc
 Ohne Zweifel hat künstliche Intelligenz das Potenzial, die Art und Weise, wie die Versicherungsbranche Schäden reguliert, grundlegend zu verändern.
 Automatisierung und Effizienzsteigerung ermöglichen es Versicherern, schneller auf Schadensfälle zu reagieren und einen besseren Kundenservice zu bieten.
 Darüber hinaus ermöglicht die Genauigkeit KI-gesteuerter Auswertungen eine faire und offene Schadensregulierung.
-Gerade in der Schadensregulierung kann KI eine große Bereicherung für Versicherungsunternehmen und ihre Kunden sein, allerdings auch bei Produktvorschlägen, der Ermittlung von Kaufwahrscheinlichkeiten und der Analyse von Kundenzufriedenheit.
+Gerade in der Schadensregulierung kann KI eine große Bereicherung für Versicherungsunternehmen und ihre Kunden sein, allerdings auch bei Produktvorschlägen, der Ermittlung von Kaufwahrscheinlichkeiten und der Analyse der Kundenzufriedenheit.
 KI kann Menschen nicht ersetzen, jedoch stark unterstützen.
 Beim Einsatz von KI ist dennoch stets Vorsicht geboten, da sie keine 100-prozentige Verlässlichkeit bietet.
 Daher sollten die gelieferten Ergebnisse nur zur Vorbereitung dienen und von Menschen final bewertet werden.
