@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<documents>
+    <document uid="31cea0b0f9d0536c275d3eb7d94237ba">
+        <field name="title"><![CDATA[Open Platform Communication]]></field>
+        <field name="subline"><![CDATA[]]></field>
+        <field name="teaser"><![CDATA[<p>Maschinen sprechen miteinander.
+Sie stimmen Prozessschritte ab, nehmen Anweisungen entgegen und melden ihren Zustand.
+Eine ihrer Sprachen ist Open Platform Communication.
+Diese Sprache wollen wir uns in diesem Artikel näher ansehen.</p>
+
+]]></field>
+        <field name="language_multi_keyword"><![CDATA[de]]></field>
+        <field name="content_type_multi_keyword"><![CDATA[blog]]></field>
+        <field name="mime_type_multi_keyword"><![CDATA[text/html]]></field>
+        <field name="category_multi_keyword"><![CDATA[Branchen]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Open Platform Communication]]></field>
+        <field name="tag_multi_keyword"><![CDATA[OPC]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Applications]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Hardware]]></field>
+        <field name="tag_multi_keyword"><![CDATA[Prozesssteuerung]]></field>
+        <field name="date_date"><![CDATA[2023-09-25T14:00:00+02:00]]></field>
+        <field name="date_l"><![CDATA[1695643200000]]></field>
+        <field name="change_date"><![CDATA[1695643200000]]></field>
+
+        <!--Author Information-->
+        
+        <field name="author_id"><![CDATA[cjohn]]></field><!--Postcontent-->
+        <field name="headlines"><![CDATA[Open Platform Communication]]></field>
+        <field name="display_content"><![CDATA[<div class="i2-intro p-t-1">
+            <p>Maschinen sprechen miteinander.
+Sie stimmen Prozessschritte ab, nehmen Anweisungen entgegen und melden ihren Zustand.
+Eine ihrer Sprachen ist Open Platform Communication.
+Diese Sprache wollen wir uns in diesem Artikel näher ansehen.</p>
+
+</div>]]></field>
+        <field name="content"><![CDATA[<div class="adesso-text-formate">
+<div class="row p-t-2">
+<div class="adesso-container">
+<div class="col-xl-8 adesso-center p-b-1 p-l-0 p-r-0">
+    <p>Maschinen sprechen miteinander.
+Sie stimmen Prozessschritte ab, nehmen Anweisungen entgegen und melden ihren Zustand.
+Eine ihrer Sprachen ist Open Platform Communication.
+Diese Sprache wollen wir uns in diesem Artikel näher ansehen.</p>
+
+<h4 id="wir-müssen-reden">Wir müssen reden</h4>
+
+<p>Industriegeräte tauschen ständig Information aus.
+Sie fragen nach Sensorwerten oder dem Arbeitsfortschritt.
+Sie erteilen einander Aufträge und sie stoppen, sobald anderswo im Prozess ein Fehler auftritt.</p>
+
+<p>Als Beispiel soll hier ein Windpark mit zwei Turbinen herhalten.
+Mit ihren Sensoren überwachen die Windräder sich selbst, doch allein reparieren können sie sich natürlich nicht.</p>
+
+<p><img src="/assets/images/posts/open-platform-communication/windrad.png" alt="Fallbeispiel" /></p>
+
+<p>Deshalb müssen bevorstehender Wartungsbedarf und akute Schäden sofort an die Technikabteilung gemeldet werden.
+Letztere antwortet darauf mit Steuerbefehlen, die der Windpark umsetzen muss.
+Für den stabilen Netzbetrieb ist es außerdem wichtig, die aktuelle Einspeiseleistung genau zu kennen und gegebenenfalls herunterregeln zu können.</p>
+
+<h4 id="geschichte">Geschichte</h4>
+
+<p>Bereits in den 1990er Jahren gründeten einige Hersteller eine Task Force, um die Steuerung von Geräten per Software zu vereinheitlichen.
+Sie nannten sich <a href="https://opcfoundation.org/about/opc-foundation/history/">OPC Foundation</a> und veröffentlichten einen Standard, der zunächst “OLE for Process Control” hieß.
+OLE steht für “Microsoft Object Linking and Embedding”, denn der erste OPC-Standard basierte vollständig auf dem Component Object Model (COM) von Windows.
+Erst als der Standard sich über Prozesssteuerungen hinaus etablierte, wurde er umbenannt in “Open Platform Communication”.</p>
+
+<p>COM geht auf Windows 3.1 zurück, wo es die Kommunikation zwischen Prozessen transparent machte.
+Transparenz bedeutet hier, dass die Clients sich nicht darum kümmern sollten, wo ihr Serverprozess läuft.
+Ältere Mitlesende erinnern sich noch, wie jedes eigene Programm eine Word- oder Excel-Schnittstelle anfordern konnte.
+Das fernsteuerbare Programm - zu Beispiel Excel - registrierte sich genau einmal als COM-Komponente in einer zentralen Registry.
+Client-Programme schlugen dort nach und forderten vom Betriebssystem einen COM-Server vom Typ Excel an.
+Im Hintergrund sorgten Remote Procedure Calls (RPC) dafür, dass der Client das Serverprogramm steuern konnte, fast als liefen beide im selben Prozess.</p>
+
+<p>Mit Distributed COM (DCOM) kam später Ortstransparenz dazu, so dass die COM-Registry auch auf entfernte Rechner verweisen konnte.
+Der Client sollte DCOM-Komponenten genauso verwenden, als wären sie Programmteile im eigenen Prozess - im Idealfall, ohne mitzubekommen, auf welchem Rechner sie tatsächlich liefen.
+In der Praxis führte das oft zu komplizierten Konfigurationen.
+Nach und nach wurden auch gravierende Sicherheitslücken bekannt.
+Schließlich riet Microsoft von der Verwendung ab und präsentierte als Nachfolger die Windows Communication Foundation (WCF).
+Seit dem Release von .NET 5 ist selbst diese wieder abgekündigt.</p>
+
+<p>Dazu kommt, dass Windows in hardwarenahen Systemen an Relevanz verloren hat.
+Moderne Services laufen meist in der Cloud oder auf schlanken Linux-Containern.
+Es wurde also höchste Zeit, das Fundament von Open Platform Communication komplett auszuwechseln.
+Andernfalls war absehbar, dass das Protokoll vom Markt verschwinden würde.</p>
+
+<p>Im Jahr 2006 veröffentlichte die OPC Foundation schließlich den Folgestandard Unified Architecture (UA).
+Er basiert auf TCP, wobei wahlweise ein binäres oder ein XML-Protokoll eingesetzt werden kann.
+Damit ist er plattformunabhängig und könnte sogar auf eingebetteten Steuergeräten laufen.</p>
+
+<p>Der veraltete Standard wird heute als “OPC Classic” bezeichnet.
+Seine offizielle Dokumentation wurde weitgehend entfernt.
+Die Menge frei verfügbarer Entwicklertools weist jedoch darauf hin, dass er noch vielerorts in Betrieb ist, was bei der Nutzungsdauer teurer Spezialmaschinen auch nicht verwundert.
+Umso wichtiger ist es, die eigenen OPC-Einsatzorte im Blick zu behalten und alle Classic-Anwendungen möglichst bald auf UA zu aktualisieren.</p>
+
+<h4 id="opc-ua-als-gemeinsame-sprache">OPC UA als gemeinsame Sprache</h4>
+
+<p>In einem Windpark steht üblicherweise eine Technikhütte, die alle Windräder gemeinsam mit dem Internet verbindet.
+Der Windpark muss unterschiedliche Datenpunkte zur Verfügung stellen, etwa die technische Beschreibung seiner Turbinen und deren momentane Leistung.
+Solche Informationen werden bei Bedarf abgefragt, im sogenannten Request-Response-Verfahren.</p>
+
+<p>Warnungen bei Schäden und Ausfällen hingegen können nicht warten, bis jemand sie abruft.
+Sie werden im Publish-Subscribe-Verfahren sofort an alle interessierten Gegenstellen gesendet.</p>
+
+<p>Wenn Fachkräfte entscheiden, ein Windrad aus oder wieder ein zu schalten, wird ein Rückkanal benötigt, der die Steueranweisung zielsicher an die richtige Turbine zustellt.
+Das heißt, jeder Knoten im Gerätenetz muss eindeutig adressierbar sein.</p>
+
+<p>Diese Fälle werden von den OPC-Unterprotokollen <em>Direct Access</em> (DA) beziehungsweise <em>Alarms &amp; Conditions</em> (AC) abgedeckt.
+Es gibt zwei weitere Unterprotokolle <em>Historical Data Access</em> (HA) und <em>Programs</em> (Prog), die weniger gebräuchlich sind und hier nicht näher betrachtet werden.</p>
+
+<h5 id="der-adressraum">Der Adressraum</h5>
+
+<p>Ein OPC-Server veröffentlicht einen eigenen Adressraum, in welchem jeder noch so kleine Datenpunkt als Knoten repräsentiert ist.
+Meistens wird er als Baumstruktur dargestellt.
+In Wirklichkeit handelt sich allerdings um einen beliebigen Graphen, denn jeder Knoten darf mehrere Elternknoten besitzen.</p>
+
+<p>Entsprechend seiner Funktion hat jeder Knoten einen Datentyp.
+Zum Beispiel kapseln Attributknoten einen primitiven Wert, Ereignisknoten melden Alarme, Methodenknoten lösen Aktivitäten aus und Objektknoten fassen andere Knoten zusammen.</p>
+
+<p>Der Windpark lässt sich als Ordnerknoten modellieren, der Turbinen enthält, die wiederum Attribute und Ereignisse haben.
+Die Abbildung zeigt ein solches Modell im Testclient <a href="https://www.unified-automation.com/products/development-tools/uaexpert.html">UaExpert</a>.</p>
+
+<p><img src="/assets/images/posts/open-platform-communication/uaExpert.png" alt="Übersicht des Demo-Servers in UaExpert" /></p>
+
+<h5 id="direct-access">Direct Access</h5>
+
+<p>DA bedeutet, dass der Client einen Knoten abfragt und der Server mit dessen Inhalt antwortet.
+So kann der Adressraum im Request-Response-Verfahren durchsucht oder direkt ein bekannter Knoten abgefragt werden.
+Als Adresse dient einfach der Pfad im Adressraum, zum Beispiel “DemoWindfarm/Name” für den sprechenden Namen des Parks.
+Das löst den ersten Anwendungsfall, der Windpark stellt auf Abruf seine Selbstbeschreibung zur Verfügung.</p>
+
+<p>Über den Pfad eines Attributknotens kann der Client auch dessen Wert neu setzen.
+So könnte man bei “DemoWindfarm/Turbine1/MaxPower” etwa die maximale Leistung drosseln, indem man den Wert von “MaxPower” von 100 auf 50 herabsetzt.
+Das kann notwendig sein, um die Netzfrequenz zu stabilisieren, wenn mehr Energie eingespeist als verbraucht wird.</p>
+
+<p>Die Methoden <em>Stop</em> und <em>Start</em> kann ein Client aufrufen, um das Windrad abzuschalten und später wieder zu starten.
+Damit löst DA auch den dritten Anwendungsfall, der Windpark kann ferngesteuert werden.</p>
+
+<h5 id="alarms--conditions">Alarms &amp; Conditions</h5>
+
+<p>Um Probleme sofort mitzubekommen, wird ein Publish-Subscribe-Verfahren benötigt.
+Dabei meldet sich der Client einmal für Ereignisse eines Knotens an, von da an wird er über jede Zustandsänderung aktiv informiert.</p>
+
+<p>In der Abbildung ist “Alarm” ein solcher Ereignisknoten. Er enthält von jeder Turbine einen Notifier.
+Dieselben Notifier “T1-Error” und “T2-Error” finden sich auch unterhalb der jeweiligen Turbine.
+Sie haben jeweils zwei Elternknoten - Turbine und Windpark - damit Clients wahlweise nur eine Turbine oder den ganzen Park beobachten können.
+Beide Alarmereignisse sind normalerweise inaktiv. Nur wenn ein Fehlercode vorliegt, wird der Alarm aktiv.</p>
+
+<p>So löst AE den zweiten Anwendungsfall, alle interessierten Clients werden im Problemfall sofort gewarnt.
+Die Unterprotokolle DA und AE sind also ausreichend, um einen Windpark fernzusteuern.</p>
+
+<h4 id="gründe-für-eine-migration-von-opc-classic-zu-ua">Gründe für eine Migration von OPC Classic zu UA</h4>
+
+<p>Obwohl OPC UA seit mehr als 15 Jahren existiert, bauen viele produktive Systeme nach wie vor auf OPC Classic auf.
+Denn um die Software umzustellen, müssen alle beteiligten Geräte und Anwendungen OPC UA unterstützen.
+Bei der Steuersoftware für Maschinen, die über Jahrzehnte in der Produktion oder in Kraftwerken genutzt wird, ist kaum mit tiefgreifenden Updates zu rechnen.</p>
+
+<p>Andere Geräte sind systemkritisch, sodass sie nicht für ein riskantes Upgrade mehrerer Softwarekomponenten abgeschaltet werden sollen.
+In manchen Betrieben fehlt möglicherweise auch die Einsicht des Managements oder schlichtweg das qualifizierte Fachpersonal.</p>
+
+<p>Wer zu spät mit der Umstellung beginnt, wird in Kürze jedoch vor Problemen stehen.
+DCOM läuft ausschließlich auf Windows-Betriebssystemen und ist anfällig für Konfigurationsfehler.
+Dabei sind brandneue Komponenten, die in den bestehenden Prozess eingebunden werden sollen, heute oft außen vor.</p>
+
+<p>Dazu kommt, dass Microsoft im Jahr 2023 per automatischem Update <a href="https://techcommunity.microsoft.com/t5/windows-it-pro-blog/dcom-authentication-hardening-what-you-need-to-know/ba-p/3657154">DCOM Hardening</a> verpflichtend eingeführt hat.
+Die DCOM-Sicherheit abzuschalten, um sich nicht um deren Konfiguration kümmern zu müssen, ist seitdem nicht mehr möglich.
+Alte OPC-Anwendungen verlassen sich eventuell darauf und müssen schlimmstenfalls umprogrammiert werden.</p>
+
+<p>Eine weitere Fehlerquelle für DCOM entsteht, wenn alte Rechner auf Windows 2019 aktualisiert werden.
+In einem Projekt beobachteten wir danach mysteriöse Timeouts beim Lesen von Datenpunkten.
+Nur ein Downgrade auf Windows Server 2008 schien zu helfen.
+Nach langer Analyse stellte sich heraus, dass alte OPC-Server Pakete senden, die größer als 1500 Byte sind.
+Unter Standardeinstellungen filtern Netzwerktreiber diese “Jumbo Packets” aus, sofern man nicht ausdrücklich die Maximum Transfer Unit (MTU) vergrößert.
+So verschwand ein Teil von OPC Classic schlichtweg auf Netzwerkebene.</p>
+
+<p>In einem anderen Fall verschwand bei einem Update die registrierte Programm-ID eines OPC-Servers aus den Komponentendiensten.
+Die DCOM-Komponente war nur noch über ihre Class-ID ansprechbar, was eine Reihe von Workarounds in den Konfigurationen aller Clients zur Folge hatte.</p>
+
+<p>Bei OPC UA ist für eine Verbindung nur die TCP-Adresse des OPC-Servers nötig.
+Authentifizierung ist per Zertifikat möglich, kann aber auch abgeschaltet werden.
+Die Betriebssysteme sind nicht mehr relevant, OPC UA steht also nicht mal einer Abkehr von Windows im Weg.</p>
+
+</div>
+</div>
+</div>
+</div>]]></field>
+    </document>
+</documents>
