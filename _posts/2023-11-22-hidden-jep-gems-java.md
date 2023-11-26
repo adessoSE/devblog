@@ -1,5 +1,5 @@
 ---
-layout: [post, post-xml]              # Pflichtfeld. Nicht ändern!
+layout: [post, post-xml]              # PflichtfeldNicht ändern!
 title:  "Weniger bekannte Perlen in Java"         # Pflichtfeld. Bitte einen Titel für den Blog Post angeben.
 date:   2023-11-22 10:00              # Pflichtfeld. Format "YYYY-MM-DD HH:MM". Muss für Veröffentlichung in der Vergangenheit liegen. (Für Preview egal)
 modified_date: 2023-11-22             # Optional. Muss angegeben werden, wenn eine bestehende Datei geändert wird.
@@ -13,10 +13,10 @@ Diese zu entdecken erfordert eine kleine Expedition durch einige JDK Enhancement
 Während der Expedition in diesem Beitrag werden wir private Methoden in Interfaces und Java Code in Kommentaren sehen.
 Doch auch für den Betrieb von Anwendungen auf der JDK gibt es interessantes wie die Zurückgabe von Speicher, vorkonfigurierte Classloader Informationen und Paketierung von Anwendungen.
 
-## Für die Entwicklung
+# Für die Entwicklung
 Die Expedition zu den eher unbekannten Features des JDK Ökosystems beginnend bei der Entwicklung von Programmen, genauer gesagt bei Interfaces.
 
-### Private Interface Methods
+## Private Interface Methods
 Seit Java 8 können Interfaces in Java neben den Definitionen von Methoden auch Logic beinhalten.
 Dies war notwendig geworden, um Lambdas und die Stream-API elegant umsetzen zu können.
 Zu diesem Zweck wurden statische Methoden und Default-Methoden in Interfaces erlaubt.
@@ -84,7 +84,7 @@ interface Reference {
 Zugegeben ist das Beispiel etwas sehr einfach gewählt, aber es reicht aus, um die Syntax kennenzulernen und die Möglichkeiten zu verstehen.
 Die Methoden `asUri` und `print` können in realen Anwendungen deutlich komplexer sein, dann entfalten private Methoden in Interfaces ihre Kraft und reduzieren stark die Anzahl an Duplikaten.
 
-### Java Snippets in JavaDoc
+## Java Snippets in JavaDoc
 Meist werden Programme entwickelt, die über Jahre gepflegt und gewartet werden müssen.
 Solche Programme benötigen eine solide Dokumentation, besonders, wenn die in anderen Kontexten wiederverwendet werden sollen.
 Aus diesem Grund wurde schon in der ersten Version der JDK das Tool javadoc eingeführt.
@@ -139,11 +139,11 @@ class Snippets {
 Hierbei werden einige Bereiche ersetzt und markiert, das finale Ergebnis gibt eine gute Übersicht über die Verwendung und kann regelmäßigen Tests unterzogen werden.
 ![Finales Ergebnis des Snippet Tags](../assets/images/hidden-jep-gems/Javadoc_Final.png)
 
-## Für den Betrieb in der ☁️
+# Für den Betrieb in der ☁️
 In Java geschriebene Anwendungen werden in vielfältigen Umgebungen zur Ausführung gebracht und jede hat ihre eigenen Anforderungen.
 Um diesen gerecht zu werden wurden in den letzten Versionen von Java unter anderem der Umgang mit Resourcen, das Verhalten beim Laden von Classfiles sowie das Kombinieren zu Bundles überarbeitet.
 
-### Resourcenverbrauch
+## Resourcenverbrauch
 In Java geschriebene Anwendungen werden in vielfältigen Umgebungen zur Ausführung gebracht und jede hat ihre eigenen Anforderungen.
 Um diesen gerecht zu werden, wurden in den letzten Versionen von Java unter anderem der Umgang mit Resourcen, das Verhalten beim Laden von Classfiles sowie das Kombinieren zu Bundles überarbeitet.
 
@@ -163,13 +163,15 @@ Neben diesen beiden unterstützen auch Shenandoag GC und der seit Java 11 neue Z
 Das genaue Verhalten der GCs kann durch einige wenige Kommandozeilen Parameter konfiguriert werden.
 Wie die Werte in einem konkreten Fall auszuwählen sind, muss experimentell ermittelt werden.
 * `-XX:GCTimeRation` konfiguriert die das Verhältnis von der Application und GC Laufzeit
-* `-XX:MinHeapFreeRatio` gibt an, wie viel Memory nach einem GC-Lauf mindestens frei sein soll. Ist der reale Wert kleiner, wird der Heap vergrößert.
-* `-XX:MaxHeapFreeRatio` gibt an, wie viel Memory nach einem GC-Lauf maximal frei sein soll. Ist der reale Wert größer, dann wird der Heap verkleinert.
+* `-XX:MinHeapFreeRatio` gibt an, wie viel Memory nach einem GC-Lauf mindestens frei sein soll.
+Ist der reale Wert kleiner, wird der Heap vergrößert.
+* `-XX:MaxHeapFreeRatio` gibt an, wie viel Memory nach einem GC-Lauf maximal frei sein soll.
+Ist der reale Wert größer, dann wird der Heap verkleinert.
 
 Mit diesen Einstellungen kann die JVM auf Sparsamkeit konfiguriert werden.
 Zu große Sparsamkeit geht aber in der Regel negativ auf die Performance ein.
 
-### Dynamic App CDS
+## Dynamic App CDS
 Die JVM ist zu einer Zeit initial entwickelt worden, zu der die Peak Performance von lang läufigen Anwendungen sehr viel relevanter war als in den heutigen Microservice getriebenen Zeiten.
 Einige der damals besten Heuristiken zahlen sich heute in einigen Bereichen nicht mehr aus.
 Durch sie kommt es zu der vergleichsweise schlechten Start-up-Performance der JVM.
@@ -192,13 +194,15 @@ Die Erzeugung eins CDS Archivs benötigt Informationen über die zur Laufzeit ve
 * Per JCMD aus der Produktion bestimmt werden
   1. Die Anwendung in Produktion muss mit dem Parameter `-XX:+RecordDynamicDumpInfo` gestartet werden.
   2. `jcmd <pid> VM.cds dynamic_dump my_dynamic_archive.jsa` das Kommando VM.cds erzeugt ein CDS Archive aus der aktuell unter der angegeben PID laufenden JVM
-* Nach jeder Terminierung der JVM kann ein CDS Archive geschrieben werden. Hierzu muss die Anwendung lediglich mit dem Parameter `-XX:ArchiveClassesAtExit=MyApp.jsa` gestartet werden. Die Erzeugte JSA kann dann verteilt werden.
+* Nach jeder Terminierung der JVM kann ein CDS Archive geschrieben werden.
+Hierzu muss die Anwendung lediglich mit dem Parameter `-XX:ArchiveClassesAtExit=MyApp.jsa` gestartet werden.
+Die Erzeugte JSA kann dann verteilt werden.
 
 Um eine Anwendung mit dem erzeugten CDS Archive zu starten und von den gesammelten Informationen zu profitieren, muss die JVM lediglich mit dem Parameter `-XX:SharedArchiveFile=MyApp.jsa` gestartet werden.
 Mit diesen wenigen zusätzlichen Schritten kann die Startperformance einer JVM Anwendung deutlich verbessert werden und gleichzeitig von der hohen Peakperformance bei langen Laufzeiten profitiert werden.
 Mit diesen Anpassungen ist die JVM gewappnet für Umgebungen, in denen die JVM erneut gestartet werden muss.
 
-## JPackage für Installationen
+# JPackage für Installationen
 Endbenutzer von Software sind häufig nicht aus der IT und finden noch viel seltener Freude daran, eine Anwendung aus der Kommandozeile zu starten.
 Die Verteilung von Java-Anwendungen ist besonders komplex, da neben der eigentlichen Anwendung auch eine passende Java-Umgebung zur Verfügung stehen muss.
 Die Lösung sind installierbare Anwendungen, die ihre Laufzeitumgebung direkt bereitstellen, doch die Erstellung von solchen Paketen ist in der Regel keine leichte Aufgabe.
